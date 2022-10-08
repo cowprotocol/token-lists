@@ -4,6 +4,8 @@ import path from "path";
 
 const BUILD_DIR = path.join(".", 'build');
 const PAGE_LIMIT = 50
+const FILE_PREFIX = 'coingecko'
+const OUTPUT_FILE = "combined.json"
 
 if (!fs.existsSync(BUILD_DIR)){
   fs.mkdirSync(BUILD_DIR);
@@ -38,7 +40,7 @@ function createSortMap(tokens) {
   }, {});
 }
 
-function createFinalResult(tokens, version) {
+function buildTokenList(tokens, version) {
   return JSON.stringify(
     {
       name: "CoinGecko",
@@ -46,8 +48,8 @@ function createFinalResult(tokens, version) {
       version: Object.assign(
         {
           major: 0,
-          minor: 1,
-          patch: 7,
+          minor: 0,
+          patch: 1,
         },
         version
       ),
@@ -63,38 +65,37 @@ function createFinalResult(tokens, version) {
 
 
 async function combineTokens(version) {
-  const output = [];
+  const combinedTokens = [];
 
-  const jsonsInDir = fs
+  const tokenFiles = fs
     .readdirSync(BUILD_DIR)
     .filter(
-      (file) => path.extname(file) === ".json" && file.startsWith("tokens")
+      (file) => path.extname(file) === ".json" && file.startsWith(FILE_PREFIX)
     );
 
-  jsonsInDir.forEach((file) => {
-    const fileData = fs.readFileSync(path.join(BUILD_DIR, file));
-    const json = JSON.parse(fileData.toString());
-    output.push(...json);
+  tokenFiles.forEach((file) => {
+    const tokensJson = fs.readFileSync(path.join(BUILD_DIR, file));
+    const tokens = JSON.parse(tokensJson.toString());
+    combinedTokens.push(...tokens);
   });
 
-  writeJson("combined.json", createFinalResult(output, version));
+  writeJson(OUTPUT_FILE, buildTokenList(combinedTokens, version));
 }
 
 async function fetchTokens(page, limit, allTokens) {
+  const tokens = await fetchCoingeckoTop(limit, page);  
 
-  const top = await fetchCoingeckoTop(limit, page);  
-
-  const filtered = allTokens.tokens.filter((c) =>
-    top.some((t) => t.symbol.toLowerCase() === c.symbol.toLowerCase())
+  const filteredTokens = allTokens.tokens.filter((c) =>
+    tokens.some((t) => t.symbol.toLowerCase() === c.symbol.toLowerCase())
   );
 
-  const sortMap = createSortMap(top);
-  const sorted = filtered.sort(
+  const sortMap = createSortMap(tokens);
+  const sortedTokens = filteredTokens.sort(
     (a, b) =>
-      sortMap[a.symbol.toLowerCase()] - sortMap[b.symbol.toLowerCase()]
+      sortMap[a.symbol.toLowerCase()] - sortMap[b.symbol.toLowerCase()] // TODO: @nenad why do you sort filteredTokens, and use sortMap symbol as the sorting field?
   );
 
-  writeJson(`tokens-${page}.json`, JSON.stringify(sorted, 0, 4));
+  writeJson(`${FILE_PREFIX}-${page}.json`, JSON.stringify(sortedTokens, 0, 4));
 }
 
 async function main() {
@@ -103,7 +104,7 @@ async function main() {
   for (let page=1; page<=5; page++) {
     await fetchTokens(page, PAGE_LIMIT, allTokens)
   }
-  await combineTokens({ patch: 8 }); // TODO: Improve versioning of the file
+  await combineTokens({ patch: 1 }); // TODO: Improve versioning of the file
 }
 
 main()
