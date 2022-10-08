@@ -3,13 +3,10 @@ import fs from "fs";
 import path from "path";
 
 const BUILD_DIR = path.join(".", 'build');
+const LIST_DIR = path.join(BUILD_DIR, 'lists')
 const PAGE_LIMIT = 50
 const FILE_PREFIX = 'coingecko'
-const OUTPUT_FILE = "combined.json"
-
-if (!fs.existsSync(BUILD_DIR)){
-  fs.mkdirSync(BUILD_DIR);
-}
+const OUTPUT_FILE = "CoinGecko.json"
 
 async function fetchCoingeckoTop(limit, page) {
   console.log(`Fetch page CoinGecko's Tokens, sorted by Market Cap: Page ${page} (${limit} results)`)
@@ -27,8 +24,7 @@ async function fetchCoingeckoAll() {
   return json;
 }
 
-async function writeJson(fileName, data) {
-  const filePath = path.join(BUILD_DIR, fileName)
+async function writeJson(filePath, data) {
   console.log(`Write data ${filePath}`);
   fs.writeFileSync(filePath, data)
 }
@@ -64,7 +60,7 @@ function buildTokenList(tokens, version) {
 }
 
 
-async function combineTokens(version) {
+async function writeCoingeckoListFile(version) {
   const combinedTokens = [];
 
   const tokenFiles = fs
@@ -79,7 +75,8 @@ async function combineTokens(version) {
     combinedTokens.push(...tokens);
   });
 
-  writeJson(OUTPUT_FILE, buildTokenList(combinedTokens, version));
+  const filePath = path.join(LIST_DIR, OUTPUT_FILE)
+  writeJson(filePath, buildTokenList(combinedTokens, version));
 }
 
 async function fetchTokens(page, limit, allTokens) {
@@ -95,16 +92,26 @@ async function fetchTokens(page, limit, allTokens) {
       sortMap[a.symbol.toLowerCase()] - sortMap[b.symbol.toLowerCase()] // TODO: @nenad why do you sort filteredTokens, and use sortMap symbol as the sorting field?
   );
 
-  writeJson(`${FILE_PREFIX}-${page}.json`, JSON.stringify(sortedTokens, 0, 4));
+  const filePath = path.join(BUILD_DIR, `${FILE_PREFIX}-${page}.json`)
+  writeJson(filePath, JSON.stringify(sortedTokens, 0, 4));
+}
+
+function ensureBuildDir(dirs){
+  for (let dir of dirs) {
+    if (!fs.existsSync(dir)){
+      fs.mkdirSync(dir);
+    }
+  }
 }
 
 async function main() {
+  ensureBuildDir([BUILD_DIR, LIST_DIR])
   const allTokens = await fetchCoingeckoAll(); // FIXME: This is acting as filter, it should be removed and fetchTokens would be in charge of getting the symbols/address/etc
 
   for (let page=1; page<=5; page++) {
     await fetchTokens(page, PAGE_LIMIT, allTokens)
   }
-  await combineTokens({ patch: 1 }); // TODO: Improve versioning of the file
+  await writeCoingeckoListFile({ patch: 1 }); // TODO: Improve versioning of the file
 }
 
 main()
