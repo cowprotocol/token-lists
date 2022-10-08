@@ -2,7 +2,7 @@ import fetch from "node-fetch";
 import fs from "fs";
 import path from "path";
 
-const DIR = "results";
+const BUILD_DIR = "build";
 
 async function fetchCoingeckoTop(limit, page) {
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${limit}&page=${page}&sparkline=false&category=ethereum-ecosystem`;
@@ -26,7 +26,7 @@ async function fetchCoingeckoAll() {
 }
 
 async function dlFile(filename, data) {
-  fs.writeFile(`${DIR}/${filename}`, data, function (err) {
+  fs.writeFile(`${BUILD_DIR}/${filename}`, data, function (err) {
     if (err) {
       return console.log(err);
     }
