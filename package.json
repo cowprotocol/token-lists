@@ -5,11 +5,16 @@
   "type": "module",
   "main": "src/coingecko.js",
   "scripts": {
-    "coingecko": "node src/coingecko.js"
+    "build": "npm run public && npm run coingecko",
+    "coingecko": "node src/coingecko.js",
+    "public": "copyfiles src/public/*.json build/lists -f"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
     "axios": "^1.0.0",
     "node-fetch": "^3.2.10"
+  },
+  "devDependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
