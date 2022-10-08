@@ -5,7 +5,7 @@
   "type": "module",
   "main": "src/coingecko.js",
   "scripts": {
-    "run": "node coingecko"
+    "coingecko": "node src/coingecko.js"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
