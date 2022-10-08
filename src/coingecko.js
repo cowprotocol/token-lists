@@ -8,10 +8,16 @@ const PAGE_LIMIT = 50
 const FILE_PREFIX = 'coingecko'
 const OUTPUT_FILE = "CoinGecko.json"
 
+// Prevent rate-limit issues https://www.coingecko.com/en/api/documentation
+const WAIT_TIME_BETWEEN_REQUEST = 2000
+
 async function fetchCoingeckoTop(limit, page) {
   console.log(`Fetch page CoinGecko's Tokens, sorted by Market Cap: Page ${page} (${limit} results)`)
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${limit}&page=${page}&sparkline=false&category=ethereum-ecosystem`;
   const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Error fetching page ${page}. Error: ${res.status}, Message: ${await res.text()}`)
+  }
   const json = await res.json();
   return json;
 }
@@ -27,6 +33,10 @@ async function fetchCoingeckoAll() {
 async function writeJson(filePath, data) {
   console.log(`Write data ${filePath}`);
   fs.writeFileSync(filePath, data)
+}
+
+function sleep(ms) {  
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 function createSortMap(tokens) {
@@ -80,7 +90,7 @@ async function writeCoingeckoListFile(version) {
 }
 
 async function fetchTokens(page, limit, allTokens) {
-  const tokens = await fetchCoingeckoTop(limit, page);  
+  const tokens = await fetchCoingeckoTop(limit, page); // TODO: We need to map this tokens to an enhanced version
 
   const filteredTokens = allTokens.tokens.filter((c) =>
     tokens.some((t) => t.symbol.toLowerCase() === c.symbol.toLowerCase())
@@ -110,6 +120,7 @@ async function main() {
 
   for (let page=1; page<=5; page++) {
     await fetchTokens(page, PAGE_LIMIT, allTokens)
+    await sleep(WAIT_TIME_BETWEEN_REQUEST)
   }
   await writeCoingeckoListFile({ patch: 1 }); // TODO: Improve versioning of the file
 }
