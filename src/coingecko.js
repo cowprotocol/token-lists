@@ -5,6 +5,10 @@ import path from "path";
 const BUILD_DIR = path.join(".", 'build');
 const PAGE_LIMIT = 50
 
+if (!fs.existsSync(BUILD_DIR)){
+  fs.mkdirSync(BUILD_DIR);
+}
+
 async function fetchCoingeckoTop(limit, page) {
   console.log(`Fetch page CoinGecko's Tokens, sorted by Market Cap: Page ${page} (${limit} results)`)
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${limit}&page=${page}&sparkline=false&category=ethereum-ecosystem`;
@@ -57,21 +61,6 @@ function createFinalResult(tokens, version) {
   );
 }
 
-async function combineWithCow(tokens) {
-  const output = [...tokens];
-
-  cowTokens.tokens.forEach((t) => {
-    const match = output.find(
-      (c) => c.symbol.toLowerCase() === t.symbol.toLowerCase()
-    );
-
-    if (!match) {
-      output.push(t);
-    }
-  });
-
-  return output;
-}
 
 async function combineTokens(version) {
   const output = [];
@@ -88,17 +77,14 @@ async function combineTokens(version) {
     output.push(...json);
   });
 
-  const withCow = await combineWithCow(output);
-
-  writeJson("combined.json", createFinalResult(withCow, version));
+  writeJson("combined.json", createFinalResult(output, version));
 }
 
-async function fetchTokens(page, limit) {
+async function fetchTokens(page, limit, allTokens) {
 
-  const top = await fetchCoingeckoTop(limit, page);
-  const all = await fetchCoingeckoAll();
+  const top = await fetchCoingeckoTop(limit, page);  
 
-  const filtered = all.tokens.filter((c) =>
+  const filtered = allTokens.tokens.filter((c) =>
     top.some((t) => t.symbol.toLowerCase() === c.symbol.toLowerCase())
   );
 
@@ -112,8 +98,10 @@ async function fetchTokens(page, limit) {
 }
 
 async function main() {
+  const allTokens = await fetchCoingeckoAll(); // FIXME: This is acting as filter, it should be removed and fetchTokens would be in charge of getting the symbols/address/etc
+
   for (let page=1; page<=5; page++) {
-    await fetchTokens(page, PAGE_LIMIT)
+    await fetchTokens(page, PAGE_LIMIT, allTokens)
   }
   await combineTokens({ patch: 8 }); // TODO: Improve versioning of the file
 }
