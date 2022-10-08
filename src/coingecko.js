@@ -2,36 +2,31 @@ import fetch from "node-fetch";
 import fs from "fs";
 import path from "path";
 
-const BUILD_DIR = "build";
+const BUILD_DIR = path.join(".", 'build');
+const LIST_DIR = path.join(BUILD_DIR, 'lists')
+const PAGE_LIMIT = 50
+const FILE_PREFIX = 'coingecko'
+const OUTPUT_FILE = "CoinGecko.json"
 
 async function fetchCoingeckoTop(limit, page) {
+  console.log(`Fetch page CoinGecko's Tokens, sorted by Market Cap: Page ${page} (${limit} results)`)
   const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${limit}&page=${page}&sparkline=false&category=ethereum-ecosystem`;
   const res = await fetch(url);
   const json = await res.json();
   return json;
 }
 
-async function fetchCowList() {
-  const url = "https://token-list.cow.eth.link/";
-  const res = await fetch(url);
-  const json = await res.json();
-  return json;
-}
-
 async function fetchCoingeckoAll() {
+  console.log(`Fetch all CoinGecko's ERC20 Tokens`)
   const url = "https://tokens.coingecko.com/uniswap/all.json";
   const res = await fetch(url);
   const json = await res.json();
   return json;
 }
 
-async function dlFile(filename, data) {
-  fs.writeFile(`${BUILD_DIR}/${filename}`, data, function (err) {
-    if (err) {
-      return console.log(err);
-    }
-    console.log(`File ${filename} saved`);
-  });
+async function writeJson(filePath, data) {
+  console.log(`Write data ${filePath}`);
+  fs.writeFileSync(filePath, data)
 }
 
 function createSortMap(tokens) {
@@ -41,22 +36,22 @@ function createSortMap(tokens) {
   }, {});
 }
 
-function createFinalResult(tokens, version) {
+function buildTokenList(tokens, version) {
   return JSON.stringify(
     {
-      name: "CoW Protocol",
+      name: "CoinGecko",
       timestamp: new Date().toISOString(),
       version: Object.assign(
         {
           major: 0,
-          minor: 1,
-          patch: 7,
+          minor: 0,
+          patch: 1,
         },
         version
       ),
       logoURI:
-        "https://gateway.pinata.cloud/ipfs/QmQxFkVZzXFyWf73rcFwNPaEqG5hBwYXrwrBEX3aWJrn2r/cowprotocol.png",
-      keywords: ["default", "list", "cowprotocol"],
+        "https://www.coingecko.com/assets/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png",
+      keywords: ["default", "list", "coingecko"],
       tokens: tokens,
     },
     0,
@@ -64,66 +59,61 @@ function createFinalResult(tokens, version) {
   );
 }
 
-async function combineWithCow(tokens) {
-  const output = [...tokens];
 
-  const cowTokens = await fetchCowList();
+async function writeCoingeckoListFile(version) {
+  const combinedTokens = [];
 
-  cowTokens.tokens.forEach((t) => {
-    const match = output.find(
-      (c) => c.symbol.toLowerCase() === t.symbol.toLowerCase()
+  const tokenFiles = fs
+    .readdirSync(BUILD_DIR)
+    .filter(
+      (file) => path.extname(file) === ".json" && file.startsWith(FILE_PREFIX)
     );
 
-    if (!match) {
-      output.push(t);
-    }
+  tokenFiles.forEach((file) => {
+    const tokensJson = fs.readFileSync(path.join(BUILD_DIR, file));
+    const tokens = JSON.parse(tokensJson.toString());
+    combinedTokens.push(...tokens);
   });
 
-  return output;
+  const filePath = path.join(LIST_DIR, OUTPUT_FILE)
+  writeJson(filePath, buildTokenList(combinedTokens, version));
 }
 
-async function dlTokens() {
-  try {
-    const page = 1;
+async function fetchTokens(page, limit, allTokens) {
+  const tokens = await fetchCoingeckoTop(limit, page);  
 
-    const top = await fetchCoingeckoTop(50, page);
-    const all = await fetchCoingeckoAll();
+  const filteredTokens = allTokens.tokens.filter((c) =>
+    tokens.some((t) => t.symbol.toLowerCase() === c.symbol.toLowerCase())
+  );
 
-    const filtered = all.tokens.filter((c) =>
-      top.some((t) => t.symbol.toLowerCase() === c.symbol.toLowerCase())
-    );
+  const sortMap = createSortMap(tokens);
+  const sortedTokens = filteredTokens.sort(
+    (a, b) =>
+      sortMap[a.symbol.toLowerCase()] - sortMap[b.symbol.toLowerCase()] // TODO: @nenad why do you sort filteredTokens, and use sortMap symbol as the sorting field?
+  );
 
-    const sortMap = createSortMap(top);
-    const sorted = filtered.sort(
-      (a, b) =>
-        sortMap[a.symbol.toLowerCase()] - sortMap[b.symbol.toLowerCase()]
-    );
+  const filePath = path.join(BUILD_DIR, `${FILE_PREFIX}-${page}.json`)
+  writeJson(filePath, JSON.stringify(sortedTokens, 0, 4));
+}
 
-    dlFile(`tokens-${page}.json`, JSON.stringify(sorted, 0, 4));
-  } catch (err) {
-    console.log(err);
+function ensureBuildDir(dirs){
+  for (let dir of dirs) {
+    if (!fs.existsSync(dir)){
+      fs.mkdirSync(dir);
+    }
   }
 }
 
-async function combineTokens(version) {
-  const output = [];
+async function main() {
+  ensureBuildDir([BUILD_DIR, LIST_DIR])
+  const allTokens = await fetchCoingeckoAll(); // FIXME: This is acting as filter, it should be removed and fetchTokens would be in charge of getting the symbols/address/etc
 
-  const jsonsInDir = fs
-    .readdirSync("./results")
-    .filter(
-      (file) => path.extname(file) === ".json" && file.startsWith("tokens")
-    );
-
-  jsonsInDir.forEach((file) => {
-    const fileData = fs.readFileSync(path.join("./results", file));
-    const json = JSON.parse(fileData.toString());
-    output.push(...json);
-  });
-
-  const withCow = await combineWithCow(output);
-
-  dlFile("combined.json", createFinalResult(withCow, version));
+  for (let page=1; page<=5; page++) {
+    await fetchTokens(page, PAGE_LIMIT, allTokens)
+  }
+  await writeCoingeckoListFile({ patch: 1 }); // TODO: Improve versioning of the file
 }
 
-// dlTokens();
-combineTokens({ patch: 8 });
+main()
+  .catch(console.error)
+
