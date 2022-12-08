@@ -7,14 +7,19 @@
   "scripts": {
     "build": "npm run public && npm run coingecko",
     "coingecko": "node src/coingecko.js",
+    "downloadImages": "node  --experimental-json-modules src/downloadImages",
+    "uploadAndUpdateImages": "node src/uploadAndUpdateImages.js",
     "public": "copyfiles src/public/*.json build/lists -f"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
+    "@pinata/sdk": "^2.1.0",
     "axios": "^1.0.0",
-    "node-fetch": "^3.2.10"
+    "dotenv": "^16.0.3",
+    "node-fetch": "^3.3.0"
   },
   "devDependencies": {
+    "@types/node": "^18.11.11",
     "copyfiles": "^2.4.1"
   }
 }
