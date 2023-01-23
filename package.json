@@ -5,6 +5,7 @@
   "type": "module",
   "main": "src/coingecko.js",
   "scripts": {
+    "lint": "prettier --write src/**",
     "build": "npm run public && npm run coingecko",
     "coingecko": "node src/coingecko.js",
     "downloadImages": "node  --experimental-json-modules src/downloadImages",
@@ -17,6 +18,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.11",
-    "copyfiles": "^2.4.1"
+    "copyfiles": "^2.4.1",
+    "prettier": "^2.8.3"
   }
 }
