@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "module": "es2020",
+    "moduleResolution": "Node",
+    "target": "es5",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "sourceMap": true
+  },
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

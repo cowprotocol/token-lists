@@ -1,4 +1,4 @@
-import cowSwapList from "./public/CowSwap.json" assert { type: "json" };
+import cowSwapList from "./public/CowSwap.json";
 import fetch from "node-fetch";
 import { createWriteStream } from "fs";
 import path, { dirname } from "path";
