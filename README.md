@@ -8,7 +8,7 @@ In order to add a new token to the CoW Swap default token list follow these step
 
 - Find an icon with reasonable quality/size (256px, <100kB).
 - Add the icon to `src/public/images/<chainId>/<address>.png` [^1]
-- Upload the image to Pinata (login in 1Password)
+- Upload the image to IPFS (https://www.pinata.cloud/ is a simple recommended service to do that)
 - Create a new entry in `src/public/CowSwap.json` containing token address, symbol, etc. (**use IPFS link for icon!**)
 - Make sure you bump the version using [SemVersions](https://github.com/Uniswap/token-lists#semantic-versioning)
 - Create a PR with these changes
