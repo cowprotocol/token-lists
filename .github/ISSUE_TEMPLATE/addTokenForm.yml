@@ -55,11 +55,11 @@ body:
     validations:
       required: true
   - type: input
-    id: imageIpfsCid
+    id: imageUrl
     attributes:
-      label: Image IPFS CID
-      description: Upload your image to IPFS and put the IPFS CID here
-      placeholder: QmcBPqkG...
+      label: Image URL
+      description: Ideally a 256x256 PNG file. But we'll take care of optimizing it later.
+      placeholder: https://gateway.pinata.cloud/ipfs/Qme9B6jRpGtZsRFcPjHvA5T4ugFuL4c3SzWfxyMPa59AMo
     validations:
       required: true
   - type: textarea
