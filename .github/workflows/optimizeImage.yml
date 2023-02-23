@@ -1,4 +1,4 @@
-name: ProcessImage
+name: OptimizeImage
 
 # Input: chain, address, CID
 # Steps:
@@ -22,10 +22,10 @@ on:
 #      imageCid:
 #        value: ${{ jobs.upload.outputs.cid }}
       imageBin:
-        value: ${{ jobs.process_image.outputs.imageBin }}
+        value: ${{ jobs.optimize.outputs.imageBin }}
 
 jobs:
-  process_image:
+  optimize:
     runs-on: ubuntu-latest
     steps:
       - name: Download image
@@ -44,4 +44,4 @@ jobs:
 #        run: "??? still need to figure out how to do this without imageoptim"
 
       - name: Output optimized image
-        run: echo "imageBin=\"$(cat output.png)\"" >> $GITHUB_OUTPUT
+        run: echo "imageBin=\"$(base64 -i output.png)\"" >> $GITHUB_OUTPUT

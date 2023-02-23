@@ -5,7 +5,7 @@ on:
     types: [opened]
 
 jobs:
-  print_context:
+  printContext:
     runs-on: ubuntu-latest
     steps:
       - env:
@@ -13,17 +13,15 @@ jobs:
         run: |
           echo $EVENT_CONTEXT
 
-  process_image:
-    name: Process image
-#    needs: [test, lint]
-#    if: github.ref == 'refs/heads/develop'
-    uses: ./.github/workflows/processImage.yml
+  callOptimizeImageWorkflow:
+#    name: Call Optimize Image Workflow
+    uses: ./.github/workflows/optimizeImage.yml
     secrets: inherit
     with:
       imageUrl: https://cdn.discordapp.com/attachments/913387055596326952/1072648112692285471/GODS.png
-  add_image:
+  addImage:
     runs-on: ubuntu-latest
-    needs: process_image
+    needs: callOptimizeImageWorkflow
     if: ${{ contains(github.event.labels.*.name, 'addImage') }}
     steps:
       - run: echo ${{ needs.process_image.outputs.imageBin }}
