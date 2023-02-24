@@ -56,7 +56,7 @@ jobs:
             // Extract the values for each field - if it exists - based on their labels from the issue body
             const values = fieldNames.reduce((acc, f) => {
               // Create a regex for each field, with capturing group with the same name
-              const r = new RegExp(String.raw`${f}\s+(?<${f.toLowerCase()}>.*?)(\s+|$)`)
+              const r = new RegExp(String.raw`${f}\n\n(?<${f.toLowerCase()}>.*?)(\s+###|$)`, 's')
             
               // Build an object with the capturing group and value for each field
               return {...acc, ...body.match(r)?.groups}
@@ -70,7 +70,11 @@ jobs:
               values.blockExplorer = 'gnosisscan'
             }
             
-            values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/addImage/${ values.chain }_${ values.address }/src/public/images/${ values.chain }/${ values.address }/logo.png`
+            // Used only in the PR context for displaying it
+            values.prImageUrl = `https://raw.githubusercontent.com/cowprotocol/token-lists/addImage/${ values.chain }_${ values.address }/src/public/images/${ values.chain }/${ values.address }/logo.png`
+            // Will be the final URL once it's merged to `main`
+            values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/${ values.chain }/${ values.address }/logo.png`
+            
             
             // Return a string
             return JSON.stringify(values)
@@ -78,8 +82,13 @@ jobs:
 
       - name: 'Debug: print body result'
         run: |
-          echo "${{ fromJSON(steps.extractInfo.outputs.result).url }}"
-          echo "${{ fromJSON(steps.extractInfo.outputs.result).address }}"
+          cat << EOF
+          ${{ steps.extractInfo.outputs.result }}
+          EOF
+          
+          # force failure for testing
+#          exit 1
+          
 
   validateInput:
     runs-on: ubuntu-latest
@@ -146,6 +155,7 @@ jobs:
       REASON: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
       CHAIN: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}
       BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
+      PR_IMAGE_URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).prImageUrl }}
 
     steps:
       - name: Checkout code
@@ -189,7 +199,7 @@ jobs:
           commit-message: "[addToken] ${{ env.NETWORK }}/${{ env.SYMBOL }}/${{ env.ADDRESS }}"
           branch: addToken/${{ env.CHAIN }}_${{ env.ADDRESS }}
           delete-branch: true
-          title: "[addToken] To ${{ env.NETWORK }} for token ${{ env.ADDRESS }}"
+          title: "[addToken] `${{ env.SYMBOL }}` to `${{ env.NETWORK }}`"
           body: |
             # Add token
             
@@ -204,7 +214,7 @@ jobs:
             | Description | Image |
             |-|-|
             | Original | ![original](${{ env.URL }}) |
-            | Optimized | ![optimized](${{ env.LOGO_URL }}) | 
+            | Optimized | ![optimized](${{ env.PR_IMAGE_URL }}) | 
 
           #          assignees: ${{ github.author }}
           #          reviewers: |
@@ -247,7 +257,7 @@ jobs:
       ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
       BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
       URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
-      LOGO_URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).logoURI }}
+      PR_IMAGE_URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).prImageUrl }}
 
     steps:
       - name: Checkout code
@@ -295,7 +305,7 @@ jobs:
             | Description | Image |
             |-|-|
             | Original | ![original](${{ env.URL }}) |
-            | Optimized | ![optimized](${{ env.LOGO_URL }}) | 
+            | Optimized | ![optimized](${{ env.PR_IMAGE_URL }}) | 
 
 #          assignees: ${{ github.author }}
 #          reviewers: |
