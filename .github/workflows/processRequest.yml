@@ -9,7 +9,10 @@ name: ProcessRequest
 #   [Optional] Modify CowSwap.json list
 #   [Optional] Add image to src/public/network/address/logo
 #   [Optional] Add/Update info to src/public/network/address/info
-# Close issue
+#   Link Issue to PR
+#   Add reviewers
+#   [Optional] Notify on slack
+# Comment on original issue
 
 # Running locally with `act`
 # Get the `addImageEvent.json` from a GH action such as https://github.com/cowprotocol/token-lists/actions/runs/4251878894/jobs/7394780076
@@ -120,6 +123,15 @@ jobs:
           echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
           echo "::error title={Validation failed}::{Missing required fields for removing a token}"
           exit 1
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Your request is invalid 
+            
+            Make sure all the required fields are provided and submit a new issue 
+        
 
   callOptimizeImageWorkflow:
     name: Call Optimize Image Workflow
@@ -164,11 +176,6 @@ jobs:
 
       # TODO: update image link on list if image is there?
 
-      - name: Debug
-        run: |
-          git status
-          ls ${{ env.BASE_PATH }}
-
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
@@ -184,10 +191,15 @@ jobs:
             
             Adding image for token ${{ env.NETWORK }} with address [${{ env.ADDRESS }}](https://${{ env.BLOCK_EXPLORER }}.io/token/${{ env.ADDRESS }})
             
-            Submitted by @${{ github.event.issue.user.login }} on ${{ github.event.issue.url }}
+            Submitted by @${{ github.event.issue.user.login }} 
             
-            Original image: 
-            ![](${{ env.URL }})
+            Closes #${{ github.event.issue.number }}
+            
+            | Description | Image |
+            |-|-|
+            | Original | ![original](${{ env.URL }}) |
+            | Optimized | ![optimized](https://raw.githubusercontent.com/cowprotocol/token-lists/addImage/${{ env.CHAIN }}_${{ env.ADDRESS }}/src/public/images/${{ env.CHAIN }}/${{ env.ADDRESS }}/logo.png) | 
+
 #          assignees: ${{ github.author }}
 #          reviewers: |
 #            cmagan
@@ -196,11 +208,25 @@ jobs:
           add-paths: |
             ${{ env.BASE_PATH }}/*
             ${{ env.LIST_PATH }}
-          draft: true
+          draft: true # TODO: remove draft when finished
+
       - name: Comment on issue
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
-            Your request is valid and will be reviewed by a team member.
-            You can follow the progress in the Pull Request ${{ steps.cpr.pull-request-url }}
+            Your request has been received and will be reviewed by a team member.
+            You can follow the progress in the Pull Request #${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Failed to add image
+            
+            Check the input is correct and try again in a new issue
+            
+            If the issue persists, create a bug report
+            
+            cc @cowprotocol/frontend

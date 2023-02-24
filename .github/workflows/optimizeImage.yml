@@ -56,3 +56,16 @@ jobs:
           name: ${{ inputs.address }}
           path: output.png
           retention-days: 1
+
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Failed to optimize image
+            
+            Check you provided a proper image file and try again in a new issue
+            
+            If the issue persists, create a bug report
+            
+            cc @cowprotocol/frontend
