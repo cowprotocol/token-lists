@@ -15,8 +15,8 @@ name: ProcessRequest
 # Comment on original issue
 
 # Running locally with `act`
-# Get the `addImageEvent.json` from a GH action such as https://github.com/cowprotocol/token-lists/actions/runs/4251878894/jobs/7394780076
-# ACTIONS_RUNTIME_URL=http://host.docker.internal:34567/ act -s GITHUB_TOKEN=$(gh auth token) issues -e addImageEvent.json -W .github/workflows/processRequest.yml --artifact-server-path /tmp/artifacts --artifact-server-addr "[::0]" -v
+# Get the `event.json` from a GH action such as https://github.com/cowprotocol/token-lists/actions/runs/4251878894/jobs/7394780076
+# ACTIONS_RUNTIME_URL=http://host.docker.internal:34567/ act -s GITHUB_TOKEN=$(gh auth token) issues -e event.json -W .github/workflows/processRequest.yml --artifact-server-path /tmp/artifacts --artifact-server-addr "[::0]" -v
 # Some of the additional workarounds are required for running artifact uploading on Mac M1s locally. See https://github.com/nektos/act/issues/329
 
 on:
@@ -70,6 +70,8 @@ jobs:
               values.blockExplorer = 'gnosisscan'
             }
             
+            values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/addImage/${ values.chain }_${ values.address }/src/public/images/${ values.chain }/${ values.address }/logo.png`
+            
             // Return a string
             return JSON.stringify(values)
           result-encoding: string
@@ -78,17 +80,6 @@ jobs:
         run: |
           echo "${{ fromJSON(steps.extractInfo.outputs.result).url }}"
           echo "${{ fromJSON(steps.extractInfo.outputs.result).address }}"
-
-# this did not work, was not set outsite of job
-#      - name: Setting env vars
-#        run: |
-#          echo "NETWORK=${{ fromJSON(steps.extractInfo.outputs.result).network }}" >> "$GITHUB_ENV"
-#          echo "SYMBOL=${{ fromJSON(steps.extractInfo.outputs.result).symbol }}" >> "$GITHUB_ENV"
-#          echo "NAME=${{ fromJSON(steps.extractInfo.outputs.result).name }}" >> "$GITHUB_ENV"
-#          echo "URL=${{ fromJSON(steps.extractInfo.outputs.result).url }}" >> "$GITHUB_ENV"
-#          echo "DECIMALS=${{ fromJSON(steps.extractInfo.outputs.result).decimals }}" >> "$GITHUB_ENV"
-#          echo "ADDRESS=${{ fromJSON(steps.extractInfo.outputs.result).address }}" >> "$GITHUB_ENV"
-#          echo "REASON=${{ fromJSON(steps.extractInfo.outputs.result).reason }}" >> "$GITHUB_ENV"
 
   validateInput:
     runs-on: ubuntu-latest
@@ -102,8 +93,6 @@ jobs:
       DECIMALS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).decimals }}
       ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
       REASON: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
-
-    # TODO: when failed, add a comment to the issue and tag original author with the reason for the failure
 
     steps:
       - name: Validate addImage
@@ -142,16 +131,124 @@ jobs:
       url: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
       address: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
 
+  addToken:
+    runs-on: ubuntu-latest
+    needs: [ extractInfoFromIssue, callOptimizeImageWorkflow ]
+    if: ${{ contains(github.event.issue.labels.*.name, 'addToken') }}
+
+    env:
+      NETWORK: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}
+      SYMBOL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}
+      NAME: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).name }}
+      URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      DECIMALS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).decimals }}
+      ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+      REASON: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
+      CHAIN: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}
+      BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Image handling
+      - name: Download image
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+      - name: Set BASE_PATH env var
+        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN }}/${{ env.ADDRESS }}/" >> "$GITHUB_ENV"
+      - name: Handle image
+        run: |
+          # Create image dir
+          mkdir -p ${{ env.BASE_PATH }}
+          
+          # Move image to destination
+          mv output.png ${{ env.BASE_PATH }}logo.png
+          
+          # Touch
+          touch ${{ env.BASE_PATH }}info.json
+
+          echo "${{ env.BASE_PATH }}"
+          ls ${{ env.BASE_PATH }}
+
+      - name: Save stuff in a file
+        run: |
+          cat << EOF > data.json
+          ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
+          EOF
+
+      # Token list handling
+      - name: Update token list
+        run: python3 src/scripts/workflow_helper.py add_update data.json
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "[addToken] ${{ env.NETWORK }}/${{ env.SYMBOL }}/${{ env.ADDRESS }}"
+          branch: addToken/${{ env.CHAIN }}_${{ env.ADDRESS }}
+          delete-branch: true
+          title: "[addToken] To ${{ env.NETWORK }} for token ${{ env.ADDRESS }}"
+          body: |
+            # Add token
+            
+            **Note** This is an automated PR
+            
+            Adding token ${{ env.SYMBOL }} on ${{ env.NETWORK }} with address [${{ env.ADDRESS }}](https://${{ env.BLOCK_EXPLORER }}.io/token/${{ env.ADDRESS }})
+            
+            Submitted by @${{ github.event.issue.user.login }} 
+            
+            Closes #${{ github.event.issue.number }}
+            
+            | Description | Image |
+            |-|-|
+            | Original | ![original](${{ env.URL }}) |
+            | Optimized | ![optimized](${{ env.LOGO_URL }}) | 
+
+          #          assignees: ${{ github.author }}
+          #          reviewers: |
+          #            cmagan
+          #            alfetopito
+          #          team-reviewers: @cowprotocol/frontend
+          add-paths: |
+            ${{ env.BASE_PATH }}/*
+            ${{ env.LIST_PATH }}
+
+      - name: Comment on issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Your request has been received and will be reviewed by a team member.
+            You can follow the progress in the Pull Request #${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Failed to add token
+            
+            Check the input is correct and try again in a new issue
+            
+            If the issue persists, create a bug report
+            
+            cc @cowprotocol/frontend
+
   addImage:
     runs-on: ubuntu-latest
     needs: [extractInfoFromIssue, callOptimizeImageWorkflow]
     if: ${{ contains(github.event.issue.labels.*.name, 'addImage') }}
+
     env:
       CHAIN: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}
       NETWORK: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}
       ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
       BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
       URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      LOGO_URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).logoURI }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -198,7 +295,7 @@ jobs:
             | Description | Image |
             |-|-|
             | Original | ![original](${{ env.URL }}) |
-            | Optimized | ![optimized](https://raw.githubusercontent.com/cowprotocol/token-lists/addImage/${{ env.CHAIN }}_${{ env.ADDRESS }}/src/public/images/${{ env.CHAIN }}/${{ env.ADDRESS }}/logo.png) | 
+            | Optimized | ![optimized](${{ env.LOGO_URL }}) | 
 
 #          assignees: ${{ github.author }}
 #          reviewers: |
@@ -208,7 +305,6 @@ jobs:
           add-paths: |
             ${{ env.BASE_PATH }}/*
             ${{ env.LIST_PATH }}
-          draft: true # TODO: remove draft when finished
 
       - name: Comment on issue
         uses: peter-evans/create-or-update-comment@v2
