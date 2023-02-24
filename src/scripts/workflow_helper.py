@@ -1,0 +1,100 @@
+import sys
+import json
+import os
+
+
+LIST_PATH = os.environ["LIST_PATH"]
+
+
+def handle_add_update_token(data):
+    with open(LIST_PATH, "r+") as f:
+        token_list = json.load(f)
+
+        for token in token_list["tokens"]:
+            # update
+            if token["address"].lower() == data["address"].lower():
+                token["address"] = data["address"].lower()
+                token["symbol"] = data["symbol"]
+                token["name"] = data["name"]
+                token["logoURI"] = data["logoURI"]
+                token["decimals"] = int(data["decimals"])
+                token["chainId"] = int(data["chain"])
+                break
+        else:
+            # add
+            token_list["tokens"].append(
+                {
+                    "address": data["address"].lower(),
+                    "symbol": data["symbol"],
+                    "name": data["name"],
+                    "decimals": data["decimals"],
+                    "chainId": data["chain"],
+                    "logoURI": data["logoURI"],
+                }
+            )
+        f.seek(0)
+        json.dump(token_list, f, indent=2)
+
+    handle_info_json(data)
+
+
+def handle_remove_token(data):
+    with open(LIST_PATH, "r+") as f:
+        token_list = json.load(f)
+
+        token_list["tokens"] = [
+            token
+            for token in token_list["tokens"]
+            if token["address"].lower() != data["address"].lower()
+        ]
+
+        f.seek(0)
+        json.dump(token_list, f, indent=2)
+
+    handle_info_json(data, removed=True)
+
+
+def handle_info_json(data, removed=False):
+    file_path = f'src/public/images/{data["chain"]}/{data["address"]}/info.json'
+
+    with open(file_path, "r+") as f:
+        try:
+            info = json.load(f)
+        except json.decoder.JSONDecodeError:
+            # File is empty
+            info = {}
+
+        info["removed"] = removed
+        info["address"] = data["address"].lower()
+        if data["symbol"]: info["symbol"] = data["symbol"]
+        if data["name"]: info["name"] = data["name"]
+        if data["logoURI"]: info["logoURI"] = data["logoURI"]
+        if data["reason"]: info["reason"] = data["reason"]
+        if data["decimals"]: info["decimals"] = int(data["decimals"])
+        if data["chain"]: info["chainId"] = int(data["chain"])
+
+        f.seek(0)
+        json.dump(info, f, indent=2)
+
+
+def main():
+    option = sys.argv[1]
+    data_file = sys.argv[2]
+    
+    with open(data_file) as f:
+        loaded_data = json.load(f)
+        print(loaded_data)
+
+    if option == "add_update":
+        handle_add_update_token(loaded_data)
+    elif option == "remove":
+        handle_remove_token(loaded_data)
+    elif option == "info":
+        handle_info_json(loaded_data)
+    else:
+        print("Wrong option")
+        exit
+
+
+if __name__ == "__main__":
+    main()
