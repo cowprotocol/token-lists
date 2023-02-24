@@ -56,7 +56,7 @@ jobs:
             // Extract the values for each field - if it exists - based on their labels from the issue body
             const values = fieldNames.reduce((acc, f) => {
               // Create a regex for each field, with capturing group with the same name
-              const r = new RegExp(String.raw`${f}\n\n(?<${f.toLowerCase()}>.*?)(\s+###|$)`, 's')
+              const r = new RegExp(String.raw`${f}\s+(?<${f.toLowerCase()}>.*?)(\s+###|$)`, 's')
             
               // Build an object with the capturing group and value for each field
               return {...acc, ...body.match(r)?.groups}
