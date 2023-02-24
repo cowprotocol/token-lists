@@ -140,7 +140,7 @@ jobs:
       ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
       BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
       URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
-      BASE_PATH: ${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN }}/${{ env.ADDRESS }}/
+      BASE_PATH: ${{ env.IMAGES_BASE_PATH }}${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}/
     steps:
       - name: Download image
         uses: actions/download-artifact@v3
