@@ -1,8 +1,30 @@
 name: ProcessRequest
 
+# Flow
+# Extract info from issue (did not find a way to get it nicely)
+# Validate all info is present
+# On validation failure, comment on issue with reason for failure
+# [Optional] Optimize image
+# Create PR with required info
+#   [Optional] Modify CowSwap.json list
+#   [Optional] Add image to src/public/network/address/logo
+#   [Optional] Add/Update info to src/public/network/address/info
+# Close issue
+
+# Running locally with `act`
+# Get the `addImageEvent.json` from a GH action such as https://github.com/cowprotocol/token-lists/actions/runs/4251878894/jobs/7394780076
+# ACTIONS_RUNTIME_URL=http://host.docker.internal:34567/ act -s GITHUB_TOKEN=$(gh auth token) issues -e addImageEvent.json -W .github/workflows/processRequest.yml --artifact-server-path /tmp/artifacts --artifact-server-addr "[::0]" -v
+# Some of the additional workarounds are required for running artifact uploading on Mac M1s locally. See https://github.com/nektos/act/issues/329
+
 on:
   issues:
     types: [opened]
+
+env:
+  # Matches labels from field forms to extract data
+  FIELD_NAMES: 'Network,Symbol,Name,URL,Decimals,Address,Reason'
+  IMAGES_BASE_PATH: src/public/images/
+  LIST_PATH: src/public/CowSwap.json
 
 jobs:
   printContext:
@@ -13,15 +35,170 @@ jobs:
         run: |
           echo $EVENT_CONTEXT
 
+  extractInfoFromIssue:
+    runs-on: ubuntu-latest
+    outputs:
+      issueInfo: ${{ steps.extractInfo.outputs.result }}
+    steps:
+      - name: Extract info
+        id: extractInfo
+        uses: actions/github-script@v6
+        with:
+          # Using JS, build a new comment body
+          script: |
+            const body = context.payload.issue.body
+            
+            const fieldNames = `${ process.env.FIELD_NAMES }`.split(',')
+            
+            // Extract the values for each field - if it exists - based on their labels from the issue body
+            const values = fieldNames.reduce((acc, f) => {
+              // Create a regex for each field, with capturing group with the same name
+              const r = new RegExp(String.raw`${f}\s+(?<${f.toLowerCase()}>.*?)(\s+|$)`)
+            
+              // Build an object with the capturing group and value for each field
+              return {...acc, ...body.match(r)?.groups}
+            }, {})
+            
+            if (values.network === 'MAINNET') {
+              values.chain = 1
+              values.blockExplorer = 'etherscan'
+            } else {
+              values.chain = 100
+              values.blockExplorer = 'gnosisscan'
+            }
+            
+            // Return a string
+            return JSON.stringify(values)
+          result-encoding: string
+
+      - name: 'Debug: print body result'
+        run: |
+          echo "${{ fromJSON(steps.extractInfo.outputs.result).url }}"
+          echo "${{ fromJSON(steps.extractInfo.outputs.result).address }}"
+
+# this did not work, was not set outsite of job
+#      - name: Setting env vars
+#        run: |
+#          echo "NETWORK=${{ fromJSON(steps.extractInfo.outputs.result).network }}" >> "$GITHUB_ENV"
+#          echo "SYMBOL=${{ fromJSON(steps.extractInfo.outputs.result).symbol }}" >> "$GITHUB_ENV"
+#          echo "NAME=${{ fromJSON(steps.extractInfo.outputs.result).name }}" >> "$GITHUB_ENV"
+#          echo "URL=${{ fromJSON(steps.extractInfo.outputs.result).url }}" >> "$GITHUB_ENV"
+#          echo "DECIMALS=${{ fromJSON(steps.extractInfo.outputs.result).decimals }}" >> "$GITHUB_ENV"
+#          echo "ADDRESS=${{ fromJSON(steps.extractInfo.outputs.result).address }}" >> "$GITHUB_ENV"
+#          echo "REASON=${{ fromJSON(steps.extractInfo.outputs.result).reason }}" >> "$GITHUB_ENV"
+
+  validateInput:
+    runs-on: ubuntu-latest
+    needs: extractInfoFromIssue
+    env:
+      # De-normalizing for easier access
+      NETWORK: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}
+      SYMBOL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}
+      NAME: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).name }}
+      URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      DECIMALS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).decimals }}
+      ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+      REASON: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
+
+    # TODO: when failed, add a comment to the issue and tag original author with the reason for the failure
+
+    steps:
+      - name: Validate addImage
+        if: contains(github.event.issue.labels.*.name, 'addImage') && (!env.NETWORK || !env.URL || !env.ADDRESS)
+        run: |
+          echo "::error title={Validation failed}::{Missing required fields for adding an image}"
+          exit 1
+      - name: Validate addToken
+        if: contains(github.event.issue.labels.*.name, 'addToken') && (!env.NETWORK|| !env.SYMBOL|| !env.NAME|| !env.URL|| !env.DECIMALS|| !env.ADDRESS|| !env.REASON)
+        run: |
+          echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
+          echo "::error title={Validation failed}::{Missing required fields for adding a token}"
+          exit 1
+      - name: Validate removeToken
+        if: contains(github.event.issue.labels.*.name, 'removeToken') && (!env.NETWORK || !env.REASON || !env.ADDRESS)
+        run: |
+          echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
+          echo "::error title={Validation failed}::{Missing required fields for removing a token}"
+          exit 1
+
   callOptimizeImageWorkflow:
-#    name: Call Optimize Image Workflow
+    name: Call Optimize Image Workflow
+    needs: [extractInfoFromIssue, validateInput]
     uses: ./.github/workflows/optimizeImage.yml
-    secrets: inherit
+    if: ${{ contains(github.event.issue.labels.*.name, 'addImage') || contains(github.event.issue.labels.*.name, 'addToken') }}
     with:
-      imageUrl: https://cdn.discordapp.com/attachments/913387055596326952/1072648112692285471/GODS.png
+      url: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      address: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+
   addImage:
     runs-on: ubuntu-latest
-    needs: callOptimizeImageWorkflow
-    if: ${{ contains(github.event.labels.*.name, 'addImage') }}
+    needs: [extractInfoFromIssue, callOptimizeImageWorkflow]
+    if: ${{ contains(github.event.issue.labels.*.name, 'addImage') }}
+    env:
+      CHAIN: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}
+      NETWORK: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}
+      ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+      BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
+      URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      BASE_PATH: ${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN }}/${{ env.ADDRESS }}/
     steps:
-      - run: echo ${{ needs.process_image.outputs.imageBin }}
+      - name: Download image
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Create image dir
+        run: mkdir -p ${{ env.BASE_PATH }}
+
+      - name: Move image to destination
+        run: mv output.png ${{ env.BASE_PATH }}logo.png
+
+      - name: Create info.json if it doesn't exist
+        run: |
+          [ -e "${{ env.BASE_PATH }}info.json" ] || echo "{}" > ${{ env.BASE_PATH }}info.json
+
+      # TODO: update image link on list if image is there?
+
+      - name: Debug
+        run: |
+          git status
+          ls ${{ env.BASE_PATH }}
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "[addImage] ${{ env.NETWORK }}/${{ env.ADDRESS }}"
+          branch: addImage/${{ env.CHAIN }}_${{ env.ADDRESS }}
+          delete-branch: true
+          title: "[addImage] To ${{ env.NETWORK }} for token ${{ env.ADDRESS }}"
+          body: |
+            # Add Image
+            
+            **Note** This is an automated PR
+            
+            Adding image for token ${{ env.NETWORK }} with address [${{ env.ADDRESS }}](https://${{ env.BLOCK_EXPLORER }}.io/token/${{ env.ADDRESS }})
+            
+            Submitted by @${{ github.event.issue.user.login }} on ${{ github.event.issue.url }}
+            
+            Original image: 
+            ![](${{ env.URL }})
+          assignees: ${{ github.author }}
+          reviewers: |
+            cmagan
+            alfetopito
+          team-reviewers: cowprotocol/frontend
+          add-paths: |
+            ${{ env.BASE_PATH }}/*
+            ${{ env.LIST_PATH }}
+          draft: true
+      - name: Comment on issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Your request is valid and will be reviewed by a team member.
+            You can follow the progress in the Pull Request ${{ steps.cpr.pull-request-url }}
