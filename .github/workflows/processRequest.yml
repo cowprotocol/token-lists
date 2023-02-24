@@ -189,10 +189,10 @@ jobs:
             Original image: 
             ![](${{ env.URL }})
           assignees: ${{ github.author }}
-          reviewers: |
-            cmagan
-            alfetopito
-          team-reviewers: cowprotocol/frontend
+#          reviewers: |
+#            cmagan
+#            alfetopito
+          team-reviewers: @cowprotocol/frontend
           add-paths: |
             ${{ env.BASE_PATH }}/*
             ${{ env.LIST_PATH }}
