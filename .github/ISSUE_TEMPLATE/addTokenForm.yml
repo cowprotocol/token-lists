@@ -65,6 +65,7 @@ body:
   - type: textarea
     id: reason
     attributes:
-      label: Why should we add this token? How do we know it's not a scam? Does it have enough liquidity on selected chain?
+      label: Reason
+      description: Why should we add this token? How do we know it's not a scam? Does it have enough liquidity on selected chain?
     validations:
       required: true
