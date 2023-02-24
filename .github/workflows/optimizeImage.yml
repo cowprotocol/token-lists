@@ -16,7 +16,7 @@ on:
       url:
         required: true
         type: string
-    outputs:
+#    outputs:
 #      imageBody:
 #        value: $${{ jobs.process.outputs.imageBody }}
 #      imageCid:
