@@ -141,11 +141,6 @@ jobs:
       BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
       URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
     steps:
-      - name: Download image
-        uses: actions/download-artifact@v3
-        with:
-          name: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
-
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -154,6 +149,11 @@ jobs:
 
       - name: Create image dir
         run: mkdir -p ${{ env.BASE_PATH }}
+
+      - name: Download image
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
 
       - name: Move image to destination
         run: mv output.png ${{ env.BASE_PATH }}logo.png
