@@ -140,7 +140,6 @@ jobs:
       ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
       BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
       URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
-      BASE_PATH: ${{ env.IMAGES_BASE_PATH }}${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}/
     steps:
       - name: Download image
         uses: actions/download-artifact@v3
@@ -149,6 +148,9 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Set BASE_PATH env var
+        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN }}/${{ env.ADDRESS }}/" >> "$GITHUB_ENV"
 
       - name: Create image dir
         run: mkdir -p ${{ env.BASE_PATH }}
