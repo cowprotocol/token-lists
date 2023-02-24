@@ -10,38 +10,49 @@ name: OptimizeImage
 on:
   workflow_call:
     inputs:
-#      address:
-#        required: true
-#        type: string
-      imageUrl:
+      address:
+        required: true
+        type: string
+      url:
         required: true
         type: string
     outputs:
-      imageBody:
-        value: $${{ jobs.process.outputs.imageBody }}
+#      imageBody:
+#        value: $${{ jobs.process.outputs.imageBody }}
 #      imageCid:
 #        value: ${{ jobs.upload.outputs.cid }}
-      imageBin:
-        value: ${{ jobs.optimize.outputs.imageBin }}
+#      imageBin:
+#        value: ${{ jobs.optimize.outputs.imageBin }}
 
 jobs:
-  optimize:
+  execute:
     runs-on: ubuntu-latest
     steps:
+      - name: Print inputs
+        run: |
+          echo address: ${{ inputs.address }}
+          echo url: ${{ inputs.url }}
       - name: Download image
 #        run: "curl -o image.png https://gateway.pinata.cloud/ipfs/${{ inputs.imageCid }}"
-        run: "curl -o image.png ${{ inputs.imageUrl }}"
+        run: "curl -o image.png ${{ inputs.url }}"
+
+#      - name: Optimize image
+#        uses: jruipinto/ImageMagick-action@v1
+#        with:
+#          # ImageMagick command to be executed
+#          command: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
+      - name: Install imagemagick
+        run: sudo apt install imagemagick
 
       - name: Optimize image
-        uses: jruipinto/ImageMagick-action@v1
-        with:
-          # ImageMagick command to be executed
-          command: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
-#      - name: Optimize image
-#        run: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
+        run: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
 
 #      - name: Further compress image
 #        run: "??? still need to figure out how to do this without imageoptim"
 
-      - name: Output optimized image
-        run: echo "imageBin=\"$(base64 -i output.png)\"" >> $GITHUB_OUTPUT
+      - name: Upload img
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.address }}
+          path: output.png
+          retention-days: 1
