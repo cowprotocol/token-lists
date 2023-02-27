@@ -387,13 +387,13 @@ jobs:
             
             Removing token on ${{ env.NETWORK }} with address [${{ env.ADDRESS }}](https://${{ env.BLOCK_EXPLORER }}.io/token/${{ env.ADDRESS }})
             
-            Reason:
-            ${{ env.REASON }}
-            
             Submitted by @${{ github.event.issue.user.login }} 
             
             Closes #${{ github.event.issue.number }}
 
+            ### Reason:
+            ${{ env.REASON }}
+          
           #          assignees: ${{ github.author }}
           #          reviewers: |
           #            cmagan
