@@ -33,7 +33,7 @@ def handle_add_update_token(data):
                 }
             )
         f.seek(0)
-        f.trucate()
+        f.truncate()
         json.dump(token_list, f, indent=2)
 
     handle_info_json(data)
@@ -50,7 +50,7 @@ def handle_remove_token(data):
         ]
 
         f.seek(0)
-        f.trucate()
+        f.truncate()
         json.dump(token_list, f, indent=2)
 
     handle_info_json(data, removed=True)
@@ -76,7 +76,7 @@ def handle_info_json(data, removed=False):
         if data.get("chain"): info["chainId"] = int(data["chain"])
 
         f.seek(0)
-        f.trucate()
+        f.truncate()
         json.dump(info, f, indent=2)
 
 
