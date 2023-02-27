@@ -3,35 +3,9 @@ name: ExecuteAction
 on:
   workflow_call:
     inputs:
-      # same for all
-#      network:
-#        required: true
-#        type: string
-#      chainId:
-#        required: true
-#        type: string
-#      address:
-#        required: true
-#        type: string
-#      symbol:
-#        required: false
-#        type: string
-#      name:
-#        required: false
-#        type: string
-#      logoURI:
-#        required: false
-#        type: string
-#      decimals:
-#        required: false
-#        type: string
-#      reason:
-#        required: false
-#        type: string
       issueInfo:
         required: true
         type: string
-      # Special per type
       operation:
         required: true
         type: string

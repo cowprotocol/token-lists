@@ -16,22 +16,11 @@ on:
       url:
         required: true
         type: string
-#    outputs:
-#      imageBody:
-#        value: $${{ jobs.process.outputs.imageBody }}
-#      imageCid:
-#        value: ${{ jobs.upload.outputs.cid }}
-#      imageBin:
-#        value: ${{ jobs.optimize.outputs.imageBin }}
 
 jobs:
   execute:
     runs-on: ubuntu-latest
     steps:
-      - name: Print inputs
-        run: |
-          echo address: ${{ inputs.address }}
-          echo url: ${{ inputs.url }}
       - name: Download image
         run: "curl -o image.png ${{ inputs.url }}"
 
