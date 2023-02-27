@@ -66,12 +66,12 @@ def handle_info_json(data, removed=False):
 
         info["removed"] = removed
         info["address"] = data["address"].lower()
-        if data["symbol"]: info["symbol"] = data["symbol"]
-        if data["name"]: info["name"] = data["name"]
-        if data["logoURI"]: info["logoURI"] = data["logoURI"]
-        if data["reason"]: info["reason"] = data["reason"]
-        if data["decimals"]: info["decimals"] = int(data["decimals"])
-        if data["chain"]: info["chainId"] = int(data["chain"])
+        if data.get("symbol"): info["symbol"] = data["symbol"]
+        if data.get("name"): info["name"] = data["name"]
+        if data.get("logoURI"): info["logoURI"] = data["logoURI"]
+        if data.get("reason"): info["reason"] = data["reason"]
+        if data.get("decimals"): info["decimals"] = int(data["decimals"])
+        if data.get("chain"): info["chainId"] = int(data["chain"])
 
         f.seek(0)
         json.dump(info, f, indent=2)
