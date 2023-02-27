@@ -43,6 +43,15 @@ jobs:
     outputs:
       issueInfo: ${{ steps.extractInfo.outputs.result }}
     steps:
+      - name: Give feedback to issue creator
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Your request has been received and is being processed.
+            
+            This issue will be updated when completed.
+
       - name: Extract info
         id: extractInfo
         uses: actions/github-script@v6
