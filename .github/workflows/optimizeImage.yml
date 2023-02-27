@@ -33,14 +33,8 @@ jobs:
           echo address: ${{ inputs.address }}
           echo url: ${{ inputs.url }}
       - name: Download image
-#        run: "curl -o image.png https://gateway.pinata.cloud/ipfs/${{ inputs.imageCid }}"
         run: "curl -o image.png ${{ inputs.url }}"
 
-#      - name: Optimize image
-#        uses: jruipinto/ImageMagick-action@v1
-#        with:
-#          # ImageMagick command to be executed
-#          command: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
       - name: Install imagemagick
         run: sudo apt install imagemagick
 

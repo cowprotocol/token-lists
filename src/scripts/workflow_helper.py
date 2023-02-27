@@ -18,7 +18,7 @@ def handle_add_update_token(data):
                 token["name"] = data["name"]
                 token["logoURI"] = data["logoURI"]
                 token["decimals"] = int(data["decimals"])
-                token["chainId"] = int(data["chain"])
+                token["chainId"] = int(data["chainId"])
                 break
         else:
             # add
@@ -28,7 +28,7 @@ def handle_add_update_token(data):
                     "symbol": data["symbol"],
                     "name": data["name"],
                     "decimals": data["decimals"],
-                    "chainId": data["chain"],
+                    "chainId": data["chainId"],
                     "logoURI": data["logoURI"],
                 }
             )
@@ -57,7 +57,7 @@ def handle_remove_token(data):
 
 
 def handle_info_json(data, removed=False):
-    file_path = f'src/public/images/{data["chain"]}/{data["address"]}/info.json'
+    file_path = f'src/public/images/{data["chainId"]}/{data["address"]}/info.json'
 
     with open(file_path, "r+") as f:
         try:
@@ -73,7 +73,7 @@ def handle_info_json(data, removed=False):
         if data.get("logoURI"): info["logoURI"] = data["logoURI"]
         if data.get("reason"): info["reason"] = data["reason"]
         if data.get("decimals"): info["decimals"] = int(data["decimals"])
-        if data.get("chain"): info["chainId"] = int(data["chain"])
+        if data.get("chainId"): info["chainId"] = int(data["chainId"])
 
         f.seek(0)
         f.truncate()
@@ -88,11 +88,11 @@ def main():
         loaded_data = json.load(f)
         print(loaded_data)
 
-    if option == "add_update":
+    if option == "addToken":
         handle_add_update_token(loaded_data)
-    elif option == "remove":
+    elif option == "removeToken":
         handle_remove_token(loaded_data)
-    elif option == "info":
+    elif option == "addImage":
         handle_info_json(loaded_data)
     else:
         print("Wrong option")

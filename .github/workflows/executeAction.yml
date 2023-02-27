@@ -1,0 +1,133 @@
+name: ExecuteAction
+
+on:
+  workflow_call:
+    inputs:
+      # same for all
+#      network:
+#        required: true
+#        type: string
+#      chainId:
+#        required: true
+#        type: string
+#      address:
+#        required: true
+#        type: string
+#      symbol:
+#        required: false
+#        type: string
+#      name:
+#        required: false
+#        type: string
+#      logoURI:
+#        required: false
+#        type: string
+#      decimals:
+#        required: false
+#        type: string
+#      reason:
+#        required: false
+#        type: string
+      issueInfo:
+        required: true
+        type: string
+      # Special per type
+      operation:
+        required: true
+        type: string
+      prTitle:
+        required: true
+        type: string
+      prBody:
+        required: true
+        type: string
+
+env:
+  IMAGES_BASE_PATH: src/public/images/
+  LIST_PATH: src/public/CowSwap.json
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set BASE_PATH env var
+        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ fromJSON(inputs.issueInfo).chainId }}/${{ fromJSON(inputs.issueInfo).address }}/" >> "$GITHUB_ENV"
+
+      - name: Create base path and info.json if it doesn't exist
+        run: |
+          mkdir -p ${{ env.BASE_PATH }} 
+          touch "${{ env.BASE_PATH }}info.json"
+
+      - name: Save input into local file
+        run: |
+          cat << EOF > data.json
+          ${{ inputs.issueInfo }}
+          EOF
+
+      # Image handling
+      - name: Download image
+        if: ${{ inputs.operation == 'addImage' || inputs.operation == 'addToken' }}
+        uses: actions/download-artifact@v3
+        with:
+          name: ${{ fromJSON(inputs.issueInfo).address }}
+
+      - name: Move image to destination
+        if: ${{ inputs.operation == 'addImage' || inputs.operation == 'addToken' }}
+        run: mv output.png ${{ env.BASE_PATH }}logo.png
+
+      - name: Update json files
+        run: python3 src/scripts/workflow_helper.py ${{ inputs.operation }} data.json
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "[${{ inputs.operation }}] ${{ fromJSON(inputs.issueInfo).network }}/${{ fromJSON(inputs.issueInfo).address }}"
+          branch: ${{ inputs.operation }}/${{ fromJSON(inputs.issueInfo).chainId }}_${{ fromJSON(inputs.issueInfo).address }}
+          delete-branch: true
+          title: ${{ inputs.prTitle }}
+          body: |
+            # ${{ inputs.operation }}
+            
+            **Note** This is an automated PR
+            
+            Submitted by @${{ github.event.issue.user.login }} 
+            
+            Closes #${{ github.event.issue.number }}
+            
+            ---
+            
+            ${{ inputs.prBody }}
+          #          assignees: ${{ github.author }}
+          #          reviewers: |
+          #            cmagan
+          #            alfetopito
+          #          team-reviewers: @cowprotocol/frontend
+          add-paths: |
+            ${{ env.BASE_PATH }}/*
+            ${{ env.LIST_PATH }}
+
+      - name: Comment on issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Your request is ready and will be reviewed by a team member.
+            You can follow the progress in the Pull Request #${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Failed to ${{ inputs.operation }}
+            
+            Check the input is correct and try again in a new issue
+            
+            If the issue persists, create a bug report
+            
+            cc @cowprotocol/frontend
