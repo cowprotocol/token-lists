@@ -336,3 +336,90 @@ jobs:
             If the issue persists, create a bug report
             
             cc @cowprotocol/frontend
+            
+
+  removeToken:
+    runs-on: ubuntu-latest
+    needs: [extractInfoFromIssue, validateInput]
+    if: ${{ contains(github.event.issue.labels.*.name, 'removeToken') }}
+
+    env:
+      CHAIN: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).chain }}
+      NETWORK: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}
+      ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+      BLOCK_EXPLORER: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}
+      REASON: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set BASE_PATH env var
+        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN }}/${{ env.ADDRESS }}/" >> "$GITHUB_ENV"
+
+      - name: Create info.json if it doesn't exist
+        run: |
+          mkdir -p ${{ env.BASE_PATH }} 
+          touch "${{ env.BASE_PATH }}info.json"
+
+      - name: Save stuff in a file
+        run: |
+          cat << EOF > data.json
+          ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
+          EOF
+
+      # Token list handling
+      - name: Update token list
+        run: python3 src/scripts/workflow_helper.py remove data.json
+
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v4
+        with:
+          commit-message: "[removeToken] ${{ env.NETWORK }}/${{ env.ADDRESS }}"
+          branch: removeToken/${{ env.CHAIN }}_${{ env.ADDRESS }}
+          delete-branch: true
+          title: "[removeToken] From ${{ env.NETWORK }} for token ${{ env.ADDRESS }}"
+          body: |
+            # Remove token
+            
+            **Note** This is an automated PR
+            
+            Removing token on ${{ env.NETWORK }} with address [${{ env.ADDRESS }}](https://${{ env.BLOCK_EXPLORER }}.io/token/${{ env.ADDRESS }})
+            
+            Reason:
+            ${{ env.REASON }}
+            
+            Submitted by @${{ github.event.issue.user.login }} 
+            
+            Closes #${{ github.event.issue.number }}
+
+          #          assignees: ${{ github.author }}
+          #          reviewers: |
+          #            cmagan
+          #            alfetopito
+          #          team-reviewers: @cowprotocol/frontend
+          add-paths: |
+            ${{ env.BASE_PATH }}/*
+            ${{ env.LIST_PATH }}
+
+      - name: Comment on issue
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Your request has been received and will be reviewed by a team member.
+            You can follow the progress in the Pull Request #${{ steps.cpr.outputs.pull-request-number }}
+
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Failed to remove token
+            
+            Check the input is correct and try again in a new issue
+            
+            If the issue persists, create a bug report
+            
+            cc @cowprotocol/frontend
