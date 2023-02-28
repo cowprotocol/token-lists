@@ -76,7 +76,8 @@ jobs:
             ---
             
             ${{ inputs.prBody }}
-          team-reviewers: @cowprotocol/token-masters
+          team-reviewers: |
+            @cowprotocol/token-masters
           add-paths: |
             ${{ env.BASE_PATH }}/*
             ${{ env.LIST_PATH }}
