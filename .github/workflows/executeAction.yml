@@ -76,11 +76,7 @@ jobs:
             ---
             
             ${{ inputs.prBody }}
-          #          assignees: ${{ github.author }}
-          #          reviewers: |
-          #            cmagan
-          #            alfetopito
-          #          team-reviewers: @cowprotocol/frontend
+          team-reviewers: @cowprotocol/token-masters
           add-paths: |
             ${{ env.BASE_PATH }}/*
             ${{ env.LIST_PATH }}
