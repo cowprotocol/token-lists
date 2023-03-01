@@ -30,6 +30,21 @@ Not all tokens should be in the default token list, but the more token images we
 For this, use the [`Add Image` form](https://github.com/cowprotocol/token-lists/issues/new?assignees=&labels=addImage&template=addImageForm.yml&title=%5BAddImage%5D+%60SYMBOL%60+on+%60NETWORK%60).
 
 
+### Flow overview
+```mermaid
+
+flowchart TD
+    Start(User: Picks form) --> UserFillsForm(User: Fills in form and creates issue)
+    UserFillsForm --> |Form ok| ImageProcessed("Automated: [Optional] Optimize image")
+    ImageProcessed --> PRCreated(Automated: Creates Pull Request)
+    ImageProcessed --> |Failed to process image| AutomatedIssueClosure
+    PRCreated --> TeamReview(Team: Reviews Pull Request)
+    UserFillsForm --> |Form invalid| AutomatedIssueClosure(Automated: Closes issue)
+    TeamReview --> |Request approved| TeamMergesPR(Team: Merges Pull Request)
+    TeamReview --> |Request rejected| TeamClosesPR(Team: Closes Pull Request and Issue)
+    
+```
+
 ## Development
 
 Instructions for setting up and running the various scripts locally
