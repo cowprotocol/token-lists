@@ -40,6 +40,7 @@ jobs:
 
   extractInfoFromIssue:
     runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'addImage') && contains(github.event.issue.labels.*.name, 'addToken') && contains(github.event.issue.labels.*.name, 'removeToken')
     outputs:
       issueInfo: ${{ steps.extractInfo.outputs.result }}
     steps:
