@@ -27,8 +27,8 @@ def handle_add_update_token(data):
                     "address": data["address"].lower(),
                     "symbol": data["symbol"],
                     "name": data["name"],
-                    "decimals": data["decimals"],
-                    "chainId": data["chainId"],
+                    "decimals": int(data["decimals"]),
+                    "chainId": int(data["chainId"]),
                     "logoURI": data["logoURI"],
                 }
             )
