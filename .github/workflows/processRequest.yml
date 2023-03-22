@@ -1,0 +1,222 @@
+name: ProcessRequest
+
+# Flow
+# Extract info from issue (did not find a way to get it nicely)
+# Validate all info is present
+# On validation failure, comment on issue with reason for failure
+# [Optional] Optimize image
+# Create PR with required info
+#   [Optional] Modify CowSwap.json list
+#   [Optional] Add image to src/public/network/address/logo
+#   [Optional] Add/Update info to src/public/network/address/info
+#   Link Issue to PR
+#   Add reviewers
+#   [Optional] Notify on slack
+# Comment on original issue
+
+# Running locally with `act`
+# Get the `event.json` from a GH action such as https://github.com/cowprotocol/token-lists/actions/runs/4251878894/jobs/7394780076
+# ACTIONS_RUNTIME_URL=http://host.docker.internal:34567/ act -s GITHUB_TOKEN=$(gh auth token) issues -e event.json -W .github/workflows/processRequest.yml --artifact-server-path /tmp/artifacts --artifact-server-addr "[::0]" -v
+# Some of the additional workarounds are required for running artifact uploading on Mac M1s locally. See https://github.com/nektos/act/issues/329
+
+on:
+  issues:
+    types: [opened]
+
+env:
+  # Matches labels from field forms to extract data
+  FIELD_NAMES: 'Network,Symbol,Name,URL,Decimals,Address,Reason'
+  IMAGES_BASE_PATH: src/public/images/
+  LIST_PATH: src/public/CowSwap.json
+
+jobs:
+  printContext:
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          EVENT_CONTEXT: ${{ toJSON(github.event) }}
+        run: |
+          echo $EVENT_CONTEXT
+
+  extractInfoFromIssue:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.labels.*.name, 'addImage') || contains(github.event.issue.labels.*.name, 'addToken') || contains(github.event.issue.labels.*.name, 'removeToken')
+    outputs:
+      issueInfo: ${{ steps.extractInfo.outputs.result }}
+    steps:
+      - name: Give feedback to issue creator
+        uses: peter-evans/create-or-update-comment@v2
+        if: ${{ !env.ACT }} # skip during local actions testing https://github.com/nektos/act#skipping-jobs
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Your request has been received and is being processed.
+            
+            This issue will be updated when completed.
+
+      - name: Extract info
+        id: extractInfo
+        uses: actions/github-script@v6
+        with:
+          # Using JS, build a new comment body
+          script: |
+            const body = context.payload.issue.body
+            
+            const fieldNames = `${ process.env.FIELD_NAMES }`.split(',')
+            
+            // Extract the values for each field - if it exists - based on their labels from the issue body
+            const values = fieldNames.reduce((acc, f) => {
+              // Create a regex for each field, with capturing group with the same name
+              const r = new RegExp(String.raw`${f}\s+(?<${f.toLowerCase()}>.*?)(\s+###|$)`, 's')
+            
+              // Build an object with the capturing group and value for each field
+              return {...acc, ...body.match(r)?.groups}
+            }, {})
+            
+            if (values.network === 'MAINNET') {
+              values.chainId = 1
+              values.blockExplorer = 'etherscan'
+            } else {
+              values.chainId = 100
+              values.blockExplorer = 'gnosisscan'
+            }
+            
+            // Used only in the PR context for displaying it
+            values.prImageUrl = `https://raw.githubusercontent.com/cowprotocol/token-lists/{0}/${ values.chainId }_${ values.address }/src/public/images/${ values.chainId }/${ values.address }/logo.png`
+            // Will be the final URL once it's merged to `main`
+            values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/${ values.chainId }/${ values.address }/logo.png`
+            
+            
+            // Return a string
+            return JSON.stringify(values)
+          result-encoding: string
+
+      - name: Debug
+        run: |
+          cat << EOF
+          ${{ steps.extractInfo.outputs.result }}
+          EOF
+          
+          # force failure for testing
+          # exit 1
+          
+
+  validateInput:
+    runs-on: ubuntu-latest
+    needs: extractInfoFromIssue
+    env:
+      # De-normalizing for easier access
+      NETWORK: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}
+      SYMBOL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}
+      NAME: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).name }}
+      URL: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      DECIMALS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).decimals }}
+      ADDRESS: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+      REASON: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
+
+    steps:
+      - name: Validate addImage
+        if: contains(github.event.issue.labels.*.name, 'addImage') && (!env.NETWORK || !env.URL || !env.ADDRESS)
+        run: |
+          echo "::error title={Validation failed}::{Missing required fields for adding an image}"
+          exit 1
+      - name: Validate addToken
+        if: contains(github.event.issue.labels.*.name, 'addToken') && (!env.NETWORK|| !env.SYMBOL|| !env.NAME|| !env.URL|| !env.DECIMALS|| !env.ADDRESS|| !env.REASON)
+        run: |
+          echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
+          echo "::error title={Validation failed}::{Missing required fields for adding a token}"
+          exit 1
+      - name: Validate removeToken
+        if: contains(github.event.issue.labels.*.name, 'removeToken') && (!env.NETWORK || !env.REASON || !env.ADDRESS)
+        run: |
+          echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
+          echo "::error title={Validation failed}::{Missing required fields for removing a token}"
+          exit 1
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Invalid request
+            
+            Make sure all the required fields are provided and submit a new issue 
+        
+  optimizeImage:
+    needs: [extractInfoFromIssue, validateInput]
+    uses: ./.github/workflows/optimizeImage.yml
+    if: ${{ contains(github.event.issue.labels.*.name, 'addImage') || contains(github.event.issue.labels.*.name, 'addToken') }}
+    with:
+      url: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}
+      address: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
+
+  addToken:
+    needs: [ extractInfoFromIssue, optimizeImage ]
+    uses: ./.github/workflows/executeAction.yml
+    if: ${{ contains(github.event.issue.labels.*.name, 'addToken') }}
+    secrets: inherit
+    with:
+      # Same for all
+      issueInfo: ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
+      # Custom per type
+      operation: addToken
+      prTitle: "[addToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
+      prBody: |
+        Adding token `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` on network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
+        
+        *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
+        
+        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
+        
+        | Description | Image |
+        |-|-|
+        | Original | ![original](${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}) |
+        | Optimized | ![optimized](${{ format(fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).prImageUrl, 'addToken') }}) |
+        
+        ### Reason
+        
+        ```
+        ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
+        ```
+
+  removeToken:
+    needs: [ extractInfoFromIssue, validateInput ]
+    uses: ./.github/workflows/executeAction.yml
+    if: ${{ contains(github.event.issue.labels.*.name, 'removeToken') }}
+    secrets: inherit
+    with:
+      issueInfo: ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
+      operation: removeToken
+      prTitle: "[removeToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` from `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
+      prBody: |
+        Removing token from network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
+        
+        *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
+        
+        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
+        
+        ### Reason
+        
+        ```
+        ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
+        ```
+
+  addImage:
+    needs: [ extractInfoFromIssue, optimizeImage ]
+    uses: ./.github/workflows/executeAction.yml
+    if: ${{ contains(github.event.issue.labels.*.name, 'addImage') }}
+    secrets: inherit
+    with:
+      issueInfo: ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
+      operation: addImage
+      prTitle: "[addImage] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
+      prBody: |
+        Adding image to network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
+        
+        *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
+        
+        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
+        
+        | Description | Image |
+        |-|-|
+        | Original | ![original](${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}) |
+        | Optimized | ![optimized](${{ format(fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).prImageUrl, 'addImage') }}) |

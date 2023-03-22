@@ -1,0 +1,54 @@
+name: OptimizeImage
+
+# Input: chain, address, CID
+# Steps:
+# - resolve image/download it
+# - optimize image: 256x256, remove metadata
+# - upload new image to ipfs: name file <address>.png, upload it
+# - return CID
+
+on:
+  workflow_call:
+    inputs:
+      address:
+        required: true
+        type: string
+      url:
+        required: true
+        type: string
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download image
+        run: "curl -o image.png ${{ inputs.url }}"
+
+      - name: Install imagemagick
+        run: sudo apt install imagemagick
+
+      - name: Optimize image
+        run: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
+
+#      - name: Further compress image
+#        run: "??? still need to figure out how to do this without imageoptim"
+
+      - name: Upload img
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ inputs.address }}
+          path: output.png
+          retention-days: 1
+
+      - name: Report error
+        if: ${{ failure() }}
+        uses: peter-evans/close-issue@v2
+        with:
+          comment: |
+            Failed to optimize image
+            
+            Check you provided a proper image file and try again in a new issue
+            
+            If the issue persists, create a bug report
+            
+            cc @cowprotocol/frontend
