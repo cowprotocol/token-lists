@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download image
-        run: "curl -o image.png ${{ inputs.url }}"
+        run: curl -o image.png "${{ inputs.url }}"
 
       - name: Install imagemagick
         run: sudo apt install imagemagick
