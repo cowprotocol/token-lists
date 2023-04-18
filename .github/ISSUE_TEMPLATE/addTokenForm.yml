@@ -30,6 +30,7 @@ body:
     id: symbol
     attributes:
       label: Token Symbol
+      description: The token symbol cannot contain spaces
       placeholder: SYMBOL
     validations:
       required: true
