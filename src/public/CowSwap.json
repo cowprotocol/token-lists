@@ -1,10 +1,10 @@
 {
   "name": "CoW Swap",
-  "timestamp": "2023-04-18T10:00:00+00:00",
+  "timestamp": "2023-04-18T16:30:00+00:00",
   "version": {
     "major": 2,
-    "minor": 3,
-    "patch": 1
+    "minor": 4,
+    "patch": 0
   },
   "logoURI": "https://ipfs.cow.fi/ipfs/Qme9B6jRpGtZsRFcPjHvA5T4ugFuL4c3SzWfxyMPa59AMo",
   "keywords": [
@@ -644,6 +644,14 @@
       "decimals": 18,
       "chainId": 1,
       "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/1/0x18084fba666a33d37592fa2633fd49a74dd93a88/logo.png"
+    },
+    {
+      "address": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1",
+      "symbol": "WETH",
+      "name": "Wrapped Ether on Gnosis Chain",
+      "decimals": 18,
+      "chainId": 100,
+      "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/100/0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1/logo.png"
     }
   ]
 }
