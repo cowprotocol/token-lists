@@ -130,8 +130,8 @@ jobs:
         if: env.SYMBOL
         run: |
           validate_symbol=$(echo ${{ env.SYMBOL }} | grep '\s' -qE)
-          validate_symbol && echo "::error title={Validation failed}::{Symbol cannot contain spaces}"
-          exit validate_symbol
+          $validate_symbol && echo "::error title={Validation failed}::{Symbol cannot contain spaces}"
+          exit $validate_symbol
       - name: Validate removeToken
         if: contains(github.event.issue.labels.*.name, 'removeToken') && (!env.NETWORK || !env.REASON || !env.ADDRESS)
         run: |
