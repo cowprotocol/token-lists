@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - s3-cf-auto-deploy
 
 jobs:
   deploy:
@@ -22,10 +21,10 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 cp src/public/test.txt s3://files.cow.fi/test.txt
+          aws s3 cp src/public/CowSwap.json s3://files.cow.fi/tokens/CowSwap.json
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.DISTRIBUTION }} \
-            --paths "/*"
+            --paths "/tokens/*"
