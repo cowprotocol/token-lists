@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - s3-cf-auto-deploy
 
 # Required for authenticating with AWS IAM
 permissions:
@@ -26,10 +27,10 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 cp src/public/CowSwap.json s3://files.cow.fi/tokens/CowSwap.json
+          aws s3 cp src/public/test.txt s3://files.cow.fi/test.txt
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.DISTRIBUTION }} \
-            --paths "/tokens/*"
+            --paths "/*"
