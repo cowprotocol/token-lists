@@ -32,11 +32,20 @@ def handle_add_update_token(data):
                     "logoURI": data["logoURI"],
                 }
             )
+        token_list["tokens"] = sort_token_list(token_list["tokens"])
         f.seek(0)
         f.truncate()
         json.dump(token_list, f, indent=2)
 
     handle_info_json(data)
+
+
+def sort_token_list(tokens):
+    """
+    Sort token list by chainId, then address
+    """
+    tokens.sort(key=lambda x: (x["chainId"], x["address"].lower()))
+    return tokens
 
 
 def handle_remove_token(data):
@@ -83,7 +92,7 @@ def handle_info_json(data, removed=False):
 def main():
     option = sys.argv[1]
     data_file = sys.argv[2]
-    
+
     with open(data_file) as f:
         loaded_data = json.load(f)
         print(loaded_data)
