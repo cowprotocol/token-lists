@@ -84,7 +84,7 @@ async function getStaticData(idsData) {
   let index = 0;
   while (index < idsData.length) {
     const idItem = idsData[index];
-    const quoteParams = `localization=false&tickers=false&market_data=false&community_data=false&developer_data=false&sparkline=false`;
+    const quoteParams = `localization=false&tickers=true&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     const url = `https://api.coingecko.com/api/v3/coins/${idItem.id}?${quoteParams}`;
 
     console.log(`Fetching data for ID: ${idItem.id}`);
