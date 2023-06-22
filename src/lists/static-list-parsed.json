@@ -43,9 +43,7 @@
         ],
         "public_notice": null,
         "additional_notices": [],
-        "description": {
-            "en": ""
-        },
+        "description": "Custom description for 0x",
         "links": {
             "homepage": [
                 "https://www.0xprotocol.org/",
@@ -315,9 +313,7 @@
         ],
         "public_notice": null,
         "additional_notices": [],
-        "description": {
-            "en": "\"What is 1inch Network?\r\n1inch Network is a decentralized exchange (DEX) aggregator to help users discover the best trade prices for tokens. Instead of swapping tokens from a single liquidity pool of a DEX, 1inch will aggregate across different pools and suggest the most efficient way to trade tokens.\r\n\r\nWhy use 1inch?\r\nIf you are a trader trading large amount of tokens, you may not be aware of all the availability liquidity across different DEXes in order to get the best price quote. Price quote offered by DEX fluctuates according to the liquidity pool at any given time. Also, when you are trading large size, every percentage of savings can be magnified with an optimal trading path. 1inch aims to solve all that in a single user friendly interface.\r\n\r\nWhat is Pathfinder?\r\nPathfinder is the discovery and routing algorithm developed by the 1inch team. It is the algorithm the powers the backend to finding the most efficient route to swap a token. For example, if a user wants to sell ETH for WBTC, Pathfinder will explore all DEXes such as Uniswap, Curve, Balancer, DODO, Sushiswap, and more. The result is a recommended route that optimizes fees and liquidity in order to give users the best rate. Users no longer need to check each individual services in order to find the best price.\r\n\r\nWho are the creators of 1inch?\r\n1inch was founded by Sergej Kunz and Anton Bukov. The idea for 1inch was developed at a hackathon in just over 60 hours at New York City. Fast forward today, it is one of the fastest growing DeFi product.\""
-        },
+        "description": "Custom desc for 1inch",
         "links": {
             "homepage": [
                 "https://1inch.io/",
@@ -927,6 +923,212 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:26:25.269Z"
+    },
+    {
+        "id": "across-protocol",
+        "symbol": "acx",
+        "name": "Across Protocol",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
+            "optimistic-ethereum": "0xff733b2a3557a7ed6697007ab5d11b79fdd1b76b",
+            "arbitrum-one": "0x53691596d1bce8cea565b84d4915e69e03d9c99d",
+            "boba": "0x96821b258955587069f680729cd77369c0892b40",
+            "polygon-pos": "0xf328b73b6c685831f238c30a23fc19140cb4d8fc"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f"
+            },
+            "optimistic-ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0xff733b2a3557a7ed6697007ab5d11b79fdd1b76b"
+            },
+            "arbitrum-one": {
+                "decimal_place": 18,
+                "contract_address": "0x53691596d1bce8cea565b84d4915e69e03d9c99d"
+            },
+            "boba": {
+                "decimal_place": 18,
+                "contract_address": "0x96821b258955587069f680729cd77369c0892b40"
+            },
+            "polygon-pos": {
+                "decimal_place": 18,
+                "contract_address": "0xf328b73b6c685831f238c30a23fc19140cb4d8fc"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Polygon Ecosystem",
+            "Arbitrum Ecosystem",
+            "Optimism Ecosystem",
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": "Across is an optimistic cross-chain bridge secured by UMA’s optimistic oracle. It is optimized for capital efficiency with a single liquidity pool, a competitive relayer landscape, and a no-slippage fee model. "
+        },
+        "links": {
+            "homepage": [
+                "https://across.to/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
+                "https://ethplorer.io/address/0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
+                "https://optimistic.etherscan.io/token/0xFf733b2A3557a7ed6697007ab5D11B79FdD1b76B",
+                "https://arbiscan.io/token/0x53691596d1bce8cea565b84d4915e69e03d9c99d",
+                "https://blockexplorer.boba.network/tokens/0x96821b258955587069f680729cd77369c0892b40",
+                "https://polygonscan.com/token/0xf328b73b6c685831f238c30a23fc19140cb4d8fc",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "https://forum.across.to/",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.com/invite/sKSkhTtu8s",
+                "https://medium.com/across-protocol",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "AcrossProtocol",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/across-protocol"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/28161/thumb/across-200x200.png?1668168201",
+            "small": "https://assets.coingecko.com/coins/images/28161/small/across-200x200.png?1668168201",
+            "large": "https://assets.coingecko.com/coins/images/28161/large/across-200x200.png?1668168201"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 1624,
+        "market_cap_rank": 963,
+        "coingecko_rank": null,
+        "coingecko_score": 0,
+        "developer_score": 0,
+        "community_score": 0,
+        "liquidity_score": 0,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 0.04305939
+            },
+            "total_value_locked": {
+                "usd": 44972843
+            },
+            "mcap_to_tvl_ratio": 0.21,
+            "fdv_to_tvl_ratio": 0.96,
+            "roi": null,
+            "ath": {
+                "usd": 0.102523
+            },
+            "ath_change_percentage": {
+                "usd": -58.00013
+            },
+            "ath_date": {
+                "usd": "2023-02-26T17:19:36.011Z"
+            },
+            "atl": {
+                "usd": 0.03440846
+            },
+            "atl_change_percentage": {
+                "usd": 25.14184
+            },
+            "atl_date": {
+                "usd": "2023-06-01T08:30:40.359Z"
+            },
+            "market_cap": {
+                "usd": 9253236
+            },
+            "market_cap_rank": 963,
+            "fully_diluted_valuation": {
+                "usd": 43250193
+            },
+            "total_volume": {
+                "usd": 64169
+            },
+            "high_24h": {
+                "usd": 0.04552115
+            },
+            "low_24h": {
+                "usd": 0.0430582
+            },
+            "price_change_24h": -0.0016518536214048,
+            "price_change_percentage_24h": -3.69449,
+            "price_change_percentage_7d": -2.73815,
+            "price_change_percentage_14d": -0.05037,
+            "price_change_percentage_30d": -4.07573,
+            "price_change_percentage_60d": -13.84346,
+            "price_change_percentage_200d": 5.8854,
+            "price_change_percentage_1y": 0,
+            "market_cap_change_24h": -372314.51283477,
+            "market_cap_change_percentage_24h": -3.86798,
+            "price_change_24h_in_currency": {
+                "usd": -0.001651853621404756
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -0.05777
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -3.69449
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -2.73815
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -0.05037
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -4.07573
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -13.84346
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": 5.8854
+            },
+            "price_change_percentage_1y_in_currency": {},
+            "market_cap_change_24h_in_currency": {
+                "usd": -372314.51283477247
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": -3.86798
+            },
+            "total_supply": 1000000000,
+            "max_supply": 1000000000,
+            "circulating_supply": 213946702.3679336,
+            "last_updated": "2023-06-21T09:26:08.622Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:26:08.622Z"
     },
     {
         "id": "adshares",
@@ -1712,6 +1914,199 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:27:36.514Z"
+    },
+    {
+        "id": "agave-token",
+        "symbol": "agve",
+        "name": "Agave",
+        "asset_platform_id": "xdai",
+        "platforms": {
+            "xdai": "0x3a97704a1b25f08aa230ae53b352e2e72ef52843",
+            "arbitrum-one": "0x848e0ba28b637e8490d88bae51fa99c87116409b"
+        },
+        "detail_platforms": {
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0x3a97704a1b25f08aa230ae53b352e2e72ef52843"
+            },
+            "arbitrum-one": {
+                "decimal_place": 18,
+                "contract_address": "0x848e0ba28b637e8490d88bae51fa99c87116409b"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Arbitrum Ecosystem",
+            "Gnosis Chain Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [
+            "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+        ],
+        "description": {
+            "en": "Agave, a decentralized non-custodial money market protocol where users can participate by borrowing or lending money through the application."
+        },
+        "links": {
+            "homepage": [
+                "https://agave.finance/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://blockscout.com/poa/xdai/tokens/0x3a97704a1b25F08aa230ae53B352e2e72ef52843/token-transfers",
+                "https://arbiscan.io/token/0x848e0ba28b637e8490d88bae51fa99c87116409b",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/bkVwdxSfCn",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "https://medium.com/agavefinance",
+                ""
+            ],
+            "twitter_screen_name": "Agave_lending",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "Agave1Hive",
+            "subreddit_url": "https://www.reddit.com/r/AGVE/",
+            "repos_url": {
+                "github": [
+                    "https://github.com/1Hive/agave-frontend"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/14146/thumb/agve.png?1614659384",
+            "small": "https://assets.coingecko.com/coins/images/14146/small/agve.png?1614659384",
+            "large": "https://assets.coingecko.com/coins/images/14146/large/agve.png?1614659384"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x3a97704a1b25f08aa230ae53b352e2e72ef52843",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 1522,
+        "market_cap_rank": 2080,
+        "coingecko_rank": 1918,
+        "coingecko_score": 15.371,
+        "developer_score": 0,
+        "community_score": 21.442,
+        "liquidity_score": 1,
+        "public_interest_score": 0.001,
+        "market_data": {
+            "current_price": {
+                "usd": 28.18
+            },
+            "total_value_locked": {
+                "usd": 15844825
+            },
+            "mcap_to_tvl_ratio": 0.05,
+            "fdv_to_tvl_ratio": 0.18,
+            "roi": null,
+            "ath": {
+                "usd": 1466.43
+            },
+            "ath_change_percentage": {
+                "usd": -98.05701
+            },
+            "ath_date": {
+                "usd": "2021-03-16T15:07:58.157Z"
+            },
+            "atl": {
+                "usd": 4.92
+            },
+            "atl_change_percentage": {
+                "usd": 478.95643
+            },
+            "atl_date": {
+                "usd": "2022-12-17T10:19:21.181Z"
+            },
+            "market_cap": {
+                "usd": 791976
+            },
+            "market_cap_rank": 2080,
+            "fully_diluted_valuation": {
+                "usd": 2848844
+            },
+            "total_volume": {
+                "usd": 1714.79
+            },
+            "high_24h": {
+                "usd": 30.09
+            },
+            "low_24h": {
+                "usd": 25.88
+            },
+            "price_change_24h": -0.7078472513837,
+            "price_change_percentage_24h": -2.45043,
+            "price_change_percentage_7d": -3.91196,
+            "price_change_percentage_14d": -16.58547,
+            "price_change_percentage_30d": -12.81352,
+            "price_change_percentage_60d": -25.20855,
+            "price_change_percentage_200d": 7.69442,
+            "price_change_percentage_1y": -34.43775,
+            "market_cap_change_24h": -8164.742062243,
+            "market_cap_change_percentage_24h": -1.02041,
+            "price_change_24h_in_currency": {
+                "usd": -0.7078472513837717
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -4.8451
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -2.45043
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -3.91196
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -16.58547
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -12.81352
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -25.20855
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": 7.69442
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -34.43775
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": -8164.742062243633
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": -1.02041
+            },
+            "total_supply": 100000,
+            "max_supply": 100000,
+            "circulating_supply": 27799.9,
+            "last_updated": "2023-06-21T09:27:12.167Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:27:12.167Z"
     },
     {
         "id": "alchemist",
@@ -5623,6 +6018,373 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:29:22.780Z"
+    },
+    {
+        "id": "aura-bal",
+        "symbol": "aurabal",
+        "name": "Aura BAL",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Decentralized Finance (DeFi)",
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": "auraBAL is a liquid wrapper for Balancer's veBAL. Aura allows users to deposit their 80/20 BAL/WETH BPT and receive liquid auraBAL, instead of the non-transferrable veBAL. Tokenised auraBAL is given to the user at a 1:1 rate for veBAL, and can be traded on Balancer or elsewhere.\r\n\r\nThis BPT is then locked up by the Aura protocol for the maximum time in Balancer Voting Escrow where it will allow the Aura system to benefit from its voting power for boosting rewards & voting for gauges."
+        },
+        "links": {
+            "homepage": [
+                "https://aura.finance/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0x616e8bfa43f920657b3497dbf40d6b1a02d4608d",
+                "https://ethplorer.io/address/0x616e8bfa43f920657b3497dbf40d6b1a02d4608d",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "https://mirror.xyz/0xfEE0Bbe31345a7c27368534fEf45a57133FF3A86",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/aurafinance",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "AuraFinance",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "aurafinance",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/aurafinance"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/26538/thumb/auraBAL.png?1658721102",
+            "small": "https://assets.coingecko.com/coins/images/26538/small/auraBAL.png?1658721102",
+            "large": "https://assets.coingecko.com/coins/images/26538/large/auraBAL.png?1658721102"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x616e8bfa43f920657b3497dbf40d6b1a02d4608d",
+        "sentiment_votes_up_percentage": 0,
+        "sentiment_votes_down_percentage": 100,
+        "watchlist_portfolio_users": 263,
+        "market_cap_rank": 454,
+        "coingecko_rank": 5958,
+        "coingecko_score": 1.912,
+        "developer_score": 0,
+        "community_score": 7.78,
+        "liquidity_score": 1,
+        "public_interest_score": 0.003,
+        "market_data": {
+            "current_price": {
+                "usd": 12.69
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 21.61
+            },
+            "ath_change_percentage": {
+                "usd": -41.28154
+            },
+            "ath_date": {
+                "usd": "2023-01-31T20:55:03.507Z"
+            },
+            "atl": {
+                "usd": 8.2
+            },
+            "atl_change_percentage": {
+                "usd": 54.78298
+            },
+            "atl_date": {
+                "usd": "2022-11-09T13:15:21.224Z"
+            },
+            "market_cap": {
+                "usd": 39590957
+            },
+            "market_cap_rank": 454,
+            "fully_diluted_valuation": {
+                "usd": 39590957
+            },
+            "total_volume": {
+                "usd": 97072
+            },
+            "high_24h": {
+                "usd": 12.87
+            },
+            "low_24h": {
+                "usd": 12.03
+            },
+            "price_change_24h": 0.328235,
+            "price_change_percentage_24h": 2.65494,
+            "price_change_percentage_7d": 0.30553,
+            "price_change_percentage_14d": -11.07602,
+            "price_change_percentage_30d": -9.85958,
+            "price_change_percentage_60d": -18.82844,
+            "price_change_percentage_200d": -9.646,
+            "price_change_percentage_1y": 0,
+            "market_cap_change_24h": 1078708,
+            "market_cap_change_percentage_24h": 2.80095,
+            "price_change_24h_in_currency": {
+                "usd": 0.328235
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -0.01685
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": 2.65494
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": 0.30553
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -11.07602
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -9.85958
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -18.82844
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -9.646
+            },
+            "price_change_percentage_1y_in_currency": {},
+            "market_cap_change_24h_in_currency": {
+                "usd": 1078708
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 2.80095
+            },
+            "total_supply": 3116466.12162097,
+            "max_supply": null,
+            "circulating_supply": 3116466.12162097,
+            "last_updated": "2023-06-21T09:24:45.627Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:24:45.627Z"
+    },
+    {
+        "id": "aura-finance",
+        "symbol": "aura",
+        "name": "Aura Finance",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Decentralized Finance (DeFi)",
+            "Metagovernance",
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": "Centered around Balancer’s veBAL, Aura coordinates incentives around vote-escrowed tokens to boost yield potential and governance power of DeFi liquidity providers, governance token stakers and voters."
+        },
+        "links": {
+            "homepage": [
+                "https://aura.finance",
+                "https://app.aura.finance",
+                "https://docs.aura.finance"
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/address/0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF",
+                "https://etherscan.io/token/0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF",
+                "https://ethplorer.io/address/0xc0c293ce456ff0ed870add98a0828dd4d2903dbf",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "https://mirror.xyz/0xfEE0Bbe31345a7c27368534fEf45a57133FF3A86",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/aurafinance",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "aurafinance",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "aurafinance",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/aurafinance/"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/25942/thumb/logo.png?1654784187",
+            "small": "https://assets.coingecko.com/coins/images/25942/small/logo.png?1654784187",
+            "large": "https://assets.coingecko.com/coins/images/25942/large/logo.png?1654784187"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf",
+        "sentiment_votes_up_percentage": 50,
+        "sentiment_votes_down_percentage": 50,
+        "watchlist_portfolio_users": 6417,
+        "market_cap_rank": 410,
+        "coingecko_rank": 1581,
+        "coingecko_score": 17.272,
+        "developer_score": 0,
+        "community_score": 7.78,
+        "liquidity_score": 13.758,
+        "public_interest_score": 0.003,
+        "market_data": {
+            "current_price": {
+                "usd": 1.66
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 4.05
+            },
+            "ath_change_percentage": {
+                "usd": -58.95643
+            },
+            "ath_date": {
+                "usd": "2023-03-14T13:19:41.812Z"
+            },
+            "atl": {
+                "usd": 0.445907
+            },
+            "atl_change_percentage": {
+                "usd": 272.42731
+            },
+            "atl_date": {
+                "usd": "2022-06-17T07:20:33.005Z"
+            },
+            "market_cap": {
+                "usd": 46744525
+            },
+            "market_cap_rank": 410,
+            "fully_diluted_valuation": {
+                "usd": 164705478
+            },
+            "total_volume": {
+                "usd": 307457
+            },
+            "high_24h": {
+                "usd": 1.67
+            },
+            "low_24h": {
+                "usd": 1.56
+            },
+            "price_change_24h": 0.096497,
+            "price_change_percentage_24h": 6.1702,
+            "price_change_percentage_7d": -2.8302,
+            "price_change_percentage_14d": -10.95882,
+            "price_change_percentage_30d": -13.53108,
+            "price_change_percentage_60d": -26.90205,
+            "price_change_percentage_200d": -29.22049,
+            "price_change_percentage_1y": 98.79578,
+            "market_cap_change_24h": 2387248,
+            "market_cap_change_percentage_24h": 5.38186,
+            "price_change_24h_in_currency": {
+                "usd": 0.096497
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": 0.62686
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": 6.1702
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -2.8302
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -10.95882
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -13.53108
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -26.90205
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -29.22049
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": 98.79578
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 2387248
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 5.38186
+            },
+            "total_supply": 62260687.4020499,
+            "max_supply": 100000000,
+            "circulating_supply": 28380674.4008115,
+            "last_updated": "2023-06-21T09:27:17.455Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:27:17.455Z"
     },
     {
         "id": "aurora-near",
@@ -14823,6 +15585,198 @@
         "last_updated": "2023-06-21T09:37:02.074Z"
     },
     {
+        "id": "cow-protocol",
+        "symbol": "cow",
+        "name": "CoW Protocol",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab",
+            "xdai": "0x177127622c4a00f3d409b75571e12cb3c8973d3c"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+            },
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0x177127622c4a00f3d409b75571e12cb3c8973d3c"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Decentralized Exchange (DEX)",
+            "MEV Protection",
+            "Ethereum Ecosystem",
+            "Decentralized Finance (DeFi)",
+            "Gnosis Chain Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": "COW token allows its holders the right to govern and curate the infrastructure of the CoW Protocol ecosystem through the CowDAO. Additionally, COW token holders receive fee discounts when trading on CowSwap & some other perks."
+        },
+        "links": {
+            "homepage": [
+                "https://cow.fi",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0xDEf1CA1fb7FBcDC777520aa7f396b4E015F497aB",
+                "https://ethplorer.io/address/0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab",
+                "https://blockscout.com/xdai/mainnet/token/0x177127622c4A00F3d409B75571e12cB3c8973d3c/token-transfers",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/cowprotocol",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "https://medium.com/@cow-protocol",
+                ""
+            ],
+            "twitter_screen_name": "CoWSwap",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/gnosis/cow-token/"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/24384/thumb/cow.png?1660960589",
+            "small": "https://assets.coingecko.com/coins/images/24384/small/cow.png?1660960589",
+            "large": "https://assets.coingecko.com/coins/images/24384/large/cow.png?1660960589"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 2847,
+        "market_cap_rank": 909,
+        "coingecko_rank": 627,
+        "coingecko_score": 25.574,
+        "developer_score": 50.117,
+        "community_score": 4.344,
+        "liquidity_score": 0.028,
+        "public_interest_score": 0.002,
+        "market_data": {
+            "current_price": {
+                "usd": 0.072104
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 2.22
+            },
+            "ath_change_percentage": {
+                "usd": -96.75378
+            },
+            "ath_date": {
+                "usd": "2022-03-28T16:24:17.921Z"
+            },
+            "atl": {
+                "usd": 0.03987045
+            },
+            "atl_change_percentage": {
+                "usd": 80.69048
+            },
+            "atl_date": {
+                "usd": "2022-11-09T18:32:42.225Z"
+            },
+            "market_cap": {
+                "usd": 10764754
+            },
+            "market_cap_rank": 909,
+            "fully_diluted_valuation": {
+                "usd": 72045908
+            },
+            "total_volume": {
+                "usd": 19158.25
+            },
+            "high_24h": {
+                "usd": 0.073306
+            },
+            "low_24h": {
+                "usd": 0.065335
+            },
+            "price_change_24h": 0.00373555,
+            "price_change_percentage_24h": 5.46385,
+            "price_change_percentage_7d": 4.8154,
+            "price_change_percentage_14d": -0.1454,
+            "price_change_percentage_30d": -0.13953,
+            "price_change_percentage_60d": -7.09046,
+            "price_change_percentage_200d": -8.78979,
+            "price_change_percentage_1y": -27.03863,
+            "market_cap_change_24h": 580853,
+            "market_cap_change_percentage_24h": 5.70364,
+            "price_change_24h_in_currency": {
+                "usd": 0.00373555
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": 0.0066
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": 5.46385
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": 4.8154
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -0.1454
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -0.13953
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -7.09046
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -8.78979
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -27.03863
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 580853
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 5.70364
+            },
+            "total_supply": 1000000000,
+            "max_supply": 1000000000,
+            "circulating_supply": 149415205.74509,
+            "last_updated": "2023-06-21T09:35:37.503Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:35:37.503Z"
+    },
+    {
         "id": "creditcoin-2",
         "symbol": "ctc",
         "name": "Creditcoin",
@@ -16119,6 +17073,196 @@
         "last_updated": "2023-06-21T09:35:00.170Z"
     },
     {
+        "id": "daohaus",
+        "symbol": "haus",
+        "name": "DAOhaus",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0xf2051511b9b121394fa75b8f7d4e7424337af687",
+            "xdai": "0xb0c5f3100a4d9d9532a4cfd68c55f1ae8da987eb"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0xf2051511b9b121394fa75b8f7d4e7424337af687"
+            },
+            "xdai": {
+                "decimal_place": 35,
+                "contract_address": "0xb0c5f3100a4d9d9532a4cfd68c55f1ae8da987eb"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Ethereum Ecosystem",
+            "Gnosis Chain Ecosystem",
+            "Governance"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": "This HAUS doesn't build itself\r\nIt takes a community, and HausDAO is the community of contributors working together directly to design, build, and communicate the actual product."
+        },
+        "links": {
+            "homepage": [
+                "https://daohaus.club/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0xf2051511b9b121394fa75b8f7d4e7424337af687",
+                "https://ethplorer.io/address/0xf2051511b9b121394fa75b8f7d4e7424337af687",
+                "https://blockscout.com/xdai/mainnet/tokens/0xb0C5f3100A4d9d9532a4CfD68c55F1AE8da987Eb/token-transfers",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.com/invite/daohaus",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "https://medium.com/daohaus-club/",
+                ""
+            ],
+            "twitter_screen_name": "nowdaoit",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/HausDAO/pokemol-web"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/14551/thumb/jN3kkqke_400x400.png?1616990048",
+            "small": "https://assets.coingecko.com/coins/images/14551/small/jN3kkqke_400x400.png?1616990048",
+            "large": "https://assets.coingecko.com/coins/images/14551/large/jN3kkqke_400x400.png?1616990048"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0xf2051511b9b121394fa75b8f7d4e7424337af687",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 927,
+        "market_cap_rank": 1830,
+        "coingecko_rank": 355,
+        "coingecko_score": 31.097,
+        "developer_score": 70.211,
+        "community_score": 8.208,
+        "liquidity_score": 1,
+        "public_interest_score": 0.003,
+        "market_data": {
+            "current_price": {
+                "usd": 1.42
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 85.61
+            },
+            "ath_change_percentage": {
+                "usd": -98.40297
+            },
+            "ath_date": {
+                "usd": "2021-03-30T15:56:59.843Z"
+            },
+            "atl": {
+                "usd": 1.21
+            },
+            "atl_change_percentage": {
+                "usd": 13.07807
+            },
+            "atl_date": {
+                "usd": "2023-06-21T02:25:01.745Z"
+            },
+            "market_cap": {
+                "usd": 1347328
+            },
+            "market_cap_rank": 1830,
+            "fully_diluted_valuation": {
+                "usd": 1347328
+            },
+            "total_volume": {
+                "usd": 116.56
+            },
+            "high_24h": {
+                "usd": 1.46
+            },
+            "low_24h": {
+                "usd": 1.21
+            },
+            "price_change_24h": -0.00073393111837,
+            "price_change_percentage_24h": -0.05149,
+            "price_change_percentage_7d": -1.28584,
+            "price_change_percentage_14d": -7.68044,
+            "price_change_percentage_30d": 2.01485,
+            "price_change_percentage_60d": -54.45577,
+            "price_change_percentage_200d": -56.46476,
+            "price_change_percentage_1y": -57.74917,
+            "market_cap_change_24h": -81141.25265962,
+            "market_cap_change_percentage_24h": -5.6803,
+            "price_change_24h_in_currency": {
+                "usd": -0.000733931118373166
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": 0.96697
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -0.05149
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -1.28584
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -7.68044
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": 2.01485
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -54.45577
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -56.46476
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -57.74917
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": -81141.25265962188
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": -5.6803
+            },
+            "total_supply": 1000000,
+            "max_supply": 1000000,
+            "circulating_supply": 1000000,
+            "last_updated": "2023-06-21T09:37:31.924Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:37:31.924Z"
+    },
+    {
         "id": "dao-maker",
         "symbol": "dao",
         "name": "DAO Maker",
@@ -17352,6 +18496,183 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:37:59.991Z"
+    },
+    {
+        "id": "diversified-staked-eth",
+        "symbol": "dseth",
+        "name": "Diversified Staked ETH",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0x341c05c0e9b33c0e38d64de76516b2ce970bb3be"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0x341c05c0e9b33c0e38d64de76516b2ce970bb3be"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": "Anyone can mint new tokens, please proceed with caution.",
+        "additional_notices": [],
+        "description": {
+            "en": "The Diversified Staked ETH Index (dsETH) is an index token of the leading Ethereum liquid staking tokens. Along with providing a source of diversified staking yield, dsETH strengthens the Ethereum network with weightings that favor decentralized liquid staking protocols. "
+        },
+        "links": {
+            "homepage": [
+                "https://indexcoop.com",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0x341c05c0e9b33c0e38d64de76516b2ce970bb3be",
+                "https://ethplorer.io/address/0x341c05c0e9b33c0e38d64de76516b2ce970bb3be",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "https://www.linkedin.com/company/index-coop/",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/indexcoop",
+                "https://indexcoop.com/blog",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/IndexCoop/index-protocol"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/28751/thumb/dsETH-logo.png?1673929867",
+            "small": "https://assets.coingecko.com/coins/images/28751/small/dsETH-logo.png?1673929867",
+            "large": "https://assets.coingecko.com/coins/images/28751/large/dsETH-logo.png?1673929867"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x341c05c0e9b33c0e38d64de76516b2ce970bb3be",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 67,
+        "market_cap_rank": 1790,
+        "coingecko_rank": null,
+        "coingecko_score": 0,
+        "developer_score": 0,
+        "community_score": 0,
+        "liquidity_score": 0,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 1852.31
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 2153.61
+            },
+            "ath_change_percentage": {
+                "usd": -13.99037
+            },
+            "ath_date": {
+                "usd": "2023-04-16T19:25:40.546Z"
+            },
+            "atl": {
+                "usd": 1393.4
+            },
+            "atl_change_percentage": {
+                "usd": 32.93502
+            },
+            "atl_date": {
+                "usd": "2023-03-10T11:26:03.021Z"
+            },
+            "market_cap": {
+                "usd": 1465082
+            },
+            "market_cap_rank": 1790,
+            "fully_diluted_valuation": {
+                "usd": 1465082
+            },
+            "total_volume": {
+                "usd": 94476
+            },
+            "high_24h": {
+                "usd": 1859.5
+            },
+            "low_24h": {
+                "usd": 1811.72
+            },
+            "price_change_24h": 40.59,
+            "price_change_percentage_24h": 2.24059,
+            "price_change_percentage_7d": 4.47934,
+            "price_change_percentage_14d": -0.9991,
+            "price_change_percentage_30d": -0.05353,
+            "price_change_percentage_60d": -1.31195,
+            "price_change_percentage_200d": 0,
+            "price_change_percentage_1y": 0,
+            "market_cap_change_24h": 77046,
+            "market_cap_change_percentage_24h": 5.5507,
+            "price_change_24h_in_currency": {
+                "usd": 40.59
+            },
+            "price_change_percentage_1h_in_currency": {},
+            "price_change_percentage_24h_in_currency": {
+                "usd": 2.24059
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": 4.47934
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -0.9991
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -0.05353
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -1.31195
+            },
+            "price_change_percentage_200d_in_currency": {},
+            "price_change_percentage_1y_in_currency": {},
+            "market_cap_change_24h_in_currency": {
+                "usd": 77046
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 5.5507
+            },
+            "total_supply": 790.947996575076,
+            "max_supply": null,
+            "circulating_supply": 790.947996575076,
+            "last_updated": "2023-06-21T06:58:26.232Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T06:58:26.232Z"
     },
     {
         "id": "dkargo",
@@ -24157,6 +25478,187 @@
         "last_updated": null
     },
     {
+        "id": "fraction",
+        "symbol": "fraction",
+        "name": "Fraction",
+        "asset_platform_id": "xdai",
+        "platforms": {
+            "xdai": "0x2bf2ba13735160624a0feae98f6ac8f70885ea61"
+        },
+        "detail_platforms": {
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0x2bf2ba13735160624a0feae98f6ac8f70885ea61"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Gnosis Chain Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [
+            "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+        ],
+        "description": {
+            "en": "FRACTION is a native streamable token on the xDai Chain with a total supply of only 1. Which means you can ever only own a fraction of the token. The inital value of 1 FRACTION got set to 2000$ by filling up the FRACTION:WXDAI Honeyswap Liquidity pool on a 0.5:1000 ratio. It's a native Supertoken, meaning you can stream it via the Superfluid protocol. The price solely depends on buy:sale:liquidity-pool ratio on the Honeyswap DEX (there was no Airdrop, Airstream, ICO, IDO or any other crypto-acronym). The token doesn't have ANY real-life value/usecase - it's more like a \"collectible you can trade like a currency\" than a utility token."
+        },
+        "links": {
+            "homepage": [
+                "https://fraction.fyi/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://blockscout.com/xdai/mainnet/tokens/0x2bF2ba13735160624a0fEaE98f6aC8F70885eA61",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "fraction_token",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/15099/thumb/fraction.png?1619691519",
+            "small": "https://assets.coingecko.com/coins/images/15099/small/fraction.png?1619691519",
+            "large": "https://assets.coingecko.com/coins/images/15099/large/fraction.png?1619691519"
+        },
+        "country_origin": "AT",
+        "genesis_date": null,
+        "contract_address": "0x2bf2ba13735160624a0feae98f6ac8f70885ea61",
+        "sentiment_votes_up_percentage": 0,
+        "sentiment_votes_down_percentage": 100,
+        "watchlist_portfolio_users": 129,
+        "market_cap_rank": null,
+        "coingecko_rank": 6684,
+        "coingecko_score": 1.344,
+        "developer_score": 0,
+        "community_score": 6.108,
+        "liquidity_score": 0,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 17959.85
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 360194
+            },
+            "ath_change_percentage": {
+                "usd": -95.01384
+            },
+            "ath_date": {
+                "usd": "2021-09-06T04:47:18.396Z"
+            },
+            "atl": {
+                "usd": 11181.01
+            },
+            "atl_change_percentage": {
+                "usd": 60.62818
+            },
+            "atl_date": {
+                "usd": "2023-03-11T10:32:52.668Z"
+            },
+            "market_cap": {
+                "usd": 0
+            },
+            "market_cap_rank": null,
+            "fully_diluted_valuation": {},
+            "total_volume": {
+                "usd": 0.951311
+            },
+            "high_24h": {
+                "usd": 19645.88
+            },
+            "low_24h": {
+                "usd": 17338.07
+            },
+            "price_change_24h": 621.78,
+            "price_change_percentage_24h": 3.58619,
+            "price_change_percentage_7d": -7.92049,
+            "price_change_percentage_14d": -9.19317,
+            "price_change_percentage_30d": -13.76538,
+            "price_change_percentage_60d": -17.989,
+            "price_change_percentage_200d": -24.65295,
+            "price_change_percentage_1y": -44.87835,
+            "market_cap_change_24h": 0,
+            "market_cap_change_percentage_24h": 0,
+            "price_change_24h_in_currency": {
+                "usd": 621.78
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -4.92842
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": 3.58619
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -7.92049
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -9.19317
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -13.76538
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -17.989
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -24.65295
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -44.87835
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 0
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 0
+            },
+            "total_supply": null,
+            "max_supply": null,
+            "circulating_supply": 0,
+            "last_updated": "2023-06-21T09:41:47.494Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:41:47.494Z"
+    },
+    {
         "id": "frax",
         "symbol": "frax",
         "name": "Frax",
@@ -26014,6 +27516,295 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:44:05.302Z"
+    },
+    {
+        "id": "gitcoin-staked-eth-index",
+        "symbol": "gtceth",
+        "name": "Gitcoin Staked ETH Index",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0x36c833eed0d376f75d1ff9dfdee260191336065e"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0x36c833eed0d376f75d1ff9dfdee260191336065e"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": "The Gitcoin Staked ETH Index (gtcETH) is an index token made up of the leading Ethereum liquid staking tokens. In addition to a methodology that encourages decentralization, gtcETH shares a portion of staking rewards with Gitcoin in support of public goods funding."
+        },
+        "links": {
+            "homepage": [
+                "https://indexcoop.com/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/address/0x36c833eed0d376f75d1ff9dfdee260191336065e",
+                "https://etherscan.io/token/0x36c833eed0d376f75d1ff9dfdee260191336065e",
+                "https://ethplorer.io/address/0x36c833eed0d376f75d1ff9dfdee260191336065e",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "https://www.linkedin.com/company/index-coop/",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/indexcoop",
+                "https://indexcoop.com/blog",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/IndexCoop/index-protocol"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/29171/thumb/gtcETH-token-logo.png?1677060167",
+            "small": "https://assets.coingecko.com/coins/images/29171/small/gtcETH-token-logo.png?1677060167",
+            "large": "https://assets.coingecko.com/coins/images/29171/large/gtcETH-token-logo.png?1677060167"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x36c833eed0d376f75d1ff9dfdee260191336065e",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 25,
+        "market_cap_rank": 2936,
+        "coingecko_rank": null,
+        "coingecko_score": 0,
+        "developer_score": 0,
+        "community_score": 0,
+        "liquidity_score": 0,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 1734.17
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 1949.21
+            },
+            "ath_change_percentage": {
+                "usd": -11.03173
+            },
+            "ath_date": {
+                "usd": "2023-05-29T02:05:24.486Z"
+            },
+            "atl": {
+                "usd": 1394.93
+            },
+            "atl_change_percentage": {
+                "usd": 24.31992
+            },
+            "atl_date": {
+                "usd": "2023-03-10T11:49:41.620Z"
+            },
+            "market_cap": {
+                "usd": 128069
+            },
+            "market_cap_rank": 2936,
+            "fully_diluted_valuation": {
+                "usd": 128069
+            },
+            "total_volume": {
+                "usd": 13873.4
+            },
+            "high_24h": {
+                "AED": null,
+                "ARS": null,
+                "AUD": null,
+                "BCH": null,
+                "BDT": null,
+                "BHD": null,
+                "BMD": null,
+                "BNB": null,
+                "BRL": null,
+                "BTC": null,
+                "CAD": null,
+                "CHF": null,
+                "CLP": null,
+                "CNY": null,
+                "CZK": null,
+                "DKK": null,
+                "DOT": null,
+                "EOS": null,
+                "ETH": null,
+                "EUR": null,
+                "GBP": null,
+                "HKD": null,
+                "HUF": null,
+                "IDR": null,
+                "ILS": null,
+                "INR": null,
+                "JPY": null,
+                "KRW": null,
+                "KWD": null,
+                "LKR": null,
+                "LTC": null,
+                "MMK": null,
+                "MXN": null,
+                "MYR": null,
+                "NGN": null,
+                "NOK": null,
+                "NZD": null,
+                "PHP": null,
+                "PKR": null,
+                "PLN": null,
+                "RUB": null,
+                "SAR": null,
+                "SEK": null,
+                "SGD": null,
+                "THB": null,
+                "TRY": null,
+                "TWD": null,
+                "UAH": null,
+                "USD": null,
+                "VEF": null,
+                "VND": null,
+                "XAG": null,
+                "XAU": null,
+                "XDR": null,
+                "XLM": null,
+                "XRP": null,
+                "YFI": null,
+                "ZAR": null,
+                "BITS": null,
+                "LINK": null,
+                "SATS": null
+            },
+            "low_24h": {
+                "AED": null,
+                "ARS": null,
+                "AUD": null,
+                "BCH": null,
+                "BDT": null,
+                "BHD": null,
+                "BMD": null,
+                "BNB": null,
+                "BRL": null,
+                "BTC": null,
+                "CAD": null,
+                "CHF": null,
+                "CLP": null,
+                "CNY": null,
+                "CZK": null,
+                "DKK": null,
+                "DOT": null,
+                "EOS": null,
+                "ETH": null,
+                "EUR": null,
+                "GBP": null,
+                "HKD": null,
+                "HUF": null,
+                "IDR": null,
+                "ILS": null,
+                "INR": null,
+                "JPY": null,
+                "KRW": null,
+                "KWD": null,
+                "LKR": null,
+                "LTC": null,
+                "MMK": null,
+                "MXN": null,
+                "MYR": null,
+                "NGN": null,
+                "NOK": null,
+                "NZD": null,
+                "PHP": null,
+                "PKR": null,
+                "PLN": null,
+                "RUB": null,
+                "SAR": null,
+                "SEK": null,
+                "SGD": null,
+                "THB": null,
+                "TRY": null,
+                "TWD": null,
+                "UAH": null,
+                "USD": null,
+                "VEF": null,
+                "VND": null,
+                "XAG": null,
+                "XAU": null,
+                "XDR": null,
+                "XLM": null,
+                "XRP": null,
+                "YFI": null,
+                "ZAR": null,
+                "BITS": null,
+                "LINK": null,
+                "SATS": null
+            },
+            "price_change_24h": null,
+            "price_change_percentage_24h": null,
+            "price_change_percentage_7d": -1.95698,
+            "price_change_percentage_14d": -9.6717,
+            "price_change_percentage_30d": -5.83049,
+            "price_change_percentage_60d": -5.79332,
+            "price_change_percentage_200d": 0,
+            "price_change_percentage_1y": 0,
+            "market_cap_change_24h": null,
+            "market_cap_change_percentage_24h": null,
+            "price_change_24h_in_currency": {},
+            "price_change_percentage_1h_in_currency": {},
+            "price_change_percentage_24h_in_currency": {},
+            "price_change_percentage_7d_in_currency": {
+                "usd": -1.95698
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -9.6717
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -5.83049
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -5.79332
+            },
+            "price_change_percentage_200d_in_currency": {},
+            "price_change_percentage_1y_in_currency": {},
+            "market_cap_change_24h_in_currency": {},
+            "market_cap_change_percentage_24h_in_currency": {},
+            "total_supply": 73.85,
+            "max_supply": null,
+            "circulating_supply": 73.85,
+            "last_updated": "2023-06-17T02:30:04.041Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-17T02:30:04.041Z"
     },
     {
         "id": "giveth",
@@ -28449,6 +30240,200 @@
         "last_updated": "2023-06-21T09:46:37.401Z"
     },
     {
+        "id": "honey",
+        "symbol": "hny",
+        "name": "Honey",
+        "asset_platform_id": "xdai",
+        "platforms": {
+            "xdai": "0x71850b7e9ee3f13ab46d67167341e4bdc905eef9",
+            "ethereum": "0xc3589f56b6869824804a5ea29f2c9886af1b0fce"
+        },
+        "detail_platforms": {
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0x71850b7e9ee3f13ab46d67167341e4bdc905eef9"
+            },
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0xc3589f56b6869824804a5ea29f2c9886af1b0fce"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Ethereum Ecosystem",
+            "Gnosis Chain Ecosystem",
+            "Decentralized Exchange (DEX)"
+        ],
+        "public_notice": null,
+        "additional_notices": [
+            "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+        ],
+        "description": {
+            "en": "1Hive is a DAO that issues and distributes a digital currency called Honey.\r\nHoney holders stake on proposals using Conviction Voting to determine how issuance is distributed. By supporting proposals which increase the value of Honey, a positive feedback loop drives growth and sustainability.\r\n\r\nConviction Voting allows everyone to participate and shape the direction of 1Hive, while preventing anyone from taking control or ownership."
+        },
+        "links": {
+            "homepage": [
+                "https://1hive.org/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://blockscout.com/poa/xdai/tokens/0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9",
+                "https://etherscan.io/token/0xc3589f56b6869824804a5ea29f2c9886af1b0fce",
+                "https://ethplorer.io/address/0xc3589f56b6869824804a5ea29f2c9886af1b0fce",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/xTZjbRjc8t",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "Honeyswap",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "honeyswapdex",
+            "subreddit_url": "https://www.reddit.com/r/hny",
+            "repos_url": {
+                "github": [
+                    "https://github.com/1Hive"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/12895/thumb/hnys.png?1614100588",
+            "small": "https://assets.coingecko.com/coins/images/12895/small/hnys.png?1614100588",
+            "large": "https://assets.coingecko.com/coins/images/12895/large/hnys.png?1614100588"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x71850b7e9ee3f13ab46d67167341e4bdc905eef9",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 2731,
+        "market_cap_rank": null,
+        "coingecko_rank": 4005,
+        "coingecko_score": 5.748,
+        "developer_score": 0,
+        "community_score": 25.216,
+        "liquidity_score": 1,
+        "public_interest_score": 0.001,
+        "market_data": {
+            "current_price": {
+                "usd": 8.72
+            },
+            "total_value_locked": {
+                "usd": 5664914
+            },
+            "mcap_to_tvl_ratio": 0,
+            "fdv_to_tvl_ratio": 0.06,
+            "roi": null,
+            "ath": {
+                "usd": 2187.59
+            },
+            "ath_change_percentage": {
+                "usd": -99.61408
+            },
+            "ath_date": {
+                "usd": "2021-09-06T05:05:04.933Z"
+            },
+            "atl": {
+                "usd": 0.185133
+            },
+            "atl_change_percentage": {
+                "usd": 4460.11448
+            },
+            "atl_date": {
+                "usd": "2021-09-13T18:45:06.781Z"
+            },
+            "market_cap": {
+                "usd": 0
+            },
+            "market_cap_rank": null,
+            "fully_diluted_valuation": {
+                "usd": 328142
+            },
+            "total_volume": {
+                "usd": 1477.24
+            },
+            "high_24h": {
+                "usd": 9.2
+            },
+            "low_24h": {
+                "usd": 7.66
+            },
+            "price_change_24h": -0.29484624821237,
+            "price_change_percentage_24h": -3.27044,
+            "price_change_percentage_7d": -3.19454,
+            "price_change_percentage_14d": -13.74517,
+            "price_change_percentage_30d": -13.84199,
+            "price_change_percentage_60d": -33.3067,
+            "price_change_percentage_200d": -41.80641,
+            "price_change_percentage_1y": -80.70794,
+            "market_cap_change_24h": 0,
+            "market_cap_change_percentage_24h": 0,
+            "price_change_24h_in_currency": {
+                "usd": -0.2948462482123677
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -0.9158
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -3.27044
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -3.19454
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -13.74517
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -13.84199
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -33.3067
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -41.80641
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -80.70794
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 0
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 0
+            },
+            "total_supply": 36489.9752090467,
+            "max_supply": null,
+            "circulating_supply": 0,
+            "last_updated": "2023-06-21T09:46:17.300Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": 105341,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:46:17.300Z"
+    },
+    {
         "id": "hop-protocol",
         "symbol": "hop",
         "name": "Hop Protocol",
@@ -30742,6 +32727,192 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:47:27.236Z"
+    },
+    {
+        "id": "interest-compounding-eth-index",
+        "symbol": "iceth",
+        "name": "Interest Compounding ETH Index",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0x7c07f7abe10ce8e33dc6c5ad68fe033085256a84"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0x7c07f7abe10ce8e33dc6c5ad68fe033085256a84"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "TokenSets",
+            "DeFi Index",
+            "Decentralized Finance (DeFi)",
+            "Index",
+            "Structured Products",
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": ""
+        },
+        "links": {
+            "homepage": [
+                "https://indexcoop.com/interest-compounding-eth-index",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0x7C07F7aBe10CE8e33DC6C5aD68FE033085256A84",
+                "https://ethplorer.io/address/0x7C07F7aBe10CE8e33DC6C5aD68FE033085256A84",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.gg/indexcoop",
+                "https://www.youtube.com/channel/UCsNqHm_2LKh0E4A0vf25pIw",
+                ""
+            ],
+            "announcement_url": [
+                "https://indexcoop.com/blog",
+                ""
+            ],
+            "twitter_screen_name": "indexcoop",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/SetProtocol/index-coop"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/24483/thumb/icETH-token-logo.png?1647826356",
+            "small": "https://assets.coingecko.com/coins/images/24483/small/icETH-token-logo.png?1647826356",
+            "large": "https://assets.coingecko.com/coins/images/24483/large/icETH-token-logo.png?1647826356"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x7c07f7abe10ce8e33dc6c5ad68fe033085256a84",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 385,
+        "market_cap_rank": 675,
+        "coingecko_rank": 651,
+        "coingecko_score": 25.283,
+        "developer_score": 30.773,
+        "community_score": 9.188,
+        "liquidity_score": 17.026,
+        "public_interest_score": 0.003,
+        "market_data": {
+            "current_price": {
+                "usd": 1925
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 3550.84
+            },
+            "ath_change_percentage": {
+                "usd": -45.78743
+            },
+            "ath_date": {
+                "usd": "2022-04-05T13:19:38.068Z"
+            },
+            "atl": {
+                "usd": 82.18
+            },
+            "atl_change_percentage": {
+                "usd": 2242.46316
+            },
+            "atl_date": {
+                "usd": "2022-06-14T02:17:41.560Z"
+            },
+            "market_cap": {
+                "usd": 19795068
+            },
+            "market_cap_rank": 675,
+            "fully_diluted_valuation": {
+                "usd": 19795068
+            },
+            "total_volume": {
+                "usd": 133850
+            },
+            "high_24h": {
+                "usd": 1932.58
+            },
+            "low_24h": {
+                "usd": 1877.18
+            },
+            "price_change_24h": 43.45,
+            "price_change_percentage_24h": 2.30937,
+            "price_change_percentage_7d": 4.07601,
+            "price_change_percentage_14d": -2.7474,
+            "price_change_percentage_30d": -0.26235,
+            "price_change_percentage_60d": -1.82828,
+            "price_change_percentage_200d": 51.45664,
+            "price_change_percentage_1y": 95.1797,
+            "market_cap_change_24h": 830126,
+            "market_cap_change_percentage_24h": 4.37716,
+            "price_change_24h_in_currency": {
+                "usd": 43.45
+            },
+            "price_change_percentage_1h_in_currency": {},
+            "price_change_percentage_24h_in_currency": {
+                "usd": 2.30937
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": 4.07601
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -2.7474
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -0.26235
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -1.82828
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": 51.45664
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": 95.1797
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 830126
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 4.37716
+            },
+            "total_supply": 10283.156948152,
+            "max_supply": null,
+            "circulating_supply": 10283.156948152,
+            "last_updated": "2023-06-21T07:13:55.852Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T07:13:55.852Z"
     },
     {
         "id": "keep3rv1",
@@ -36269,6 +38440,390 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:52:47.589Z"
+    },
+    {
+        "id": "minerva-wallet",
+        "symbol": "miva",
+        "name": "Minerva Wallet",
+        "asset_platform_id": "xdai",
+        "platforms": {
+            "xdai": "0x63e62989d9eb2d37dfdb1f93a22f063635b07d51"
+        },
+        "detail_platforms": {
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0x63e62989d9eb2d37dfdb1f93a22f063635b07d51"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Gnosis Chain Ecosystem",
+            "Polygon Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [
+            "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+        ],
+        "description": {
+            "en": "The Minerva Wallet SuperToken (MIVA token) is a ERC-20 compatible utility token, planned to provide a wide range of benefits and incentives for Minerva Wallet users.\r\n\r\nThe MIVA token can be freely transferred between accounts and exchanged for other assets on the xDai Chain as well as moved to other chains via established bridges.\r\n\r\nWith various incentive and rewarding programs the circulating supply will be gradually increased over time  and will depend on the monthly active users of the Minerva Wallet."
+        },
+        "links": {
+            "homepage": [
+                "https://minerva.digital/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://blockscout.com/xdai/mainnet/tokens/0x63e62989D9EB2d37dfDB1F93A22f063635b07d51/token-transfers",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.com/invite/UzKcmMZNjm",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "MinervaWallet",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "MinervaWallet",
+            "subreddit_url": "https://www.reddit.com/r/MinervaWallet",
+            "repos_url": {
+                "github": [],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/14732/thumb/MIVA-Token_200x200.png?1617958701",
+            "small": "https://assets.coingecko.com/coins/images/14732/small/MIVA-Token_200x200.png?1617958701",
+            "large": "https://assets.coingecko.com/coins/images/14732/large/MIVA-Token_200x200.png?1617958701"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x63e62989d9eb2d37dfdb1f93a22f063635b07d51",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 367,
+        "market_cap_rank": 3287,
+        "coingecko_rank": 3156,
+        "coingecko_score": 10.39,
+        "developer_score": 0,
+        "community_score": 7.103,
+        "liquidity_score": 1,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 0.00537668
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 0.576706
+            },
+            "ath_change_percentage": {
+                "usd": -99.057
+            },
+            "ath_date": {
+                "usd": "2021-04-14T02:16:34.953Z"
+            },
+            "atl": {
+                "usd": 0.00383252
+            },
+            "atl_change_percentage": {
+                "usd": 41.90034
+            },
+            "atl_date": {
+                "usd": "2023-03-11T10:32:52.653Z"
+            },
+            "market_cap": {
+                "usd": 47950
+            },
+            "market_cap_rank": 3287,
+            "fully_diluted_valuation": {
+                "usd": 5398725
+            },
+            "total_volume": {
+                "usd": 91.06
+            },
+            "high_24h": {
+                "usd": 0.00582444
+            },
+            "low_24h": {
+                "usd": 0.00481325
+            },
+            "price_change_24h": -0.00042470323688245,
+            "price_change_percentage_24h": -7.32073,
+            "price_change_percentage_7d": -7.39053,
+            "price_change_percentage_14d": -9.92841,
+            "price_change_percentage_30d": -18.36415,
+            "price_change_percentage_60d": -24.85753,
+            "price_change_percentage_200d": -43.02226,
+            "price_change_percentage_1y": -66.21468,
+            "market_cap_change_24h": -3610.0249389507,
+            "market_cap_change_percentage_24h": -7.00153,
+            "price_change_24h_in_currency": {
+                "usd": -0.000424703236882456
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": 2.65776
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -7.32073
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -7.39053
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -9.92841
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -18.36415
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -24.85753
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -43.02226
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -66.21468
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": -3610.0249389507226
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": -7.00153
+            },
+            "total_supply": 1000000000,
+            "max_supply": 1000000000,
+            "circulating_supply": 8881814.45933789,
+            "last_updated": "2023-06-21T09:52:38.954Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:52:38.954Z"
+    },
+    {
+        "id": "monerium-eur-money",
+        "symbol": "eure",
+        "name": "Monerium EUR emoney",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0x3231cb76718cdef2155fc47b5286d82e6eda273f",
+            "polygon-pos": "0x18ec0a6e18e5bc3784fdd3a3634b31245ab704f6",
+            "xdai": "0xcb444e90d8198415266c6a2724b7900fb12fc56e"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0x3231cb76718cdef2155fc47b5286d82e6eda273f"
+            },
+            "polygon-pos": {
+                "decimal_place": 18,
+                "contract_address": "0x18ec0a6e18e5bc3784fdd3a3634b31245ab704f6"
+            },
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0xcb444e90d8198415266c6a2724b7900fb12fc56e"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Polygon Ecosystem",
+            "Gnosis Chain Ecosystem",
+            "Decentralized Finance (DeFi)",
+            "Stablecoins",
+            "EUR Stablecoin",
+            "Ethereum Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [
+            "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+        ],
+        "description": {
+            "en": "Monerium is the first and, to date, only company authorized to issue money on blockchains under current European financial regulation and proposed Market in Crypto-Assets regulation. We have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets / smart contracts. Founded by crypto OGs and repeat entrepreneurs, Monerium is backed by Taavet+Sten, Crowberry Capital, ConsenSys, Algorand, and several entrepreneurs and early crypto adopters. "
+        },
+        "links": {
+            "homepage": [
+                "https://monerium.com/tokens/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0x3231cb76718cdef2155fc47b5286d82e6eda273f",
+                "https://ethplorer.io/address/0x3231cb76718cdef2155fc47b5286d82e6eda273f",
+                "https://polygonscan.com/token/0x18ec0A6E18E5bc3784fDd3a3634b31245ab704F6",
+                "https://gnosisscan.io/token/0xcB444e90D8198415266c6a2724b7900fb12FC56E",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "https://medium.com/@monerium",
+                ""
+            ],
+            "twitter_screen_name": "monerium",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [
+                    "https://github.com/monerium/smart-contracts"
+                ],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/23354/thumb/eur.png?1643926562",
+            "small": "https://assets.coingecko.com/coins/images/23354/small/eur.png?1643926562",
+            "large": "https://assets.coingecko.com/coins/images/23354/large/eur.png?1643926562"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0x3231cb76718cdef2155fc47b5286d82e6eda273f",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 91,
+        "market_cap_rank": null,
+        "coingecko_rank": 2426,
+        "coingecko_score": 13.153,
+        "developer_score": 46.147,
+        "community_score": 6.438,
+        "liquidity_score": 1,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 1.09
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 1.17
+            },
+            "ath_change_percentage": {
+                "usd": -6.62126
+            },
+            "ath_date": {
+                "usd": "2023-05-14T07:15:58.558Z"
+            },
+            "atl": {
+                "usd": 0.951958
+            },
+            "atl_change_percentage": {
+                "usd": 14.57378
+            },
+            "atl_date": {
+                "usd": "2022-09-06T17:31:09.870Z"
+            },
+            "market_cap": {
+                "usd": 0
+            },
+            "market_cap_rank": null,
+            "fully_diluted_valuation": {
+                "usd": 1181623
+            },
+            "total_volume": {
+                "usd": 48700
+            },
+            "high_24h": {
+                "usd": 1.097
+            },
+            "low_24h": {
+                "usd": 1.083
+            },
+            "price_change_24h": -0.00063674657883,
+            "price_change_percentage_24h": -0.0584,
+            "price_change_percentage_7d": 0.74255,
+            "price_change_percentage_14d": 2.36915,
+            "price_change_percentage_30d": 0.10558,
+            "price_change_percentage_60d": -0.89956,
+            "price_change_percentage_200d": 4.2179,
+            "price_change_percentage_1y": 0.62152,
+            "market_cap_change_24h": 0,
+            "market_cap_change_percentage_24h": 0,
+            "price_change_24h_in_currency": {
+                "usd": -0.000636746578825953
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -0.04929
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -0.0584
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": 0.74255
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": 2.36915
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": 0.10558
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -0.89956
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": 4.2179
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": 0.62152
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 0
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 0
+            },
+            "total_supply": 1083746,
+            "max_supply": 1083746,
+            "circulating_supply": 0,
+            "last_updated": "2023-06-21T09:52:32.130Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:52:32.130Z"
     },
     {
         "id": "multichain",
@@ -43841,6 +46396,189 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T09:56:55.707Z"
+    },
+    {
+        "id": "redacted",
+        "symbol": "btrfly",
+        "name": "Redacted",
+        "asset_platform_id": "ethereum",
+        "platforms": {
+            "ethereum": "0xc55126051b22ebb829d00368f4b12bde432de5da"
+        },
+        "detail_platforms": {
+            "ethereum": {
+                "decimal_place": 18,
+                "contract_address": "0xc55126051b22ebb829d00368f4b12bde432de5da"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Metagovernance",
+            "Ethereum Ecosystem",
+            "Decentralized Finance (DeFi)"
+        ],
+        "public_notice": null,
+        "additional_notices": [],
+        "description": {
+            "en": ""
+        },
+        "links": {
+            "homepage": [
+                "https://redacted.finance/",
+                "https://app.redacted.finance/",
+                ""
+            ],
+            "blockchain_site": [
+                "https://etherscan.io/token/0xc55126051B22eBb829D00368f4B12Bde432de5Da",
+                "https://ethplorer.io/address/0xc55126051b22ebb829d00368f4b12bde432de5da",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "https://docs.redacted.finance/",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "https://discord.com/invite/thdzk4k5Fg",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "",
+                ""
+            ],
+            "twitter_screen_name": "redactedcartel",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/26745/thumb/redacted_v2.jpg?1660011507",
+            "small": "https://assets.coingecko.com/coins/images/26745/small/redacted_v2.jpg?1660011507",
+            "large": "https://assets.coingecko.com/coins/images/26745/large/redacted_v2.jpg?1660011507"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0xc55126051b22ebb829d00368f4b12bde432de5da",
+        "sentiment_votes_up_percentage": 100,
+        "sentiment_votes_down_percentage": 0,
+        "watchlist_portfolio_users": 4821,
+        "market_cap_rank": 513,
+        "coingecko_rank": 1515,
+        "coingecko_score": 17.697,
+        "developer_score": 0,
+        "community_score": 9.021,
+        "liquidity_score": 14.187,
+        "public_interest_score": 0.001,
+        "market_data": {
+            "current_price": {
+                "usd": 154.93
+            },
+            "total_value_locked": {
+                "usd": 10470446
+            },
+            "mcap_to_tvl_ratio": 3.12,
+            "fdv_to_tvl_ratio": 3.12,
+            "roi": null,
+            "ath": {
+                "usd": 431.17
+            },
+            "ath_change_percentage": {
+                "usd": -64.27682
+            },
+            "ath_date": {
+                "usd": "2023-02-19T19:03:46.168Z"
+            },
+            "atl": {
+                "usd": 44.25
+            },
+            "atl_change_percentage": {
+                "usd": 248.09252
+            },
+            "atl_date": {
+                "usd": "2022-10-25T01:42:01.097Z"
+            },
+            "market_cap": {
+                "usd": 32678483
+            },
+            "market_cap_rank": 513,
+            "fully_diluted_valuation": {
+                "usd": 32678483
+            },
+            "total_volume": {
+                "usd": 103542
+            },
+            "high_24h": {
+                "usd": 155.2
+            },
+            "low_24h": {
+                "usd": 143.82
+            },
+            "price_change_24h": 10.31,
+            "price_change_percentage_24h": 7.13169,
+            "price_change_percentage_7d": 3.91699,
+            "price_change_percentage_14d": -10.19697,
+            "price_change_percentage_30d": -26.0136,
+            "price_change_percentage_60d": -40.86974,
+            "price_change_percentage_200d": 11.8466,
+            "price_change_percentage_1y": 0,
+            "market_cap_change_24h": 2207187,
+            "market_cap_change_percentage_24h": 7.2435,
+            "price_change_24h_in_currency": {
+                "usd": 10.31
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": 0.66631
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": 7.13169
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": 3.91699
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -10.19697
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -26.0136
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -40.86974
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": 11.8466
+            },
+            "price_change_percentage_1y_in_currency": {},
+            "market_cap_change_24h_in_currency": {
+                "usd": 2207187
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 7.2435
+            },
+            "total_supply": 210551.907120834,
+            "max_supply": null,
+            "circulating_supply": 210551.907120834,
+            "last_updated": "2023-06-21T09:57:32.531Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T09:57:32.531Z"
     },
     {
         "id": "reef",
@@ -61110,6 +63848,189 @@
         },
         "status_updates": [],
         "last_updated": "2023-06-21T10:09:31.307Z"
+    },
+    {
+        "id": "wrapped-xdai",
+        "symbol": "wxdai",
+        "name": "Wrapped XDAI",
+        "asset_platform_id": "xdai",
+        "platforms": {
+            "xdai": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+        },
+        "detail_platforms": {
+            "xdai": {
+                "decimal_place": 18,
+                "contract_address": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+            }
+        },
+        "block_time_in_minutes": 0,
+        "hashing_algorithm": null,
+        "categories": [
+            "Gnosis Chain Ecosystem"
+        ],
+        "public_notice": null,
+        "additional_notices": [
+            "Kindly be aware of <a href='https://www.coingecko.com/en/glossary/rug-pulled' target='_blank'>liquidity-related risks</a>. This notice is not directed at any project in particular, and is more of a cautionary reminder."
+        ],
+        "description": {
+            "en": ""
+        },
+        "links": {
+            "homepage": [
+                "https://www.xdaichain.com/",
+                "",
+                ""
+            ],
+            "blockchain_site": [
+                "https://blockscout.com/xdai/mainnet/tokens/0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d/token-transfers",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "official_forum_url": [
+                "",
+                "",
+                ""
+            ],
+            "chat_url": [
+                "",
+                "",
+                ""
+            ],
+            "announcement_url": [
+                "https://forum.poa.network/c/xdai-chain/17",
+                ""
+            ],
+            "twitter_screen_name": "",
+            "facebook_username": "",
+            "bitcointalk_thread_identifier": null,
+            "telegram_channel_identifier": "",
+            "subreddit_url": null,
+            "repos_url": {
+                "github": [],
+                "bitbucket": []
+            }
+        },
+        "image": {
+            "thumb": "https://assets.coingecko.com/coins/images/14584/thumb/wrapped-xdai-logo.png?1641888881",
+            "small": "https://assets.coingecko.com/coins/images/14584/small/wrapped-xdai-logo.png?1641888881",
+            "large": "https://assets.coingecko.com/coins/images/14584/large/wrapped-xdai-logo.png?1641888881"
+        },
+        "country_origin": "",
+        "genesis_date": null,
+        "contract_address": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d",
+        "sentiment_votes_up_percentage": null,
+        "sentiment_votes_down_percentage": null,
+        "watchlist_portfolio_users": 127,
+        "market_cap_rank": null,
+        "coingecko_rank": 4451,
+        "coingecko_score": 4.569,
+        "developer_score": 0,
+        "community_score": 0,
+        "liquidity_score": 22.847,
+        "public_interest_score": 0,
+        "market_data": {
+            "current_price": {
+                "usd": 0.956517
+            },
+            "total_value_locked": null,
+            "mcap_to_tvl_ratio": null,
+            "fdv_to_tvl_ratio": null,
+            "roi": null,
+            "ath": {
+                "usd": 8.62
+            },
+            "ath_change_percentage": {
+                "usd": -89.23157
+            },
+            "ath_date": {
+                "usd": "2023-05-19T17:35:04.596Z"
+            },
+            "atl": {
+                "usd": 0.504497
+            },
+            "atl_change_percentage": {
+                "usd": 83.94982
+            },
+            "atl_date": {
+                "usd": "2023-03-11T10:09:34.012Z"
+            },
+            "market_cap": {
+                "usd": 0
+            },
+            "market_cap_rank": null,
+            "fully_diluted_valuation": {
+                "usd": 13773412
+            },
+            "total_volume": {
+                "usd": 46364
+            },
+            "high_24h": {
+                "usd": 1.005
+            },
+            "low_24h": {
+                "usd": 0.825525
+            },
+            "price_change_24h": -0.041700953990722,
+            "price_change_percentage_24h": -4.17754,
+            "price_change_percentage_7d": -4.13943,
+            "price_change_percentage_14d": -4.36203,
+            "price_change_percentage_30d": -4.85771,
+            "price_change_percentage_60d": -4.78524,
+            "price_change_percentage_200d": -4.39206,
+            "price_change_percentage_1y": -3.75062,
+            "market_cap_change_24h": 0,
+            "market_cap_change_percentage_24h": 0,
+            "price_change_24h_in_currency": {
+                "usd": -0.04170095399072116
+            },
+            "price_change_percentage_1h_in_currency": {
+                "usd": -1.42693
+            },
+            "price_change_percentage_24h_in_currency": {
+                "usd": -4.17754
+            },
+            "price_change_percentage_7d_in_currency": {
+                "usd": -4.13943
+            },
+            "price_change_percentage_14d_in_currency": {
+                "usd": -4.36203
+            },
+            "price_change_percentage_30d_in_currency": {
+                "usd": -4.85771
+            },
+            "price_change_percentage_60d_in_currency": {
+                "usd": -4.78524
+            },
+            "price_change_percentage_200d_in_currency": {
+                "usd": -4.39206
+            },
+            "price_change_percentage_1y_in_currency": {
+                "usd": -3.75062
+            },
+            "market_cap_change_24h_in_currency": {
+                "usd": 0
+            },
+            "market_cap_change_percentage_24h_in_currency": {
+                "usd": 0
+            },
+            "total_supply": 14840684.835,
+            "max_supply": null,
+            "circulating_supply": 0,
+            "last_updated": "2023-06-21T10:09:31.457Z"
+        },
+        "public_interest_stats": {
+            "alexa_rank": null,
+            "bing_matches": null
+        },
+        "status_updates": [],
+        "last_updated": "2023-06-21T10:09:31.457Z"
     },
     {
         "id": "xdai-stake",
