@@ -17,6 +17,8 @@ const STATIC_LIST_PATH = path.join(LIST_DIR, STATIC_LIST_NAME);
 const STATIC_LIST_PARSED_NAME = "static-list-parsed.json";
 const STATIC_LIST_PARSED_PATH = path.join(LIST_DIR, STATIC_LIST_NAME);
 
+const CUSTOM_DESCRIPTION_PATH = path.join("src", "files", "description.json");
+
 async function fetchFromCoingecko(url) {
   console.log(`Fetching ${url}`);
   const res = await fetch(url);
@@ -127,8 +129,17 @@ async function getStaticData(idsData) {
 
 async function parseStaticData(data) {
   // Get only USD values for market data
+  let customDescriptionFile = null;
+
+  if (fs.existsSync(CUSTOM_DESCRIPTION_PATH)) {
+    const json = fs.readFileSync(CUSTOM_DESCRIPTION_PATH, "utf8");
+    customDescriptionFile = JSON.parse(json);
+  }
+
   const parsed = data.map((item) => {
     const output = { ...item };
+
+    // Market data
     const market_data = output.market_data;
 
     for (let [key, value] of Object.entries(market_data)) {
@@ -136,21 +147,28 @@ async function parseStaticData(data) {
         market_data[key] = { usd: value.usd };
       }
     }
-
     output.market_data = market_data;
+
+    // Description
+    if (customDescriptionFile && customDescriptionFile[item.id]) {
+      output.description = customDescriptionFile[item.id];
+    }
+
     return output;
   });
 
   // Get hash map (object) of token IDS from our 2 existing lists
   const combined = await getTokenLists();
   const combined_ids = combined.reduce((acc, { address }) => {
-    acc[address] = true;
+    acc[address.toLowerCase()] = true;
     return acc;
   }, {});
 
   // Filter current static list with only tokens from our 2 exists list
   const filtered = parsed.filter(({ platforms }) => {
-    return Object.values(platforms).some((addr) => combined_ids[addr]);
+    return Object.values(platforms).some(
+      (addr) => combined_ids[addr.toLowerCase()]
+    );
   });
 
   writeFile(LIST_DIR, STATIC_LIST_PARSED_NAME, filtered);
