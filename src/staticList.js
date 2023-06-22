@@ -166,8 +166,10 @@ async function parseStaticData(data) {
 
   // Filter current static list with only tokens from our 2 exists list
   const filtered = parsed.filter(({ platforms }) => {
-    return Object.values(platforms).some(
-      (addr) => combined_ids[addr.toLowerCase()]
+    return Object.entries(platforms).some(
+      ([chain, address]) =>
+        combined_ids[address.toLowerCase()] &&
+        ["ethereum", "xdai"].includes(chain)
     );
   });
 
