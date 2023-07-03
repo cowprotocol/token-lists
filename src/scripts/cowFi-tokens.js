@@ -5,6 +5,7 @@ import { backOff } from "exponential-backoff";
 
 import _ from "lodash";
 
+const USE_CACHE = (process.env.USE_CACHE ?? "true") !== true;
 const cowListUrl = "https://files.cow.fi/tokens/CowSwap.json";
 const coinGeckoListUrl = "https://files.cow.fi/tokens/CoinGecko.json";
 const coinGeckoIdListUrl = "https://api.coingecko.com/api/v3/coins/list";
@@ -92,7 +93,7 @@ async function getTokenLists() {
 
 async function getIds() {
   // If ID's file exist
-  if (fs.existsSync(IDS_FILE_PATH_RAW)) {
+  if (USE_CACHE && fs.existsSync(IDS_FILE_PATH_RAW)) {
     const json = fs.readFileSync(IDS_FILE_PATH_RAW, "utf8");
     return JSON.parse(json);
   }
@@ -116,7 +117,7 @@ async function getIds() {
 
 async function getStaticData(idsData) {
   // If static data file exists, read and return it
-  if (fs.existsSync(STATIC_LIST_PATH_RAW)) {
+  if (USE_CACHE && fs.existsSync(STATIC_LIST_PATH_RAW)) {
     const json = fs.readFileSync(STATIC_LIST_PATH_RAW, "utf8");
     return JSON.parse(json);
   }
@@ -148,7 +149,7 @@ async function getStaticDataFinal(data) {
   // Get only USD values for market data
   let customDescriptionFile = null;
 
-  if (fs.existsSync(CUSTOM_DESCRIPTION_PATH)) {
+  if (USE_CACHE && fs.existsSync(CUSTOM_DESCRIPTION_PATH)) {
     const json = fs.readFileSync(CUSTOM_DESCRIPTION_PATH, "utf8");
     customDescriptionFile = JSON.parse(json);
   }
