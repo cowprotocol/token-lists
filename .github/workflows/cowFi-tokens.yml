@@ -59,6 +59,7 @@ jobs:
 
 
   generate:
+    name: Generate and Post to S3
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
