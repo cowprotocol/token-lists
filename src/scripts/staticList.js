@@ -13,15 +13,14 @@ const coinGeckoIdListUrl = "https://api.coingecko.com/api/v3/coins/list";
 
 const LIST_DIR = path.join("src", "lists");
 
-const IDS_FILE_NAME_RAW = "id-list-raw.json";
+const IDS_FILE_NAME_RAW = "TEMP-id-list-raw.json";
+const STATIC_LIST_NAME_RAW = "TEMP-static-list-raw.json";
+
+const IDS_FILE_NAME_FINAL = "cowFi-tokenIds.json";
+const STATIC_LIST_NAME_FINAL = "cowFi-tokens.json";
+
 const IDS_FILE_PATH_RAW = path.join(LIST_DIR, IDS_FILE_NAME_RAW);
-
-const IDS_FILE_NAME_FINAL = "id-list-final.json";
-const STATIC_LIST_NAME_RAW = "static-list-raw.json";
 const STATIC_LIST_PATH_RAW = path.join(LIST_DIR, STATIC_LIST_NAME_RAW);
-
-const STATIC_LIST_NAME_FINAL = "static-list-final.json";
-
 const CUSTOM_DESCRIPTION_PATH = path.join("src", "files", "description.json");
 
 const TOTAL_LIST_LENGTH = 50;
