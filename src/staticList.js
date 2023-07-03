@@ -25,6 +25,8 @@ const CUSTOM_DESCRIPTION_PATH = path.join("src", "files", "description.json");
 
 const TOTAL_LIST_LENGTH = 50;
 
+const TOKENS_TO_REMOVE = ["agave-token", "fraction", "minerva-wallet"];
+
 async function fetchFromCoingecko(url) {
   console.log(`Fetching ${url}`);
   const res = await fetch(url);
@@ -178,11 +180,15 @@ async function getStaticDataFinal(data) {
   }, {});
 
   // Filter current static list with only tokens from our 2 exists list
-  const filtered = parsed.filter(({ platforms }) => {
-    return Object.entries(platforms).some(
-      ([chain, address]) =>
-        combined_ids[address.toLowerCase()] &&
-        ["ethereum", "xdai"].includes(chain)
+  const filtered = parsed.filter(({ platforms, description, id }) => {
+    return (
+      description?.en?.trim().length &&
+      !TOKENS_TO_REMOVE.includes(id) &&
+      Object.entries(platforms).some(
+        ([chain, address]) =>
+          combined_ids[address.toLowerCase()] &&
+          ["ethereum", "xdai"].includes(chain)
+      )
     );
   });
 
@@ -195,11 +201,12 @@ async function getStaticDataFinal(data) {
 }
 
 async function getIdsFinal(data) {
-  const ids = data.map(({ name, symbol, address, id }) => ({
+  const ids = data.map(({ name, symbol, address, id, description }) => ({
     id,
     name,
     symbol,
     address,
+    description: description.en,
   }));
 
   writeFile(LIST_DIR, IDS_FILE_NAME_FINAL, ids);
