@@ -1,6 +1,8 @@
 import fetch from "node-fetch";
 import fs from "fs";
 import path from "path";
+import { backOff } from "exponential-backoff";
+
 import _ from "lodash";
 
 const cowListUrl = "https://files.cow.fi/tokens/CowSwap.json";
@@ -13,13 +15,10 @@ const IDS_FILE_NAME_RAW = "id-list-raw.json";
 const IDS_FILE_PATH_RAW = path.join(LIST_DIR, IDS_FILE_NAME_RAW);
 
 const IDS_FILE_NAME_FINAL = "id-list-final.json";
-const IDS_FILE_PATH_FINAL = path.join(LIST_DIR, IDS_FILE_NAME_FINAL);
-
 const STATIC_LIST_NAME_RAW = "static-list-raw.json";
 const STATIC_LIST_PATH_RAW = path.join(LIST_DIR, STATIC_LIST_NAME_RAW);
 
 const STATIC_LIST_NAME_FINAL = "static-list-final.json";
-const STATIC_LIST_PATH_FINAL = path.join(LIST_DIR, STATIC_LIST_NAME_FINAL);
 
 const CUSTOM_DESCRIPTION_PATH = path.join("src", "files", "description.json");
 
@@ -27,16 +26,28 @@ const TOTAL_LIST_LENGTH = 50;
 
 const TOKENS_TO_REMOVE = ["agave-token", "fraction", "minerva-wallet"];
 
-async function fetchFromCoingecko(url) {
-  console.log(`Fetching ${url}`);
-  const res = await fetch(url);
+async function fetchWithBackoff(url) {
+  return backOff(
+    () =>
+      fetch(url).then((res) => {
+        if (!res.ok) {
+          throw new Error(`Error fetching list ${url}`, res);
+        }
 
-  if (!res.ok) {
-    throw new Error(`Error fetching list ${url}`, res);
-  }
-
-  const json = await res.json();
-  return json;
+        return res.json();
+      }),
+    {
+      numOfAttempts: 50,
+      maxDelay: 36000000, // 10min
+      startingDelay: 5000, // 5s
+      retry: (e, attemptNum) => {
+        console.log(
+          `Error fetching ${url}, attempt ${attemptNum}. Retrying soon...`
+        );
+        return true;
+      },
+    }
+  );
 }
 
 async function writeFile(dir, filename, input) {
@@ -58,7 +69,7 @@ function sleep(ms) {
 
 async function getTokenLists() {
   // Get token lists
-  const cowList = await fetchFromCoingecko(cowListUrl);
+  const cowList = await fetchWithBackoff(cowListUrl);
   // const coinGeckoList = await fetchFromCoingecko(coinGeckoListUrl);
 
   // Create input token list
@@ -90,7 +101,7 @@ async function getIds() {
   const inputList = await getTokenLists();
 
   // Get Coingecko id list
-  const coinGeckoIdList = await fetchFromCoingecko(coinGeckoIdListUrl);
+  const coinGeckoIdList = await fetchWithBackoff(coinGeckoIdListUrl);
 
   // Get coin gecko list of ids for that uniq list
   const idsData = coinGeckoIdList.filter((el) =>
@@ -111,7 +122,6 @@ async function getStaticData(idsData) {
   }
 
   const successDelay = 3000; // Delay in milliseconds for successful requests
-  const errorDelay = 10000; // Delay in milliseconds for error requests
   const staticData = [];
 
   let index = 0;
@@ -122,17 +132,10 @@ async function getStaticData(idsData) {
 
     console.log(`Fetching data for ID: ${idItem.id}`);
 
-    try {
-      const data = await fetchFromCoingecko(url);
-      staticData.push(data);
-      await sleep(successDelay); // Delay after a successful fetch
-      index++; // Move to the next item
-    } catch (error) {
-      console.log(error);
-      console.error(`Error fetching data for ID: ${idItem.id}`);
-      console.log(`Retrying fetch for ID: ${idItem.id}`);
-      await sleep(errorDelay); // Delay after an error fetch
-    }
+    const data = await fetchWithBackoff(url);
+    staticData.push(data);
+    await sleep(successDelay); // Delay after a successful fetch
+    index++; // Move to the next item
   }
 
   // Write static data file
