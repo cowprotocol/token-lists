@@ -4,7 +4,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     # - cron:  '00,05,10,15,20,25,30,35,40,45,50,55 * * * *'
-    - cron:  '30 * * * *'
+    - cron: "30 * * * *"
 
   pull_request:
     types: [opened, synchronize]
@@ -57,7 +57,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-
   generate:
     name: Generate and Post to S3
     runs-on: ubuntu-latest
@@ -78,6 +77,10 @@ jobs:
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
+
+      # TODO: Remove! just a test
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Generate token lists for cow.fi
         run: USE_CACHE=false yarn cowFi:tokens
