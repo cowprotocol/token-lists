@@ -4,7 +4,14 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     # - cron:  '00,05,10,15,20,25,30,35,40,45,50,55 * * * *'
-    - cron:  '28 * * * *'
+    - cron:  '30 * * * *'
+
+  pull_request:
+    types: [opened, synchronize]
+    
+  push:
+    branches: [main, develop]
+    tags: [v*]
 
 # Required for authenticating with AWS IAM
 permissions:
