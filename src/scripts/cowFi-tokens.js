@@ -126,12 +126,15 @@ async function getStaticData(idsData) {
   const staticData = [];
 
   let index = 0;
+  const totalTokens = idsData.length + 1;
   while (index < idsData.length) {
     const idItem = idsData[index];
     const quoteParams = `localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     const url = `https://api.coingecko.com/api/v3/coins/${idItem.id}?${quoteParams}`;
 
-    console.log(`Fetching data for ID: ${idItem.id}`);
+    console.log(
+      `[${index + 1}/${totalTokens}] Fetching data for ID: ${idItem.id}`
+    );
 
     const data = await fetchWithBackoff(url);
     staticData.push(data);
