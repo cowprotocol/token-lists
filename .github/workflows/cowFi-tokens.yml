@@ -42,7 +42,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
 
       - name: Generate token lists for cow.fi
-        run: yarn cowFi:tokens
+        run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
