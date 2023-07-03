@@ -1,4 +1,4 @@
-name: Generate token lists for cow.fi
+name: "Cron: cow.fi tokens list"
 
 on:
   schedule:
@@ -84,6 +84,12 @@ jobs:
 
       - name: Generate token lists for cow.fi
         run: USE_CACHE=false yarn cowFi:tokens
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cowFi-tokens.json
+          path: src/cowFi/cowFi-tokens.json
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v2
