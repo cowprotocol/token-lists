@@ -5,7 +5,8 @@ import { backOff } from "exponential-backoff";
 
 import _ from "lodash";
 
-const USE_CACHE = (process.env.USE_CACHE ?? "true") !== true;
+const USE_CACHE = (process.env.USE_CACHE ?? "true") === "true";
+
 const cowListUrl = "https://files.cow.fi/tokens/CowSwap.json";
 const coinGeckoListUrl = "https://files.cow.fi/tokens/CoinGecko.json";
 const coinGeckoIdListUrl = "https://api.coingecko.com/api/v3/coins/list";
