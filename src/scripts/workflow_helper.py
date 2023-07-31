@@ -89,8 +89,22 @@ def handle_info_json(data, removed=False):
         json.dump(info, f, indent=2)
 
 
+def handle_sort_list():
+    with open(LIST_PATH, "r+") as f:
+        token_list = json.load(f)
+        token_list["tokens"] = sort_token_list(token_list["tokens"])
+        f.seek(0)
+        f.truncate()
+        json.dump(token_list, f, indent=2)
+
+
 def main():
     option = sys.argv[1]
+
+    if option == "sortList":
+        handle_sort_list()
+        return
+
     data_file = sys.argv[2]
 
     with open(data_file) as f:
