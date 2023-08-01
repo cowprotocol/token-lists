@@ -11,8 +11,6 @@ on:
 # env:
 #   REPO_NAME_SLUG: token-lists
 #   PR_NUMBER: ${{ github.event.number }}
-#   REACT_APP_PINATA_API_KEY: ${{ secrets.REACT_APP_PINATA_API_KEY }}
-#   REACT_APP_PINATA_SECRET_API_KEY: ${{ secrets.REACT_APP_PINATA_SECRET_API_KEY }}  
 
 jobs:
   setup:
@@ -21,29 +19,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: lts/*
-
-      - name: Set output of cache
-        id: yarn-cache
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - name: Cache yarn cache
-        uses: actions/cache@v2
-        id: cache-yarn-cache
-        with:
-          path: ${{ steps.yarn-cache.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn-
+          cache: yarn
 
       - name: Cache node_modules
         id: cache-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
@@ -61,16 +47,17 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: lts/*
+          cache: yarn
 
       - name: Load dependencies
         id: cache-node-modules
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
@@ -81,70 +68,4 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: token-lists
-          path: build
-
-
-
-  deploy:
-    name: Deploy
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Download Artifacts
-        uses: actions/download-artifact@v2
-
-      # TODO: Uncomment in future PR
-      # - name: Configure AWS credentials
-      #   uses: aws-actions/configure-aws-credentials@v1
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: ${{ secrets.AWS_REGION }}
-
-      # - name: 'Deploy to S3: PRaul'
-      #   if: env.PR_NUMBER
-      #   run: aws s3 sync token-list/lists s3://${{ secrets.AWS_REVIEW_BUCKET_NAME }}/${{ env.REPO_NAME_SLUG }}/pr${{ env.PR_NUMBER }} --delete
-
-      # - name: 'PRaul: Comment PR with app URLs'
-      #   uses: mshick/add-pr-comment@v1
-      #   with:
-      #     message: |
-      #       * **🔭 [GP Swap](${{ env.REVIEW_FEATURE_URL }})**: CoW Protocol v2 Swap UI
-      #     repo-token: ${{ secrets.GITHUB_TOKEN }}
-      #     repo-token-user-login: 'github-actions[bot]'
-      #   if: env.PR_NUMBER
-      #   env:
-      #     REVIEW_FEATURE_URL: https://pr${{ env.PR_NUMBER }}--${{ env.REPO_NAME_SLUG }}.review.gnosisdev.com
-
-      # - name: 'Deploy to S3: Develop'
-      #   if: github.ref == 'refs/heads/develop'
-      #   run: aws s3 sync website s3://${{ secrets.AWS_DEV_BUCKET_NAME }} --delete
-
-      # - name: 'Deploy to S3: Staging'
-      #   if: github.ref == 'refs/heads/main'
-      #   run: aws s3 sync website s3://${{ secrets.AWS_STAGING_BUCKET_NAME }}/current --delete
-
-      # - name: Get the version
-      #   id: get_version
-      #   run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
-
-      # - name: 'Production deployment: Upload release build files to be deployed'
-      #   if: startsWith(github.ref, 'refs/tags/v')
-      #   run: aws s3 sync website s3://${{ secrets.AWS_STAGING_BUCKET_NAME }}/releases/${{ steps.get_version.outputs.VERSION }} --delete
-
-      # - name: 'Production deployment: Enable production deployment'
-      #   if: success() && startsWith(github.ref, 'refs/tags/v')
-      #   run: bash ./.github/scripts/prepare_production_deployment.sh
-      #   env:
-      #     PROD_DEPLOYMENT_HOOK_TOKEN: ${{ secrets.PROD_DEPLOYMENT_HOOK_TOKEN }}
-      #     PROD_DEPLOYMENT_HOOK_URL: ${{ secrets.PROD_DEPLOYMENT_HOOK_URL }}
-      #     VERSION_TAG: ${{ steps.get_version.outputs.VERSION }}
 
