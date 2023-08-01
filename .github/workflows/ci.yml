@@ -39,6 +39,17 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+  validate:
+    name: Validate list schema
+    needs: setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ajv validation
+        uses: vanekj/validate-json-action@v1
+        with:
+          schema: node_modules/@uniswap/token-lists/src/tokenlist.schema.json
+          pattern: src/public/*.json
 
   build:
     name: Build apps
@@ -64,7 +75,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
 
-      
+
       - name: Build
         run: yarn build
 
