@@ -54,7 +54,7 @@ jobs:
         run: mv output.png ${{ env.BASE_PATH }}logo.png
 
       - name: Update json files
-        run: python3 src/scripts/workflow_helper.py ${{ inputs.operation }} data.json
+        run: yarn workflowHelper ${{ inputs.operation }} data.json
 
       - name: Create Pull Request
         id: cpr
