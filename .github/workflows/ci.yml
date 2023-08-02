@@ -27,32 +27,11 @@ jobs:
           node-version: lts/*
           cache: yarn
 
-      - name: Cache node_modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
-
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
   validate:
     name: Validate list schema
-    needs: setup
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: ajv validation
-        uses: vanekj/validate-json-action@v1
-        with:
-          schema: node_modules/@uniswap/token-lists/src/tokenlist.schema.json
-          pattern: src/public/*.json
-
-  build:
-    name: Build apps
     needs: setup
     runs-on: ubuntu-latest
 
@@ -66,17 +45,5 @@ jobs:
           node-version: lts/*
           cache: yarn
 
-      - name: Load dependencies
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
-
-
-      - name: Build
-        run: yarn build
-
-
+      - name: Run validation
+        run: yarn validate
