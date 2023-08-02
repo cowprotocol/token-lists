@@ -45,5 +45,8 @@ jobs:
           node-version: lts/*
           cache: yarn
 
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
       - name: Run validation
         run: yarn validate
