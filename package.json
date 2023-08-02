@@ -8,17 +8,19 @@
     "build": "npm run public && npm run coingecko",
     "coingecko": "node src/coingecko.js",
     "downloadImages": "node  --experimental-json-modules src/downloadImages",
-    "public": "copyfiles src/public/*.json build/lists -f"
+    "public": "copyfiles src/public/*.json build/lists -f",
+    "validate": "ajv validate -s node_modules/@uniswap/token-lists/dist/tokenlist.schema.json -d src/public/CowSwap.json"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
+    "@uniswap/token-lists": "^1.0.0-beta.33",
+    "ajv": "~6.12.6",
+    "ajv-cli": "~3.3.0",
     "axios": "^1.0.0",
     "node-fetch": "^3.3.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.11",
-    "@uniswap/token-lists": "^1.0.0-beta.33",
-    "ajv": "^8.12.0",
     "copyfiles": "^2.4.1"
   }
 }
