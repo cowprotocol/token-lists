@@ -56,6 +56,20 @@ jobs:
       - name: Update json files
         run: yarn workflowHelper ${{ inputs.operation }} data.json
 
+      # Validation steps
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Validate
+        run: yarn validate
+
+      # Passed validation
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v4
