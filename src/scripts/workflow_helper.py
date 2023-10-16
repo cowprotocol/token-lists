@@ -66,7 +66,7 @@ def handle_remove_token(data):
 
 
 def handle_info_json(data, removed=False):
-    file_path = f'src/public/images/{data["chainId"]}/{data["address"]}/info.json'
+    file_path = f'src/public/images/{data["chainId"]}/{data["address"].lower()}/info.json'
 
     with open(file_path, "r+") as f:
         try:
