@@ -1,0 +1,42 @@
+{
+  "$id": "https://cow.fi/schemas/token-list/v0.0.1.json",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "PermitInfo",
+  "description": "Permit info for tokens",
+  "type": "object",
+  "patternProperties": {
+    "^0x[a-fA-F0-9]{40}$": {
+      "oneOf": [
+        {
+          "type": "object",
+          "title": "PermitInfo",
+          "description": "Individual permit info when a token is known to be permittable",
+          "properties": {
+            "version": {
+              "type": "string",
+              "description": "Optional version number, as a string",
+              "pattern": "^\\d+$"
+            },
+            "type": {
+              "type": "string",
+              "description": "Type of permit",
+              "enum": [
+                "eip-2612",
+                "dai-like"
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        {
+          "type": "boolean",
+          "description": "When a token is known to not be permittable",
+          "const": false
+        }
+      ]
+    }
+  },
+  "additionalProperties": false
+}

@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "src/coingecko.js",
+  "main": "src/scripts/coingecko.js",
   "scripts": {
     "build": "npm run public && npm run coingecko",
-    "coingecko": "node src/coingecko.js",
-    "downloadImages": "node  --experimental-json-modules src/downloadImages",
+    "coingecko": "node src/scripts/coingecko.js",
+    "downloadImages": "node  --experimental-json-modules src/scripts/downloadImages",
     "public": "copyfiles src/public/*.json build/lists -f",
     "workflowHelper": "python3 src/scripts/workflow_helper.py",
-    "validate": "ajv -s node_modules/@uniswap/token-lists/dist/tokenlist.schema.json -d src/public/CowSwap.json -c ajv-formats --errors text"
+    "validate": "ajv -s node_modules/@uniswap/token-lists/dist/tokenlist.schema.json -d src/public/CowSwap.json -c ajv-formats --errors text",
+    "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
