@@ -29,12 +29,15 @@ jobs:
         uses: actions/checkout@v3
 
       # https://stackoverflow.com/questions/62627931/github-actions-expression-functions-string-manipulation
-      - name: Set address lowercase
-        id: setAddressLowerCase
-        run: INPUT=${{ fromJSON(inputs.issueInfo).address }} echo "::set-output name=addressLowerCase::${INPUT,,}"
+      - name: Set ADDRESS env var
+        env:
+          INPUT: ${{ fromJSON(inputs.issueInfo).address }}
+        run: echo ADDRESS=`echo "print('$INPUT'.lower())" | python3` >> "$GITHUB_ENV"
 
       - name: Set BASE_PATH env var
-        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ fromJSON(inputs.issueInfo).chainId }}/${{ steps.setAddressLowerCase.outputs.addressLowerCase }}/" >> "$GITHUB_ENV"
+        env:
+          CHAIN_ID: ${{ fromJSON(inputs.issueInfo).chainId }}
+        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN_ID }}/${{ env.ADDRESS }}/" >> "$GITHUB_ENV"
 
       - name: Create base path and info.json if it doesn't exist
         run: |
