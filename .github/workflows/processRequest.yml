@@ -21,7 +21,7 @@ name: ProcessRequest
 
 on:
   issues:
-    types: [opened]
+    types: [ opened ]
 
 env:
   # Matches labels from field forms to extract data
@@ -73,6 +73,9 @@ jobs:
               return {...acc, ...body.match(r)?.groups}
             }, {})
             
+            // Lower case the address at the source
+            values.address = values.address.toLowerCase()
+            
             if (values.network === 'MAINNET') {
               values.chainId = 1
               values.blockExplorer = 'etherscan'
@@ -99,7 +102,7 @@ jobs:
           
           # force failure for testing
           # exit 1
-          
+  
 
   validateInput:
     runs-on: ubuntu-latest
@@ -146,9 +149,9 @@ jobs:
             Invalid request
             
             Make sure all the required fields are provided and submit a new issue 
-        
+
   optimizeImage:
-    needs: [extractInfoFromIssue, validateInput]
+    needs: [ extractInfoFromIssue, validateInput ]
     uses: ./.github/workflows/optimizeImage.yml
     if: ${{ contains(github.event.issue.labels.*.name, 'addImage') || contains(github.event.issue.labels.*.name, 'addToken') }}
     with:
