@@ -28,10 +28,14 @@
 
 import {getTokenPermitInfo, PermitInfo} from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
-import {ethers} from 'ethers'
 import {readFileSync, writeFileSync} from 'node:fs'
 import {JsonRpcProvider} from '@ethersproject/providers'
-import {argv, chdir, env, exit} from 'node:process'
+import {argv, chdir, exit} from 'node:process'
+import {BASE_PATH, SPENDER_ADDRESS} from './const.js'
+import {sortPermitInfo} from './utils/sortPermitInfo.js'
+import {getProvider} from './utils/getProvider.js'
+import {Token} from './types.js'
+import {getTokens} from './utils/getTokens.js'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl
@@ -44,8 +48,6 @@ if (!chainId) {
 
 // Change to script dir so relative paths work properly
 chdir(path.dirname(scriptPath))
-
-const BASE_PATH = path.join('../public/')
 
 async function fetchPermitInfo(
   chainId: number,
@@ -60,8 +62,8 @@ async function fetchPermitInfo(
   // Load existing permitInfo.json file for given chainId if it exists
   try {
     allPermitInfo = JSON.parse(readFileSync(permitInfoPath, 'utf8')) as Record<string, PermitInfo>
-  } catch (e) {
-    console.info(`File ${permitInfoPath} not found. It'll be created.`, e)
+  } catch (_) {
+    // File doesn't exist. It'll be created later on.
   }
 
   // Build provider instance
@@ -71,17 +73,17 @@ async function fetchPermitInfo(
   const tokens = getTokens(chainId, tokenListPath)
 
   // Create a list of promises to check all tokens
-  const promises = tokens.map((token) => {
+  const fetchAllPermits = tokens.map((token) => {
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
     return _fetchPermitInfo(chainId, provider, token, existingInfo)
   })
 
   // Await for all of them to complete
-  const results = await Promise.allSettled(promises)
+  const fetchedPermits = await Promise.allSettled(fetchAllPermits)
 
   // Iterate over each result
-  results.forEach((result) => {
+  fetchedPermits.forEach((result) => {
     // Ignore failed or the ones where the value is falsy
     if (result.status === 'fulfilled' && result.value) {
       const [address, permitInfo] = result.value
@@ -96,41 +98,6 @@ async function fetchPermitInfo(
   } catch (e) {
     console.error(`Failed to write file ${permitInfoPath}`, e)
   }
-}
-
-function getProvider(chainId: number, rpcUrl: string | undefined): JsonRpcProvider {
-  const rpcEndpoint = rpcUrl ? rpcUrl : DEFAULT_RPC_URLS[chainId]
-
-  if (!rpcEndpoint) {
-    throw new Error(`No RPC found for network ${chainId}`)
-  }
-
-  if (!rpcUrl && (chainId === 1 || chainId === 5) && !env.INFURA_API_KEY) {
-    throw new Error(`INFURA_API_KEY is required`)
-  }
-
-  return new ethers.providers.JsonRpcProvider(rpcEndpoint)
-}
-
-const DEFAULT_RPC_URLS: Record<number, string> = {
-  1: 'https://mainnet.infura.io/v3/' + env.INFURA_API_KEY,
-  5: 'https://goerli.infura.io/v3/' + env.INFURA_API_KEY,
-  100: 'https://rpc.gnosischain.com',
-}
-
-type Token = {
-  address: string
-  name: string
-  chainId: number
-  symbol: string
-}
-
-function getTokens(chainId: number, tokenListPath: string | undefined): Array<Token> {
-  const filePath = tokenListPath
-    ? tokenListPath
-    : path.join(BASE_PATH, chainId === 5 ? 'CowSwapGoerli.json' : 'CowSwap.json')
-
-  return JSON.parse(readFileSync(filePath, 'utf-8')).tokens
 }
 
 async function _fetchPermitInfo(
@@ -148,7 +115,7 @@ async function _fetchPermitInfo(
       const response = await getTokenPermitInfo({
         chainId,
         provider,
-        spender: '0xC92E8bdf79f0507f65a392b0ab4667716BFE0110',
+        spender: SPENDER_ADDRESS,
         tokenAddress: token.address,
         tokenName: token.name,
       })
@@ -163,28 +130,6 @@ async function _fetchPermitInfo(
       console.info(`Failed ${token.symbol}:`, e)
     }
   }
-}
-
-function sortPermitInfo(allPermitInfo: Record<string, PermitInfo>): Record<string, PermitInfo> {
-  // Create a new obj with the keys sorted
-  return Object.keys(allPermitInfo)
-    .sort((a, b) => {
-      const pa = allPermitInfo[a]
-      const pb = allPermitInfo[b]
-
-      // If either both or none have permit info, sort by key
-      if ((pa && pb) || (!pa && !pb)) {
-        return a > b ? 1 : -1
-      }
-      // Otherwise, tokens with permit info go in top
-      return pb ? 1 : -1
-    })
-    .reduce((acc, address) => {
-      // Create a new object with the keys in the sorted order
-      acc[address] = allPermitInfo[address]
-
-      return acc
-    }, {})
 }
 
 // Execute the script
