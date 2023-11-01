@@ -1,4 +1,4 @@
-import {getTokenPermitInfo, PermitInfo} from 'alfetopito-permit-utils' // import {getTokenPermitInfo, PermitInfo} from '@cowprotocol/permit-utils' // TODO: maybe make the args nicer?
+import {getTokenPermitInfo, PermitInfo} from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
 import {ethers} from 'ethers'
 import {readFileSync, writeFileSync} from 'node:fs'
