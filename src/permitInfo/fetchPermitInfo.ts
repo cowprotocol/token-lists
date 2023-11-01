@@ -10,7 +10,7 @@ const [, , chainId, tokenListPath, rpcUrl] = process.argv
 
 const BASE_PATH = path.join('src/public/')
 
-async function calculatePermitInfo(
+async function fetchPermitInfo(
   chainId: number,
   tokenListPath: string | undefined,
   rpcUrl: string | undefined,
@@ -37,7 +37,7 @@ async function calculatePermitInfo(
   const promises = tokens.map((token) => {
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
-    return fetchPermitInfo(chainId, provider, token, existingInfo)
+    return _fetchPermitInfo(chainId, provider, token, existingInfo)
   })
 
   // Await for all of them to complete
@@ -96,7 +96,7 @@ function getTokens(chainId: number, tokenListPath: string | undefined): Array<To
   return JSON.parse(readFileSync(filePath, 'utf-8')).tokens
 }
 
-async function fetchPermitInfo(
+async function _fetchPermitInfo(
   chainId: number,
   provider: JsonRpcProvider,
   token: Token,
@@ -151,4 +151,4 @@ function sortPermitInfo(allPermitInfo: Record<string, PermitInfo>): Record<strin
 }
 
 // Execute the script
-calculatePermitInfo(+chainId, tokenListPath, rpcUrl).then(() => console.info(`Done 🏁`))
+fetchPermitInfo(+chainId, tokenListPath, rpcUrl).then(() => console.info(`Done 🏁`))
