@@ -77,7 +77,7 @@ function getProvider(chainId: number, rpcUrl: string | undefined): JsonRpcProvid
     throw new Error(`No RPC found for network ${chainId}`)
   }
 
-  if (!rpcUrl && (chainId === 1 || chainId === 5) && !process.env.INFURA_API_KEY) {
+  if (!rpcUrl && (chainId === 1 || chainId === 5) && !env.INFURA_API_KEY) {
     throw new Error(`INFURA_API_KEY is required`)
   }
 
@@ -85,8 +85,8 @@ function getProvider(chainId: number, rpcUrl: string | undefined): JsonRpcProvid
 }
 
 const DEFAULT_RPC_URLS: Record<number, string> = {
-  1: 'https://mainnet.infura.io/v3/' + process.env.INFURA_API_KEY,
-  5: 'https://goerli.infura.io/v3/' + process.env.INFURA_API_KEY,
+  1: 'https://mainnet.infura.io/v3/' + env.INFURA_API_KEY,
+  5: 'https://goerli.infura.io/v3/' + env.INFURA_API_KEY,
   100: 'https://rpc.gnosischain.com',
 }
 
