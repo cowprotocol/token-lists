@@ -11,7 +11,9 @@
     "public": "copyfiles src/public/*.json build/lists -f",
     "workflowHelper": "python3 src/scripts/workflow_helper.py",
     "validate": "ajv -s node_modules/@uniswap/token-lists/dist/tokenlist.schema.json -d src/public/CowSwap.json -c ajv-formats --errors text",
-    "permitInfo": "ts-node --esm src/permitInfo/calculatePermitInfo.ts --experimental-specifier-resolution=node",
+    "fetch-permit-info:mainnet": "ts-node src/permitInfo/calculatePermitInfo.ts 1",
+    "fetch-permit-info:gnosis": "ts-node src/permitInfo/calculatePermitInfo.ts 100",
+    "fetch-permit-info:goerli": "ts-node src/permitInfo/calculatePermitInfo.ts 5",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
