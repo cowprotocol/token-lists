@@ -3,17 +3,21 @@ import * as path from 'node:path'
 import {ethers} from 'ethers'
 import {readFileSync, writeFileSync} from 'node:fs'
 import {JsonRpcProvider} from '@ethersproject/providers'
+import {argv, chdir, env, exit} from 'node:process'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl
-const [, , chainId, tokenListPath, rpcUrl] = process.argv
+const [, scriptPath, chainId, tokenListPath, rpcUrl] = argv
 
 if (!chainId) {
   console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
   exit(1)
 }
 
-const BASE_PATH = path.join('src/public/')
+// Change to script dir so relative paths work properly
+chdir(path.dirname(scriptPath))
+
+const BASE_PATH = path.join('../public/')
 
 async function fetchPermitInfo(
   chainId: number,
