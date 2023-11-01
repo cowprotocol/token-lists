@@ -8,6 +8,11 @@ import {JsonRpcProvider} from '@ethersproject/providers'
 // Get args from cli: chainId, optional token lists path, optional rpcUrl
 const [, , chainId, tokenListPath, rpcUrl] = process.argv
 
+if (!chainId) {
+  console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
+  exit(1)
+}
+
 const BASE_PATH = path.join('src/public/')
 
 async function fetchPermitInfo(
