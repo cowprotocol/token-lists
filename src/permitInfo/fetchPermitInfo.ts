@@ -1,3 +1,31 @@
+/**
+ * Fetch permit info for given network
+ *
+ * ChainId is the required first cli argument
+ *
+ * TokenListPath is the optional second cli argument
+ * By default, checks against the respective default token list
+ * - `src/public/CowSwap.json` for mainnet and gnosis chain
+ * - `src/public/CowSwapGoerli.json` for goerli
+ *
+ * RpcUrl is the optional third cli argument
+ * By default, it'll use Infura for mainnet and goerli.
+ * In that case, `INFURA_API_KEY` env var must be set.
+ *
+ * Minimal example:
+ * $ ts-node fetchPermitInfo 100
+ *
+ * Minimal example using default INFURA rpc:
+ * $ INFURA_API_KEY=0000000...111 ts-node fetchPermitInfo 1
+ *
+ * With optional params
+ * $ ts-node fetchPermitInfo 1 otherTokenList.json https://my.rpc.endpoint
+ *
+ * @arg chainId - required, first positional argument
+ * @arg tokenListPath - optional, second positional argument
+ * @arg rpcUrl - optional, third positional argument
+ */
+
 import {getTokenPermitInfo, PermitInfo} from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
 import {ethers} from 'ethers'
