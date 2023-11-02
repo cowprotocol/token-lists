@@ -26,16 +26,16 @@
  * @arg rpcUrl - optional, third positional argument
  */
 
-import {getTokenPermitInfo, PermitInfo} from '@cowprotocol/permit-utils'
+import { getTokenPermitInfo, PermitInfo } from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
-import {readFileSync, writeFileSync} from 'node:fs'
-import {JsonRpcProvider} from '@ethersproject/providers'
-import {argv, chdir, exit} from 'node:process'
-import {BASE_PATH, SPENDER_ADDRESS} from './const.ts'
-import {sortPermitInfo} from './utils/sortPermitInfo.ts'
-import {getProvider} from './utils/getProvider.ts'
-import {Token} from './types.ts'
-import {getTokens} from './utils/getTokens.ts'
+import { readFileSync, writeFileSync } from 'node:fs'
+import { JsonRpcProvider } from '@ethersproject/providers'
+import { argv, chdir, exit } from 'node:process'
+import { BASE_PATH, SPENDER_ADDRESS } from './const.ts'
+import { sortPermitInfo } from './utils/sortPermitInfo.ts'
+import { getProvider } from './utils/getProvider.ts'
+import { Token } from './types.ts'
+import { getTokens } from './utils/getTokens.ts'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl
