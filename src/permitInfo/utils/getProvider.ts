@@ -1,5 +1,5 @@
 import { JsonRpcProvider } from '@ethersproject/providers'
-import { DEFAULT_RPC_URLS } from '../const.js'
+import { DEFAULT_RPC_URLS } from '../const.ts'
 import { env } from 'node:process'
 import { ethers } from 'ethers'
 

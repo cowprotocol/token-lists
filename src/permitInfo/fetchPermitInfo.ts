@@ -31,11 +31,11 @@ import * as path from 'node:path'
 import {readFileSync, writeFileSync} from 'node:fs'
 import {JsonRpcProvider} from '@ethersproject/providers'
 import {argv, chdir, exit} from 'node:process'
-import {BASE_PATH, SPENDER_ADDRESS} from './const.js'
-import {sortPermitInfo} from './utils/sortPermitInfo.js'
-import {getProvider} from './utils/getProvider.js'
-import {Token} from './types.js'
-import {getTokens} from './utils/getTokens.js'
+import {BASE_PATH, SPENDER_ADDRESS} from './const.ts'
+import {sortPermitInfo} from './utils/sortPermitInfo.ts'
+import {getProvider} from './utils/getProvider.ts'
+import {Token} from './types.ts'
+import {getTokens} from './utils/getTokens.ts'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl
