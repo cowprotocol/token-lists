@@ -11,7 +11,7 @@ const cowListUrl = "https://files.cow.fi/tokens/CowSwap.json";
 const coinGeckoListUrl = "https://files.cow.fi/tokens/CoinGecko.json";
 const coinGeckoIdListUrl = "https://api.coingecko.com/api/v3/coins/list";
 
-const LIST_DIR = path.join("src", "lists");
+const LIST_DIR = path.join("src", "cowFi");
 
 const IDS_FILE_NAME_RAW = "TEMP-id-list-raw.json";
 const STATIC_LIST_NAME_RAW = "TEMP-static-list-raw.json";

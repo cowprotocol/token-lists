@@ -5,21 +5,22 @@ import { backOff } from "exponential-backoff";
 
 import _ from "lodash";
 
+const USE_CACHE = (process.env.USE_CACHE ?? "true") === "true";
+
 const cowListUrl = "https://files.cow.fi/tokens/CowSwap.json";
 const coinGeckoListUrl = "https://files.cow.fi/tokens/CoinGecko.json";
 const coinGeckoIdListUrl = "https://api.coingecko.com/api/v3/coins/list";
 
 const LIST_DIR = path.join("src", "lists");
 
-const IDS_FILE_NAME_RAW = "id-list-raw.json";
+const IDS_FILE_NAME_RAW = "TEMP-id-list-raw.json";
+const STATIC_LIST_NAME_RAW = "TEMP-static-list-raw.json";
+
+const IDS_FILE_NAME_FINAL = "cowFi-tokenIds.json";
+const STATIC_LIST_NAME_FINAL = "cowFi-tokens.json";
+
 const IDS_FILE_PATH_RAW = path.join(LIST_DIR, IDS_FILE_NAME_RAW);
-
-const IDS_FILE_NAME_FINAL = "id-list-final.json";
-const STATIC_LIST_NAME_RAW = "static-list-raw.json";
 const STATIC_LIST_PATH_RAW = path.join(LIST_DIR, STATIC_LIST_NAME_RAW);
-
-const STATIC_LIST_NAME_FINAL = "static-list-final.json";
-
 const CUSTOM_DESCRIPTION_PATH = path.join("src", "files", "description.json");
 
 const TOTAL_LIST_LENGTH = 50;
@@ -92,7 +93,7 @@ async function getTokenLists() {
 
 async function getIds() {
   // If ID's file exist
-  if (fs.existsSync(IDS_FILE_PATH_RAW)) {
+  if (USE_CACHE && fs.existsSync(IDS_FILE_PATH_RAW)) {
     const json = fs.readFileSync(IDS_FILE_PATH_RAW, "utf8");
     return JSON.parse(json);
   }
@@ -116,7 +117,7 @@ async function getIds() {
 
 async function getStaticData(idsData) {
   // If static data file exists, read and return it
-  if (fs.existsSync(STATIC_LIST_PATH_RAW)) {
+  if (USE_CACHE && fs.existsSync(STATIC_LIST_PATH_RAW)) {
     const json = fs.readFileSync(STATIC_LIST_PATH_RAW, "utf8");
     return JSON.parse(json);
   }
@@ -125,12 +126,15 @@ async function getStaticData(idsData) {
   const staticData = [];
 
   let index = 0;
+  const totalTokens = idsData.length + 1;
   while (index < idsData.length) {
     const idItem = idsData[index];
     const quoteParams = `localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`;
     const url = `https://api.coingecko.com/api/v3/coins/${idItem.id}?${quoteParams}`;
 
-    console.log(`Fetching data for ID: ${idItem.id}`);
+    console.log(
+      `[${index + 1}/${totalTokens}] Fetching data for ID: ${idItem.id}`
+    );
 
     const data = await fetchWithBackoff(url);
     staticData.push(data);
@@ -148,7 +152,7 @@ async function getStaticDataFinal(data) {
   // Get only USD values for market data
   let customDescriptionFile = null;
 
-  if (fs.existsSync(CUSTOM_DESCRIPTION_PATH)) {
+  if (USE_CACHE && fs.existsSync(CUSTOM_DESCRIPTION_PATH)) {
     const json = fs.readFileSync(CUSTOM_DESCRIPTION_PATH, "utf8");
     customDescriptionFile = JSON.parse(json);
   }

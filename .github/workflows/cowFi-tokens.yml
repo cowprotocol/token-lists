@@ -1,0 +1,100 @@
+name: 'Cron: cow.fi tokens list'
+
+on:
+  schedule:
+    - cron: '30 * * * *'
+
+# Required for authenticating with AWS IAM
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  setup:
+    name: Setup
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+
+      - name: Set output of cache
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache yarn cache
+        uses: actions/cache@v2
+        id: cache-yarn-cache
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Cache node_modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+  generate:
+    name: Generate and Post to S3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up node
+        uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+
+      - name: Load dependencies
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
+
+      # TODO: Remove! just a test
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate token lists for cow.fi
+        run: USE_CACHE=false yarn cowFi:tokens
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cowFi-tokens.json
+          path: src/cowFi/cowFi-tokens.json
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::693696263829:role/token-list-github-action-role
+          role-session-name: githubactionsession
+          aws-region: eu-central-1
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp src/cowFi/cowFi-tokens.json s3://files.cow.fi/tokens/cowFi-tokens.json
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.DISTRIBUTION }} \
+            --paths "/tokens/*"
