@@ -1,11 +1,8 @@
-name: "Cron: cow.fi tokens list"
+name: 'Cron: cow.fi tokens list'
 
 on:
   schedule:
-    - cron: "30 * * * *"
-
-  pull_request:
-    types: [opened, synchronize]
+    - cron: '30 * * * *'
 
 # Required for authenticating with AWS IAM
 permissions:
