@@ -15,6 +15,9 @@
     "fetchPermitInfo:mainnet": "ts-node src/permitInfo/fetchPermitInfo.ts 1",
     "fetchPermitInfo:gnosis": "ts-node src/permitInfo/fetchPermitInfo.ts 100",
     "fetchPermitInfo:goerli": "ts-node src/permitInfo/fetchPermitInfo.ts 5",
+    "recheckPermitInfo:mainnet": "ts-node src/permitInfo/fetchPermitInfo.ts 1 '' '' true",
+    "recheckPermitInfo:gnosis": "ts-node src/permitInfo/fetchPermitInfo.ts 100 '' '' true",
+    "recheckPermitInfo:goerli": "ts-node src/permitInfo/fetchPermitInfo.ts 5 '' '' true",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",

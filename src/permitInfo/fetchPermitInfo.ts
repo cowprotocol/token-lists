@@ -24,9 +24,10 @@
  * @arg chainId - required, first positional argument
  * @arg tokenListPath - optional, second positional argument
  * @arg rpcUrl - optional, third positional argument
+ * @arg recheckUnsupported - optional, fourth positional argument
  */
 
-import { getTokenPermitInfo, PermitInfo } from '@cowprotocol/permit-utils'
+import { getTokenPermitInfo, isSupportedPermitInfo, PermitInfo } from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { JsonRpcProvider } from '@ethersproject/providers'
@@ -38,8 +39,8 @@ import { Token } from './types.ts'
 import { getTokensFromTokenList } from './utils/getTokensFromTokenList.ts'
 
 // TODO: maybe make the args nicer?
-// Get args from cli: chainId, optional token lists path, optional rpcUrl
-const [, scriptPath, chainId, tokenListPath, rpcUrl] = argv
+// Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
+const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported] = argv
 
 if (!chainId) {
   console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
@@ -49,10 +50,23 @@ if (!chainId) {
 // Change to script dir so relative paths work properly
 chdir(path.dirname(scriptPath))
 
+function getUnsupportedTokensFromPermitInfo(chainId: number, allPermitInfo: Record<string, PermitInfo>): Token[] {
+  const tokens = []
+
+  for (const [k, v] of Object.entries(allPermitInfo)) {
+    if (!isSupportedPermitInfo(v)) {
+      tokens.push({ address: k, name: v?.name, chainId })
+    }
+  }
+
+  return tokens
+}
+
 async function fetchPermitInfo(
   chainId: number,
   tokenListPath: string | undefined,
   rpcUrl: string | undefined,
+  recheckUnsupported: boolean = false,
 ): Promise<void> {
   // Load existing permitInfo.json file for given chainId
   const permitInfoPath = path.join(BASE_PATH, `PermitInfo.${chainId}.json`)
@@ -64,19 +78,25 @@ async function fetchPermitInfo(
     allPermitInfo = JSON.parse(readFileSync(permitInfoPath, 'utf8')) as Record<string, PermitInfo>
   } catch (_) {
     // File doesn't exist. It'll be created later on.
+    if (recheckUnsupported) {
+      console.error('recheck option set without existing permitInfo. There is nothing to recheck')
+      exit(1)
+    }
   }
 
   // Build provider instance
   const provider = getProvider(chainId, rpcUrl)
 
   // Load tokens info from a token list
-  const tokens = getTokensFromTokenList(chainId, tokenListPath)
+  const tokens = recheckUnsupported
+    ? getUnsupportedTokensFromPermitInfo(chainId, allPermitInfo)
+    : getTokensFromTokenList(chainId, tokenListPath)
 
   // Create a list of promises to check all tokens
   const fetchAllPermits = tokens.map((token) => {
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
-    return _fetchPermitInfo(chainId, provider, token, existingInfo)
+    return _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported)
   })
 
   // Await for all of them to complete
@@ -105,11 +125,14 @@ async function _fetchPermitInfo(
   provider: JsonRpcProvider,
   token: Token,
   existing: PermitInfo | undefined,
+  recheckUnsupported: boolean,
 ): Promise<undefined | [string, PermitInfo]> {
-  if (existing !== undefined) {
-    console.info(`Token ${token.symbol}: already known, skipping`, existing)
+  const tokenId = token?.symbol || token?.name || token.address
+
+  if (isSupportedPermitInfo(existing) || !recheckUnsupported) {
+    console.info(`Token ${tokenId}: already known, skipping`, existing)
   } else if (token.chainId !== chainId) {
-    console.info(`Token ${token.symbol}: belongs to a different network (${token.chainId}), skipping`)
+    console.info(`Token ${tokenId}: belongs to a different network (${token.chainId}), skipping`)
   } else {
     try {
       const response = await getTokenPermitInfo({
@@ -119,7 +142,7 @@ async function _fetchPermitInfo(
         tokenAddress: token.address,
         tokenName: token.name,
       })
-      console.info(`Token ${token.symbol}:`, response)
+      console.info(`Token ${tokenId}:`, response)
 
       // Ignore error responses
       if (!(typeof response === 'object' && 'error' in response)) {
@@ -127,10 +150,10 @@ async function _fetchPermitInfo(
       }
     } catch (e) {
       // Ignore failures
-      console.info(`Failed ${token.symbol}:`, e)
+      console.info(`Failed ${tokenId}:`, e)
     }
   }
 }
 
 // Execute the script
-fetchPermitInfo(+chainId, tokenListPath, rpcUrl).then(() => console.info(`Done 🏁`))
+fetchPermitInfo(+chainId, tokenListPath, rpcUrl, !!recheckUnsupported).then(() => console.info(`Done 🏁`))
