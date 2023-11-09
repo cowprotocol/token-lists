@@ -27,7 +27,13 @@
  * @arg recheckUnsupported - optional, fourth positional argument
  */
 
-import { getTokenPermitInfo, isSupportedPermitInfo, PermitInfo } from '@cowprotocol/permit-utils'
+import pThrottle from 'p-throttle'
+import {
+  getTokenPermitInfo,
+  GetTokenPermitIntoResult,
+  isSupportedPermitInfo,
+  PermitInfo
+} from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { JsonRpcProvider } from '@ethersproject/providers'
@@ -110,6 +116,14 @@ async function fetchPermitInfo(
   }
 }
 
+// Fn can only be called 2x/second
+const throttle = pThrottle({
+  limit: 2,
+  interval: 1000,
+})
+
+const throttledGetTokenPermitInfo = throttle(getTokenPermitInfo)
+
 async function _fetchPermitInfo(
   chainId: number,
   provider: JsonRpcProvider,
@@ -125,7 +139,7 @@ async function _fetchPermitInfo(
     console.info(`Token ${tokenId}: already known, skipping`, existing)
   } else {
     try {
-      const response = await getTokenPermitInfo({
+      const response: GetTokenPermitIntoResult = await throttledGetTokenPermitInfo({
         chainId,
         provider,
         spender: SPENDER_ADDRESS,
