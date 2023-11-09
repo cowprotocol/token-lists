@@ -37,6 +37,7 @@ import { sortPermitInfo } from './utils/sortPermitInfo.ts'
 import { getProvider } from './utils/getProvider.ts'
 import { Token } from './types.ts'
 import { getTokensFromTokenList } from './utils/getTokensFromTokenList.ts'
+import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokensFromPermitInfo.ts'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
@@ -50,17 +51,6 @@ if (!chainId) {
 // Change to script dir so relative paths work properly
 chdir(path.dirname(scriptPath))
 
-function getUnsupportedTokensFromPermitInfo(chainId: number, allPermitInfo: Record<string, PermitInfo>): Token[] {
-  const tokens = []
-
-  for (const [k, v] of Object.entries(allPermitInfo)) {
-    if (!isSupportedPermitInfo(v)) {
-      tokens.push({ address: k, name: v?.name, chainId })
-    }
-  }
-
-  return tokens
-}
 
 async function fetchPermitInfo(
   chainId: number,
