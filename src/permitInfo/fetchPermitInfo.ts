@@ -129,10 +129,10 @@ async function _fetchPermitInfo(
 ): Promise<undefined | [string, PermitInfo]> {
   const tokenId = token?.symbol || token?.name || token.address
 
-  if (isSupportedPermitInfo(existing) || !recheckUnsupported) {
-    console.info(`Token ${tokenId}: already known, skipping`, existing)
-  } else if (token.chainId !== chainId) {
+  if (token.chainId !== chainId) {
     console.info(`Token ${tokenId}: belongs to a different network (${token.chainId}), skipping`)
+  } else if (isSupportedPermitInfo(existing) || (existing && !recheckUnsupported)) {
+    console.info(`Token ${tokenId}: already known, skipping`, existing)
   } else {
     try {
       const response = await getTokenPermitInfo({
