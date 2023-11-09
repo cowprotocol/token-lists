@@ -144,7 +144,7 @@ async function _fetchPermitInfo(
       console.info(`Token ${tokenId}:`, response)
 
       // Ignore error responses
-      if (!(typeof response === 'object' && 'error' in response)) {
+      if (!('error' in response)) {
         return [token.address.toLowerCase(), response]
       }
     } catch (e) {
