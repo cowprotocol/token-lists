@@ -140,7 +140,6 @@ async function _fetchPermitInfo(
         provider,
         spender: SPENDER_ADDRESS,
         tokenAddress: token.address,
-        tokenName: token.name,
       })
       console.info(`Token ${tokenId}:`, response)
 
