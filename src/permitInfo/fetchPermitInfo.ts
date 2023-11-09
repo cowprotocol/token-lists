@@ -35,7 +35,7 @@ import { BASE_PATH, SPENDER_ADDRESS } from './const.ts'
 import { sortPermitInfo } from './utils/sortPermitInfo.ts'
 import { getProvider } from './utils/getProvider.ts'
 import { Token } from './types.ts'
-import { getTokens } from './utils/getTokens.ts'
+import { getTokensFromTokenList } from './utils/getTokensFromTokenList.ts'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl
@@ -70,7 +70,7 @@ async function fetchPermitInfo(
   const provider = getProvider(chainId, rpcUrl)
 
   // Load tokens info from a token list
-  const tokens = getTokens(chainId, tokenListPath)
+  const tokens = getTokensFromTokenList(chainId, tokenListPath)
 
   // Create a list of promises to check all tokens
   const fetchAllPermits = tokens.map((token) => {
