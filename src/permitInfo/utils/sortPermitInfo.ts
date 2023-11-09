@@ -1,4 +1,4 @@
-import { PermitInfo } from '@cowprotocol/permit-utils'
+import { isSupportedPermitInfo, PermitInfo } from '@cowprotocol/permit-utils'
 
 export function sortPermitInfo(allPermitInfo: Record<string, PermitInfo>): Record<string, PermitInfo> {
   // Create a new obj with the keys sorted
@@ -7,12 +7,15 @@ export function sortPermitInfo(allPermitInfo: Record<string, PermitInfo>): Recor
       const pa = allPermitInfo[a]
       const pb = allPermitInfo[b]
 
-      // If either both or none have permit info, sort by key
-      if ((pa && pb) || (!pa && !pb)) {
+      // If either both or none are supported, sort by key
+      if (
+        (isSupportedPermitInfo(pa) && isSupportedPermitInfo(pb)) ||
+        (!isSupportedPermitInfo(pa) && !isSupportedPermitInfo(pb))
+      ) {
         return a > b ? 1 : -1
       }
-      // Otherwise, tokens with permit info go in top
-      return pb ? 1 : -1
+      // Otherwise, supported tokens go on top
+      return isSupportedPermitInfo(pb) ? 1 : -1
     })
     .reduce((acc, address) => {
       // Create a new object with the keys in the sorted order
