@@ -131,7 +131,7 @@ async function _fetchPermitInfo(
   existing: PermitInfo | undefined,
   recheckUnsupported: boolean,
 ): Promise<undefined | [string, PermitInfo]> {
-  const tokenId = token?.symbol || token?.name || token.address
+  const tokenId = token.symbol || token.name || token.address
 
   if (token.chainId !== chainId) {
     console.info(`Token ${tokenId}: belongs to a different network (${token.chainId}), skipping`)
@@ -144,6 +144,7 @@ async function _fetchPermitInfo(
         provider,
         spender: SPENDER_ADDRESS,
         tokenAddress: token.address,
+        tokenName: token.name
       })
       console.info(`Token ${tokenId}:`, response)
 
