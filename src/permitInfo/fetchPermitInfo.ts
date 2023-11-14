@@ -28,11 +28,12 @@
  */
 
 import pThrottle from 'p-throttle'
+import pRetry from 'p-retry'
 import {
   getTokenPermitInfo,
   GetTokenPermitIntoResult,
   isSupportedPermitInfo,
-  PermitInfo
+  PermitInfo,
 } from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
 import { readFileSync, writeFileSync } from 'node:fs'
@@ -92,7 +93,9 @@ async function fetchPermitInfo(
   const fetchAllPermits = tokens.map((token) => {
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
-    return _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported)
+    return pRetry(async () => _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported), {
+      retries: 3,
+    })
   })
 
   // Await for all of them to complete
@@ -100,12 +103,13 @@ async function fetchPermitInfo(
 
   // Iterate over each result
   fetchedPermits.forEach((result) => {
-    // Ignore failed or the ones where the value is falsy
     if (result.status === 'fulfilled' && result.value) {
       const [address, permitInfo] = result.value
 
       // Store result
       allPermitInfo[address] = permitInfo
+    } else if (result.status === 'rejected') {
+      console.log(`[fetchedPermits] Failed to fetch info:`, result.reason)
     }
   })
 
@@ -138,23 +142,24 @@ async function _fetchPermitInfo(
   } else if (isSupportedPermitInfo(existing) || (existing && !recheckUnsupported)) {
     console.info(`Token ${tokenId}: already known, skipping`, existing)
   } else {
-    try {
-      const response: GetTokenPermitIntoResult = await throttledGetTokenPermitInfo({
-        chainId,
-        provider,
-        spender: SPENDER_ADDRESS,
-        tokenAddress: token.address,
-        tokenName: token.name
-      })
-      console.info(`Token ${tokenId}:`, response)
+    const response: GetTokenPermitIntoResult = await throttledGetTokenPermitInfo({
+      chainId,
+      provider,
+      spender: SPENDER_ADDRESS,
+      tokenAddress: token.address,
+      tokenName: token.name,
+    })
 
-      // Ignore error responses
-      if (!('error' in response)) {
-        return [token.address.toLowerCase(), response]
+    if ('error' in response) {
+      if (/ETIMEDOUT/.test(response.error)) {
+        // Throw, so it can be retried on connection errors
+        throw new Error(response.error)
       }
-    } catch (e) {
-      // Ignore failures
-      console.info(`Failed ${tokenId}:`, e)
+      // Non connection related error, stop it here
+      console.info(`Non-retryable failure for token ${tokenId}:`, response)
+    } else {
+      console.info(`Token ${tokenId}:`, response)
+      return [token.address.toLowerCase(), response]
     }
   }
 }
