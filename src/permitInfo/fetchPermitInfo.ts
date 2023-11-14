@@ -151,7 +151,7 @@ async function _fetchPermitInfo(
     })
 
     if ('error' in response) {
-      if (/ETIMEDOUT/.test(response.error)) {
+      if (/ETIMEDOUT|RPC connection error/.test(response.error)) {
         // Throw, so it can be retried on connection errors
         throw new Error(response.error)
       }
