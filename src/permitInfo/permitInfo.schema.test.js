@@ -13,9 +13,12 @@ describe('The permitInfo schema', () => {
 })
 
 describe('Valid PermitInfo data', () => {
-  it('should be valid with `false` value', () => {
+  it('should be valid with `unsupported` type', () => {
     const data = {
-      '0x0000000000000000000000000000000000000000': false,
+      '0x0000000000000000000000000000000000000000': {
+        type: 'unsupported',
+        name: 'tokenName'
+      },
     }
 
     const ajv = new Ajv()
@@ -29,6 +32,7 @@ describe('Valid PermitInfo data', () => {
     const data = {
       '0x0000000000000000000000000000000000000000': {
         type: 'eip-2612',
+        name: 'tokenName'
       },
     }
 
@@ -44,6 +48,7 @@ describe('Valid PermitInfo data', () => {
       '0x0000000000000000000000000000000000000000': {
         type: 'eip-2612',
         version: '1',
+        name: 'tokenName'
       },
     }
 
@@ -58,6 +63,7 @@ describe('Valid PermitInfo data', () => {
     const data = {
       '0x0000000000000000000000000000000000000000': {
         type: 'dai-like',
+        name: 'tokenName'
       },
     }
 
@@ -73,6 +79,7 @@ describe('Valid PermitInfo data', () => {
       '0x0000000000000000000000000000000000000000': {
         type: 'dai-like',
         version: '2',
+        name: 'tokenName'
       },
     }
 
@@ -90,6 +97,7 @@ describe('Invalid PermitInfo data', () => {
       '0x0000000000000000000000000000000000000000': {
         type: 'eip-2612',
         version: 1,
+        name: 'tokenName'
       },
     }
 
@@ -105,6 +113,21 @@ describe('Invalid PermitInfo data', () => {
       '0x0000000000000000000000000000000000000000': {
         type: 'eip-2612',
         version: '1.1',
+        name: 'tokenName'
+      },
+    }
+
+    const ajv = new Ajv()
+    const result = ajv.validate(schema, data)
+
+    assert.strictEqual(result, false)
+    assert.notEqual(ajv.errors, null)
+  })
+
+  it('should be invalid without `name`', () => {
+    const data = {
+      '0x0000000000000000000000000000000000000000': {
+        type: 'eip-2612',
       },
     }
 
@@ -143,7 +166,21 @@ describe('Invalid PermitInfo data', () => {
     const data = {
       '0x0000000000000000000000000000000000000000': {
         type: 'non-existent',
+        name: 'tokenName'
       },
+    }
+
+    const ajv = new Ajv()
+    const result = ajv.validate(schema, data)
+
+    assert.strictEqual(result, false)
+    assert.notEqual(ajv.errors, null)
+  })
+
+
+  it('should be invalid with `false` value', () => {
+    const data = {
+      '0x0000000000000000000000000000000000000000': false,
     }
 
     const ajv = new Ajv()

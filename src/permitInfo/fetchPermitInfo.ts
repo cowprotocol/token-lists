@@ -24,9 +24,17 @@
  * @arg chainId - required, first positional argument
  * @arg tokenListPath - optional, second positional argument
  * @arg rpcUrl - optional, third positional argument
+ * @arg recheckUnsupported - optional, fourth positional argument
  */
 
-import { getTokenPermitInfo, PermitInfo } from '@cowprotocol/permit-utils'
+import pThrottle from 'p-throttle'
+import pRetry from 'p-retry'
+import {
+  getTokenPermitInfo,
+  GetTokenPermitIntoResult,
+  isSupportedPermitInfo,
+  PermitInfo,
+} from '@cowprotocol/permit-utils'
 import * as path from 'node:path'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { JsonRpcProvider } from '@ethersproject/providers'
@@ -35,11 +43,12 @@ import { BASE_PATH, SPENDER_ADDRESS } from './const.ts'
 import { sortPermitInfo } from './utils/sortPermitInfo.ts'
 import { getProvider } from './utils/getProvider.ts'
 import { Token } from './types.ts'
-import { getTokens } from './utils/getTokens.ts'
+import { getTokensFromTokenList } from './utils/getTokensFromTokenList.ts'
+import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokensFromPermitInfo.ts'
 
 // TODO: maybe make the args nicer?
-// Get args from cli: chainId, optional token lists path, optional rpcUrl
-const [, scriptPath, chainId, tokenListPath, rpcUrl] = argv
+// Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
+const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported] = argv
 
 if (!chainId) {
   console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
@@ -49,10 +58,12 @@ if (!chainId) {
 // Change to script dir so relative paths work properly
 chdir(path.dirname(scriptPath))
 
+
 async function fetchPermitInfo(
   chainId: number,
   tokenListPath: string | undefined,
   rpcUrl: string | undefined,
+  recheckUnsupported: boolean = false,
 ): Promise<void> {
   // Load existing permitInfo.json file for given chainId
   const permitInfoPath = path.join(BASE_PATH, `PermitInfo.${chainId}.json`)
@@ -64,19 +75,27 @@ async function fetchPermitInfo(
     allPermitInfo = JSON.parse(readFileSync(permitInfoPath, 'utf8')) as Record<string, PermitInfo>
   } catch (_) {
     // File doesn't exist. It'll be created later on.
+    if (recheckUnsupported) {
+      console.error('recheck option set without existing permitInfo. There is nothing to recheck')
+      exit(1)
+    }
   }
 
   // Build provider instance
   const provider = getProvider(chainId, rpcUrl)
 
   // Load tokens info from a token list
-  const tokens = getTokens(chainId, tokenListPath)
+  const tokens = recheckUnsupported
+    ? getUnsupportedTokensFromPermitInfo(chainId, allPermitInfo)
+    : getTokensFromTokenList(chainId, tokenListPath)
 
   // Create a list of promises to check all tokens
   const fetchAllPermits = tokens.map((token) => {
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
-    return _fetchPermitInfo(chainId, provider, token, existingInfo)
+    return pRetry(async () => _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported), {
+      retries: 3,
+    })
   })
 
   // Await for all of them to complete
@@ -84,12 +103,13 @@ async function fetchPermitInfo(
 
   // Iterate over each result
   fetchedPermits.forEach((result) => {
-    // Ignore failed or the ones where the value is falsy
     if (result.status === 'fulfilled' && result.value) {
       const [address, permitInfo] = result.value
 
       // Store result
       allPermitInfo[address] = permitInfo
+    } else if (result.status === 'rejected') {
+      console.log(`[fetchedPermits] Failed to fetch info:`, result.reason)
     }
   })
 
@@ -100,37 +120,49 @@ async function fetchPermitInfo(
   }
 }
 
+// Fn can only be called 2x/second
+const throttle = pThrottle({
+  limit: 2,
+  interval: 1000,
+})
+
+const throttledGetTokenPermitInfo = throttle(getTokenPermitInfo)
+
 async function _fetchPermitInfo(
   chainId: number,
   provider: JsonRpcProvider,
   token: Token,
   existing: PermitInfo | undefined,
+  recheckUnsupported: boolean,
 ): Promise<undefined | [string, PermitInfo]> {
-  if (existing !== undefined) {
-    console.info(`Token ${token.symbol}: already known, skipping`, existing)
-  } else if (token.chainId !== chainId) {
-    console.info(`Token ${token.symbol}: belongs to a different network (${token.chainId}), skipping`)
-  } else {
-    try {
-      const response = await getTokenPermitInfo({
-        chainId,
-        provider,
-        spender: SPENDER_ADDRESS,
-        tokenAddress: token.address,
-        tokenName: token.name,
-      })
-      console.info(`Token ${token.symbol}:`, response)
+  const tokenId = token.symbol || token.name || token.address
 
-      // Ignore error responses
-      if (!(typeof response === 'object' && 'error' in response)) {
-        return [token.address.toLowerCase(), response]
+  if (token.chainId !== chainId) {
+    console.info(`Token ${tokenId}: belongs to a different network (${token.chainId}), skipping`)
+  } else if (isSupportedPermitInfo(existing) || (existing && !recheckUnsupported)) {
+    console.info(`Token ${tokenId}: already known, skipping`, existing)
+  } else {
+    const response: GetTokenPermitIntoResult = await throttledGetTokenPermitInfo({
+      chainId,
+      provider,
+      spender: SPENDER_ADDRESS,
+      tokenAddress: token.address,
+      tokenName: token.name,
+    })
+
+    if ('error' in response) {
+      if (/ETIMEDOUT|RPC connection error/.test(response.error)) {
+        // Throw, so it can be retried on connection errors
+        throw new Error(response.error)
       }
-    } catch (e) {
-      // Ignore failures
-      console.info(`Failed ${token.symbol}:`, e)
+      // Non connection related error, stop it here
+      console.info(`Non-retryable failure for token ${tokenId}:`, response)
+    } else {
+      console.info(`Token ${tokenId}:`, response)
+      return [token.address.toLowerCase(), response]
     }
   }
 }
 
 // Execute the script
-fetchPermitInfo(+chainId, tokenListPath, rpcUrl).then(() => console.info(`Done 🏁`))
+fetchPermitInfo(+chainId, tokenListPath, rpcUrl, !!recheckUnsupported).then(() => console.info(`Done 🏁`))

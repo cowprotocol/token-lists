@@ -15,20 +15,25 @@
     "fetchPermitInfo:mainnet": "ts-node src/permitInfo/fetchPermitInfo.ts 1",
     "fetchPermitInfo:gnosis": "ts-node src/permitInfo/fetchPermitInfo.ts 100",
     "fetchPermitInfo:goerli": "ts-node src/permitInfo/fetchPermitInfo.ts 5",
+    "recheckPermitInfo:mainnet": "ts-node src/permitInfo/fetchPermitInfo.ts 1 '' '' true",
+    "recheckPermitInfo:gnosis": "ts-node src/permitInfo/fetchPermitInfo.ts 100 '' '' true",
+    "recheckPermitInfo:goerli": "ts-node src/permitInfo/fetchPermitInfo.ts 5 '' '' true",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
-    "@cowprotocol/permit-utils": "0.0.1-RC.1",
+    "@cowprotocol/permit-utils": "^0.0.1",
     "@uniswap/token-lists": "^1.0.0-beta.33",
     "ajv": "^8.12.0",
     "ajv-cli": "^5.0.0",
     "ajv-formats": "^2.1.1",
     "axios": "^1.0.0",
-    "ts-node": "^10.9.1",
     "exponential-backoff": "^3.1.1",
     "lodash": "^4.17.21",
-    "node-fetch": "^3.3.0"
+    "node-fetch": "^3.3.0",
+    "p-retry": "^6.1.0",
+    "p-throttle": "^5.1.0",
+    "ts-node": "^10.9.1"
   },
   "devDependencies": {
     "@types/node": "^20.8.7",

@@ -6,35 +6,32 @@
   "type": "object",
   "patternProperties": {
     "^0x[a-fA-F0-9]{40}$": {
-      "oneOf": [
-        {
-          "type": "object",
-          "title": "PermitInfo",
-          "description": "Individual permit info when a token is known to be permittable",
-          "properties": {
-            "version": {
-              "type": "string",
-              "description": "Optional version number, as a string",
-              "pattern": "^\\d+$"
-            },
-            "type": {
-              "type": "string",
-              "description": "Type of permit",
-              "enum": [
-                "eip-2612",
-                "dai-like"
-              ]
-            }
-          },
-          "required": [
-            "type"
+      "type": "object",
+      "title": "PermitInfo",
+      "description": "Individual permit info when a token is known to be permittable",
+      "properties": {
+        "version": {
+          "type": "string",
+          "description": "Optional version, natural number > 0, as a string",
+          "pattern": "^\\d+$"
+        },
+        "type": {
+          "type": "string",
+          "description": "Type of permit",
+          "enum": [
+            "unsupported",
+            "eip-2612",
+            "dai-like"
           ]
         },
-        {
-          "type": "boolean",
-          "description": "When a token is known to not be permittable",
-          "const": false
+        "name": {
+          "type": "string",
+          "description": "Token name as defined in the contract"
         }
+      },
+      "required": [
+        "type",
+        "name"
       ]
     }
   },

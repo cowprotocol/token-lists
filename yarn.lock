@@ -54,10 +54,10 @@
     json-stringify-deterministic "^1.0.8"
     multiformats "^9.6.4"
 
-"@cowprotocol/permit-utils@0.0.1-RC.1":
-  version "0.0.1-RC.1"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/permit-utils/-/permit-utils-0.0.1-RC.1.tgz#3c0f24ebc735fdf02d763c8c840ff2ccbd688a74"
-  integrity sha512-9Sdm5oaNJiQpcYUTYUVkQtRyuflsHFlWXWdHh9uBnMWTf6MnEGciAqZPNrenGKYI7sw0dIIEPdoB0L6HbdVfQw==
+"@cowprotocol/permit-utils@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/permit-utils/-/permit-utils-0.0.1.tgz#bb11336be564bf1b9a83589077fcec5e89e577a3"
+  integrity sha512-1KjV9zzspkCHrTENVyuPcMwXWcvzWZEuqd6KY0L9OrzxwfC8C4CIAcFi39jQxyF7pBoP7yOMCeRdHuXV4dDKyQ==
   dependencies:
     "@1inch/permit-signed-approvals-utils" "^1.4.10"
     "@cowprotocol/app-data" "^1.1.0"
@@ -756,6 +756,11 @@
   integrity sha512-H/+L+UkTV33uf49PH5pCAUBVPNj2nDBXTN+qS1dOwyyg24l3CcicicCA7ca+HMvJBZcFgl5r8e+RR6elsb4Lyw==
   dependencies:
     "@types/node" "*"
+
+"@types/retry@0.12.2":
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/@types/retry/-/retry-0.12.2.tgz#ed279a64fa438bb69f2480eda44937912bb7480a"
+  integrity sha512-XISRgDJ2Tc5q4TRqvgJtzsRkFYNJzZrhTdtMoGVBttwzzQJkPnS3WWTFc7kuDRoPtPakl+T+OfdEUjYJj7Jbow==
 
 "@types/secp256k1@^4.0.1":
   version "4.0.6"
@@ -2579,6 +2584,11 @@ is-hex-prefixed@1.0.0:
   resolved "https://registry.yarnpkg.com/is-hex-prefixed/-/is-hex-prefixed-1.0.0.tgz#7d8d37e6ad77e5d127148913c573e082d777f554"
   integrity sha512-WvtOiug1VFrE9v1Cydwm+FnXd3+w9GaeVUss5W4v/SLy3UW00vP+6iNF2SdnfiBoLy4bTqVdkftNGTUeOFVsbA==
 
+is-network-error@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/is-network-error/-/is-network-error-1.0.0.tgz#757d7af42263f18f616626e63af12abb19002bbc"
+  integrity sha512-P3fxi10Aji2FZmHTrMPSNFbNC6nnp4U5juPAIjXPHkUNubi4+qK7vvdsaNpAUwXslhYm9oyjEYTxs1xd/+Ph0w==
+
 is-path-inside@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/is-path-inside/-/is-path-inside-3.0.3.tgz#d231362e53a07ff2b0e0ea7fed049161ffd16283"
@@ -3294,6 +3304,20 @@ p-locate@^5.0.0:
   dependencies:
     p-limit "^3.0.2"
 
+p-retry@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/p-retry/-/p-retry-6.1.0.tgz#ea5c188f9f818a5bfa89a27bdf043c74fa9be472"
+  integrity sha512-fJLEQ2KqYBJRuaA/8cKMnqhulqNM+bpcjYtXNex2t3mOXKRYPitAJt9NacSf8XAFzcYahSAbKpobiWDSqHSh2g==
+  dependencies:
+    "@types/retry" "0.12.2"
+    is-network-error "^1.0.0"
+    retry "^0.13.1"
+
+p-throttle@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/p-throttle/-/p-throttle-5.1.0.tgz#7daf27412a86f34154ff1c462ba33e91a8d7afe6"
+  integrity sha512-+N+s2g01w1Zch4D0K3OpnPDqLOKmLcQ4BvIFq3JC0K29R28vUOjWpO+OJZBNt8X9i3pFCksZJZ0YXkUGjaFE6g==
+
 p-try@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/p-try/-/p-try-2.2.0.tgz#cb2868540e313d61de58fafbe35ce9004d5540e6"
@@ -3642,6 +3666,11 @@ responselike@^2.0.0:
   integrity sha512-4gl03wn3hj1HP3yzgdI7d3lCkF95F21Pz4BPGvKHinyQzALR5CapwC8yIi0Rh58DEMQ/SguC03wFj2k0M/mHhw==
   dependencies:
     lowercase-keys "^2.0.0"
+
+retry@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/retry/-/retry-0.13.1.tgz#185b1587acf67919d63b357349e03537b2484658"
+  integrity sha512-XQBQ3I8W1Cge0Seh+6gjj03LbmRFWuoszgK9ooCpwYIrhhoO80pfq4cUkU5DkknwfOfFteRwlZ56PYOGYyFWdg==
 
 reusify@^1.0.4:
   version "1.0.4"
