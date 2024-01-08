@@ -8,6 +8,7 @@ export const DEFAULT_RPC_URLS: Record<number, string> = {
   1: 'https://mainnet.infura.io/v3/' + env.INFURA_API_KEY,
   5: 'https://goerli.infura.io/v3/' + env.INFURA_API_KEY,
   100: 'https://rpc.gnosischain.com',
+  11155111: 'https://ethereum-sepolia.publicnode.com',
 }
 
 export const BASE_PATH = join('..', 'public')
