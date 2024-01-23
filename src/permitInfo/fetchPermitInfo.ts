@@ -48,7 +48,7 @@ import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokens
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
-const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported] = argv
+const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck] = argv
 
 if (!chainId) {
   console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
@@ -58,12 +58,12 @@ if (!chainId) {
 // Change to script dir so relative paths work properly
 chdir(path.dirname(scriptPath))
 
-
 async function fetchPermitInfo(
   chainId: number,
   tokenListPath: string | undefined,
   rpcUrl: string | undefined,
   recheckUnsupported: boolean = false,
+  forceRecheck: boolean = false,
 ): Promise<void> {
   // Load existing permitInfo.json file for given chainId
   const permitInfoPath = path.join(BASE_PATH, `PermitInfo.${chainId}.json`)
@@ -75,7 +75,7 @@ async function fetchPermitInfo(
     allPermitInfo = JSON.parse(readFileSync(permitInfoPath, 'utf8')) as Record<string, PermitInfo>
   } catch (_) {
     // File doesn't exist. It'll be created later on.
-    if (recheckUnsupported) {
+    if (recheckUnsupported || forceRecheck) {
       console.error('recheck option set without existing permitInfo. There is nothing to recheck')
       exit(1)
     }
@@ -93,9 +93,12 @@ async function fetchPermitInfo(
   const fetchAllPermits = tokens.map((token) => {
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
-    return pRetry(async () => _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported), {
-      retries: 3,
-    })
+    return pRetry(
+      async () => _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported, forceRecheck),
+      {
+        retries: 3,
+      },
+    )
   })
 
   // Await for all of them to complete
@@ -134,12 +137,13 @@ async function _fetchPermitInfo(
   token: Token,
   existing: PermitInfo | undefined,
   recheckUnsupported: boolean,
+  forceRecheck: boolean,
 ): Promise<undefined | [string, PermitInfo]> {
   const tokenId = token.symbol || token.name || token.address
 
   if (token.chainId !== chainId) {
     console.info(`Token ${tokenId}: belongs to a different network (${token.chainId}), skipping`)
-  } else if (isSupportedPermitInfo(existing) || (existing && !recheckUnsupported)) {
+  } else if (!forceRecheck && (isSupportedPermitInfo(existing) || (existing && !recheckUnsupported))) {
     console.info(`Token ${tokenId}: already known, skipping`, existing)
   } else {
     const response: GetTokenPermitIntoResult = await throttledGetTokenPermitInfo({
@@ -165,4 +169,6 @@ async function _fetchPermitInfo(
 }
 
 // Execute the script
-fetchPermitInfo(+chainId, tokenListPath, rpcUrl, !!recheckUnsupported).then(() => console.info(`Done 🏁`))
+fetchPermitInfo(+chainId, tokenListPath, rpcUrl, !!recheckUnsupported, !!forceRecheck).then(() =>
+  console.info(`Done 🏁`),
+)
