@@ -10,7 +10,7 @@ export function getProvider(chainId: number, rpcUrl: string | undefined): JsonRp
     throw new Error(`No RPC found for network ${chainId}`)
   }
 
-  if (!rpcUrl && (chainId === 1 || chainId === 5) && !env.INFURA_API_KEY) {
+  if (!rpcUrl && chainId === 1 && !env.INFURA_API_KEY) {
     throw new Error(`INFURA_API_KEY is required`)
   }
 

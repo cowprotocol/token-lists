@@ -15,11 +15,9 @@
     "fetchPermitInfo": "ts-node src/permitInfo/fetchPermitInfo.ts",
     "fetchPermitInfo:mainnet": "yarn run fetchPermitInfo -- 1",
     "fetchPermitInfo:gnosis": "yarn run fetchPermitInfo -- 100",
-    "fetchPermitInfo:goerli": "yarn run fetchPermitInfo -- 5",
     "fetchPermitInfo:sepolia": "yarn run fetchPermitInfo -- 11155111",
     "recheckPermitInfo:mainnet": "yarn run fetchPermitInfo -- 1 '' '' true",
     "recheckPermitInfo:gnosis": "yarn run fetchPermitInfo -- 100 '' '' true",
-    "recheckPermitInfo:goerli": "yarn run fetchPermitInfo -- 5 '' '' true",
     "recheckPermitInfo:sepolia": "yarn run fetchPermitInfo -- 11155111 '' '' true",
     "test": "node --test"
   },

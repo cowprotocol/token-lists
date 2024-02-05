@@ -6,10 +6,10 @@
  * TokenListPath is the optional second cli argument
  * By default, checks against the respective default token list
  * - `src/public/CowSwap.json` for mainnet and gnosis chain
- * - `src/public/CowSwapGoerli.json` for goerli
+ * - `src/public/CowSwapSepolia.json` for sepolia
  *
  * RpcUrl is the optional third cli argument
- * By default, it'll use Infura for mainnet and goerli.
+ * By default, it'll use Infura for mainnet.
  * In that case, `INFURA_API_KEY` env var must be set.
  *
  * Minimal example:

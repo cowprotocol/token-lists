@@ -6,7 +6,6 @@ import { join } from 'node:path'
 const tokenListsByNetwork: Record<number, string> = {
   1: 'CowSwap.json',
   100: 'CowSwap.json',
-  5: 'CowSwapGoerli.json',
   11155111: 'CowSwapSepolia.json',
 }
 
