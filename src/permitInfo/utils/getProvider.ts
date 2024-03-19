@@ -1,17 +1,13 @@
 import { JsonRpcProvider } from '@ethersproject/providers'
-import { DEFAULT_RPC_URLS } from '../const.ts'
-import { env } from 'node:process'
+import { DEFAULT_RPC_URLS } from '../const'
 import { ethers } from 'ethers'
+import {SupportedChainId} from '@cowprotocol/cow-sdk'
 
 export function getProvider(chainId: number, rpcUrl: string | undefined): JsonRpcProvider {
-  const rpcEndpoint = rpcUrl ? rpcUrl : DEFAULT_RPC_URLS[chainId]
+  const rpcEndpoint = rpcUrl ? rpcUrl : DEFAULT_RPC_URLS[chainId as SupportedChainId]
 
   if (!rpcEndpoint) {
     throw new Error(`No RPC found for network ${chainId}`)
-  }
-
-  if (!rpcUrl && chainId === 1 && !env.INFURA_API_KEY) {
-    throw new Error(`INFURA_API_KEY is required`)
   }
 
   return new ethers.providers.JsonRpcProvider(rpcEndpoint)
