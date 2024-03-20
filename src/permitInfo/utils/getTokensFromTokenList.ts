@@ -1,15 +1,16 @@
 import { readFileSync } from 'node:fs'
-import { BASE_PATH } from '../const.ts'
-import { Token } from '../types.ts'
+import { BASE_PATH } from '../const'
+import { Token } from '../types'
 import { join } from 'node:path'
+import { SupportedChainId } from '@cowprotocol/cow-sdk'
 
-const tokenListsByNetwork: Record<number, string> = {
-  1: 'CowSwap.json',
-  100: 'CowSwap.json',
-  11155111: 'CowSwapSepolia.json',
+const tokenListsByNetwork: Record<SupportedChainId, string> = {
+  [SupportedChainId.MAINNET]: 'CowSwap.json',
+  [SupportedChainId.GNOSIS_CHAIN]: 'CowSwap.json',
+  [SupportedChainId.SEPOLIA]: 'CowSwapSepolia.json',
 }
 
-export function getTokensFromTokenList(chainId: number, tokenListPath: string | undefined): Array<Token> {
+export function getTokensFromTokenList(chainId: SupportedChainId, tokenListPath: string | undefined): Array<Token> {
   const filePath = tokenListPath
     ? tokenListPath
     : join(BASE_PATH, tokenListsByNetwork[chainId])

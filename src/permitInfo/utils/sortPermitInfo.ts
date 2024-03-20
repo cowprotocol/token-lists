@@ -17,7 +17,7 @@ export function sortPermitInfo(allPermitInfo: Record<string, PermitInfo>): Recor
       // Otherwise, supported tokens go on top
       return isSupportedPermitInfo(pb) ? 1 : -1
     })
-    .reduce((acc, address) => {
+    .reduce<{[address: string]: PermitInfo}>((acc, address) => {
       // Create a new object with the keys in the sorted order
       acc[address] = allPermitInfo[address]
 

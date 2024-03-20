@@ -2,7 +2,7 @@ import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { Contract } from '@ethersproject/contracts'
 import { getProvider } from '../permitInfo/utils/getProvider'
-import { writeTokenListToBuild } from './tokenListUtils'
+import { writeTokenListToSrc } from './tokenListUtils'
 
 import {
   MULTICALL_ADDRESS,
@@ -47,26 +47,31 @@ async function main() {
 
   const tokens = await multicall.callStatic.tryAggregate(false, calls.map(({call}) => call)).then(results => {
     return results
-      .map((res: any, index: number) => {
-        const token = calls[index].token
+      .reduce((acc: TokenInfo[], res: any, index: number) => {
+        const token = calls[index]?.token
+
         // Address of the token in Gnosis chain
         const address = '0x' + res[1].slice(-40)
 
+        // Get rid of tokens that are not known by Omnibridge
+        if (!token || address === ZERO_ADDRESS) return acc
+
         // Copy everything from the Mainnet token and override address and chainId
         // Let's hope no one deploys the same token in a different networks with different data
-        return {
+
+        acc.push({
           ...token,
           chainId: SupportedChainId.GNOSIS_CHAIN,
           address,
           extensions: undefined
-        }
-      })
-      // Get rid of tokens that are not known by Omnibridge
-      .filter((token: TokenInfo) => token.address !== ZERO_ADDRESS)
+        })
+
+        return acc
+      }, [])
   })
 
   // Take the original Uniswap token list, override tokens by their copies in Gnosis chain and write into file
-  writeTokenListToBuild(TOKENS_LIST_FILE_NAME, {
+  writeTokenListToSrc(TOKENS_LIST_FILE_NAME, {
     ...tokensList,
     tokens
   })
