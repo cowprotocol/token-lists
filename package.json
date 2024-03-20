@@ -5,11 +5,11 @@
   "type": "module",
   "main": "src/scripts/coingecko.js",
   "scripts": {
-    "build": "npm run public && npm run coingecko && npm run downloadUniswapList",
+    "build": "npm run public && npm run coingecko && npm run generateGnosisChainList",
     "coingecko": "node --loader ts-node/esm --experimental-specifier-resolution=node src/scripts/coingecko.js",
     "downloadImages": "node  --experimental-json-modules src/scripts/downloadImages",
     "cowFi:tokens": "node ./src/scripts/cowFi-tokens.js",
-    "downloadUniswapList": "node --loader ts-node/esm --experimental-specifier-resolution=node src/scripts/downloadUniswapList.ts",
+    "generateGnosisChainList": "node --loader ts-node/esm --experimental-specifier-resolution=node src/scripts/generateGnosisChainList.ts",
     "public": "copyfiles src/public/*.json build/lists -f",
     "workflowHelper": "python3 src/scripts/workflow_helper.py",
     "validate": "ajv -s node_modules/@uniswap/token-lists/dist/tokenlist.schema.json -d src/public/CowSwap.json -c ajv-formats --errors text",
