@@ -1,5 +1,4 @@
 import cowSwapList from '../public/CowSwap.json' assert { type: "json" }
-import fetch from 'node-fetch';
 import {createWriteStream} from 'fs'
 import path, {dirname} from 'path'
 import { fileURLToPath } from 'url';
@@ -13,7 +12,7 @@ async function main() {
 
     console.log(`Download image for ${symbol} (${name})
       URI: ${logoURI}
-      File: ${filePath}\n`) 
+      File: ${filePath}\n`)
     const dirName = dirname(fileURLToPath(import.meta.url))
     const absolutePath = path.join(dirName, filePath)
     // console.log('absolutePath', absolutePath)

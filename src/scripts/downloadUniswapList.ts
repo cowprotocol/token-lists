@@ -5,13 +5,13 @@ import { getProvider } from '../permitInfo/utils/getProvider'
 import { writeTokenListToBuild } from './tokenListUtils'
 
 import {
-  MULTICALL_ABI,
   MULTICALL_ADDRESS,
   OMNIBRIDGE_ADDRESS,
-  OMNIBRIDGE_CONTRACT_ABI,
   UNISWAP_TOKENS_LIST,
   ZERO_ADDRESS
 } from './const'
+import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
+import { MULTICALL_ABI } from '../abi/multicallAbi'
 
 const TOKENS_LIST_FILE_NAME = 'GnosisUniswapTokensList.json'
 
