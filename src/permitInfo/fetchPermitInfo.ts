@@ -38,13 +38,14 @@ import {
 import * as path from 'node:path'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { JsonRpcProvider } from '@ethersproject/providers'
-import { argv, chdir, exit } from 'node:process'
-import { BASE_PATH, SPENDER_ADDRESS } from './const.ts'
-import { sortPermitInfo } from './utils/sortPermitInfo.ts'
-import { getProvider } from './utils/getProvider.ts'
-import { Token } from './types.ts'
-import { getTokensFromTokenList } from './utils/getTokensFromTokenList.ts'
-import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokensFromPermitInfo.ts'
+import { argv, chdir, env, exit } from 'node:process'
+import { BASE_PATH, SPENDER_ADDRESS } from './const'
+import { sortPermitInfo } from './utils/sortPermitInfo'
+import { getProvider } from './utils/getProvider'
+import { Token } from './types'
+import { getTokensFromTokenList } from './utils/getTokensFromTokenList'
+import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokensFromPermitInfo'
+import { SupportedChainId } from '@cowprotocol/cow-sdk'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
@@ -59,7 +60,7 @@ if (!chainId) {
 chdir(path.dirname(scriptPath))
 
 async function fetchPermitInfo(
-  chainId: number,
+  chainId: SupportedChainId,
   tokenListPath: string | undefined,
   rpcUrl: string | undefined,
   recheckUnsupported: boolean = false,
@@ -79,6 +80,10 @@ async function fetchPermitInfo(
       console.error('recheck option set without existing permitInfo. There is nothing to recheck')
       exit(1)
     }
+  }
+
+  if (!rpcUrl && chainId === 1 && !env.INFURA_API_KEY) {
+    throw new Error(`INFURA_API_KEY is required`)
   }
 
   // Build provider instance
@@ -132,7 +137,7 @@ const throttle = pThrottle({
 const throttledGetTokenPermitInfo = throttle(getTokenPermitInfo)
 
 async function _fetchPermitInfo(
-  chainId: number,
+  chainId: SupportedChainId,
   provider: JsonRpcProvider,
   token: Token,
   existing: PermitInfo | undefined,
@@ -151,7 +156,6 @@ async function _fetchPermitInfo(
       provider,
       spender: SPENDER_ADDRESS,
       tokenAddress: token.address,
-      tokenName: token.name,
     })
 
     if ('error' in response) {
@@ -169,6 +173,6 @@ async function _fetchPermitInfo(
 }
 
 // Execute the script
-fetchPermitInfo(+chainId, tokenListPath, rpcUrl, !!recheckUnsupported, !!forceRecheck).then(() =>
+fetchPermitInfo(+chainId as SupportedChainId, tokenListPath, rpcUrl, !!recheckUnsupported, !!forceRecheck).then(() =>
   console.info(`Done 🏁`),
 )
