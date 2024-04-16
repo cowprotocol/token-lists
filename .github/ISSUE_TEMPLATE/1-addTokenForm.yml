@@ -1,6 +1,6 @@
 name: Add Token
 description: Creates a request to add a token to CoW Swap's default token list
-title: "[AddToken] `SYMBOL` on `NETWORK`"
+title: '[AddToken] `SYMBOL` on `NETWORK`'
 labels: [addToken]
 
 body:
@@ -16,8 +16,12 @@ body:
         Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN)
 
         ## Disclaimer
-        1. Accepting or not is up to our discretion
-        2. Even if the request is accepted and added to CoW Swap's token list this doesn't imply endorsement
+        CoW DAO reserves the right, at its sole discretion, to accept or reject the listing of any token.
+        This decision may be based on a variety of factors, including but not limited to, the token's technical soundness,
+        regulatory compliance, project reputation, and overall alignment with CoW DAO's values and mission.
+
+        The listing of a token on CoW Swap does not constitute an endorsement of the token, its associated project, or its team.
+        Listing a token simply indicates that it meets the technical requirements for inclusion on the platform.
 
   - type: dropdown
     id: network
