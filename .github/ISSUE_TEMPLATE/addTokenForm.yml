@@ -9,11 +9,15 @@ body:
       value: |
         # Request to ADD token
         Thank you for contributing to CoW Swap's default token list.
-        
-        Please fill in all the required fields in the form. 
+
+        Please fill in all the required fields in the form.
         We will process and evaluate your request as soon as possible.
-        
-        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN) 
+
+        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN)
+
+        ## Disclaimer
+        1. Accepting or not is up to our discretion
+        2. Even if the request is accepted and added to CoW Swap's token list this doesn't imply endorsement
 
   - type: dropdown
     id: network
