@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { BUILD_DIR, writeTokenListToBuild } from './tokenListUtils'
+import { BUILD_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 
 const PAGE_LIMIT = 50
@@ -80,7 +80,10 @@ async function writeCoingeckoListFile(version: { patch: number }) {
     combinedTokens.push(...tokens);
   });
 
-  writeTokenListToBuild(OUTPUT_FILE, buildTokenList(combinedTokens, version))
+  const tokenList = buildTokenList(combinedTokens, version)
+
+  writeTokenListToBuild(OUTPUT_FILE, tokenList)
+  writeTokenListToSrc(OUTPUT_FILE, tokenList)
 }
 
 async function fetchTokens(page: number, limit: number, allTokens: TokenList) {

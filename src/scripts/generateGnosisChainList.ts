@@ -7,20 +7,17 @@ import { writeTokenListToSrc } from './tokenListUtils'
 import {
   MULTICALL_ADDRESS,
   OMNIBRIDGE_ADDRESS,
-  UNISWAP_TOKENS_LIST,
   ZERO_ADDRESS
 } from './const'
 import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
 import { MULTICALL_ABI } from '../abi/multicallAbi'
-
-const TOKENS_LIST_FILE_NAME = 'GnosisUniswapTokensList.json'
 
 type Call = {
   target: string
   callData: string
 }
 
-async function main() {
+export async function generateGnosisChainList(source: string | TokenList, resultFile: string) {
   console.log('*** Map Uniswap tokens from Mainnet to Gnosis chain using Omnibridge ***')
 
   const provider = getProvider(SupportedChainId.GNOSIS_CHAIN, undefined)
@@ -28,7 +25,7 @@ async function main() {
   const multicall = new Contract(MULTICALL_ADDRESS, MULTICALL_ABI, provider)
 
   // Original Uniswap token list
-  const tokensList = (await fetch(UNISWAP_TOKENS_LIST).then((res: any) => res.json())) as TokenList
+  const tokensList = (typeof source === 'string' ? (await fetch(source).then((res: any) => res.json())) : source) as TokenList
 
   const calls = tokensList.tokens.reduce<{ token: TokenInfo, call: Call }[]>((acc, token) => {
     // Take only Mainnet tokens
@@ -71,14 +68,10 @@ async function main() {
   })
 
   // Take the original Uniswap token list, override tokens by their copies in Gnosis chain and write into file
-  writeTokenListToSrc(TOKENS_LIST_FILE_NAME, {
+  writeTokenListToSrc(resultFile, {
     ...tokensList,
     tokens
   })
 
-  console.log(`${TOKENS_LIST_FILE_NAME} is updated, tokens count: ${tokens.length}`)
+  console.log(`${resultFile} is updated, tokens count: ${tokens.length}`)
 }
-
-main()
-  .catch(console.error)
-
