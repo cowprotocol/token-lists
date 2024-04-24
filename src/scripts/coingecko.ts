@@ -58,7 +58,7 @@ function buildTokenList(tokens: TokenInfo[], version: { patch: number }): TokenL
       version
     ),
     logoURI:
-      'https://www.coingecko.com/assets/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
+      'https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png',
     keywords: ['default', 'list', 'coingecko'],
     tokens: tokens,
   }
