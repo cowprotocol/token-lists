@@ -1,6 +1,6 @@
 name: Remove Token
 description: Creates a request to remove a token from CoW Swap's default token list
-title: "[RemoveToken] `SYMBOL` on `NETWORK`"
+title: '[RemoveToken] `SYMBOL` on `NETWORK`'
 labels: [removeToken]
 
 body:
@@ -9,11 +9,11 @@ body:
       value: |
         # Request to REMOVE token
         Thank you for contributing to CoW Swap's default token list.
-        
-        Please fill in all the required fields in the form. 
+
+        Please fill in all the required fields in the form.
         We will process and evaluate your request as soon as possible.
-        
-        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN) 
+
+        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN)
 
   - type: dropdown
     id: network
@@ -24,6 +24,7 @@ body:
       options:
         - MAINNET
         - GNOSIS_CHAIN
+        - ARBITRUM_ONE
     validations:
       required: true
   - type: input

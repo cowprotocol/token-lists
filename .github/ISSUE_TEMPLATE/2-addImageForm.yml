@@ -1,6 +1,6 @@
 name: Add Image
 description: Creates a request to add a token image to CoW Swap's image repository
-title: "[AddImage] `SYMBOL` on `NETWORK`"
+title: '[AddImage] `SYMBOL` on `NETWORK`'
 labels: [addImage]
 
 body:
@@ -9,11 +9,11 @@ body:
       value: |
         # Request to ADD image
         Thank you for contributing to CoW Swap's image repository.
-        
+
         Please fill in all the required fields in the form.
         We will process and evaluate your request as soon as possible.
-        
-        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN) 
+
+        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN)
 
   - type: dropdown
     id: network
@@ -24,6 +24,7 @@ body:
       options:
         - MAINNET
         - GNOSIS_CHAIN
+        - ARBITRUM_ONE
     validations:
       required: true
   - type: input
