@@ -54,17 +54,17 @@
     json-stringify-deterministic "^1.0.8"
     multiformats "^9.6.4"
 
-"@cowprotocol/contracts@^1.4.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@cowprotocol/contracts/-/contracts-1.5.0.tgz"
-  integrity sha512-ZCZMHMSLHPOXOQe33pSKLjBeJrWgbGos2S2KzEXnYtfkUtPl9ztQhAD1NFmFA7RXWETJDS7MQAVq87tCQ6GjvQ==
+"@cowprotocol/contracts@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/contracts/-/contracts-1.6.0.tgz#d0fc83ed8c624b968d1a68bb5c74712c11ec81e0"
+  integrity sha512-+UKhYRzkvnqqviBru5D3btTLYc743n0O5YTG+wpYwGl4fb7VNKBkFHe28C5Mf1DF/kOfmqfu+0IAvX9Vuq5Dqw==
 
-"@cowprotocol/cow-sdk@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.npmjs.org/@cowprotocol/cow-sdk/-/cow-sdk-5.1.0.tgz"
-  integrity sha512-o1QTav1TWvNeI9UV8Gy3TPGVUFIWlLBSWcRGpxRvGy6ktWceIKK54VVLrh2mlRBbBvl3eH8jCYthj9cBbzECfg==
+"@cowprotocol/cow-sdk@^5.3.0-RC.1":
+  version "5.3.0-RC.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/cow-sdk/-/cow-sdk-5.3.0-RC.1.tgz#ab8ea60c1173e29ed2ed0ae358c25acf2fe8fec4"
+  integrity sha512-HHp9GYl2+qfy8lZJga93rr/hS+I+mtXhNLSufNxkso3EG1Xfh7JYARH5E3myRhJGg8yCS5BBETybEORM72wrHA==
   dependencies:
-    "@cowprotocol/contracts" "^1.4.0"
+    "@cowprotocol/contracts" "^1.6.0"
     "@ethersproject/abstract-signer" "^5.7.0"
     "@openzeppelin/merkle-tree" "^1.0.5"
     cross-fetch "^3.1.5"
@@ -73,10 +73,10 @@
     graphql-request "^4.3.0"
     limiter "^2.1.0"
 
-"@cowprotocol/permit-utils@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/permit-utils/-/permit-utils-0.2.0.tgz#9ddf042600be4fa7c2b632203904ab2cedc73349"
-  integrity sha512-ZbVnfO/znEyAw6MkOvXdFbIAebiaiT1a3bg9kKOoXUBfNMlhbp8+QX0FPdCRWD2mMsSd0lSyP/4UbfYg9zFJeQ==
+"@cowprotocol/permit-utils@^0.3.0-RC.0":
+  version "0.3.0-RC.0"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/permit-utils/-/permit-utils-0.3.0-RC.0.tgz#b527b773e1a9c04e3ff1eb6e267f6dd3e22f419e"
+  integrity sha512-YjnUuDs21LRP+imAq5CEl+TEO/sKYzUSz5f9kJ1NAgstInJmNvvgJkGr8R9GrXieQ3iCSA2MPnr9iYQyKK7QHQ==
   dependencies:
     "@1inch/permit-signed-approvals-utils" "^1.4.10"
     "@cowprotocol/app-data" "^1.1.0"
