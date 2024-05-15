@@ -13,7 +13,7 @@ body:
         Please fill in all the required fields in the form.
         We will process and evaluate your request as soon as possible.
 
-        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK` (MAINNET or GNOSIS_CHAIN)
+        Also, don't forget to update the issue title adding your token's `SYMBOL` and `NETWORK`.
 
         ## Disclaimer
         CoW DAO reserves the right, at its sole discretion, to accept or reject the listing of any token.
@@ -32,6 +32,7 @@ body:
       options:
         - MAINNET
         - GNOSIS_CHAIN
+        - ARBITRUM_ONE
     validations:
       required: true
   - type: input

@@ -51,7 +51,7 @@ jobs:
           issue-number: ${{ github.event.issue.number }}
           body: |
             Your request has been received and is being processed.
-            
+
             This issue will be updated when completed.
 
       - name: Extract info
@@ -61,35 +61,38 @@ jobs:
           # Using JS, build a new comment body
           script: |
             const body = context.payload.issue.body
-            
+
             const fieldNames = `${ process.env.FIELD_NAMES }`.split(',')
-            
+
             // Extract the values for each field - if it exists - based on their labels from the issue body
             const values = fieldNames.reduce((acc, f) => {
               // Create a regex for each field, with capturing group with the same name
               const r = new RegExp(String.raw`${f}\s+(?<${f.toLowerCase()}>.*?)(\s+###|$)`, 's')
-            
+
               // Build an object with the capturing group and value for each field
               return {...acc, ...body.match(r)?.groups}
             }, {})
-            
+
             // Lower case the address at the source
             values.address = values.address.toLowerCase()
-            
+
             if (values.network === 'MAINNET') {
               values.chainId = 1
               values.blockExplorer = 'etherscan'
+            } else if () {
+              values.chainId = 42161
+              values.blockExplorer = 'arbiscan'
             } else {
               values.chainId = 100
               values.blockExplorer = 'gnosisscan'
             }
-            
+
             // Used only in the PR context for displaying it
             values.prImageUrl = `https://raw.githubusercontent.com/cowprotocol/token-lists/{0}/${ values.chainId }_${ values.address }/src/public/images/${ values.chainId }/${ values.address }/logo.png`
             // Will be the final URL once it's merged to `main`
             values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/${ values.chainId }/${ values.address }/logo.png`
-            
-            
+
+
             // Return a string
             return JSON.stringify(values)
           result-encoding: string
@@ -99,10 +102,10 @@ jobs:
           cat << EOF
           ${{ steps.extractInfo.outputs.result }}
           EOF
-          
+
           # force failure for testing
           # exit 1
-  
+
 
   validateInput:
     runs-on: ubuntu-latest
@@ -133,7 +136,7 @@ jobs:
         if: env.SYMBOL && contains(env.SYMBOL, ' ')
         run: |
           echo "${{ env.SYMBOL }}"
-          echo "::error title={Validation failed}::{Symbol cannot contain spaces}" 
+          echo "::error title={Validation failed}::{Symbol cannot contain spaces}"
           exit 1
       - name: Validate removeToken
         if: contains(github.event.issue.labels.*.name, 'removeToken') && (!env.NETWORK || !env.REASON || !env.ADDRESS)
@@ -147,8 +150,8 @@ jobs:
         with:
           comment: |
             Invalid request
-            
-            Make sure all the required fields are provided and submit a new issue 
+
+            Make sure all the required fields are provided and submit a new issue
 
   optimizeImage:
     needs: [ extractInfoFromIssue, validateInput ]
@@ -171,18 +174,18 @@ jobs:
       prTitle: "[addToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
       prBody: |
         Adding token `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` on network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
-        
+
         *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
-        
+
         [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
-        
+
         | Description | Image |
         |-|-|
         | Original | ![original](${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}) |
         | Optimized | ![optimized](${{ format(fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).prImageUrl, 'addToken') }}) |
-        
+
         ### Reason
-        
+
         ```
         ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
         ```
@@ -198,13 +201,13 @@ jobs:
       prTitle: "[removeToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` from `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
       prBody: |
         Removing token from network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
-        
+
         *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
-        
+
         [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
-        
+
         ### Reason
-        
+
         ```
         ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).reason }}
         ```
@@ -220,11 +223,11 @@ jobs:
       prTitle: "[addImage] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
       prBody: |
         Adding image to network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
-        
+
         *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
-        
+
         [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
-        
+
         | Description | Image |
         |-|-|
         | Original | ![original](${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).url }}) |
