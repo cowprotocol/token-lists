@@ -79,7 +79,7 @@ jobs:
             if (values.network === 'MAINNET') {
               values.chainId = 1
               values.blockExplorer = 'etherscan'
-            } else if () {
+            } else if (values.network === 'ARBITRUM_ONE') {
               values.chainId = 42161
               values.blockExplorer = 'arbiscan'
             } else {
