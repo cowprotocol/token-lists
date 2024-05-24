@@ -1,12 +1,12 @@
-import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { Contract, ContractInterface } from '@ethersproject/contracts'
-import { getProvider } from '../permitInfo/utils/getProvider'
-import { writeTokenListToSrc } from './tokenListUtils'
-
-import { MULTICALL_ADDRESS, OMNIBRIDGE_ADDRESS, ZERO_ADDRESS } from './const'
-import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
+import type { TokenInfo, TokenList } from '@uniswap/token-lists'
+import { ARBITRUM_BRIDGE_ABI } from '../abi/abitrumBridgeAbi'
 import { MULTICALL_ABI } from '../abi/multicallAbi'
+import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
+import { getProvider } from '../permitInfo/utils/getProvider'
+import { ARBITRUM_BRIDGE_ADDRESS, MULTICALL_ADDRESS, OMNIBRIDGE_ADDRESS, ZERO_ADDRESS } from './const'
+import { writeTokenListToSrc } from './tokenListUtils'
 
 type Call = {
   target: string
@@ -80,7 +80,7 @@ async function generateBridgedList(
 }
 
 export async function generateGnosisChainList(source: string | TokenList, resultFile: string) {
-  console.log('*** Map Uniswap tokens from Mainnet to Gnosis chain using Omnibridge ***')
+  console.log('*** Map tokens from Mainnet to Gnosis chain using Omnibridge ***')
 
   generateBridgedList(
     SupportedChainId.GNOSIS_CHAIN,
@@ -92,4 +92,15 @@ export async function generateGnosisChainList(source: string | TokenList, result
   )
 }
 
+export async function generateArbitrumOneChainList(source: string | TokenList, resultFile: string) {
+  console.log('*** Map tokens from Mainnet to Arbitrum One using Arbitrum bridge ***')
+
+  generateBridgedList(
+    SupportedChainId.ARBITRUM_ONE,
+    source,
+    ARBITRUM_BRIDGE_ADDRESS,
+    ARBITRUM_BRIDGE_ABI,
+    'calculateL2TokenAddress',
+    resultFile,
+  )
 }

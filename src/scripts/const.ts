@@ -1,6 +1,7 @@
 export const MULTICALL_ADDRESS = '0xca11bde05977b3631167028862be2a173976ca11'
 
 export const OMNIBRIDGE_ADDRESS = '0xf6A78083ca3e2a662D6dd1703c939c8aCE2e268d'
+export const ARBITRUM_BRIDGE_ADDRESS='0x09e9222e96e7b4ae2a407b98d48e330053351eee'
 
 export const UNISWAP_TOKENS_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 
