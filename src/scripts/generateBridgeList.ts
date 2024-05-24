@@ -54,7 +54,7 @@ async function generateBridgedList(
       return results.reduce((acc: TokenInfo[], res: any, index: number) => {
         const token = calls[index]?.token
 
-        // Address of the token in Gnosis chain
+        // Address of the token in the mapped chain
         const address = '0x' + res[1].slice(-40)
 
         // Get rid of tokens that are not known by the bridge contract
@@ -65,7 +65,7 @@ async function generateBridgedList(
 
         acc.push({
           ...token,
-          chainId: SupportedChainId.GNOSIS_CHAIN,
+          chainId,
           address,
           extensions: undefined,
         })
