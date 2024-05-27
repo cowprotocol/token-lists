@@ -69,7 +69,7 @@ async function generateBridgedList(
     .then((results) => parseBridgedAddressesResults(results, fetchBridgedAddressesCalls, tokensToReplace, chainId))
 
   const tokens = await multicall.callStatic
-    .tryAggregate(false, getTotalBalanceCalls(bridgedAddresses, provider))
+    .tryAggregate(false, getTotalSupplyCalls(bridgedAddresses, provider))
     .then((results) => parseTotalSupplyResponses(results, bridgedAddresses, chainId))
 
   writeTokenListToSrc(outputFilePath, { ...tokensList, tokens })
@@ -171,11 +171,11 @@ function parseBridgedAddressesResults(
 }
 
 /**
- * Builds a list of calls for fetching totalBalance for given addresses
+ * Builds a list of calls for fetching totalSupply for given addresses
  * @param bridgedAddresses
  * @param provider
  */
-function getTotalBalanceCalls(
+function getTotalSupplyCalls(
   bridgedAddresses: {
     token: TokenInfo
     address: string
