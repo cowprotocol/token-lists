@@ -2,6 +2,7 @@ import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { Contract, ContractInterface } from '@ethersproject/contracts'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import { ARBITRUM_BRIDGE_ABI } from '../abi/abitrumBridgeAbi'
+import { ERC20_ABI } from '../abi/erc20'
 import { MULTICALL_ABI } from '../abi/multicallAbi'
 import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
 import { getProvider } from '../permitInfo/utils/getProvider'
@@ -40,7 +41,7 @@ async function generateBridgedList(
     typeof tokenListSource === 'string' ? await fetch(tokenListSource).then((res: any) => res.json()) : tokenListSource
   ) as TokenList
 
-  const calls = tokensList.tokens.reduce<{ token: TokenInfo; call: Call }[]>((acc, token) => {
+  const fetchBridgedAddressesCalls = tokensList.tokens.reduce<{ token: TokenInfo; call: Call }[]>((acc, token) => {
     // Take only Mainnet tokens
     if (token.chainId !== SupportedChainId.MAINNET) return acc
     // Do not check for tokens we want to skip/replace
@@ -57,60 +58,73 @@ async function generateBridgedList(
     return acc
   }, [])
 
-  const tokens = await multicall.callStatic
+  const bridgedAddresses: { token: TokenInfo; address: string }[] = await multicall.callStatic
     .tryAggregate(
       false,
-      calls.map(({ call }) => call),
+      fetchBridgedAddressesCalls.map(({ call }) => call),
     )
-    .then((results) => {
-      return results.reduce((acc: TokenInfo[], res: any, index: number) => {
-        const token = calls[index]?.token
-
+    .then((results) =>
+      results.reduce((acc: { token: TokenInfo; address: string }[], res: any, index: number) => {
         // Address of the token in the mapped chain
         const address = '0x' + res[1].slice(-40)
+        const token = fetchBridgedAddressesCalls[index].token
 
         // Get rid of tokens that are not known by the bridge contract
-        if (!token || address === ZERO_ADDRESS) return acc
-
-        const toReplace = tokensToReplace[token.address.toLowerCase()]
-        if (toReplace !== undefined) {
-          if (toReplace === null) {
-            // Do not add to the list
-            return acc
-          }
-
-          // Replace the fetched address with the one provided
-          acc.push({
-            ...token,
-            chainId,
-            address: toReplace,
-            extensions: undefined,
-          })
-
+        if (address === ZERO_ADDRESS) {
+          console.log(`[Removal][${token.symbol}] Bridge mapped to zero address`, token.address)
           return acc
         }
-        // Copy everything from the Mainnet token and override address and chainId
-        // Let's hope no one deploys the same token in a different networks with different data
+
+        const toReplace = tokensToReplace[token.address.toLowerCase()]
+
+        if (toReplace) {
+          // Overwrite from config
+          acc.push({ token, address: toReplace })
+          console.log(`[Replacement][${token.symbol}] ${token.address} -> ${toReplace}`)
+          return acc
+        }
 
         const extensions = token.extensions as Extensions
         const tokenAddress = extensions?.bridgeInfo?.[chainId]?.tokenAddress
 
         if (tokenAddress && tokenAddress.toLowerCase() !== address.toLowerCase()) {
           console.log(
-            `TokenList extension contains address different than returned by bridge for '${token.symbol}'. Mainnet: ${token.address} Extension: ${tokenAddress} Bridge: ${address}`,
+            `[Replacement][${token.symbol}] TokenList address differs from bridge. Mainnet: ${token.address} -> **Extension: ${tokenAddress}** | Bridge: ${address}`,
           )
 
-          acc.push({
-            ...token,
-            chainId,
-            address: tokenAddress,
-            extensions: undefined,
-          })
+          acc.push({ token, address: tokenAddress })
 
           return acc
         }
 
-        // Use bridge address
+        acc.push({ token, address })
+        return acc
+      }, []),
+    )
+
+  const tokens: TokenInfo[] = await multicall.callStatic
+    .tryAggregate(
+      false,
+      bridgedAddresses.map(({ address: target }) => {
+        const erc20Contract = new Contract(target, ERC20_ABI, provider)
+
+        // `totalSupply` is a required ERC20 method
+        return { target, callData: erc20Contract.interface.encodeFunctionData('totalSupply') }
+      }),
+    )
+    .then((results) =>
+      results.reduce((acc: TokenInfo[], res: any, index: number) => {
+        // Checks whether there's at least 10 units of given token at destination address
+        // This also filters out addresses that are not deployed, since the response in this case is `0x`
+        const isValidTokenAddress = +res[1] > 10
+
+        const { token, address } = bridgedAddresses[index]
+
+        if (!isValidTokenAddress) {
+          console.log(`[Removal][${token.symbol}] Not a valid ERC20 at target chain`, res[1])
+          return acc
+        }
+
         acc.push({
           ...token,
           chainId,
@@ -119,8 +133,8 @@ async function generateBridgedList(
         })
 
         return acc
-      }, [])
-    })
+      }, []),
+    )
 
   writeTokenListToSrc(outputFilePath, { ...tokensList, tokens })
 
