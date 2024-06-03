@@ -22,6 +22,18 @@ type Extensions = {
   >
 }
 
+
+export interface GenerateBridgedListParams {
+  chainId: SupportedChainId,
+  tokenListSource: string | TokenList,
+  bridgeContractAddress: string,
+  bridgeContractAbi: ContractInterface,
+  methodName: string,
+  outputFilePath: string,
+  tokenFilter?: (token: TokenInfo) => boolean,
+  tokensToReplace: Record<string, string | null>,
+}
+
 /**
  * Generates a new token list, mapping the mainnet addresses from the provided list to the target chain
  * Writes the resulting list to a file
@@ -34,15 +46,8 @@ type Extensions = {
  * @param outputFilePath
  * @param tokensToReplace
  */
-export async function generateBridgedList(
-  chainId: SupportedChainId,
-  tokenListSource: string | TokenList,
-  bridgeContractAddress: string,
-  bridgeContractAbi: ContractInterface,
-  methodName: string,
-  outputFilePath: string,
-  tokensToReplace: Record<string, string | null> = {},
-): Promise<void> {
+export async function generateBridgedList(params: GenerateBridgedListParams): Promise<void> {
+  const { chainId, tokenListSource, bridgeContractAbi, bridgeContractAddress, methodName, outputFilePath, tokensToReplace = {}, tokenFilter } = params
   const provider = getProvider(chainId, undefined)
   const bridgeContract = new Contract(bridgeContractAddress, bridgeContractAbi, provider)
   const multicall = new Contract(MULTICALL_ADDRESS, MULTICALL_ABI, provider)
@@ -66,13 +71,18 @@ export async function generateBridgedList(
     )
     .then((results) => parseBridgedAddressesResults(results, fetchBridgedAddressesCalls, tokensToReplace, chainId))
 
-  const tokens = await multicall.callStatic
+  const allTokens = await multicall.callStatic
     .tryAggregate(false, getTotalSupplyCalls(bridgedAddresses, provider))
     .then((results) => parseTotalSupplyResponses(results, bridgedAddresses, chainId))
 
+  const tokens = tokenFilter ? allTokens.filter(tokenFilter) : allTokens
+  console.log(`Total tokens: ${tokens.length}, filtered tokens: ${tokens.length}`)
+
   writeTokenListToSrc(outputFilePath, { ...tokensList, tokens })
 
-  console.log(`${outputFilePath} is updated, tokens count: ${tokens.length}`)
+  const filteredTokensCount = tokenFilter ? ` (Filtered out ${allTokens.length - tokens.length} tokens)` : ''
+  console.log(`${outputFilePath} is updated, tokens count: ${tokens.length}${filteredTokensCount}`)
+  console.log('🎉 Done! Tokens: ', tokens.map((t) => t.symbol).join(', '))
 }
 
 /**
