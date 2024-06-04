@@ -6,7 +6,8 @@ import { ERC20_ABI } from '../abi/erc20'
 import { MULTICALL_ABI } from '../abi/multicallAbi'
 import { getProvider } from '../permitInfo/utils/getProvider'
 import { MULTICALL_ADDRESS, ZERO_ADDRESS } from './const'
-import { writeTokenListToSrc } from './tokenListUtils'
+import { SRC_DIR, writeTokenListToSrc } from './tokenListUtils'
+import path from 'path'
 
 type Call = {
   target: string
@@ -90,7 +91,7 @@ export async function generateBridgedList(params: GenerateBridgedListParams): Pr
 
   console.log(`${outputFilePath} is updated, tokens count: ${tokens.length}${filteredTokensCount}`)
   console.log('Tokens included: ' + tokens.map((t) => t.symbol).join(', '))
-  console.log('🎉 Done! Generated file ' + outputFilePath)
+  console.log('🎉 Done! Generated file ' + path.join(SRC_DIR, outputFilePath))
 }
 
 /**

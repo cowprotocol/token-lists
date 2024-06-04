@@ -15,11 +15,19 @@
   "tokens": [
     {
       "chainId": 42161,
-      "name": "Arbitrum",
-      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-      "symbol": "ARB",
+      "address": "0xba5ddd1f9d7f570dc94a51479a000e3bce967196",
+      "name": "Aave",
+      "symbol": "AAVE",
       "decimals": 18,
-      "logoURI": "https://arbitrum.foundation/logo.png"
+      "logoURI": "https://assets.coingecko.com/coins/images/12645/thumb/AAVE.png?1601374110"
+    },
+    {
+      "name": "Balancer",
+      "address": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+      "symbol": "BAL",
+      "decimals": 18,
+      "chainId": 42161,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xba100000625a3754423978a60c9317c58a424e3D/logo.png"
     },
     {
       "chainId": 42161,
@@ -31,11 +39,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x9623063377AD1B27544C965cCd7342f7EA7e88C7",
-      "name": "The Graph",
-      "symbol": "GRT",
+      "address": "0x13ad51ed4f1b7e9dc168d8a00cb3f4ddd85efa60",
+      "name": "Lido DAO",
+      "symbol": "LDO",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/13397/thumb/Graph_Token.png?1608145566"
+      "logoURI": "https://assets.coingecko.com/coins/images/13573/thumb/Lido_DAO.png?1609873644"
     },
     {
       "name": "ChainLink Token",
@@ -46,20 +54,44 @@
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png"
     },
     {
+      "chainId": 42161,
+      "address": "0x561877b6b3dd7651313794e5f2894b2f18be0766",
+      "name": "Polygon",
+      "symbol": "MATIC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/4713/thumb/matic-token-icon.png?1624446912"
+    },
+    {
+      "name": "Maker",
+      "address": "0x2e9a6df78e42a30712c10a9dc4b1c8656f8f2879",
+      "symbol": "MKR",
+      "decimals": 18,
+      "chainId": 42161,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2/logo.png"
+    },
+    {
+      "chainId": 42161,
+      "address": "0xc8a4eea31e9b6b61c406df013dd4fec76f21e279",
+      "name": "Render Token",
+      "symbol": "RNDR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/11636/thumb/rndr.png?1638840934"
+    },
+    {
+      "name": "Uniswap",
+      "address": "0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0",
+      "symbol": "UNI",
+      "decimals": 18,
+      "chainId": 42161,
+      "logoURI": "ipfs://QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg"
+    },
+    {
       "name": "USDCoin",
       "address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
       "symbol": "USDC",
       "decimals": 6,
       "chainId": 42161,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
-    },
-    {
-      "name": "Tether USD",
-      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
-      "symbol": "USDT",
-      "decimals": 6,
-      "chainId": 42161,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
     },
     {
       "name": "Wrapped BTC",
@@ -76,6 +108,14 @@
       "decimals": 18,
       "chainId": 42161,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
+    },
+    {
+      "chainId": 42161,
+      "name": "WOO Network",
+      "symbol": "WOO",
+      "logoURI": "https://assets.coingecko.com/coins/images/12921/thumb/w2UiemF__400x400.jpg?1603670367",
+      "address": "0xcafcd85d8ca7ad1e1c6f82f651fa15e33aefd07b",
+      "decimals": 18
     }
   ]
 }

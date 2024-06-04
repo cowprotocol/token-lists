@@ -1,16 +1,6 @@
 export const ARBITRUM_BRIDGE_ADDRESS = '0x09e9222e96e7b4ae2a407b98d48e330053351eee'
 
 /**
- * Most of the tokens that are bridged to Arbitrum using the bridge, they don't have liquidity, so the trade experience is not good.
- * This list is meant to limit the tokens shown to the ones that have liquidity.
- * 
- * Future versions of the script should decide using objective on-chain data if a token is liquid or not.
- */
-export const TOKENS_WITH_LIQUIDITY = [
-  'ARB', 'cbETH', 'GRT', 'LINK', 'USDC', 'USDT', 'WBTC', 'WETH',
-]
-
-/**
  * Tokens that are not supported by the bridge or have low liquidity, but we want to replace them with a different token.
  */
 export const TOKENS_TO_REPLACE: Record<string, string | null> = {
