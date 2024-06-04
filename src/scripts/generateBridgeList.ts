@@ -8,6 +8,7 @@ import { getProvider } from '../permitInfo/utils/getProvider'
 import { MULTICALL_ADDRESS, ZERO_ADDRESS } from './const'
 import { SRC_DIR, writeTokenListToSrc } from './tokenListUtils'
 import path from 'path'
+import { getTokenInfos, mergeErc20Info, mergeTokens } from './utils/tokens'
 
 type Call = {
   target: string
@@ -25,14 +26,51 @@ type Extensions = {
 
 
 export interface GenerateBridgedListParams {
+  /**
+   * Target chain id
+   */
   chainId: SupportedChainId,
+
+  /**
+   * Original mainnet token list to map to the target chain addresses
+   */
   tokenListSource: string | TokenList,
-  bridgeContractAddress: string,
-  bridgeContractAbi: ContractInterface,
-  methodName: string,
-  outputFilePath: string,
-  tokenFilter?: (token: TokenInfo) => boolean,
+
+  /**
+   * Tokens to add to the list
+   */
+  tokensToAdd?: TokenInfo[]
+
+  /**
+   * Tokens addresses to replace in the list. Allows to replace the bridged token address with the canonical one
+   */
   tokensToReplace: Record<string, string | null>,
+
+  /**
+   * Filter function to exclude tokens from the list
+   */
+  tokenFilter?: (token: TokenInfo) => boolean,
+
+  /**
+   * Bridge contract address
+   */
+  bridgeContractAddress: string,
+
+  /**
+   * Bridge contract ABI
+   */
+  bridgeContractAbi: ContractInterface,
+
+  /**
+   * Bridge contract method to resolve the token address
+   */
+  methodName: string,
+
+  /**
+   * File name to write the resulting token list
+   */
+  outputFilePath: string,
+
 }
 
 /**
@@ -48,7 +86,7 @@ export interface GenerateBridgedListParams {
  * @param tokensToReplace
  */
 export async function generateBridgedList(params: GenerateBridgedListParams): Promise<void> {
-  const { chainId, tokenListSource, bridgeContractAbi, bridgeContractAddress, methodName, outputFilePath, tokensToReplace = {}, tokenFilter } = params
+  const { chainId, tokenListSource, bridgeContractAbi, bridgeContractAddress, methodName, outputFilePath, tokensToReplace = {}, tokensToAdd = [], tokenFilter, } = params
 
   console.log('Chain: ' + chainId)
   console.log('Token List Source: ' + tokenListSource)
@@ -59,13 +97,16 @@ export async function generateBridgedList(params: GenerateBridgedListParams): Pr
   const bridgeContract = new Contract(bridgeContractAddress, bridgeContractAbi, provider)
   const multicall = new Contract(MULTICALL_ADDRESS, MULTICALL_ABI, provider)
 
+  const tokensToAddAddresses = tokensToAdd.map((token) => token.address)
+  const tokensToAddOnchainInfo = await getTokenInfos(tokensToAddAddresses, multicall, provider)
+
   // Original source token list
   const tokensList = (
     typeof tokenListSource === 'string' ? await fetch(tokenListSource).then((res: any) => res.json()) : tokenListSource
   ) as TokenList
 
   const fetchBridgedAddressesCalls = getFetchBridgedAddressesCalls(
-    tokensList,
+    tokensList.tokens,
     tokensToReplace,
     bridgeContract,
     methodName,
@@ -78,16 +119,45 @@ export async function generateBridgedList(params: GenerateBridgedListParams): Pr
     )
     .then((results) => parseBridgedAddressesResults(results, fetchBridgedAddressesCalls, tokensToReplace, chainId))
 
-  const allTokens = await multicall.callStatic
+  // Get token information using the bridged addresses
+  const bridgedTokens = await multicall.callStatic
     .tryAggregate(false, getTotalSupplyCalls(bridgedAddresses, provider))
     .then((results) => parseTotalSupplyResponses(results, bridgedAddresses, chainId))
+
+
+  // Create a Map of symbols to the additional tokens to add
+  const tokenInfoBySymbol = tokensToAdd.reduce((acc, token) => {
+    const onchainInfo = tokensToAddOnchainInfo.get(token.address.toLowerCase())
+    const enhancedToken = onchainInfo ? mergeErc20Info(onchainInfo, token) : token
+    acc.set(token.symbol.toLowerCase(), enhancedToken)
+    return acc
+  }, new Map<string, TokenInfo>())
+
+  // Merge the bridge info with the additional tokens
+  bridgedTokens.forEach((bridgedToken) => {
+    const symbol = bridgedToken.symbol.toLowerCase()
+    const tokenInfo = tokenInfoBySymbol.get(symbol)
+
+    if (tokenInfo) {
+      // Enhance information from the token info (note that the additional tokens will have preference over the bridge tokens info)
+      const newTokenInfo = mergeTokens(bridgedToken, tokenInfo)
+      tokenInfoBySymbol.set(symbol, newTokenInfo)
+    } else {
+      // Add the token if we have it yet
+      tokenInfoBySymbol.set(symbol, bridgedToken)
+    }
+  }, {})
+
+
+  const allTokens = Array.from(tokenInfoBySymbol.values())
+
 
   const tokens = tokenFilter ? allTokens.filter(tokenFilter) : allTokens
   console.log(`Total tokens: ${tokens.length}, filtered tokens: ${tokens.length}`)
 
   writeTokenListToSrc(outputFilePath, { ...tokensList, tokens })
 
-  const filteredTokensCount = tokenFilter ? ` (Filtered out ${allTokens.length - tokens.length} tokens)` : ''
+  const filteredTokensCount = tokenFilter ? ` (Filtered out ${bridgedTokens.length - tokens.length} tokens)` : ''
 
   console.log(`${outputFilePath} is updated, tokens count: ${tokens.length}${filteredTokensCount}`)
   console.log('Tokens included: ' + tokens.map((t) => t.symbol).join(', '))
@@ -97,18 +167,18 @@ export async function generateBridgedList(params: GenerateBridgedListParams): Pr
 /**
  * Builds a list of calls for mapping the mainnet to the target chain address
  *
- * @param tokensList
+ * @param tokens
  * @param tokensToReplace
  * @param bridgeContract
  * @param methodName
  */
 function getFetchBridgedAddressesCalls(
-  tokensList: TokenList,
+  tokens: TokenInfo[],
   tokensToReplace: Record<string, string | null>,
   bridgeContract: Contract,
   methodName: string,
 ) {
-  return tokensList.tokens.reduce<{ token: TokenInfo; call: Call }[]>((acc, token) => {
+  return tokens.reduce<{ token: TokenInfo; call: Call }[]>((acc, token) => {
     // Take only Mainnet tokens
     if (token.chainId !== SupportedChainId.MAINNET) return acc
     // Do not check for tokens we want to skip/replace

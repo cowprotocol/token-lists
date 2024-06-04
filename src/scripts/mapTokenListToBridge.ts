@@ -6,7 +6,7 @@ import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
 import coingeckoList from '../public/CoinGecko.json' assert { type: 'json' }
 import { OMNIBRIDGE_ADDRESS, UNISWAP_TOKENS_LIST } from './const'
 import { generateBridgedList } from './generateBridgeList'
-import { ARBITRUM_BRIDGE_ADDRESS, TOKENS_TO_REPLACE } from './arbitrum/const'
+import { ARBITRUM_BRIDGE_ADDRESS, TOKENS_TO_REPLACE as TOKENS_TO_REPLACE_ARBITRUM } from './arbitrum/const'
 import { readCsv } from './utils'
 import path from 'node:path'
 import { ROOT_PATH } from './utils/file'
@@ -44,7 +44,7 @@ async function generateGnosisChainList(source: string | TokenList, resultFile: s
     bridgeContractAbi: OMNIBRIDGE_CONTRACT_ABI,
     methodName: 'calculateL2TokenAddress',
     outputFilePath: resultFile,
-    tokensToReplace: TOKENS_TO_REPLACE,
+    tokensToReplace: TOKENS_TO_REPLACE_ARBITRUM,
   })
 }
 
@@ -53,7 +53,7 @@ async function generateArbitrumOneChainList(source: string | TokenList, resultFi
 
   const csvPath = path.join(ROOT_PATH, 'scripts/arbitrum/tokens-with-liquidity-arbitrum.csv')
   const tokensWithLiquidity = await readCsv<TokenInfo>(csvPath)
-  const addressWithLiquidity = tokensWithLiquidity.map((token) => token.symbol) // Weird, the token list from Chen gives more result if I filter by symbol instead of filtering by name
+  const addressWithLiquidity = tokensWithLiquidity.map((token) => token.address.toLocaleLowerCase())
 
   generateBridgedList({
     chainId: SupportedChainId.ARBITRUM_ONE,
@@ -63,10 +63,12 @@ async function generateArbitrumOneChainList(source: string | TokenList, resultFi
     methodName: 'calculateL2TokenAddress',
     outputFilePath: resultFile,
 
-    // Use token addresses from the canonical token (not the bridge one)
-    tokensToReplace: TOKENS_TO_REPLACE,
+    tokensToAdd: tokensWithLiquidity, // We add some additional tokens that are not necessarily in the token list. These token address and info will override the token info from the bridge (in case of symbol conflict)
 
-    // Filter out tokens that don't have liquidity
-    tokenFilter: (token) => addressWithLiquidity.includes(token.symbol),
+    // Use token addresses from the canonical token (not the bridge one)
+    tokensToReplace: TOKENS_TO_REPLACE_ARBITRUM,
+
+    // For now, we filter out tokens that don't have liquidity for (later on, this should an objective criteria)
+    tokenFilter: (token) => addressWithLiquidity.includes(token.address.toLocaleLowerCase())
   })
 }
