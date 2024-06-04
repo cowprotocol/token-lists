@@ -48,6 +48,12 @@ export interface GenerateBridgedListParams {
  */
 export async function generateBridgedList(params: GenerateBridgedListParams): Promise<void> {
   const { chainId, tokenListSource, bridgeContractAbi, bridgeContractAddress, methodName, outputFilePath, tokensToReplace = {}, tokenFilter } = params
+
+  console.log('Chain: ' + chainId)
+  console.log('Token List Source: ' + tokenListSource)
+  console.log('Bridge Contract: ' + bridgeContractAddress)
+  console.log('Method name: ' + methodName)
+
   const provider = getProvider(chainId, undefined)
   const bridgeContract = new Contract(bridgeContractAddress, bridgeContractAbi, provider)
   const multicall = new Contract(MULTICALL_ADDRESS, MULTICALL_ABI, provider)
@@ -81,8 +87,10 @@ export async function generateBridgedList(params: GenerateBridgedListParams): Pr
   writeTokenListToSrc(outputFilePath, { ...tokensList, tokens })
 
   const filteredTokensCount = tokenFilter ? ` (Filtered out ${allTokens.length - tokens.length} tokens)` : ''
+
   console.log(`${outputFilePath} is updated, tokens count: ${tokens.length}${filteredTokensCount}`)
-  console.log('🎉 Done! Tokens: ', tokens.map((t) => t.symbol).join(', '))
+  console.log('Tokens included: ' + tokens.map((t) => t.symbol).join(', '))
+  console.log('🎉 Done! Generated file ' + outputFilePath)
 }
 
 /**
