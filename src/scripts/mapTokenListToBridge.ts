@@ -1,5 +1,5 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
-import type { TokenInfo, TokenList } from '@uniswap/token-lists'
+import type { TokenList } from '@uniswap/token-lists'
 import { argv, exit } from 'node:process'
 import { ARBITRUM_BRIDGE_ABI } from '../abi/abitrumBridgeAbi'
 import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
@@ -7,9 +7,9 @@ import coingeckoList from '../public/CoinGecko.json' assert { type: 'json' }
 import { OMNIBRIDGE_ADDRESS, UNISWAP_TOKENS_LIST } from './const'
 import { generateBridgedList } from './generateBridgeList'
 import { ARBITRUM_BRIDGE_ADDRESS, TOKENS_TO_REPLACE as TOKENS_TO_REPLACE_ARBITRUM } from './arbitrum/const'
-import { readCsv } from './utils'
 import path from 'node:path'
 import { ROOT_PATH } from './utils/file'
+import { readTokensCsv } from './utils/tokens'
 
 const [, , chainId, listSource = 'coingecko'] = argv
 
@@ -48,11 +48,13 @@ async function generateGnosisChainList(source: string | TokenList, resultFile: s
   })
 }
 
+
+
 async function generateArbitrumOneChainList(source: string | TokenList, resultFile: string) {
   console.log('*** Map tokens from Mainnet to Arbitrum One using Arbitrum bridge ***')
 
   const csvPath = path.join(ROOT_PATH, 'scripts/arbitrum/tokens-with-liquidity-arbitrum.csv')
-  const tokensWithLiquidity = await readCsv<TokenInfo>(csvPath)
+  const tokensWithLiquidity = await readTokensCsv(csvPath)
   const addressWithLiquidity = tokensWithLiquidity.map((token) => token.address.toLocaleLowerCase())
 
   generateBridgedList({
