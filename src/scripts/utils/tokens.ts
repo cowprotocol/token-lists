@@ -30,7 +30,7 @@ export async function getTokenInfos(tokenAddresses: string[], multicall: Contrac
 
   const erc20Contract = new Contract(tokenAddresses[0], ERC20_ABI, provider)
 
-  const { symbolCalls, nameCalls, decimalsCalls } = tokenAddresses.reduce<{ symbolCalls: Call[], nameCalls: Call[], decimalsCalls: Call[] }>((acc, address) => { // .slice(0, 2)
+  const { symbolCalls, nameCalls, decimalsCalls } = tokenAddresses.reduce<{ symbolCalls: Call[], nameCalls: Call[], decimalsCalls: Call[] }>((acc, address) => {
 
     acc.symbolCalls.push({
       target: address,
@@ -85,7 +85,6 @@ export async function getTokenInfos(tokenAddresses: string[], multicall: Contrac
 
     tokenInfos.set(tokenAddresses[i].toLowerCase(), erc20Info)
   }
-  // throw new Error('Not implemented');
 
   return tokenInfos
 }
@@ -174,7 +173,7 @@ export async function readTokensCsv(csvPath: string): Promise<PartialTokenInfo[]
 }
 
 /**
- * Assets if some partial token information is complete (so it can be considered a TokenInfo)
+ * Assesses if some partial token information is complete (so it can be considered a TokenInfo)
  * @param token to check if its a TokenInfo
  * @returns 
  */
