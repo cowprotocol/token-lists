@@ -136,14 +136,15 @@ export function mergeErc20Info(onchainInfo: Erc20Info, tokenOverride: PartialTok
 }
 
 /**
- * Partial token information. It will have at least the address of the token.
+ * Partial token information. It will have at least the address and chainId of the token.
  */
 export interface PartialTokenInfo extends Partial<Omit<TokenInfo, 'address'>> {
+  chainId: number
   address: string
 }
 
 interface PartialTokenInfoCsv extends Omit<PartialTokenInfo, 'chainId' | 'decimals' | 'extensions'> {
-  chainId?: string
+  chainId: string
   decimals?: string
   extensions?: string
 }
@@ -164,7 +165,7 @@ export async function readTokensCsv(csvPath: string): Promise<PartialTokenInfo[]
     return {
       ...token,
       address: token.address,
-      chainId: token.chainId ? parseInt(token.chainId) : undefined,
+      chainId: parseInt(token.chainId),
       decimals: token.decimals ? parseInt(token.decimals) : undefined,
       extensions: token.extensions ? JSON.parse(token.extensions) : undefined,
       logoURI: token.logoURI || undefined,
