@@ -1,6 +1,5 @@
 import { Contract } from '@ethersproject/contracts'
 import { JsonRpcProvider } from '@ethersproject/providers'
-import { } from '@ethersproject/strings'
 import { ERC20_ABI } from "../../abi/erc20";
 import type { TokenInfo } from '@uniswap/token-lists'
 import { readCsv } from './csv'
