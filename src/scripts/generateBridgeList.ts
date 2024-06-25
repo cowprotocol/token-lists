@@ -8,7 +8,7 @@ import { getProvider } from '../permitInfo/utils/getProvider'
 import { MULTICALL_ADDRESS, ZERO_ADDRESS } from './const'
 import { SRC_DIR, writeTokenListToSrc } from './tokenListUtils'
 import path from 'path'
-import { getTokenInfos, mergeErc20Info, mergeTokens } from './utils/tokens'
+import { PartialTokenInfo, getTokenInfos, isTokenInfo, mergeErc20Info, mergeTokens } from './utils/tokens'
 
 type Call = {
   target: string
@@ -39,7 +39,7 @@ export interface GenerateBridgedListParams {
   /**
    * Tokens to add to the list
    */
-  tokensToAdd?: TokenInfo[]
+  tokensToAdd?: PartialTokenInfo[]
 
   /**
    * Tokens addresses to replace in the list. Allows to replace the bridged token address with the canonical one
@@ -126,30 +126,42 @@ export async function generateBridgedList(params: GenerateBridgedListParams): Pr
 
 
   // Create a Map of symbols to the additional tokens to add
-  const tokenInfoBySymbol = tokensToAdd.reduce((acc, token) => {
+  const onchainInfoBySymbol = tokensToAdd.reduce((acc, token) => {
+    if (!token.symbol) {
+      console.error('Discard token without symbol', token)
+      return acc
+    }
     const onchainInfo = tokensToAddOnchainInfo.get(token.address.toLowerCase())
     const enhancedToken = onchainInfo ? mergeErc20Info(onchainInfo, token) : token
     acc.set(token.symbol.toLowerCase(), enhancedToken)
     return acc
-  }, new Map<string, TokenInfo>())
+  }, new Map<string, PartialTokenInfo>())
 
   // Merge the bridge info with the additional tokens
   bridgedTokens.forEach((bridgedToken) => {
     const symbol = bridgedToken.symbol.toLowerCase()
-    const tokenInfo = tokenInfoBySymbol.get(symbol)
+    const onchainInfo = onchainInfoBySymbol.get(symbol)
 
-    if (tokenInfo) {
+    if (onchainInfo) {
       // Enhance information from the token info (note that the additional tokens will have preference over the bridge tokens info)
-      const newTokenInfo = mergeTokens(bridgedToken, tokenInfo)
-      tokenInfoBySymbol.set(symbol, newTokenInfo)
+      const newTokenInfo = mergeTokens(bridgedToken, onchainInfo)
+      onchainInfoBySymbol.set(symbol, newTokenInfo)
     } else {
       // Add the token if we have it yet
-      tokenInfoBySymbol.set(symbol, bridgedToken)
+      onchainInfoBySymbol.set(symbol, bridgedToken)
     }
   }, {})
 
 
-  const allTokens = Array.from(tokenInfoBySymbol.values())
+
+  const allTokens = Array.from(onchainInfoBySymbol.values()).map((token) => {
+    if (!isTokenInfo(token)) {
+      console.error('Discard token because some required info is missing', token)
+      return null
+    }
+
+    return token
+  }).filter((token): token is TokenInfo => token !== null);
 
 
   const tokens = tokenFilter ? allTokens.filter(tokenFilter) : allTokens
