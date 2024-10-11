@@ -59,10 +59,10 @@
   resolved "https://registry.yarnpkg.com/@cowprotocol/contracts/-/contracts-1.6.0.tgz#d0fc83ed8c624b968d1a68bb5c74712c11ec81e0"
   integrity sha512-+UKhYRzkvnqqviBru5D3btTLYc743n0O5YTG+wpYwGl4fb7VNKBkFHe28C5Mf1DF/kOfmqfu+0IAvX9Vuq5Dqw==
 
-"@cowprotocol/cow-sdk@^5.3.0-RC.1":
-  version "5.3.0-RC.1"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/cow-sdk/-/cow-sdk-5.3.0-RC.1.tgz#ab8ea60c1173e29ed2ed0ae358c25acf2fe8fec4"
-  integrity sha512-HHp9GYl2+qfy8lZJga93rr/hS+I+mtXhNLSufNxkso3EG1Xfh7JYARH5E3myRhJGg8yCS5BBETybEORM72wrHA==
+"@cowprotocol/cow-sdk@^5.5.1":
+  version "5.5.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/cow-sdk/-/cow-sdk-5.5.1.tgz#7bb4627c56958e8c438d08c10f7bdb3a89dc3c2f"
+  integrity sha512-FFc9pj8xhsfGZ1vjw+4IFGb6UTdPzuOoZOvM/OhZlrfy15ohfSSb2urbHWASvKjbcXeg6KqL4aHS6KEw+BYnmA==
   dependencies:
     "@cowprotocol/contracts" "^1.6.0"
     "@ethersproject/abstract-signer" "^5.7.0"
@@ -73,10 +73,10 @@
     graphql-request "^4.3.0"
     limiter "^2.1.0"
 
-"@cowprotocol/permit-utils@^0.3.0-RC.0":
-  version "0.3.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/permit-utils/-/permit-utils-0.3.0-RC.0.tgz#b527b773e1a9c04e3ff1eb6e267f6dd3e22f419e"
-  integrity sha512-YjnUuDs21LRP+imAq5CEl+TEO/sKYzUSz5f9kJ1NAgstInJmNvvgJkGr8R9GrXieQ3iCSA2MPnr9iYQyKK7QHQ==
+"@cowprotocol/permit-utils@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/permit-utils/-/permit-utils-0.3.1.tgz#e9ec2933d0e4b2e0b3b574905a1e6237db4e609e"
+  integrity sha512-zu8SuNnxyTk+gO0LPNmavOD+Arm0GBApJl/CVYSVzkKk+VkJp8Iyay11QpiNeway5motIzmp938Q37TaGCd5wA==
   dependencies:
     "@1inch/permit-signed-approvals-utils" "^1.4.10"
     "@cowprotocol/app-data" "^1.1.0"
