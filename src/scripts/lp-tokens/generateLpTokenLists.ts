@@ -1,4 +1,4 @@
-import { isTruthy, writeTokenListToSrc } from '../tokenListUtils'
+import { getTokenListVersion, isTruthy, writeTokenListToSrc } from '../tokenListUtils'
 import { TokenList } from '@uniswap/token-lists/src/types'
 import { PLATFORM_NETWORK_TO_CHAIN_ID, PlatformNetwork, PlatformToken } from './types'
 
@@ -12,12 +12,6 @@ const params = {
   sortBy: 'liquidity',
   sortDirection: 'desc',
   limit: '250',
-}
-
-const defaultVersion = {
-  major: 1,
-  minor: 0,
-  patch: 0,
 }
 
 const platforms = ['balancerv2', 'pancakeswap', 'sushiswap', 'uniswapv2']
@@ -75,12 +69,6 @@ function mapPlatformTokens(token: PlatformToken): TokenList['tokens'] {
       }
     }
   }).filter(isTruthy)
-}
-
-async function getTokenListVersion(fileName: string): Promise<TokenList['version']> {
-  return import(`../../public/${fileName}`, {assert: { type: 'json' }}).then(({default: res}) => {
-    return {...res.version, patch: res.version.patch + 1}
-  }).catch(() => defaultVersion)
 }
 
 (async () => {
