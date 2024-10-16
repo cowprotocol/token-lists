@@ -4,8 +4,8 @@ import { PLATFORM_NETWORK_TO_CHAIN_ID, PlatformNetwork, PlatformToken } from './
 
 const AUTH_TOKEN = '<AUTH_TOKEN>'
 
-// 8 * 250 = 2000 tokens
-const pagesLimit = 8
+// 2 * 250 = 500 tokens
+const pagesLimit = 2
 
 const params = {
   minLiquidity: '1000',
@@ -14,7 +14,7 @@ const params = {
   limit: '250',
 }
 
-const platforms = ['balancerv2', 'pancakeswap', 'sushiswap', 'uniswapv2']
+const platforms = ['balancerv2', 'pancakeswap', 'sushiswap', 'uniswapv2', 'curve']
 
 function fetchPlatformTokens(platform: string): Promise<PlatformToken[]> {
   return Promise.all(Array.from({length: pagesLimit}).map((_, page) => {
