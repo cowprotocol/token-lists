@@ -20,6 +20,8 @@ function getTokenListsBuildPath(outputPath: string): string {
   return path.join(LIST_DIR, outputPath)
 }
 
+export const isTruthy = <T>(value: T | null | undefined | false): value is T => !!value
+
 export function writeTokenListToBuild(outputPath: string, tokenList: TokenList) {
   const filePath = getTokenListsBuildPath(outputPath)
 
