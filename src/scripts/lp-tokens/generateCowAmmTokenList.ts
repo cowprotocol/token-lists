@@ -40,7 +40,7 @@ async function generateCowAmmTokenList() {
   const fileName = 'lp-tokens/cow-amm.json'
 
   const list: TokenList = {
-    name: 'LP CowSwap Token List',
+    name: 'LP CoW Swap Token List',
     timestamp: new Date().toISOString(),
     version: await getTokenListVersion(fileName),
     tokens: totalPools.map(mapCoWAmmTokens).flat()
