@@ -5,6 +5,11 @@ import type { TokenList } from '@uniswap/token-lists'
 export const BUILD_DIR = path.join('.', 'build')
 export const SRC_DIR = path.join('.', 'src/public')
 const LIST_DIR = path.join(BUILD_DIR, 'lists')
+const defaultVersion = {
+  major: 1,
+  minor: 0,
+  patch: 0,
+}
 
 function ensureListsBuildDir() {
   const dirs = [BUILD_DIR, LIST_DIR]
@@ -32,4 +37,10 @@ export function writeTokenListToBuild(outputPath: string, tokenList: TokenList) 
 
 export function writeTokenListToSrc(outputPath: string, tokenList: TokenList) {
   fs.writeFileSync(path.join(SRC_DIR, outputPath), JSON.stringify(tokenList, null, 2))
+}
+
+export async function getTokenListVersion(fileName: string): Promise<TokenList['version']> {
+  return import(`../public/${fileName}`, {assert: { type: 'json' }}).then(({default: res}) => {
+    return {...res.version, patch: res.version.patch + 1}
+  }).catch(() => defaultVersion)
 }

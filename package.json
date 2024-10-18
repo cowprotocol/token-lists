@@ -15,6 +15,7 @@
     "uniswapToArbitrumOneList": "yarn run-script src/scripts/mapTokenListToBridge.ts 42161 uniswap",
     "coingeckoToArbitrumOneList": "yarn run-script src/scripts/mapTokenListToBridge.ts 42161 coingecko",
     "lpTokenLists": "yarn run-script src/scripts/lp-tokens/generateLpTokenLists.ts",
+    "cowAmmTokenLists": "yarn run-script src/scripts/lp-tokens/generateCowAmmTokenList.ts",
     "public": "copyfiles src/public/*.json build/lists -f",
     "workflowHelper": "python3 src/scripts/workflow_helper.py",
     "validate": "ajv -s node_modules/@uniswap/token-lists/dist/tokenlist.schema.json -d src/public/CowSwap.json -c ajv-formats --errors text",
