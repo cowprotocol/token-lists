@@ -25,18 +25,15 @@ jobs:
         run: curl -o image.png "${{ inputs.url }}"
 
       - name: Install dependencies
-        run: sudo apt install imagemagick rsvg-convert
+        run: sudo apt install imagemagick librsvg2-bin
 
       - name: Optimze image
         run: |
           image_type=$(identify -format "%m" image.png)
 
           if [[ "$image_type" == "SVG" ]]; then
-            echo "Editing SVG properties"
-            # Update the height and width attributes directly in the SVG file
-            sed -i 's/height="[0-9]*"/height="256"/; s/width="[0-9]*"/width="256"/' image.png
-            # Convert the edited SVG to PNG
-            rsvg-convert -o output.png image.png
+            # Convert the SVG to PNG
+            rsvg-convert --width=256 --height=256 --keep-aspect-ratio -o output.png image.png
           elif [[ "$image_type" == "PNG" ]]; then
             should_optimize=$(identify -format "%[fx:w>256 && h>256]" image.png)
 
