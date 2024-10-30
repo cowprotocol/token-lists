@@ -24,19 +24,32 @@ jobs:
       - name: Download image
         run: curl -o image.png "${{ inputs.url }}"
 
-      - name: Install imagemagick
-        run: sudo apt install imagemagick
+      - name: Install dependencies
+        run: sudo apt install imagemagick rsvg-convert
 
-      - name: Check image size and optimize if necessary
+      - name: Optimze image
         run: |
-          should_optimize=$(identify -format "%[fx:w>256 && h>256]" image.png)
+          image_type=$(identify -format "%m" image.png)
 
-          if [ "$should_optimize" = "1" ]; then
-            echo "Optimizing image"
-            convert image.png -depth 7 -resize 256x -posterize 24 output.png
+          if [[ "$image_type" == "SVG" ]]; then
+            echo "Editing SVG properties"
+            # Update the height and width attributes directly in the SVG file
+            sed -i 's/height="[0-9]*"/height="256"/; s/width="[0-9]*"/width="256"/' image.png
+            # Convert the edited SVG to PNG
+            rsvg-convert -o output.png image.png
+          elif [[ "$image_type" == "PNG" ]]; then
+            should_optimize=$(identify -format "%[fx:w>256 && h>256]" image.png)
+
+            if [ "$should_optimize" = "1" ]; then
+              echo "Optimizing PNG image"
+              convert image.png -depth 7 -resize 256x -posterize 24 output.png
+            else
+              echo "Image is already small enough, moving to output.png"
+              mv image.png output.png
+            fi
           else
-            echo "Image is already small enough, moving to output.png"
-            mv image.png output.png
+            echo "Error: Unsupported image type: $image_type" >&2
+            exit 1
           fi
 
       - name: Upload img
