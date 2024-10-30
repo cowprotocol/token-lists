@@ -68,7 +68,7 @@ body:
     id: imageUrl
     attributes:
       label: Image URL
-      description: Ideally a 256x256 PNG file. But we'll take care of optimizing it later.
+      description: Ideally a 256x256 PNG or SVG file. But we'll take care of optimizing it later.
       placeholder: https://gateway.pinata.cloud/ipfs/Qme9B6jRpGtZsRFcPjHvA5T4ugFuL4c3SzWfxyMPa59AMo
     validations:
       required: true
