@@ -27,11 +27,17 @@ jobs:
       - name: Install imagemagick
         run: sudo apt install imagemagick
 
-      - name: Optimize image
-        run: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
+      - name: Check image size and optimize if necessary
+        run: |
+          should_optimize=$(identify -format "%[fx:w>256 && h>256]" image.png)
 
-#      - name: Further compress image
-#        run: "??? still need to figure out how to do this without imageoptim"
+          if [ "$should_optimize" = "1" ]; then
+            echo "Optimizing image"
+            convert image.png -depth 7 -resize 256x -posterize 24 output.png
+          else
+            echo "Image is already small enough, moving to output.png"
+            mv image.png output.png
+          fi
 
       - name: Upload img
         uses: actions/upload-artifact@v3
@@ -46,9 +52,9 @@ jobs:
         with:
           comment: |
             Failed to optimize image
-            
+
             Check you provided a proper image file and try again in a new issue
-            
+
             If the issue persists, create a bug report
-            
+
             cc @cowprotocol/frontend
