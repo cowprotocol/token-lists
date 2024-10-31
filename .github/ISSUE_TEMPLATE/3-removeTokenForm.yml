@@ -1,6 +1,6 @@
 name: Remove Token
 description: Creates a request to remove a token from CoW Swap's default token list
-title: '[RemoveToken] `SYMBOL` on `NETWORK`'
+title: '[RemoveToken] `SYMBOL` from `NETWORK`'
 labels: [removeToken]
 
 body:
@@ -25,6 +25,7 @@ body:
         - MAINNET
         - GNOSIS_CHAIN
         - ARBITRUM_ONE
+        - BASE
     validations:
       required: true
   - type: input

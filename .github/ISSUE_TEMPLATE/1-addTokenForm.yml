@@ -1,6 +1,6 @@
 name: Add Token
 description: Creates a request to add a token to CoW Swap's default token list
-title: '[AddToken] `SYMBOL` on `NETWORK`'
+title: '[AddToken] `SYMBOL` to `NETWORK`'
 labels: [addToken]
 
 body:
@@ -33,6 +33,7 @@ body:
         - MAINNET
         - GNOSIS_CHAIN
         - ARBITRUM_ONE
+        - BASE
     validations:
       required: true
   - type: input

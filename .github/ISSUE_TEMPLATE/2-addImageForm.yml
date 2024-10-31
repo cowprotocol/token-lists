@@ -1,6 +1,6 @@
 name: Add Image
 description: Creates a request to add a token image to CoW Swap's image repository
-title: '[AddImage] `SYMBOL` on `NETWORK`'
+title: '[AddImage] `SYMBOL` to `NETWORK`'
 labels: [addImage]
 
 body:
@@ -25,6 +25,7 @@ body:
         - MAINNET
         - GNOSIS_CHAIN
         - ARBITRUM_ONE
+        - BASE
     validations:
       required: true
   - type: input
