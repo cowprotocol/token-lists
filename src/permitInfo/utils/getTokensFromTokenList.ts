@@ -7,6 +7,7 @@ import { Token } from '../types'
 const tokenListsByNetwork: Record<SupportedChainId, string> = {
   [SupportedChainId.MAINNET]: 'CowSwap.json',
   [SupportedChainId.ARBITRUM_ONE]: 'CowSwap.json',
+  [SupportedChainId.BASE]: 'CowSwap.json',
   [SupportedChainId.GNOSIS_CHAIN]: 'CowSwap.json',
   [SupportedChainId.SEPOLIA]: 'CowSwapSepolia.json',
 }
