@@ -1,0 +1,611 @@
+{
+  "name": "LP CoW Swap Token List",
+  "timestamp": "2024-11-01T09:12:50.631Z",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 1
+  },
+  "tokens": [
+    {
+      "chainId": 100,
+      "address": "0x079d2094e16210c42457438195042898a3cff72d",
+      "name": "CoW AMM LP WETH/GNO",
+      "decimals": 18,
+      "symbol": "WETH/GNO",
+      "extensions": {
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x5089007dec8e93f891dcb908c9e2af8d9dedb72e",
+      "name": "CoW AMM LP wstETH/sDAI",
+      "decimals": 18,
+      "symbol": "wstETH/sDAI",
+      "extensions": {
+        "tokens": "0x6c76971f98945ae98dd7d4dfca8711ebea946ea6,0xaf204776c7245bf4147c2612bf6e5972ee483701"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xd7f99b1cda3eecf6b6eaa8a61ed21d061e745400",
+      "name": "CoW AMM LP GNO/OLAS",
+      "decimals": 18,
+      "symbol": "GNO/OLAS",
+      "extensions": {
+        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0xce11e14225575945b8e6dc0d4f2dd4c570f79d9f"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xad58d2bc841cb8e4f8717cb21e3fb6c95dcbc286",
+      "name": "CoW AMM LP GNO/SAFE",
+      "decimals": 18,
+      "symbol": "GNO/SAFE",
+      "extensions": {
+        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x4d18815d14fe5c3304e87b3fa18318baa5c23820"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf08d4dea369c456d26a3168ff0024b904f2d8b91",
+      "name": "CoW AMM LP USDC/WETH",
+      "decimals": 18,
+      "symbol": "USDC/WETH",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9d0e8cdf137976e03ef92ede4c30648d05e25285",
+      "name": "CoW AMM LP wstETH/DOG",
+      "decimals": 18,
+      "symbol": "wstETH/DOG",
+      "extensions": {
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xbaac2b4491727d78d2b78815144570b9f2fe8899"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9bd702e05b9c97e4a4a3e47df1e0fe7a0c26d2f1",
+      "name": "CoW AMM LP COW/wstETH",
+      "decimals": 18,
+      "symbol": "COW/wstETH",
+      "extensions": {
+        "tokens": "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x43653ae64ea32987dbe270ea992536c3eed82df7",
+      "name": "CoW AMM LP Kekec/COW",
+      "decimals": 18,
+      "symbol": "Kekec/COW",
+      "extensions": {
+        "tokens": "0x8c7ac134ed985367eadc6f727d79e8295e11435c,0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x71663f74490673706d7b8860b7d02b7c76160bae",
+      "name": "CoW AMM LP GNO/COW",
+      "decimals": 18,
+      "symbol": "GNO/COW",
+      "extensions": {
+        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x177127622c4a00f3d409b75571e12cb3c8973d3c"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf8f5b88328dff3d19e5f4f11a9700293ac8f638f",
+      "name": "CoW AMM LP BAL/WETH",
+      "decimals": 18,
+      "symbol": "BAL/WETH",
+      "extensions": {
+        "tokens": "0xba100000625a3754423978a60c9317c58a424e3d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xa7401066570960894a12b403f461cb61e8804b7b",
+      "name": "CoW AMM LP PNK/wstETH",
+      "decimals": 18,
+      "symbol": "PNK/wstETH",
+      "extensions": {
+        "tokens": "0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9d571a00219f52d7ef803fa2b67138a549ce698b",
+      "name": "CoW AMM LP FOLD/wstETH",
+      "decimals": 18,
+      "symbol": "FOLD/wstETH",
+      "extensions": {
+        "tokens": "0xd084944d3c05cd115c09d072b9f44ba3e0e45921,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x0c8ee93df5a4bad1c6f05e2676f87e6440b0b956",
+      "name": "CoW AMM LP GNO/COW",
+      "decimals": 18,
+      "symbol": "GNO/COW",
+      "extensions": {
+        "tokens": "0x6810e776880c02933d47db1b9fc05908e5386b96,0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xa62e2c047b65aee3c3ba7fc7c2bd95c82a514de2",
+      "name": "CoW AMM LP WETH/EIGEN",
+      "decimals": 18,
+      "symbol": "WETH/EIGEN",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xec53bf9167f50cdeb3ae105f56099aaab9061f83"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xbf8868b754a77e90ea68ffc0b5b10a7c729457e1",
+      "name": "CoW AMM LP SAFE/WETH",
+      "decimals": 18,
+      "symbol": "SAFE/WETH",
+      "extensions": {
+        "tokens": "0x5afe3855358e112b5647b952709e6165e1c1eeee,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x11f2a400de0a2fc93a32f88d8779d8199152c6a4",
+      "name": "CoW AMM LP sfrxETH/FXS",
+      "decimals": 18,
+      "symbol": "sfrxETH/FXS",
+      "extensions": {
+        "tokens": "0xac3e018457b222d93114458476f3e3416abbe38f,0x3432b6a60d23ca0dfca7761b7ab56459d9c964d0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x06966b4ae338ce20f283086914388133f27d1d3e",
+      "name": "CoW AMM LP BCoW-50WBTC-50wstETH/BCoW-50wstETH-50SOL",
+      "decimals": 18,
+      "symbol": "BCoW-50WBTC-50wstETH/BCoW-50wstETH-50SOL",
+      "extensions": {
+        "tokens": "0xf25a3b5a965c59f88873da93fc2a244b00616be4,0x75eb3d7976f0bf848f4bc22a7563fa50bd73c504"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf25a3b5a965c59f88873da93fc2a244b00616be4",
+      "name": "CoW AMM LP WBTC/wstETH",
+      "decimals": 18,
+      "symbol": "WBTC/wstETH",
+      "extensions": {
+        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x75eb3d7976f0bf848f4bc22a7563fa50bd73c504",
+      "name": "CoW AMM LP wstETH/SOL",
+      "decimals": 18,
+      "symbol": "wstETH/SOL",
+      "extensions": {
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xd31a59c85ae9d8edefec411d448f90841571b89c"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf706c50513446d709f08d3e5126cd74fb6bfda19",
+      "name": "CoW AMM LP AAVE/WETH",
+      "decimals": 18,
+      "symbol": "AAVE/WETH",
+      "extensions": {
+        "tokens": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x06eda3e560f8589d388785d92dd1c56831d01546",
+      "name": "CoW AMM LP Kekec/GNO",
+      "decimals": 18,
+      "symbol": "Kekec/GNO",
+      "extensions": {
+        "tokens": "0x8c7ac134ed985367eadc6f727d79e8295e11435c,0x6810e776880c02933d47db1b9fc05908e5386b96"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x8db38b15ccabd9d7f62c77e22a57d979501404d9",
+      "name": "CoW AMM LP BZZ/WXDAI",
+      "decimals": 18,
+      "symbol": "BZZ/WXDAI",
+      "extensions": {
+        "tokens": "0xdbf3ea6f5bee45c02255b2c26a16f300502f68da,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb3d37552eebbbdbea36258ba0948f4bbcaa3584e",
+      "name": "CoW AMM LP OSAK/Neiro",
+      "decimals": 18,
+      "symbol": "OSAK/Neiro",
+      "extensions": {
+        "tokens": "0xa21af1050f7b26e0cff45ee51548254c41ed6b5c,0x812ba41e071c7b7fa4ebcfb62df5f45f6fa853ee"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9fb7106c879fa48347796171982125a268ff0630",
+      "name": "CoW AMM LP MKR/WETH",
+      "decimals": 18,
+      "symbol": "MKR/WETH",
+      "extensions": {
+        "tokens": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x94a5afbf8f987d6eadb1c0fe73366321c5fe950b",
+      "name": "CoW AMM LP ARB/WETH",
+      "decimals": 18,
+      "symbol": "ARB/WETH",
+      "extensions": {
+        "tokens": "0x912ce59144191c1204e64559fe8253a0e49e6548,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x8ec257dc0b17b0c862d428c801fdcc8c382bf918",
+      "name": "CoW AMM LP FOLD/COW",
+      "decimals": 18,
+      "symbol": "FOLD/COW",
+      "extensions": {
+        "tokens": "0xd084944d3c05cd115c09d072b9f44ba3e0e45921,0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xe3ab320195e5eaf3671dc43a1026200ddcab5b68",
+      "name": "CoW AMM LP MAGIC/USDC",
+      "decimals": 18,
+      "symbol": "MAGIC/USDC",
+      "extensions": {
+        "tokens": "0x539bde0d7dbd336b79148aa742883198bbf60342,0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x8c6617bc24e2eea6b5707254977e97fc251f3da9",
+      "name": "CoW AMM LP tBTC/GHO",
+      "decimals": 18,
+      "symbol": "tBTC/GHO",
+      "extensions": {
+        "tokens": "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40,0x7dff72693f6a4149b17e7c6314655f6a9f7c8b33"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x167266f419f414b565baa734ee3ada81d7953805",
+      "name": "CoW AMM LP WETH/tBTC",
+      "decimals": 18,
+      "symbol": "WETH/tBTC",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xeda4581b03442ea84307844c2337e008cb057454",
+      "name": "CoW AMM LP APETH/WETH",
+      "decimals": 18,
+      "symbol": "APETH/WETH",
+      "extensions": {
+        "tokens": "0xaaaaaaabc6cbc3a1fd3a0fe0fdec43251c6562f5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xaef24dd15ad265319a5f0bfa53bf3cd328375b7b",
+      "name": "CoW AMM LP RING/wstETH",
+      "decimals": 18,
+      "symbol": "RING/wstETH",
+      "extensions": {
+        "tokens": "0x9e523234d36973f9e38642886197d023c88e307e,0x5979d7b546e38e414f7e9822514be443a4800529"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x6ff0531ee19272675b3c7d30401a5b2b2c7b0c67",
+      "name": "CoW AMM LP WETH/COW",
+      "decimals": 18,
+      "symbol": "WETH/COW",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x42d9e44eed903a0ee477c9c04d1d1730c5e87272",
+      "name": "CoW AMM LP OSAK/weETH",
+      "decimals": 18,
+      "symbol": "OSAK/weETH",
+      "extensions": {
+        "tokens": "0xa21af1050f7b26e0cff45ee51548254c41ed6b5c,0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xf061ac79ca5e21d094a0e02ef3df1ee9ab6f0e0e",
+      "name": "CoW AMM LP PENDLE/wstETH",
+      "decimals": 18,
+      "symbol": "PENDLE/wstETH",
+      "extensions": {
+        "tokens": "0x0c880f6761f1af8d9aa9c466984b80dab9a8c9e8,0x5979d7b546e38e414f7e9822514be443a4800529"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xf4c199e90f3bf2dca79bc2eb9f2b995520fbcbc1",
+      "name": "CoW AMM LP SEED/WETH",
+      "decimals": 18,
+      "symbol": "SEED/WETH",
+      "extensions": {
+        "tokens": "0x86f65121804d2cdbef79f9f072d4e0c2eebabc08,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x477a8982515e3a3d3aa6447b019b7c647e4162f8",
+      "name": "CoW AMM LP OSAK/WETH",
+      "decimals": 18,
+      "symbol": "OSAK/WETH",
+      "extensions": {
+        "tokens": "0xa21af1050f7b26e0cff45ee51548254c41ed6b5c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x67a78f23f3ef0ea2b63d6fb9d75b493930e5a5fb",
+      "name": "CoW AMM LP WBTC/sUSDe",
+      "decimals": 18,
+      "symbol": "WBTC/sUSDe",
+      "extensions": {
+        "tokens": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f,0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x8d15c4d1cbb3ac2ec18878df3368e208e91fbd8f",
+      "name": "CoW AMM LP wstETH/sUSDe",
+      "decimals": 18,
+      "symbol": "wstETH/sUSDe",
+      "extensions": {
+        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x41f4dcc8c4f6a2a43eb69a4d9f6c1385446cb64d",
+      "name": "CoW AMM LP WBTC/wstETH",
+      "decimals": 18,
+      "symbol": "WBTC/wstETH",
+      "extensions": {
+        "tokens": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f,0x5979d7b546e38e414f7e9822514be443a4800529"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x00f2fa5c5ba97cfcb1926de5233e1427b0c19488",
+      "name": "CoW AMM LP MONEY/WETH",
+      "decimals": 18,
+      "symbol": "MONEY/WETH",
+      "extensions": {
+        "tokens": "0x69420f9e38a4e60a62224c489be4bf7a94402496,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x4359a8ea4c353d93245c0b6b8608a28bb48a05e2",
+      "name": "CoW AMM LP WETH/ARB",
+      "decimals": 18,
+      "symbol": "WETH/ARB",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xb50721bcf8d664c30412cfbc6cf7a15145234ad1"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x558cd0af8e8486c238e8133401b5ea3a2cda868f",
+      "name": "CoW AMM LP BCoW-50WBTC-50wstETH/BCoW-50wstETH-50SOL",
+      "decimals": 18,
+      "symbol": "BCoW-50WBTC-50wstETH/BCoW-50wstETH-50SOL",
+      "extensions": {
+        "tokens": "0x41f4dcc8c4f6a2a43eb69a4d9f6c1385446cb64d,0x1fdd1523ca1c114ebdd5d124059fd68131f1eef1"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x8bc28f5bae3279dcaeb0cfd9c44059e46438c301",
+      "name": "CoW AMM LP wstETH/COW",
+      "decimals": 18,
+      "symbol": "wstETH/COW",
+      "extensions": {
+        "tokens": "0x6c76971f98945ae98dd7d4dfca8711ebea946ea6,0x177127622c4a00f3d409b75571e12cb3c8973d3c"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xd7855be714943928236bda82d9cd7caf189f2806",
+      "name": "CoW AMM LP USDT/USDC",
+      "decimals": 18,
+      "symbol": "USDT/USDC",
+      "extensions": {
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x1fdd1523ca1c114ebdd5d124059fd68131f1eef1",
+      "name": "CoW AMM LP wstETH/SOL",
+      "decimals": 18,
+      "symbol": "wstETH/SOL",
+      "extensions": {
+        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0x2bcc6d6cdbbdc0a4071e48bb3b969b06b3330c07"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x87c5f623c5c334483fc134bc30c71f91b0afc02d",
+      "name": "CoW AMM LP COW/WXDAI",
+      "decimals": 18,
+      "symbol": "COW/WXDAI",
+      "extensions": {
+        "tokens": "0x177127622c4a00f3d409b75571e12cb3c8973d3c,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x96f8dfa1e922f88c313052d5357cc6a910e19c1e",
+      "name": "CoW AMM LP HANA/OSAK",
+      "decimals": 18,
+      "symbol": "HANA/OSAK",
+      "extensions": {
+        "tokens": "0xb3912b20b3abc78c15e85e13ec0bf334fbb924f7,0xa21af1050f7b26e0cff45ee51548254c41ed6b5c"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xfec04c31b6099ce76c4c5d6d754a34141884fd91",
+      "name": "CoW AMM LP GNO/wstETH",
+      "decimals": 18,
+      "symbol": "GNO/wstETH",
+      "extensions": {
+        "tokens": "0x6810e776880c02933d47db1b9fc05908e5386b96,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x41ff63c864097a7fbdf206fe676223e29f729fcb",
+      "name": "CoW AMM LP GHO/WETH",
+      "decimals": 18,
+      "symbol": "GHO/WETH",
+      "extensions": {
+        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xfcd125f4c5030137634863a2d3e5d6d89158f19c",
+      "name": "CoW AMM LP sDAI/COW",
+      "decimals": 18,
+      "symbol": "sDAI/COW",
+      "extensions": {
+        "tokens": "0xaf204776c7245bf4147c2612bf6e5972ee483701,0x177127622c4a00f3d409b75571e12cb3c8973d3c"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x6a5d47ff7a9a9642616fc84bc5732bb2c6fd229a",
+      "name": "CoW AMM LP ZRO/wstETH",
+      "decimals": 18,
+      "symbol": "ZRO/wstETH",
+      "extensions": {
+        "tokens": "0x6985884c4392d348587b19cb9eaaf157f13271cd,0x5979d7b546e38e414f7e9822514be443a4800529"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x3dec20eaccc6e52065e500b228b10c07dad9b9d2",
+      "name": "CoW AMM LP ARB/USDC",
+      "decimals": 18,
+      "symbol": "ARB/USDC",
+      "extensions": {
+        "tokens": "0x912ce59144191c1204e64559fe8253a0e49e6548,0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3b124c8b4846836ba52df6cb6576ef66ca167dc1",
+      "name": "CoW AMM LP FOX/WETH",
+      "decimals": 18,
+      "symbol": "FOX/WETH",
+      "extensions": {
+        "tokens": "0xc770eefad204b5180df6a14ee197d99d808ee52d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x6a83c4f5fe2205d84dcdcf9463fe4c55a25a306b",
+      "name": "CoW AMM LP WETH/sDAI",
+      "decimals": 18,
+      "symbol": "WETH/sDAI",
+      "extensions": {
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0xaf204776c7245bf4147c2612bf6e5972ee483701"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x6ed12790c57c5eee121ef36c23c2fc2851f7353a",
+      "name": "CoW AMM LP WETH/WXDAI",
+      "decimals": 18,
+      "symbol": "WETH/WXDAI",
+      "extensions": {
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf544694542ca8ffcd1120ff11ffa33bca475bce6",
+      "name": "CoW AMM LP USDL/USDC",
+      "decimals": 18,
+      "symbol": "USDL/USDC",
+      "extensions": {
+        "tokens": "0xbdc7c08592ee4aa51d06c27ee23d5087d65adbcd,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x7c838b3ed3c15a5d5032e809b8714f0ae5e9a821",
+      "name": "CoW AMM LP wNXM/WETH",
+      "decimals": 18,
+      "symbol": "wNXM/WETH",
+      "extensions": {
+        "tokens": "0x0d438f3b5175bebc262bf23753c1e53d03432bde,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xdfee48c9df6d26c734296c0e6bd02401100a7217",
+      "name": "CoW AMM LP DOG/wstETH",
+      "decimals": 18,
+      "symbol": "DOG/wstETH",
+      "extensions": {
+        "tokens": "0xbaac2b4491727d78d2b78815144570b9f2fe8899,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xd195a02273602fe1f4c8706846df0d9d23b7109e",
+      "name": "CoW AMM LP WETH/BAL",
+      "decimals": 18,
+      "symbol": "WETH/BAL",
+      "extensions": {
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x7ef541e2a22058048904fe5744f9c7e4c57af717"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xfea755d5523f3a78c0945141ad396d4e970d2fab",
+      "name": "CoW AMM LP USDC/wstETH",
+      "decimals": 18,
+      "symbol": "USDC/wstETH",
+      "extensions": {
+        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0x5979d7b546e38e414f7e9822514be443a4800529"
+      }
+    }
+  ]
+}
