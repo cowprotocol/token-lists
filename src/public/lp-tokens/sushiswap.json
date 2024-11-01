@@ -1,10 +1,10 @@
 {
   "name": "LP sushiswap Token List",
-  "timestamp": "2024-10-16T12:38:18.658Z",
+  "timestamp": "2024-11-01T09:05:00.950Z",
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 1
+    "patch": 2
   },
   "tokens": [
     {
@@ -14,7 +14,7 @@
       "decimals": 18,
       "symbol": "WBTC/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -24,7 +24,7 @@
       "decimals": 18,
       "symbol": "ILV/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x767fe9edc9e0df98e07454847909b5e959d7ca0e"
+        "tokens": "0x767fe9edc9e0df98e07454847909b5e959d7ca0e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -34,7 +34,7 @@
       "decimals": 18,
       "symbol": "USDC/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -54,7 +54,7 @@
       "decimals": 18,
       "symbol": "DELTA/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9ea3b5b4ec044b70375236a281986106457b20ef"
+        "tokens": "0x9ea3b5b4ec044b70375236a281986106457b20ef,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -64,7 +64,7 @@
       "decimals": 18,
       "symbol": "LON/USDT",
       "extensions": {
-        "tokens": "0x0000000000095413afc295d19edeb1ad7b71c952,0xdac17f958d2ee523a2206206994597c13d831ec7"
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x0000000000095413afc295d19edeb1ad7b71c952"
       }
     },
     {
@@ -74,7 +74,7 @@
       "decimals": 18,
       "symbol": "PUNK/WETH",
       "extensions": {
-        "tokens": "0x269616d549d7e8eaa82dfb17028d0b212d11232a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x269616d549d7e8eaa82dfb17028d0b212d11232a"
       }
     },
     {
@@ -89,16 +89,6 @@
     },
     {
       "chainId": 1,
-      "address": "0x4a86c01d67965f8cb3d0aaa2c655705e64097c31",
-      "name": "SushiSwap LP SYN/WETH",
-      "decimals": 18,
-      "symbol": "SYN/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0f2d719407fdbeff09d87557abb7232601fd9f29"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0xc3f279090a47e80990fe3a9c30d24cb117ef91a8",
       "name": "SushiSwap LP WETH/ALCX",
       "decimals": 18,
@@ -108,13 +98,23 @@
       }
     },
     {
+      "chainId": 1,
+      "address": "0x4a86c01d67965f8cb3d0aaa2c655705e64097c31",
+      "name": "SushiSwap LP SYN/WETH",
+      "decimals": 18,
+      "symbol": "SYN/WETH",
+      "extensions": {
+        "tokens": "0x0f2d719407fdbeff09d87557abb7232601fd9f29,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
       "chainId": 42161,
       "address": "0xb7e50106a5bd3cf21af210a755f9c8740890a8c9",
       "name": "SushiSwap LP MAGIC/WETH",
       "decimals": 18,
       "symbol": "MAGIC/WETH",
       "extensions": {
-        "tokens": "0x539bde0d7dbd336b79148aa742883198bbf60342,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x539bde0d7dbd336b79148aa742883198bbf60342"
       }
     },
     {
@@ -124,27 +124,7 @@
       "decimals": 18,
       "symbol": "TOKE/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2e9d63788249371f1dfc918a52f8d799f4a38c94"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x3d3f13f2529ec3c84b2940155effbf9b39a8f3ec",
-      "name": "SushiSwap LP THOR/WETH",
-      "decimals": 18,
-      "symbol": "THOR/WETH",
-      "extensions": {
-        "tokens": "0xa5f2211b9b8170f694421f2046281775e8468044,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xeefa3b448768dd561af4f743c9e925987a1f8d09",
-      "name": "SushiSwap LP WETH/NFD",
-      "decimals": 18,
-      "symbol": "WETH/NFD",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xdfdb7f72c1f195c5951a234e8db9806eb0635346"
+        "tokens": "0x2e9d63788249371f1dfc918a52f8d799f4a38c94,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -159,12 +139,32 @@
     },
     {
       "chainId": 1,
+      "address": "0xeefa3b448768dd561af4f743c9e925987a1f8d09",
+      "name": "SushiSwap LP WETH/NFD",
+      "decimals": 18,
+      "symbol": "WETH/NFD",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xdfdb7f72c1f195c5951a234e8db9806eb0635346"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xc40d16476380e4037e6b1a2594caf6a6cc8da967",
       "name": "SushiSwap LP LINK/WETH",
       "decimals": 18,
       "symbol": "LINK/WETH",
       "extensions": {
-        "tokens": "0x514910771af9ca656af840dff83e8264ecf986ca,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x514910771af9ca656af840dff83e8264ecf986ca"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3d3f13f2529ec3c84b2940155effbf9b39a8f3ec",
+      "name": "SushiSwap LP THOR/WETH",
+      "decimals": 18,
+      "symbol": "THOR/WETH",
+      "extensions": {
+        "tokens": "0xa5f2211b9b8170f694421f2046281775e8468044,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -179,32 +179,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x45b6ffb13e5206dafe2cc8780e4ddc0e32496265",
-      "name": "SushiSwap LP PERC/WETH",
-      "decimals": 18,
-      "symbol": "PERC/WETH",
-      "extensions": {
-        "tokens": "0x60be1e1fe41c1370adaf5d8e66f07cf1c2df2268,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x559ebe4e206e6b4d50e9bd3008cda7ce640c52cb",
-      "name": "SushiSwap LP RADAR/WETH",
-      "decimals": 18,
-      "symbol": "RADAR/WETH",
-      "extensions": {
-        "tokens": "0x44709a920fccf795fbc57baa433cc3dd53c44dbe,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0x110492b31c59716ac47337e616804e3e3adc0b4a",
       "name": "SushiSwap LP WBTC/BADGER",
       "decimals": 18,
       "symbol": "WBTC/BADGER",
       "extensions": {
-        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x3472a5a71965499acd81997a54bba8d852c6e53d"
+        "tokens": "0x3472a5a71965499acd81997a54bba8d852c6e53d,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x45b6ffb13e5206dafe2cc8780e4ddc0e32496265",
+      "name": "SushiSwap LP PERC/WETH",
+      "decimals": 18,
+      "symbol": "PERC/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x60be1e1fe41c1370adaf5d8e66f07cf1c2df2268"
       }
     },
     {
@@ -224,7 +214,27 @@
       "decimals": 18,
       "symbol": "XRUNE/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c"
+        "tokens": "0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1e888882d0f291dd88c5605108c72d414f29d460",
+      "name": "SushiSwap LP USDC/QUARTZ",
+      "decimals": 18,
+      "symbol": "USDC/QUARTZ",
+      "extensions": {
+        "tokens": "0xba8a621b4a54e61c442f5ec623687e2a942225ef,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x559ebe4e206e6b4d50e9bd3008cda7ce640c52cb",
+      "name": "SushiSwap LP RADAR/WETH",
+      "decimals": 18,
+      "symbol": "RADAR/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x44709a920fccf795fbc57baa433cc3dd53c44dbe"
       }
     },
     {
@@ -234,17 +244,17 @@
       "decimals": 18,
       "symbol": "YGG/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x25f8087ead173b73d6e8b84329989a8eea16cf73"
+        "tokens": "0x25f8087ead173b73d6e8b84329989a8eea16cf73,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x9cd028b1287803250b1e226f0180eb725428d069",
-      "name": "SushiSwap LP ICHI/WETH",
+      "address": "0x9d45081706102e7aaddd0973268457527722e274",
+      "name": "SushiSwap LP IQ/WETH",
       "decimals": 18,
-      "symbol": "ICHI/WETH",
+      "symbol": "IQ/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x903bef1736cddf2a537176cf3c64579c3867a881"
+        "tokens": "0x579cea1889991f68acc35ff5c3dd0621ff29b0c9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -259,22 +269,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x1e888882d0f291dd88c5605108c72d414f29d460",
-      "name": "SushiSwap LP USDC/QUARTZ",
+      "address": "0x7cf6a842e72c4bd7bc92e0c17ebdaa95ac1e7825",
+      "name": "SushiSwap LP WETH/RAIL",
       "decimals": 18,
-      "symbol": "USDC/QUARTZ",
+      "symbol": "WETH/RAIL",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xba8a621b4a54e61c442f5ec623687e2a942225ef"
+        "tokens": "0xe76c6c83af64e4c60245d8c7de953df673a7a33d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x9d45081706102e7aaddd0973268457527722e274",
-      "name": "SushiSwap LP IQ/WETH",
+      "address": "0x9cd028b1287803250b1e226f0180eb725428d069",
+      "name": "SushiSwap LP ICHI/WETH",
       "decimals": 18,
-      "symbol": "IQ/WETH",
+      "symbol": "ICHI/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x579cea1889991f68acc35ff5c3dd0621ff29b0c9"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x903bef1736cddf2a537176cf3c64579c3867a881"
       }
     },
     {
@@ -289,32 +299,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xaf988aff99d3d0cb870812c325c588d8d8cb7de8",
-      "name": "SushiSwap LP KP3R/WETH",
+      "address": "0x31503dcb60119a812fee820bb7042752019f2355",
+      "name": "SushiSwap LP COMP/WETH",
       "decimals": 18,
-      "symbol": "KP3R/WETH",
+      "symbol": "COMP/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x9461173740d27311b176476fa27e94c681b1ea6b",
-      "name": "SushiSwap LP yvBOOST/WETH",
-      "decimals": 18,
-      "symbol": "yvBOOST/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9d409a0a012cfba9b15f6d4b36ac57a46966ab9a"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x7cf6a842e72c4bd7bc92e0c17ebdaa95ac1e7825",
-      "name": "SushiSwap LP WETH/RAIL",
-      "decimals": 18,
-      "symbol": "WETH/RAIL",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe76c6c83af64e4c60245d8c7de953df673a7a33d"
+        "tokens": "0xc00e94cb662c3520282e6f5717214004a7f26888,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -324,7 +314,17 @@
       "decimals": 18,
       "symbol": "EDEN/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1559fa1b8f28238fd5d76d9f434ad86fd20d1559"
+        "tokens": "0x1559fa1b8f28238fd5d76d9f434ad86fd20d1559,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf55c33d94150d93c2cfb833bcca30be388b14964",
+      "name": "SushiSwap LP ALPHA/WETH",
+      "decimals": 18,
+      "symbol": "ALPHA/WETH",
+      "extensions": {
+        "tokens": "0xa1faa113cbe53436df28ff0aee54275c13b40975,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -334,17 +334,7 @@
       "decimals": 18,
       "symbol": "WETH/S",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xd44257dde89ca53f1471582f718632e690e46dc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x31503dcb60119a812fee820bb7042752019f2355",
-      "name": "SushiSwap LP COMP/WETH",
-      "decimals": 18,
-      "symbol": "COMP/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc00e94cb662c3520282e6f5717214004a7f26888"
+        "tokens": "0xd44257dde89ca53f1471582f718632e690e46dc2,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -369,62 +359,32 @@
     },
     {
       "chainId": 1,
+      "address": "0xcb2286d9471cc185281c4f763d34a962ed212962",
+      "name": "SushiSwap LP WETH/AMPL",
+      "decimals": 18,
+      "symbol": "WETH/AMPL",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd46ba6d942050d489dbd938a2c909a5d5039a161"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x088ee5007c98a9677165d78dd2109ae4a3d04d0c",
       "name": "SushiSwap LP YFI/WETH",
       "decimals": 18,
       "symbol": "YFI/WETH",
       "extensions": {
-        "tokens": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e"
       }
     },
     {
       "chainId": 1,
-      "address": "0xf55c33d94150d93c2cfb833bcca30be388b14964",
-      "name": "SushiSwap LP ALPHA/WETH",
+      "address": "0xaf988aff99d3d0cb870812c325c588d8d8cb7de8",
+      "name": "SushiSwap LP KP3R/WETH",
       "decimals": 18,
-      "symbol": "ALPHA/WETH",
+      "symbol": "KP3R/WETH",
       "extensions": {
-        "tokens": "0xa1faa113cbe53436df28ff0aee54275c13b40975,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x93e2f3a8277e0360081547d711446e4a1f83546d",
-      "name": "SushiSwap LP PREMIA/WETH",
-      "decimals": 18,
-      "symbol": "PREMIA/WETH",
-      "extensions": {
-        "tokens": "0x6399c842dd2be3de30bf99bc7d1bbf6fa3650e70,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe12af1218b4e9272e9628d7c7dc6354d137d024e",
-      "name": "SushiSwap LP BIT/WETH",
-      "decimals": 18,
-      "symbol": "BIT/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1a4b46696b2bb4794eb3d4c26f1c55f9170fa4c5"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x8dc6efd57a13b7ba3ff7824c9708db24d3190703",
-      "name": "SushiSwap LP HASH/WETH",
-      "decimals": 18,
-      "symbol": "HASH/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x2e80259c9071b6176205ff5f5eb6f7ec8361b93f"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xcb0e5bfa72bbb4d16ab5aa0c60601c438f04b4ad",
-      "name": "SushiSwap LP WETH/USDT",
-      "decimals": 18,
-      "symbol": "WETH/USDT",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+        "tokens": "0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -439,52 +399,22 @@
     },
     {
       "chainId": 1,
-      "address": "0xcb2286d9471cc185281c4f763d34a962ed212962",
-      "name": "SushiSwap LP WETH/AMPL",
+      "address": "0x93e2f3a8277e0360081547d711446e4a1f83546d",
+      "name": "SushiSwap LP PREMIA/WETH",
       "decimals": 18,
-      "symbol": "WETH/AMPL",
+      "symbol": "PREMIA/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd46ba6d942050d489dbd938a2c909a5d5039a161"
+        "tokens": "0x6399c842dd2be3de30bf99bc7d1bbf6fa3650e70,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
-      "chainId": 1,
-      "address": "0xee35e548c7457fcdd51ae95ed09108be660ea374",
-      "name": "SushiSwap LP OCEAN/WETH",
+      "chainId": 42161,
+      "address": "0x8dc6efd57a13b7ba3ff7824c9708db24d3190703",
+      "name": "SushiSwap LP HASH/WETH",
       "decimals": 18,
-      "symbol": "OCEAN/WETH",
+      "symbol": "HASH/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x967da4048cd07ab37855c090aaf366e4ce1b9f48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x10b47177e92ef9d5c6059055d92ddf6290848991",
-      "name": "SushiSwap LP WETH/yveCRV-DAO",
-      "decimals": 18,
-      "symbol": "WETH/yveCRV-DAO",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc5bddf9843308380375a611c18b50fb9341f502a"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x36e2fcccc59e5747ff63a03ea2e5c0c2c14911e7",
-      "name": "SushiSwap LP xSUSHI/WETH",
-      "decimals": 18,
-      "symbol": "xSUSHI/WETH",
-      "extensions": {
-        "tokens": "0x8798249c2e607446efb7ad49ec89dd1865ff4272,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe339c1d0a744053cbceb0d2dc2d13967c8a69586",
-      "name": "SushiSwap LP MEEB/WETH",
-      "decimals": 18,
-      "symbol": "MEEB/WETH",
-      "extensions": {
-        "tokens": "0x641927e970222b10b2e8cdbc96b1b4f427316f16,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x2e80259c9071b6176205ff5f5eb6f7ec8361b93f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -499,32 +429,52 @@
     },
     {
       "chainId": 1,
+      "address": "0xe12af1218b4e9272e9628d7c7dc6354d137d024e",
+      "name": "SushiSwap LP BIT/WETH",
+      "decimals": 18,
+      "symbol": "BIT/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1a4b46696b2bb4794eb3d4c26f1c55f9170fa4c5"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xe339c1d0a744053cbceb0d2dc2d13967c8a69586",
+      "name": "SushiSwap LP MEEB/WETH",
+      "decimals": 18,
+      "symbol": "MEEB/WETH",
+      "extensions": {
+        "tokens": "0x641927e970222b10b2e8cdbc96b1b4f427316f16,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xee35e548c7457fcdd51ae95ed09108be660ea374",
+      "name": "SushiSwap LP OCEAN/WETH",
+      "decimals": 18,
+      "symbol": "OCEAN/WETH",
+      "extensions": {
+        "tokens": "0x967da4048cd07ab37855c090aaf366e4ce1b9f48,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x36e2fcccc59e5747ff63a03ea2e5c0c2c14911e7",
+      "name": "SushiSwap LP xSUSHI/WETH",
+      "decimals": 18,
+      "symbol": "xSUSHI/WETH",
+      "extensions": {
+        "tokens": "0x8798249c2e607446efb7ad49ec89dd1865ff4272,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xba13afecda9beb75de5c56bbaf696b880a5a50dd",
       "name": "SushiSwap LP /WETH",
       "decimals": 18,
       "symbol": "/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x05767d9ef41dc40689678ffca0608878fb3de906",
-      "name": "SushiSwap LP CVX/WETH",
-      "decimals": 18,
-      "symbol": "CVX/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf1f85b2c54a2bd284b1cf4141d64fd171bd85539",
-      "name": "SushiSwap LP sUSD/WETH",
-      "decimals": 18,
-      "symbol": "sUSD/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x57ab1ec28d129707052df4df418d58a2d46d5f51"
+        "tokens": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -539,12 +489,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x22b15c7ee1186a7c7cffb2d942e20fc228f6e4ed",
-      "name": "SushiSwap LP WETH/CIG",
+      "address": "0xf1f85b2c54a2bd284b1cf4141d64fd171bd85539",
+      "name": "SushiSwap LP sUSD/WETH",
       "decimals": 18,
-      "symbol": "WETH/CIG",
+      "symbol": "sUSD/WETH",
       "extensions": {
-        "tokens": "0xcb56b52316041a62b6b5d0583dce4a8ae7a3c629,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x57ab1ec28d129707052df4df418d58a2d46d5f51"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x05767d9ef41dc40689678ffca0608878fb3de906",
+      "name": "SushiSwap LP CVX/WETH",
+      "decimals": 18,
+      "symbol": "CVX/WETH",
+      "extensions": {
+        "tokens": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -554,7 +514,27 @@
       "decimals": 18,
       "symbol": "UNI/WETH",
       "extensions": {
-        "tokens": "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1f9840a85d5af5bf1d1762f925bdaddc4201f984"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x22b15c7ee1186a7c7cffb2d942e20fc228f6e4ed",
+      "name": "SushiSwap LP WETH/CIG",
+      "decimals": 18,
+      "symbol": "WETH/CIG",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcb56b52316041a62b6b5d0583dce4a8ae7a3c629"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9461173740d27311b176476fa27e94c681b1ea6b",
+      "name": "SushiSwap LP yvBOOST/WETH",
+      "decimals": 18,
+      "symbol": "yvBOOST/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9d409a0a012cfba9b15f6d4b36ac57a46966ab9a"
       }
     },
     {
@@ -584,27 +564,7 @@
       "decimals": 18,
       "symbol": "GOVI/WETH",
       "extensions": {
-        "tokens": "0x07e49d5de43dda6162fa28d24d5935c151875283,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1f4c763bde1d4832b3ea0640e66da00b98831355",
-      "name": "SushiSwap LP agEUR/ANGLE",
-      "decimals": 18,
-      "symbol": "agEUR/ANGLE",
-      "extensions": {
-        "tokens": "0x31429d1856ad1377a8a0079410b297e1a9e214c2,0x1a7e4e63778b4f12a199c062f3efdd288afcbce8"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5a70513ec742ebbfb99094c7fd3096a0a3e25b86",
-      "name": "SushiSwap LP WFLOW/WETH",
-      "decimals": 18,
-      "symbol": "WFLOW/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x5c147e74d63b1d31aa3fd78eb229b65161983b2b"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x07e49d5de43dda6162fa28d24d5935c151875283"
       }
     },
     {
@@ -619,22 +579,32 @@
     },
     {
       "chainId": 1,
+      "address": "0x5a70513ec742ebbfb99094c7fd3096a0a3e25b86",
+      "name": "SushiSwap LP WFLOW/WETH",
+      "decimals": 18,
+      "symbol": "WFLOW/WETH",
+      "extensions": {
+        "tokens": "0x5c147e74d63b1d31aa3fd78eb229b65161983b2b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1f4c763bde1d4832b3ea0640e66da00b98831355",
+      "name": "SushiSwap LP agEUR/ANGLE",
+      "decimals": 18,
+      "symbol": "agEUR/ANGLE",
+      "extensions": {
+        "tokens": "0x1a7e4e63778b4f12a199c062f3efdd288afcbce8,0x31429d1856ad1377a8a0079410b297e1a9e214c2"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xa1181481beb2dc5de0daf2c85392d81c704bf75d",
       "name": "SushiSwap LP WETH/ENS",
       "decimals": 18,
       "symbol": "WETH/ENS",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x18cd890f4e23422dc4aa8c2d6e0bd3f3bd8873d8",
-      "name": "SushiSwap LP WETH/IMX",
-      "decimals": 18,
-      "symbol": "WETH/IMX",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf57e7e7c23978c3caec3c3548e3d615c346e79ff"
+        "tokens": "0xc18360217d8f7ab5e7c516566761ea12ce7f9d72,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -654,7 +624,17 @@
       "decimals": 18,
       "symbol": "USDT/PAD",
       "extensions": {
-        "tokens": "0xea7cc765ebc94c4805e3bff28d7e4ae48d06468a,0xdac17f958d2ee523a2206206994597c13d831ec7"
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0xea7cc765ebc94c4805e3bff28d7e4ae48d06468a"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x11eecdbd8f2d670016d061e4c064072e6158ede2",
+      "name": "SushiSwap LP ADoge/WETH",
+      "decimals": 18,
+      "symbol": "ADoge/WETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x155f0dd04424939368972f4e1838687d6a831151"
       }
     },
     {
@@ -664,17 +644,7 @@
       "decimals": 18,
       "symbol": "ibEUR/WETH",
       "extensions": {
-        "tokens": "0x96e61422b6a9ba0e068b6c5add4ffabc6a4aae27,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5c596c6a65f628fc1090853d8eb1927651e9d9b2",
-      "name": "SushiSwap LP GOG/WETH",
-      "decimals": 18,
-      "symbol": "GOG/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9ab7bb7fdc60f4357ecfef43986818a2a3569c62"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x96e61422b6a9ba0e068b6c5add4ffabc6a4aae27"
       }
     },
     {
@@ -694,27 +664,17 @@
       "decimals": 18,
       "symbol": "UMA/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x04fa0d235c4abf4bcf4787af4cf447de572ef828"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x11eecdbd8f2d670016d061e4c064072e6158ede2",
-      "name": "SushiSwap LP ADoge/WETH",
-      "decimals": 18,
-      "symbol": "ADoge/WETH",
-      "extensions": {
-        "tokens": "0x155f0dd04424939368972f4e1838687d6a831151,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x04fa0d235c4abf4bcf4787af4cf447de572ef828,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x557b08a0cab46bfe22471b65522757ea92a9e7a5",
-      "name": "SushiSwap LP C98/WETH",
+      "address": "0x10b47177e92ef9d5c6059055d92ddf6290848991",
+      "name": "SushiSwap LP WETH/yveCRV-DAO",
       "decimals": 18,
-      "symbol": "C98/WETH",
+      "symbol": "WETH/yveCRV-DAO",
       "extensions": {
-        "tokens": "0xae12c5930881c53715b369cec7606b70d8eb229f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc5bddf9843308380375a611c18b50fb9341f502a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -724,17 +684,27 @@
       "decimals": 18,
       "symbol": "UFT/WETH",
       "extensions": {
-        "tokens": "0x0202be363b8a4820f3f4de7faf5224ff05943ab1,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0202be363b8a4820f3f4de7faf5224ff05943ab1"
       }
     },
     {
       "chainId": 1,
-      "address": "0x15e86e6f65ef7ea1dbb72a5e51a07926fb1c82e3",
-      "name": "SushiSwap LP WETH/AMP",
+      "address": "0x557b08a0cab46bfe22471b65522757ea92a9e7a5",
+      "name": "SushiSwap LP C98/WETH",
       "decimals": 18,
-      "symbol": "WETH/AMP",
+      "symbol": "C98/WETH",
       "extensions": {
-        "tokens": "0xff20817765cb7f73d4bde2e66e067e58d11095c2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xae12c5930881c53715b369cec7606b70d8eb229f"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5c596c6a65f628fc1090853d8eb1927651e9d9b2",
+      "name": "SushiSwap LP GOG/WETH",
+      "decimals": 18,
+      "symbol": "GOG/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9ab7bb7fdc60f4357ecfef43986818a2a3569c62"
       }
     },
     {
@@ -749,12 +719,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xd75ea151a61d06868e31f8988d28dfe5e9df57b4",
-      "name": "SushiSwap LP AAVE/WETH",
+      "address": "0x15e86e6f65ef7ea1dbb72a5e51a07926fb1c82e3",
+      "name": "SushiSwap LP WETH/AMP",
       "decimals": 18,
-      "symbol": "AAVE/WETH",
+      "symbol": "WETH/AMP",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xff20817765cb7f73d4bde2e66e067e58d11095c2"
       }
     },
     {
@@ -764,7 +734,47 @@
       "decimals": 18,
       "symbol": "USDC/WXDAI",
       "extensions": {
-        "tokens": "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+        "tokens": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d,0xddafbb505ad214d7b80b1f830fccc89b60fb7a83"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x18cd890f4e23422dc4aa8c2d6e0bd3f3bd8873d8",
+      "name": "SushiSwap LP WETH/IMX",
+      "decimals": 18,
+      "symbol": "WETH/IMX",
+      "extensions": {
+        "tokens": "0xf57e7e7c23978c3caec3c3548e3d615c346e79ff,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x519854dd32b4f34f9a407874b0b69218465972d6",
+      "name": "SushiSwap LP RAIL/renBTC",
+      "decimals": 18,
+      "symbol": "RAIL/renBTC",
+      "extensions": {
+        "tokens": "0xeb4c2781e4eba804ce9a9803c67d0893436bb27d,0xe76c6c83af64e4c60245d8c7de953df673a7a33d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xd75ea151a61d06868e31f8988d28dfe5e9df57b4",
+      "name": "SushiSwap LP AAVE/WETH",
+      "decimals": 18,
+      "symbol": "AAVE/WETH",
+      "extensions": {
+        "tokens": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xcb0e5bfa72bbb4d16ab5aa0c60601c438f04b4ad",
+      "name": "SushiSwap LP WETH/USDT",
+      "decimals": 18,
+      "symbol": "WETH/USDT",
+      "extensions": {
+        "tokens": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -779,26 +789,6 @@
     },
     {
       "chainId": 1,
-      "address": "0xdb06a76733528761eda47d356647297bc35a98bd",
-      "name": "SushiSwap LP WETH/JPEG",
-      "decimals": 18,
-      "symbol": "WETH/JPEG",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe80c0cd204d654cebe8dd64a4857cab6be8345a3"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xb6dd51d5425861c808fd60827ab6cfbffe604959",
-      "name": "SushiSwap LP WETH/MIM",
-      "decimals": 18,
-      "symbol": "WETH/MIM",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0x82917fb0dd65b0e5c85eea66e4f5c1ed484bc629",
       "name": "SushiSwap LP MULTI/WETH",
       "decimals": 18,
@@ -809,12 +799,12 @@
     },
     {
       "chainId": 1,
-      "address": "0x39f49254d6eaf6b2b2549dfec4ed93cf6bae167f",
-      "name": "SushiSwap LP OMNI/WETH",
+      "address": "0x476aad8dcd77401c78dd3d029ef3523d9a10a7e5",
+      "name": "SushiSwap LP MAG/WETH",
       "decimals": 18,
-      "symbol": "OMNI/WETH",
+      "symbol": "MAG/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9e20461bc2c4c980f62f1b279d71734207a6a356"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xb9d4b6dc1e1ee3577cc442de015cc11f238b35ed"
       }
     },
     {
@@ -824,7 +814,27 @@
       "decimals": 18,
       "symbol": "PENDLE/WETH",
       "extensions": {
-        "tokens": "0x808507121b80c02388fad14726482e061b8da827,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x808507121b80c02388fad14726482e061b8da827"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc96f20099d96b37d7ede66ff9e4de59b9b1065b1",
+      "name": "SushiSwap LP DOG/WETH",
+      "decimals": 18,
+      "symbol": "DOG/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xbaac2b4491727d78d2b78815144570b9f2fe8899"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x515e252b2b5c22b4b2b6df66c2ebeea871aa4d69",
+      "name": "SushiSwap LP WBTC/WETH",
+      "decimals": 18,
+      "symbol": "WBTC/WETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f"
       }
     },
     {
@@ -834,7 +844,17 @@
       "decimals": 18,
       "symbol": "PICKLE/WETH",
       "extensions": {
-        "tokens": "0x429881672b9ae42b8eba0e26cd9c73711b891ca5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x429881672b9ae42b8eba0e26cd9c73711b891ca5"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x39f49254d6eaf6b2b2549dfec4ed93cf6bae167f",
+      "name": "SushiSwap LP OMNI/WETH",
+      "decimals": 18,
+      "symbol": "OMNI/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9e20461bc2c4c980f62f1b279d71734207a6a356"
       }
     },
     {
@@ -854,47 +874,17 @@
       "decimals": 18,
       "symbol": "WETH/ASCEND",
       "extensions": {
-        "tokens": "0x9e724698051da34994f281bd81c3e7372d1960ae,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x515e252b2b5c22b4b2b6df66c2ebeea871aa4d69",
-      "name": "SushiSwap LP WBTC/WETH",
-      "decimals": 18,
-      "symbol": "WBTC/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x9e724698051da34994f281bd81c3e7372d1960ae"
       }
     },
     {
       "chainId": 1,
-      "address": "0x476aad8dcd77401c78dd3d029ef3523d9a10a7e5",
-      "name": "SushiSwap LP MAG/WETH",
+      "address": "0xc965bc2cf23d54ccf41a7d3af10572580e9b8078",
+      "name": "SushiSwap LP DIA/USDC",
       "decimals": 18,
-      "symbol": "MAG/WETH",
+      "symbol": "DIA/USDC",
       "extensions": {
-        "tokens": "0xb9d4b6dc1e1ee3577cc442de015cc11f238b35ed,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x75fa3be54d5b3571ed19f3eeace61fa1566ef948",
-      "name": "SushiSwap LP WETH/OMNI",
-      "decimals": 18,
-      "symbol": "WETH/OMNI",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x9e20461bc2c4c980f62f1b279d71734207a6a356"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xc96f20099d96b37d7ede66ff9e4de59b9b1065b1",
-      "name": "SushiSwap LP DOG/WETH",
-      "decimals": 18,
-      "symbol": "DOG/WETH",
-      "extensions": {
-        "tokens": "0xbaac2b4491727d78d2b78815144570b9f2fe8899,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x84ca8bc7997272c7cfb4d0cd3d55cd942b3c9419,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
@@ -909,52 +899,22 @@
     },
     {
       "chainId": 42161,
-      "address": "0x57b85fef094e10b5eecdf350af688299e9553378",
-      "name": "SushiSwap LP WETH/USDC",
+      "address": "0xb6dd51d5425861c808fd60827ab6cfbffe604959",
+      "name": "SushiSwap LP WETH/MIM",
       "decimals": 18,
-      "symbol": "WETH/USDC",
+      "symbol": "WETH/MIM",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a"
       }
     },
     {
-      "chainId": 1,
-      "address": "0x79e0d4858af8071349469b6589a3c23c1fe1586e",
-      "name": "SushiSwap LP KP3R/LDO",
+      "chainId": 42161,
+      "address": "0x75fa3be54d5b3571ed19f3eeace61fa1566ef948",
+      "name": "SushiSwap LP WETH/OMNI",
       "decimals": 18,
-      "symbol": "KP3R/LDO",
+      "symbol": "WETH/OMNI",
       "extensions": {
-        "tokens": "0x5a98fcbea516cf06857215779fd812ca3bef1b32,0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x4a73d94683f2c9c2aaf32ccd5723f3e243d6a654",
-      "name": "SushiSwap LP DATA/WETH",
-      "decimals": 18,
-      "symbol": "DATA/WETH",
-      "extensions": {
-        "tokens": "0x8f693ca8d21b157107184d29d398a8d082b38b76,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xa5c475167f03b1556c054e0da78192cd2779087f",
-      "name": "SushiSwap LP FODL/USDC",
-      "decimals": 18,
-      "symbol": "FODL/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x4c2e59d098df7b6cbae0848d66de2f8a4889b9c3"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xc965bc2cf23d54ccf41a7d3af10572580e9b8078",
-      "name": "SushiSwap LP DIA/USDC",
-      "decimals": 18,
-      "symbol": "DIA/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x84ca8bc7997272c7cfb4d0cd3d55cd942b3c9419"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x9e20461bc2c4c980f62f1b279d71734207a6a356"
       }
     },
     {
@@ -964,17 +924,27 @@
       "decimals": 18,
       "symbol": "SPC/WETH",
       "extensions": {
-        "tokens": "0x86ed939b500e121c0c5f493f399084db596dad20,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x86ed939b500e121c0c5f493f399084db596dad20"
       }
     },
     {
       "chainId": 1,
-      "address": "0xea59a3da9cad8ece406a353ddede0e7d17604d28",
-      "name": "SushiSwap LP WETH/SHX",
+      "address": "0x4a73d94683f2c9c2aaf32ccd5723f3e243d6a654",
+      "name": "SushiSwap LP DATA/WETH",
       "decimals": 18,
-      "symbol": "WETH/SHX",
+      "symbol": "DATA/WETH",
       "extensions": {
-        "tokens": "0xee7527841a932d2912224e20a405e1a1ff747084,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x8f693ca8d21b157107184d29d398a8d082b38b76"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x7f517657496c09c43cc28d0ca131e35dcd557e02",
+      "name": "SushiSwap LP DAI/RAIL",
+      "decimals": 18,
+      "symbol": "DAI/RAIL",
+      "extensions": {
+        "tokens": "0xe76c6c83af64e4c60245d8c7de953df673a7a33d,0x6b175474e89094c44da98b954eedeac495271d0f"
       }
     },
     {
@@ -989,22 +959,52 @@
     },
     {
       "chainId": 1,
-      "address": "0x7f517657496c09c43cc28d0ca131e35dcd557e02",
-      "name": "SushiSwap LP DAI/RAIL",
+      "address": "0xea59a3da9cad8ece406a353ddede0e7d17604d28",
+      "name": "SushiSwap LP WETH/SHX",
       "decimals": 18,
-      "symbol": "DAI/RAIL",
+      "symbol": "WETH/SHX",
       "extensions": {
-        "tokens": "0xe76c6c83af64e4c60245d8c7de953df673a7a33d,0x6b175474e89094c44da98b954eedeac495271d0f"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xee7527841a932d2912224e20a405e1a1ff747084"
       }
     },
     {
       "chainId": 1,
-      "address": "0x24e2adf50c49633039757ab08bff489b7c5bd6b2",
-      "name": "SushiSwap LP RARE/WETH",
+      "address": "0xdb06a76733528761eda47d356647297bc35a98bd",
+      "name": "SushiSwap LP WETH/JPEG",
       "decimals": 18,
-      "symbol": "RARE/WETH",
+      "symbol": "WETH/JPEG",
       "extensions": {
-        "tokens": "0xba5bde662c17e2adff1075610382b9b691296350,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe80c0cd204d654cebe8dd64a4857cab6be8345a3"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x55d8ec728ea72477c6db12ca497a803c8db361e9",
+      "name": "SushiSwap LP WETH/BICO",
+      "decimals": 18,
+      "symbol": "WETH/BICO",
+      "extensions": {
+        "tokens": "0xf17e65822b568b3903685a7c9f496cf7656cc6c2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x868d966d6d3d94b115e8b003c443c7a7b04a3359",
+      "name": "SushiSwap LP IOTX/USDT",
+      "decimals": 18,
+      "symbol": "IOTX/USDT",
+      "extensions": {
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x6fb3e0a217407efff7ca062d46c26e5d60a14d69"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xec8c342bc3e07f05b9a782bc34e7f04fb9b44502",
+      "name": "SushiSwap LP FRAX/WETH",
+      "decimals": 18,
+      "symbol": "FRAX/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x853d955acef822db058eb8505911ed77f175b99e"
       }
     },
     {
@@ -1018,13 +1018,13 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x79dc8abe4f1157edfacf9875ecd3e17ae7056268",
-      "name": "SushiSwap LP YDF/WETH",
+      "chainId": 1,
+      "address": "0x24e2adf50c49633039757ab08bff489b7c5bd6b2",
+      "name": "SushiSwap LP RARE/WETH",
       "decimals": 18,
-      "symbol": "YDF/WETH",
+      "symbol": "RARE/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x30dcba0405004cf124045793e1933c798af9e66a"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xba5bde662c17e2adff1075610382b9b691296350"
       }
     },
     {
@@ -1039,42 +1039,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x55d8ec728ea72477c6db12ca497a803c8db361e9",
-      "name": "SushiSwap LP WETH/BICO",
+      "address": "0xb90047676cc13e68632c55cb5b7cbd8a4c5a0a8e",
+      "name": "SushiSwap LP VUSD/WETH",
       "decimals": 18,
-      "symbol": "WETH/BICO",
+      "symbol": "VUSD/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf17e65822b568b3903685a7c9f496cf7656cc6c2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x677ddbd918637e5f2c79e164d402454de7da8619"
       }
     },
     {
-      "chainId": 1,
-      "address": "0xec8c342bc3e07f05b9a782bc34e7f04fb9b44502",
-      "name": "SushiSwap LP FRAX/WETH",
+      "chainId": 42161,
+      "address": "0x79dc8abe4f1157edfacf9875ecd3e17ae7056268",
+      "name": "SushiSwap LP YDF/WETH",
       "decimals": 18,
-      "symbol": "FRAX/WETH",
+      "symbol": "YDF/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x853d955acef822db058eb8505911ed77f175b99e"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xcb4288ee0484b51ccb8d40893c4812df72cd5f70",
-      "name": "SushiSwap LP OH/WETH",
-      "decimals": 18,
-      "symbol": "OH/WETH",
-      "extensions": {
-        "tokens": "0x16ba8efe847ebdfef99d399902ec29397d403c30,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x868d966d6d3d94b115e8b003c443c7a7b04a3359",
-      "name": "SushiSwap LP IOTX/USDT",
-      "decimals": 18,
-      "symbol": "IOTX/USDT",
-      "extensions": {
-        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x6fb3e0a217407efff7ca062d46c26e5d60a14d69"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x30dcba0405004cf124045793e1933c798af9e66a"
       }
     },
     {
@@ -1094,7 +1074,7 @@
       "decimals": 18,
       "symbol": "WETH/W3N",
       "extensions": {
-        "tokens": "0xf7693c6fd9a7172d537fa75d133d309501cbd657,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xf7693c6fd9a7172d537fa75d133d309501cbd657"
       }
     },
     {
@@ -1104,77 +1084,17 @@
       "decimals": 18,
       "symbol": "SNX/WETH",
       "extensions": {
-        "tokens": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f"
       }
     },
     {
       "chainId": 1,
-      "address": "0x938625591adb4e865b882377e2c965f9f9b85e34",
-      "name": "SushiSwap LP BANK/WETH",
+      "address": "0xcb4288ee0484b51ccb8d40893c4812df72cd5f70",
+      "name": "SushiSwap LP OH/WETH",
       "decimals": 18,
-      "symbol": "BANK/WETH",
+      "symbol": "OH/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x24a6a37576377f63f194caa5f518a60f45b42921"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x3221022e37029923ace4235d812273c5a42c322d",
-      "name": "SushiSwap LP WETH/SUSHI",
-      "decimals": 18,
-      "symbol": "WETH/SUSHI",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xd4d42f0b6def4ce0383636770ef773390d85c61a"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x6db0fe375ccb8ac3c2a0984d678bcd99981ddcb6",
-      "name": "SushiSwap LP eETH/WETH",
-      "decimals": 18,
-      "symbol": "eETH/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x35fa164735182de50811e8e2e824cfb9b6118ac2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x7c03cf21483fa45006e81669b991af3a16733a44",
-      "name": "SushiSwap LP CRE8/USDT",
-      "decimals": 18,
-      "symbol": "CRE8/USDT",
-      "extensions": {
-        "tokens": "0xc36b4311b21fc0c2ead46f1ea6ce97c9c4d98d3d,0xdac17f958d2ee523a2206206994597c13d831ec7"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x519854dd32b4f34f9a407874b0b69218465972d6",
-      "name": "SushiSwap LP RAIL/renBTC",
-      "decimals": 18,
-      "symbol": "RAIL/renBTC",
-      "extensions": {
-        "tokens": "0xe76c6c83af64e4c60245d8c7de953df673a7a33d,0xeb4c2781e4eba804ce9a9803c67d0893436bb27d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x230813772d6d3788dfcd3e7b65fb3dd371b3d8d6",
-      "name": "SushiSwap LP GCAKE/WETH",
-      "decimals": 18,
-      "symbol": "GCAKE/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x5f944b0c4315cb7c3a846b025ab4045da44abf6c"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x82ecdd4635766560c4e3a8efa8a7c1fff566111e",
-      "name": "SushiSwap LP FNC/WETH",
-      "decimals": 18,
-      "symbol": "FNC/WETH",
-      "extensions": {
-        "tokens": "0x7f280dac515121dcda3eac69eb4c13a52392cace,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x16ba8efe847ebdfef99d399902ec29397d403c30,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1189,32 +1109,42 @@
     },
     {
       "chainId": 1,
-      "address": "0x6469b34a2a4723163c4902dbbdea728d20693c12",
-      "name": "SushiSwap LP NEAR/WETH",
+      "address": "0x6db0fe375ccb8ac3c2a0984d678bcd99981ddcb6",
+      "name": "SushiSwap LP eETH/WETH",
       "decimals": 18,
-      "symbol": "NEAR/WETH",
+      "symbol": "eETH/WETH",
       "extensions": {
-        "tokens": "0x85f17cf997934a597031b2e18a9ab6ebd4b9f6a4,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x35fa164735182de50811e8e2e824cfb9b6118ac2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x3221022e37029923ace4235d812273c5a42c322d",
+      "name": "SushiSwap LP WETH/SUSHI",
+      "decimals": 18,
+      "symbol": "WETH/SUSHI",
+      "extensions": {
+        "tokens": "0xd4d42f0b6def4ce0383636770ef773390d85c61a,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
       "chainId": 1,
-      "address": "0xf0d5604d8afc3ea0757378e35c72e9bbafae84d1",
-      "name": "SushiSwap LP WETH/AG",
+      "address": "0x7c03cf21483fa45006e81669b991af3a16733a44",
+      "name": "SushiSwap LP CRE8/USDT",
       "decimals": 18,
-      "symbol": "WETH/AG",
+      "symbol": "CRE8/USDT",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcc8e21f599995d1c8367054841b8af5024ddf01b"
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0xc36b4311b21fc0c2ead46f1ea6ce97c9c4d98d3d"
       }
     },
     {
       "chainId": 1,
-      "address": "0x62ccb80f72cc5c975c5bc7fb4433d3c336ce5ceb",
-      "name": "SushiSwap LP WETH/SUPER",
+      "address": "0x230813772d6d3788dfcd3e7b65fb3dd371b3d8d6",
+      "name": "SushiSwap LP GCAKE/WETH",
       "decimals": 18,
-      "symbol": "WETH/SUPER",
+      "symbol": "GCAKE/WETH",
       "extensions": {
-        "tokens": "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x5f944b0c4315cb7c3a846b025ab4045da44abf6c"
       }
     },
     {
@@ -1224,7 +1154,67 @@
       "decimals": 18,
       "symbol": "WETH/LIQD",
       "extensions": {
-        "tokens": "0x93c15cd7de26f07265f0272e0b831c5d7fab174f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x93c15cd7de26f07265f0272e0b831c5d7fab174f"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x938625591adb4e865b882377e2c965f9f9b85e34",
+      "name": "SushiSwap LP BANK/WETH",
+      "decimals": 18,
+      "symbol": "BANK/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x24a6a37576377f63f194caa5f518a60f45b42921"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xa5c475167f03b1556c054e0da78192cd2779087f",
+      "name": "SushiSwap LP FODL/USDC",
+      "decimals": 18,
+      "symbol": "FODL/USDC",
+      "extensions": {
+        "tokens": "0x4c2e59d098df7b6cbae0848d66de2f8a4889b9c3,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x82ecdd4635766560c4e3a8efa8a7c1fff566111e",
+      "name": "SushiSwap LP FNC/WETH",
+      "decimals": 18,
+      "symbol": "FNC/WETH",
+      "extensions": {
+        "tokens": "0x7f280dac515121dcda3eac69eb4c13a52392cace,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x79e0d4858af8071349469b6589a3c23c1fe1586e",
+      "name": "SushiSwap LP KP3R/LDO",
+      "decimals": 18,
+      "symbol": "KP3R/LDO",
+      "extensions": {
+        "tokens": "0x5a98fcbea516cf06857215779fd812ca3bef1b32,0x1ceb5cb57c4d4e2b2433641b95dd330a33185a44"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x62ccb80f72cc5c975c5bc7fb4433d3c336ce5ceb",
+      "name": "SushiSwap LP WETH/SUPER",
+      "decimals": 18,
+      "symbol": "WETH/SUPER",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x9c5397dbcd8b039c5fc8b1bc2602fa2767567149",
+      "name": "SushiSwap LP EMAX/WETH",
+      "decimals": 18,
+      "symbol": "EMAX/WETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x123389c2f0e9194d9ba98c21e63c375b67614108"
       }
     },
     {
@@ -1239,212 +1229,12 @@
     },
     {
       "chainId": 42161,
-      "address": "0x9c5397dbcd8b039c5fc8b1bc2602fa2767567149",
-      "name": "SushiSwap LP EMAX/WETH",
-      "decimals": 18,
-      "symbol": "EMAX/WETH",
-      "extensions": {
-        "tokens": "0x123389c2f0e9194d9ba98c21e63c375b67614108,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x724934f5fdd0e938664a39b0b484d055e24f680e",
-      "name": "SushiSwap LP WALLET/USDT",
-      "decimals": 18,
-      "symbol": "WALLET/USDT",
-      "extensions": {
-        "tokens": "0x88800092ff476844f74dc2fc427974bbee2794ae,0xdac17f958d2ee523a2206206994597c13d831ec7"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb50580b0d81d9fe860746387cef9a8fc36d48d49",
-      "name": "SushiSwap LP MARS4/WETH",
-      "decimals": 18,
-      "symbol": "MARS4/WETH",
-      "extensions": {
-        "tokens": "0x16cda4028e9e872a38acb903176719299beaed87,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x7b504a15ef05f4eed1c07208c5815c49022a0c19",
-      "name": "SushiSwap LP WETH/GRT",
-      "decimals": 18,
-      "symbol": "WETH/GRT",
-      "extensions": {
-        "tokens": "0xc944e90c64b2c07662a292be6244bdf05cda44a7,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x57024267e8272618f9c5037d373043a8646507e5",
-      "name": "SushiSwap LP BPT/WETH",
-      "decimals": 18,
-      "symbol": "BPT/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0ec9f76202a7061eb9b3a7d6b59d36215a7e37da"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xaa5bd49f2162ffdc15634c87a77ac67bd51c6a6d",
       "name": "SushiSwap LP WETH/gOHM",
       "decimals": 18,
       "symbol": "WETH/gOHM",
       "extensions": {
         "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x8d9ba570d6cb60c7e3e0f31343efe75ab8e65fb1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x31d64f9403e82243e71c2af9d8f56c7dbe10c178",
-      "name": "SushiSwap LP NFTX/WETH",
-      "decimals": 18,
-      "symbol": "NFTX/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x87d73e916d7057945c9bcd8cdd94e42a6f47f776"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x53813285cc60b13fcd2105c6472a47af01f8ac84",
-      "name": "SushiSwap LP BMI/WETH",
-      "decimals": 18,
-      "symbol": "BMI/WETH",
-      "extensions": {
-        "tokens": "0x725c263e32c72ddc3a19bea12c5a0479a81ee688,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xc08ed9a9abeabcc53875787573dc32eee5e43513",
-      "name": "SushiSwap LP NEWO/USDC",
-      "decimals": 18,
-      "symbol": "NEWO/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x98585dfc8d9e7d48f0b1ae47ce33332cf4237d96"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x9cbc2a6ab3f10edf7d71c9cf3b6bdb7ee5629550",
-      "name": "SushiSwap LP ADX/WETH",
-      "decimals": 18,
-      "symbol": "ADX/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xade00c28244d5ce17d72e40330b1c318cd12b7c3"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb90047676cc13e68632c55cb5b7cbd8a4c5a0a8e",
-      "name": "SushiSwap LP VUSD/WETH",
-      "decimals": 18,
-      "symbol": "VUSD/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x677ddbd918637e5f2c79e164d402454de7da8619"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1976bf5cc90bac01e3ae21a6e5971a393638bcfa",
-      "name": "SushiSwap LP SATA/WETH",
-      "decimals": 18,
-      "symbol": "SATA/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3ebb4a4e91ad83be51f8d596533818b246f4bee1"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x088f6dcde862781db7b01feb67afd265abbc6d90",
-      "name": "SushiSwap LP WETH/FLUX",
-      "decimals": 18,
-      "symbol": "WETH/FLUX",
-      "extensions": {
-        "tokens": "0xf80d589b3dbe130c270a69f1a69d050f268786df,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x67e4423340b56c119749a570afa460f031ac29d6",
-      "name": "SushiSwap LP LINA/USDC",
-      "decimals": 18,
-      "symbol": "LINA/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x3e9bc21c9b189c09df3ef1b824798658d5011937"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x94b86ca6f7a495930fe7f552eb9e4cbb5ef2b736",
-      "name": "SushiSwap LP WETH/ICE",
-      "decimals": 18,
-      "symbol": "WETH/ICE",
-      "extensions": {
-        "tokens": "0xf16e81dce15b08f326220742020379b855b87df9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xceb9d5900c74ae36a3f20ad51ca42b19f8f2366b",
-      "name": "SushiSwap LP шайлушай/WETH",
-      "decimals": 18,
-      "symbol": "шайлушай/WETH",
-      "extensions": {
-        "tokens": "0x06e90a57d1ece8752d6ce92d1ad348ead5eae4f4,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xccb42aaab2ea1f8012c30418ee3fce550954d827",
-      "name": "SushiSwap LP POND/WETH",
-      "decimals": 18,
-      "symbol": "POND/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x57b946008913b82e4df85f501cbaed910e58d26c"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1bec4db6c3bc499f3dbf289f5499c30d541fec97",
-      "name": "SushiSwap LP MANA/WETH",
-      "decimals": 18,
-      "symbol": "MANA/WETH",
-      "extensions": {
-        "tokens": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x96335e7cdbcd91fb33c26991b00cc13a87a811b9",
-      "name": "SushiSwap LP FVT/WETH",
-      "decimals": 18,
-      "symbol": "FVT/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x45080a6531d671ddff20db42f93792a489685e32"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x7050a8908e2a60899d8788015148241f0993a3fd",
-      "name": "SushiSwap LP WETH/LINK",
-      "decimals": 18,
-      "symbol": "WETH/LINK",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xf97f4df75117a78c1a5a0dbb814af92458539fb4"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xbf6cbb1f40a542af50839cad01b0dc1747f11e18",
-      "name": "SushiSwap LP WETH/ARB",
-      "decimals": 18,
-      "symbol": "WETH/ARB",
-      "extensions": {
-        "tokens": "0x912ce59144191c1204e64559fe8253a0e49e6548,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -1459,32 +1249,192 @@
     },
     {
       "chainId": 1,
+      "address": "0xc08ed9a9abeabcc53875787573dc32eee5e43513",
+      "name": "SushiSwap LP NEWO/USDC",
+      "decimals": 18,
+      "symbol": "NEWO/USDC",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x98585dfc8d9e7d48f0b1ae47ce33332cf4237d96"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x67e4423340b56c119749a570afa460f031ac29d6",
+      "name": "SushiSwap LP LINA/USDC",
+      "decimals": 18,
+      "symbol": "LINA/USDC",
+      "extensions": {
+        "tokens": "0x3e9bc21c9b189c09df3ef1b824798658d5011937,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x57024267e8272618f9c5037d373043a8646507e5",
+      "name": "SushiSwap LP BPT/WETH",
+      "decimals": 18,
+      "symbol": "BPT/WETH",
+      "extensions": {
+        "tokens": "0x0ec9f76202a7061eb9b3a7d6b59d36215a7e37da,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9cbc2a6ab3f10edf7d71c9cf3b6bdb7ee5629550",
+      "name": "SushiSwap LP ADX/WETH",
+      "decimals": 18,
+      "symbol": "ADX/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xade00c28244d5ce17d72e40330b1c318cd12b7c3"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb50580b0d81d9fe860746387cef9a8fc36d48d49",
+      "name": "SushiSwap LP MARS4/WETH",
+      "decimals": 18,
+      "symbol": "MARS4/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x16cda4028e9e872a38acb903176719299beaed87"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x6469b34a2a4723163c4902dbbdea728d20693c12",
+      "name": "SushiSwap LP NEAR/WETH",
+      "decimals": 18,
+      "symbol": "NEAR/WETH",
+      "extensions": {
+        "tokens": "0x85f17cf997934a597031b2e18a9ab6ebd4b9f6a4,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x724934f5fdd0e938664a39b0b484d055e24f680e",
+      "name": "SushiSwap LP WALLET/USDT",
+      "decimals": 18,
+      "symbol": "WALLET/USDT",
+      "extensions": {
+        "tokens": "0x88800092ff476844f74dc2fc427974bbee2794ae,0xdac17f958d2ee523a2206206994597c13d831ec7"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1976bf5cc90bac01e3ae21a6e5971a393638bcfa",
+      "name": "SushiSwap LP SATA/WETH",
+      "decimals": 18,
+      "symbol": "SATA/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3ebb4a4e91ad83be51f8d596533818b246f4bee1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x7b504a15ef05f4eed1c07208c5815c49022a0c19",
+      "name": "SushiSwap LP WETH/GRT",
+      "decimals": 18,
+      "symbol": "WETH/GRT",
+      "extensions": {
+        "tokens": "0xc944e90c64b2c07662a292be6244bdf05cda44a7,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf0d5604d8afc3ea0757378e35c72e9bbafae84d1",
+      "name": "SushiSwap LP WETH/AG",
+      "decimals": 18,
+      "symbol": "WETH/AG",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcc8e21f599995d1c8367054841b8af5024ddf01b"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x088f6dcde862781db7b01feb67afd265abbc6d90",
+      "name": "SushiSwap LP WETH/FLUX",
+      "decimals": 18,
+      "symbol": "WETH/FLUX",
+      "extensions": {
+        "tokens": "0xf80d589b3dbe130c270a69f1a69d050f268786df,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xceb9d5900c74ae36a3f20ad51ca42b19f8f2366b",
+      "name": "SushiSwap LP шайлушай/WETH",
+      "decimals": 18,
+      "symbol": "шайлушай/WETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x06e90a57d1ece8752d6ce92d1ad348ead5eae4f4"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x31d64f9403e82243e71c2af9d8f56c7dbe10c178",
+      "name": "SushiSwap LP NFTX/WETH",
+      "decimals": 18,
+      "symbol": "NFTX/WETH",
+      "extensions": {
+        "tokens": "0x87d73e916d7057945c9bcd8cdd94e42a6f47f776,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x94b86ca6f7a495930fe7f552eb9e4cbb5ef2b736",
+      "name": "SushiSwap LP WETH/ICE",
+      "decimals": 18,
+      "symbol": "WETH/ICE",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf16e81dce15b08f326220742020379b855b87df9"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xccb42aaab2ea1f8012c30418ee3fce550954d827",
+      "name": "SushiSwap LP POND/WETH",
+      "decimals": 18,
+      "symbol": "POND/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x57b946008913b82e4df85f501cbaed910e58d26c"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x77337ff10206480739a768124a18f3aa8c089153",
       "name": "SushiSwap LP WETH/ID",
       "decimals": 18,
       "symbol": "WETH/ID",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xebd9d99a3982d547c5bb4db7e3b1f9f14b67eb83"
+        "tokens": "0xebd9d99a3982d547c5bb4db7e3b1f9f14b67eb83,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x7050a8908e2a60899d8788015148241f0993a3fd",
+      "name": "SushiSwap LP WETH/LINK",
+      "decimals": 18,
+      "symbol": "WETH/LINK",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xf97f4df75117a78c1a5a0dbb814af92458539fb4"
       }
     },
     {
       "chainId": 1,
-      "address": "0x4b097e7c2705d5a560f028b40bb6de57865c9653",
-      "name": "SushiSwap LP SHOOT/WETH",
+      "address": "0x1bec4db6c3bc499f3dbf289f5499c30d541fec97",
+      "name": "SushiSwap LP MANA/WETH",
       "decimals": 18,
-      "symbol": "SHOOT/WETH",
+      "symbol": "MANA/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xbc61e13ca6830fc7f035fd0e90a01cd08be6dcaa"
+        "tokens": "0x0f5d2fb29fb7d3cfee444a200298f468908cc942,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
-      "chainId": 1,
-      "address": "0xce7e98d4da6ebda6af474ea618c6b175729cd366",
-      "name": "SushiSwap LP FODL/WETH",
+      "chainId": 42161,
+      "address": "0xbf6cbb1f40a542af50839cad01b0dc1747f11e18",
+      "name": "SushiSwap LP WETH/ARB",
       "decimals": 18,
-      "symbol": "FODL/WETH",
+      "symbol": "WETH/ARB",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x4c2e59d098df7b6cbae0848d66de2f8a4889b9c3"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x912ce59144191c1204e64559fe8253a0e49e6548"
       }
     },
     {
@@ -1499,22 +1449,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xf1e34d19f63b69eaa70952f2f64f735849959833",
-      "name": "SushiSwap LP USDC/STANDARD",
+      "address": "0x18a797c7c70c1bf22fdee1c09062aba709cacf04",
+      "name": "SushiSwap LP WETH/RGT",
       "decimals": 18,
-      "symbol": "USDC/STANDARD",
+      "symbol": "WETH/RGT",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xda0c94c73d127ee191955fb46bacd7ff999b2bcd"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xfceaaf9792139bf714a694f868a215493461446d",
-      "name": "SushiSwap LP TRU/WETH",
-      "decimals": 18,
-      "symbol": "TRU/WETH",
-      "extensions": {
-        "tokens": "0x4c19596f5aaff459fa38b0f7ed92f11ae6543784,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd291e7a03283640fdc51b121ac401383a46cc623"
       }
     },
     {
@@ -1525,6 +1465,36 @@
       "symbol": "NST/WETH",
       "extensions": {
         "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x70bef3bb2f001da2fddb207dae696cd9faff3f5d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x4b097e7c2705d5a560f028b40bb6de57865c9653",
+      "name": "SushiSwap LP SHOOT/WETH",
+      "decimals": 18,
+      "symbol": "SHOOT/WETH",
+      "extensions": {
+        "tokens": "0xbc61e13ca6830fc7f035fd0e90a01cd08be6dcaa,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xfceaaf9792139bf714a694f868a215493461446d",
+      "name": "SushiSwap LP TRU/WETH",
+      "decimals": 18,
+      "symbol": "TRU/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x4c19596f5aaff459fa38b0f7ed92f11ae6543784"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb1035d946d6548feca96341485d28eba463ad9cb",
+      "name": "SushiSwap LP UNQT/WETH",
+      "decimals": 18,
+      "symbol": "UNQT/WETH",
+      "extensions": {
+        "tokens": "0xa80f2c8f61c56546001f5fc2eb8d6e4e72c45d4c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1549,12 +1519,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xb1035d946d6548feca96341485d28eba463ad9cb",
-      "name": "SushiSwap LP UNQT/WETH",
+      "address": "0x055475920a8c93cffb64d039a8205f7acc7722d3",
+      "name": "SushiSwap LP OHM/DAI",
       "decimals": 18,
-      "symbol": "UNQT/WETH",
+      "symbol": "OHM/DAI",
       "extensions": {
-        "tokens": "0xa80f2c8f61c56546001f5fc2eb8d6e4e72c45d4c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0x6b175474e89094c44da98b954eedeac495271d0f"
       }
     },
     {
@@ -1564,7 +1534,57 @@
       "decimals": 18,
       "symbol": "WETH/TRU",
       "extensions": {
-        "tokens": "0xf65b5c5104c4fafd4b709d9d60a185eae063276c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf65b5c5104c4fafd4b709d9d60a185eae063276c"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c",
+      "name": "SushiSwap LP OHM/DAI",
+      "decimals": 18,
+      "symbol": "OHM/DAI",
+      "extensions": {
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x383518188c0c6d7730d91b2c03a03c837814a899"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x30045ad74f4475e82dcdc269952581ecb7cd2bad",
+      "name": "SushiSwap LP WETH/SI",
+      "decimals": 18,
+      "symbol": "WETH/SI",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd23ac27148af6a2f339bd82d0e3cff380b5093de"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xa872d244b8948dfd6cb7bd19f79e7c1bfb7db4a0",
+      "name": "SushiSwap LP MUST/WETH",
+      "decimals": 18,
+      "symbol": "MUST/WETH",
+      "extensions": {
+        "tokens": "0x9c78ee466d6cb57a4d01fd887d2b5dfb2d46288f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x70df9dd83be2a9f9fcc58dd7c00d032d007b7859",
+      "name": "SushiSwap LP WETH/NYAN",
+      "decimals": 18,
+      "symbol": "WETH/NYAN",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xed3fb761414da74b74f33e5c5a1f78104b188dfc"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xa416df4d96cd547337a3e8893bf3f01c2a2af5c0",
+      "name": "SushiSwap LP WETH/DOGEGF",
+      "decimals": 18,
+      "symbol": "WETH/DOGEGF",
+      "extensions": {
+        "tokens": "0xfb130d93e49dca13264344966a611dc79a456bc5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1579,72 +1599,22 @@
     },
     {
       "chainId": 1,
-      "address": "0xa872d244b8948dfd6cb7bd19f79e7c1bfb7db4a0",
-      "name": "SushiSwap LP MUST/WETH",
+      "address": "0xe4ebd836832f1a8a81641111a5b081a2f90b9430",
+      "name": "SushiSwap LP DYDX/WETH",
       "decimals": 18,
-      "symbol": "MUST/WETH",
+      "symbol": "DYDX/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9c78ee466d6cb57a4d01fd887d2b5dfb2d46288f"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x055475920a8c93cffb64d039a8205f7acc7722d3",
-      "name": "SushiSwap LP OHM/DAI",
-      "decimals": 18,
-      "symbol": "OHM/DAI",
-      "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"
+        "tokens": "0x92d6c1e31e14520e676a687f0a93788b716beff5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 42161,
-      "address": "0x3bfb1ac033ff0ae278be0583fccc900fbd9382c6",
-      "name": "SushiSwap LP RDNT/WETH",
+      "address": "0x57b85fef094e10b5eecdf350af688299e9553378",
+      "name": "SushiSwap LP WETH/USDC",
       "decimals": 18,
-      "symbol": "RDNT/WETH",
+      "symbol": "WETH/USDC",
       "extensions": {
-        "tokens": "0x3082cc23568ea640225c2467653db90e9250aaa0,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0b1ed1d00197ce84f0c86003ec4c7f2f06538abc",
-      "name": "SushiSwap LP WETH/SYLO",
-      "decimals": 18,
-      "symbol": "WETH/SYLO",
-      "extensions": {
-        "tokens": "0xf293d23bf2cdc05411ca0eddd588eb1977e8dcd4,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x34d7d7aaf50ad4944b70b320acb24c95fa2def7c",
-      "name": "SushiSwap LP OHM/DAI",
-      "decimals": 18,
-      "symbol": "OHM/DAI",
-      "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x383518188c0c6d7730d91b2c03a03c837814a899"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x70df9dd83be2a9f9fcc58dd7c00d032d007b7859",
-      "name": "SushiSwap LP WETH/NYAN",
-      "decimals": 18,
-      "symbol": "WETH/NYAN",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xed3fb761414da74b74f33e5c5a1f78104b188dfc"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x3d2d453b56f4c09950804fd5e42f12a4a237c5e6",
-      "name": "SushiSwap LP WETH/ROSX",
-      "decimals": 18,
-      "symbol": "WETH/ROSX",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xdc8184ba488e949815d4aafb35b3c56ad03b4179"
+        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -1659,52 +1629,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x30045ad74f4475e82dcdc269952581ecb7cd2bad",
-      "name": "SushiSwap LP WETH/SI",
+      "address": "0x0aa1e808bba7cde5210d13d23ee726de37b8a8bb",
+      "name": "SushiSwap LP MOONCAT/WETH",
       "decimals": 18,
-      "symbol": "WETH/SI",
+      "symbol": "MOONCAT/WETH",
       "extensions": {
-        "tokens": "0xd23ac27148af6a2f339bd82d0e3cff380b5093de,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x98968f0747e0a261532cacc0be296375f5c08398,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
-      "chainId": 1,
-      "address": "0xdac0324debd1f036323c0e207a4cd8e78ee6bdff",
-      "name": "SushiSwap LP XFT/WETH",
+      "chainId": 42161,
+      "address": "0x3d2d453b56f4c09950804fd5e42f12a4a237c5e6",
+      "name": "SushiSwap LP WETH/ROSX",
       "decimals": 18,
-      "symbol": "XFT/WETH",
+      "symbol": "WETH/ROSX",
       "extensions": {
-        "tokens": "0x76bc677d444f1e9d57daf5187ee2b7dc852745ae,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe4ebd836832f1a8a81641111a5b081a2f90b9430",
-      "name": "SushiSwap LP DYDX/WETH",
-      "decimals": 18,
-      "symbol": "DYDX/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x92d6c1e31e14520e676a687f0a93788b716beff5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe06f8d30ac334c857fc8c380c85969c150f38a6a",
-      "name": "SushiSwap LP SUSHI/FRAX",
-      "decimals": 18,
-      "symbol": "SUSHI/FRAX",
-      "extensions": {
-        "tokens": "0x853d955acef822db058eb8505911ed77f175b99e,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x44d34985826578e5ba24ec78c93be968549bb918",
-      "name": "SushiSwap LP BOR/WETH",
-      "decimals": 18,
-      "symbol": "BOR/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xdc8184ba488e949815d4aafb35b3c56ad03b4179"
       }
     },
     {
@@ -1719,12 +1659,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x72075636be2603b91be1cda70fab6ef21ca86989",
-      "name": "SushiSwap LP POWR/WETH",
+      "address": "0xe06f8d30ac334c857fc8c380c85969c150f38a6a",
+      "name": "SushiSwap LP SUSHI/FRAX",
       "decimals": 18,
-      "symbol": "POWR/WETH",
+      "symbol": "SUSHI/FRAX",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x595832f8fc6bf59c85c527fec3740a1b7a361269"
+        "tokens": "0x853d955acef822db058eb8505911ed77f175b99e,0x6b3595068778dd592e39a122f4f5a5cf09c90fe2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x53813285cc60b13fcd2105c6472a47af01f8ac84",
+      "name": "SushiSwap LP BMI/WETH",
+      "decimals": 18,
+      "symbol": "BMI/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x725c263e32c72ddc3a19bea12c5a0479a81ee688"
       }
     },
     {
@@ -1734,67 +1684,17 @@
       "decimals": 18,
       "symbol": "WETH/HWT",
       "extensions": {
-        "tokens": "0xbcc9c1763d54427bdf5efb6e9eb9494e5a1fbabf,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xbcc9c1763d54427bdf5efb6e9eb9494e5a1fbabf"
       }
     },
     {
       "chainId": 1,
-      "address": "0xa416df4d96cd547337a3e8893bf3f01c2a2af5c0",
-      "name": "SushiSwap LP WETH/DOGEGF",
+      "address": "0x0b1ed1d00197ce84f0c86003ec4c7f2f06538abc",
+      "name": "SushiSwap LP WETH/SYLO",
       "decimals": 18,
-      "symbol": "WETH/DOGEGF",
+      "symbol": "WETH/SYLO",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xfb130d93e49dca13264344966a611dc79a456bc5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0aa1e808bba7cde5210d13d23ee726de37b8a8bb",
-      "name": "SushiSwap LP MOONCAT/WETH",
-      "decimals": 18,
-      "symbol": "MOONCAT/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x98968f0747e0a261532cacc0be296375f5c08398"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x77bd0e7ec0de000eea4ec88d51f57f1780e0dfb2",
-      "name": "SushiSwap LP REVV/SUPER",
-      "decimals": 18,
-      "symbol": "REVV/SUPER",
-      "extensions": {
-        "tokens": "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55,0x557b933a7c2c45672b610f8954a3deb39a51a8ca"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb84c45174bfc6b8f3eaecbae11dee63114f5c1b2",
-      "name": "SushiSwap LP SOS/WETH",
-      "decimals": 18,
-      "symbol": "SOS/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3b484b82567a09e2588a13d54d032153f0c0aee0"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xe235e8dfa8ea3b7ffff1c922fa4928bfb7ad964a",
-      "name": "SushiSwap LP WETH/SIS",
-      "decimals": 18,
-      "symbol": "WETH/SIS",
-      "extensions": {
-        "tokens": "0x9e758b8a98a42d612b3d38b66a22074dc03d7370,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x34b13f8cd184f55d0bd4dd1fe6c07d46f245c7ed",
-      "name": "SushiSwap LP DPI/WETH",
-      "decimals": 18,
-      "symbol": "DPI/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf293d23bf2cdc05411ca0eddd588eb1977e8dcd4"
       }
     },
     {
@@ -1809,22 +1709,32 @@
     },
     {
       "chainId": 1,
+      "address": "0xce7e98d4da6ebda6af474ea618c6b175729cd366",
+      "name": "SushiSwap LP FODL/WETH",
+      "decimals": 18,
+      "symbol": "FODL/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x4c2e59d098df7b6cbae0848d66de2f8a4889b9c3"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x72075636be2603b91be1cda70fab6ef21ca86989",
+      "name": "SushiSwap LP POWR/WETH",
+      "decimals": 18,
+      "symbol": "POWR/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x595832f8fc6bf59c85c527fec3740a1b7a361269"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x0bec54c89a7d9f15c4e7faa8d47adedf374462ed",
       "name": "SushiSwap LP BiFi/WETH",
       "decimals": 18,
       "symbol": "BiFi/WETH",
       "extensions": {
         "tokens": "0x2791bfd60d232150bff86b39b7146c0eaaa2ba81,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x458ae80894a0924ac763c034977e330c565f1687",
-      "name": "SushiSwap LP WETH/PSP",
-      "decimals": 18,
-      "symbol": "WETH/PSP",
-      "extensions": {
-        "tokens": "0xcafe001067cdef266afb7eb5a286dcfd277f3de5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1838,23 +1748,63 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0xb45a382e6c50c71376fc54f902eb6c4c57436b68",
-      "name": "SushiSwap LP WETH/ANIMA",
+      "chainId": 1,
+      "address": "0x34b13f8cd184f55d0bd4dd1fe6c07d46f245c7ed",
+      "name": "SushiSwap LP DPI/WETH",
       "decimals": 18,
-      "symbol": "WETH/ANIMA",
+      "symbol": "DPI/WETH",
       "extensions": {
-        "tokens": "0xccd05a0fcfc1380e9da27862adb2198e58e0d66f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b"
       }
     },
     {
       "chainId": 1,
-      "address": "0x18a797c7c70c1bf22fdee1c09062aba709cacf04",
-      "name": "SushiSwap LP WETH/RGT",
+      "address": "0x77bd0e7ec0de000eea4ec88d51f57f1780e0dfb2",
+      "name": "SushiSwap LP REVV/SUPER",
       "decimals": 18,
-      "symbol": "WETH/RGT",
+      "symbol": "REVV/SUPER",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd291e7a03283640fdc51b121ac401383a46cc623"
+        "tokens": "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55,0x557b933a7c2c45672b610f8954a3deb39a51a8ca"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xdac0324debd1f036323c0e207a4cd8e78ee6bdff",
+      "name": "SushiSwap LP XFT/WETH",
+      "decimals": 18,
+      "symbol": "XFT/WETH",
+      "extensions": {
+        "tokens": "0x76bc677d444f1e9d57daf5187ee2b7dc852745ae,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x458ae80894a0924ac763c034977e330c565f1687",
+      "name": "SushiSwap LP WETH/PSP",
+      "decimals": 18,
+      "symbol": "WETH/PSP",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcafe001067cdef266afb7eb5a286dcfd277f3de5"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x3bfb1ac033ff0ae278be0583fccc900fbd9382c6",
+      "name": "SushiSwap LP RDNT/WETH",
+      "decimals": 18,
+      "symbol": "RDNT/WETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x3082cc23568ea640225c2467653db90e9250aaa0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb84c45174bfc6b8f3eaecbae11dee63114f5c1b2",
+      "name": "SushiSwap LP SOS/WETH",
+      "decimals": 18,
+      "symbol": "SOS/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3b484b82567a09e2588a13d54d032153f0c0aee0"
       }
     },
     {
@@ -1868,13 +1818,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x65f550d18cac8e19a97e73108618b443bf301d20",
-      "name": "SushiSwap LP BONDLY/WETH",
+      "chainId": 42161,
+      "address": "0xb45a382e6c50c71376fc54f902eb6c4c57436b68",
+      "name": "SushiSwap LP WETH/ANIMA",
       "decimals": 18,
-      "symbol": "BONDLY/WETH",
+      "symbol": "WETH/ANIMA",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x91dfbee3965baaee32784c2d546b7a0c62f268c9"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xccd05a0fcfc1380e9da27862adb2198e58e0d66f"
       }
     },
     {
@@ -1884,17 +1834,7 @@
       "decimals": 18,
       "symbol": "BAD/WETH",
       "extensions": {
-        "tokens": "0x32b86b99441480a7e5bd3a26c124ec2373e3f015,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xfdb2c36b73e18871d9208cc508c911a1bffcfb8e",
-      "name": "SushiSwap LP OLE/USDC",
-      "decimals": 18,
-      "symbol": "OLE/USDC",
-      "extensions": {
-        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0x7be5dd337cc6ce3e474f64e2a92a566445290864"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x32b86b99441480a7e5bd3a26c124ec2373e3f015"
       }
     },
     {
@@ -1904,7 +1844,27 @@
       "decimals": 18,
       "symbol": "CTX/WETH",
       "extensions": {
-        "tokens": "0x321c2fe4446c7c963dc41dd58879af648838f98d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x321c2fe4446c7c963dc41dd58879af648838f98d"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xeea7c8ad3890641854bf703abc44d737bc9627be",
+      "name": "SushiSwap LP WETH/GFLY",
+      "decimals": 18,
+      "symbol": "WETH/GFLY",
+      "extensions": {
+        "tokens": "0x872bad41cfc8ba731f811fea8b2d0b9fd6369585,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xbbbdb106a806173d1eea1640961533ff3114d69a",
+      "name": "SushiSwap LP XYZ/USDC",
+      "decimals": 18,
+      "symbol": "XYZ/USDC",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x618679df9efcd19694bb1daa8d00718eacfa2883"
       }
     },
     {
@@ -1918,43 +1878,23 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0xeea7c8ad3890641854bf703abc44d737bc9627be",
-      "name": "SushiSwap LP WETH/GFLY",
-      "decimals": 18,
-      "symbol": "WETH/GFLY",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x872bad41cfc8ba731f811fea8b2d0b9fd6369585"
-      }
-    },
-    {
       "chainId": 1,
-      "address": "0x361edd915e9d58e18f5fa88027e97fec5cb64dce",
-      "name": "SushiSwap LP XRUNE/THOR",
+      "address": "0x65f550d18cac8e19a97e73108618b443bf301d20",
+      "name": "SushiSwap LP BONDLY/WETH",
       "decimals": 18,
-      "symbol": "XRUNE/THOR",
+      "symbol": "BONDLY/WETH",
       "extensions": {
-        "tokens": "0xa5f2211b9b8170f694421f2046281775e8468044,0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x88024deacdc2e9eda02a3051377ed635381faa54",
-      "name": "SushiSwap LP VRN/WETH",
-      "decimals": 18,
-      "symbol": "VRN/WETH",
-      "extensions": {
-        "tokens": "0x72377f31e30a405282b522d588aebbea202b4f23,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x91dfbee3965baaee32784c2d546b7a0c62f268c9"
       }
     },
     {
       "chainId": 42161,
-      "address": "0xc524cdd23facb0eec7ef26421a3227287a94648d",
-      "name": "SushiSwap LP AI/WETH",
+      "address": "0xfdb2c36b73e18871d9208cc508c911a1bffcfb8e",
+      "name": "SushiSwap LP OLE/USDC",
       "decimals": 18,
-      "symbol": "AI/WETH",
+      "symbol": "OLE/USDC",
       "extensions": {
-        "tokens": "0x2598c30330d5771ae9f983979209486ae26de875,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0x7be5dd337cc6ce3e474f64e2a92a566445290864"
       }
     },
     {
@@ -1964,67 +1904,17 @@
       "decimals": 18,
       "symbol": "STBZ/WETH",
       "extensions": {
-        "tokens": "0x2c110867ca90e43d372c1c2e92990b00ea32818b,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xbd80923830b1b122dce0c446b704621458329f1d",
-      "name": "SushiSwap LP WETH/wBAN",
-      "decimals": 18,
-      "symbol": "WETH/wBAN",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xe20b9e246db5a0d21bf9209e4858bc9a3ff7a034"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x2c110867ca90e43d372c1c2e92990b00ea32818b"
       }
     },
     {
       "chainId": 1,
-      "address": "0x717385e1a702f90b6eb8cd23150702ca7217b626",
-      "name": "SushiSwap LP WETH/COTI",
+      "address": "0x96335e7cdbcd91fb33c26991b00cc13a87a811b9",
+      "name": "SushiSwap LP FVT/WETH",
       "decimals": 18,
-      "symbol": "WETH/COTI",
+      "symbol": "FVT/WETH",
       "extensions": {
-        "tokens": "0xddb3422497e61e13543bea06989c0789117555c5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x83b546e10917432a722444672504f0d459472171",
-      "name": "SushiSwap LP USDC/ENTR",
-      "decimals": 18,
-      "symbol": "USDC/ENTR",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xd779eea9936b4e323cddff2529eb6f13d0a4d66e"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x07d5695a24904cc1b6e3bd57cc7780b90618e3c4",
-      "name": "SushiSwap LP MIM/WETH",
-      "decimals": 18,
-      "symbol": "MIM/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x99d8a9c45b2eca8864373a26d1459e3dff1e17f3"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x75382c52b6f90b3f8014bfcadac2386513f1e3bc",
-      "name": "SushiSwap LP RLC/WETH",
-      "decimals": 18,
-      "symbol": "RLC/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x607f4c5bb672230e8672085532f7e901544a7375"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x3c34dad27ab51c51dcc0a322ee4f18519d47f3e1",
-      "name": "SushiSwap LP rETH2/WETH",
-      "decimals": 18,
-      "symbol": "rETH2/WETH",
-      "extensions": {
-        "tokens": "0x20bc832ca081b91433ff6c17f85701b6e92486c5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x45080a6531d671ddff20db42f93792a489685e32"
       }
     },
     {
@@ -2038,13 +1928,43 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x713adaf6ce3e885f987569e0a145dbee106121a7",
-      "name": "SushiSwap LP SUNDAE/WETH",
+      "chainId": 1,
+      "address": "0x88024deacdc2e9eda02a3051377ed635381faa54",
+      "name": "SushiSwap LP VRN/WETH",
       "decimals": 18,
-      "symbol": "SUNDAE/WETH",
+      "symbol": "VRN/WETH",
       "extensions": {
-        "tokens": "0x352f4bf396a7353a0877f99e99757e5d294df374,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x72377f31e30a405282b522d588aebbea202b4f23,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x83b546e10917432a722444672504f0d459472171",
+      "name": "SushiSwap LP USDC/ENTR",
+      "decimals": 18,
+      "symbol": "USDC/ENTR",
+      "extensions": {
+        "tokens": "0xd779eea9936b4e323cddff2529eb6f13d0a4d66e,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xe235e8dfa8ea3b7ffff1c922fa4928bfb7ad964a",
+      "name": "SushiSwap LP WETH/SIS",
+      "decimals": 18,
+      "symbol": "WETH/SIS",
+      "extensions": {
+        "tokens": "0x9e758b8a98a42d612b3d38b66a22074dc03d7370,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x07d5695a24904cc1b6e3bd57cc7780b90618e3c4",
+      "name": "SushiSwap LP MIM/WETH",
+      "decimals": 18,
+      "symbol": "MIM/WETH",
+      "extensions": {
+        "tokens": "0x99d8a9c45b2eca8864373a26d1459e3dff1e17f3,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2055,6 +1975,46 @@
       "symbol": "OHM/LUSD",
       "extensions": {
         "tokens": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0,0x383518188c0c6d7730d91b2c03a03c837814a899"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3c34dad27ab51c51dcc0a322ee4f18519d47f3e1",
+      "name": "SushiSwap LP rETH2/WETH",
+      "decimals": 18,
+      "symbol": "rETH2/WETH",
+      "extensions": {
+        "tokens": "0x20bc832ca081b91433ff6c17f85701b6e92486c5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x717385e1a702f90b6eb8cd23150702ca7217b626",
+      "name": "SushiSwap LP WETH/COTI",
+      "decimals": 18,
+      "symbol": "WETH/COTI",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xddb3422497e61e13543bea06989c0789117555c5"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x75382c52b6f90b3f8014bfcadac2386513f1e3bc",
+      "name": "SushiSwap LP RLC/WETH",
+      "decimals": 18,
+      "symbol": "RLC/WETH",
+      "extensions": {
+        "tokens": "0x607f4c5bb672230e8672085532f7e901544a7375,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xaaf5110db6e744ff70fb339de037b990a20bdace",
+      "name": "SushiSwap LP DAI/USDC",
+      "decimals": 18,
+      "symbol": "DAI/USDC",
+      "extensions": {
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
@@ -2069,6 +2029,26 @@
     },
     {
       "chainId": 42161,
+      "address": "0x713adaf6ce3e885f987569e0a145dbee106121a7",
+      "name": "SushiSwap LP SUNDAE/WETH",
+      "decimals": 18,
+      "symbol": "SUNDAE/WETH",
+      "extensions": {
+        "tokens": "0x352f4bf396a7353a0877f99e99757e5d294df374,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xd3e31f8aac930e354283ca3efda1e22525f98af1",
+      "name": "SushiSwap LP PHUNK/WETH",
+      "decimals": 18,
+      "symbol": "PHUNK/WETH",
+      "extensions": {
+        "tokens": "0xb39185e33e8c28e0bb3dbbce24da5dea6379ae91,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x8f1939aadaea4fe5203d79051b8afde0951aeebe",
       "name": "SushiSwap LP SAS/WETH",
       "decimals": 18,
@@ -2078,23 +2058,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0xaaf5110db6e744ff70fb339de037b990a20bdace",
-      "name": "SushiSwap LP DAI/USDC",
-      "decimals": 18,
-      "symbol": "DAI/USDC",
-      "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
       "chainId": 42161,
       "address": "0x047e339b0220445a9884ed70030e5b317f8e5bc6",
       "name": "SushiSwap LP ETHFAI/WETH",
       "decimals": 18,
       "symbol": "ETHFAI/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x67c31056358b8977ea95a3a899dd380d4bced706"
+        "tokens": "0x67c31056358b8977ea95a3a899dd380d4bced706,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -2104,27 +2074,27 @@
       "decimals": 18,
       "symbol": "REN/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x408e41876cccdc0f92210600ef50372656052a38"
+        "tokens": "0x408e41876cccdc0f92210600ef50372656052a38,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xc524cdd23facb0eec7ef26421a3227287a94648d",
+      "name": "SushiSwap LP AI/WETH",
+      "decimals": 18,
+      "symbol": "AI/WETH",
+      "extensions": {
+        "tokens": "0x2598c30330d5771ae9f983979209486ae26de875,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
       "chainId": 1,
-      "address": "0xdbaa04796cb5c05d02b8a41b702d9b67c13c9fa9",
-      "name": "SushiSwap LP TOWER/WETH",
+      "address": "0x361edd915e9d58e18f5fa88027e97fec5cb64dce",
+      "name": "SushiSwap LP XRUNE/THOR",
       "decimals": 18,
-      "symbol": "TOWER/WETH",
+      "symbol": "XRUNE/THOR",
       "extensions": {
-        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xa914a9b9e03b6af84f9c6bd2e0e8d27d405695db",
-      "name": "SushiSwap LP WETH/FOLD",
-      "decimals": 18,
-      "symbol": "WETH/FOLD",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd084944d3c05cd115c09d072b9f44ba3e0e45921"
+        "tokens": "0x69fa0fee221ad11012bab0fdb45d444d3d2ce71c,0xa5f2211b9b8170f694421f2046281775e8468044"
       }
     },
     {
@@ -2148,33 +2118,23 @@
       }
     },
     {
+      "chainId": 1,
+      "address": "0x7a34bbd9db8686bf9c1489a4682825f65eeafa6e",
+      "name": "SushiSwap LP IBY/USDT",
+      "decimals": 18,
+      "symbol": "IBY/USDT",
+      "extensions": {
+        "tokens": "0x6a68de599e8e0b1856e322ce5bd11c5c3c79712b,0xdac17f958d2ee523a2206206994597c13d831ec7"
+      }
+    },
+    {
       "chainId": 42161,
       "address": "0x1ae52977716e5bfd09a2b1c9ac2406af913c094b",
       "name": "SushiSwap LP WETH/DMT",
       "decimals": 18,
       "symbol": "WETH/DMT",
       "extensions": {
-        "tokens": "0x9e92b9ef3c3cc4053591002f4f04d2aef87bf2d2,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x913e197ab56469be9c6f1f1c84520a2ec8a05ebb",
-      "name": "SushiSwap LP WETH/LYM",
-      "decimals": 18,
-      "symbol": "WETH/LYM",
-      "extensions": {
-        "tokens": "0xc690f7c7fcffa6a82b79fab7508c466fefdfc8c5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xd3e31f8aac930e354283ca3efda1e22525f98af1",
-      "name": "SushiSwap LP PHUNK/WETH",
-      "decimals": 18,
-      "symbol": "PHUNK/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xb39185e33e8c28e0bb3dbbce24da5dea6379ae91"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x9e92b9ef3c3cc4053591002f4f04d2aef87bf2d2"
       }
     },
     {
@@ -2184,97 +2144,37 @@
       "decimals": 18,
       "symbol": "OHM/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x383518188c0c6d7730d91b2c03a03c837814a899"
+        "tokens": "0x383518188c0c6d7730d91b2c03a03c837814a899,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x22def8cf4e481417cb014d9dc64975ba12e3a184",
-      "name": "SushiSwap LP SDT/WETH",
+      "address": "0xd9a1df87e01b31f1154f788041625030af1927be",
+      "name": "SushiSwap LP $TUCKER/WETH",
       "decimals": 18,
-      "symbol": "SDT/WETH",
+      "symbol": "$TUCKER/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x73968b9a57c6e53d41345fd57a6e6ae27d6cdb2f"
+        "tokens": "0x50b806c5fe274c07e46b96be8c68d2fd2d9597b4,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x295685c8fe08d8192981d21ea1fe856a07443920",
-      "name": "SushiSwap LP WETH/GODS",
+      "address": "0xa914a9b9e03b6af84f9c6bd2e0e8d27d405695db",
+      "name": "SushiSwap LP WETH/FOLD",
       "decimals": 18,
-      "symbol": "WETH/GODS",
+      "symbol": "WETH/FOLD",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xccc8cb5229b0ac8069c51fd58367fd1e622afd97"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd084944d3c05cd115c09d072b9f44ba3e0e45921"
       }
     },
     {
       "chainId": 1,
-      "address": "0x7a34bbd9db8686bf9c1489a4682825f65eeafa6e",
-      "name": "SushiSwap LP IBY/USDT",
+      "address": "0xdbaa04796cb5c05d02b8a41b702d9b67c13c9fa9",
+      "name": "SushiSwap LP TOWER/WETH",
       "decimals": 18,
-      "symbol": "IBY/USDT",
+      "symbol": "TOWER/WETH",
       "extensions": {
-        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x6a68de599e8e0b1856e322ce5bd11c5c3c79712b"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xbbbdb106a806173d1eea1640961533ff3114d69a",
-      "name": "SushiSwap LP XYZ/USDC",
-      "decimals": 18,
-      "symbol": "XYZ/USDC",
-      "extensions": {
-        "tokens": "0x618679df9efcd19694bb1daa8d00718eacfa2883,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5e63360e891bd60c69445970256c260b0a6a54c6",
-      "name": "SushiSwap LP LEND/WETH",
-      "decimals": 18,
-      "symbol": "LEND/WETH",
-      "extensions": {
-        "tokens": "0x80fb784b7ed66730e8b1dbd9820afd29931aab03,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xd46004eed3885e0a74d452811c80eb41270a5728",
-      "name": "SushiSwap LP BUILD/DAI",
-      "decimals": 18,
-      "symbol": "BUILD/DAI",
-      "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x57b59f981730c6257df57cf6f0d98283749a9eeb"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0652687e87a4b8b5370b05bc298ff00d205d9b5f",
-      "name": "SushiSwap LP WETH/ONX",
-      "decimals": 18,
-      "symbol": "WETH/ONX",
-      "extensions": {
-        "tokens": "0xe0ad1806fd3e7edf6ff52fdb822432e847411033,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x9ebc2a125b1daf3b8a56cb52fa81f89a199e2b38",
-      "name": "SushiSwap LP INSUR/WETH",
-      "decimals": 18,
-      "symbol": "INSUR/WETH",
-      "extensions": {
-        "tokens": "0x544c42fbb96b39b21df61cf322b5edc285ee7429,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x41bfba56b9ba48d0a83775d89c247180617266bc",
-      "name": "SushiSwap LP SGT/WETH",
-      "decimals": 18,
-      "symbol": "SGT/WETH",
-      "extensions": {
-        "tokens": "0x24c19f7101c1731b85f1127eaa0407732e36ecdd,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2289,42 +2189,42 @@
     },
     {
       "chainId": 1,
+      "address": "0x295685c8fe08d8192981d21ea1fe856a07443920",
+      "name": "SushiSwap LP WETH/GODS",
+      "decimals": 18,
+      "symbol": "WETH/GODS",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xccc8cb5229b0ac8069c51fd58367fd1e622afd97"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5e63360e891bd60c69445970256c260b0a6a54c6",
+      "name": "SushiSwap LP LEND/WETH",
+      "decimals": 18,
+      "symbol": "LEND/WETH",
+      "extensions": {
+        "tokens": "0x80fb784b7ed66730e8b1dbd9820afd29931aab03,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x22def8cf4e481417cb014d9dc64975ba12e3a184",
+      "name": "SushiSwap LP SDT/WETH",
+      "decimals": 18,
+      "symbol": "SDT/WETH",
+      "extensions": {
+        "tokens": "0x73968b9a57c6e53d41345fd57a6e6ae27d6cdb2f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xc5578194d457dcce3f272538d1ad52c68d1ce849",
       "name": "SushiSwap LP DAI/wstETH",
       "decimals": 18,
       "symbol": "DAI/wstETH",
       "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x6b175474e89094c44da98b954eedeac495271d0f"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x69b39b89f9274a16e8a19b78e5eb47a4d91dac9e",
-      "name": "SushiSwap LP FARM/WETH",
-      "decimals": 18,
-      "symbol": "FARM/WETH",
-      "extensions": {
-        "tokens": "0xa0246c9032bc3a600820415ae600c6388619a14d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb473c2606f7ac371518b13d2d097c34c38ca33d5",
-      "name": "SushiSwap LP TOWER/USDC",
-      "decimals": 18,
-      "symbol": "TOWER/USDC",
-      "extensions": {
-        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xaaf448d30f01b429fb6e7f9af6a8ff66e694f312",
-      "name": "SushiSwap LP WETH/USH",
-      "decimals": 18,
-      "symbol": "WETH/USH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe60779cc1b2c1d0580611c526a8df0e3f870ec48"
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
       }
     },
     {
@@ -2339,22 +2239,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xd3c41c080a73181e108e0526475a690f3616a859",
-      "name": "SushiSwap LP DEXTF/WETH",
-      "decimals": 18,
-      "symbol": "DEXTF/WETH",
-      "extensions": {
-        "tokens": "0x5f64ab1544d28732f0a24f4713c2c8ec0da089f0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0x8b00ee8606cc70c2dce68dea0cefe632cca0fb7b",
       "name": "SushiSwap LP UST/WETH",
       "decimals": 18,
       "symbol": "UST/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa47c8bf37f92abed4a126bda807a7b7498661acd"
+        "tokens": "0xa47c8bf37f92abed4a126bda807a7b7498661acd,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2369,72 +2259,92 @@
     },
     {
       "chainId": 1,
+      "address": "0x41bfba56b9ba48d0a83775d89c247180617266bc",
+      "name": "SushiSwap LP SGT/WETH",
+      "decimals": 18,
+      "symbol": "SGT/WETH",
+      "extensions": {
+        "tokens": "0x24c19f7101c1731b85f1127eaa0407732e36ecdd,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x913e197ab56469be9c6f1f1c84520a2ec8a05ebb",
+      "name": "SushiSwap LP WETH/LYM",
+      "decimals": 18,
+      "symbol": "WETH/LYM",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc690f7c7fcffa6a82b79fab7508c466fefdfc8c5"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xbd80923830b1b122dce0c446b704621458329f1d",
+      "name": "SushiSwap LP WETH/wBAN",
+      "decimals": 18,
+      "symbol": "WETH/wBAN",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xe20b9e246db5a0d21bf9209e4858bc9a3ff7a034"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x69b39b89f9274a16e8a19b78e5eb47a4d91dac9e",
+      "name": "SushiSwap LP FARM/WETH",
+      "decimals": 18,
+      "symbol": "FARM/WETH",
+      "extensions": {
+        "tokens": "0xa0246c9032bc3a600820415ae600c6388619a14d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xaaf448d30f01b429fb6e7f9af6a8ff66e694f312",
+      "name": "SushiSwap LP WETH/USH",
+      "decimals": 18,
+      "symbol": "WETH/USH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe60779cc1b2c1d0580611c526a8df0e3f870ec48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x0652687e87a4b8b5370b05bc298ff00d205d9b5f",
+      "name": "SushiSwap LP WETH/ONX",
+      "decimals": 18,
+      "symbol": "WETH/ONX",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe0ad1806fd3e7edf6ff52fdb822432e847411033"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9ebc2a125b1daf3b8a56cb52fa81f89a199e2b38",
+      "name": "SushiSwap LP INSUR/WETH",
+      "decimals": 18,
+      "symbol": "INSUR/WETH",
+      "extensions": {
+        "tokens": "0x544c42fbb96b39b21df61cf322b5edc285ee7429,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb473c2606f7ac371518b13d2d097c34c38ca33d5",
+      "name": "SushiSwap LP TOWER/USDC",
+      "decimals": 18,
+      "symbol": "TOWER/USDC",
+      "extensions": {
+        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xa39de66d8690d5923fa5e579b19908efb43c8033",
       "name": "SushiSwap LP EL/USDT",
       "decimals": 18,
       "symbol": "EL/USDT",
       "extensions": {
-        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x2781246fe707bb15cee3e5ea354e2154a2877b16"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xd3743fcc49d1d2796447a413be3af274c9231d67",
-      "name": "SushiSwap LP YGG/REVV",
-      "decimals": 18,
-      "symbol": "YGG/REVV",
-      "extensions": {
-        "tokens": "0x25f8087ead173b73d6e8b84329989a8eea16cf73,0x557b933a7c2c45672b610f8954a3deb39a51a8ca"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb06626c2d4b01a302aaf18c841e83c382bd6d61f",
-      "name": "SushiSwap LP WETH/TRDM",
-      "decimals": 18,
-      "symbol": "WETH/TRDM",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc8dfb57d83bf561457b1a3f6ce22956bb554bcab"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xef4f1d5007b4ff88c1a56261fec00264af6001fb",
-      "name": "SushiSwap LP PNK/WETH",
-      "decimals": 18,
-      "symbol": "PNK/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0f82e57804d0b1f6fab2370a43dcfad3c7cb239c",
-      "name": "SushiSwap LP YAM/WETH",
-      "decimals": 18,
-      "symbol": "YAM/WETH",
-      "extensions": {
-        "tokens": "0x0aacfbec6a24756c20d41914f2caba817c0d8521,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xa7f11e026a0af768d285360a855f2bded3047530",
-      "name": "SushiSwap LP IDLE/WETH",
-      "decimals": 18,
-      "symbol": "IDLE/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x875773784af8135ea0ef43b5a374aad105c5d39e"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xe8ee01ae5959d3231506fcdef2d5f3e85987a39c",
-      "name": "SushiSwap LP JONES/WETH",
-      "decimals": 18,
-      "symbol": "JONES/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x10393c20975cf177a3513071bc110f7962cd67da"
+        "tokens": "0x2781246fe707bb15cee3e5ea354e2154a2877b16,0xdac17f958d2ee523a2206206994597c13d831ec7"
       }
     },
     {
@@ -2449,12 +2359,62 @@
     },
     {
       "chainId": 1,
-      "address": "0xd9a1df87e01b31f1154f788041625030af1927be",
-      "name": "SushiSwap LP $TUCKER/WETH",
+      "address": "0xb06626c2d4b01a302aaf18c841e83c382bd6d61f",
+      "name": "SushiSwap LP WETH/TRDM",
       "decimals": 18,
-      "symbol": "$TUCKER/WETH",
+      "symbol": "WETH/TRDM",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x50b806c5fe274c07e46b96be8c68d2fd2d9597b4"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc8dfb57d83bf561457b1a3f6ce22956bb554bcab"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xd3743fcc49d1d2796447a413be3af274c9231d67",
+      "name": "SushiSwap LP YGG/REVV",
+      "decimals": 18,
+      "symbol": "YGG/REVV",
+      "extensions": {
+        "tokens": "0x25f8087ead173b73d6e8b84329989a8eea16cf73,0x557b933a7c2c45672b610f8954a3deb39a51a8ca"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xd3c41c080a73181e108e0526475a690f3616a859",
+      "name": "SushiSwap LP DEXTF/WETH",
+      "decimals": 18,
+      "symbol": "DEXTF/WETH",
+      "extensions": {
+        "tokens": "0x5f64ab1544d28732f0a24f4713c2c8ec0da089f0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x328dfd0139e26cb0fef7b0742b49b0fe4325f821",
+      "name": "SushiSwap LP INV/WETH",
+      "decimals": 18,
+      "symbol": "INV/WETH",
+      "extensions": {
+        "tokens": "0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xef4f1d5007b4ff88c1a56261fec00264af6001fb",
+      "name": "SushiSwap LP PNK/WETH",
+      "decimals": 18,
+      "symbol": "PNK/WETH",
+      "extensions": {
+        "tokens": "0x93ed3fbe21207ec2e8f2d3c3de6e058cb73bc04d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xe62f9cc7241d25030725183fb687547959580f40",
+      "name": "SushiSwap LP PLY/USDT",
+      "decimals": 18,
+      "symbol": "PLY/USDT",
+      "extensions": {
+        "tokens": "0x20d60c6eb195868d4643f2c9b0809e4de6cc003d,0xdac17f958d2ee523a2206206994597c13d831ec7"
       }
     },
     {
@@ -2464,7 +2424,17 @@
       "decimals": 18,
       "symbol": "PESOS/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x17afc249db786fc300f2d26381fec5cf0c3913fb"
+        "tokens": "0x17afc249db786fc300f2d26381fec5cf0c3913fb,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x0f82e57804d0b1f6fab2370a43dcfad3c7cb239c",
+      "name": "SushiSwap LP YAM/WETH",
+      "decimals": 18,
+      "symbol": "YAM/WETH",
+      "extensions": {
+        "tokens": "0x0aacfbec6a24756c20d41914f2caba817c0d8521,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2479,12 +2449,42 @@
     },
     {
       "chainId": 1,
-      "address": "0x328dfd0139e26cb0fef7b0742b49b0fe4325f821",
-      "name": "SushiSwap LP INV/WETH",
+      "address": "0xa7f11e026a0af768d285360a855f2bded3047530",
+      "name": "SushiSwap LP IDLE/WETH",
       "decimals": 18,
-      "symbol": "INV/WETH",
+      "symbol": "IDLE/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68"
+        "tokens": "0x875773784af8135ea0ef43b5a374aad105c5d39e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xe8ee01ae5959d3231506fcdef2d5f3e85987a39c",
+      "name": "SushiSwap LP JONES/WETH",
+      "decimals": 18,
+      "symbol": "JONES/WETH",
+      "extensions": {
+        "tokens": "0x10393c20975cf177a3513071bc110f7962cd67da,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb2c29e311916a346304f83aa44527092d5bd4f0f",
+      "name": "SushiSwap LP MPH/WETH",
+      "decimals": 18,
+      "symbol": "MPH/WETH",
+      "extensions": {
+        "tokens": "0x8888801af4d980682e47f1a9036e589479e835c5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x132eeb05d5cb6829bd34f552cde0b6b708ef5014",
+      "name": "SushiSwap LP VSP/WETH",
+      "decimals": 18,
+      "symbol": "VSP/WETH",
+      "extensions": {
+        "tokens": "0x1b40183efb4dd766f11bda7a7c3ad8982e998421,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2499,42 +2499,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xb2c29e311916a346304f83aa44527092d5bd4f0f",
-      "name": "SushiSwap LP MPH/WETH",
+      "address": "0x81ef0c70fa76c8e7563cb26ee34a2e7f2a77c410",
+      "name": "SushiSwap LP USDC/ARA",
       "decimals": 18,
-      "symbol": "MPH/WETH",
+      "symbol": "USDC/ARA",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x8888801af4d980682e47f1a9036e589479e835c5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x53aabccae8c1713a6a150d9981d2ee867d0720e8",
-      "name": "SushiSwap LP WETH/RARI",
-      "decimals": 18,
-      "symbol": "WETH/RARI",
-      "extensions": {
-        "tokens": "0xfca59cd816ab1ead66534d82bc21e7515ce441cf,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x132eeb05d5cb6829bd34f552cde0b6b708ef5014",
-      "name": "SushiSwap LP VSP/WETH",
-      "decimals": 18,
-      "symbol": "VSP/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1b40183efb4dd766f11bda7a7c3ad8982e998421"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe62f9cc7241d25030725183fb687547959580f40",
-      "name": "SushiSwap LP PLY/USDT",
-      "decimals": 18,
-      "symbol": "PLY/USDT",
-      "extensions": {
-        "tokens": "0x20d60c6eb195868d4643f2c9b0809e4de6cc003d,0xdac17f958d2ee523a2206206994597c13d831ec7"
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xa92e7c82b11d10716ab534051b271d2f6aef7df5"
       }
     },
     {
@@ -2549,22 +2519,12 @@
     },
     {
       "chainId": 1,
-      "address": "0x1c934bc86839b5718a1bdf69880de56f65388531",
-      "name": "SushiSwap LP MODA/WETH",
+      "address": "0xf1e34d19f63b69eaa70952f2f64f735849959833",
+      "name": "SushiSwap LP USDC/STANDARD",
       "decimals": 18,
-      "symbol": "MODA/WETH",
+      "symbol": "USDC/STANDARD",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x1117ac6ad6cdf1a3bc543bad3b133724620522d5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x81ef0c70fa76c8e7563cb26ee34a2e7f2a77c410",
-      "name": "SushiSwap LP USDC/ARA",
-      "decimals": 18,
-      "symbol": "USDC/ARA",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xa92e7c82b11d10716ab534051b271d2f6aef7df5"
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xda0c94c73d127ee191955fb46bacd7ff999b2bcd"
       }
     },
     {
@@ -2574,37 +2534,47 @@
       "decimals": 18,
       "symbol": "POOL/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0cec1a9154ff802e7934fc916ed7ca50bde6844e"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x47888c34e9aa879363e94e5302681e763b18d39e",
-      "name": "SushiSwap LP STG/WETH",
-      "decimals": 18,
-      "symbol": "STG/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x6694340fc020c5e6b96567843da2df01b2ce1eb6"
+        "tokens": "0x0cec1a9154ff802e7934fc916ed7ca50bde6844e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x58985d43735a19286a41c5cdd02ed16f85ac9d80",
-      "name": "SushiSwap LP WETH/KEYS",
+      "address": "0x1ad651a07b98464aa42f6cad68d0ce8639b659a5",
+      "name": "SushiSwap LP WETH/MEZZ",
       "decimals": 18,
-      "symbol": "WETH/KEYS",
+      "symbol": "WETH/MEZZ",
       "extensions": {
-        "tokens": "0xe0a189c975e4928222978a74517442239a0b86ff,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc4c346edc55504574cceb00aa1091d22404a4bc3"
       }
     },
     {
       "chainId": 1,
-      "address": "0x9c86bc3c72ab97c2234cba8c6c7069009465ae86",
-      "name": "SushiSwap LP WSCRT/WETH",
+      "address": "0x1c934bc86839b5718a1bdf69880de56f65388531",
+      "name": "SushiSwap LP MODA/WETH",
       "decimals": 18,
-      "symbol": "WSCRT/WETH",
+      "symbol": "MODA/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2b89bf8ba858cd2fcee1fada378d5cd6936968be"
+        "tokens": "0x1117ac6ad6cdf1a3bc543bad3b133724620522d5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x53aabccae8c1713a6a150d9981d2ee867d0720e8",
+      "name": "SushiSwap LP WETH/RARI",
+      "decimals": 18,
+      "symbol": "WETH/RARI",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xfca59cd816ab1ead66534d82bc21e7515ce441cf"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb27c7b131cf4915bec6c4bc1ce2f33f9ee434b9f",
+      "name": "SushiSwap LP APE/USDT",
+      "decimals": 18,
+      "symbol": "APE/USDT",
+      "extensions": {
+        "tokens": "0x4d224452801aced8b2f0aebe155379bb5d594381,0xdac17f958d2ee523a2206206994597c13d831ec7"
       }
     },
     {
@@ -2629,12 +2599,72 @@
     },
     {
       "chainId": 1,
-      "address": "0x1ad651a07b98464aa42f6cad68d0ce8639b659a5",
-      "name": "SushiSwap LP WETH/MEZZ",
+      "address": "0x58985d43735a19286a41c5cdd02ed16f85ac9d80",
+      "name": "SushiSwap LP WETH/KEYS",
       "decimals": 18,
-      "symbol": "WETH/MEZZ",
+      "symbol": "WETH/KEYS",
       "extensions": {
-        "tokens": "0xc4c346edc55504574cceb00aa1091d22404a4bc3,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe0a189c975e4928222978a74517442239a0b86ff"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5ba61c0a8c4dcccc200cd0ccc40a5725a426d002",
+      "name": "SushiSwap LP INV/DOLA",
+      "decimals": 18,
+      "symbol": "INV/DOLA",
+      "extensions": {
+        "tokens": "0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68,0x865377367054516e17014ccded1e7d814edc9ce4"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9c86bc3c72ab97c2234cba8c6c7069009465ae86",
+      "name": "SushiSwap LP WSCRT/WETH",
+      "decimals": 18,
+      "symbol": "WSCRT/WETH",
+      "extensions": {
+        "tokens": "0x2b89bf8ba858cd2fcee1fada378d5cd6936968be,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x7bc735d6974f6153b1de24e40c0bf5715ca7fe1d",
+      "name": "SushiSwap LP XAI/USDC",
+      "decimals": 18,
+      "symbol": "XAI/USDC",
+      "extensions": {
+        "tokens": "0x35e78b3982e87ecfd5b3f3265b601c046cdbe232,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x47888c34e9aa879363e94e5302681e763b18d39e",
+      "name": "SushiSwap LP STG/WETH",
+      "decimals": 18,
+      "symbol": "STG/WETH",
+      "extensions": {
+        "tokens": "0x6694340fc020c5e6b96567843da2df01b2ce1eb6,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x44d34985826578e5ba24ec78c93be968549bb918",
+      "name": "SushiSwap LP BOR/WETH",
+      "decimals": 18,
+      "symbol": "BOR/WETH",
+      "extensions": {
+        "tokens": "0x3c9d6c1c73b31c837832c72e04d3152f051fc1a9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x760166fa4f227da29ecac3bec348f5fa853a1f3c",
+      "name": "SushiSwap LP TUSD/WETH",
+      "decimals": 18,
+      "symbol": "TUSD/WETH",
+      "extensions": {
+        "tokens": "0x0000000000085d4780b73119b644ae5ecd22b376,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2649,36 +2679,6 @@
     },
     {
       "chainId": 1,
-      "address": "0x760166fa4f227da29ecac3bec348f5fa853a1f3c",
-      "name": "SushiSwap LP TUSD/WETH",
-      "decimals": 18,
-      "symbol": "TUSD/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0000000000085d4780b73119b644ae5ecd22b376"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x7bc735d6974f6153b1de24e40c0bf5715ca7fe1d",
-      "name": "SushiSwap LP XAI/USDC",
-      "decimals": 18,
-      "symbol": "XAI/USDC",
-      "extensions": {
-        "tokens": "0x35e78b3982e87ecfd5b3f3265b601c046cdbe232,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x26e6a391953169d141df36834acfd9c61d3d4d59",
-      "name": "SushiSwap LP MASQ/WETH",
-      "decimals": 18,
-      "symbol": "MASQ/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x06f3c323f0238c72bf35011071f2b5b7f43a054c"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0xbe844f05e3eada9453156e3fe5c39891b4245bc6",
       "name": "SushiSwap LP KKO/WETH",
       "decimals": 18,
@@ -2689,42 +2689,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x5ba61c0a8c4dcccc200cd0ccc40a5725a426d002",
-      "name": "SushiSwap LP INV/DOLA",
-      "decimals": 18,
-      "symbol": "INV/DOLA",
-      "extensions": {
-        "tokens": "0x865377367054516e17014ccded1e7d814edc9ce4,0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf8937dc1ca081161527c0bc1eb6379420195c894",
-      "name": "SushiSwap LP BCMC/WETH",
-      "decimals": 18,
-      "symbol": "BCMC/WETH",
-      "extensions": {
-        "tokens": "0x2ba8349123de45e931a8c8264c332e6e9cf593f9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb27c7b131cf4915bec6c4bc1ce2f33f9ee434b9f",
-      "name": "SushiSwap LP APE/USDT",
-      "decimals": 18,
-      "symbol": "APE/USDT",
-      "extensions": {
-        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x4d224452801aced8b2f0aebe155379bb5d594381"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0x840fdb210cf93318e8a16a51f24938c866a32d3c",
       "name": "SushiSwap LP CRU/USDT",
       "decimals": 18,
       "symbol": "CRU/USDT",
       "extensions": {
         "tokens": "0x32a7c02e79c4ea1008dd6564b35f131428673c41,0xdac17f958d2ee523a2206206994597c13d831ec7"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x98c2f9d752e044dc2e1f1743bf0b76a7096eceb2",
+      "name": "SushiSwap LP USDT/FRONT",
+      "decimals": 18,
+      "symbol": "USDT/FRONT",
+      "extensions": {
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0xf8c3527cc04340b208c854e985240c02f7b7793f"
       }
     },
     {
@@ -2739,12 +2719,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x98c2f9d752e044dc2e1f1743bf0b76a7096eceb2",
-      "name": "SushiSwap LP USDT/FRONT",
+      "address": "0xf8937dc1ca081161527c0bc1eb6379420195c894",
+      "name": "SushiSwap LP BCMC/WETH",
       "decimals": 18,
-      "symbol": "USDT/FRONT",
+      "symbol": "BCMC/WETH",
       "extensions": {
-        "tokens": "0xf8c3527cc04340b208c854e985240c02f7b7793f,0xdac17f958d2ee523a2206206994597c13d831ec7"
+        "tokens": "0x2ba8349123de45e931a8c8264c332e6e9cf593f9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x26e6a391953169d141df36834acfd9c61d3d4d59",
+      "name": "SushiSwap LP MASQ/WETH",
+      "decimals": 18,
+      "symbol": "MASQ/WETH",
+      "extensions": {
+        "tokens": "0x06f3c323f0238c72bf35011071f2b5b7f43a054c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2754,7 +2744,7 @@
       "decimals": 18,
       "symbol": "ANT/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa117000000f279d81a1d3cc75430faa017fa5a2e"
+        "tokens": "0xa117000000f279d81a1d3cc75430faa017fa5a2e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2765,16 +2755,6 @@
       "symbol": "Metis/WETH",
       "extensions": {
         "tokens": "0x9e32b13ce7f2e80a01932b42553652e053d6ed8e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x6463bd6026a2e7bfab5851b62969a92f7cca0eb6",
-      "name": "SushiSwap LP HEGIC/WETH",
-      "decimals": 18,
-      "symbol": "HEGIC/WETH",
-      "extensions": {
-        "tokens": "0x584bc13c7d411c00c01a62e8019472de68768430,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2794,137 +2774,7 @@
       "decimals": 18,
       "symbol": "WETH/MLN",
       "extensions": {
-        "tokens": "0xec67005c4e498ec7f55e092bd1d35cbc47c91892,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x51c1dc85f57fdaf591606e2adcc34adc96b04006",
-      "name": "SushiSwap LP LMT/WETH",
-      "decimals": 18,
-      "symbol": "LMT/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x327673ae6b33bd3d90f0096870059994f30dc8af"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x742c15d71ea7444964bc39b0ed729b3729adc361",
-      "name": "SushiSwap LP WETH/OMG",
-      "decimals": 18,
-      "symbol": "WETH/OMG",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd26114cd6ee289accf82350c8d8487fedb8a0c07"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xd920a4bda8ecf4ac06ea2897f9a5a38a55e9ac6e",
-      "name": "SushiSwap LP SHPING/WETH",
-      "decimals": 18,
-      "symbol": "SHPING/WETH",
-      "extensions": {
-        "tokens": "0x7c84e62859d0715eb77d1b1c4154ecd6abb21bec,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x87b918e76c92818db0c76a4e174447aee6e6d23f",
-      "name": "SushiSwap LP MOVE/WETH",
-      "decimals": 18,
-      "symbol": "MOVE/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3fa729b4548becbad4eab6ef18413470e6d5324c"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x9e48fadf799e0513d2ef4631478ea186741fa617",
-      "name": "SushiSwap LP AERGO/WETH",
-      "decimals": 18,
-      "symbol": "AERGO/WETH",
-      "extensions": {
-        "tokens": "0x91af0fbb28aba7e31403cb457106ce79397fd4e6,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x29269cc995a822d1148768e62381de7b2384f964",
-      "name": "SushiSwap LP AISP/WETH",
-      "decimals": 18,
-      "symbol": "AISP/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x493070ef5280e7a275a106a30b0414dbdb21febd"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf79321e80acd5fa590936f09acb90ec6471fcbc4",
-      "name": "SushiSwap LP NFTL/WETH",
-      "decimals": 18,
-      "symbol": "NFTL/WETH",
-      "extensions": {
-        "tokens": "0x3c8d2fce49906e11e71cb16fa0ffeb2b16c29638,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x33f6ddaea2a8a54062e021873bcaee006cdf4007",
-      "name": "SushiSwap LP cvxCRV/CRV",
-      "decimals": 18,
-      "symbol": "cvxCRV/CRV",
-      "extensions": {
-        "tokens": "0x62b9c7356a2dc64a1969e19c23e4f579f9810aa7,0xd533a949740bb3306d119cc777fa900ba034cd52"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x364248b2f1f57c5402d244b2d469a35b4c0e9dab",
-      "name": "SushiSwap LP AKRO/WETH",
-      "decimals": 18,
-      "symbol": "AKRO/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x53162d78dca413d9e28cf62799d17a9e278b60e8",
-      "name": "SushiSwap LP APW/WETH",
-      "decimals": 18,
-      "symbol": "APW/WETH",
-      "extensions": {
-        "tokens": "0x4104b135dbc9609fc1a9490e61369036497660c8,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x17a2194d55f52fd0c711e0e42b41975494bb109b",
-      "name": "SushiSwap LP ARMOR/WETH",
-      "decimals": 18,
-      "symbol": "ARMOR/WETH",
-      "extensions": {
-        "tokens": "0x1337def16f9b486faed0293eb623dc8395dfe46a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x3e04863dba602713bb5d0edbf7db7c3a9a2b6027",
-      "name": "SushiSwap LP UwU/WETH",
-      "decimals": 18,
-      "symbol": "UwU/WETH",
-      "extensions": {
-        "tokens": "0x55c08ca52497e2f1534b59e2917bf524d4765257,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x05c6f695ad50c16299bedca3fe9059b56550082f",
-      "name": "SushiSwap LP WETH/GMX",
-      "decimals": 18,
-      "symbol": "WETH/GMX",
-      "extensions": {
-        "tokens": "0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xec67005c4e498ec7f55e092bd1d35cbc47c91892"
       }
     },
     {
@@ -2939,6 +2789,26 @@
     },
     {
       "chainId": 42161,
+      "address": "0x29269cc995a822d1148768e62381de7b2384f964",
+      "name": "SushiSwap LP AISP/WETH",
+      "decimals": 18,
+      "symbol": "AISP/WETH",
+      "extensions": {
+        "tokens": "0x493070ef5280e7a275a106a30b0414dbdb21febd,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x6463bd6026a2e7bfab5851b62969a92f7cca0eb6",
+      "name": "SushiSwap LP HEGIC/WETH",
+      "decimals": 18,
+      "symbol": "HEGIC/WETH",
+      "extensions": {
+        "tokens": "0x584bc13c7d411c00c01a62e8019472de68768430,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x8b7e5d16ea7fc0a130940fcdec092bfa02a461c2",
       "name": "SushiSwap LP aEGGS/WETH",
       "decimals": 18,
@@ -2948,23 +2818,53 @@
       }
     },
     {
-      "chainId": 100,
-      "address": "0xb320609f2bf3ca98754c14db717307c6d6794d8b",
-      "name": "SushiSwap LP LINK/WXDAI",
+      "chainId": 1,
+      "address": "0xd920a4bda8ecf4ac06ea2897f9a5a38a55e9ac6e",
+      "name": "SushiSwap LP SHPING/WETH",
       "decimals": 18,
-      "symbol": "LINK/WXDAI",
+      "symbol": "SHPING/WETH",
       "extensions": {
-        "tokens": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d,0xe2e73a1c69ecf83f464efce6a5be353a37ca09b2"
+        "tokens": "0x7c84e62859d0715eb77d1b1c4154ecd6abb21bec,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x90e4ccd73bb850754d4324ca65e00753fb41da51",
-      "name": "SushiSwap LP TOWER/BONDLY",
+      "address": "0x7f47f6f695ddf8316f368a8a99122a081e118bd0",
+      "name": "SushiSwap LP sETH/WETH",
       "decimals": 18,
-      "symbol": "TOWER/BONDLY",
+      "symbol": "sETH/WETH",
       "extensions": {
-        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0x91dfbee3965baaee32784c2d546b7a0c62f268c9"
+        "tokens": "0x5e74c9036fb86bd7ecdcb084a0673efc32ea31cb,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x33f6ddaea2a8a54062e021873bcaee006cdf4007",
+      "name": "SushiSwap LP cvxCRV/CRV",
+      "decimals": 18,
+      "symbol": "cvxCRV/CRV",
+      "extensions": {
+        "tokens": "0x62b9c7356a2dc64a1969e19c23e4f579f9810aa7,0xd533a949740bb3306d119cc777fa900ba034cd52"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3e04863dba602713bb5d0edbf7db7c3a9a2b6027",
+      "name": "SushiSwap LP UwU/WETH",
+      "decimals": 18,
+      "symbol": "UwU/WETH",
+      "extensions": {
+        "tokens": "0x55c08ca52497e2f1534b59e2917bf524d4765257,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x742c15d71ea7444964bc39b0ed729b3729adc361",
+      "name": "SushiSwap LP WETH/OMG",
+      "decimals": 18,
+      "symbol": "WETH/OMG",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd26114cd6ee289accf82350c8d8487fedb8a0c07"
       }
     },
     {
@@ -2979,32 +2879,102 @@
     },
     {
       "chainId": 1,
-      "address": "0x52dac05fc0000e9f01ce9a1e91592bfbfce87350",
-      "name": "SushiSwap LP LYRA/WETH",
+      "address": "0x9e48fadf799e0513d2ef4631478ea186741fa617",
+      "name": "SushiSwap LP AERGO/WETH",
       "decimals": 18,
-      "symbol": "LYRA/WETH",
+      "symbol": "AERGO/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x01ba67aac7f75f647d94220cc98fb30fcc5105bf"
+        "tokens": "0x91af0fbb28aba7e31403cb457106ce79397fd4e6,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0xbb19141e045b133169d7c7160c5e54a54cc821b2",
-      "name": "SushiSwap LP GET/WETH",
+      "address": "0x364248b2f1f57c5402d244b2d469a35b4c0e9dab",
+      "name": "SushiSwap LP AKRO/WETH",
       "decimals": 18,
-      "symbol": "GET/WETH",
+      "symbol": "AKRO/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x8a854288a5976036a725879164ca3e91d30c6a1b"
+        "tokens": "0x8ab7404063ec4dbcfd4598215992dc3f8ec853d7,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x56820f78efd1061d174f7a460cfd9d8e4283069b",
-      "name": "SushiSwap LP GLM/WETH",
+      "address": "0x53162d78dca413d9e28cf62799d17a9e278b60e8",
+      "name": "SushiSwap LP APW/WETH",
       "decimals": 18,
-      "symbol": "GLM/WETH",
+      "symbol": "APW/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429"
+        "tokens": "0x4104b135dbc9609fc1a9490e61369036497660c8,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x87b918e76c92818db0c76a4e174447aee6e6d23f",
+      "name": "SushiSwap LP MOVE/WETH",
+      "decimals": 18,
+      "symbol": "MOVE/WETH",
+      "extensions": {
+        "tokens": "0x3fa729b4548becbad4eab6ef18413470e6d5324c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x05c6f695ad50c16299bedca3fe9059b56550082f",
+      "name": "SushiSwap LP WETH/GMX",
+      "decimals": 18,
+      "symbol": "WETH/GMX",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xb320609f2bf3ca98754c14db717307c6d6794d8b",
+      "name": "SushiSwap LP LINK/WXDAI",
+      "decimals": 18,
+      "symbol": "LINK/WXDAI",
+      "extensions": {
+        "tokens": "0xe2e73a1c69ecf83f464efce6a5be353a37ca09b2,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x15f9eedeebd121fbb238a8a0cae38f4b4a07a585",
+      "name": "SushiSwap LP WETH/GNO",
+      "decimals": 18,
+      "symbol": "WETH/GNO",
+      "extensions": {
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5fa4370164a2fabeef159b893299d59ff5dc1e6d",
+      "name": "SushiSwap LP BENT/DAI",
+      "decimals": 18,
+      "symbol": "BENT/DAI",
+      "extensions": {
+        "tokens": "0x01597e397605bf280674bf292623460b4204c375,0x6b175474e89094c44da98b954eedeac495271d0f"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x55ff0cef43f0df88226e9d87d09fa036017f5586",
+      "name": "SushiSwap LP GIV/WETH",
+      "decimals": 18,
+      "symbol": "GIV/WETH",
+      "extensions": {
+        "tokens": "0x4f4f9b8d5b4d0dc10506e5551b0513b61fd59e75,0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf79321e80acd5fa590936f09acb90ec6471fcbc4",
+      "name": "SushiSwap LP NFTL/WETH",
+      "decimals": 18,
+      "symbol": "NFTL/WETH",
+      "extensions": {
+        "tokens": "0x3c8d2fce49906e11e71cb16fa0ffeb2b16c29638,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3019,62 +2989,32 @@
     },
     {
       "chainId": 1,
-      "address": "0x5fa4370164a2fabeef159b893299d59ff5dc1e6d",
-      "name": "SushiSwap LP BENT/DAI",
+      "address": "0x097b21e4784c2b224fd8b880939f75b2e9f4dba5",
+      "name": "SushiSwap LP MIS3/USDT",
       "decimals": 18,
-      "symbol": "BENT/DAI",
+      "symbol": "MIS3/USDT",
       "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x01597e397605bf280674bf292623460b4204c375"
+        "tokens": "0x024b6e7dc26f4d5579bdd936f8d7bc31f2339999,0xdac17f958d2ee523a2206206994597c13d831ec7"
       }
     },
     {
-      "chainId": 100,
-      "address": "0x15f9eedeebd121fbb238a8a0cae38f4b4a07a585",
-      "name": "SushiSwap LP WETH/GNO",
+      "chainId": 1,
+      "address": "0xbb19141e045b133169d7c7160c5e54a54cc821b2",
+      "name": "SushiSwap LP GET/WETH",
       "decimals": 18,
-      "symbol": "WETH/GNO",
+      "symbol": "GET/WETH",
       "extensions": {
-        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1"
+        "tokens": "0x8a854288a5976036a725879164ca3e91d30c6a1b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
-      "chainId": 100,
-      "address": "0x55ff0cef43f0df88226e9d87d09fa036017f5586",
-      "name": "SushiSwap LP GIV/WETH",
+      "chainId": 1,
+      "address": "0x56820f78efd1061d174f7a460cfd9d8e4283069b",
+      "name": "SushiSwap LP GLM/WETH",
       "decimals": 18,
-      "symbol": "GIV/WETH",
+      "symbol": "GLM/WETH",
       "extensions": {
-        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x4f4f9b8d5b4d0dc10506e5551b0513b61fd59e75"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xa6efc26daa4bb2b9bf5d23a0bc202a2badc2b59e",
-      "name": "SushiSwap LP JONES/USDC",
-      "decimals": 18,
-      "symbol": "JONES/USDC",
-      "extensions": {
-        "tokens": "0x10393c20975cf177a3513071bc110f7962cd67da,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xbe3b9c3700171183b2b3f827d8833212d0197a96",
-      "name": "SushiSwap LP CRV/WETH",
-      "decimals": 18,
-      "symbol": "CRV/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x11cdb42b0eb46d95f990bedd4695a6e3fa034978"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xb3d24afcc26e0403590189c0e4ce9c796390b09e",
-      "name": "SushiSwap LP DallE2/WETH",
-      "decimals": 18,
-      "symbol": "DallE2/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x1772d876f9df830693b8004322cb8885b77e47e5"
+        "tokens": "0x7dd9c5cba05e151c895fde1cf355c9a1d5da6429,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3085,6 +3025,66 @@
       "symbol": "USDT/USDC",
       "extensions": {
         "tokens": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xbe3b9c3700171183b2b3f827d8833212d0197a96",
+      "name": "SushiSwap LP CRV/WETH",
+      "decimals": 18,
+      "symbol": "CRV/WETH",
+      "extensions": {
+        "tokens": "0x11cdb42b0eb46d95f990bedd4695a6e3fa034978,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x52dac05fc0000e9f01ce9a1e91592bfbfce87350",
+      "name": "SushiSwap LP LYRA/WETH",
+      "decimals": 18,
+      "symbol": "LYRA/WETH",
+      "extensions": {
+        "tokens": "0x01ba67aac7f75f647d94220cc98fb30fcc5105bf,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xb3d24afcc26e0403590189c0e4ce9c796390b09e",
+      "name": "SushiSwap LP DallE2/WETH",
+      "decimals": 18,
+      "symbol": "DallE2/WETH",
+      "extensions": {
+        "tokens": "0x1772d876f9df830693b8004322cb8885b77e47e5,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x90e4ccd73bb850754d4324ca65e00753fb41da51",
+      "name": "SushiSwap LP TOWER/BONDLY",
+      "decimals": 18,
+      "symbol": "TOWER/BONDLY",
+      "extensions": {
+        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0x91dfbee3965baaee32784c2d546b7a0c62f268c9"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x8c8e819f7209fc668e9cb4d33677fd24e4ed8d75",
+      "name": "SushiSwap LP WETH/DACXI",
+      "decimals": 18,
+      "symbol": "WETH/DACXI",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xefab7248d36585e2340e5d25f8a8d243e6e3193f"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xa6efc26daa4bb2b9bf5d23a0bc202a2badc2b59e",
+      "name": "SushiSwap LP JONES/USDC",
+      "decimals": 18,
+      "symbol": "JONES/USDC",
+      "extensions": {
+        "tokens": "0x10393c20975cf177a3513071bc110f7962cd67da,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
       }
     },
     {
@@ -3099,22 +3099,12 @@
     },
     {
       "chainId": 1,
-      "address": "0x097b21e4784c2b224fd8b880939f75b2e9f4dba5",
-      "name": "SushiSwap LP MIS3/USDT",
+      "address": "0xb270176ba6075196df88b855c3ec7776871fdb33",
+      "name": "SushiSwap LP TORN/WETH",
       "decimals": 18,
-      "symbol": "MIS3/USDT",
+      "symbol": "TORN/WETH",
       "extensions": {
-        "tokens": "0x024b6e7dc26f4d5579bdd936f8d7bc31f2339999,0xdac17f958d2ee523a2206206994597c13d831ec7"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x6f81427d641f865a3a4050ec220474b65599d543",
-      "name": "SushiSwap LP TOWER/REVV",
-      "decimals": 18,
-      "symbol": "TOWER/REVV",
-      "extensions": {
-        "tokens": "0x557b933a7c2c45672b610f8954a3deb39a51a8ca,0x1c9922314ed1415c95b9fd453c3818fd41867d0b"
+        "tokens": "0x77777feddddffc19ff86db637967013e6c6a116c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3124,7 +3114,17 @@
       "decimals": 18,
       "symbol": "WETH/MPCKT",
       "extensions": {
-        "tokens": "0xd1c533a00548dd9c1e7b0f8ea834f65383b116de,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xd1c533a00548dd9c1e7b0f8ea834f65383b116de"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1c580cc549d03171b13b55074dc1658f60641c73",
+      "name": "SushiSwap LP CVP/WETH",
+      "decimals": 18,
+      "symbol": "CVP/WETH",
+      "extensions": {
+        "tokens": "0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3134,7 +3134,7 @@
       "decimals": 18,
       "symbol": "PLS/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x51318b7d00db7acc4026c88c3952b66278b6a67f"
+        "tokens": "0x51318b7d00db7acc4026c88c3952b66278b6a67f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -3144,27 +3144,17 @@
       "decimals": 18,
       "symbol": "WXRP/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x39fbbabf11738317a448031930706cd3e612e1b9"
+        "tokens": "0x39fbbabf11738317a448031930706cd3e612e1b9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x04444d365324134e58104b1d874d00dc68dcea53",
-      "name": "SushiSwap LP NU/WETH",
+      "address": "0x17890deb188f2de6c3e966e053da1c9a111ed4a5",
+      "name": "SushiSwap LP USDC/CQT",
       "decimals": 18,
-      "symbol": "NU/WETH",
+      "symbol": "USDC/CQT",
       "extensions": {
-        "tokens": "0x4fe83213d56308330ec302a8bd641f1d0113a4cc,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb270176ba6075196df88b855c3ec7776871fdb33",
-      "name": "SushiSwap LP TORN/WETH",
-      "decimals": 18,
-      "symbol": "TORN/WETH",
-      "extensions": {
-        "tokens": "0x77777feddddffc19ff86db637967013e6c6a116c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xd417144312dbf50465b1c641d016962017ef6240"
       }
     },
     {
@@ -3179,32 +3169,62 @@
     },
     {
       "chainId": 1,
-      "address": "0x17890deb188f2de6c3e966e053da1c9a111ed4a5",
-      "name": "SushiSwap LP USDC/CQT",
+      "address": "0x04444d365324134e58104b1d874d00dc68dcea53",
+      "name": "SushiSwap LP NU/WETH",
       "decimals": 18,
-      "symbol": "USDC/CQT",
+      "symbol": "NU/WETH",
       "extensions": {
-        "tokens": "0xd417144312dbf50465b1c641d016962017ef6240,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+        "tokens": "0x4fe83213d56308330ec302a8bd641f1d0113a4cc,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x29c827ce49accf68a1a278c67c9d30c52fbbc348",
-      "name": "SushiSwap LP WETH/VEGA",
+      "address": "0x31fa985bb0c282a814e7f3f0dce88b2a44197f60",
+      "name": "SushiSwap LP MASK/USDC",
       "decimals": 18,
-      "symbol": "WETH/VEGA",
+      "symbol": "MASK/USDC",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcb84d72e61e383767c4dfeb2d8ff7f4fb89abc6e"
+        "tokens": "0x69af81e73a73b40adf4f3d4223cd9b1ece623074,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
       "chainId": 1,
-      "address": "0x2c51eaa1bcc7b013c3f1d5985cdcb3c56dc3fbc1",
-      "name": "SushiSwap LP BANK/WETH",
+      "address": "0x51c1dc85f57fdaf591606e2adcc34adc96b04006",
+      "name": "SushiSwap LP LMT/WETH",
       "decimals": 18,
-      "symbol": "BANK/WETH",
+      "symbol": "LMT/WETH",
       "extensions": {
-        "tokens": "0x2d94aa3e47d9d5024503ca8491fce9a2fb4da198,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x327673ae6b33bd3d90f0096870059994f30dc8af,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x6f81427d641f865a3a4050ec220474b65599d543",
+      "name": "SushiSwap LP TOWER/REVV",
+      "decimals": 18,
+      "symbol": "TOWER/REVV",
+      "extensions": {
+        "tokens": "0x1c9922314ed1415c95b9fd453c3818fd41867d0b,0x557b933a7c2c45672b610f8954a3deb39a51a8ca"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x17a2194d55f52fd0c711e0e42b41975494bb109b",
+      "name": "SushiSwap LP ARMOR/WETH",
+      "decimals": 18,
+      "symbol": "ARMOR/WETH",
+      "extensions": {
+        "tokens": "0x1337def16f9b486faed0293eb623dc8395dfe46a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xcb8e690062050617c5921a0da7df30a1a72d76fe",
+      "name": "SushiSwap LP DAI/USV",
+      "decimals": 18,
+      "symbol": "DAI/USV",
+      "extensions": {
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x88536c9b2c4701b8db824e6a16829d5b5eb84440"
       }
     },
     {
@@ -3218,23 +3238,13 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x2a8104c4e5e0ccaccd84e3ab0f463fbaa7498981",
-      "name": "SushiSwap LP O3/USDT",
-      "decimals": 18,
-      "symbol": "O3/USDT",
-      "extensions": {
-        "tokens": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9,0xee9801669c6138e84bd50deb500827b776777d28"
-      }
-    },
-    {
       "chainId": 1,
-      "address": "0x31fa985bb0c282a814e7f3f0dce88b2a44197f60",
-      "name": "SushiSwap LP MASK/USDC",
+      "address": "0x2c51eaa1bcc7b013c3f1d5985cdcb3c56dc3fbc1",
+      "name": "SushiSwap LP BANK/WETH",
       "decimals": 18,
-      "symbol": "MASK/USDC",
+      "symbol": "BANK/WETH",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x69af81e73a73b40adf4f3d4223cd9b1ece623074"
+        "tokens": "0x2d94aa3e47d9d5024503ca8491fce9a2fb4da198,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3244,27 +3254,7 @@
       "decimals": 18,
       "symbol": "OHM/FRAX",
       "extensions": {
-        "tokens": "0x853d955acef822db058eb8505911ed77f175b99e,0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0d15e893cf50724382368cafed222cf131b55307",
-      "name": "SushiSwap LP AGLD/WETH",
-      "decimals": 18,
-      "symbol": "AGLD/WETH",
-      "extensions": {
-        "tokens": "0x32353a6c91143bfd6c7d363b546e62a9a2489a20,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xb750e23497d942f418fcc80d1ea796ac96ed879d",
-      "name": "SushiSwap LP WETH/BARB",
-      "decimals": 18,
-      "symbol": "WETH/BARB",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xb98058640970d8aa7bbce3b067b2d63c14143786"
+        "tokens": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0x853d955acef822db058eb8505911ed77f175b99e"
       }
     },
     {
@@ -3279,6 +3269,16 @@
     },
     {
       "chainId": 1,
+      "address": "0x29c827ce49accf68a1a278c67c9d30c52fbbc348",
+      "name": "SushiSwap LP WETH/VEGA",
+      "decimals": 18,
+      "symbol": "WETH/VEGA",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcb84d72e61e383767c4dfeb2d8ff7f4fb89abc6e"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x1035487ca79068f6617ae75ed3c844ce2d8a0c2a",
       "name": "SushiSwap LP SHOPX/WETH",
       "decimals": 18,
@@ -3288,53 +3288,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x24d3dd4a62e29770cf98810b09f89d3a90279e7a",
-      "name": "SushiSwap LP SHIB/WETH",
-      "decimals": 18,
-      "symbol": "SHIB/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1da92f6a396eeb104ad13743486b450bd8b96e62",
-      "name": "SushiSwap LP STATE/WETH",
-      "decimals": 18,
-      "symbol": "STATE/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x00c2999c8b2adf4abc835cc63209533973718eb1"
-      }
-    },
-    {
       "chainId": 42161,
-      "address": "0x2f73fb16933585ba089100c05561d58fd342bdf5",
-      "name": "SushiSwap LP CREDA/USDT",
+      "address": "0xb750e23497d942f418fcc80d1ea796ac96ed879d",
+      "name": "SushiSwap LP WETH/BARB",
       "decimals": 18,
-      "symbol": "CREDA/USDT",
+      "symbol": "WETH/BARB",
       "extensions": {
-        "tokens": "0xc136e6b376a9946b156db1ed3a34b08afdaed76d,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x18416f706712892e5436993da4e073d0bf4befd6",
-      "name": "SushiSwap LP DMT/WETH",
-      "decimals": 18,
-      "symbol": "DMT/WETH",
-      "extensions": {
-        "tokens": "0x5b1d655c93185b06b00f7925791106132cb3ad75,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb301d7efb4d46528f9cf0e5c86b065fbc9f50e9a",
-      "name": "SushiSwap LP STRM/WETH",
-      "decimals": 18,
-      "symbol": "STRM/WETH",
-      "extensions": {
-        "tokens": "0x0edf9bc41bbc1354c70e2107f80c42cae7fbbca8,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xb98058640970d8aa7bbce3b067b2d63c14143786"
       }
     },
     {
@@ -3348,13 +3308,53 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0xb54b196e9feccf364c2281da1e11bc498cb5c1c1",
-      "name": "SushiSwap LP WETH/pETH",
+      "chainId": 1,
+      "address": "0x0d15e893cf50724382368cafed222cf131b55307",
+      "name": "SushiSwap LP AGLD/WETH",
       "decimals": 18,
-      "symbol": "WETH/pETH",
+      "symbol": "AGLD/WETH",
       "extensions": {
-        "tokens": "0xa0df47432d9d88bcc040e9ee66ddc7e17a882715,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x32353a6c91143bfd6c7d363b546e62a9a2489a20,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x18416f706712892e5436993da4e073d0bf4befd6",
+      "name": "SushiSwap LP DMT/WETH",
+      "decimals": 18,
+      "symbol": "DMT/WETH",
+      "extensions": {
+        "tokens": "0x5b1d655c93185b06b00f7925791106132cb3ad75,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x2f73fb16933585ba089100c05561d58fd342bdf5",
+      "name": "SushiSwap LP CREDA/USDT",
+      "decimals": 18,
+      "symbol": "CREDA/USDT",
+      "extensions": {
+        "tokens": "0xc136e6b376a9946b156db1ed3a34b08afdaed76d,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x2a8104c4e5e0ccaccd84e3ab0f463fbaa7498981",
+      "name": "SushiSwap LP O3/USDT",
+      "decimals": 18,
+      "symbol": "O3/USDT",
+      "extensions": {
+        "tokens": "0xee9801669c6138e84bd50deb500827b776777d28,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x24d3dd4a62e29770cf98810b09f89d3a90279e7a",
+      "name": "SushiSwap LP SHIB/WETH",
+      "decimals": 18,
+      "symbol": "SHIB/WETH",
+      "extensions": {
+        "tokens": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3379,22 +3379,32 @@
     },
     {
       "chainId": 1,
-      "address": "0x9911b111860bd8a611c2a6654ff38208208055d4",
-      "name": "SushiSwap LP GENE/WETH",
+      "address": "0xb301d7efb4d46528f9cf0e5c86b065fbc9f50e9a",
+      "name": "SushiSwap LP STRM/WETH",
       "decimals": 18,
-      "symbol": "GENE/WETH",
+      "symbol": "STRM/WETH",
       "extensions": {
-        "tokens": "0x21413c119b0c11c5d96ae1bd328917bc5c8ed67e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x0edf9bc41bbc1354c70e2107f80c42cae7fbbca8,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xb54b196e9feccf364c2281da1e11bc498cb5c1c1",
+      "name": "SushiSwap LP WETH/pETH",
+      "decimals": 18,
+      "symbol": "WETH/pETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xa0df47432d9d88bcc040e9ee66ddc7e17a882715"
       }
     },
     {
       "chainId": 1,
-      "address": "0x4632ac4a94b57573f6b0297229fc8d54046f9be4",
-      "name": "SushiSwap LP CIV/WETH",
+      "address": "0x88172e5d79fe75c7aed1453e89ff5d741cfa4ca7",
+      "name": "SushiSwap LP WETH/LUNA",
       "decimals": 18,
-      "symbol": "CIV/WETH",
+      "symbol": "WETH/LUNA",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x37fe0f067fa808ffbdd12891c0858532cfe7361d"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd2877702675e6ceb975b4a1dff9fb7baf4c91ea9"
       }
     },
     {
@@ -3404,7 +3414,17 @@
       "decimals": 18,
       "symbol": "$MUMU/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x27e2209f4ceaebed97899ea2d8302dee690d3820"
+        "tokens": "0x27e2209f4ceaebed97899ea2d8302dee690d3820,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x70813e6d7550fa1a31ef6028eb60c4d72285c7f0",
+      "name": "SushiSwap LP UNBNK/WETH",
+      "decimals": 18,
+      "symbol": "UNBNK/WETH",
+      "extensions": {
+        "tokens": "0x06b884e60794ce02aafab13791b59a2e6a07442f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3418,13 +3438,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x8c8e819f7209fc668e9cb4d33677fd24e4ed8d75",
-      "name": "SushiSwap LP WETH/DACXI",
+      "chainId": 42161,
+      "address": "0x67fd3badafb012ddb156adf6f8395dd55f4de405",
+      "name": "SushiSwap LP WETH/BLOB",
       "decimals": 18,
-      "symbol": "WETH/DACXI",
+      "symbol": "WETH/BLOB",
       "extensions": {
-        "tokens": "0xefab7248d36585e2340e5d25f8a8d243e6e3193f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x91c0ab2e50db1afe9e673bbb1fd5a3e0e4adf1f9"
       }
     },
     {
@@ -3434,87 +3454,7 @@
       "decimals": 18,
       "symbol": "1INCH/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x111111111117dc0aa78b770fa6a738034120c302"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xed92bfe08de542bbb40fdbe0a27ca66313c0c457",
-      "name": "SushiSwap LP WETH/HOP",
-      "decimals": 18,
-      "symbol": "WETH/HOP",
-      "extensions": {
-        "tokens": "0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x88172e5d79fe75c7aed1453e89ff5d741cfa4ca7",
-      "name": "SushiSwap LP WETH/LUNA",
-      "decimals": 18,
-      "symbol": "WETH/LUNA",
-      "extensions": {
-        "tokens": "0xd2877702675e6ceb975b4a1dff9fb7baf4c91ea9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x67fd3badafb012ddb156adf6f8395dd55f4de405",
-      "name": "SushiSwap LP WETH/BLOB",
-      "decimals": 18,
-      "symbol": "WETH/BLOB",
-      "extensions": {
-        "tokens": "0x91c0ab2e50db1afe9e673bbb1fd5a3e0e4adf1f9,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0bc5ae46c32d99c434b7383183aca16dd6e9bdc8",
-      "name": "SushiSwap LP WETH/ZRX",
-      "decimals": 18,
-      "symbol": "WETH/ZRX",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe41d2489571d322189246dafa5ebde1f4699f498"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5654d65578cda52791879751141f2f3d7dc27fe4",
-      "name": "SushiSwap LP ATA/WETH",
-      "decimals": 18,
-      "symbol": "ATA/WETH",
-      "extensions": {
-        "tokens": "0xa2120b9e674d3fc3875f415a7df52e382f141225,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1241f4a348162d99379a23e73926cf0bfcbf131e",
-      "name": "SushiSwap LP ANKR/WETH",
-      "decimals": 18,
-      "symbol": "ANKR/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x8290333cef9e6d528dd5618fb97a76f268f3edd4"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xa17661e7f2cd96633c25edc5455eb29170105ff0",
-      "name": "SushiSwap LP DAI/AMP",
-      "decimals": 18,
-      "symbol": "DAI/AMP",
-      "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xff20817765cb7f73d4bde2e66e067e58d11095c2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x70813e6d7550fa1a31ef6028eb60c4d72285c7f0",
-      "name": "SushiSwap LP UNBNK/WETH",
-      "decimals": 18,
-      "symbol": "UNBNK/WETH",
-      "extensions": {
-        "tokens": "0x06b884e60794ce02aafab13791b59a2e6a07442f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x111111111117dc0aa78b770fa6a738034120c302,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3529,22 +3469,52 @@
     },
     {
       "chainId": 1,
-      "address": "0xa88008543efb1db18922e376db52cd7e2f73648c",
-      "name": "SushiSwap LP WETH/PHTR",
+      "address": "0x5654d65578cda52791879751141f2f3d7dc27fe4",
+      "name": "SushiSwap LP ATA/WETH",
       "decimals": 18,
-      "symbol": "WETH/PHTR",
+      "symbol": "ATA/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe1fc4455f62a6e89476f1072530c20cf1a0622da"
+        "tokens": "0xa2120b9e674d3fc3875f415a7df52e382f141225,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x7f7d686b05ce0b9b7b7b0b4d56207ace4b13a87a",
-      "name": "SushiSwap LP GAS/WETH",
+      "address": "0xa17661e7f2cd96633c25edc5455eb29170105ff0",
+      "name": "SushiSwap LP DAI/AMP",
       "decimals": 18,
-      "symbol": "GAS/WETH",
+      "symbol": "DAI/AMP",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6bba316c48b49bd1eac44573c5c871ff02958469"
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xff20817765cb7f73d4bde2e66e067e58d11095c2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x0bc5ae46c32d99c434b7383183aca16dd6e9bdc8",
+      "name": "SushiSwap LP WETH/ZRX",
+      "decimals": 18,
+      "symbol": "WETH/ZRX",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe41d2489571d322189246dafa5ebde1f4699f498"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x4632ac4a94b57573f6b0297229fc8d54046f9be4",
+      "name": "SushiSwap LP CIV/WETH",
+      "decimals": 18,
+      "symbol": "CIV/WETH",
+      "extensions": {
+        "tokens": "0x37fe0f067fa808ffbdd12891c0858532cfe7361d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xed92bfe08de542bbb40fdbe0a27ca66313c0c457",
+      "name": "SushiSwap LP WETH/HOP",
+      "decimals": 18,
+      "symbol": "WETH/HOP",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc5102fe9359fd9a28f877a67e36b0f050d81a3cc"
       }
     },
     {
@@ -3559,12 +3529,42 @@
     },
     {
       "chainId": 1,
-      "address": "0x1c580cc549d03171b13b55074dc1658f60641c73",
-      "name": "SushiSwap LP CVP/WETH",
+      "address": "0x7f7d686b05ce0b9b7b7b0b4d56207ace4b13a87a",
+      "name": "SushiSwap LP GAS/WETH",
       "decimals": 18,
-      "symbol": "CVP/WETH",
+      "symbol": "GAS/WETH",
       "extensions": {
-        "tokens": "0x38e4adb44ef08f22f5b5b76a8f0c2d0dcbe7dca1,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x6bba316c48b49bd1eac44573c5c871ff02958469,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1da92f6a396eeb104ad13743486b450bd8b96e62",
+      "name": "SushiSwap LP STATE/WETH",
+      "decimals": 18,
+      "symbol": "STATE/WETH",
+      "extensions": {
+        "tokens": "0x00c2999c8b2adf4abc835cc63209533973718eb1,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1241f4a348162d99379a23e73926cf0bfcbf131e",
+      "name": "SushiSwap LP ANKR/WETH",
+      "decimals": 18,
+      "symbol": "ANKR/WETH",
+      "extensions": {
+        "tokens": "0x8290333cef9e6d528dd5618fb97a76f268f3edd4,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x130f4322e5838463ee460d5854f5d472cfc8f253",
+      "name": "SushiSwap LP APE/WETH",
+      "decimals": 18,
+      "symbol": "APE/WETH",
+      "extensions": {
+        "tokens": "0x4d224452801aced8b2f0aebe155379bb5d594381,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3579,22 +3579,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x321198908bd33b066252d63d363667e3f7094a34",
-      "name": "SushiSwap LP SUSHI/xSUSHI",
+      "address": "0x4cee4754d96f42b1761318a4df5070073e1c4a4c",
+      "name": "SushiSwap LP QUA/DAI",
       "decimals": 18,
-      "symbol": "SUSHI/xSUSHI",
+      "symbol": "QUA/DAI",
       "extensions": {
-        "tokens": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,0x8798249c2e607446efb7ad49ec89dd1865ff4272"
+        "tokens": "0x4daeb4a06f70f4b1a5c329115731fe4b89c0b227,0x6b175474e89094c44da98b954eedeac495271d0f"
       }
     },
     {
-      "chainId": 1,
-      "address": "0xc9e8de00d65c30e979764ec7463e650599ec704f",
-      "name": "SushiSwap LP SPELL/MIM",
+      "chainId": 42161,
+      "address": "0x8a6860158458c6b32ad634f456aa5be1c621032a",
+      "name": "SushiSwap LP NPM/USDC",
       "decimals": 18,
-      "symbol": "SPELL/MIM",
+      "symbol": "NPM/USDC",
       "extensions": {
-        "tokens": "0x99d8a9c45b2eca8864373a26d1459e3dff1e17f3,0x090185f2135308bad17527004364ebcc2d37e5f6"
+        "tokens": "0x57f12fe6a4e5fe819eec699fadf9db2d06606bb4,0xaf88d065e77c8cc2239327c5edb3a432268e5831"
       }
     },
     {
@@ -3609,12 +3609,52 @@
     },
     {
       "chainId": 1,
-      "address": "0xab7070c0a00bd2150c2f8c481907001fe66a8397",
-      "name": "SushiSwap LP REVV/BONDLY",
+      "address": "0xa88008543efb1db18922e376db52cd7e2f73648c",
+      "name": "SushiSwap LP WETH/PHTR",
       "decimals": 18,
-      "symbol": "REVV/BONDLY",
+      "symbol": "WETH/PHTR",
       "extensions": {
-        "tokens": "0x91dfbee3965baaee32784c2d546b7a0c62f268c9,0x557b933a7c2c45672b610f8954a3deb39a51a8ca"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xe1fc4455f62a6e89476f1072530c20cf1a0622da"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc9e8de00d65c30e979764ec7463e650599ec704f",
+      "name": "SushiSwap LP SPELL/MIM",
+      "decimals": 18,
+      "symbol": "SPELL/MIM",
+      "extensions": {
+        "tokens": "0x090185f2135308bad17527004364ebcc2d37e5f6,0x99d8a9c45b2eca8864373a26d1459e3dff1e17f3"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x321198908bd33b066252d63d363667e3f7094a34",
+      "name": "SushiSwap LP SUSHI/xSUSHI",
+      "decimals": 18,
+      "symbol": "SUSHI/xSUSHI",
+      "extensions": {
+        "tokens": "0x6b3595068778dd592e39a122f4f5a5cf09c90fe2,0x8798249c2e607446efb7ad49ec89dd1865ff4272"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x7b98e476de2c50b6fa284dbd410dd516f9a72b30",
+      "name": "SushiSwap LP ALEPH/WETH",
+      "decimals": 18,
+      "symbol": "ALEPH/WETH",
+      "extensions": {
+        "tokens": "0x27702a26126e0b3702af63ee09ac4d1a084ef628,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x8ae2135519a691992eeee0c48c08748390e26f57",
+      "name": "SushiSwap LP QUAD/WETH",
+      "decimals": 18,
+      "symbol": "QUAD/WETH",
+      "extensions": {
+        "tokens": "0xab2a7b5876d707e0126b3a75ef7781c77c8877ee,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3628,23 +3668,13 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x8a6860158458c6b32ad634f456aa5be1c621032a",
-      "name": "SushiSwap LP NPM/USDC",
-      "decimals": 18,
-      "symbol": "NPM/USDC",
-      "extensions": {
-        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0x57f12fe6a4e5fe819eec699fadf9db2d06606bb4"
-      }
-    },
-    {
       "chainId": 1,
-      "address": "0x8ae2135519a691992eeee0c48c08748390e26f57",
-      "name": "SushiSwap LP QUAD/WETH",
+      "address": "0x0589e281d35ee1acf6d4fd32f1fba60effb5281b",
+      "name": "SushiSwap LP alUSD/WETH",
       "decimals": 18,
-      "symbol": "QUAD/WETH",
+      "symbol": "alUSD/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xab2a7b5876d707e0126b3a75ef7781c77c8877ee"
+        "tokens": "0xbc6da0fe9ad5f3b0d58160288917aa56653660e9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3659,12 +3689,12 @@
     },
     {
       "chainId": 1,
-      "address": "0x7b98e476de2c50b6fa284dbd410dd516f9a72b30",
-      "name": "SushiSwap LP ALEPH/WETH",
+      "address": "0xab7070c0a00bd2150c2f8c481907001fe66a8397",
+      "name": "SushiSwap LP REVV/BONDLY",
       "decimals": 18,
-      "symbol": "ALEPH/WETH",
+      "symbol": "REVV/BONDLY",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x27702a26126e0b3702af63ee09ac4d1a084ef628"
+        "tokens": "0x557b933a7c2c45672b610f8954a3deb39a51a8ca,0x91dfbee3965baaee32784c2d546b7a0c62f268c9"
       }
     },
     {
@@ -3678,43 +3708,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x0589e281d35ee1acf6d4fd32f1fba60effb5281b",
-      "name": "SushiSwap LP alUSD/WETH",
-      "decimals": 18,
-      "symbol": "alUSD/WETH",
-      "extensions": {
-        "tokens": "0xbc6da0fe9ad5f3b0d58160288917aa56653660e9,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xf89c3657aca0f457c7d50d2b8cc746f46fc7e00f",
-      "name": "SushiSwap LP WETH/NOLA",
-      "decimals": 18,
-      "symbol": "WETH/NOLA",
-      "extensions": {
-        "tokens": "0xf8388c2b6edf00e2e27eef5200b1befb24ce141d,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x130f4322e5838463ee460d5854f5d472cfc8f253",
-      "name": "SushiSwap LP APE/WETH",
-      "decimals": 18,
-      "symbol": "APE/WETH",
-      "extensions": {
-        "tokens": "0x4d224452801aced8b2f0aebe155379bb5d594381,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
       "chainId": 42161,
       "address": "0x8edfb54e8c76c512dbdd4faa252bf4e163caad32",
       "name": "SushiSwap LP MAGIC/WETH",
       "decimals": 18,
       "symbol": "MAGIC/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x2c852d3334188be136bfc540ef2bb8c37b590bad"
+        "tokens": "0x2c852d3334188be136bfc540ef2bb8c37b590bad,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -3724,7 +3724,7 @@
       "decimals": 18,
       "symbol": "LON/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0000000000095413afc295d19edeb1ad7b71c952"
+        "tokens": "0x0000000000095413afc295d19edeb1ad7b71c952,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3739,6 +3739,26 @@
     },
     {
       "chainId": 42161,
+      "address": "0x0a4f9962e24893a4a7567e52c1ce37d5482365de",
+      "name": "SushiSwap LP GTA/USDT",
+      "decimals": 18,
+      "symbol": "GTA/USDT",
+      "extensions": {
+        "tokens": "0x73db621cc8f0a767bed0e5c0a2920f480d77b765,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x12128ea120ab20fe88d3d9023fa011c7a68fb3ca",
+      "name": "SushiSwap LP GNO/COW",
+      "decimals": 18,
+      "symbol": "GNO/COW",
+      "extensions": {
+        "tokens": "0x6810e776880c02933d47db1b9fc05908e5386b96,0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xfb5db4f55bb97a608f6ee50864104457fa04da4f",
       "name": "SushiSwap LP FRAX/FXS",
       "decimals": 18,
@@ -3749,32 +3769,42 @@
     },
     {
       "chainId": 42161,
-      "address": "0x0a4f9962e24893a4a7567e52c1ce37d5482365de",
-      "name": "SushiSwap LP GTA/USDT",
+      "address": "0xf89c3657aca0f457c7d50d2b8cc746f46fc7e00f",
+      "name": "SushiSwap LP WETH/NOLA",
       "decimals": 18,
-      "symbol": "GTA/USDT",
+      "symbol": "WETH/NOLA",
       "extensions": {
-        "tokens": "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9,0x73db621cc8f0a767bed0e5c0a2920f480d77b765"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xf8388c2b6edf00e2e27eef5200b1befb24ce141d"
       }
     },
     {
       "chainId": 1,
-      "address": "0xdbb69ea87507525fffbd1c4f1ad6f7d30a9a402e",
-      "name": "SushiSwap LP PRIMATE/APE",
+      "address": "0x117d4288b3635021a3d612fe05a3cbf5c717fef2",
+      "name": "SushiSwap LP SRM/WETH",
       "decimals": 18,
-      "symbol": "PRIMATE/APE",
+      "symbol": "SRM/WETH",
       "extensions": {
-        "tokens": "0x4d224452801aced8b2f0aebe155379bb5d594381,0x46e98ffe40e408ba6412beb670507e083c8b95ff"
+        "tokens": "0x476c5e26a75bd202a9683ffd34359c0cc15be0ff,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x4cee4754d96f42b1761318a4df5070073e1c4a4c",
-      "name": "SushiSwap LP QUA/DAI",
+      "address": "0x69b81152c5a8d35a67b32a4d3772795d96cae4da",
+      "name": "SushiSwap LP OHM/WETH",
       "decimals": 18,
-      "symbol": "QUA/DAI",
+      "symbol": "OHM/WETH",
       "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x4daeb4a06f70f4b1a5c329115731fe4b89c0b227"
+        "tokens": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x4d99c04044fcf302ad20cfe7771a63e3a6de5db3",
+      "name": "SushiSwap LP WETH/Pork",
+      "decimals": 18,
+      "symbol": "WETH/Pork",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xdba35afc5f4d5af4933c29a157dab3975f3eee9b"
       }
     },
     {
@@ -3789,32 +3819,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x12128ea120ab20fe88d3d9023fa011c7a68fb3ca",
-      "name": "SushiSwap LP GNO/COW",
+      "address": "0x279ca79d5fb2490721512c8ae4767e249d75f41b",
+      "name": "SushiSwap LP LUSD/WETH",
       "decimals": 18,
-      "symbol": "GNO/COW",
+      "symbol": "LUSD/WETH",
       "extensions": {
-        "tokens": "0xdef1ca1fb7fbcdc777520aa7f396b4e015f497ab,0x6810e776880c02933d47db1b9fc05908e5386b96"
+        "tokens": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x117d4288b3635021a3d612fe05a3cbf5c717fef2",
-      "name": "SushiSwap LP SRM/WETH",
+      "address": "0x8d308e01f0401345996552dc391e44c4f3ce8754",
+      "name": "SushiSwap LP MAGIC/WETH",
       "decimals": 18,
-      "symbol": "SRM/WETH",
+      "symbol": "MAGIC/WETH",
       "extensions": {
-        "tokens": "0x476c5e26a75bd202a9683ffd34359c0cc15be0ff,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xcda9b8e5867b5746755fe6e505b6300a76b2fac3",
-      "name": "SushiSwap LP WETH/BIFI",
-      "decimals": 18,
-      "symbol": "WETH/BIFI",
-      "extensions": {
-        "tokens": "0x99c409e5f62e4bd2ac142f17cafb6810b8f0baae,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xb0c7a3ba49c7a6eaba6cd4a96c55a1391070ac9a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -3825,36 +3845,6 @@
       "symbol": "REVV/DOSE",
       "extensions": {
         "tokens": "0x557b933a7c2c45672b610f8954a3deb39a51a8ca,0xb31ef9e52d94d4120eb44fe1ddfde5b4654a6515"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x4d99c04044fcf302ad20cfe7771a63e3a6de5db3",
-      "name": "SushiSwap LP WETH/Pork",
-      "decimals": 18,
-      "symbol": "WETH/Pork",
-      "extensions": {
-        "tokens": "0xdba35afc5f4d5af4933c29a157dab3975f3eee9b,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x69b81152c5a8d35a67b32a4d3772795d96cae4da",
-      "name": "SushiSwap LP OHM/WETH",
-      "decimals": 18,
-      "symbol": "OHM/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xdd51121d1efc398b4c09fd0cb84d79ae2c923fc9",
-      "name": "SushiSwap LP BLOCKS/WETH",
-      "decimals": 18,
-      "symbol": "BLOCKS/WETH",
-      "extensions": {
-        "tokens": "0x8a6d4c8735371ebaf8874fbd518b56edd66024eb,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     }
   ]

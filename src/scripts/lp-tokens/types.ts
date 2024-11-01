@@ -4,6 +4,7 @@ export const PLATFORM_NETWORK_TO_CHAIN_ID = {
   ethereum: SupportedChainId.MAINNET,
   arbitrum: SupportedChainId.ARBITRUM_ONE,
   gnosis: SupportedChainId.GNOSIS_CHAIN,
+  base: SupportedChainId.BASE,
 }
 
 export const BALANCER_NETWORK_TO_CHAIN_ID = {
