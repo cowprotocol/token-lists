@@ -2,9 +2,9 @@ import { BALANCER_NETWORK_TO_CHAIN_ID, BalancerGraphqlPool, BalancerGraphqlRespo
 import { TokenList } from '@uniswap/token-lists'
 import { getTokenListVersion, writeTokenListToSrc } from '../tokenListUtils'
 import { TokenInfo } from '@uniswap/token-lists/src/types'
+import { COW_AMM_POOLS_GQL } from './cowAmmGql'
 
 const operationName = 'GetPools'
-const query = 'query GetPools($first: Int, $skip: Int, $orderBy: GqlPoolOrderBy, $orderDirection: GqlPoolOrderDirection, $where: GqlPoolFilter, $textSearch: String) {\n  pools: poolGetPools(\n    first: $first\n    skip: $skip\n    orderBy: $orderBy\n    orderDirection: $orderDirection\n    where: $where\n    textSearch: $textSearch\n  ) {\n    address\n    chain\n    createTime\n    decimals\n    protocolVersion\n    tags\n    displayTokens {\n      id\n      address\n      name\n      weight\n      symbol\n      nestedTokens {\n        id\n        address\n        name\n        weight\n        symbol\n        __typename\n      }\n      __typename\n    }\n    dynamicData {\n      totalLiquidity\n      lifetimeVolume\n      lifetimeSwapFees\n      volume24h\n      fees24h\n      holdersCount\n      swapFee\n      swapsCount\n      totalShares\n      aprItems {\n        id\n        title\n        apr\n        type\n        rewardTokenSymbol\n        rewardTokenAddress\n        __typename\n      }\n      __typename\n    }\n    staking {\n      id\n      type\n      chain\n      address\n      gauge {\n        id\n        gaugeAddress\n        version\n        status\n        workingSupply\n        otherGauges {\n          gaugeAddress\n          version\n          status\n          id\n          rewards {\n            id\n            tokenAddress\n            rewardPerSecond\n            __typename\n          }\n          __typename\n        }\n        rewards {\n          id\n          rewardPerSecond\n          tokenAddress\n          __typename\n        }\n        __typename\n      }\n      aura {\n        id\n        apr\n        auraPoolAddress\n        auraPoolId\n        isShutdown\n        __typename\n      }\n      __typename\n    }\n    factory\n    id\n    name\n    owner\n    symbol\n    type\n    userBalance {\n      totalBalance\n      totalBalanceUsd\n      walletBalance\n      walletBalanceUsd\n      stakedBalances {\n        balance\n        balanceUsd\n        stakingType\n        stakingId\n        __typename\n      }\n      __typename\n    }\n    __typename\n  }\n  count: poolGetPoolsCount(\n    first: $first\n    skip: $skip\n    orderBy: $orderBy\n    orderDirection: $orderDirection\n    where: $where\n    textSearch: $textSearch\n  )\n}'
 
 const pageSize = 50
 const variables = {
@@ -73,7 +73,7 @@ async function fetchCoWAmmPools(page: number): Promise<BalancerGraphqlResponse> 
     },
     'body': JSON.stringify({
       operationName,
-      query,
+      query: COW_AMM_POOLS_GQL,
       variables: {
         ...variables,
         first: pageSize,
