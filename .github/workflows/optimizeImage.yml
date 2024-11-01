@@ -24,14 +24,30 @@ jobs:
       - name: Download image
         run: curl -o image.png "${{ inputs.url }}"
 
-      - name: Install imagemagick
-        run: sudo apt install imagemagick
+      - name: Install dependencies
+        run: sudo apt install imagemagick librsvg2-bin
 
-      - name: Optimize image
-        run: "convert image.png -depth 7 -resize 256x -posterize 24 output.png"
+      - name: Optimze image
+        run: |
+          image_type=$(identify -format "%m" image.png)
 
-#      - name: Further compress image
-#        run: "??? still need to figure out how to do this without imageoptim"
+          if [[ "$image_type" == "SVG" ]]; then
+            # Convert the SVG to PNG
+            rsvg-convert --width=256 --height=256 --keep-aspect-ratio -o output.png image.png
+          elif [[ "$image_type" == "PNG" ]]; then
+            should_optimize=$(identify -format "%[fx:w>256 && h>256]" image.png)
+
+            if [ "$should_optimize" = "1" ]; then
+              echo "Optimizing PNG image"
+              convert image.png -depth 7 -resize 256x -posterize 24 output.png
+            else
+              echo "Image is already small enough, moving to output.png"
+              mv image.png output.png
+            fi
+          else
+            echo "Error: Unsupported image type: $image_type" >&2
+            exit 1
+          fi
 
       - name: Upload img
         uses: actions/upload-artifact@v3
@@ -46,9 +62,9 @@ jobs:
         with:
           comment: |
             Failed to optimize image
-            
+
             Check you provided a proper image file and try again in a new issue
-            
+
             If the issue persists, create a bug report
-            
+
             cc @cowprotocol/frontend
