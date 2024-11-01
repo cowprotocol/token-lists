@@ -4,6 +4,7 @@ export const PLATFORM_NETWORK_TO_CHAIN_ID = {
   ethereum: SupportedChainId.MAINNET,
   arbitrum: SupportedChainId.ARBITRUM_ONE,
   gnosis: SupportedChainId.GNOSIS_CHAIN,
+  base: SupportedChainId.BASE,
 }
 
 type ArrayElement<A> = A extends readonly (infer T)[] ? T : never

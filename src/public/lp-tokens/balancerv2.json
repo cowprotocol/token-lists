@@ -1,10 +1,10 @@
 {
   "name": "LP balancerv2 Token List",
-  "timestamp": "2024-10-11T14:15:21.222Z",
+  "timestamp": "2024-11-01T09:05:00.680Z",
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 0
+    "patch": 2
   },
   "tokens": [
     {
@@ -14,7 +14,7 @@
       "decimals": 18,
       "symbol": "wstETH/AAVE",
       "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9"
+        "tokens": "0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
       }
     },
     {
@@ -24,17 +24,7 @@
       "decimals": 18,
       "symbol": "BAL/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xba100000625a3754423978a60c9317c58a424e3d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1e19cf2d73a72ef1332c882f20534b6519be0276",
-      "name": "BalancerV2 LP rETH/WETH",
-      "decimals": 18,
-      "symbol": "rETH/WETH",
-      "extensions": {
-        "tokens": "0xae78736cd615f374d3085123a210448e74fc6393,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xba100000625a3754423978a60c9317c58a424e3d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -44,7 +34,17 @@
       "decimals": 18,
       "symbol": "wstETH/GNO",
       "extensions": {
-        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x6c76971f98945ae98dd7d4dfca8711ebea946ea6"
+        "tokens": "0x6c76971f98945ae98dd7d4dfca8711ebea946ea6,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1e19cf2d73a72ef1332c882f20534b6519be0276",
+      "name": "BalancerV2 LP rETH/WETH",
+      "decimals": 18,
+      "symbol": "rETH/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xae78736cd615f374d3085123a210448e74fc6393"
       }
     },
     {
@@ -54,17 +54,7 @@
       "decimals": 18,
       "symbol": "sDAI/GYD",
       "extensions": {
-        "tokens": "0x83f20f44975d03b1b09e64809b757c47f942beea,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x32df62dc3aed2cd6224193052ce665dc18165841",
-      "name": "BalancerV2 LP RDNT/WETH",
-      "decimals": 18,
-      "symbol": "RDNT/WETH",
-      "extensions": {
-        "tokens": "0x3082cc23568ea640225c2467653db90e9250aaa0,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,0x83f20f44975d03b1b09e64809b757c47f942beea"
       }
     },
     {
@@ -84,7 +74,17 @@
       "decimals": 18,
       "symbol": "GNO/WETH",
       "extensions": {
-        "tokens": "0x6810e776880c02933d47db1b9fc05908e5386b96,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6810e776880c02933d47db1b9fc05908e5386b96"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x32df62dc3aed2cd6224193052ce665dc18165841",
+      "name": "BalancerV2 LP RDNT/WETH",
+      "decimals": 18,
+      "symbol": "RDNT/WETH",
+      "extensions": {
+        "tokens": "0x3082cc23568ea640225c2467653db90e9250aaa0,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -94,17 +94,7 @@
       "decimals": 18,
       "symbol": "USDC/STG",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf16aee6a71af1a9bc8f56975a4c2705ca7a782bc",
-      "name": "BalancerV2 LP WETH/ALCX",
-      "decimals": 18,
-      "symbol": "WETH/ALCX",
-      "extensions": {
-        "tokens": "0xdbdb4d16eda451d0503b854cf79d55697f90c8df,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xaf5191b0de278c7286d6c7cc6ab6bb8a73ba2cd6,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
@@ -114,7 +104,17 @@
       "decimals": 18,
       "symbol": "ACX/wstETH",
       "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f"
+        "tokens": "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf16aee6a71af1a9bc8f56975a4c2705ca7a782bc",
+      "name": "BalancerV2 LP WETH/ALCX",
+      "decimals": 18,
+      "symbol": "WETH/ALCX",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xdbdb4d16eda451d0503b854cf79d55697f90c8df"
       }
     },
     {
@@ -124,7 +124,7 @@
       "decimals": 18,
       "symbol": "WETH/PSP",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcafe001067cdef266afb7eb5a286dcfd277f3de5"
+        "tokens": "0xcafe001067cdef266afb7eb5a286dcfd277f3de5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -139,16 +139,6 @@
     },
     {
       "chainId": 1,
-      "address": "0x9f9d900462492d4c21e9523ca95a7cd86142f298",
-      "name": "BalancerV2 LP rETH/RPL",
-      "decimals": 18,
-      "symbol": "rETH/RPL",
-      "extensions": {
-        "tokens": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f,0xae78736cd615f374d3085123a210448e74fc6393"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0xde8c195aa41c11a0c4787372defbbddaa31306d2",
       "name": "BalancerV2 LP WETH/COW",
       "decimals": 18,
@@ -159,22 +149,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xcf7b51ce5755513d4be016b0e28d6edeffa1d52a",
-      "name": "BalancerV2 LP RDNT/WETH",
+      "address": "0x9f9d900462492d4c21e9523ca95a7cd86142f298",
+      "name": "BalancerV2 LP rETH/RPL",
       "decimals": 18,
-      "symbol": "RDNT/WETH",
+      "symbol": "rETH/RPL",
       "extensions": {
-        "tokens": "0x137ddb47ee24eaa998a535ab00378d6bfa84f893,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xcdcef9765d369954a4a936064535710f7235110a",
-      "name": "BalancerV2 LP weETH/wstETH",
-      "decimals": 18,
-      "symbol": "weETH/wstETH",
-      "extensions": {
-        "tokens": "0x35751007a407ca6feffe80b3cb397736d2cf4dbe,0x5979d7b546e38e414f7e9822514be443a4800529"
+        "tokens": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f,0xae78736cd615f374d3085123a210448e74fc6393"
       }
     },
     {
@@ -184,7 +164,17 @@
       "decimals": 18,
       "symbol": "PENDLE/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x808507121b80c02388fad14726482e061b8da827"
+        "tokens": "0x808507121b80c02388fad14726482e061b8da827,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xcdcef9765d369954a4a936064535710f7235110a",
+      "name": "BalancerV2 LP weETH/wstETH",
+      "decimals": 18,
+      "symbol": "weETH/wstETH",
+      "extensions": {
+        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0x35751007a407ca6feffe80b3cb397736d2cf4dbe"
       }
     },
     {
@@ -199,22 +189,12 @@
     },
     {
       "chainId": 1,
-      "address": "0x9232a548dd9e81bac65500b5e0d918f8ba93675c",
-      "name": "BalancerV2 LP WETH/LIT",
-      "decimals": 18,
-      "symbol": "WETH/LIT",
-      "extensions": {
-        "tokens": "0xfd0205066521550d7d7ab19da8f72bb004b4c341,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0xa6f548df93de924d73be7d25dc02554c6bd66db5",
       "name": "BalancerV2 LP WBTC/WETH",
       "decimals": 18,
       "symbol": "WBTC/WETH",
       "extensions": {
-        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
       }
     },
     {
@@ -229,12 +209,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9",
-      "name": "BalancerV2 LP WETH/AURA",
+      "address": "0x7d98f308db99fdd04bbf4217a4be8809f38faa64",
+      "name": "BalancerV2 LP GHO/wstETH",
       "decimals": 18,
-      "symbol": "WETH/AURA",
+      "symbol": "GHO/wstETH",
       "extensions": {
-        "tokens": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
       }
     },
     {
@@ -248,43 +228,23 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x7d98f308db99fdd04bbf4217a4be8809f38faa64",
-      "name": "BalancerV2 LP GHO/wstETH",
-      "decimals": 18,
-      "symbol": "GHO/wstETH",
-      "extensions": {
-        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
-      }
-    },
-    {
       "chainId": 100,
       "address": "0xe2343512dcf8a23d81e6cdc2fac656db1ff83aa1",
       "name": "BalancerV2 LP WETH/WBTC",
       "decimals": 18,
       "symbol": "WETH/WBTC",
       "extensions": {
-        "tokens": "0x8e5bbbb09ed1ebde8674cda39a0c169401db4252,0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1"
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x8e5bbbb09ed1ebde8674cda39a0c169401db4252"
       }
     },
     {
       "chainId": 1,
-      "address": "0xb986fd52697f16be888bfad2c5bf12cd67ce834b",
-      "name": "BalancerV2 LP $ADS/WETH",
+      "address": "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9",
+      "name": "BalancerV2 LP WETH/AURA",
       "decimals": 18,
-      "symbol": "$ADS/WETH",
+      "symbol": "WETH/AURA",
       "extensions": {
-        "tokens": "0x3106a0a076bedae847652f42ef07fd58589e001f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xfeadd389a5c427952d8fdb8057d6c8ba1156cc56",
-      "name": "BalancerV2 LP WBTC/renBTC/sBTC",
-      "decimals": 18,
-      "symbol": "WBTC/renBTC/sBTC",
-      "extensions": {
-        "tokens": "0xfe18be6b3bd88a2d2a7f928d00292e7a9963cfc6,0xeb4c2781e4eba804ce9a9803c67d0893436bb27d,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+        "tokens": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -299,6 +259,46 @@
     },
     {
       "chainId": 1,
+      "address": "0xfeadd389a5c427952d8fdb8057d6c8ba1156cc56",
+      "name": "BalancerV2 LP WBTC/renBTC/sBTC",
+      "decimals": 18,
+      "symbol": "WBTC/renBTC/sBTC",
+      "extensions": {
+        "tokens": "0xeb4c2781e4eba804ce9a9803c67d0893436bb27d,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xfe18be6b3bd88a2d2a7f928d00292e7a9963cfc6"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xcf7b51ce5755513d4be016b0e28d6edeffa1d52a",
+      "name": "BalancerV2 LP RDNT/WETH",
+      "decimals": 18,
+      "symbol": "RDNT/WETH",
+      "extensions": {
+        "tokens": "0x137ddb47ee24eaa998a535ab00378d6bfa84f893,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9232a548dd9e81bac65500b5e0d918f8ba93675c",
+      "name": "BalancerV2 LP WETH/LIT",
+      "decimals": 18,
+      "symbol": "WETH/LIT",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xfd0205066521550d7d7ab19da8f72bb004b4c341"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x8bd4a1e74a27182d23b98c10fd21d4fbb0ed4ba0",
+      "name": "BalancerV2 LP TEMPLE/DAI",
+      "decimals": 18,
+      "symbol": "TEMPLE/DAI",
+      "extensions": {
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0x470ebf5f030ed85fc1ed4c2d36b9dd02e77cf1b7"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x39eb558131e5ebeb9f76a6cbf6898f6e6dce5e4e",
       "name": "BalancerV2 LP QI/WETH",
       "decimals": 18,
@@ -308,13 +308,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x32296969ef14eb0c6d29669c550d4a0449130230",
-      "name": "BalancerV2 LP wstETH/WETH",
+      "chainId": 42161,
+      "address": "0x1ed1e6fa76e3dd9ea68d1fd8c4b8626ea5648dfa",
+      "name": "BalancerV2 LP wstETH/TANGO",
       "decimals": 18,
-      "symbol": "wstETH/WETH",
+      "symbol": "wstETH/TANGO",
       "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0xc760f9782f8cea5b06d862574464729537159966"
       }
     },
     {
@@ -329,107 +329,17 @@
     },
     {
       "chainId": 1,
-      "address": "0x8bd4a1e74a27182d23b98c10fd21d4fbb0ed4ba0",
-      "name": "BalancerV2 LP TEMPLE/DAI",
+      "address": "0xb986fd52697f16be888bfad2c5bf12cd67ce834b",
+      "name": "BalancerV2 LP $ADS/WETH",
       "decimals": 18,
-      "symbol": "TEMPLE/DAI",
+      "symbol": "$ADS/WETH",
       "extensions": {
-        "tokens": "0x470ebf5f030ed85fc1ed4c2d36b9dd02e77cf1b7,0x6b175474e89094c44da98b954eedeac495271d0f"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x3106a0a076bedae847652f42ef07fd58589e001f"
       }
     },
     {
       "chainId": 1,
-      "address": "0xc2aa60465bffa1a88f5ba471a59ca0435c3ec5c1",
-      "name": "BalancerV2 LP USDC/GYD",
-      "decimals": 18,
-      "symbol": "USDC/GYD",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xcf8dfdb73e7434b05903b5599fb96174555f4353",
-      "name": "BalancerV2 LP st-yETH/GOLD",
-      "decimals": 18,
-      "symbol": "st-yETH/GOLD",
-      "extensions": {
-        "tokens": "0x583019ff0f430721ada9cfb4fac8f06ca104d0b4,0x9deb0fc809955b79c85e82918e8586d3b7d2695a"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x1cce5169bde03f3d5ad0206f6bd057953539dae6",
-      "name": "BalancerV2 LP sDAI/GYD",
-      "decimals": 18,
-      "symbol": "sDAI/GYD",
-      "extensions": {
-        "tokens": "0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,0x83f20f44975d03b1b09e64809b757c47f942beea"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x3a4c6d2404b5eb14915041e01f63200a82f4a343",
-      "name": "BalancerV2 LP STG/USDC",
-      "decimals": 18,
-      "symbol": "STG/USDC",
-      "extensions": {
-        "tokens": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8,0x6694340fc020c5e6b96567843da2df01b2ce1eb6"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5122e01d819e58bb2e22528c0d68d310f0aa6fd7",
-      "name": "BalancerV2 LP WETH/NOTE",
-      "decimals": 18,
-      "symbol": "WETH/NOTE",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x6228f64d5ba8376652bfe7e36569d595347cf6fb",
-      "name": "BalancerV2 LP tBTC/T",
-      "decimals": 18,
-      "symbol": "tBTC/T",
-      "extensions": {
-        "tokens": "0x18084fba666a33d37592fa2633fd49a74dd93a88,0xcdf7028ceab81fa0c6971208e83fa7872994bee5"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xff4ce5aaab5a627bf82f4a571ab1ce94aa365ea6",
-      "name": "BalancerV2 LP DOLA/USDC",
-      "decimals": 18,
-      "symbol": "DOLA/USDC",
-      "extensions": {
-        "tokens": "0x865377367054516e17014ccded1e7d814edc9ce4,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xc29562b045d80fd77c69bec09541f5c16fe20d9d",
-      "name": "BalancerV2 LP WETH/AURA",
-      "decimals": 18,
-      "symbol": "WETH/AURA",
-      "extensions": {
-        "tokens": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 100,
-      "address": "0x00df7f58e1cf932ebe5f54de5970fb2bdf0ef06d",
-      "name": "BalancerV2 LP AURA/wstETH/BAL",
-      "decimals": 18,
-      "symbol": "AURA/wstETH/BAL",
-      "extensions": {
-        "tokens": "0x1509706a6c66ca549ff0cb464de88231ddbe213b,0x6c76971f98945ae98dd7d4dfca8711ebea946ea6,0x7ef541e2a22058048904fe5744f9c7e4c57af717"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf01b0684c98cd7ada480bfdf6e43876422fa1fc1",
+      "address": "0x32296969ef14eb0c6d29669c550d4a0449130230",
       "name": "BalancerV2 LP wstETH/WETH",
       "decimals": 18,
       "symbol": "wstETH/WETH",
@@ -448,13 +358,103 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x8167a1117691f39e05e9131cfa88f0e3a620e967",
-      "name": "BalancerV2 LP WETH/T",
+      "chainId": 8453,
+      "address": "0xc3889f9764d68bdf2e16f237206746344172a147",
+      "name": "BalancerV2 LP ZBU/USDC",
       "decimals": 18,
-      "symbol": "WETH/T",
+      "symbol": "ZBU/USDC",
       "extensions": {
-        "tokens": "0xcdf7028ceab81fa0c6971208e83fa7872994bee5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913,0x2c8c89c442436cc6c0a77943e09c8daf49da3161"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x1cce5169bde03f3d5ad0206f6bd057953539dae6",
+      "name": "BalancerV2 LP sDAI/GYD",
+      "decimals": 18,
+      "symbol": "sDAI/GYD",
+      "extensions": {
+        "tokens": "0x83f20f44975d03b1b09e64809b757c47f942beea,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3932b187f440ce7703653b3908edc5bb7676c283",
+      "name": "BalancerV2 LP GHO/USDC",
+      "decimals": 18,
+      "symbol": "GHO/USDC",
+      "extensions": {
+        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc2aa60465bffa1a88f5ba471a59ca0435c3ec5c1",
+      "name": "BalancerV2 LP USDC/GYD",
+      "decimals": 18,
+      "symbol": "USDC/GYD",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x3a4c6d2404b5eb14915041e01f63200a82f4a343",
+      "name": "BalancerV2 LP STG/USDC",
+      "decimals": 18,
+      "symbol": "STG/USDC",
+      "extensions": {
+        "tokens": "0x6694340fc020c5e6b96567843da2df01b2ce1eb6,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x6228f64d5ba8376652bfe7e36569d595347cf6fb",
+      "name": "BalancerV2 LP tBTC/T",
+      "decimals": 18,
+      "symbol": "tBTC/T",
+      "extensions": {
+        "tokens": "0x18084fba666a33d37592fa2633fd49a74dd93a88,0xcdf7028ceab81fa0c6971208e83fa7872994bee5"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5122e01d819e58bb2e22528c0d68d310f0aa6fd7",
+      "name": "BalancerV2 LP WETH/NOTE",
+      "decimals": 18,
+      "symbol": "WETH/NOTE",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x007bb7a4bfc214df06474e39142288e99540f2b3",
+      "name": "BalancerV2 LP WETH/IMO",
+      "decimals": 18,
+      "symbol": "WETH/IMO",
+      "extensions": {
+        "tokens": "0x5a7a2bf9ffae199f088b25837dcd7e115cf8e1bb,0x4200000000000000000000000000000000000006"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x00df7f58e1cf932ebe5f54de5970fb2bdf0ef06d",
+      "name": "BalancerV2 LP AURA/wstETH/BAL",
+      "decimals": 18,
+      "symbol": "AURA/wstETH/BAL",
+      "extensions": {
+        "tokens": "0x6c76971f98945ae98dd7d4dfca8711ebea946ea6,0x7ef541e2a22058048904fe5744f9c7e4c57af717,0x1509706a6c66ca549ff0cb464de88231ddbe213b"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc29562b045d80fd77c69bec09541f5c16fe20d9d",
+      "name": "BalancerV2 LP WETH/AURA",
+      "decimals": 18,
+      "symbol": "WETH/AURA",
+      "extensions": {
+        "tokens": "0xc0c293ce456ff0ed870add98a0828dd4d2903dbf,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -464,7 +464,27 @@
       "decimals": 18,
       "symbol": "SAFE/GNO",
       "extensions": {
-        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x4d18815d14fe5c3304e87b3fa18318baa5c23820"
+        "tokens": "0x4d18815d14fe5c3304e87b3fa18318baa5c23820,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xcf8dfdb73e7434b05903b5599fb96174555f4353",
+      "name": "BalancerV2 LP st-yETH/GOLD",
+      "decimals": 18,
+      "symbol": "st-yETH/GOLD",
+      "extensions": {
+        "tokens": "0x9deb0fc809955b79c85e82918e8586d3b7d2695a,0x583019ff0f430721ada9cfb4fac8f06ca104d0b4"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x8167a1117691f39e05e9131cfa88f0e3a620e967",
+      "name": "BalancerV2 LP WETH/T",
+      "decimals": 18,
+      "symbol": "WETH/T",
+      "extensions": {
+        "tokens": "0xcdf7028ceab81fa0c6971208e83fa7872994bee5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -484,47 +504,17 @@
       "decimals": 18,
       "symbol": "USDT/GYD",
       "extensions": {
-        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
+        "tokens": "0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,0xdac17f958d2ee523a2206206994597c13d831ec7"
       }
     },
     {
       "chainId": 1,
-      "address": "0x3932b187f440ce7703653b3908edc5bb7676c283",
-      "name": "BalancerV2 LP GHO/USDC",
+      "address": "0xff4ce5aaab5a627bf82f4a571ab1ce94aa365ea6",
+      "name": "BalancerV2 LP DOLA/USDC",
       "decimals": 18,
-      "symbol": "GHO/USDC",
+      "symbol": "DOLA/USDC",
       "extensions": {
-        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xeb3e64ad9314d20bf943ac72fb69f272603f9cce",
-      "name": "BalancerV2 LP SYNO/WETH",
-      "decimals": 18,
-      "symbol": "SYNO/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x577fd586c9e6ba7f2e85e025d5824dbe19896656"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xaa7a70070e7495fe86c67225329dbd39baa2f63b",
-      "name": "BalancerV2 LP GHO/GYD",
-      "decimals": 18,
-      "symbol": "GHO/GYD",
-      "extensions": {
-        "tokens": "0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe8cc7e765647625b95f59c15848379d10b9ab4af",
-      "name": "BalancerV2 LP WETH/WNCG",
-      "decimals": 18,
-      "symbol": "WETH/WNCG",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf203ca1769ca8e9e8fe1da9d147db68b6c919817"
+        "tokens": "0x865377367054516e17014ccded1e7d814edc9ce4,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
@@ -539,32 +529,22 @@
     },
     {
       "chainId": 42161,
+      "address": "0xeb3e64ad9314d20bf943ac72fb69f272603f9cce",
+      "name": "BalancerV2 LP SYNO/WETH",
+      "decimals": 18,
+      "symbol": "SYNO/WETH",
+      "extensions": {
+        "tokens": "0x577fd586c9e6ba7f2e85e025d5824dbe19896656,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x64541216bafffeec8ea535bb71fbc927831d0595",
       "name": "BalancerV2 LP WBTC/WETH/USDC",
       "decimals": 18,
       "symbol": "WBTC/WETH/USDC",
       "extensions": {
-        "tokens": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8,0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb721a3b209f8b598b926826f69280bee7a6bb796",
-      "name": "BalancerV2 LP RAI/FLX/rETH/WETH/RPL",
-      "decimals": 18,
-      "symbol": "RAI/FLX/rETH/WETH/RPL",
-      "extensions": {
-        "tokens": "0xd33526068d116ce69f19a9ee46f0bd304f21a51f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xae78736cd615f374d3085123a210448e74fc6393,0x03ab458634910aad20ef5f1c8ee96f1d6ac54919,0x6243d8cea23066d098a15582d81a598b4e8391f4"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x771fbbfcbd8ba252f7f1ee47c1a486bdb0b5bc62",
-      "name": "BalancerV2 LP RSR/WETH",
-      "decimals": 18,
-      "symbol": "RSR/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x320623b8e4ff03373931769a31fc52a4e78b5d70"
+        "tokens": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
       }
     },
     {
@@ -574,27 +554,57 @@
       "decimals": 18,
       "symbol": "ACX/wstETH",
       "extensions": {
-        "tokens": "0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x44108f0223a3c3028f5fe7aec7f9bb2e66bef82f"
       }
     },
     {
       "chainId": 1,
-      "address": "0x8d93b853849b9884e2bb413444ec23eb5366ee91",
-      "name": "BalancerV2 LP sUSDe/GYD",
+      "address": "0xb721a3b209f8b598b926826f69280bee7a6bb796",
+      "name": "BalancerV2 LP RAI/FLX/rETH/WETH/RPL",
       "decimals": 18,
-      "symbol": "sUSDe/GYD",
+      "symbol": "RAI/FLX/rETH/WETH/RPL",
       "extensions": {
-        "tokens": "0x9d39a5de30e57443bff2a8307a4256c8797a3497,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
+        "tokens": "0x6243d8cea23066d098a15582d81a598b4e8391f4,0xae78736cd615f374d3085123a210448e74fc6393,0x03ab458634910aad20ef5f1c8ee96f1d6ac54919,0xd33526068d116ce69f19a9ee46f0bd304f21a51f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x68e3266c9c8bbd44ad9dca5afbfe629022aee9fe",
-      "name": "BalancerV2 LP wjAURA/WETH",
+      "address": "0xf01b0684c98cd7ada480bfdf6e43876422fa1fc1",
+      "name": "BalancerV2 LP wstETH/WETH",
       "decimals": 18,
-      "symbol": "wjAURA/WETH",
+      "symbol": "wstETH/WETH",
       "extensions": {
-        "tokens": "0x198d7387fa97a73f05b8578cdeff8f2a1f34cd1f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x771fbbfcbd8ba252f7f1ee47c1a486bdb0b5bc62",
+      "name": "BalancerV2 LP RSR/WETH",
+      "decimals": 18,
+      "symbol": "RSR/WETH",
+      "extensions": {
+        "tokens": "0x320623b8e4ff03373931769a31fc52a4e78b5d70,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x5f62fd24941b585b91eb059e0ea1a7e729357511",
+      "name": "BalancerV2 LP AURA/USDC",
+      "decimals": 18,
+      "symbol": "AURA/USDC",
+      "extensions": {
+        "tokens": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913,0x1509706a6c66ca549ff0cb464de88231ddbe213b"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xe8cc7e765647625b95f59c15848379d10b9ab4af",
+      "name": "BalancerV2 LP WETH/WNCG",
+      "decimals": 18,
+      "symbol": "WETH/WNCG",
+      "extensions": {
+        "tokens": "0xf203ca1769ca8e9e8fe1da9d147db68b6c919817,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -608,13 +618,23 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0xa899c63ba9ff275d6bfc83e43ee8e58ff6987584",
-      "name": "BalancerV2 LP wstETH/rETH",
+      "chainId": 1,
+      "address": "0x8d93b853849b9884e2bb413444ec23eb5366ee91",
+      "name": "BalancerV2 LP sUSDe/GYD",
       "decimals": 18,
-      "symbol": "wstETH/rETH",
+      "symbol": "sUSDe/GYD",
       "extensions": {
-        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8"
+        "tokens": "0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,0x9d39a5de30e57443bff2a8307a4256c8797a3497"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x68e3266c9c8bbd44ad9dca5afbfe629022aee9fe",
+      "name": "BalancerV2 LP wjAURA/WETH",
+      "decimals": 18,
+      "symbol": "wjAURA/WETH",
+      "extensions": {
+        "tokens": "0x198d7387fa97a73f05b8578cdeff8f2a1f34cd1f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -624,17 +644,7 @@
       "decimals": 18,
       "symbol": "/WETH",
       "extensions": {
-        "tokens": "0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xef0c116a2818a5b1a5d836a291856a321f43c2fb",
-      "name": "BalancerV2 LP WETH/WOETH",
-      "decimals": 18,
-      "symbol": "WETH/WOETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xd8724322f44e5c58d7a815f542036fb17dbbf839"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9f8f72aa9304c8b593d555f12ef6589cc3a579a2"
       }
     },
     {
@@ -645,6 +655,16 @@
       "symbol": "SNX/WETH",
       "extensions": {
         "tokens": "0xc011a73ee8576fb46f5e1c5751ca3b9fe0af2a6f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xa899c63ba9ff275d6bfc83e43ee8e58ff6987584",
+      "name": "BalancerV2 LP wstETH/rETH",
+      "decimals": 18,
+      "symbol": "wstETH/rETH",
+      "extensions": {
+        "tokens": "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8,0x5979d7b546e38e414f7e9822514be443a4800529"
       }
     },
     {
@@ -659,32 +679,12 @@
     },
     {
       "chainId": 1,
-      "address": "0x577a7f7ee659aa14dc16fd384b3f8078e23f1920",
-      "name": "BalancerV2 LP WETH/VCX",
+      "address": "0x093254005743b7af89e24f645730ba2dd8441333",
+      "name": "BalancerV2 LP APW/WETH",
       "decimals": 18,
-      "symbol": "WETH/VCX",
+      "symbol": "APW/WETH",
       "extensions": {
-        "tokens": "0xce246eea10988c495b4a90a905ee9237a0f91543,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf7a826d47c8e02835d94fb0aa40f0cc9505cb134",
-      "name": "BalancerV2 LP wstETH/cbETH",
-      "decimals": 18,
-      "symbol": "wstETH/cbETH",
-      "extensions": {
-        "tokens": "0xbe9895146f7af43049ca1c1ae358b0541ea49704,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x88e2c969e2a1c69c16d1dcd9f8acde4c6ab3838a",
-      "name": "BalancerV2 LP FOX/WETH",
-      "decimals": 18,
-      "symbol": "FOX/WETH",
-      "extensions": {
-        "tokens": "0x6bcc14b02cd624ebe1a8a665cb6d4067aa097230,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x4104b135dbc9609fc1a9490e61369036497660c8"
       }
     },
     {
@@ -699,22 +699,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x42fbd9f666aacc0026ca1b88c94259519e03dd67",
-      "name": "BalancerV2 LP COIL/USDC",
+      "address": "0x577a7f7ee659aa14dc16fd384b3f8078e23f1920",
+      "name": "BalancerV2 LP WETH/VCX",
       "decimals": 18,
-      "symbol": "COIL/USDC",
+      "symbol": "WETH/VCX",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x823e1b82ce1dc147bbdb25a203f046afab1ce918"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xce246eea10988c495b4a90a905ee9237a0f91543"
       }
     },
     {
-      "chainId": 1,
-      "address": "0x093254005743b7af89e24f645730ba2dd8441333",
-      "name": "BalancerV2 LP APW/WETH",
+      "chainId": 42161,
+      "address": "0x88e2c969e2a1c69c16d1dcd9f8acde4c6ab3838a",
+      "name": "BalancerV2 LP FOX/WETH",
       "decimals": 18,
-      "symbol": "APW/WETH",
+      "symbol": "FOX/WETH",
       "extensions": {
-        "tokens": "0x4104b135dbc9609fc1a9490e61369036497660c8,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x6bcc14b02cd624ebe1a8a665cb6d4067aa097230,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -728,23 +728,23 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x569061e2d807881f4a33e1cbe1063bc614cb75a4",
-      "name": "BalancerV2 LP Y2K/WETH",
+      "chainId": 1,
+      "address": "0x42fbd9f666aacc0026ca1b88c94259519e03dd67",
+      "name": "BalancerV2 LP COIL/USDC",
       "decimals": 18,
-      "symbol": "Y2K/WETH",
+      "symbol": "COIL/USDC",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x65c936f008bc34fe819bce9fa5afd9dc2d49977f"
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x823e1b82ce1dc147bbdb25a203f046afab1ce918"
       }
     },
     {
-      "chainId": 1,
-      "address": "0x0b09dea16768f0799065c475be02919503cb2a35",
-      "name": "BalancerV2 LP DAI/WETH",
+      "chainId": 42161,
+      "address": "0xef0c116a2818a5b1a5d836a291856a321f43c2fb",
+      "name": "BalancerV2 LP WETH/WOETH",
       "decimals": 18,
-      "symbol": "DAI/WETH",
+      "symbol": "WETH/WOETH",
       "extensions": {
-        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xd8724322f44e5c58d7a815f542036fb17dbbf839"
       }
     },
     {
@@ -754,7 +754,17 @@
       "decimals": 18,
       "symbol": "LINK/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x514910771af9ca656af840dff83e8264ecf986ca"
+        "tokens": "0x514910771af9ca656af840dff83e8264ecf986ca,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x0b09dea16768f0799065c475be02919503cb2a35",
+      "name": "BalancerV2 LP DAI/WETH",
+      "decimals": 18,
+      "symbol": "DAI/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6b175474e89094c44da98b954eedeac495271d0f"
       }
     },
     {
@@ -764,7 +774,7 @@
       "decimals": 18,
       "symbol": "APU/BITCOIN",
       "extensions": {
-        "tokens": "0x594daad7d77592a2b97b725a7ad59d7e188b5bfa,0x72e4f9f808c49a2a61de9c5896298920dc4eeea9"
+        "tokens": "0x72e4f9f808c49a2a61de9c5896298920dc4eeea9,0x594daad7d77592a2b97b725a7ad59d7e188b5bfa"
       }
     },
     {
@@ -774,17 +784,17 @@
       "decimals": 18,
       "symbol": "MPH/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x8888801af4d980682e47f1a9036e589479e835c5"
+        "tokens": "0x8888801af4d980682e47f1a9036e589479e835c5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x93ab2afded588a9e7f3ef569834b13685d612f96",
-      "name": "BalancerV2 LP M2/WETH",
+      "address": "0x4e1325ff075a387e3d337f5f12638d6d72b12780",
+      "name": "BalancerV2 LP OLAS/WBTC/DAI/WETH",
       "decimals": 18,
-      "symbol": "M2/WETH",
+      "symbol": "OLAS/WBTC/DAI/WETH",
       "extensions": {
-        "tokens": "0x965d79f1a1016b574a62986e13ca8ab04dfdd15c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x0001a500a6b18995b03f44bb040a5ffc28e45cb0"
       }
     },
     {
@@ -799,172 +809,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x9137f3a026fa419a7a9a0ba8df6601d4b0abfd26",
-      "name": "BalancerV2 LP WETH/BICO",
+      "address": "0x93ab2afded588a9e7f3ef569834b13685d612f96",
+      "name": "BalancerV2 LP M2/WETH",
       "decimals": 18,
-      "symbol": "WETH/BICO",
+      "symbol": "M2/WETH",
       "extensions": {
-        "tokens": "0xf17e65822b568b3903685a7c9f496cf7656cc6c2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x965d79f1a1016b574a62986e13ca8ab04dfdd15c,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 42161,
-      "address": "0x1533a3278f3f9141d5f820a184ea4b017fce2382",
-      "name": "BalancerV2 LP DAI/USDT/USDC",
+      "address": "0x569061e2d807881f4a33e1cbe1063bc614cb75a4",
+      "name": "BalancerV2 LP Y2K/WETH",
       "decimals": 18,
-      "symbol": "DAI/USDT/USDC",
+      "symbol": "Y2K/WETH",
       "extensions": {
-        "tokens": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb3b675a9a3cb0df8f66caf08549371bfb76a9867",
-      "name": "BalancerV2 LP mevETH/WETH",
-      "decimals": 18,
-      "symbol": "mevETH/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e"
-      }
-    },
-    {
-      "chainId": 100,
-      "address": "0xdccaa73705dc7457bcfb3dafee529b30920e3008",
-      "name": "BalancerV2 LP GIV/GNO",
-      "decimals": 18,
-      "symbol": "GIV/GNO",
-      "extensions": {
-        "tokens": "0x4f4f9b8d5b4d0dc10506e5551b0513b61fd59e75,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xf506984c16737b1a9577cadeda02a49fd612aff8",
-      "name": "BalancerV2 LP XAI/USDC",
-      "decimals": 18,
-      "symbol": "XAI/USDC",
-      "extensions": {
-        "tokens": "0x35e78b3982e87ecfd5b3f3265b601c046cdbe232,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x57766212638c425e9cb0c6d6e1683dda369c0fff",
-      "name": "BalancerV2 LP GEM/WETH",
-      "decimals": 18,
-      "symbol": "GEM/WETH",
-      "extensions": {
-        "tokens": "0x0447d3454b25935eed47f65b4bd22b9b23be326a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xcc65a812ce382ab909a11e434dbf75b34f1cc59d",
-      "name": "BalancerV2 LP BAL/WETH",
-      "decimals": 18,
-      "symbol": "BAL/WETH",
-      "extensions": {
-        "tokens": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xb460daa847c45f1c4a41cb05bfb3b51c92e41b36",
-      "name": "BalancerV2 LP WBTC/BADGER",
-      "decimals": 18,
-      "symbol": "WBTC/BADGER",
-      "extensions": {
-        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x3472a5a71965499acd81997a54bba8d852c6e53d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x9ed2dbe178f5720ed6085630d3a0b76ee2cd3ab2",
-      "name": "BalancerV2 LP GHO/USD0",
-      "decimals": 18,
-      "symbol": "GHO/USD0",
-      "extensions": {
-        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0x73a15fed60bf67631dc6cd7bc5b6e8da8190acf5"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xc757f12694f550d0985ad6e1019c4db4a803f160",
-      "name": "BalancerV2 LP wstETH/sFRAX",
-      "decimals": 18,
-      "symbol": "wstETH/sFRAX",
-      "extensions": {
-        "tokens": "0xe3b3fe7bca19ca77ad877a5bebab186becfad906,0x5979d7b546e38e414f7e9822514be443a4800529"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5f1f4e50ba51d723f12385a8a9606afc3a0555f5",
-      "name": "BalancerV2 LP LDO/wstETH",
-      "decimals": 18,
-      "symbol": "LDO/wstETH",
-      "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x5a98fcbea516cf06857215779fd812ca3bef1b32"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xc5c91aea7551095c3e1ff0f94f682c45b347ad73",
-      "name": "BalancerV2 LP B-80BAL-20WETH/WETH",
-      "decimals": 18,
-      "symbol": "B-80BAL-20WETH/WETH",
-      "extensions": {
-        "tokens": "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 100,
-      "address": "0x66888e4f35063ad8bb11506a6fde5024fb4f1db0",
-      "name": "BalancerV2 LP staBAL3/WETH/WBTC",
-      "decimals": 18,
-      "symbol": "staBAL3/WETH/WBTC",
-      "extensions": {
-        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x8e5bbbb09ed1ebde8674cda39a0c169401db4252,0x2086f52651837600180de173b09470f54ef74910"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x06df3b2bbb68adc8b0e302443692037ed9f91b42",
-      "name": "BalancerV2 LP DAI/USDC/USDT",
-      "decimals": 18,
-      "symbol": "DAI/USDC/USDT",
-      "extensions": {
-        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0x6b175474e89094c44da98b954eedeac495271d0f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xdbc4f138528b6b893cbcc3fd9c15d8b34d0554ae",
-      "name": "BalancerV2 LP QNT/USDC",
-      "decimals": 18,
-      "symbol": "QNT/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x4a220e6096b25eadb88358cb44068a3248254675"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x4e1325ff075a387e3d337f5f12638d6d72b12780",
-      "name": "BalancerV2 LP OLAS/WBTC/DAI/WETH",
-      "decimals": 18,
-      "symbol": "OLAS/WBTC/DAI/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6b175474e89094c44da98b954eedeac495271d0f,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x0001a500a6b18995b03f44bb040a5ffc28e45cb0"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x350196326aeaa9b98f1903fb5e8fc2686f85318c",
-      "name": "BalancerV2 LP VITA/WETH",
-      "decimals": 18,
-      "symbol": "VITA/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321"
+        "tokens": "0x65c936f008bc34fe819bce9fa5afd9dc2d49977f,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -979,12 +839,202 @@
     },
     {
       "chainId": 1,
-      "address": "0x2044afef1268100918f88de66a3532eab3d8f3ef",
-      "name": "BalancerV2 LP EURA/PAR",
+      "address": "0x9137f3a026fa419a7a9a0ba8df6601d4b0abfd26",
+      "name": "BalancerV2 LP WETH/BICO",
       "decimals": 18,
-      "symbol": "EURA/PAR",
+      "symbol": "WETH/BICO",
       "extensions": {
-        "tokens": "0x68037790a0229e9ce6eaa8a99ea92964106c4703,0x1a7e4e63778b4f12a199c062f3efdd288afcbce8"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xf17e65822b568b3903685a7c9f496cf7656cc6c2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x2875f3effe9ec897d7e4c32680d77ca3e628f33a",
+      "name": "BalancerV2 LP USDC/GYD",
+      "decimals": 18,
+      "symbol": "USDC/GYD",
+      "extensions": {
+        "tokens": "0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x753ee44c4690649c17a7873b14ce6657e9320662",
+      "name": "BalancerV2 LP ZYN/SPX",
+      "decimals": 18,
+      "symbol": "ZYN/SPX",
+      "extensions": {
+        "tokens": "0xe0f63a424a4439cbe457d80e4f4b51ad25b2c56c,0x58cb30368ceb2d194740b144eab4c2da8a917dcb"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb3b675a9a3cb0df8f66caf08549371bfb76a9867",
+      "name": "BalancerV2 LP mevETH/WETH",
+      "decimals": 18,
+      "symbol": "mevETH/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x1533a3278f3f9141d5f820a184ea4b017fce2382",
+      "name": "BalancerV2 LP DAI/USDT/USDC",
+      "decimals": 18,
+      "symbol": "DAI/USDT/USDC",
+      "extensions": {
+        "tokens": "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xdccaa73705dc7457bcfb3dafee529b30920e3008",
+      "name": "BalancerV2 LP GIV/GNO",
+      "decimals": 18,
+      "symbol": "GIV/GNO",
+      "extensions": {
+        "tokens": "0x4f4f9b8d5b4d0dc10506e5551b0513b61fd59e75,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xc757f12694f550d0985ad6e1019c4db4a803f160",
+      "name": "BalancerV2 LP wstETH/sFRAX",
+      "decimals": 18,
+      "symbol": "wstETH/sFRAX",
+      "extensions": {
+        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0xe3b3fe7bca19ca77ad877a5bebab186becfad906"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc8cf54b0b70899ea846b70361e62f3f5b22b1f4b",
+      "name": "BalancerV2 LP wstETH/GYD",
+      "decimals": 18,
+      "symbol": "wstETH/GYD",
+      "extensions": {
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x0dce7d1e1fbfc85c31bd04f890027738f00e580b",
+      "name": "BalancerV2 LP WETH/KABOSUCHAN/DOG",
+      "decimals": 18,
+      "symbol": "WETH/KABOSUCHAN/DOG",
+      "extensions": {
+        "tokens": "0x9e949461f9ec22c6032ce26ea509824fd2f6d98f,0x4200000000000000000000000000000000000006,0xafb89a09d82fbde58f18ac6437b3fc81724e4df6"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xb460daa847c45f1c4a41cb05bfb3b51c92e41b36",
+      "name": "BalancerV2 LP WBTC/BADGER",
+      "decimals": 18,
+      "symbol": "WBTC/BADGER",
+      "extensions": {
+        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x3472a5a71965499acd81997a54bba8d852c6e53d"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x57766212638c425e9cb0c6d6e1683dda369c0fff",
+      "name": "BalancerV2 LP GEM/WETH",
+      "decimals": 18,
+      "symbol": "GEM/WETH",
+      "extensions": {
+        "tokens": "0x0447d3454b25935eed47f65b4bd22b9b23be326a,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf506984c16737b1a9577cadeda02a49fd612aff8",
+      "name": "BalancerV2 LP XAI/USDC",
+      "decimals": 18,
+      "symbol": "XAI/USDC",
+      "extensions": {
+        "tokens": "0x35e78b3982e87ecfd5b3f3265b601c046cdbe232,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9ed2dbe178f5720ed6085630d3a0b76ee2cd3ab2",
+      "name": "BalancerV2 LP GHO/USD0",
+      "decimals": 18,
+      "symbol": "GHO/USD0",
+      "extensions": {
+        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0x73a15fed60bf67631dc6cd7bc5b6e8da8190acf5"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xcc65a812ce382ab909a11e434dbf75b34f1cc59d",
+      "name": "BalancerV2 LP BAL/WETH",
+      "decimals": 18,
+      "symbol": "BAL/WETH",
+      "extensions": {
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5f1f4e50ba51d723f12385a8a9606afc3a0555f5",
+      "name": "BalancerV2 LP LDO/wstETH",
+      "decimals": 18,
+      "symbol": "LDO/wstETH",
+      "extensions": {
+        "tokens": "0x5a98fcbea516cf06857215779fd812ca3bef1b32,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc5c91aea7551095c3e1ff0f94f682c45b347ad73",
+      "name": "BalancerV2 LP B-80BAL-20WETH/WETH",
+      "decimals": 18,
+      "symbol": "B-80BAL-20WETH/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x5c6ee304399dbdb9c8ef030ab642b10820db8f56"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x06df3b2bbb68adc8b0e302443692037ed9f91b42",
+      "name": "BalancerV2 LP DAI/USDC/USDT",
+      "decimals": 18,
+      "symbol": "DAI/USDC/USDT",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xdac17f958d2ee523a2206206994597c13d831ec7,0x6b175474e89094c44da98b954eedeac495271d0f"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x350196326aeaa9b98f1903fb5e8fc2686f85318c",
+      "name": "BalancerV2 LP VITA/WETH",
+      "decimals": 18,
+      "symbol": "VITA/WETH",
+      "extensions": {
+        "tokens": "0x81f8f0bb1cb2a06649e51913a151f0e7ef6fa321,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xdbc4f138528b6b893cbcc3fd9c15d8b34d0554ae",
+      "name": "BalancerV2 LP QNT/USDC",
+      "decimals": 18,
+      "symbol": "QNT/USDC",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x4a220e6096b25eadb88358cb44068a3248254675"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xaa7a70070e7495fe86c67225329dbd39baa2f63b",
+      "name": "BalancerV2 LP GHO/GYD",
+      "decimals": 18,
+      "symbol": "GHO/GYD",
+      "extensions": {
+        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
       }
     },
     {
@@ -999,12 +1049,52 @@
     },
     {
       "chainId": 1,
+      "address": "0x2044afef1268100918f88de66a3532eab3d8f3ef",
+      "name": "BalancerV2 LP EURA/PAR",
+      "decimals": 18,
+      "symbol": "EURA/PAR",
+      "extensions": {
+        "tokens": "0x1a7e4e63778b4f12a199c062f3efdd288afcbce8,0x68037790a0229e9ce6eaa8a99ea92964106c4703"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xa5533a44d06800eaf2daad5aad3f9aa9e1dc3614",
       "name": "BalancerV2 LP PAR/MIMO",
       "decimals": 18,
       "symbol": "PAR/MIMO",
       "extensions": {
         "tokens": "0x68037790a0229e9ce6eaa8a99ea92964106c4703,0x90b831fa3bebf58e9744a14d638e25b4ee06f9bc"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xcb470da0902e6c548f0e8161042f624599286e9b",
+      "name": "BalancerV2 LP AURA/WETH",
+      "decimals": 18,
+      "symbol": "AURA/WETH",
+      "extensions": {
+        "tokens": "0x4200000000000000000000000000000000000006,0x1509706a6c66ca549ff0cb464de88231ddbe213b"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xf7a826d47c8e02835d94fb0aa40f0cc9505cb134",
+      "name": "BalancerV2 LP wstETH/cbETH",
+      "decimals": 18,
+      "symbol": "wstETH/cbETH",
+      "extensions": {
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xbe9895146f7af43049ca1c1ae358b0541ea49704"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x6873789a71b18efa98a8e8758a5ea456d70c178f",
+      "name": "BalancerV2 LP GIV/FOX",
+      "decimals": 18,
+      "symbol": "GIV/FOX",
+      "extensions": {
+        "tokens": "0xc770eefad204b5180df6a14ee197d99d808ee52d,0x900db999074d9277c5da2a43f252d74366230da0"
       }
     },
     {
@@ -1024,7 +1114,7 @@
       "decimals": 18,
       "symbol": "DFX/WETH",
       "extensions": {
-        "tokens": "0x888888435fde8e7d4c54cab67f206e4199454c60,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x888888435fde8e7d4c54cab67f206e4199454c60"
       }
     },
     {
@@ -1054,7 +1144,7 @@
       "decimals": 18,
       "symbol": "D2D/USDC",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x43d4a3cd90ddd2f8f4f693170c9c8098163502ad"
+        "tokens": "0x43d4a3cd90ddd2f8f4f693170c9c8098163502ad,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
@@ -1064,7 +1154,27 @@
       "decimals": 18,
       "symbol": "WETH/VSTA",
       "extensions": {
-        "tokens": "0xa684cd057951541187f288294a1e1c2646aa2d24,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xa684cd057951541187f288294a1e1c2646aa2d24"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x433f09ca08623e48bac7128b7105de678e37d988",
+      "name": "BalancerV2 LP WETH/USDC/GOLD",
+      "decimals": 18,
+      "symbol": "WETH/USDC/GOLD",
+      "extensions": {
+        "tokens": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913,0x4200000000000000000000000000000000000006,0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x66888e4f35063ad8bb11506a6fde5024fb4f1db0",
+      "name": "BalancerV2 LP staBAL3/WETH/WBTC",
+      "decimals": 18,
+      "symbol": "staBAL3/WETH/WBTC",
+      "extensions": {
+        "tokens": "0x8e5bbbb09ed1ebde8674cda39a0c169401db4252,0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x2086f52651837600180de173b09470f54ef74910"
       }
     },
     {
@@ -1075,16 +1185,6 @@
       "symbol": "PSDN/WETH",
       "extensions": {
         "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xa5b947687163fe88c3e6af5b17ae69896f4abccf"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x6873789a71b18efa98a8e8758a5ea456d70c178f",
-      "name": "BalancerV2 LP GIV/FOX",
-      "decimals": 18,
-      "symbol": "GIV/FOX",
-      "extensions": {
-        "tokens": "0x900db999074d9277c5da2a43f252d74366230da0,0xc770eefad204b5180df6a14ee197d99d808ee52d"
       }
     },
     {
@@ -1108,26 +1208,6 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0xee3959fd00a0b996d801fc34b7ce566bd037f5f5",
-      "name": "BalancerV2 LP MIMO/WETH",
-      "decimals": 18,
-      "symbol": "MIMO/WETH",
-      "extensions": {
-        "tokens": "0x90b831fa3bebf58e9744a14d638e25b4ee06f9bc,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xc8cf54b0b70899ea846b70361e62f3f5b22b1f4b",
-      "name": "BalancerV2 LP wstETH/GYD",
-      "decimals": 18,
-      "symbol": "wstETH/GYD",
-      "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a"
-      }
-    },
-    {
       "chainId": 42161,
       "address": "0x934d3c04f0603332d6e182bf33289bc4c905fc22",
       "name": "BalancerV2 LP WETH/A51",
@@ -1139,22 +1219,22 @@
     },
     {
       "chainId": 1,
-      "address": "0xa02e4b3d18d4e6b8d18ac421fbc3dfff8933c40a",
-      "name": "BalancerV2 LP MATIC/WETH",
-      "decimals": 18,
-      "symbol": "MATIC/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0"
-      }
-    },
-    {
-      "chainId": 1,
       "address": "0x441b8a1980f2f2e43a9397099d15cc2fe6d36250",
       "name": "BalancerV2 LP INV/DOLA",
       "decimals": 18,
       "symbol": "INV/DOLA",
       "extensions": {
         "tokens": "0x41d5d79431a913c4ae7d69a668ecdfe5ff9dfb68,0x865377367054516e17014ccded1e7d814edc9ce4"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xee3959fd00a0b996d801fc34b7ce566bd037f5f5",
+      "name": "BalancerV2 LP MIMO/WETH",
+      "decimals": 18,
+      "symbol": "MIMO/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x90b831fa3bebf58e9744a14d638e25b4ee06f9bc"
       }
     },
     {
@@ -1178,13 +1258,13 @@
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x9bfcd4189cf9062697746ce292350f42fdee457c",
-      "name": "BalancerV2 LP DFX/WETH",
+      "chainId": 1,
+      "address": "0xa02e4b3d18d4e6b8d18ac421fbc3dfff8933c40a",
+      "name": "BalancerV2 LP MATIC/WETH",
       "decimals": 18,
-      "symbol": "DFX/WETH",
+      "symbol": "MATIC/WETH",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x27f485b62c4a7e635f561a87560adf5090239e93"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0"
       }
     },
     {
@@ -1198,13 +1278,33 @@
       }
     },
     {
+      "chainId": 42161,
+      "address": "0x2e8ea681fd59c9dc5f32b29de31f782724ef4dcb",
+      "name": "BalancerV2 LP wstETH/GOLD/USDC",
+      "decimals": 18,
+      "symbol": "wstETH/GOLD/USDC",
+      "extensions": {
+        "tokens": "0x8b5e4c9a188b1a187f2d1e80b1c2fb17fa2922e1,0xaf88d065e77c8cc2239327c5edb3a432268e5831,0x5979d7b546e38e414f7e9822514be443a4800529"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x59501a303b1bdf5217617745acec4d99107383f0",
+      "name": "BalancerV2 LP ZBU/USDC",
+      "decimals": 18,
+      "symbol": "ZBU/USDC",
+      "extensions": {
+        "tokens": "0x2c8c89c442436cc6c0a77943e09c8daf49da3161,0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+      }
+    },
+    {
       "chainId": 1,
       "address": "0xa3c500969accb3d8df08cba313c120818fe0ed9d",
       "name": "BalancerV2 LP SYN/WETH",
       "decimals": 18,
       "symbol": "SYN/WETH",
       "extensions": {
-        "tokens": "0x0f2d719407fdbeff09d87557abb7232601fd9f29,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0f2d719407fdbeff09d87557abb7232601fd9f29"
       }
     },
     {
@@ -1214,17 +1314,17 @@
       "decimals": 18,
       "symbol": "WETH/ARB",
       "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x912ce59144191c1204e64559fe8253a0e49e6548"
+        "tokens": "0x912ce59144191c1204e64559fe8253a0e49e6548,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
       "chainId": 42161,
-      "address": "0x2e8ea681fd59c9dc5f32b29de31f782724ef4dcb",
-      "name": "BalancerV2 LP wstETH/GOLD/USDC",
+      "address": "0x9bfcd4189cf9062697746ce292350f42fdee457c",
+      "name": "BalancerV2 LP DFX/WETH",
       "decimals": 18,
-      "symbol": "wstETH/GOLD/USDC",
+      "symbol": "DFX/WETH",
       "extensions": {
-        "tokens": "0x8b5e4c9a188b1a187f2d1e80b1c2fb17fa2922e1,0x5979d7b546e38e414f7e9822514be443a4800529,0xaf88d065e77c8cc2239327c5edb3a432268e5831"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x27f485b62c4a7e635f561a87560adf5090239e93"
       }
     },
     {
@@ -1234,7 +1334,7 @@
       "decimals": 18,
       "symbol": "wstETH/USDC",
       "extensions": {
-        "tokens": "0x5979d7b546e38e414f7e9822514be443a4800529,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
+        "tokens": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8,0x5979d7b546e38e414f7e9822514be443a4800529"
       }
     },
     {
@@ -1244,7 +1344,7 @@
       "decimals": 18,
       "symbol": "BANK/WETH",
       "extensions": {
-        "tokens": "0x2d94aa3e47d9d5024503ca8491fce9a2fb4da198,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2d94aa3e47d9d5024503ca8491fce9a2fb4da198"
       }
     },
     {
@@ -1254,7 +1354,7 @@
       "decimals": 18,
       "symbol": "WETH/USDT",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xdac17f958d2ee523a2206206994597c13d831ec7"
+        "tokens": "0xdac17f958d2ee523a2206206994597c13d831ec7,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1264,7 +1364,7 @@
       "decimals": 18,
       "symbol": "PAR/WETH",
       "extensions": {
-        "tokens": "0x68037790a0229e9ce6eaa8a99ea92964106c4703,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x68037790a0229e9ce6eaa8a99ea92964106c4703"
       }
     },
     {
@@ -1274,7 +1374,7 @@
       "decimals": 18,
       "symbol": "DPI/WBTC/WETH",
       "extensions": {
-        "tokens": "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b"
       }
     },
     {
@@ -1284,7 +1384,7 @@
       "decimals": 18,
       "symbol": "UNN/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x226f7b842e0f0120b7e194d05432b3fd14773a9d"
+        "tokens": "0x226f7b842e0f0120b7e194d05432b3fd14773a9d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1309,32 +1409,12 @@
     },
     {
       "chainId": 1,
-      "address": "0xb08885e6026bab4333a80024ec25a1a3e1ff2b8a",
-      "name": "BalancerV2 LP rETH/WETH",
+      "address": "0xe91888a1d08e37598867d213a4acb5692071bb3a",
+      "name": "BalancerV2 LP R/RAFT",
       "decimals": 18,
-      "symbol": "rETH/WETH",
+      "symbol": "R/RAFT",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x9559aaa82d9649c7a7b220e7c461d2e74c9a3593"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x82b8c7c6fb62d09cfd004309c1f353fb1a926edc",
-      "name": "BalancerV2 LP EPOCH/WETH",
-      "decimals": 18,
-      "symbol": "EPOCH/WETH",
-      "extensions": {
-        "tokens": "0x97d0cfeb4fde54b430307c9482d6f79c761fe9b6,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xccf5575570fac94cec733a58ff91bb3d073085c7",
-      "name": "BalancerV2 LP WETH/ROBOT",
-      "decimals": 18,
-      "symbol": "WETH/ROBOT",
-      "extensions": {
-        "tokens": "0xfb5453340c03db5ade474b27e68b6a9c6b2823eb,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x4c5cb5d87709387f8821709f7a6664f00dcf0c93,0x183015a9ba6ff60230fdeadc3f43b3d788b13e21"
       }
     },
     {
@@ -1349,22 +1429,52 @@
     },
     {
       "chainId": 1,
+      "address": "0xccf5575570fac94cec733a58ff91bb3d073085c7",
+      "name": "BalancerV2 LP WETH/ROBOT",
+      "decimals": 18,
+      "symbol": "WETH/ROBOT",
+      "extensions": {
+        "tokens": "0xfb5453340c03db5ade474b27e68b6a9c6b2823eb,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xb6911f80b1122f41c19b299a69dca07100452bf9",
+      "name": "BalancerV2 LP USDC/USDT",
+      "decimals": 18,
+      "symbol": "USDC/USDT",
+      "extensions": {
+        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x82b8c7c6fb62d09cfd004309c1f353fb1a926edc",
+      "name": "BalancerV2 LP EPOCH/WETH",
+      "decimals": 18,
+      "symbol": "EPOCH/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x97d0cfeb4fde54b430307c9482d6f79c761fe9b6"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xae2a38545167be5a2eba9b931b28de5a7d95315e",
+      "name": "BalancerV2 LP bCSPX/sDAI",
+      "decimals": 18,
+      "symbol": "bCSPX/sDAI",
+      "extensions": {
+        "tokens": "0xaf204776c7245bf4147c2612bf6e5972ee483701,0x1e2c4fb7ede391d116e6b41cd0608260e8801d59"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x8a34b5ad76f528bfec06c80d85ef3b53da7fc300",
       "name": "BalancerV2 LP WETH/ankrETH",
       "decimals": 18,
       "symbol": "WETH/ankrETH",
       "extensions": {
         "tokens": "0xe95a203b1a91a908f9b9ce46459d101078c2c3cb,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x9412206f58cc72b9b4e340422a95354372a3ec3d",
-      "name": "BalancerV2 LP B-baoUSD-LUSD-BPT/BAO",
-      "decimals": 18,
-      "symbol": "B-baoUSD-LUSD-BPT/BAO",
-      "extensions": {
-        "tokens": "0xce391315b414d4c7555956120461d21808a69f3a,0x7e9afd25f5ec0eb24d7d4b089ae7ecb9651c8b1f"
       }
     },
     {
@@ -1378,13 +1488,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x67b532d47a31ce1ed0800e6913dbf5f6e9c48a18",
-      "name": "BalancerV2 LP ⚗️/WETH",
+      "chainId": 100,
+      "address": "0x8189c4c96826d016a99986394103dfa9ae41e7ee",
+      "name": "BalancerV2 LP GNO/WXDAI",
       "decimals": 18,
-      "symbol": "⚗️/WETH",
+      "symbol": "GNO/WXDAI",
       "extensions": {
-        "tokens": "0x88acdd2a6425c3faae4bc9650fd7e27e0bebb7ab,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
       }
     },
     {
@@ -1398,23 +1508,43 @@
       }
     },
     {
-      "chainId": 100,
-      "address": "0x8189c4c96826d016a99986394103dfa9ae41e7ee",
-      "name": "BalancerV2 LP GNO/WXDAI",
+      "chainId": 1,
+      "address": "0x67b532d47a31ce1ed0800e6913dbf5f6e9c48a18",
+      "name": "BalancerV2 LP ⚗️/WETH",
       "decimals": 18,
-      "symbol": "GNO/WXDAI",
+      "symbol": "⚗️/WETH",
       "extensions": {
-        "tokens": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+        "tokens": "0x88acdd2a6425c3faae4bc9650fd7e27e0bebb7ab,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
-      "chainId": 42161,
-      "address": "0xc9f52540976385a84bf416903e1ca3983c539e34",
-      "name": "BalancerV2 LP tBTC/WETH",
+      "chainId": 8453,
+      "address": "0x17e7d59bb209a3215ccc25fffef7161498b7c10d",
+      "name": "BalancerV2 LP WETH/GOLD",
       "decimals": 18,
-      "symbol": "tBTC/WETH",
+      "symbol": "WETH/GOLD",
       "extensions": {
-        "tokens": "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
+        "tokens": "0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4,0x4200000000000000000000000000000000000006"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xd4e2af4507b6b89333441c0c398edffb40f86f4d",
+      "name": "BalancerV2 LP WBTC/WETH/WAMPL",
+      "decimals": 18,
+      "symbol": "WBTC/WETH/WAMPL",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xedb171c18ce90b633db442f2a6f72874093b49ef,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xc45d42f801105e861e86658648e3678ad7aa70f9",
+      "name": "BalancerV2 LP OHM/DAI/WETH",
+      "decimals": 18,
+      "symbol": "OHM/DAI/WETH",
+      "extensions": {
+        "tokens": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6b175474e89094c44da98b954eedeac495271d0f"
       }
     },
     {
@@ -1429,12 +1559,22 @@
     },
     {
       "chainId": 1,
-      "address": "0xc45d42f801105e861e86658648e3678ad7aa70f9",
-      "name": "BalancerV2 LP OHM/DAI/WETH",
+      "address": "0x472afe4c35dc218a41736d4aceeab650db43c584",
+      "name": "BalancerV2 LP PHONON/WETH",
       "decimals": 18,
-      "symbol": "OHM/DAI/WETH",
+      "symbol": "PHONON/WETH",
       "extensions": {
-        "tokens": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6b175474e89094c44da98b954eedeac495271d0f"
+        "tokens": "0x758b4684be769e92eefea93f60dda0181ea303ec,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x9412206f58cc72b9b4e340422a95354372a3ec3d",
+      "name": "BalancerV2 LP B-baoUSD-LUSD-BPT/BAO",
+      "decimals": 18,
+      "symbol": "B-baoUSD-LUSD-BPT/BAO",
+      "extensions": {
+        "tokens": "0x7e9afd25f5ec0eb24d7d4b089ae7ecb9651c8b1f,0xce391315b414d4c7555956120461d21808a69f3a"
       }
     },
     {
@@ -1444,127 +1584,17 @@
       "decimals": 18,
       "symbol": "MIVA/WXDAI",
       "extensions": {
-        "tokens": "0x63e62989d9eb2d37dfdb1f93a22f063635b07d51,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe91888a1d08e37598867d213a4acb5692071bb3a",
-      "name": "BalancerV2 LP R/RAFT",
-      "decimals": 18,
-      "symbol": "R/RAFT",
-      "extensions": {
-        "tokens": "0x4c5cb5d87709387f8821709f7a6664f00dcf0c93,0x183015a9ba6ff60230fdeadc3f43b3d788b13e21"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xd4e2af4507b6b89333441c0c398edffb40f86f4d",
-      "name": "BalancerV2 LP WBTC/WETH/WAMPL",
-      "decimals": 18,
-      "symbol": "WBTC/WETH/WAMPL",
-      "extensions": {
-        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xedb171c18ce90b633db442f2a6f72874093b49ef,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xefaa1604e82e1b3af8430b90192c1b9e8197e377",
-      "name": "BalancerV2 LP COMP/WETH",
-      "decimals": 18,
-      "symbol": "COMP/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xc00e94cb662c3520282e6f5717214004a7f26888"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x5d6e3d7632d6719e04ca162be652164bec1eaa6b",
-      "name": "BalancerV2 LP PAR/USDC",
-      "decimals": 18,
-      "symbol": "PAR/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x68037790a0229e9ce6eaa8a99ea92964106c4703"
+        "tokens": "0xe91d153e0b41518a2ce8dd3d7944fa863463a97d,0x63e62989d9eb2d37dfdb1f93a22f063635b07d51"
       }
     },
     {
       "chainId": 42161,
-      "address": "0x0052688295413b32626d226a205b95cdb337de86",
-      "name": "BalancerV2 LP ARB/USDC",
+      "address": "0xc9f52540976385a84bf416903e1ca3983c539e34",
+      "name": "BalancerV2 LP tBTC/WETH",
       "decimals": 18,
-      "symbol": "ARB/USDC",
+      "symbol": "tBTC/WETH",
       "extensions": {
-        "tokens": "0x912ce59144191c1204e64559fe8253a0e49e6548,0xff970a61a04b1ca14834a43f5de4533ebddb5cc8"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe2469f47ab58cf9cf59f9822e3c5de4950a41c49",
-      "name": "BalancerV2 LP MTA/WETH",
-      "decimals": 18,
-      "symbol": "MTA/WETH",
-      "extensions": {
-        "tokens": "0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x08775ccb6674d6bdceb0797c364c2653ed84f384",
-      "name": "BalancerV2 LP USDC-DAI-USDT/WETH",
-      "decimals": 18,
-      "symbol": "USDC-DAI-USDT/WETH",
-      "extensions": {
-        "tokens": "0x79c58f70905f734641735bc61e45c19dd9ad60bc,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x487f94d114e41af8d533a31abc8a49e24d3fa38d",
-      "name": "BalancerV2 LP st-yETH/WETH",
-      "decimals": 18,
-      "symbol": "st-yETH/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x583019ff0f430721ada9cfb4fac8f06ca104d0b4"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x87a867f5d240a782d43d90b6b06dea470f3f8f22",
-      "name": "BalancerV2 LP wstETH/COMP",
-      "decimals": 18,
-      "symbol": "wstETH/COMP",
-      "extensions": {
-        "tokens": "0xc00e94cb662c3520282e6f5717214004a7f26888,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x472afe4c35dc218a41736d4aceeab650db43c584",
-      "name": "BalancerV2 LP PHONON/WETH",
-      "decimals": 18,
-      "symbol": "PHONON/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x758b4684be769e92eefea93f60dda0181ea303ec"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xc1889c72d99917fd7b957fed80d4ea1ebd9e2618",
-      "name": "BalancerV2 LP BAL/WBTC/PHONON/WETH",
-      "decimals": 18,
-      "symbol": "BAL/WBTC/PHONON/WETH",
-      "extensions": {
-        "tokens": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f,0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8,0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x39a49bc5017fc668299cd32e734c9269acc35295"
-      }
-    },
-    {
-      "chainId": 100,
-      "address": "0x22d3f4e4dada5d7a3007a58dd191897ad8578160",
-      "name": "BalancerV2 LP REG/sDAI",
-      "decimals": 18,
-      "symbol": "REG/sDAI",
-      "extensions": {
-        "tokens": "0xaf204776c7245bf4147c2612bf6e5972ee483701,0x0aa1e96d2a46ec6beb2923de1e61addf5f5f1dce"
+        "tokens": "0x6c84a8f1c29108f47a79964b5fe888d4f4d0de40,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
@@ -1579,42 +1609,112 @@
     },
     {
       "chainId": 1,
-      "address": "0x20facecaa68e9b7c92d2d0ec9136d864df805233",
-      "name": "BalancerV2 LP AAVE/BAL/RARE/ENS/RPL/GTC/HAUS/ROBOT",
+      "address": "0x494b26d4aee801cb1fabf498ee24f0af20238743",
+      "name": "BalancerV2 LP FOUR/WETH",
       "decimals": 18,
-      "symbol": "AAVE/BAL/RARE/ENS/RPL/GTC/HAUS/ROBOT",
+      "symbol": "FOUR/WETH",
       "extensions": {
-        "tokens": "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f,0xd33526068d116ce69f19a9ee46f0bd304f21a51f,0xba5bde662c17e2adff1075610382b9b691296350,0xba100000625a3754423978a60c9317c58a424e3d,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,0xf2051511b9b121394fa75b8f7d4e7424337af687,0xfb5453340c03db5ade474b27e68b6a9c6b2823eb,0xc18360217d8f7ab5e7c516566761ea12ce7f9d72"
+        "tokens": "0x4730fb1463a6f1f44aeb45f6c5c422427f37f4d0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 1,
-      "address": "0x3a2819b07981234f825e952f32cf977db5edbf7c",
-      "name": "BalancerV2 LP UNION/wstETH",
+      "address": "0xefaa1604e82e1b3af8430b90192c1b9e8197e377",
+      "name": "BalancerV2 LP COMP/WETH",
       "decimals": 18,
-      "symbol": "UNION/wstETH",
+      "symbol": "COMP/WETH",
       "extensions": {
-        "tokens": "0x5dfe42eea70a3e6f93ee54ed9c321af07a85535c,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+        "tokens": "0xc00e94cb662c3520282e6f5717214004a7f26888,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5d6e3d7632d6719e04ca162be652164bec1eaa6b",
+      "name": "BalancerV2 LP PAR/USDC",
+      "decimals": 18,
+      "symbol": "PAR/USDC",
+      "extensions": {
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x68037790a0229e9ce6eaa8a99ea92964106c4703"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x0868f7a5045847845d0a0b2a2220102addf642d8",
+      "name": "BalancerV2 LP WETH/ZEON",
+      "decimals": 18,
+      "symbol": "WETH/ZEON",
+      "extensions": {
+        "tokens": "0xe5b826ca2ca02f09c1725e9bd98d9a8874c30532,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
       "chainId": 42161,
-      "address": "0x315dd595e82bdc0c194f3a38a08fde480d7e5d21",
-      "name": "BalancerV2 LP wUSDM/GYD",
+      "address": "0xc1889c72d99917fd7b957fed80d4ea1ebd9e2618",
+      "name": "BalancerV2 LP BAL/WBTC/PHONON/WETH",
       "decimals": 18,
-      "symbol": "wUSDM/GYD",
+      "symbol": "BAL/WBTC/PHONON/WETH",
       "extensions": {
-        "tokens": "0x57f5e098cad7a3d1eed53991d4d66c45c9af7812,0xca5d8f8a8d49439357d3cf46ca2e720702f132b8"
+        "tokens": "0x39a49bc5017fc668299cd32e734c9269acc35295,0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8,0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x0052688295413b32626d226a205b95cdb337de86",
+      "name": "BalancerV2 LP ARB/USDC",
+      "decimals": 18,
+      "symbol": "ARB/USDC",
+      "extensions": {
+        "tokens": "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8,0x912ce59144191c1204e64559fe8253a0e49e6548"
       }
     },
     {
       "chainId": 1,
-      "address": "0x5f7fa48d765053f8dd85e052843e12d23e3d7bc5",
-      "name": "BalancerV2 LP WETH/NOTE",
+      "address": "0x08775ccb6674d6bdceb0797c364c2653ed84f384",
+      "name": "BalancerV2 LP USDC-DAI-USDT/WETH",
       "decimals": 18,
-      "symbol": "WETH/NOTE",
+      "symbol": "USDC-DAI-USDT/WETH",
       "extensions": {
-        "tokens": "0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x79c58f70905f734641735bc61e45c19dd9ad60bc,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x22d3f4e4dada5d7a3007a58dd191897ad8578160",
+      "name": "BalancerV2 LP REG/sDAI",
+      "decimals": 18,
+      "symbol": "REG/sDAI",
+      "extensions": {
+        "tokens": "0xaf204776c7245bf4147c2612bf6e5972ee483701,0x0aa1e96d2a46ec6beb2923de1e61addf5f5f1dce"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xe2469f47ab58cf9cf59f9822e3c5de4950a41c49",
+      "name": "BalancerV2 LP MTA/WETH",
+      "decimals": 18,
+      "symbol": "MTA/WETH",
+      "extensions": {
+        "tokens": "0xa3bed4e1c75d00fa6f4e5e6922db7261b5e9acd2,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x87a867f5d240a782d43d90b6b06dea470f3f8f22",
+      "name": "BalancerV2 LP wstETH/COMP",
+      "decimals": 18,
+      "symbol": "wstETH/COMP",
+      "extensions": {
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xc00e94cb662c3520282e6f5717214004a7f26888"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x487f94d114e41af8d533a31abc8a49e24d3fa38d",
+      "name": "BalancerV2 LP st-yETH/WETH",
+      "decimals": 18,
+      "symbol": "st-yETH/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x583019ff0f430721ada9cfb4fac8f06ca104d0b4"
       }
     },
     {
@@ -1634,17 +1734,17 @@
       "decimals": 18,
       "symbol": "LUSD/LQTY/WETH",
       "extensions": {
-        "tokens": "0x5f98805a4e8be255a32880fdec7f6728c6568ba0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6dea81c8171d0ba574754ef6f8b412f2ed88c54d,0x5f98805a4e8be255a32880fdec7f6728c6568ba0"
       }
     },
     {
-      "chainId": 42161,
-      "address": "0x4f14d06cb1661ce1dc2a2f26a10a7cd94393b29c",
-      "name": "BalancerV2 LP fxUSD/FOREX",
+      "chainId": 1,
+      "address": "0x20facecaa68e9b7c92d2d0ec9136d864df805233",
+      "name": "BalancerV2 LP AAVE/BAL/RARE/ENS/RPL/GTC/HAUS/ROBOT",
       "decimals": 18,
-      "symbol": "fxUSD/FOREX",
+      "symbol": "AAVE/BAL/RARE/ENS/RPL/GTC/HAUS/ROBOT",
       "extensions": {
-        "tokens": "0xdb298285fe4c5410b05390ca80e8fbe9de1f259b,0x8616e8ea83f048ab9a5ec513c9412dd2993bce3f"
+        "tokens": "0xf2051511b9b121394fa75b8f7d4e7424337af687,0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9,0xfb5453340c03db5ade474b27e68b6a9c6b2823eb,0xde30da39c46104798bb5aa3fe8b9e0e1f348163f,0xc18360217d8f7ab5e7c516566761ea12ce7f9d72,0xba100000625a3754423978a60c9317c58a424e3d,0xd33526068d116ce69f19a9ee46f0bd304f21a51f,0xba5bde662c17e2adff1075610382b9b691296350"
       }
     },
     {
@@ -1658,23 +1758,33 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0xbf96189eee9357a95c7719f4f5047f76bde804e5",
-      "name": "BalancerV2 LP LDO/WETH",
+      "chainId": 42161,
+      "address": "0x315dd595e82bdc0c194f3a38a08fde480d7e5d21",
+      "name": "BalancerV2 LP wUSDM/GYD",
       "decimals": 18,
-      "symbol": "LDO/WETH",
+      "symbol": "wUSDM/GYD",
       "extensions": {
-        "tokens": "0x5a98fcbea516cf06857215779fd812ca3bef1b32,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0xca5d8f8a8d49439357d3cf46ca2e720702f132b8,0x57f5e098cad7a3d1eed53991d4d66c45c9af7812"
       }
     },
     {
       "chainId": 1,
-      "address": "0x494b26d4aee801cb1fabf498ee24f0af20238743",
-      "name": "BalancerV2 LP FOUR/WETH",
+      "address": "0xb08885e6026bab4333a80024ec25a1a3e1ff2b8a",
+      "name": "BalancerV2 LP rETH/WETH",
       "decimals": 18,
-      "symbol": "FOUR/WETH",
+      "symbol": "rETH/WETH",
       "extensions": {
-        "tokens": "0x4730fb1463a6f1f44aeb45f6c5c422427f37f4d0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x9559aaa82d9649c7a7b220e7c461d2e74c9a3593,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x5f7fa48d765053f8dd85e052843e12d23e3d7bc5",
+      "name": "BalancerV2 LP WETH/NOTE",
+      "decimals": 18,
+      "symbol": "WETH/NOTE",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xcfeaead4947f0705a14ec42ac3d44129e1ef3ed5"
       }
     },
     {
@@ -1684,7 +1794,47 @@
       "decimals": 18,
       "symbol": "ynETH/wstETH",
       "extensions": {
-        "tokens": "0x09db87a538bd693e9d08544577d5ccfaa6373a48,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x09db87a538bd693e9d08544577d5ccfaa6373a48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xbf96189eee9357a95c7719f4f5047f76bde804e5",
+      "name": "BalancerV2 LP LDO/WETH",
+      "decimals": 18,
+      "symbol": "LDO/WETH",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x5a98fcbea516cf06857215779fd812ca3bef1b32"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x82e80ce9d4890baf288b70ac548aa256599bf044",
+      "name": "BalancerV2 LP mevETH/FOLD",
+      "decimals": 18,
+      "symbol": "mevETH/FOLD",
+      "extensions": {
+        "tokens": "0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e,0xd084944d3c05cd115c09d072b9f44ba3e0e45921"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x3ebf48cd7586d7a4521ce59e53d9a907ebf1480f",
+      "name": "BalancerV2 LP BAL/WETH",
+      "decimals": 18,
+      "symbol": "BAL/WETH",
+      "extensions": {
+        "tokens": "0xba100000625a3754423978a60c9317c58a424e3d,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x8fe054748fc5c8ee50ab8860409a4e9e760e13f4",
+      "name": "BalancerV2 LP WETH/EUL",
+      "decimals": 18,
+      "symbol": "WETH/EUL",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd9fcd98c322942075a5c3860693e9f4f03aae07b"
       }
     },
     {
@@ -1698,43 +1848,23 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0x3ebf48cd7586d7a4521ce59e53d9a907ebf1480f",
-      "name": "BalancerV2 LP BAL/WETH",
-      "decimals": 18,
-      "symbol": "BAL/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xba100000625a3754423978a60c9317c58a424e3d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x8fe054748fc5c8ee50ab8860409a4e9e760e13f4",
-      "name": "BalancerV2 LP WETH/EUL",
-      "decimals": 18,
-      "symbol": "WETH/EUL",
-      "extensions": {
-        "tokens": "0xd9fcd98c322942075a5c3860693e9f4f03aae07b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x82e80ce9d4890baf288b70ac548aa256599bf044",
-      "name": "BalancerV2 LP mevETH/FOLD",
-      "decimals": 18,
-      "symbol": "mevETH/FOLD",
-      "extensions": {
-        "tokens": "0xd084944d3c05cd115c09d072b9f44ba3e0e45921,0x24ae2da0f361aa4be46b48eb19c91e02c5e4f27e"
-      }
-    },
-    {
       "chainId": 42161,
-      "address": "0xb6911f80b1122f41c19b299a69dca07100452bf9",
-      "name": "BalancerV2 LP USDC/USDT",
+      "address": "0x4f14d06cb1661ce1dc2a2f26a10a7cd94393b29c",
+      "name": "BalancerV2 LP fxUSD/FOREX",
       "decimals": 18,
-      "symbol": "USDC/USDT",
+      "symbol": "fxUSD/FOREX",
       "extensions": {
-        "tokens": "0xaf88d065e77c8cc2239327c5edb3a432268e5831,0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9"
+        "tokens": "0x8616e8ea83f048ab9a5ec513c9412dd2993bce3f,0xdb298285fe4c5410b05390ca80e8fbe9de1f259b"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xe40cbccba664c7b1a953827c062f5070b78de868",
+      "name": "BalancerV2 LP WETH/GOLD",
+      "decimals": 18,
+      "symbol": "WETH/GOLD",
+      "extensions": {
+        "tokens": "0x4200000000000000000000000000000000000006,0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4"
       }
     },
     {
@@ -1744,7 +1874,7 @@
       "decimals": 18,
       "symbol": "SHIB/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce"
+        "tokens": "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1754,27 +1884,7 @@
       "decimals": 18,
       "symbol": "wstETH/swETH",
       "extensions": {
-        "tokens": "0xf951e335afb289353dc249e82926178eac7ded78,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x0868f7a5045847845d0a0b2a2220102addf642d8",
-      "name": "BalancerV2 LP WETH/ZEON",
-      "decimals": 18,
-      "symbol": "WETH/ZEON",
-      "extensions": {
-        "tokens": "0xe5b826ca2ca02f09c1725e9bd98d9a8874c30532,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xff42a9af956617e4c3532ef2fc7567465efe4909",
-      "name": "BalancerV2 LP KEP/rsETH",
-      "decimals": 18,
-      "symbol": "KEP/rsETH",
-      "extensions": {
-        "tokens": "0xa1290d69c65a6fe4df752f95823fae25cb99e5a7,0x8e3a59427b1d87db234dd4ff63b25e4bf94672f4"
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0xf951e335afb289353dc249e82926178eac7ded78"
       }
     },
     {
@@ -1785,16 +1895,6 @@
       "symbol": "OHM/DAI",
       "extensions": {
         "tokens": "0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5,0x6b175474e89094c44da98b954eedeac495271d0f"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xb5b77f1ad2b520df01612399258e7787af63025d",
-      "name": "BalancerV2 LP MCB/WETH",
-      "decimals": 18,
-      "symbol": "MCB/WETH",
-      "extensions": {
-        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0x4e352cf164e64adcbad318c3a1e222e9eba4ce42"
       }
     },
     {
@@ -1824,27 +1924,27 @@
       "decimals": 18,
       "symbol": "WETH/WXM",
       "extensions": {
-        "tokens": "0xb6093b61544572ab42a0e43af08abafd41bf25a6,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
-      }
-    },
-    {
-      "chainId": 100,
-      "address": "0xc5df11757f4a8dfaccc731d13b9577f67055c6c6",
-      "name": "BalancerV2 LP GBPe/EURe",
-      "decimals": 18,
-      "symbol": "GBPe/EURe",
-      "extensions": {
-        "tokens": "0xcb444e90d8198415266c6a2724b7900fb12fc56e,0x5cb9073902f2035222b9749f8fb0c9bfe5527108"
+        "tokens": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1,0xb6093b61544572ab42a0e43af08abafd41bf25a6"
       }
     },
     {
       "chainId": 1,
-      "address": "0x034e2d995b39a88ab9a532a9bf0deddac2c576ea",
-      "name": "BalancerV2 LP SD/ETHx",
+      "address": "0x3a2819b07981234f825e952f32cf977db5edbf7c",
+      "name": "BalancerV2 LP UNION/wstETH",
       "decimals": 18,
-      "symbol": "SD/ETHx",
+      "symbol": "UNION/wstETH",
       "extensions": {
-        "tokens": "0xa35b1b31ce002fbf2058d22f30f95d405200a15b,0x30d20208d987713f46dfd34ef128bb16c404d10f"
+        "tokens": "0x5dfe42eea70a3e6f93ee54ed9c321af07a85535c,0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0xa99fd9950b5d5dceeaf4939e221dca8ca9b938ab",
+      "name": "BalancerV2 LP WETH/BAL/GNO/WXDAI",
+      "decimals": 18,
+      "symbol": "WETH/BAL/GNO/WXDAI",
+      "extensions": {
+        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x7ef541e2a22058048904fe5744f9c7e4c57af717,0x9c58bacc331c9aa871afd802db6379a98e80cedb,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
       }
     },
     {
@@ -1858,23 +1958,23 @@
       }
     },
     {
-      "chainId": 100,
-      "address": "0xa99fd9950b5d5dceeaf4939e221dca8ca9b938ab",
-      "name": "BalancerV2 LP WETH/BAL/GNO/WXDAI",
+      "chainId": 42161,
+      "address": "0xb5b77f1ad2b520df01612399258e7787af63025d",
+      "name": "BalancerV2 LP MCB/WETH",
       "decimals": 18,
-      "symbol": "WETH/BAL/GNO/WXDAI",
+      "symbol": "MCB/WETH",
       "extensions": {
-        "tokens": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1,0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x7ef541e2a22058048904fe5744f9c7e4c57af717,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
+        "tokens": "0x4e352cf164e64adcbad318c3a1e222e9eba4ce42,0x82af49447d8a07e3bd95bd0d56f35241523fbab1"
       }
     },
     {
-      "chainId": 1,
-      "address": "0x0fd5663d4893ae0d579d580584806aadd2dd0b8b",
-      "name": "BalancerV2 LP rETH/RPL",
+      "chainId": 8453,
+      "address": "0xa04259de0129ac4c4a0ce22be2ec729482034ba0",
+      "name": "BalancerV2 LP AURA/BAL",
       "decimals": 18,
-      "symbol": "rETH/RPL",
+      "symbol": "AURA/BAL",
       "extensions": {
-        "tokens": "0xae78736cd615f374d3085123a210448e74fc6393,0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+        "tokens": "0x1509706a6c66ca549ff0cb464de88231ddbe213b,0x4158734d47fc9692176b5085e0f52ee0da5d47f1"
       }
     },
     {
@@ -1889,12 +1989,52 @@
     },
     {
       "chainId": 1,
+      "address": "0x0fd5663d4893ae0d579d580584806aadd2dd0b8b",
+      "name": "BalancerV2 LP rETH/RPL",
+      "decimals": 18,
+      "symbol": "rETH/RPL",
+      "extensions": {
+        "tokens": "0xae78736cd615f374d3085123a210448e74fc6393,0xd33526068d116ce69f19a9ee46f0bd304f21a51f"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0x7819f1532c49388106f7762328c51ee70edd134c",
       "name": "BalancerV2 LP GIV/WETH",
       "decimals": 18,
       "symbol": "GIV/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x900db999074d9277c5da2a43f252d74366230da0"
+        "tokens": "0x900db999074d9277c5da2a43f252d74366230da0,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x26cc136e9b8fd65466f193a8e5710661ed9a9827",
+      "name": "BalancerV2 LP wstETH/BETS",
+      "decimals": 18,
+      "symbol": "wstETH/BETS",
+      "extensions": {
+        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x6b1baa0a046c9ebb7da8668b66e9282a896e1edb",
+      "name": "BalancerV2 LP WETH/USDbC",
+      "decimals": 18,
+      "symbol": "WETH/USDbC",
+      "extensions": {
+        "tokens": "0x4200000000000000000000000000000000000006,0xd9aaec86b65d86f6a7b5b1b0c42ffa531710b6ca"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x034e2d995b39a88ab9a532a9bf0deddac2c576ea",
+      "name": "BalancerV2 LP SD/ETHx",
+      "decimals": 18,
+      "symbol": "SD/ETHx",
+      "extensions": {
+        "tokens": "0x30d20208d987713f46dfd34ef128bb16c404d10f,0xa35b1b31ce002fbf2058d22f30f95d405200a15b"
       }
     },
     {
@@ -1904,7 +2044,7 @@
       "decimals": 18,
       "symbol": "DAI/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6b175474e89094c44da98b954eedeac495271d0f"
+        "tokens": "0x6b175474e89094c44da98b954eedeac495271d0f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1919,6 +2059,26 @@
     },
     {
       "chainId": 1,
+      "address": "0xe24281bc68c2a56e19b67b3787fd5e95937bd970",
+      "name": "BalancerV2 LP WETH/wPE",
+      "decimals": 18,
+      "symbol": "WETH/wPE",
+      "extensions": {
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xd075e95423c5c4ba1e122cae0f4cdfa19b82881b"
+      }
+    },
+    {
+      "chainId": 100,
+      "address": "0x388cae2f7d3704c937313d990298ba67d70a3709",
+      "name": "BalancerV2 LP AGVE/GNO",
+      "decimals": 18,
+      "symbol": "AGVE/GNO",
+      "extensions": {
+        "tokens": "0x3a97704a1b25f08aa230ae53b352e2e72ef52843,0x9c58bacc331c9aa871afd802db6379a98e80cedb"
+      }
+    },
+    {
+      "chainId": 1,
       "address": "0xad07b1fdc60fe102931ca713ae6dd578e965b94d",
       "name": "BalancerV2 LP AUSD/USDT",
       "decimals": 18,
@@ -1928,23 +2088,13 @@
       }
     },
     {
-      "chainId": 1,
-      "address": "0xe4010ef5e37dc23154680f23c4a0d48bfca91687",
-      "name": "BalancerV2 LP SD/WETH",
+      "chainId": 8453,
+      "address": "0x2db50a0e0310723ef0c2a165cb9a9f80d772ba2f",
+      "name": "BalancerV2 LP WETH/BPT-stabal3",
       "decimals": 18,
-      "symbol": "SD/WETH",
+      "symbol": "WETH/BPT-stabal3",
       "extensions": {
-        "tokens": "0x30d20208d987713f46dfd34ef128bb16c404d10f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xe24281bc68c2a56e19b67b3787fd5e95937bd970",
-      "name": "BalancerV2 LP WETH/wPE",
-      "decimals": 18,
-      "symbol": "WETH/wPE",
-      "extensions": {
-        "tokens": "0xd075e95423c5c4ba1e122cae0f4cdfa19b82881b,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        "tokens": "0x4200000000000000000000000000000000000006,0x6fbfcf88db1aada31f34215b2a1df7fafb4883e9"
       }
     },
     {
@@ -1959,22 +2109,22 @@
     },
     {
       "chainId": 1,
-      "address": "0x26cc136e9b8fd65466f193a8e5710661ed9a9827",
-      "name": "BalancerV2 LP wstETH/BETS",
+      "address": "0xff42a9af956617e4c3532ef2fc7567465efe4909",
+      "name": "BalancerV2 LP KEP/rsETH",
       "decimals": 18,
-      "symbol": "wstETH/BETS",
+      "symbol": "KEP/rsETH",
       "extensions": {
-        "tokens": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0,0x94025780a1ab58868d9b2dbbb775f44b32e8e6e5"
+        "tokens": "0x8e3a59427b1d87db234dd4ff63b25e4bf94672f4,0xa1290d69c65a6fe4df752f95823fae25cb99e5a7"
       }
     },
     {
-      "chainId": 100,
-      "address": "0x388cae2f7d3704c937313d990298ba67d70a3709",
-      "name": "BalancerV2 LP AGVE/GNO",
+      "chainId": 1,
+      "address": "0xe4010ef5e37dc23154680f23c4a0d48bfca91687",
+      "name": "BalancerV2 LP SD/WETH",
       "decimals": 18,
-      "symbol": "AGVE/GNO",
+      "symbol": "SD/WETH",
       "extensions": {
-        "tokens": "0x9c58bacc331c9aa871afd802db6379a98e80cedb,0x3a97704a1b25f08aa230ae53b352e2e72ef52843"
+        "tokens": "0x30d20208d987713f46dfd34ef128bb16c404d10f,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -1988,13 +2138,23 @@
       }
     },
     {
+      "chainId": 8453,
+      "address": "0xa1d5264a2d3e2652756993c29729e092ca91d0d4",
+      "name": "BalancerV2 LP cbETH/WETH/rETH",
+      "decimals": 18,
+      "symbol": "cbETH/WETH/rETH",
+      "extensions": {
+        "tokens": "0x2ae3f1ec7f1f5012cfeab0185bfc7aa3cf0dec22,0x4200000000000000000000000000000000000006,0xb6fe221fe9eef5aba221c348ba20a1bf5e73624c"
+      }
+    },
+    {
       "chainId": 1,
       "address": "0x08cc92fedc1ce2d8525176a63fcff404450f2998",
       "name": "BalancerV2 LP B-baoUSD-LUSD-BPT/BAO",
       "decimals": 18,
       "symbol": "B-baoUSD-LUSD-BPT/BAO",
       "extensions": {
-        "tokens": "0xce391315b414d4c7555956120461d21808a69f3a,0x7e9afd25f5ec0eb24d7d4b089ae7ecb9651c8b1f"
+        "tokens": "0x7e9afd25f5ec0eb24d7d4b089ae7ecb9651c8b1f,0xce391315b414d4c7555956120461d21808a69f3a"
       }
     },
     {
@@ -2004,7 +2164,7 @@
       "decimals": 18,
       "symbol": "UMA/USDC",
       "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x04fa0d235c4abf4bcf4787af4cf447de572ef828"
+        "tokens": "0x04fa0d235c4abf4bcf4787af4cf447de572ef828,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     },
     {
@@ -2014,57 +2174,7 @@
       "decimals": 18,
       "symbol": "USDC/PAL",
       "extensions": {
-        "tokens": "0xab846fb6c81370327e784ae7cbb6d6a6af6ff4bf,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
-      }
-    },
-    {
-      "chainId": 100,
-      "address": "0xea54604e7e1ddec8320cf838cfe857fbf44aad9f",
-      "name": "BalancerV2 LP GBPe/WXDAI",
-      "decimals": 18,
-      "symbol": "GBPe/WXDAI",
-      "extensions": {
-        "tokens": "0x5cb9073902f2035222b9749f8fb0c9bfe5527108,0xe91d153e0b41518a2ce8dd3d7944fa863463a97d"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xec60a5fef79a92c741cb74fdd6bfc340c0279b01",
-      "name": "BalancerV2 LP REN/WETH",
-      "decimals": 18,
-      "symbol": "REN/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x408e41876cccdc0f92210600ef50372656052a38"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xdb0cbcf1b8282dedc90e8c2cefe11041d6d1e9f0",
-      "name": "BalancerV2 LP SD/USDC",
-      "decimals": 18,
-      "symbol": "SD/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x30d20208d987713f46dfd34ef128bb16c404d10f"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x186084ff790c65088ba694df11758fae4943ee9e",
-      "name": "BalancerV2 LP YFI/WETH",
-      "decimals": 18,
-      "symbol": "YFI/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x32b1d14c6c31dff0407058586a01614da686dfcc",
-      "name": "BalancerV2 LP BAL/CRV/SUSHI/UNI/GMX",
-      "decimals": 18,
-      "symbol": "BAL/CRV/SUSHI/UNI/GMX",
-      "extensions": {
-        "tokens": "0xd4d42f0b6def4ce0383636770ef773390d85c61a,0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a,0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0,0x11cdb42b0eb46d95f990bedd4695a6e3fa034978,0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8"
+        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0xab846fb6c81370327e784ae7cbb6d6a6af6ff4bf"
       }
     },
     {
@@ -2074,7 +2184,47 @@
       "decimals": 18,
       "symbol": "unshETH/USH",
       "extensions": {
-        "tokens": "0xe60779cc1b2c1d0580611c526a8df0e3f870ec48,0x0ae38f7e10a43b5b2fb064b42a2f4514cba909ef"
+        "tokens": "0x0ae38f7e10a43b5b2fb064b42a2f4514cba909ef,0xe60779cc1b2c1d0580611c526a8df0e3f870ec48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xec60a5fef79a92c741cb74fdd6bfc340c0279b01",
+      "name": "BalancerV2 LP REN/WETH",
+      "decimals": 18,
+      "symbol": "REN/WETH",
+      "extensions": {
+        "tokens": "0x408e41876cccdc0f92210600ef50372656052a38,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb328b50f1f7d97ee8ea391ab5096dd7657555f49",
+      "name": "BalancerV2 LP BAL/USDC/GOLD",
+      "decimals": 18,
+      "symbol": "BAL/USDC/GOLD",
+      "extensions": {
+        "tokens": "0x4158734d47fc9692176b5085e0f52ee0da5d47f1,0x833589fcd6edb6e08f4c7c32d4f71b54bda02913,0xbefd5c25a59ef2c1316c5a4944931171f30cd3e4"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x186084ff790c65088ba694df11758fae4943ee9e",
+      "name": "BalancerV2 LP YFI/WETH",
+      "decimals": 18,
+      "symbol": "YFI/WETH",
+      "extensions": {
+        "tokens": "0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x32b1d14c6c31dff0407058586a01614da686dfcc",
+      "name": "BalancerV2 LP BAL/CRV/SUSHI/UNI/GMX",
+      "decimals": 18,
+      "symbol": "BAL/CRV/SUSHI/UNI/GMX",
+      "extensions": {
+        "tokens": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8,0x11cdb42b0eb46d95f990bedd4695a6e3fa034978,0xd4d42f0b6def4ce0383636770ef773390d85c61a,0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0,0xfc5a1a6eb076a2c7ad06ed22c90d7e710e35ad0a"
       }
     },
     {
@@ -2084,17 +2234,7 @@
       "decimals": 18,
       "symbol": "PEPE/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x6982508145454ce325ddbe47a25d4ec3d2311933"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x56b2811bf75bb258d2234af4f43b479bb55c3b46",
-      "name": "BalancerV2 LP HND/WETH",
-      "decimals": 18,
-      "symbol": "HND/WETH",
-      "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x10010078a54396f62c96df8532dc2b4847d47ed3"
+        "tokens": "0x6982508145454ce325ddbe47a25d4ec3d2311933,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
       }
     },
     {
@@ -2104,37 +2244,7 @@
       "decimals": 18,
       "symbol": "WETH/ONDO",
       "extensions": {
-        "tokens": "0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0xfceb92864553f78540b4c08c7c1f4d67b095edbf",
-      "name": "BalancerV2 LP WBTC/WETH/NODED",
-      "decimals": 18,
-      "symbol": "WBTC/WETH/NODED",
-      "extensions": {
-        "tokens": "0xca93a5d889e445cecb42e5386f7d516511d2820f,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x99e7b15df044e1b62e2e1774fd4469d54d9409ac",
-      "name": "BalancerV2 LP GHO/USDC",
-      "decimals": 18,
-      "symbol": "GHO/USDC",
-      "extensions": {
-        "tokens": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48,0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f"
-      }
-    },
-    {
-      "chainId": 1,
-      "address": "0x3b9fb87f7d081ceddb1289258fa5660d955317b6",
-      "name": "BalancerV2 LP B-baoETH-ETH-BPT/BAO",
-      "decimals": 18,
-      "symbol": "B-baoETH-ETH-BPT/BAO",
-      "extensions": {
-        "tokens": "0xce391315b414d4c7555956120461d21808a69f3a,0x1a44e35d5451e0b78621a1b3e7a53dfaa306b1d0"
+        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0xfaba6f8e4a5e8ab82f62fe7c39859fa577269be3"
       }
     },
     {
@@ -2144,7 +2254,27 @@
       "decimals": 18,
       "symbol": "WBTC/WETH",
       "extensions": {
-        "tokens": "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2,0x2260fac5e5542a773aa44fbcfedf7c193bc2c599"
+        "tokens": "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599,0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0xdb0cbcf1b8282dedc90e8c2cefe11041d6d1e9f0",
+      "name": "BalancerV2 LP SD/USDC",
+      "decimals": 18,
+      "symbol": "SD/USDC",
+      "extensions": {
+        "tokens": "0x30d20208d987713f46dfd34ef128bb16c404d10f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
+      }
+    },
+    {
+      "chainId": 1,
+      "address": "0x99e7b15df044e1b62e2e1774fd4469d54d9409ac",
+      "name": "BalancerV2 LP GHO/USDC",
+      "decimals": 18,
+      "symbol": "GHO/USDC",
+      "extensions": {
+        "tokens": "0x40d16fc0246ad3160ccc09b8d0d3a2cd28ae6c2f,0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48"
       }
     }
   ]

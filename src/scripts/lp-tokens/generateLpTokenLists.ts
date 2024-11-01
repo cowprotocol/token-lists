@@ -4,8 +4,8 @@ import { PLATFORM_NETWORK_TO_CHAIN_ID, PlatformNetwork, PlatformToken } from './
 
 const AUTH_TOKEN = '<AUTH_TOKEN>'
 
-// 8 * 250 = 2000 tokens
-const pagesLimit = 8
+// 2 * 250 = 500 tokens
+const pagesLimit = 2
 
 const params = {
   minLiquidity: '1000',
