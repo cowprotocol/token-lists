@@ -82,6 +82,9 @@ jobs:
             } else if (values.network === 'ARBITRUM_ONE') {
               values.chainId = 42161
               values.blockExplorer = 'arbiscan'
+            } else if (values.network === 'BASE') {
+              values.chainId = 8453
+              values.blockExplorer = 'basescan'
             } else {
               values.chainId = 100
               values.blockExplorer = 'gnosisscan'
