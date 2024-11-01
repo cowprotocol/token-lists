@@ -78,16 +78,16 @@ jobs:
 
             if (values.network === 'MAINNET') {
               values.chainId = 1
-              values.blockExplorer = 'etherscan'
+              values.blockExplorer = 'etherscan.io'
             } else if (values.network === 'ARBITRUM_ONE') {
               values.chainId = 42161
-              values.blockExplorer = 'arbiscan'
+              values.blockExplorer = 'arbiscan.io'
             } else if (values.network === 'BASE') {
               values.chainId = 8453
-              values.blockExplorer = 'basescan'
+              values.blockExplorer = 'basescan.org'
             } else {
               values.chainId = 100
-              values.blockExplorer = 'gnosisscan'
+              values.blockExplorer = 'gnosisscan.io'
             }
 
             // Used only in the PR context for displaying it
@@ -180,7 +180,7 @@ jobs:
 
         *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
 
-        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
+        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
 
         | Description | Image |
         |-|-|
@@ -207,7 +207,7 @@ jobs:
 
         *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
 
-        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
+        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
 
         ### Reason
 
@@ -229,7 +229,7 @@ jobs:
 
         *Address*: `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}`
 
-        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}.io/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
+        [Link to block explorer ↗︎](https://${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).blockExplorer }}/token/${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }})
 
         | Description | Image |
         |-|-|
