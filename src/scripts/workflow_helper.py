@@ -1,7 +1,6 @@
-import sys
 import json
 import os
-
+import sys
 
 LIST_PATH = os.environ["LIST_PATH"]
 
@@ -12,7 +11,7 @@ def handle_add_update_token(data):
 
         for token in token_list["tokens"]:
             # update
-            if token["address"].lower() == data["address"].lower():
+            if token["address"].lower() == data["address"].lower() and token["chainId"] == int(data["chainId"]):
                 token["address"] = data["address"].lower()
                 token["symbol"] = data["symbol"]
                 token["name"] = data["name"]
