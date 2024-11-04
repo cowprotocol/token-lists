@@ -27,25 +27,25 @@
  * @arg recheckUnsupported - optional, fourth positional argument
  */
 
-import pThrottle from 'p-throttle'
-import pRetry from 'p-retry'
+import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import {
   getTokenPermitInfo,
   GetTokenPermitIntoResult,
   isSupportedPermitInfo,
   PermitInfo,
 } from '@cowprotocol/permit-utils'
-import * as path from 'node:path'
-import { readFileSync, writeFileSync } from 'node:fs'
 import { JsonRpcProvider } from '@ethersproject/providers'
+import { readFileSync, writeFileSync } from 'node:fs'
+import * as path from 'node:path'
 import { argv, chdir, env, exit } from 'node:process'
+import pRetry from 'p-retry'
+import pThrottle from 'p-throttle'
 import { BASE_PATH, SPENDER_ADDRESS } from './const'
-import { sortPermitInfo } from './utils/sortPermitInfo'
-import { getProvider } from './utils/getProvider'
 import { Token } from './types'
+import { getProvider } from './utils/getProvider'
 import { getTokensFromTokenList } from './utils/getTokensFromTokenList'
 import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokensFromPermitInfo'
-import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { sortPermitInfo } from './utils/sortPermitInfo'
 
 // TODO: maybe make the args nicer?
 // Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
@@ -92,7 +92,7 @@ async function fetchPermitInfo(
   // Load tokens info from a token list
   const tokens = recheckUnsupported
     ? getUnsupportedTokensFromPermitInfo(chainId, allPermitInfo)
-    : getTokensFromTokenList(chainId, tokenListPath)
+    : await getTokensFromTokenList(chainId, tokenListPath)
 
   // Create a list of promises to check all tokens
   const fetchAllPermits = tokens.map((token) => {
