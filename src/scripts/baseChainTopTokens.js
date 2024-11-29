@@ -10,7 +10,7 @@ const COINGECKO_API_URL = 'https://pro-api.coingecko.com/api/v3/coins/base/contr
 const VS_CURRENCY = 'usd' // Base currency for volume data
 
 const TOKEN_LIST_INFO = {
-  name: 'CoinGecko-base',
+  name: 'CoinGecko',
   logoURI:
     'https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
   keywords: ['defi'],
