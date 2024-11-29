@@ -10,6 +10,7 @@
     "coingecko": "yarn run-script src/scripts/coingecko.js",
     "downloadImages": "yarn run-script src/scripts/downloadImages",
     "cowFi:tokens": "yarn run-script ./src/scripts/cowFi-tokens.js",
+    "baseChainTopTokens": "node ./src/scripts/baseChainTopTokens.js",
     "uniswapToGnosisChainList": "yarn run-script src/scripts/mapTokenListToBridge.ts 100 uniswap",
     "coingeckoToGnosisChainList": "yarn run-script src/scripts/mapTokenListToBridge.ts 100 coingecko",
     "coingeckoToArbitrumOneList": "yarn run-script src/scripts/mapTokenListToBridge.ts 42161 coingecko",
