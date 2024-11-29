@@ -14,6 +14,11 @@ const TOKEN_LIST_INFO = {
   logoURI:
     'https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
   keywords: ['defi'],
+  version: {
+    major: 1,
+    minor: 0,
+    patch: 0,
+  },
 }
 
 const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
