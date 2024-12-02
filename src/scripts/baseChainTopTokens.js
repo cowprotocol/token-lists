@@ -80,7 +80,7 @@ async function main() {
     }
 
     // Write token list to file
-    const tokenListPath = path.join('src/public/CoinGecko-base.json')
+    const tokenListPath = path.join('src/public/CoinGecko.8453.json')
     fs.writeFileSync(tokenListPath, JSON.stringify(newTokenList, null, 2))
     console.log(`Token list written to ${tokenListPath}`)
   } catch (error) {
