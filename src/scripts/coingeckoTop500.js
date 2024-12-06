@@ -225,7 +225,7 @@ async function fetchAndProcessTokens(chainId) {
     const tokenList = getLocalTokenList(tokenListPath, getEmptyList(chainId))
 
     // Replace tokens
-    tokenList.tokens = topTokens.map(({ token }) => token)
+    tokenList.tokens = topTokens.map(({ token }) => ({ ...token, logoURI: token.logoURI.replace(/thumb/, 'large') }))
 
     // Write token file
     saveLocalTokenList(tokenListPath, tokenList)
