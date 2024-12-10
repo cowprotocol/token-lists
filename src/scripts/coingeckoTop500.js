@@ -70,32 +70,23 @@ async function getCoingeckoTokenIds() {
 }
 
 async function getCoingeckoTokenIdsMap(forceUpdate = false) {
-  const localFilePath = 'build/coingeckoTokenIdsMap.json'
   let tokenIdsMap = COINGECKO_CHAINS_NAMES.reduce((acc, name) => ({ ...acc, [name]: {} }), {})
 
-  if (!forceUpdate && fs.existsSync(localFilePath)) {
-    try {
-      tokenIdsMap = JSON.parse(fs.readFileSync(localFilePath))
-    } catch (error) {
-      console.error(`Error reading local file: ${error}`)
-    }
-  } else {
-    try {
-      const tokenIds = await getCoingeckoTokenIds()
-      tokenIds.forEach((token) => {
-        COINGECKO_CHAINS_NAMES.forEach((chain) => {
-          const address = token.platforms[chain]
-          if (address) {
-            tokenIdsMap[chain][address] = token.id
-            tokenIdsMap[chain][token.id] = address // reverse mapping
-          }
-        })
+  try {
+    const tokenIds = await getCoingeckoTokenIds()
+    tokenIds.forEach((token) => {
+      COINGECKO_CHAINS_NAMES.forEach((chain) => {
+        const address = token.platforms[chain]
+        if (address) {
+          tokenIdsMap[chain][address] = token.id
+          tokenIdsMap[chain][token.id] = address // reverse mapping
+        }
       })
-      fs.writeFileSync(localFilePath, JSON.stringify(tokenIdsMap))
-    } catch (error) {
-      console.error(`Error fetching Coingecko token IDs: ${error}`)
-    }
+    })
+  } catch (error) {
+    console.error(`Error fetching Coingecko token IDs: ${error}`)
   }
+
   return tokenIdsMap
 }
 
@@ -171,7 +162,7 @@ function saveLocalTokenList(listPath, list) {
 
 async function fetchAndProcessTokens(chainId) {
   try {
-    COINGECKO_IDS_MAP = await getCoingeckoTokenIdsMap()
+    COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length || (await getCoingeckoTokenIdsMap())
     const tokens = await getTokenList(chainId)
     const topTokens = (await getTokenVolumes(chainId, tokens)).slice(0, TOP_TOKENS_COUNT)
 
