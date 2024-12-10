@@ -27,16 +27,20 @@ const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
 
 function getCoingeckoApiUrl(chain) {
-  return `https://pro-api.coingecko.com/api/v3/coins/${DISPLAY_CHAIN_NAMES[chain]}/contract`
+  return `https://pro-api.coingecko.com/api/v3/coins/${COINGECKO_CHAINS[chain]}/contract`
 }
 
 function getTokenListUrl(chain) {
   return `https://tokens.coingecko.com/${COINGECKO_CHAINS[chain]}/all.json`
 }
 
-function getEmptyList(chain) {
+function getListName(chain, count) {
+  return `Coingecko top ${count} on ${DISPLAY_CHAIN_NAMES[chain]}`
+}
+
+function getEmptyList() {
   return {
-    name: `Coingecko top ${TOP_TOKENS_COUNT} on ${COINGECKO_CHAINS[chain]}`,
+    name: `Coingecko`,
     logoURI:
       'https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
     keywords: ['defi'],
@@ -222,10 +226,14 @@ async function fetchAndProcessTokens(chainId) {
 
     const tokenListPath = path.join(`src/public/CoinGecko.${chainId}.json`)
 
-    const tokenList = getLocalTokenList(tokenListPath, getEmptyList(chainId))
+    const tokenList = getLocalTokenList(tokenListPath, getEmptyList())
 
     // Replace tokens
-    tokenList.tokens = topTokens.map(({ token }) => ({ ...token, logoURI: token.logoURI.replace(/thumb/, 'large') }))
+    tokenList.tokens = topTokens.map(({ token }) => ({
+      ...token,
+      logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
+    }))
+    tokenList.name = getListName(chainId, tokenList.tokens.length)
 
     // Write token file
     saveLocalTokenList(tokenListPath, tokenList)
@@ -237,7 +245,6 @@ async function fetchAndProcessTokens(chainId) {
 async function main() {
   // Fetch tokens for all chains
   Object.keys(COINGECKO_CHAINS).forEach((chain) => fetchAndProcessTokens(chain))
-  // fetchAndProcessTokens(100)
 }
 
 /**
