@@ -67,9 +67,6 @@ async function getTokenVolume(token, chain) {
     const response = await fetch(url, { headers })
     const data = await response.json()
 
-    // console.log(`[getTokenVolume] url: ${url}, chain: ${chain}`)
-    // console.log(`[getTokenVolume] token: ${token.symbol}, chain: ${chain}`)
-    // console.log(`[getTokenVolume] ${token.symbol} $${data.market_data.total_volume[VS_CURRENCY]}, chain: ${chain}`)
     return data.market_data.total_volume[VS_CURRENCY] || 0
   } catch (error) {
     console.error(`Error fetching volume for token ${token.name} on chain ${chain}:`, error)
