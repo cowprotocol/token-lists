@@ -2,7 +2,7 @@ name: 'Cron: cow.fi tokens list'
 
 on:
   schedule:
-    - cron: '30 * * * *'
+    - cron: '0 */3 * * *'
 
 # Required for authenticating with AWS IAM
 permissions:
@@ -68,7 +68,7 @@ jobs:
         run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cowFi-tokens.json
           path: src/cowFi/cowFi-tokens.json
