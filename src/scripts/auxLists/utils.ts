@@ -1,18 +1,18 @@
 import assert from 'assert'
-import fs from 'fs'
-import path from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 
 export const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
 
-export const COINGECKO_CHAINS = {
+export const COINGECKO_CHAINS: Record<number, string> = {
   1: 'ethereum',
   100: 'xdai',
   8453: 'base',
   42161: 'arbitrum-one',
 }
 
-export const DISPLAY_CHAIN_NAMES = {
+export const DISPLAY_CHAIN_NAMES: Record<number, string> = {
   1: 'Ethereum',
   100: 'Gnosis chain',
   8453: 'Base',
@@ -22,31 +22,55 @@ export const DISPLAY_CHAIN_NAMES = {
 export const VS_CURRENCY = 'usd'
 export const TOP_TOKENS_COUNT = 500
 
-export async function fetchWithApiKey(url) {
-  const headers = COINGECKO_API_KEY ? { 'X-Cg-Pro-Api-Key': COINGECKO_API_KEY } : {}
+export interface TokenInfo {
+  chainId: number
+  address: string
+  name: string
+  symbol: string
+  decimals: number
+  logoURI?: string
+  volume?: number
+}
+
+export interface TokenList {
+  name: string
+  logoURI: string
+  keywords: string[]
+  version: {
+    major: number
+    minor: number
+    patch: number
+  }
+  timestamp?: string
+  tokens: TokenInfo[]
+}
+
+export async function fetchWithApiKey(url: string): Promise<any> {
+  const headers = COINGECKO_API_KEY ? { 'X-Cg-Pro-Api-Key': COINGECKO_API_KEY } : undefined
   const response = await fetch(url, { headers })
   return response.json()
 }
 
-function getEmptyList() {
+function getEmptyList(): TokenList {
   return {
     name: 'Coingecko',
     logoURI:
       'https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
     keywords: ['defi'],
     version: { major: 0, minor: 0, patch: 0 },
+    tokens: [],
   }
 }
 
-function getListName(chain, prefix, count) {
+function getListName(chain: number, prefix: string, count?: number): string {
   return `${prefix}${count ? ` top ${count}` : ''} on ${DISPLAY_CHAIN_NAMES[chain]}`
 }
 
-function getOutputPath(prefix, chainId) {
+function getOutputPath(prefix: string, chainId: number): string {
   return `src/public/${prefix}.${chainId}.json`
 }
 
-export function getLocalTokenList(listPath, defaultEmptyList) {
+export function getLocalTokenList(listPath: string, defaultEmptyList: TokenList): TokenList {
   try {
     return JSON.parse(fs.readFileSync(listPath, 'utf8'))
   } catch (error) {
@@ -55,7 +79,7 @@ export function getLocalTokenList(listPath, defaultEmptyList) {
   }
 }
 
-export function saveLocalTokenList(listPath, list) {
+export function saveLocalTokenList(listPath: string, list: TokenList): void {
   try {
     list.version = list.version || { major: 0, minor: 0, patch: 0 }
     list.version.major += 1
@@ -67,7 +91,14 @@ export function saveLocalTokenList(listPath, list) {
   }
 }
 
-export async function processTokenList({ chainId, tokens, prefix, logMessage }) {
+interface ProcessTokenListParams {
+  chainId: number
+  tokens: TokenInfo[]
+  prefix: string
+  logMessage: string
+}
+
+export async function processTokenList({ chainId, tokens, prefix, logMessage }: ProcessTokenListParams): Promise<void> {
   const count = tokens.length
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
   tokens.forEach((token, index) => {

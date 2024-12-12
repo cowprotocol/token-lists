@@ -1,18 +1,22 @@
-import { getCoingeckoTokenIdsMap } from './coingecko.js'
-import { COINGECKO_CHAINS, fetchWithApiKey, processTokenList } from './utils.js'
+import { getCoingeckoTokenIdsMap } from './coingecko'
+import { COINGECKO_CHAINS, fetchWithApiKey, processTokenList, TokenInfo } from './utils'
 
 const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
-let COINGECKO_IDS_MAP = {}
+let COINGECKO_IDS_MAP: Record<string, Record<string, string>> = {}
 
-async function getUniswapTokens() {
+async function getUniswapTokens(): Promise<TokenInfo[]> {
   const response = await fetch(UNISWAP_LIST)
   const list = await response.json()
   return list.tokens
 }
 
-async function mapUniMainnetToChainTokens(chain, uniTokens, coingeckoTokensForChain) {
-  const mainnetTokens = []
-  const chainTokens = {}
+async function mapUniMainnetToChainTokens(
+  chain: number,
+  uniTokens: TokenInfo[],
+  coingeckoTokensForChain: TokenInfo[],
+): Promise<TokenInfo[]> {
+  const mainnetTokens: TokenInfo[] = []
+  const chainTokens: Record<string, TokenInfo> = {}
 
   // Split uni tokens into mainnet and chain
   uniTokens.forEach((token) => {
@@ -23,7 +27,7 @@ async function mapUniMainnetToChainTokens(chain, uniTokens, coingeckoTokensForCh
     }
   })
 
-  const coingeckoTokensMap = coingeckoTokensForChain.reduce((acc, token) => {
+  const coingeckoTokensMap = coingeckoTokensForChain.reduce<Record<string, TokenInfo>>((acc, token) => {
     acc[token.address.toLowerCase()] = token
     return acc
   }, {})
@@ -44,9 +48,9 @@ async function mapUniMainnetToChainTokens(chain, uniTokens, coingeckoTokensForCh
   return Object.values(chainTokens)
 }
 
-export async function fetchAndProcessUniswapTokens(chainId) {
+export async function fetchAndProcessUniswapTokens(chainId: number): Promise<void> {
   try {
-    COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length || (await getCoingeckoTokenIdsMap())
+    COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length ? COINGECKO_IDS_MAP : await getCoingeckoTokenIdsMap()
     const uniTokens = await getUniswapTokens()
     const coingeckoTokens = await fetchWithApiKey(`https://tokens.coingecko.com/${COINGECKO_CHAINS[chainId]}/all.json`)
 
