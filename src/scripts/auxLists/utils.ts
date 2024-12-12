@@ -1,3 +1,4 @@
+import { TokenList } from '@uniswap/token-lists'
 import assert from 'assert'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -32,26 +33,13 @@ export interface TokenInfo {
   volume?: number
 }
 
-export interface TokenList {
-  name: string
-  logoURI: string
-  keywords: string[]
-  version: {
-    major: number
-    minor: number
-    patch: number
-  }
-  timestamp?: string
-  tokens: TokenInfo[]
-}
-
 export async function fetchWithApiKey(url: string): Promise<any> {
   const headers = COINGECKO_API_KEY ? { 'X-Cg-Pro-Api-Key': COINGECKO_API_KEY } : undefined
   const response = await fetch(url, { headers })
   return response.json()
 }
 
-function getEmptyList(): TokenList {
+function getEmptyList(): Partial<TokenList> {
   return {
     name: 'Coingecko',
     logoURI:
@@ -70,7 +58,7 @@ function getOutputPath(prefix: string, chainId: number): string {
   return `src/public/${prefix}.${chainId}.json`
 }
 
-export function getLocalTokenList(listPath: string, defaultEmptyList: TokenList): TokenList {
+export function getLocalTokenList(listPath: string, defaultEmptyList: Partial<TokenList>): Partial<TokenList> {
   try {
     return JSON.parse(fs.readFileSync(listPath, 'utf8'))
   } catch (error) {
@@ -81,10 +69,11 @@ export function getLocalTokenList(listPath: string, defaultEmptyList: TokenList)
 
 export function saveLocalTokenList(listPath: string, list: TokenList): void {
   try {
-    list.version = list.version || { major: 0, minor: 0, patch: 0 }
-    list.version.major += 1
-    list.timestamp = new Date().toISOString()
-    fs.writeFileSync(listPath, JSON.stringify(list, null, 2))
+    const updatedVersion = list.version
+      ? { ...list.version, major: list.version.major + 1 }
+      : { major: 1, minor: 0, patch: 0 }
+    const updatedList = { ...list, version: updatedVersion, timestamp: new Date().toISOString() }
+    fs.writeFileSync(listPath, JSON.stringify(updatedList, null, 2))
     console.log(`Token list saved to ${listPath}`)
   } catch (error) {
     console.error(`Error saving token list to ${listPath}:`, error)
@@ -109,11 +98,13 @@ export async function processTokenList({ chainId, tokens, prefix, logMessage }: 
   const tokenListPath = path.join(getOutputPath(prefix, chainId))
   const tokenList = getLocalTokenList(tokenListPath, getEmptyList())
 
-  tokenList.tokens = tokens.map((token) => ({
+  const updatedTokens = tokens.map((token) => ({
     ...token,
     logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
   }))
-  tokenList.name = getListName(chainId, prefix, count)
+  const updatedName = getListName(chainId, prefix, count)
 
-  saveLocalTokenList(tokenListPath, tokenList)
+  const updatedTokenList = { ...tokenList, tokens: updatedTokens, name: updatedName }
+
+  saveLocalTokenList(tokenListPath, updatedTokenList as TokenList)
 }
