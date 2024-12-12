@@ -7,6 +7,14 @@ const TOP_TOKENS_COUNT = 500 // Number of top tokens to display
 
 const VS_CURRENCY = 'usd' // Base currency for volume data
 
+const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
+
+async function getUniswapTokens() {
+  const response = await fetch(UNISWAP_LIST)
+  const list = await response.json()
+  return list.tokens
+}
+
 const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
 
@@ -51,8 +59,8 @@ function getEmptyList() {
   }
 }
 
-function getListName(chain, count) {
-  return `Coingecko top ${count} on ${DISPLAY_CHAIN_NAMES[chain]}`
+function getListName(chain, prefix, count) {
+  return `${prefix}${count ? ` top ${count}` : ''} on ${DISPLAY_CHAIN_NAMES[chain]}`
 }
 
 async function getTokenList(chain) {
@@ -69,14 +77,14 @@ async function getCoingeckoTokenIds() {
   }
 }
 
-async function getCoingeckoTokenIdsMap(forceUpdate = false) {
+async function getCoingeckoTokenIdsMap() {
   let tokenIdsMap = COINGECKO_CHAINS_NAMES.reduce((acc, name) => ({ ...acc, [name]: {} }), {})
 
   try {
     const tokenIds = await getCoingeckoTokenIds()
     tokenIds.forEach((token) => {
       COINGECKO_CHAINS_NAMES.forEach((chain) => {
-        const address = token.platforms[chain]
+        const address = token.platforms[chain]?.toLowerCase()
         if (address) {
           tokenIdsMap[chain][address] = token.id
           tokenIdsMap[chain][token.id] = address // reverse mapping
@@ -143,7 +151,7 @@ function getLocalTokenList(listPath, defaultEmptyList) {
   try {
     return JSON.parse(fs.readFileSync(listPath, 'utf8'))
   } catch (error) {
-    console.error(`Error reading token list from ${listPath}:`, error)
+    console.warn(`Error reading token list from ${listPath}:`, error)
     return defaultEmptyList
   }
 }
@@ -160,34 +168,114 @@ function saveLocalTokenList(listPath, list) {
   }
 }
 
-async function fetchAndProcessTokens(chainId) {
+function getOutputPath(prefix, chainId) {
+  return `src/public/${prefix}.${chainId}.json`
+}
+
+async function processTokenList({ chainId, tokens, prefix, logMessage }) {
+  const count = tokens.length
+  console.log(`🥇 ${logMessage} on chain ${chainId}`)
+  tokens.forEach((token, index) => {
+    const volumeStr = token.volume ? `: $${token.volume}` : ''
+    console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
+  })
+
+  const tokenListPath = path.join(getOutputPath(prefix, chainId))
+  const tokenList = getLocalTokenList(tokenListPath, getEmptyList())
+
+  tokenList.tokens = tokens.map((token) => ({
+    ...token,
+    logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
+  }))
+  tokenList.name = getListName(chainId, prefix, count)
+
+  saveLocalTokenList(tokenListPath, tokenList)
+}
+
+async function fetchAndProcessCoingeckoTokens(chainId) {
   try {
     COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length || (await getCoingeckoTokenIdsMap())
     const tokens = await getTokenList(chainId)
     const topTokens = (await getTokenVolumes(chainId, tokens)).slice(0, TOP_TOKENS_COUNT)
 
-    console.log(`🥇 Top ${TOP_TOKENS_COUNT} tokens on chain ${chainId}`)
-    topTokens.forEach(({ token, volume }, index) => {
-      console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol}): $${volume}`)
+    await processTokenList({
+      chainId,
+      tokens: topTokens,
+      prefix: 'CoinGecko',
+      logMessage: `Top ${TOP_TOKENS_COUNT} tokens`,
     })
+  } catch (error) {
+    console.error(`Error fetching data for chain ${chainId}:`, error)
+  }
+}
 
-    const tokenListPath = path.join(`src/public/CoinGecko.${chainId}.json`)
-    const tokenList = getLocalTokenList(tokenListPath, getEmptyList())
+async function mapUniMainnetToChainTokens(chain, uniTokens, coingeckoTokensForChain) {
+  const mainnetTokens = []
+  const chainTokens = {}
 
-    tokenList.tokens = topTokens.map(({ token }) => ({
-      ...token,
-      logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
-    }))
-    tokenList.name = getListName(chainId, tokenList.tokens.length)
+  // Split uni tokens into mainnet and chain
+  uniTokens.forEach((token) => {
+    if (token.chainId === +chain) {
+      // Chain tokens already have all the details
+      chainTokens[token.address.toLowerCase()] = token
+    } else if (token.chainId === 1) {
+      // We'll need to get the address and details for mainnet tokens
+      mainnetTokens.push(token)
+    }
+  })
 
-    saveLocalTokenList(tokenListPath, tokenList)
+  // Create a map with coingecko tokes for chain for easier access
+  const coingeckoTokensMap = coingeckoTokensForChain.reduce((acc, token) => {
+    acc[token.address.toLowerCase()] = token
+    return acc
+  }, {})
+
+  // For each mainnet token
+  mainnetTokens.forEach((token) => {
+    // See if there's a corresponding coingecko id
+    const coingeckoId = COINGECKO_IDS_MAP[COINGECKO_CHAINS['1']][token.address.toLowerCase()]
+    if (coingeckoId) {
+      // If there is, try to find the corresponding chain token address
+      const chainAddress = COINGECKO_IDS_MAP[COINGECKO_CHAINS[chain]][coingeckoId]
+      if (!chainTokens[chainAddress]) {
+        // If that's not already in uni's list, try to get it from coingecko's chain list
+        const cgToken = coingeckoTokensMap[chainAddress]
+        if (cgToken) {
+          // If it is, add it to the output map
+          chainTokens[chainAddress] = cgToken
+        }
+      }
+    }
+  })
+
+  return Object.values(chainTokens)
+}
+
+async function fetchAndProcessUniswapTokens(chainId) {
+  try {
+    COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length || (await getCoingeckoTokenIdsMap())
+    // TODO: cache uniTokens and coingeckoTokens in memory
+    const uniTokens = await getUniswapTokens()
+    const coingeckoTokens = await getTokenList(chainId)
+
+    const tokens = await mapUniMainnetToChainTokens(chainId, uniTokens, coingeckoTokens)
+
+    await processTokenList({
+      chainId,
+      tokens,
+      prefix: 'Uniswap',
+      logMessage: `Uniswap tokens`,
+    })
   } catch (error) {
     console.error(`Error fetching data for chain ${chainId}:`, error)
   }
 }
 
 async function main() {
-  Object.keys(COINGECKO_CHAINS).forEach((chain) => fetchAndProcessTokens(chain))
+  Object.keys(COINGECKO_CHAINS).forEach((chain) => fetchAndProcessCoingeckoTokens(chain))
+  Object.keys(COINGECKO_CHAINS)
+    .filter((chain) => chain != 1) // No need to create a list for mainnet
+    .forEach((chain) => fetchAndProcessUniswapTokens(chain))
 }
 
 main()
