@@ -60,7 +60,9 @@ export async function fetchAndProcessUniswapTokens(chainId: number): Promise<voi
       chainId,
       tokens,
       prefix: 'Uniswap',
+      logo: 'ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir',
       logMessage: `Uniswap tokens`,
+      shouldAddCountToListName: false,
     })
   } catch (error) {
     console.error(`Error fetching data for chain ${chainId}:`, error)

@@ -125,6 +125,7 @@ export async function fetchAndProcessCoingeckoTokens(chainId: number): Promise<v
       chainId,
       tokens: topTokens.map(({ token, volume }) => ({ ...token, volume })),
       prefix: 'CoinGecko',
+      logo: 'https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png',
       logMessage: `Top ${TOP_TOKENS_COUNT} tokens`,
     })
   } catch (error) {

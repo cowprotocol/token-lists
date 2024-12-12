@@ -1,7 +1,7 @@
 import { TokenList } from '@uniswap/token-lists'
 import assert from 'assert'
 import * as fs from 'fs'
-import * as path from 'path'
+import path from 'path'
 
 export const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
@@ -41,9 +41,6 @@ export async function fetchWithApiKey(url: string): Promise<any> {
 
 function getEmptyList(): Partial<TokenList> {
   return {
-    name: 'Coingecko',
-    logoURI:
-      'https://static.coingecko.com/s/thumbnail-007177f3eca19695592f0b8b0eabbdae282b54154e1be912285c9034ea6cbaf2.png',
     keywords: ['defi'],
     version: { major: 0, minor: 0, patch: 0 },
     tokens: [],
@@ -67,16 +64,64 @@ export function getLocalTokenList(listPath: string, defaultEmptyList: Partial<To
   }
 }
 
-export function saveLocalTokenList(listPath: string, list: TokenList): void {
+interface SaveUpdatedTokensParams {
+  chainId: number
+  prefix: string
+  logo: string
+  tokens: TokenInfo[]
+  listName: string
+}
+
+function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): TokenList['version'] {
+  let version = list.version || { major: 0, minor: 0, patch: 0 }
+  const listTokenAddresses = new Set(list.tokens?.map((token) => token.address.toLowerCase()) || [])
+  const tokensAddresses = new Set(tokens.map((token) => token.address.toLowerCase()))
+
+  // Check for removed tokens
+  if (
+    listTokenAddresses.size > tokensAddresses.size ||
+    Array.from(listTokenAddresses).some((address) => !tokensAddresses.has(address))
+  ) {
+    return { ...version, major: version.major + 1 }
+  }
+
+  // Check for added tokens
+  if (
+    listTokenAddresses.size < tokensAddresses.size ||
+    Array.from(tokensAddresses).some((address) => !listTokenAddresses.has(address))
+  ) {
+    return { ...version, minor: version.minor + 1 }
+  }
+
+  // Check for changes in token details
+  for (const listToken of list.tokens || []) {
+    const token = tokens.find((token) => token.address === listToken.address)
+    if (
+      token &&
+      (listToken.name !== token.name ||
+        listToken.symbol !== token.symbol ||
+        listToken.decimals !== token.decimals ||
+        listToken.logoURI !== token.logoURI)
+    ) {
+      return { ...version, patch: version.patch + 1 }
+    }
+  }
+
+  return version
+}
+
+export function saveUpdatedTokens({ chainId, prefix, logo, tokens, listName }: SaveUpdatedTokensParams): void {
+  const tokenListPath = path.join(getOutputPath(prefix, chainId))
+  const currentList = getLocalTokenList(tokenListPath, getEmptyList())
+  const updatedTokenList = { ...currentList, tokens, name: listName, logoURI: logo }
+
   try {
-    const updatedVersion = list.version
-      ? { ...list.version, major: list.version.major + 1 }
-      : { major: 1, minor: 0, patch: 0 }
-    const updatedList = { ...list, version: updatedVersion, timestamp: new Date().toISOString() }
-    fs.writeFileSync(listPath, JSON.stringify(updatedList, null, 2))
-    console.log(`Token list saved to ${listPath}`)
+    const version = getTokenListVersion(currentList, tokens)
+    const updatedList: TokenList = { ...updatedTokenList, version, timestamp: new Date().toISOString() }
+    fs.writeFileSync(tokenListPath, JSON.stringify(updatedList, null, 2))
+    console.log(`Token list saved to ${tokenListPath}`)
   } catch (error) {
-    console.error(`Error saving token list to ${listPath}:`, error)
+    console.error(`Error saving token list to ${tokenListPath}:`, error)
   }
 }
 
@@ -84,10 +129,19 @@ interface ProcessTokenListParams {
   chainId: number
   tokens: TokenInfo[]
   prefix: string
+  logo: string
   logMessage: string
+  shouldAddCountToListName?: boolean
 }
 
-export async function processTokenList({ chainId, tokens, prefix, logMessage }: ProcessTokenListParams): Promise<void> {
+export async function processTokenList({
+  chainId,
+  tokens,
+  prefix,
+  logo,
+  logMessage,
+  shouldAddCountToListName = true,
+}: ProcessTokenListParams): Promise<void> {
   const count = tokens.length
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
   tokens.forEach((token, index) => {
@@ -95,16 +149,11 @@ export async function processTokenList({ chainId, tokens, prefix, logMessage }: 
     console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
   })
 
-  const tokenListPath = path.join(getOutputPath(prefix, chainId))
-  const tokenList = getLocalTokenList(tokenListPath, getEmptyList())
-
-  const updatedTokens = tokens.map((token) => ({
+  const updatedTokens = tokens.map(({ volume: _, ...token }) => ({
     ...token,
     logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
   }))
-  const updatedName = getListName(chainId, prefix, count)
+  const listName = getListName(chainId, prefix, shouldAddCountToListName ? count : undefined)
 
-  const updatedTokenList = { ...tokenList, tokens: updatedTokens, name: updatedName }
-
-  saveLocalTokenList(tokenListPath, updatedTokenList as TokenList)
+  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName })
 }
