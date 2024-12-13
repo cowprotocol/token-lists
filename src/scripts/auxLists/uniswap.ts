@@ -1,11 +1,10 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
-import { getCoingeckoTokenIdsMap } from './coingecko'
-import { COINGECKO_CHAINS, fetchWithApiKey, processTokenList, TokenInfo } from './utils'
+import { COINGECKO_CHAINS, type COINGECKO_IDS_MAP, getTokenList, processTokenList, TokenInfo } from './utils'
 
 const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
-let COINGECKO_IDS_MAP: Record<string, Record<string, string>> = {}
 
 async function getUniswapTokens(): Promise<TokenInfo[]> {
+  console.log(`fuck`)
   const response = await fetch(UNISWAP_LIST)
   const list = await response.json()
   return list.tokens
@@ -15,6 +14,7 @@ async function mapUniMainnetToChainTokens(
   chain: SupportedChainId,
   uniTokens: TokenInfo[],
   coingeckoTokensForChain: TokenInfo[],
+  coingeckoIdsMap: COINGECKO_IDS_MAP,
 ): Promise<TokenInfo[]> {
   const mainnetTokens: TokenInfo[] = []
   const chainTokens: Record<string, TokenInfo> = {}
@@ -40,9 +40,9 @@ async function mapUniMainnetToChainTokens(
       return
     }
 
-    const coingeckoId = COINGECKO_IDS_MAP[coingeckoMainnetName][token.address.toLowerCase()]
+    const coingeckoId = coingeckoIdsMap[coingeckoMainnetName][token.address.toLowerCase()]
     if (coingeckoId) {
-      const chainAddress = COINGECKO_IDS_MAP[coingeckoChainName][coingeckoId]
+      const chainAddress = coingeckoIdsMap[coingeckoChainName][coingeckoId]
       if (!chainTokens[chainAddress]) {
         const cgToken = coingeckoTokensMap[chainAddress]
         if (cgToken) {
@@ -55,13 +55,15 @@ async function mapUniMainnetToChainTokens(
   return Object.values(chainTokens)
 }
 
-export async function fetchAndProcessUniswapTokens(chainId: SupportedChainId): Promise<void> {
+async function fetchAndProcessUniswapTokensForChain(
+  chainId: SupportedChainId,
+  coingeckoIdsMap: COINGECKO_IDS_MAP,
+  uniswapTokens: TokenInfo[],
+): Promise<void> {
   try {
-    COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length ? COINGECKO_IDS_MAP : await getCoingeckoTokenIdsMap()
-    const uniTokens = await getUniswapTokens()
-    const coingeckoTokens = await fetchWithApiKey(`https://tokens.coingecko.com/${COINGECKO_CHAINS[chainId]}/all.json`)
+    const coingeckoTokens = await getTokenList(chainId)
 
-    const tokens = await mapUniMainnetToChainTokens(chainId, uniTokens, coingeckoTokens.tokens)
+    const tokens = await mapUniMainnetToChainTokens(chainId, uniswapTokens, coingeckoTokens, coingeckoIdsMap)
 
     await processTokenList({
       chainId,
@@ -74,4 +76,12 @@ export async function fetchAndProcessUniswapTokens(chainId: SupportedChainId): P
   } catch (error) {
     console.error(`Error fetching data for chain ${chainId}:`, error)
   }
+}
+
+export async function fetchAndProcessUniswapTokens(coingeckoIdsMap: COINGECKO_IDS_MAP) {
+  const uniTokens = await getUniswapTokens()
+
+  Object.keys(COINGECKO_CHAINS)
+    .filter((chain) => Number(chain) !== SupportedChainId.MAINNET && COINGECKO_CHAINS[+chain as SupportedChainId]) // No need to create a list for mainnet
+    .forEach((chain) => fetchAndProcessUniswapTokensForChain(Number(chain), coingeckoIdsMap, uniTokens))
 }

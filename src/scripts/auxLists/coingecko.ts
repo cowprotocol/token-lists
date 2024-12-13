@@ -1,78 +1,31 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
-import { COINGECKO_CHAINS, fetchWithApiKey, processTokenList, TokenInfo, TOP_TOKENS_COUNT, VS_CURRENCY } from './utils'
-
-const COINGECKO_CHAINS_NAMES = Object.values(COINGECKO_CHAINS)
-
-interface TokenIdsMap {
-  [chain: string]: {
-    [addressOrId: string]: string
-  }
-}
-
-let COINGECKO_IDS_MAP: TokenIdsMap = {}
-
-function getTokenListUrl(chain: SupportedChainId): string {
-  return `https://tokens.coingecko.com/${COINGECKO_CHAINS[chain]}/all.json`
-}
-
-async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]> {
-  const data = await fetchWithApiKey(getTokenListUrl(chain))
-  return data.tokens
-}
-
-interface CoingeckoToken {
-  id: string
-  platforms: {
-    [chain: string]: string
-  }
-}
-
-async function getCoingeckoTokenIds(): Promise<CoingeckoToken[]> {
-  try {
-    return await fetchWithApiKey('https://pro-api.coingecko.com/api/v3/coins/list?include_platform=true&status=active')
-  } catch (error) {
-    console.error(`Error fetching Coingecko's coin list`, error)
-    return []
-  }
-}
-
-export async function getCoingeckoTokenIdsMap(): Promise<TokenIdsMap> {
-  let tokenIdsMap = COINGECKO_CHAINS_NAMES.reduce<TokenIdsMap>((acc, name) => (name ? { ...acc, [name]: {} } : acc), {})
-
-  try {
-    const tokenIds = await getCoingeckoTokenIds()
-    tokenIds.forEach((token) => {
-      COINGECKO_CHAINS_NAMES.forEach((chain) => {
-        if (!chain) {
-          return
-        }
-
-        const address = token.platforms[chain]?.toLowerCase()
-        if (address) {
-          tokenIdsMap[chain][address] = token.id
-          tokenIdsMap[chain][token.id] = address // reverse mapping
-        }
-      })
-    })
-  } catch (error) {
-    console.error(`Error fetching Coingecko token IDs: ${error}`)
-  }
-
-  return tokenIdsMap
-}
+import {
+  COINGECKO_CHAINS,
+  type COINGECKO_IDS_MAP,
+  fetchWithApiKey,
+  getTokenList,
+  processTokenList,
+  TokenInfo,
+  TOP_TOKENS_COUNT,
+  VS_CURRENCY,
+} from './utils'
 
 interface MarketData {
   id: string
   total_volume: number
 }
 
-async function getCoingeckoMarket(chainId: SupportedChainId, tokens: TokenInfo[]): Promise<MarketData[]> {
+async function getCoingeckoMarket(
+  chainId: SupportedChainId,
+  tokens: TokenInfo[],
+  coingeckoIdsMap: COINGECKO_IDS_MAP,
+): Promise<MarketData[]> {
   const coingeckoChainName = COINGECKO_CHAINS[chainId]
   if (!coingeckoChainName) {
     return []
   }
 
-  const coingeckoIdsForChain = COINGECKO_IDS_MAP[coingeckoChainName]
+  const coingeckoIdsForChain = coingeckoIdsMap[coingeckoChainName]
   const ids = tokens.reduce((acc, token) => {
     const coingeckoId = coingeckoIdsForChain[token.address]
     return coingeckoId ? `${acc}${coingeckoId},` : acc
@@ -93,22 +46,28 @@ interface TokenWithVolume {
   volume: number
 }
 
-async function getTokenVolumes(chainId: SupportedChainId, tokens: TokenInfo[]): Promise<TokenWithVolume[]> {
+async function getTokenVolumes(
+  chainId: SupportedChainId,
+  tokens: TokenInfo[],
+  coingeckoIdsMap: COINGECKO_IDS_MAP,
+): Promise<TokenWithVolume[]> {
   const chunkSize = 250
   const chunks = []
 
   for (let i = 0; i < tokens.length; i += chunkSize) {
     const chunk = tokens.slice(i, i + chunkSize)
-    chunks.push({ tokens: chunk, volume: getCoingeckoMarket(chainId, chunk) })
+    chunks.push({
+      tokens: chunk,
+      volume: getCoingeckoMarket(chainId, chunk, coingeckoIdsMap),
+    })
   }
 
   const coingeckoChainName = COINGECKO_CHAINS[chainId]
-
   if (!coingeckoChainName) {
     return []
   }
 
-  const ids = COINGECKO_IDS_MAP[coingeckoChainName]
+  const ids = coingeckoIdsMap[coingeckoChainName]
   const volumes = await Promise.all(
     chunks.map(async ({ tokens, volume }: { tokens: TokenInfo[]; volume: Promise<MarketData[]> }) => {
       const volumeData = await volume
@@ -131,11 +90,13 @@ async function getTokenVolumes(chainId: SupportedChainId, tokens: TokenInfo[]): 
   return volumes.flat().sort((a, b) => b.volume - a.volume)
 }
 
-export async function fetchAndProcessCoingeckoTokens(chainId: SupportedChainId): Promise<void> {
+async function fetchAndProcessCoingeckoTokensForChain(
+  chainId: SupportedChainId,
+  coingeckoIdsMap: COINGECKO_IDS_MAP,
+): Promise<void> {
   try {
-    COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length ? COINGECKO_IDS_MAP : await getCoingeckoTokenIdsMap()
     const tokens = await getTokenList(chainId)
-    const topTokens = (await getTokenVolumes(chainId, tokens)).slice(0, TOP_TOKENS_COUNT)
+    const topTokens = (await getTokenVolumes(chainId, tokens, coingeckoIdsMap)).slice(0, TOP_TOKENS_COUNT)
 
     await processTokenList({
       chainId,
@@ -147,4 +108,12 @@ export async function fetchAndProcessCoingeckoTokens(chainId: SupportedChainId):
   } catch (error) {
     console.error(`Error fetching data for chain ${chainId}:`, error)
   }
+}
+
+export async function fetchAndProcessCoingeckoTokens(coingeckoIdsMap: COINGECKO_IDS_MAP) {
+  Object.keys(COINGECKO_CHAINS).forEach(
+    (chain) =>
+      COINGECKO_CHAINS[+chain as SupportedChainId] &&
+      fetchAndProcessCoingeckoTokensForChain(Number(chain), coingeckoIdsMap),
+  )
 }

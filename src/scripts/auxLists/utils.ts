@@ -1,4 +1,4 @@
-import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import assert from 'assert'
 import * as fs from 'fs'
@@ -160,3 +160,68 @@ export async function processTokenList({
 
   saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName })
 }
+
+export async function getCoingeckoTokenIdsMap(): Promise<COINGECKO_IDS_MAP> {
+  let tokenIdsMap = COINGECKO_CHAINS_NAMES.reduce<COINGECKO_IDS_MAP>(
+    (acc, name) => (name ? { ...acc, [name]: {} } : acc),
+    {},
+  )
+
+  try {
+    const tokenIds = await getCoingeckoTokenIds()
+    tokenIds.forEach((token) => {
+      COINGECKO_CHAINS_NAMES.forEach((chain) => {
+        if (!chain) {
+          return
+        }
+
+        const address = token.platforms[chain]?.toLowerCase()
+        if (address) {
+          tokenIdsMap[chain][address] = token.id
+          tokenIdsMap[chain][token.id] = address // reverse mapping
+        }
+      })
+    })
+  } catch (error) {
+    console.error(`Error fetching Coingecko token IDs: ${error}`)
+  }
+
+  return tokenIdsMap
+}
+
+async function getCoingeckoTokenIds(): Promise<CoingeckoToken[]> {
+  try {
+    return await fetchWithApiKey('https://pro-api.coingecko.com/api/v3/coins/list?include_platform=true&status=active')
+  } catch (error) {
+    console.error(`Error fetching Coingecko's coin list`, error)
+    return []
+  }
+}
+
+const COINGECKO_CHAINS_NAMES = Object.values(COINGECKO_CHAINS)
+
+interface CoingeckoToken {
+  id: string
+  platforms: {
+    [chain: string]: string
+  }
+}
+
+function getTokenListUrl(chain: SupportedChainId): string {
+  return `https://tokens.coingecko.com/${COINGECKO_CHAINS[chain]}/all.json`
+}
+
+const TOKEN_LISTS_CACHE: Record<SupportedChainId, TokenInfo[]> = mapSupportedNetworks([])
+
+export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]> {
+  if (TOKEN_LISTS_CACHE[chain]) {
+    return TOKEN_LISTS_CACHE[chain]
+  }
+  const data = await fetchWithApiKey(getTokenListUrl(chain))
+
+  TOKEN_LISTS_CACHE[chain] = data.tokens
+
+  return data.tokens
+}
+
+export type COINGECKO_IDS_MAP = Record<string, Record<string, string>>
