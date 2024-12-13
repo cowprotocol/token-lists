@@ -1,3 +1,4 @@
+import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import assert from 'assert'
 import * as fs from 'fs'
@@ -6,25 +7,27 @@ import path from 'path'
 export const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
 
-export const COINGECKO_CHAINS: Record<number, string> = {
-  1: 'ethereum',
-  100: 'xdai',
-  8453: 'base',
-  42161: 'arbitrum-one',
+export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
+  [SupportedChainId.MAINNET]: 'ethereum',
+  [SupportedChainId.GNOSIS_CHAIN]: 'xdai',
+  [SupportedChainId.BASE]: 'base',
+  [SupportedChainId.ARBITRUM_ONE]: 'arbitrum-one',
+  [SupportedChainId.SEPOLIA]: null,
 }
 
-export const DISPLAY_CHAIN_NAMES: Record<number, string> = {
-  1: 'Ethereum',
-  100: 'Gnosis chain',
-  8453: 'Base',
-  42161: 'Arbitrum one',
+export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
+  [SupportedChainId.MAINNET]: 'Ethereum',
+  [SupportedChainId.GNOSIS_CHAIN]: 'Gnosis chain',
+  [SupportedChainId.BASE]: 'Base',
+  [SupportedChainId.ARBITRUM_ONE]: 'Arbitrum one',
+  [SupportedChainId.SEPOLIA]: null,
 }
 
 export const VS_CURRENCY = 'usd'
 export const TOP_TOKENS_COUNT = 500
 
 export interface TokenInfo {
-  chainId: number
+  chainId: SupportedChainId
   address: string
   name: string
   symbol: string
@@ -47,11 +50,11 @@ function getEmptyList(): Partial<TokenList> {
   }
 }
 
-function getListName(chain: number, prefix: string, count?: number): string {
+function getListName(chain: SupportedChainId, prefix: string, count?: number): string {
   return `${prefix}${count ? ` top ${count}` : ''} on ${DISPLAY_CHAIN_NAMES[chain]}`
 }
 
-function getOutputPath(prefix: string, chainId: number): string {
+function getOutputPath(prefix: string, chainId: SupportedChainId): string {
   return `src/public/${prefix}.${chainId}.json`
 }
 
@@ -65,7 +68,7 @@ export function getLocalTokenList(listPath: string, defaultEmptyList: Partial<To
 }
 
 interface SaveUpdatedTokensParams {
-  chainId: number
+  chainId: SupportedChainId
   prefix: string
   logo: string
   tokens: TokenInfo[]
@@ -126,7 +129,7 @@ export function saveUpdatedTokens({ chainId, prefix, logo, tokens, listName }: S
 }
 
 interface ProcessTokenListParams {
-  chainId: number
+  chainId: SupportedChainId
   tokens: TokenInfo[]
   prefix: string
   logo: string

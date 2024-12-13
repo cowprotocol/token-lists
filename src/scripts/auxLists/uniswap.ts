@@ -1,3 +1,4 @@
+import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { getCoingeckoTokenIdsMap } from './coingecko'
 import { COINGECKO_CHAINS, fetchWithApiKey, processTokenList, TokenInfo } from './utils'
 
@@ -11,7 +12,7 @@ async function getUniswapTokens(): Promise<TokenInfo[]> {
 }
 
 async function mapUniMainnetToChainTokens(
-  chain: number,
+  chain: SupportedChainId,
   uniTokens: TokenInfo[],
   coingeckoTokensForChain: TokenInfo[],
 ): Promise<TokenInfo[]> {
@@ -20,9 +21,9 @@ async function mapUniMainnetToChainTokens(
 
   // Split uni tokens into mainnet and chain
   uniTokens.forEach((token) => {
-    if (token.chainId === +chain) {
+    if (token.chainId === chain) {
       chainTokens[token.address.toLowerCase()] = token
-    } else if (token.chainId === 1) {
+    } else if (token.chainId === SupportedChainId.MAINNET) {
       mainnetTokens.push(token)
     }
   })
@@ -31,11 +32,17 @@ async function mapUniMainnetToChainTokens(
     acc[token.address.toLowerCase()] = token
     return acc
   }, {})
+  const coingeckoMainnetName = COINGECKO_CHAINS[SupportedChainId.MAINNET]
+  const coingeckoChainName = COINGECKO_CHAINS[chain]
 
   mainnetTokens.forEach((token) => {
-    const coingeckoId = COINGECKO_IDS_MAP[COINGECKO_CHAINS['1']][token.address.toLowerCase()]
+    if (!coingeckoMainnetName || !coingeckoChainName) {
+      return
+    }
+
+    const coingeckoId = COINGECKO_IDS_MAP[coingeckoMainnetName][token.address.toLowerCase()]
     if (coingeckoId) {
-      const chainAddress = COINGECKO_IDS_MAP[COINGECKO_CHAINS[chain]][coingeckoId]
+      const chainAddress = COINGECKO_IDS_MAP[coingeckoChainName][coingeckoId]
       if (!chainTokens[chainAddress]) {
         const cgToken = coingeckoTokensMap[chainAddress]
         if (cgToken) {
@@ -48,7 +55,7 @@ async function mapUniMainnetToChainTokens(
   return Object.values(chainTokens)
 }
 
-export async function fetchAndProcessUniswapTokens(chainId: number): Promise<void> {
+export async function fetchAndProcessUniswapTokens(chainId: SupportedChainId): Promise<void> {
   try {
     COINGECKO_IDS_MAP = Object.keys(COINGECKO_IDS_MAP).length ? COINGECKO_IDS_MAP : await getCoingeckoTokenIdsMap()
     const uniTokens = await getUniswapTokens()
