@@ -4,6 +4,42 @@ import assert from 'assert'
 import * as fs from 'fs'
 import path from 'path'
 
+export interface TokenInfo {
+  chainId: SupportedChainId
+  address: string
+  name: string
+  symbol: string
+  decimals: number
+  logoURI?: string
+  volume?: number
+}
+
+interface SaveUpdatedTokensParams {
+  chainId: SupportedChainId
+  prefix: string
+  logo: string
+  tokens: TokenInfo[]
+  listName: string
+}
+
+interface ProcessTokenListParams {
+  chainId: SupportedChainId
+  tokens: TokenInfo[]
+  prefix: string
+  logo: string
+  logMessage: string
+  shouldAddCountToListName?: boolean
+}
+
+interface CoingeckoToken {
+  id: string
+  platforms: {
+    [chain: string]: string
+  }
+}
+
+export type CoingeckoIdsMap = Record<string, Record<string, string>>
+
 export const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
 
@@ -25,21 +61,58 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
 
 export const VS_CURRENCY = 'usd'
 export const TOP_TOKENS_COUNT = 500
-
-export interface TokenInfo {
-  chainId: SupportedChainId
-  address: string
-  name: string
-  symbol: string
-  decimals: number
-  logoURI?: string
-  volume?: number
-}
+const COINGECKO_CHAINS_NAMES = Object.values(COINGECKO_CHAINS)
+const TOKEN_LISTS_CACHE: Record<SupportedChainId, TokenInfo[]> = mapSupportedNetworks([])
 
 export async function fetchWithApiKey(url: string): Promise<any> {
-  const headers = COINGECKO_API_KEY ? { 'X-Cg-Pro-Api-Key': COINGECKO_API_KEY } : undefined
-  const response = await fetch(url, { headers })
-  return response.json()
+  try {
+    const headers = COINGECKO_API_KEY ? { 'X-Cg-Pro-Api-Key': COINGECKO_API_KEY } : undefined
+    const response = await fetch(url, { headers })
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    return response.json()
+  } catch (error) {
+    console.error(`Failed to fetch from ${url}:`, error)
+    throw error
+  }
+}
+
+async function getCoingeckoTokenIds(): Promise<CoingeckoToken[]> {
+  try {
+    return await fetchWithApiKey('https://pro-api.coingecko.com/api/v3/coins/list?include_platform=true&status=active')
+  } catch (error) {
+    console.error(`Error fetching Coingecko's coin list:`, error)
+    return []
+  }
+}
+
+export async function getCoingeckoTokenIdsMap(): Promise<CoingeckoIdsMap> {
+  const tokenIdsMap = COINGECKO_CHAINS_NAMES.reduce<CoingeckoIdsMap>(
+    (acc, name) => (name ? { ...acc, [name]: {} } : acc),
+    {},
+  )
+
+  try {
+    const tokenIds = await getCoingeckoTokenIds()
+    tokenIds.forEach((token) => {
+      COINGECKO_CHAINS_NAMES.forEach((chain) => {
+        if (!chain) return
+
+        const address = token.platforms[chain]?.toLowerCase()
+        if (address) {
+          tokenIdsMap[chain][address] = token.id
+          tokenIdsMap[chain][token.id] = address // reverse mapping
+        }
+      })
+    })
+    return tokenIdsMap
+  } catch (error) {
+    console.error(`Error building Coingecko token IDs map:`, error)
+    return tokenIdsMap
+  }
 }
 
 function getEmptyList(): Partial<TokenList> {
@@ -67,16 +140,8 @@ export function getLocalTokenList(listPath: string, defaultEmptyList: Partial<To
   }
 }
 
-interface SaveUpdatedTokensParams {
-  chainId: SupportedChainId
-  prefix: string
-  logo: string
-  tokens: TokenInfo[]
-  listName: string
-}
-
 function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): TokenList['version'] {
-  let version = list.version || { major: 0, minor: 0, patch: 0 }
+  const version = list.version || { major: 0, minor: 0, patch: 0 }
   const listTokenAddresses = new Set(list.tokens?.map((token) => token.address.toLowerCase()) || [])
   const tokensAddresses = new Set(tokens.map((token) => token.address.toLowerCase()))
 
@@ -128,15 +193,6 @@ export function saveUpdatedTokens({ chainId, prefix, logo, tokens, listName }: S
   }
 }
 
-interface ProcessTokenListParams {
-  chainId: SupportedChainId
-  tokens: TokenInfo[]
-  prefix: string
-  logo: string
-  logMessage: string
-  shouldAddCountToListName?: boolean
-}
-
 export async function processTokenList({
   chainId,
   tokens,
@@ -147,6 +203,7 @@ export async function processTokenList({
 }: ProcessTokenListParams): Promise<void> {
   const count = tokens.length
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
+
   tokens.forEach((token, index) => {
     const volumeStr = token.volume ? `: $${token.volume}` : ''
     console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
@@ -156,72 +213,21 @@ export async function processTokenList({
     ...token,
     logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
   }))
+
   const listName = getListName(chainId, prefix, shouldAddCountToListName ? count : undefined)
-
   saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName })
-}
-
-export async function getCoingeckoTokenIdsMap(): Promise<COINGECKO_IDS_MAP> {
-  let tokenIdsMap = COINGECKO_CHAINS_NAMES.reduce<COINGECKO_IDS_MAP>(
-    (acc, name) => (name ? { ...acc, [name]: {} } : acc),
-    {},
-  )
-
-  try {
-    const tokenIds = await getCoingeckoTokenIds()
-    tokenIds.forEach((token) => {
-      COINGECKO_CHAINS_NAMES.forEach((chain) => {
-        if (!chain) {
-          return
-        }
-
-        const address = token.platforms[chain]?.toLowerCase()
-        if (address) {
-          tokenIdsMap[chain][address] = token.id
-          tokenIdsMap[chain][token.id] = address // reverse mapping
-        }
-      })
-    })
-  } catch (error) {
-    console.error(`Error fetching Coingecko token IDs: ${error}`)
-  }
-
-  return tokenIdsMap
-}
-
-async function getCoingeckoTokenIds(): Promise<CoingeckoToken[]> {
-  try {
-    return await fetchWithApiKey('https://pro-api.coingecko.com/api/v3/coins/list?include_platform=true&status=active')
-  } catch (error) {
-    console.error(`Error fetching Coingecko's coin list`, error)
-    return []
-  }
-}
-
-const COINGECKO_CHAINS_NAMES = Object.values(COINGECKO_CHAINS)
-
-interface CoingeckoToken {
-  id: string
-  platforms: {
-    [chain: string]: string
-  }
 }
 
 function getTokenListUrl(chain: SupportedChainId): string {
   return `https://tokens.coingecko.com/${COINGECKO_CHAINS[chain]}/all.json`
 }
 
-const TOKEN_LISTS_CACHE: Record<SupportedChainId, TokenInfo[]> = mapSupportedNetworks([])
-
 export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]> {
   if (TOKEN_LISTS_CACHE[chain]) {
     return TOKEN_LISTS_CACHE[chain]
   }
+
   const data = await fetchWithApiKey(getTokenListUrl(chain))
-
   TOKEN_LISTS_CACHE[chain] = data.tokens
-
   return data.tokens
 }
-
-export type COINGECKO_IDS_MAP = Record<string, Record<string, string>>
