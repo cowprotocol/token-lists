@@ -92,7 +92,6 @@ async function fetchAndProcessUniswapTokensForChain(
       prefix: 'Uniswap',
       logo: UNISWAP_LOGO,
       logMessage: `Uniswap tokens`,
-      shouldAddCountToListName: false,
     })
   } catch (error) {
     console.error(`Error processing Uniswap tokens for chain ${chainId}:`, error)

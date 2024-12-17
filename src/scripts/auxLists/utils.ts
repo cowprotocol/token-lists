@@ -28,7 +28,6 @@ interface ProcessTokenListParams {
   prefix: string
   logo: string
   logMessage: string
-  shouldAddCountToListName?: boolean
 }
 
 interface CoingeckoToken {
@@ -123,8 +122,8 @@ function getEmptyList(): Partial<TokenList> {
   }
 }
 
-function getListName(chain: SupportedChainId, prefix: string, count?: number): string {
-  return `${prefix}${count ? ` top ${count}` : ''} on ${DISPLAY_CHAIN_NAMES[chain]}`
+function getListName(chain: SupportedChainId, prefix: string): string {
+  return `${prefix} on ${DISPLAY_CHAIN_NAMES[chain]}`
 }
 
 function getOutputPath(prefix: string, chainId: SupportedChainId): string {
@@ -208,9 +207,7 @@ export async function processTokenList({
   prefix,
   logo,
   logMessage,
-  shouldAddCountToListName = true,
 }: ProcessTokenListParams): Promise<void> {
-  const count = tokens.length
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
 
   tokens.forEach((token, index) => {
@@ -223,7 +220,7 @@ export async function processTokenList({
     logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
   }))
 
-  const listName = getListName(chainId, prefix, shouldAddCountToListName ? count : undefined)
+  const listName = getListName(chainId, prefix)
   saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName })
 }
 
