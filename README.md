@@ -67,3 +67,33 @@ There's a script that will fetch all images form the CowSwap list and store them
 ```bash
 yarn downloadImages
 ```
+
+### Generating Auxiliary Token Lists
+
+To generate updated token lists from Coingecko and Uniswap:
+
+```bash
+yarn generateAuxLists
+```
+
+This script fetches and processes token data from both Coingecko and Uniswap APIs to create auxiliary token lists. These lists are used to enhance token metadata and support across different networks.
+
+- Coingecko lists contain up to the top 500 tokens per chain, sorted by volume
+- Uniswap lists are a combination of:
+  - Token for given chain already existing in the default Uniswap list
+  - Mainnet tokens, mapped to the target chain, via Coingecko api
+
+The version and timestamp are bumped according to [token list standard](https://github.com/Uniswap/token-lists?tab=readme-ov-file#semantic-versioning).
+
+#### Required Environment Variables
+
+- `COINGECKO_API_KEY`: Your Coingecko API key (required for API access)
+
+#### Generated Files
+
+The script generates token list files in `src/public/` for the following networks:
+
+- Ethereum (CoinGecko.1.json)
+- Arbitrum (CoinGecko.42161.json, Uniswap.42161.json)
+- Base (CoinGecko.8453.json, Uniswap.8453.json)
+- Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
