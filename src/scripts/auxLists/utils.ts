@@ -147,12 +147,12 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
 
   // Check for removed tokens
   if (newAddresses.size < currentAddresses.size || !isSubsetOf(currentAddresses, newAddresses)) {
-    return { ...version, major: version.major + 1 }
+    return { major: version.major + 1, minor: 0, patch: 0 }
   }
 
   // Check for added tokens
   if (newAddresses.size > currentAddresses.size) {
-    return { ...version, minor: version.minor + 1 }
+    return { ...version, minor: version.minor + 1, patch: 0 }
   }
 
   // Check for changes in token details
