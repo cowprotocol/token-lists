@@ -142,36 +142,32 @@ export function getLocalTokenList(listPath: string, defaultEmptyList: Partial<To
 
 function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): TokenList['version'] {
   const version = list.version || { major: 0, minor: 0, patch: 0 }
-  const listTokenAddresses = new Set(list.tokens?.map((token) => token.address.toLowerCase()) || [])
-  const tokensAddresses = new Set(tokens.map((token) => token.address.toLowerCase()))
+  const currentAddresses = new Set(list.tokens?.map((token) => token.address.toLowerCase()) || [])
+  const newAddresses = new Set(tokens.map((token) => token.address.toLowerCase()))
 
   // Check for removed tokens
-  if (
-    listTokenAddresses.size > tokensAddresses.size ||
-    Array.from(listTokenAddresses).some((address) => !tokensAddresses.has(address))
-  ) {
+  if (newAddresses.size < currentAddresses.size || !isSubsetOf(currentAddresses, newAddresses)) {
     return { ...version, major: version.major + 1 }
   }
 
   // Check for added tokens
-  if (
-    listTokenAddresses.size < tokensAddresses.size ||
-    Array.from(tokensAddresses).some((address) => !listTokenAddresses.has(address))
-  ) {
+  if (newAddresses.size > currentAddresses.size) {
     return { ...version, minor: version.minor + 1 }
   }
 
   // Check for changes in token details
-  for (const listToken of list.tokens || []) {
-    const token = tokens.find((token) => token.address === listToken.address)
-    if (
-      token &&
-      (listToken.name !== token.name ||
-        listToken.symbol !== token.symbol ||
-        listToken.decimals !== token.decimals ||
-        listToken.logoURI !== token.logoURI)
-    ) {
-      return { ...version, patch: version.patch + 1 }
+  if (currentAddresses.size === newAddresses.size) {
+    for (const listToken of list.tokens || []) {
+      const token = tokens.find((token) => token.address.toLowerCase() === listToken.address.toLowerCase())
+      if (
+        token &&
+        (listToken.name !== token.name ||
+          listToken.symbol !== token.symbol ||
+          listToken.decimals !== token.decimals ||
+          listToken.logoURI !== token.logoURI)
+      ) {
+        return { ...version, patch: version.patch + 1 }
+      }
     }
   }
 
@@ -181,13 +177,24 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
 export function saveUpdatedTokens({ chainId, prefix, logo, tokens, listName }: SaveUpdatedTokensParams): void {
   const tokenListPath = path.join(getOutputPath(prefix, chainId))
   const currentList = getLocalTokenList(tokenListPath, getEmptyList())
-  const updatedTokenList = { ...currentList, tokens, name: listName, logoURI: logo }
 
   try {
     const version = getTokenListVersion(currentList, tokens)
-    const updatedList: TokenList = { ...updatedTokenList, version, timestamp: new Date().toISOString() }
-    fs.writeFileSync(tokenListPath, JSON.stringify(updatedList, null, 2))
-    console.log(`Token list saved to ${tokenListPath}`)
+
+    if (JSON.stringify(currentList.version) !== JSON.stringify(version)) {
+      const updatedList: TokenList = {
+        ...currentList,
+        tokens,
+        name: listName,
+        logoURI: logo,
+        version,
+        timestamp: new Date().toISOString(),
+      }
+      fs.writeFileSync(tokenListPath, JSON.stringify(updatedList, null, 2))
+      console.log(`Token list saved to ${tokenListPath}`)
+    } else {
+      console.log(`No changes detected. Token list not updated.`)
+    }
   } catch (error) {
     console.error(`Error saving token list to ${tokenListPath}:`, error)
   }
@@ -230,4 +237,13 @@ export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]
   const data = await fetchWithApiKey(getTokenListUrl(chain))
   TOKEN_LISTS_CACHE[chain] = data.tokens
   return data.tokens
+}
+
+function isSubsetOf(setA: Set<string>, setB: Set<string>): boolean {
+  for (let item of setA) {
+    if (!setB.has(item)) {
+      return false
+    }
+  }
+  return true
 }
