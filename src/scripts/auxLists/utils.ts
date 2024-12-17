@@ -200,6 +200,8 @@ export function saveUpdatedTokens({ chainId, prefix, logo, tokens, listName }: S
   }
 }
 
+const FORMATTER = new Intl.NumberFormat('en-us', { style: 'currency', currency: 'USD' })
+
 export async function processTokenList({
   chainId,
   tokens,
@@ -212,7 +214,7 @@ export async function processTokenList({
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
 
   tokens.forEach((token, index) => {
-    const volumeStr = token.volume ? `: $${token.volume}` : ''
+    const volumeStr = token.volume ? `: ${FORMATTER.format(token.volume)}` : ''
     console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
   })
 
