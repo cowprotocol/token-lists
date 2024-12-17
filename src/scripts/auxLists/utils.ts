@@ -223,7 +223,7 @@ function getTokenListUrl(chain: SupportedChainId): string {
 }
 
 export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]> {
-  if (TOKEN_LISTS_CACHE[chain]) {
+  if (TOKEN_LISTS_CACHE[chain].length) {
     return TOKEN_LISTS_CACHE[chain]
   }
 
