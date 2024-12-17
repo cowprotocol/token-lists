@@ -4,8 +4,8 @@
   ],
   "version": {
     "major": 0,
-    "minor": 1,
-    "patch": 0
+    "minor": 0,
+    "patch": 1
   },
   "tokens": [
     {
@@ -2104,6 +2104,21 @@
     },
     {
       "chainId": 42161,
+      "address": "0x2C96bE2612bec20fe2975C3ACFcbBe61a58f2571",
+      "name": "Swell",
+      "symbol": "SWELL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/28777/large/swell1.png?1727899715",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x0a6E7Ba5042B38349e437ec6Db6214AEC7B35676"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x1bCfc0B4eE1471674cd6A9F6B363A034375eAD84",
       "name": "Synapse",
       "symbol": "SYN",
@@ -2508,5 +2523,5 @@
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2024-12-12T17:44:12.956Z"
+  "timestamp": "2024-12-17T16:22:23.697Z"
 }
