@@ -1,6 +1,6 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { processTokenList } from './processTokenList'
-import { COINGECKO_CHAINS, type CoingeckoIdsMap, getTokenList, TokenInfo } from './utils'
+import { COINGECKO_CHAINS, type CoingeckoIdsMap, getTokenList, Overrides, OverridesPerChain, TokenInfo } from './utils'
 
 const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 const UNISWAP_LOGO = 'ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir'
@@ -82,6 +82,7 @@ async function fetchAndProcessUniswapTokensForChain(
   chainId: SupportedChainId,
   coingeckoIdsMap: CoingeckoIdsMap,
   uniswapTokens: TokenInfo[],
+  overrides: Overrides,
 ): Promise<void> {
   try {
     const coingeckoTokens = await getTokenList(chainId)
@@ -92,6 +93,7 @@ async function fetchAndProcessUniswapTokensForChain(
       tokens,
       prefix: 'Uniswap',
       logo: UNISWAP_LOGO,
+      overrides,
       logMessage: `Uniswap tokens`,
     })
   } catch (error) {
@@ -102,7 +104,10 @@ async function fetchAndProcessUniswapTokensForChain(
 /**
  * Main function to fetch and process Uniswap tokens for all supported chains
  */
-export async function fetchAndProcessUniswapTokens(coingeckoIdsMap: CoingeckoIdsMap): Promise<void> {
+export async function fetchAndProcessUniswapTokens(
+  coingeckoIdsMap: CoingeckoIdsMap,
+  overrides: OverridesPerChain,
+): Promise<void> {
   const uniTokens = await getUniswapTokens()
 
   const supportedChains = Object.keys(COINGECKO_CHAINS)
@@ -110,6 +115,8 @@ export async function fetchAndProcessUniswapTokens(coingeckoIdsMap: CoingeckoIds
     .filter((chain) => chain !== SupportedChainId.MAINNET && COINGECKO_CHAINS[chain as SupportedChainId])
 
   await Promise.all(
-    supportedChains.map((chain) => fetchAndProcessUniswapTokensForChain(chain, coingeckoIdsMap, uniTokens)),
+    supportedChains.map((chain) =>
+      fetchAndProcessUniswapTokensForChain(chain, coingeckoIdsMap, uniTokens, overrides[chain as SupportedChainId]),
+    ),
   )
 }

@@ -2,7 +2,7 @@ import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import * as fs from 'fs'
 import path from 'path'
-import { DISPLAY_CHAIN_NAMES, TokenInfo } from './utils'
+import { DISPLAY_CHAIN_NAMES, Overrides, TokenInfo } from './utils'
 
 const FORMATTER = new Intl.NumberFormat('en-us', { style: 'currency', currency: 'USD' })
 
@@ -104,6 +104,7 @@ interface ProcessTokenListParams {
   tokens: TokenInfo[]
   prefix: string
   logo: string
+  overrides?: Overrides
   logMessage: string
 }
 
@@ -112,6 +113,7 @@ export async function processTokenList({
   tokens,
   prefix,
   logo,
+  overrides = {},
   logMessage,
 }: ProcessTokenListParams): Promise<void> {
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
@@ -121,10 +123,14 @@ export async function processTokenList({
     console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
   })
 
-  const updatedTokens = tokens.map(({ volume: _, ...token }) => ({
-    ...token,
-    logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
-  }))
+  const updatedTokens = tokens.map(({ volume: _, ...token }) => {
+    const override = overrides[token.address.toLowerCase()]
+    return {
+      ...token,
+      ...override,
+      logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
+    }
+  })
 
   const listName = getListName(chainId, prefix)
   saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName })

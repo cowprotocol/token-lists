@@ -5,6 +5,8 @@ import {
   type CoingeckoIdsMap,
   fetchWithApiKey,
   getTokenList,
+  Overrides,
+  OverridesPerChain,
   TokenInfo,
   TOP_TOKENS_COUNT,
   VS_CURRENCY,
@@ -131,6 +133,7 @@ async function getTokenVolumes(
 async function fetchAndProcessCoingeckoTokensForChain(
   chainId: SupportedChainId,
   coingeckoIdsMap: CoingeckoIdsMap,
+  overrides: Overrides,
 ): Promise<void> {
   try {
     const tokens = await getTokenList(chainId)
@@ -141,6 +144,7 @@ async function fetchAndProcessCoingeckoTokensForChain(
       tokens: topTokens.map(({ token, volume }) => ({ ...token, volume })),
       prefix: 'CoinGecko',
       logo: COINGECKO_LOGO,
+      overrides,
       logMessage: `Top ${TOP_TOKENS_COUNT} tokens`,
     })
   } catch (error) {
@@ -151,10 +155,17 @@ async function fetchAndProcessCoingeckoTokensForChain(
 /**
  * Main function to fetch and process CoinGecko tokens for all supported chains
  */
-export async function fetchAndProcessCoingeckoTokens(coingeckoIdsMap: CoingeckoIdsMap): Promise<void> {
+export async function fetchAndProcessCoingeckoTokens(
+  coingeckoIdsMap: CoingeckoIdsMap,
+  overrides: OverridesPerChain,
+): Promise<void> {
   const supportedChains = Object.keys(COINGECKO_CHAINS)
     .map(Number)
     .filter((chain) => COINGECKO_CHAINS[chain as SupportedChainId])
 
-  await Promise.all(supportedChains.map((chain) => fetchAndProcessCoingeckoTokensForChain(chain, coingeckoIdsMap)))
+  await Promise.all(
+    supportedChains.map((chain) =>
+      fetchAndProcessCoingeckoTokensForChain(chain, coingeckoIdsMap, overrides[chain as SupportedChainId]),
+    ),
+  )
 }

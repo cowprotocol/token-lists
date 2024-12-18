@@ -11,6 +11,9 @@ export interface TokenInfo {
   volume?: number
 }
 
+export type Overrides = Record<string, Partial<TokenInfo>>
+export type OverridesPerChain = Record<SupportedChainId, Overrides>
+
 interface CoingeckoToken {
   id: string
   platforms: {
