@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 1,
+    "minor": 2,
     "patch": 0
   },
   "tokens": [
@@ -2746,9 +2746,24 @@
       "symbol": "GRAI",
       "decimals": 18,
       "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/42161/0x894134a25a5fac1c2c26f1d8fbf05111a3cb9487/logo.png"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x53e70cc1d527b524A1C46Eaa892e4CB35d2ba901",
+      "name": "SPX6900",
+      "symbol": "SPX",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/31401/large/sticker_(1).jpg?1702371083",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xE0f63A424a4439cBE457D80E4f4b51aD25b2c56C"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2024-12-17T16:22:23.697Z"
+  "timestamp": "2024-12-18T17:57:02.749Z"
 }
