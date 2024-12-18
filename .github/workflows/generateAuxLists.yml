@@ -1,0 +1,63 @@
+name: Generate Auxiliary Lists
+
+on:
+  schedule:
+    # Runs at 00:00 UTC every day
+    - cron: '0 0 * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Generate auxiliary token lists
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Generate auxiliary lists
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+        run: yarn generateAuxLists
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git add src/public/
+          git status --porcelain | grep "src/public/.*\.json$" || echo "no_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Configure Git
+        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push changes
+        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
+        run: |
+          git commit -m "chore: automated change"
+          git push origin main
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Auxiliary Lists Generation Failed',
+              body: `The workflow to generate auxiliary token lists failed on ${new Date().toISOString()}.
+
+              Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            })
