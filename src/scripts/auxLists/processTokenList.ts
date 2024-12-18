@@ -71,11 +71,36 @@ interface SaveUpdatedTokensParams {
   logo: string
   tokens: TokenInfo[]
   listName: string
+  replaceExisting: boolean
 }
 
-function saveUpdatedTokens({ chainId, prefix, logo, tokens, listName }: SaveUpdatedTokensParams): void {
+function mergeOrReplaceTokens(currentList: TokenInfo[], newList: TokenInfo[], replaceExisting: boolean): TokenInfo[] {
+  if (!replaceExisting) {
+    // merge tokens from currentList.tokens with tokens
+    return Object.values(
+      [...currentList, ...newList].reduce<Record<string, TokenInfo>>((acc, t) => {
+        if (!acc[t.address.toLowerCase()]) {
+          acc[t.address.toLowerCase()] = t
+        }
+        return acc
+      }, {}),
+    )
+  }
+  return newList
+}
+
+function saveUpdatedTokens({
+  chainId,
+  prefix,
+  logo,
+  tokens: newTokens,
+  listName,
+  replaceExisting,
+}: SaveUpdatedTokensParams): void {
   const tokenListPath = path.join(getOutputPath(prefix, chainId))
   const currentList = getLocalTokenList(tokenListPath, getEmptyList())
+
+  const tokens = mergeOrReplaceTokens(currentList.tokens || [], newTokens, replaceExisting)
 
   try {
     const version = getTokenListVersion(currentList, tokens)
@@ -105,6 +130,7 @@ interface ProcessTokenListParams {
   prefix: string
   logo: string
   overrides?: Overrides
+  replaceExisting?: boolean
   logMessage: string
 }
 
@@ -114,6 +140,7 @@ export async function processTokenList({
   prefix,
   logo,
   overrides = {},
+  replaceExisting = true,
   logMessage,
 }: ProcessTokenListParams): Promise<void> {
   console.log(`🥇 ${logMessage} on chain ${chainId}`)
@@ -133,7 +160,7 @@ export async function processTokenList({
   })
 
   const listName = getListName(chainId, prefix)
-  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName })
+  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting })
 }
 
 function isSubsetOf(setA: Set<string>, setB: Set<string>): boolean {
