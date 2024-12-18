@@ -1,5 +1,6 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
-import { COINGECKO_CHAINS, type CoingeckoIdsMap, getTokenList, processTokenList, TokenInfo } from './utils'
+import { processTokenList } from './processTokenList'
+import { COINGECKO_CHAINS, type CoingeckoIdsMap, getTokenList, TokenInfo } from './utils'
 
 const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 const UNISWAP_LOGO = 'ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir'

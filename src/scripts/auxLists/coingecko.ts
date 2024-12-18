@@ -1,10 +1,10 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { processTokenList } from './processTokenList'
 import {
   COINGECKO_CHAINS,
   type CoingeckoIdsMap,
   fetchWithApiKey,
   getTokenList,
-  processTokenList,
   TokenInfo,
   TOP_TOKENS_COUNT,
   VS_CURRENCY,
