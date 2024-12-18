@@ -94,6 +94,7 @@ async function fetchAndProcessUniswapTokensForChain(
       prefix: 'Uniswap',
       logo: UNISWAP_LOGO,
       overrides,
+      replaceExisting: false,
       logMessage: `Uniswap tokens`,
     })
   } catch (error) {
