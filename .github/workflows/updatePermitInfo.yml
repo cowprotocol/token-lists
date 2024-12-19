@@ -32,7 +32,6 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Generate Permit Info
-        continue-on-error: true
         env:
           RPC_URL: ${{ secrets[format('RPC_URL_{0}', matrix.chainId)] }}
           TOKEN_LIST: src/public/${{ format(matrix.tokenList, matrix.chainId) }}
