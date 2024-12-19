@@ -38,10 +38,7 @@ jobs:
           TOKEN_LIST: src/public/${{ format(matrix.tokenList, matrix.chainId) }}
         run: |
           if [ -f "${{ env.TOKEN_LIST }}" ]; then
-            yarn fetchPermitInfo -- ${{ matrix.chainId }} ${{ env.TOKEN_LIST }} ${{ env.RPC_URL }}
-          else
-            echo "This did not run. What's on `pwd`?"
-            echo pwd
+            yarn fetchPermitInfo -- ${{ matrix.chainId }} `pwd`/${{ env.TOKEN_LIST }} ${{ env.RPC_URL }}
           fi
 
       - name: Check for changes
