@@ -17,7 +17,6 @@ jobs:
       fail-fast: false # continue parallel jobs even if individual parts fail
       matrix:
         chainId: [1, 100, 8453, 42161] # all supported chains
-        tokenList: ['CowSwap.json', 'Uniswap.{0}.json', 'CoinGecko.{0}.json'] # all files that are tracked
 
     steps:
       - name: Checkout code
@@ -35,11 +34,14 @@ jobs:
       - name: Generate Permit Info
         env:
           RPC_URL: ${{ secrets[format('RPC_URL_{0}', matrix.chainId)] }}
-          TOKEN_LIST: src/public/${{ format(matrix.tokenList, matrix.chainId) }}
+          TOKEN_LISTS: "src/public/CowSwap.json,src/public/Uniswap.${{ matrix.chainId }}.json,src/public/CoinGecko.${{ matrix.chainId }}.json"
         run: |
-          if [ -f "${{ env.TOKEN_LIST }}" ]; then
-            yarn fetchPermitInfo -- ${{ matrix.chainId }} `pwd`/${{ env.TOKEN_LIST }} ${{ env.RPC_URL }}
-          fi
+          IFS=',' read -r -a TOKEN_LIST_ARRAY <<< "${{ env.TOKEN_LISTS }}"
+          for TOKEN_LIST in "${TOKEN_LIST_ARRAY[@]}"; do
+            if [ -f "$TOKEN_LIST" ]; then
+              yarn fetchPermitInfo -- ${{ matrix.chainId }} `pwd`/$TOKEN_LIST ${{ env.RPC_URL }}
+            fi
+          done
 
   commit-changes:
     needs: update-permit-info
