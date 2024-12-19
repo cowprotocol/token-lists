@@ -31,12 +31,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-
       - name: Generate Permit Info
         continue-on-error: true
         env:
           RPC_URL: ${{ secrets[format('RPC_URL_{0}', matrix.chainId)] }}
-          TOKEN_LIST: src/public/${${{ format(matrix.tokenList, matrix.chainId) }}
+          TOKEN_LIST: src/public/${{ format(matrix.tokenList, matrix.chainId) }}
         run: |
           if [ -f "${{ env.TOKEN_LIST }}" ]; then
             yarn fetchPermitInfo -- ${{ matrix.chainId }} ${{ env.TOKEN_LIST }} ${{ env.RPC_URL }}
