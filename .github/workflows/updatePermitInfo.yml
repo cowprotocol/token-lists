@@ -48,16 +48,20 @@ jobs:
         id: git-check
         run: |
           git add src/public/PermitInfo.*.json
-          git status --porcelain | grep "src/public/PermitInfo.*\.json$" || echo "no_changes=true" >> $GITHUB_OUTPUT
+          if git status --porcelain | grep "src/public/PermitInfo.*\.json$"; then
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+          fi
 
       - name: Configure Git
-        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
+        if: ${{ steps.git-check.outputs.no_changes == 'false' }}
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
       - name: Commit and push changes
-        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
+        if: ${{ steps.git-check.outputs.no_changes == 'false' }}
         run: |
           git commit -m "chore: automated permit info update"
           git push origin main
