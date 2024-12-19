@@ -1,0 +1,75 @@
+name: Update Permit Info
+
+on:
+  # Run after generateAuxLists workflow completes
+  workflow_run:
+    workflows: ["Generate Auxiliary Lists"]
+    types:
+      - completed
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-permit-info:
+    name: Update permit info for all chains
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        chainId: [1, 100, 8453, 42161] # all supported chains
+        tokenList: ['CowSwap.json', 'Uniswap.{0}.json', 'CoinGecko.{0}.json'] # all files that are tracked
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: lts/*
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+
+      - name: Generate Permit Info
+        continue-on-error: true
+        env:
+          RPC_URL: ${{ secrets[format('RPC_URL_{0}', matrix.chainId)] }}
+          TOKEN_LIST: src/public/${${{ format(matrix.tokenList, matrix.chainId) }}
+        run: |
+          if [ -f "${{ env.TOKEN_LIST }}" ]; then
+            yarn fetchPermitInfo -- ${{ matrix.chainId }} ${{ env.TOKEN_LIST }} ${{ env.RPC_URL }}
+          fi
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git add src/public/PermitInfo.*.json
+          git status --porcelain | grep "src/public/PermitInfo.*\.json$" || echo "no_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Configure Git
+        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push changes
+        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
+        run: |
+          git commit -m "chore: automated permit info update"
+          git push origin main
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Permit Info Update Failed',
+              body: `The workflow to update permit info failed on ${new Date().toISOString()}.
+
+              Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            })
