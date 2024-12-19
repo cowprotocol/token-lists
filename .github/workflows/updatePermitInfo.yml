@@ -11,7 +11,7 @@ on:
 
 jobs:
   update-permit-info:
-    name: Update permit info for all chains
+    name: Update permit info
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false # continue parallel jobs even if individual parts fail
