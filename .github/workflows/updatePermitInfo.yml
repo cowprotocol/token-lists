@@ -14,6 +14,7 @@ jobs:
     name: Update permit info for all chains
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false # continue parallel jobs even if individual parts fail
       matrix:
         chainId: [1, 100, 8453, 42161] # all supported chains
         tokenList: ['CowSwap.json', 'Uniswap.{0}.json', 'CoinGecko.{0}.json'] # all files that are tracked
