@@ -43,11 +43,27 @@ jobs:
             fi
           done
 
+      - name: Upload File
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ format('PermitInfo.{0}.json', matrix.chainId) }}
+          path: src/public/${{ format('PermitInfo.{0}.json', matrix.chainId) }}
+          retention-days: 1
+
   commit-changes:
     needs: update-permit-info
     if: success()
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download all
+        uses: actions/download-artifact@v4
+        with:
+          path: src/public/
+          merge-multiple: true
+
       - name: Check for changes
         id: git-check
         run: |
