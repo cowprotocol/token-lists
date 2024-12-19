@@ -40,6 +40,11 @@ jobs:
             yarn fetchPermitInfo -- ${{ matrix.chainId }} `pwd`/${{ env.TOKEN_LIST }} ${{ env.RPC_URL }}
           fi
 
+  commit-changes:
+    needs: update-permit-info
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
       - name: Check for changes
         id: git-check
         run: |
