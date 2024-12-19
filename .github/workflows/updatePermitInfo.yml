@@ -59,8 +59,12 @@ jobs:
           git commit -m "chore: automated permit info update"
           git push origin main
 
+  handle-failure:
+    needs: update-permit-info
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
       - name: Create issue on failure
-        if: failure()
         uses: actions/github-script@v6
         with:
           script: |
