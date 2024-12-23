@@ -42,6 +42,7 @@ async function generateLpTokenLists(platform: string) {
 
   const list: TokenList = {
     name: `LP ${platform} Token List`,
+    logoURI: 'https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/list-logo.png',
     timestamp: new Date().toISOString(),
     version: await getTokenListVersion(fileName),
     tokens: results.map(mapPlatformTokens).flat(),
