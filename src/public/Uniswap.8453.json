@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 6,
+    "minor": 7,
     "patch": 0
   },
   "tokens": [
@@ -961,9 +961,99 @@
       "symbol": "L3",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/37768/large/Square.png?1722045128"
+    },
+    {
+      "chainId": 8453,
+      "address": "0x63706e401c06ac8513145b7687A14804d17f814b",
+      "name": "Aave",
+      "symbol": "AAVE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/12645/large/AAVE.png?1601374110",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x3c87e7AF3cDBAe5bB56b4936325Ea95CA3E0EfD9",
+      "name": "Ambire AdEx",
+      "symbol": "ADX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/847/large/Ambire_AdEx_Symbol_color.png?1655432540",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xADE00C28244d5CE17D72E40330B1c318cD12B7c3"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xD0a4D1889BbE483273f29b4aCdfAA567A67F99E1",
+      "name": "Mask Network",
+      "symbol": "MASK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/14051/large/Mask_Network.jpg?1614050316",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x69af81e73A73B40adF4f3d4223Cd9b1ECE623074"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xaB36452DbAC151bE02b16Ca17d8919826072f64a",
+      "name": "Reserve Rights",
+      "symbol": "RSR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/8365/large/RSR_Blue_Circle_1000.png?1721777856",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x320623b8E4fF03373931769A31Fc52A4E78B5d70"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x662015EC830DF08C0FC45896FaB726542e8AC09E",
+      "name": "Status",
+      "symbol": "SNT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/779/large/status.png?1548610778",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x744d70FDBE2Ba4CF95131626614a1763DF805B9E"
+          }
+        }
+      }
+    },
+    {
+      "name": "Tether USD",
+      "address": "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2",
+      "symbol": "USDT",
+      "decimals": 6,
+      "chainId": 8453,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Base",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-01-12T00:04:38.642Z"
+  "timestamp": "2025-01-16T00:03:57.929Z"
 }
