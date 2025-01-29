@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 9,
+    "minor": 10,
     "patch": 0
   },
   "tokens": [
@@ -1067,9 +1067,32 @@
       "symbol": "TOSHI",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/31126/large/Toshi_Logo_-_Circular.png?1721677476"
+    },
+    {
+      "chainId": 8453,
+      "address": "0xCD6dDDa305955AcD6b94b934f057E8b0daaD58dE",
+      "name": "Perpetual Protocol",
+      "symbol": "PERP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/12381/large/60d18e06844a844ad75901a9_mark_only_03.png?1628674771",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xbC396689893D065F41bc2C6EcbeE5e0085233447"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf",
+      "name": "Venice Token",
+      "symbol": "VVV",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54023/standard/Venice_Token_(1).png?1738017546"
     }
   ],
   "name": "Uniswap on Base",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-01-23T00:40:55.983Z"
+  "timestamp": "2025-01-29T00:03:52.514Z"
 }
