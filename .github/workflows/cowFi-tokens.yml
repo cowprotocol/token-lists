@@ -68,7 +68,7 @@ jobs:
         run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cowFi-tokens.json
           path: src/cowFi/cowFi-tokens.json

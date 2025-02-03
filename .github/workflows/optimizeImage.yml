@@ -50,7 +50,7 @@ jobs:
           fi
 
       - name: Upload img
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ inputs.address }}
           path: output.png
