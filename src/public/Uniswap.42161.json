@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 5,
+    "minor": 6,
     "patch": 0
   },
   "tokens": [
@@ -2806,9 +2806,39 @@
           }
         }
       }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x63806C056Fa458c548Fb416B15E358A9D685710A",
+      "name": "Flux",
+      "symbol": "FLUX",
+      "decimals": 18,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x720CD16b011b987Da3518fbf38c3071d4F0D1495/logo.png",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x720CD16b011b987Da3518fbf38c3071d4F0D1495"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xf75eE6D319741057a82a88Eeff1DbAFAB7307b69",
+      "name": "KRYLL",
+      "symbol": "KRL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/2807/large/krl.png?1547036979",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x464eBE77c293E473B48cFe96dDCf88fcF7bFDAC0"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-02-05T00:04:01.151Z"
+  "timestamp": "2025-02-07T00:04:04.710Z"
 }
