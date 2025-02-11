@@ -22,14 +22,14 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
       - name: Cache node_modules
         id: cache-node-modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
@@ -68,7 +68,7 @@ jobs:
         run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: cowFi-tokens.json
           path: src/cowFi/cowFi-tokens.json
