@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 6,
+    "minor": 7,
     "patch": 0
   },
   "tokens": [
@@ -2836,9 +2836,32 @@
           }
         }
       }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xac7CE9F2794e01c0D27b096C52f592e343D77cbf",
+      "name": "Pirate Nation",
+      "symbol": "PIRATE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/38524/standard/_Pirate_Transparent_200x200.png",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x7613C48E0cd50E42dD9Bf0f6c235063145f6f8DC"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x6491c05a82219b8d1479057361ff1654749b876b",
+      "name": "USDS",
+      "symbol": "USDS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/39926/large/usds.webp?1726666683"
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-02-07T00:04:04.710Z"
+  "timestamp": "2025-02-15T00:04:09.429Z"
 }
