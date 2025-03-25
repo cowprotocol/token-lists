@@ -12,6 +12,12 @@
     "list",
     "cowswap"
   ],
+  "tags": {
+    "circle_native": {
+      "name": "Issued by Circle",
+      "description": "Token officially issued by Circle"
+    }
+  },
   "tokens": [
     {
       "address": "0x1e2c4fb7ede391d116e6b41cd0608260e8801d59",
@@ -803,7 +809,10 @@
       "address": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
       "decimals": 6,
       "chainId": 1,
-      "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/1/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/logo.png"
+      "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/1/0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48/logo.png",
+      "tags": [
+        "circle_native"
+      ]
     },
     {
       "address": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
@@ -1635,7 +1644,10 @@
       "name": "USDC",
       "decimals": 6,
       "chainId": 8453,
-      "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/8453/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913/logo.png"
+      "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/8453/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913/logo.png",
+      "tags": [
+        "circle_native"
+      ]
     },
     {
       "address": "0xb79dd08ea68a908a97220c76d19a6aa9cbde4376",
@@ -1756,6 +1768,17 @@
       "decimals": 18,
       "chainId": 42161,
       "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/42161/0xfea7a6a0b346362bf88a9e4a88416b77a57d6c2a/logo.png"
+    },
+    {
+      "symbol": "USDC",
+      "name": "USD Coin",
+      "address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+      "decimals": 6,
+      "chainId": 42161,
+      "logoURI": "https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/42161/0xaf88d065e77c8cc2239327c5edb3a432268e5831/logo.png",
+      "tags": [
+        "circle_native"
+      ]
     }
   ]
 }
