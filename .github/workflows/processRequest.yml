@@ -132,19 +132,16 @@ jobs:
       - name: Validate addToken
         if: contains(github.event.issue.labels.*.name, 'addToken') && (!env.NETWORK|| !env.SYMBOL|| !env.NAME|| !env.URL|| !env.DECIMALS|| !env.ADDRESS|| !env.REASON)
         run: |
-          echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
           echo "::error title={Validation failed}::{Missing required fields for adding a token}"
           exit 1
       - name: Validate symbol
         if: env.SYMBOL && contains(env.SYMBOL, ' ')
         run: |
-          echo "${{ env.SYMBOL }}"
           echo "::error title={Validation failed}::{Symbol cannot contain spaces}"
           exit 1
       - name: Validate removeToken
         if: contains(github.event.issue.labels.*.name, 'removeToken') && (!env.NETWORK || !env.REASON || !env.ADDRESS)
         run: |
-          echo "${{ env.NETWORK }} ${{ env.URL }} ${{ env.ADDRESS }}"
           echo "::error title={Validation failed}::{Missing required fields for removing a token}"
           exit 1
       - name: Report error
