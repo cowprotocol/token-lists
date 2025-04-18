@@ -54,16 +54,28 @@
     json-stringify-deterministic "^1.0.8"
     multiformats "^9.6.4"
 
+"@cowprotocol/app-data@^2.4.0":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/app-data/-/app-data-2.5.1.tgz#c674ddfd161afd9a2ff425468b90a4b2f94d4341"
+  integrity sha512-GvcLQ44ZUHKdSAXiZ+YCaIehtme/OIvbvL/4go1UqNLTj3jDTDkagPh7CH/z2IPwFWTADyNZO/RSzKrW5UDNaA==
+  dependencies:
+    ajv "^8.11.0"
+    cross-fetch "^3.1.5"
+    ipfs-only-hash "^4.0.0"
+    json-stringify-deterministic "^1.0.8"
+    multiformats "^9.6.4"
+
 "@cowprotocol/contracts@^1.6.0":
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/@cowprotocol/contracts/-/contracts-1.6.0.tgz#d0fc83ed8c624b968d1a68bb5c74712c11ec81e0"
   integrity sha512-+UKhYRzkvnqqviBru5D3btTLYc743n0O5YTG+wpYwGl4fb7VNKBkFHe28C5Mf1DF/kOfmqfu+0IAvX9Vuq5Dqw==
 
-"@cowprotocol/cow-sdk@^5.7.0-RC.0":
-  version "5.7.0-RC.0"
-  resolved "https://registry.yarnpkg.com/@cowprotocol/cow-sdk/-/cow-sdk-5.7.0-RC.0.tgz#14c4a05f1be7463613be656072f9d0d331cd7f15"
-  integrity sha512-ke6l11X/wt5KNgdO+WCsUvoF6NeeZ4xjtEX0CseauIkjDfacaX20IfO8dT4AD0SFc4MmAp0cX75eSqMD4Ipc+A==
+"@cowprotocol/cow-sdk@^5.10.2":
+  version "5.10.3"
+  resolved "https://registry.yarnpkg.com/@cowprotocol/cow-sdk/-/cow-sdk-5.10.3.tgz#60c479ef235c6eb956f08202ba4b7624fc5072ac"
+  integrity sha512-whnfufOmJqJWw7u2HqLt6k+rw8eMH+ywmB++oxG6U6zLBdQihk18mIMz1wrNwfTUk0FFtn8g8nhrQL14oV27rg==
   dependencies:
+    "@cowprotocol/app-data" "^2.4.0"
     "@cowprotocol/contracts" "^1.6.0"
     "@ethersproject/abstract-signer" "^5.7.0"
     "@openzeppelin/merkle-tree" "^1.0.5"
@@ -71,7 +83,7 @@
     exponential-backoff "^3.1.1"
     graphql "^16.3.0"
     graphql-request "^4.3.0"
-    limiter "^2.1.0"
+    limiter "^3.0.0"
 
 "@cowprotocol/permit-utils@^0.4.0":
   version "0.4.0"
@@ -2841,11 +2853,6 @@ jsprim@^1.2.2:
     json-schema "0.4.0"
     verror "1.10.0"
 
-just-performance@4.3.0:
-  version "4.3.0"
-  resolved "https://registry.npmjs.org/just-performance/-/just-performance-4.3.0.tgz"
-  integrity sha512-L7RjvtJsL0QO8xFs5wEoDDzzJwoiowRw6Rn/GnvldlchS2JQr9wFYPiwZcDfrbbujEKqKN0tvENdbjXdYhDp5Q==
-
 keccak@^3.0.0:
   version "3.0.4"
   resolved "https://registry.npmjs.org/keccak/-/keccak-3.0.4.tgz"
@@ -2875,12 +2882,10 @@ levn@^0.4.1:
     prelude-ls "^1.2.1"
     type-check "~0.4.0"
 
-limiter@^2.1.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/limiter/-/limiter-2.1.0.tgz"
-  integrity sha512-361TYz6iay6n+9KvUUImqdLuFigK+K79qrUtBsXhJTLdH4rIt/r1y8r1iozwh8KbZNpujbFTSh74mJ7bwbAMOw==
-  dependencies:
-    just-performance "4.3.0"
+limiter@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/limiter/-/limiter-3.0.0.tgz#03556b76d1a81f547caeecc6b83ecc6f24495715"
+  integrity sha512-hev7DuXojsTFl2YwyzUJMDnZ/qBDd3yZQLSH3aD4tdL1cqfc3TMnoecEJtWFaQFdErZsKoFMBTxF/FBSkgDbEg==
 
 lines-and-columns@^1.1.6:
   version "1.2.4"
