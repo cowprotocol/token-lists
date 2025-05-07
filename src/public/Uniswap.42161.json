@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 11,
+    "minor": 12,
     "patch": 0
   },
   "tokens": [
@@ -2891,9 +2891,24 @@
       "symbol": "KERNEL",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/54326/large/Kernel_token_logo_2x.png?1739827205"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x9c1a1C7bA9c2602123FD7EF3eb41a769edf6C53A",
+      "name": "Mantle",
+      "symbol": "MNT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/30980/large/Mantle-Logo-mark.png?1739213200",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x3c3a81e81dc49A522A592e7622A7E711c06bf354"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-04-30T00:04:24.793Z"
+  "timestamp": "2025-05-07T00:04:21.683Z"
 }
