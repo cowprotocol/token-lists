@@ -30,6 +30,10 @@ async function fetchCoingeckoAll() {
 }
 
 async function writeJson(filePath: string, data: any) {
+  const dir = path.dirname(filePath)
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true })
+  }
   console.log(`Write data ${filePath}`);
   fs.writeFileSync(filePath, data)
 }
