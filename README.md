@@ -52,6 +52,11 @@ Instructions for setting up and running the various scripts locally
 
 ### Setup
 
+**Prerequistes**
+
+Currently runs on nodeJs <= v18
+
+
 ```bash
 # Install dependencies
 yarn
@@ -97,3 +102,4 @@ The script generates token list files in `src/public/` for the following network
 - Arbitrum (CoinGecko.42161.json, Uniswap.42161.json)
 - Base (CoinGecko.8453.json, Uniswap.8453.json)
 - Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
+- Polygon (CoinGecko.137.json, Uniswap.137.json)
