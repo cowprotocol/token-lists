@@ -54,7 +54,7 @@ Instructions for setting up and running the various scripts locally
 
 **Prerequistes**
 
-Currently runs on nodeJs <= v18
+Currently runs on nodeJs LTS/Gallium v16.20.2
 
 
 ```bash
@@ -65,7 +65,7 @@ yarn
 yarn coingecko
 ```
 
-### Download images
+### Download images (deprecated)
 
 There's a script that will fetch all images form the CowSwap list and store them in `src/public/images/<chainId>/<address>.png`
 
