@@ -52,6 +52,14 @@
     },
     {
       "chainId": 42161,
+      "address": "0xba5ddd1f9d7f570dc94a51479a000e3bce967196",
+      "name": "Aave",
+      "symbol": "AAVE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/12645/large/aave-token-round.png?1720472354"
+    },
+    {
+      "chainId": 42161,
       "address": "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
       "name": "Coinbase Wrapped BTC",
       "symbol": "CBBTC",
@@ -220,11 +228,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xfb9e5d956d889d91a82737b9bfcdac1dce3e1449",
-      "name": "Liquity",
-      "symbol": "LQTY",
+      "address": "0x9623063377ad1b27544c965ccd7342f7ea7e88c7",
+      "name": "The Graph",
+      "symbol": "GRT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/14665/large/logo_V2.png?1725437146"
+      "logoURI": "https://assets.coingecko.com/coins/images/13397/large/Graph_Token.png?1696513159"
     },
     {
       "chainId": 42161,
@@ -292,11 +300,19 @@
     },
     {
       "chainId": 42161,
-      "address": "0x7dff72693f6a4149b17e7c6314655f6a9f7c8b33",
-      "name": "GHO",
-      "symbol": "GHO",
+      "address": "0xcb8b5cd20bdcaea9a010ac1f8d835824f5c87a04",
+      "name": "CoW Protocol",
+      "symbol": "COW",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
+      "logoURI": "https://assets.coingecko.com/coins/images/24384/large/CoW-token_logo.png?1719524382"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x539bde0d7dbd336b79148aa742883198bbf60342",
+      "name": "Treasure",
+      "symbol": "MAGIC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/18623/large/magic.png?1696518095"
     },
     {
       "chainId": 42161,
@@ -516,9 +532,9 @@
     },
     {
       "chainId": 42161,
-      "address": "0x8f5c1a99b1df736ad685006cb6adca7b7ae4b514",
-      "name": "Enzyme",
-      "symbol": "MLN",
+      "address": "0x6e401189c8a68d05562c9bab7f674f910821eacf",
+      "name": "KernelDAO",
+      "symbol": "KERNEL",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/605/large/Enzyme_LinkedIn_Profile_Picture.png?1747249623"
     },
@@ -665,6 +681,70 @@
       "symbol": "DODO",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/12651/large/dodo_logo.png?1696512458"
+    },
+    {
+      "chainId": 42161,
+      "address": "0xd09acb80c1e8f2291862c4978a008791c9167003",
+      "name": "Treehouse ETH",
+      "symbol": "TETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/40155/large/tETH_logo_2_%281%29.png?1726079209"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x193f4a4a6ea24102f49b931deeeb931f6e32405d",
+      "name": "Telos",
+      "symbol": "TLOS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/7588/large/tlos_png.png?1722391289"
+    },
+    {
+      "chainId": 42161,
+      "address": "0xb4357054c3da8d46ed642383f03139ac7f090343",
+      "name": "Port3 Network",
+      "symbol": "PORT3",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33383/large/port3-bc-200x200.png?1710075114"
+    },
+    {
+      "chainId": 42161,
+      "address": "0xec70dcb4a1efa46b8f2d97c310c9c4790ba5ffa8",
+      "name": "Rocket Pool ETH",
+      "symbol": "RETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/20764/large/reth.png?1696520159"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x7f850b0ab1988dd17b69ac564c1e2857949e4dee",
+      "name": "Lift Dollar",
+      "symbol": "USDL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/38484/large/USDL-Token-200px.png?1725022887"
+    },
+    {
+      "chainId": 42161,
+      "address": "0xe80772eaf6e2e18b651f160bc9158b2a5cafca65",
+      "name": "xUSD",
+      "symbol": "XUSD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/39630/large/xUSD_logo_200p.png?1738661628"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x1debd73e752beaf79865fd6446b0c970eae7732f",
+      "name": "Coinbase Wrapped Staked ETH",
+      "symbol": "CBETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/27008/large/cbeth.png?1709186989"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x35f1c5cb7fb977e669fd244c567da99d8a3a6850",
+      "name": "Usual USD",
+      "symbol": "USD0",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/38272/large/USD0LOGO.png?1716962811"
     },
     {
       "chainId": 42161,
@@ -1684,11 +1764,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x7788a3538c5fc7f9c7c8a74eac4c898fc8d87d92",
-      "name": "Stables Labs Staked USDX",
-      "symbol": "SUSDX",
+      "address": "0x3124678d62d2aa1f615b54525310fbfda6dcf7ae",
+      "name": "Sensay",
+      "symbol": "SNSY",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/50836/large/sUSDX200px.png?1731906119"
+      "logoURI": "https://assets.coingecko.com/coins/images/36121/large/SNSY_Light01.png?1742383254"
     },
     {
       "chainId": 42161,
@@ -2592,7 +2672,7 @@
       "name": "Axelar Bridged Frax Ether",
       "symbol": "AXLFRXETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/38976/large/Screen_Shot_2024-06-18_at_12.55.54_PM_2.png?1719714886"
+      "logoURI": "https://assets.coingecko.com/coins/images/28477/large/uniETH_200.png?1696527471"
     },
     {
       "chainId": 42161,
@@ -2828,9 +2908,9 @@
     },
     {
       "chainId": 42161,
-      "address": "0xa2f9ecf83a48b86265ff5fd36cdbaaa1f349916c",
-      "name": "Goons of Balatroon",
-      "symbol": "GOB",
+      "address": "0x3106e2e148525b3db36795b04691d444c24972fb",
+      "name": "Wrapped Staked LINK",
+      "symbol": "WSTLINK",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/27104/large/TokenLogo200x200.png?1702250134"
     },
@@ -3987,9 +4067,9 @@
     },
     {
       "chainId": 42161,
-      "address": "0x31c91d8fb96bff40955dd2dbc909b36e8b104dde",
-      "name": "Poison Finance",
-      "symbol": "POION",
+      "address": "0x1310952bc5594852459ee45bfd0df70b34ac5509",
+      "name": "Parifi",
+      "symbol": "PRF",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/28630/large/poisonlogo160x160.png?1696527614"
     },
