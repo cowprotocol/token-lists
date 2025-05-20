@@ -1,6 +1,16 @@
+import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { processTokenList } from './processTokenList'
-import { COINGECKO_CHAINS, type CoingeckoIdsMap, getTokenList, Overrides, OverridesPerChain, TokenInfo } from './utils'
+import {
+  COINGECKO_CHAINS,
+  type CoingeckoIdsMap,
+  DISPLAY_CHAIN_NAMES,
+  getLogger,
+  getTokenList,
+  Overrides,
+  OverridesPerChain,
+  TokenInfo,
+} from './utils'
 
 const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
 const UNISWAP_LOGO = 'ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir'
@@ -83,6 +93,7 @@ async function fetchAndProcessUniswapTokensForChain(
   coingeckoIdsMap: CoingeckoIdsMap,
   uniswapTokens: TokenInfo[],
   overrides: Overrides,
+  logger: Logger,
 ): Promise<void> {
   try {
     const coingeckoTokens = await getTokenList(chainId)
@@ -96,6 +107,7 @@ async function fetchAndProcessUniswapTokensForChain(
       overrides,
       replaceExisting: false,
       logMessage: `Uniswap tokens`,
+      logger,
     })
   } catch (error) {
     console.error(`Error processing Uniswap tokens for chain ${chainId}:`, error)
@@ -109,6 +121,7 @@ export async function fetchAndProcessUniswapTokens(
   coingeckoIdsMap: CoingeckoIdsMap,
   overrides: OverridesPerChain,
 ): Promise<void> {
+  const logger = getLogger()
   const uniTokens = await getUniswapTokens()
 
   const supportedChains = Object.keys(COINGECKO_CHAINS)
@@ -116,8 +129,15 @@ export async function fetchAndProcessUniswapTokens(
     .filter((chain) => chain !== SupportedChainId.MAINNET && COINGECKO_CHAINS[chain as SupportedChainId])
 
   await Promise.all(
-    supportedChains.map((chain) =>
-      fetchAndProcessUniswapTokensForChain(chain, coingeckoIdsMap, uniTokens, overrides[chain as SupportedChainId]),
-    ),
+    supportedChains.map((chain) => {
+      console.log(`Processing Uniswap tokens for ${DISPLAY_CHAIN_NAMES[chain as SupportedChainId]}...`)
+      return fetchAndProcessUniswapTokensForChain(
+        chain,
+        coingeckoIdsMap,
+        uniTokens,
+        overrides[chain as SupportedChainId],
+        logger,
+      )
+    }),
   )
 }

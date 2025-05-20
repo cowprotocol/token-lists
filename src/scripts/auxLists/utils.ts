@@ -1,5 +1,7 @@
-import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import assert from 'assert'
+import fs from 'fs'
+import winston, { Logger } from 'winston'
+import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 
 export interface TokenInfo {
   chainId: SupportedChainId
@@ -32,6 +34,8 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.BASE]: 'base',
   [SupportedChainId.ARBITRUM_ONE]: 'arbitrum-one',
   [SupportedChainId.SEPOLIA]: null,
+  [SupportedChainId.POLYGON]: 'polygon-pos',
+  [SupportedChainId.AVALANCHE]: 'avalanche',
 }
 
 export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
@@ -40,6 +44,8 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.BASE]: 'Base',
   [SupportedChainId.ARBITRUM_ONE]: 'Arbitrum one',
   [SupportedChainId.SEPOLIA]: null,
+  [SupportedChainId.POLYGON]: 'Polygon',
+  [SupportedChainId.AVALANCHE]: 'Avalanche',
 }
 
 export const VS_CURRENCY = 'usd'
@@ -110,4 +116,29 @@ export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]
   const data = await fetchWithApiKey(getTokenListUrl(chain))
   TOKEN_LISTS_CACHE[chain] = data.tokens
   return data.tokens
+}
+
+export function removeOldLogs(): void {
+  const logFiles = ['token-lists.log', 'token-lists-error.log']
+  logFiles.forEach((file) => {
+    if (fs.existsSync(file)) {
+      fs.unlinkSync(file)
+    }
+  })
+}
+
+let logger: Logger
+export function getLogger(): Logger {
+  if (!logger) {
+    logger = winston.createLogger({
+      level: 'info',
+      format: winston.format.json(),
+      transports: [
+        new winston.transports.File({ filename: 'token-lists.log' }),
+        new winston.transports.File({ filename: 'token-lists-error.log', level: 'error' }),
+        new winston.transports.Console({ level: 'error' }),
+      ],
+    })
+  }
+  return logger
 }

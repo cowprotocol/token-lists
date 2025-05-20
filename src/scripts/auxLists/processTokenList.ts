@@ -1,3 +1,4 @@
+import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import * as fs from 'fs'
@@ -117,7 +118,7 @@ function saveUpdatedTokens({
       fs.writeFileSync(tokenListPath, JSON.stringify(updatedList, null, 2))
       console.log(`Token list saved to ${tokenListPath}`)
     } else {
-      console.log(`No changes detected. Token list not updated.`)
+      console.log(`No changes detected for '${DISPLAY_CHAIN_NAMES[chainId]}'. Token list not updated.`)
     }
   } catch (error) {
     console.error(`Error saving token list to ${tokenListPath}:`, error)
@@ -132,6 +133,7 @@ interface ProcessTokenListParams {
   overrides?: Overrides
   replaceExisting?: boolean
   logMessage: string
+  logger: Logger
 }
 
 export async function processTokenList({
@@ -142,12 +144,13 @@ export async function processTokenList({
   overrides = {},
   replaceExisting = true,
   logMessage,
+  logger,
 }: ProcessTokenListParams): Promise<void> {
-  console.log(`🥇 ${logMessage} on chain ${chainId}`)
+  logger.info(`🥇 ${logMessage} on chain ${chainId}`)
 
   tokens.forEach((token, index) => {
     const volumeStr = token.volume ? `: ${FORMATTER.format(token.volume)}` : ''
-    console.log(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
+    logger.info(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
   })
 
   const updatedTokens = tokens.map(({ volume: _, ...token }) => {

@@ -11,6 +11,8 @@ export const DEFAULT_RPC_URLS: Record<SupportedChainId, string> = {
   [SupportedChainId.BASE]: 'https://mainnet.base.org',
   [SupportedChainId.GNOSIS_CHAIN]: 'https://rpc.gnosischain.com',
   [SupportedChainId.SEPOLIA]: 'https://ethereum-sepolia.publicnode.com',
+  [SupportedChainId.AVALANCHE]: 'https://api.avax.network/ext/bc/C/rpc',
+  [SupportedChainId.POLYGON]: 'https://polygon-rpc.com',
 }
 
 export const BASE_PATH = join('..', 'public')

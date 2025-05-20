@@ -1,9 +1,12 @@
+import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { processTokenList } from './processTokenList'
 import {
   COINGECKO_CHAINS,
   type CoingeckoIdsMap,
+  DISPLAY_CHAIN_NAMES,
   fetchWithApiKey,
+  getLogger,
   getTokenList,
   Overrides,
   OverridesPerChain,
@@ -134,6 +137,7 @@ async function fetchAndProcessCoingeckoTokensForChain(
   chainId: SupportedChainId,
   coingeckoIdsMap: CoingeckoIdsMap,
   overrides: Overrides,
+  logger: Logger,
 ): Promise<void> {
   try {
     const tokens = await getTokenList(chainId)
@@ -146,6 +150,7 @@ async function fetchAndProcessCoingeckoTokensForChain(
       logo: COINGECKO_LOGO,
       overrides,
       logMessage: `Top ${TOP_TOKENS_COUNT} tokens`,
+      logger,
     })
   } catch (error) {
     console.error(`Error processing CoinGecko tokens for chain ${chainId}:`, error)
@@ -159,13 +164,15 @@ export async function fetchAndProcessCoingeckoTokens(
   coingeckoIdsMap: CoingeckoIdsMap,
   overrides: OverridesPerChain,
 ): Promise<void> {
+  const logger = getLogger()
   const supportedChains = Object.keys(COINGECKO_CHAINS)
     .map(Number)
     .filter((chain) => COINGECKO_CHAINS[chain as SupportedChainId])
 
   await Promise.all(
-    supportedChains.map((chain) =>
-      fetchAndProcessCoingeckoTokensForChain(chain, coingeckoIdsMap, overrides[chain as SupportedChainId]),
-    ),
+    supportedChains.map((chain) => {
+      console.log(`Processing CoinGecko tokens for ${DISPLAY_CHAIN_NAMES[chain as SupportedChainId]}...`)
+      return fetchAndProcessCoingeckoTokensForChain(chain, coingeckoIdsMap, overrides[chain as SupportedChainId], logger)
+    }),
   )
 }

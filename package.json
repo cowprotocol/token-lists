@@ -6,7 +6,7 @@
   "main": "src/scripts/coingecko.js",
   "scripts": {
     "build": "yarn build:auxLists && yarn public && yarn coingecko",
-"build:auxLists": "yarn uniswapToGnosisChainList && yarn coingeckoToGnosisChainList && yarn coingeckoToArbitrumOneList ",
+    "build:auxLists": "yarn uniswapToGnosisChainList && yarn coingeckoToGnosisChainList && yarn coingeckoToArbitrumOneList ",
     "coingecko": "yarn run-script src/scripts/coingecko.js",
     "downloadImages": "yarn run-script src/scripts/downloadImages",
     "cowFi:tokens": "yarn run-script ./src/scripts/cowFi-tokens.js",
@@ -47,7 +47,8 @@
     "lodash": "^4.17.21",
     "p-retry": "^6.1.0",
     "p-throttle": "^5.1.0",
-    "ts-node": "^10.9.1"
+    "ts-node": "^10.9.1",
+    "winston": "^3.17.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.7",
