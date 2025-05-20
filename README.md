@@ -52,10 +52,9 @@ Instructions for setting up and running the various scripts locally
 
 ### Setup
 
-**Prerequistes**
+### Prerequisites
 
-Currently runs on nodeJs LTS/Gallium v16.20.2
-
+Currently runs on Node.js LTS/Gallium v16.20.2
 
 ```bash
 # Install dependencies
