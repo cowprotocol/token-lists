@@ -164,7 +164,7 @@ export async function fetchAndProcessCoingeckoTokens(
   coingeckoIdsMap: CoingeckoIdsMap,
   overrides: OverridesPerChain,
 ): Promise<void> {
-  const logger = getLogger()
+  const logger = getLogger('coingecko-tokens')
   const supportedChains = Object.keys(COINGECKO_CHAINS)
     .map(Number)
     .filter((chain) => COINGECKO_CHAINS[chain as SupportedChainId])
@@ -172,7 +172,12 @@ export async function fetchAndProcessCoingeckoTokens(
   await Promise.all(
     supportedChains.map((chain) => {
       console.log(`Processing CoinGecko tokens for ${DISPLAY_CHAIN_NAMES[chain as SupportedChainId]}...`)
-      return fetchAndProcessCoingeckoTokensForChain(chain, coingeckoIdsMap, overrides[chain as SupportedChainId], logger)
+      return fetchAndProcessCoingeckoTokensForChain(
+        chain,
+        coingeckoIdsMap,
+        overrides[chain as SupportedChainId],
+        logger,
+      )
     }),
   )
 }

@@ -121,7 +121,7 @@ export async function fetchAndProcessUniswapTokens(
   coingeckoIdsMap: CoingeckoIdsMap,
   overrides: OverridesPerChain,
 ): Promise<void> {
-  const logger = getLogger()
+  const logger = getLogger('uniswap-tokens')
   const uniTokens = await getUniswapTokens()
 
   const supportedChains = Object.keys(COINGECKO_CHAINS)

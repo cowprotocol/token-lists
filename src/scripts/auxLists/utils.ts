@@ -128,14 +128,14 @@ export function removeOldLogs(): void {
 }
 
 let logger: Logger
-export function getLogger(): Logger {
+export function getLogger(context: string): Logger {
   if (!logger) {
     logger = winston.createLogger({
       level: 'info',
       format: winston.format.json(),
       transports: [
-        new winston.transports.File({ filename: 'token-lists.log' }),
-        new winston.transports.File({ filename: 'token-lists-error.log', level: 'error' }),
+        new winston.transports.File({ filename: `${context}.log` }),
+        new winston.transports.File({ filename: `${context}-error.log`, level: 'error' }),
         new winston.transports.Console({ level: 'error' }),
       ],
     })
