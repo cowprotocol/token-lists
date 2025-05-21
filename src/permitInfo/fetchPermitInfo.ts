@@ -37,7 +37,7 @@ import {
 import { JsonRpcProvider } from '@ethersproject/providers'
 import { readFileSync, writeFileSync } from 'node:fs'
 import * as path from 'node:path'
-import { argv, chdir, env, exit } from 'node:process'
+import { env, exit } from 'node:process'
 import pRetry from 'p-retry'
 import pThrottle from 'p-throttle'
 import { BASE_PATH, SPENDER_ADDRESS } from './const'
@@ -47,25 +47,16 @@ import { getTokensFromTokenList } from './utils/getTokensFromTokenList'
 import { getUnsupportedTokensFromPermitInfo } from './utils/getUnsupportedTokensFromPermitInfo'
 import { sortPermitInfo } from './utils/sortPermitInfo'
 
-// TODO: maybe make the args nicer?
-// Get args from cli: chainId, optional token lists path, optional rpcUrl, optional recheckUnsupported flag
-const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck] = argv
-
-if (!chainId) {
-  console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
-  exit(1)
+export type FetchPermitInfoOptions = {
+  chainId: SupportedChainId
+  tokenListPath?: string
+  rpcUrl?: string
+  recheckUnsupported?: boolean
+  forceRecheck?: boolean
 }
 
-// Change to script dir so relative paths work properly
-chdir(path.dirname(scriptPath))
-
-async function fetchPermitInfo(
-  chainId: SupportedChainId,
-  tokenListPath: string | undefined,
-  rpcUrl: string | undefined,
-  recheckUnsupported: boolean = false,
-  forceRecheck: boolean = false,
-): Promise<void> {
+export async function fetchPermitInfo(options: FetchPermitInfoOptions): Promise<void> {
+  const { chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck } = options
   // Load existing permitInfo.json file for given chainId
   const permitInfoPath = path.join(BASE_PATH, `PermitInfo.${chainId}.json`)
 
@@ -99,7 +90,7 @@ async function fetchPermitInfo(
     const existingInfo = allPermitInfo[token.address.toLowerCase()]
 
     return pRetry(
-      async () => _fetchPermitInfo(chainId, provider, token, existingInfo, recheckUnsupported, forceRecheck),
+      async () => _fetchPermitInfo(chainId, provider, token, existingInfo, !!recheckUnsupported, !!forceRecheck),
       {
         retries: 3,
       },
@@ -171,8 +162,3 @@ async function _fetchPermitInfo(
     }
   }
 }
-
-// Execute the script
-fetchPermitInfo(+chainId as SupportedChainId, tokenListPath, rpcUrl, !!recheckUnsupported, !!forceRecheck).then(() =>
-  console.info(`Done 🏁`),
-)
