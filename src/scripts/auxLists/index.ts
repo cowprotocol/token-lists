@@ -14,7 +14,8 @@ OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0xe91d153e0b41518a2ce8dd3d7944fa863463
 async function main(): Promise<void> {
   const COINGECKO_IDS_MAP = await getCoingeckoTokenIdsMap()
 
-  removeOldLogs()
+  removeOldLogs('coingecko-tokens')
+  removeOldLogs('uniswap-tokens')
 
   fetchAndProcessCoingeckoTokens(COINGECKO_IDS_MAP, OVERRIDES)
   fetchAndProcessUniswapTokens(COINGECKO_IDS_MAP, OVERRIDES)

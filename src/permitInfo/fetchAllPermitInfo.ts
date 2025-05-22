@@ -3,12 +3,14 @@ import { argv, chdir } from 'node:process'
 
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { fetchPermitInfo } from './fetchPermitInfo'
-import { getLogger } from 'scripts/auxLists/utils'
+import { getLogger, removeOldLogs } from 'scripts/auxLists/utils'
 
 async function fetchAllPermitInfo() {
   const [, scriptPath] = argv
 
   chdir(path.dirname(scriptPath))
+
+  removeOldLogs('fetch-permit')
 
   const logger = getLogger('fetch-permit')
 

@@ -118,8 +118,8 @@ export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]
   return data.tokens
 }
 
-export function removeOldLogs(): void {
-  const logFiles = ['token-lists.log', 'token-lists-error.log']
+export function removeOldLogs(context: string): void {
+  const logFiles = [`${context}.log`, `${context}-error.log`]
   logFiles.forEach((file) => {
     if (fs.existsSync(file)) {
       fs.unlinkSync(file)
