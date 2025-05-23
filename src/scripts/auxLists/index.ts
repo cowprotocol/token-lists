@@ -1,7 +1,7 @@
 import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { fetchAndProcessCoingeckoTokens } from './coingecko'
 import { fetchAndProcessUniswapTokens } from './uniswap'
-import { getCoingeckoTokenIdsMap, OverridesPerChain } from './utils'
+import { getCoingeckoTokenIdsMap, OverridesPerChain, removeOldLogs } from './utils'
 
 const OVERRIDES: OverridesPerChain = mapSupportedNetworks(() => ({}))
 OVERRIDES[SupportedChainId.BASE]['0x18dd5b087bca9920562aff7a0199b96b9230438b'] = { decimals: 8 } // incorrect decimals set on CoinGecko's list
@@ -13,6 +13,9 @@ OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0xe91d153e0b41518a2ce8dd3d7944fa863463
 
 async function main(): Promise<void> {
   const COINGECKO_IDS_MAP = await getCoingeckoTokenIdsMap()
+
+  removeOldLogs('coingecko-tokens')
+  removeOldLogs('uniswap-tokens')
 
   fetchAndProcessCoingeckoTokens(COINGECKO_IDS_MAP, OVERRIDES)
   fetchAndProcessUniswapTokens(COINGECKO_IDS_MAP, OVERRIDES)

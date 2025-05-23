@@ -10,6 +10,8 @@ const tokenListsByNetwork: Record<SupportedChainId, string> = {
   [SupportedChainId.BASE]: 'CowSwap.json',
   [SupportedChainId.GNOSIS_CHAIN]: 'CowSwap.json',
   [SupportedChainId.SEPOLIA]: 'CowSwapSepolia.json',
+  [SupportedChainId.POLYGON]: 'CowSwap.json',
+  [SupportedChainId.AVALANCHE]: 'CowSwap.json',
 }
 
 export async function getTokensFromTokenList(

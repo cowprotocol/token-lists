@@ -21,7 +21,7 @@ name: ProcessRequest
 
 on:
   issues:
-    types: [ opened ]
+    types: [opened]
 
 env:
   # Matches labels from field forms to extract data
@@ -85,6 +85,12 @@ jobs:
             } else if (values.network === 'BASE') {
               values.chainId = 8453
               values.blockExplorer = 'basescan.org'
+            } else if (values.network === 'AVALANCHE') {
+              values.chainId = 43114
+              values.blockExplorer = 'snowtrace.io'
+            } else if (values.network === 'POLYGON'){
+              values.chainId = 137
+              values.blockExplorer = 'polygonscan.com'
             } else {
               values.chainId = 100
               values.blockExplorer = 'gnosisscan.io'
@@ -108,7 +114,6 @@ jobs:
 
           # force failure for testing
           # exit 1
-
 
   validateInput:
     runs-on: ubuntu-latest
@@ -154,7 +159,7 @@ jobs:
             Make sure all the required fields are provided and submit a new issue
 
   optimizeImage:
-    needs: [ extractInfoFromIssue, validateInput ]
+    needs: [extractInfoFromIssue, validateInput]
     uses: ./.github/workflows/optimizeImage.yml
     if: ${{ contains(github.event.issue.labels.*.name, 'addImage') || contains(github.event.issue.labels.*.name, 'addToken') }}
     with:
@@ -162,7 +167,7 @@ jobs:
       address: ${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}
 
   addToken:
-    needs: [ extractInfoFromIssue, optimizeImage ]
+    needs: [extractInfoFromIssue, optimizeImage]
     uses: ./.github/workflows/executeAction.yml
     if: ${{ contains(github.event.issue.labels.*.name, 'addToken') }}
     secrets: inherit
@@ -171,7 +176,7 @@ jobs:
       issueInfo: ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
       # Custom per type
       operation: addToken
-      prTitle: "[addToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
+      prTitle: '[addToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`'
       prBody: |
         Adding token `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).symbol }}` on network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
 
@@ -191,14 +196,14 @@ jobs:
         ```
 
   removeToken:
-    needs: [ extractInfoFromIssue, validateInput ]
+    needs: [extractInfoFromIssue, validateInput]
     uses: ./.github/workflows/executeAction.yml
     if: ${{ contains(github.event.issue.labels.*.name, 'removeToken') }}
     secrets: inherit
     with:
       issueInfo: ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
       operation: removeToken
-      prTitle: "[removeToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` from `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
+      prTitle: '[removeToken] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` from `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`'
       prBody: |
         Removing token from network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
 
@@ -213,14 +218,14 @@ jobs:
         ```
 
   addImage:
-    needs: [ extractInfoFromIssue, optimizeImage ]
+    needs: [extractInfoFromIssue, optimizeImage]
     uses: ./.github/workflows/executeAction.yml
     if: ${{ contains(github.event.issue.labels.*.name, 'addImage') }}
     secrets: inherit
     with:
       issueInfo: ${{ needs.extractInfoFromIssue.outputs.issueInfo }}
       operation: addImage
-      prTitle: "[addImage] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`"
+      prTitle: '[addImage] `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).address }}` to `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`'
       prBody: |
         Adding image to network `${{ fromJSON(needs.extractInfoFromIssue.outputs.issueInfo).network }}`
 
