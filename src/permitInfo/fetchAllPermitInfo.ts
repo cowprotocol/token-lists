@@ -18,7 +18,7 @@ async function fetchAllPermitInfo() {
     if (!isNaN(Number(chainId))) {
       try {
         await fetchPermitInfo({
-          chainId: chainId as unknown as SupportedChainId,
+          chainId: +chainId as SupportedChainId,
           tokenListPath: undefined,
           rpcUrl: undefined,
           recheckUnsupported: false,
