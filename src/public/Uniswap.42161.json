@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 13,
+    "minor": 14,
     "patch": 0
   },
   "tokens": [
@@ -2914,9 +2914,62 @@
       "symbol": "XSGD",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/12832/large/StraitsX_Singapore_Dollar_%28XSGD%29_Token_Logo.png?1696512623"
+    },
+    {
+      "name": "PancakeSwap",
+      "address": "0xCdc343ebf71e38F003eD6c80171F5B8D7cF58860",
+      "symbol": "CAKE",
+      "decimals": 18,
+      "chainId": 42161,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/12632/large/pancakeswap-cake-logo_%281%29.png?1696512440",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x152649eA73beAb28c5b49B26eb48f7EAD6d4c898"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x6380F3d0C1412a80EB00F49064DA30749DB991DE",
+      "name": "Portal",
+      "symbol": "PORTAL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/35436/standard/portal.jpeg",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x1Bbe973BeF3a977Fc51CbED703E8ffDEfE001Fed"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x3c45038f4807c5bb72F6BC72c2A2B9c012155e49",
+      "name": "Radicle",
+      "symbol": "RAD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/14013/large/radicle.png?1614402918",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x31c8EAcBFFdD875c74b94b077895Bd78CF1E64A3"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x1b896893dfc86bb67cf57767298b9073d2c1ba2c",
+      "name": "PancakeSwap",
+      "symbol": "CAKE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/12632/large/pancakeswap-cake-logo_%281%29.png?1696512440"
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-05-22T00:49:25.806Z"
+  "timestamp": "2025-06-10T00:04:39.182Z"
 }
