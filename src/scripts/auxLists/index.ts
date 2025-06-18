@@ -10,6 +10,7 @@ OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0xe91d153e0b41518a2ce8dd3d7944fa863463
   symbol: 'wxDAI',
   name: 'Wrapped xDAI',
 } // incorrect symbol and name set on CoinGecko's list
+OVERRIDES[SupportedChainId.POLYGON]['0x0000000000000000000000000000000000001010'] = null // POL native token address
 
 async function main(): Promise<void> {
   const COINGECKO_IDS_MAP = await getCoingeckoTokenIdsMap()

@@ -1,7 +1,7 @@
+import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import assert from 'assert'
 import fs from 'fs'
 import winston, { Logger } from 'winston'
-import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 
 export interface TokenInfo {
   chainId: SupportedChainId
@@ -13,7 +13,7 @@ export interface TokenInfo {
   volume?: number
 }
 
-export type Overrides = Record<string, Partial<TokenInfo>>
+export type Overrides = Record<string, Partial<TokenInfo> | null>
 export type OverridesPerChain = Record<SupportedChainId, Overrides>
 
 interface CoingeckoToken {
