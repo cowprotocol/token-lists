@@ -1,8 +1,8 @@
-import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import * as fs from 'fs'
 import path from 'path'
+import { Logger } from 'winston'
 import { DISPLAY_CHAIN_NAMES, Overrides, TokenInfo } from './utils'
 
 const FORMATTER = new Intl.NumberFormat('en-us', { style: 'currency', currency: 'USD' })
@@ -153,14 +153,20 @@ export async function processTokenList({
     logger.info(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
   })
 
-  const updatedTokens = tokens.map(({ volume: _, ...token }) => {
-    const override = overrides[token.address.toLowerCase()]
-    return {
-      ...token,
-      ...override,
-      logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
-    }
-  })
+  const updatedTokens = tokens
+    .map(({ volume: _, ...token }) => {
+      const override = overrides[token.address.toLowerCase()]
+      if (override === null) {
+        // remove token from list
+        return null
+      }
+      return {
+        ...token,
+        ...override,
+        logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
+      }
+    })
+    .filter((token) => token !== null)
 
   const listName = getListName(chainId, prefix)
   saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting })
