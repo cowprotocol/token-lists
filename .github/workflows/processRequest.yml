@@ -87,7 +87,7 @@ jobs:
               values.blockExplorer = 'basescan.org'
             } else if (values.network === 'AVALANCHE') {
               values.chainId = 43114
-              values.blockExplorer = 'snowtrace.io'
+              values.blockExplorer = 'snowscan.xyz'
             } else if (values.network === 'POLYGON'){
               values.chainId = 137
               values.blockExplorer = 'polygonscan.com'
