@@ -153,20 +153,18 @@ export async function processTokenList({
     logger.info(`\t-${(index + 1).toString().padStart(3, '0')}) ${token.name} (${token.symbol})${volumeStr}`)
   })
 
-  const updatedTokens = tokens
-    .map(({ volume: _, ...token }) => {
-      const override = overrides[token.address.toLowerCase()]
-      if (override === null) {
-        // remove token from list
-        return null
-      }
-      return {
+  const updatedTokens = tokens.reduce((acc, { volume: _, ...token }) => {
+    const override = overrides[token.address.toLowerCase()]
+    // if override is null, means we want to remove token from list
+    if (override !== null) {
+      acc.push({
         ...token,
         ...override,
         logoURI: token.logoURI ? token.logoURI.replace(/thumb/, 'large') : undefined,
-      }
-    })
-    .filter((token) => token !== null)
+      })
+    }
+    return acc
+  }, [] as TokenInfo[])
 
   const listName = getListName(chainId, prefix)
   saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting })
