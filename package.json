@@ -35,7 +35,7 @@
     "recheckPermitInfo:sepolia": "yarn run fetchPermitInfo -- 11155111 '' '' true",
     "recheckPermitInfo:avalanche": "yarn run fetchPermitInfo -- 43114 '' '' true",
     "recheckPermitInfo:polygon": "yarn run fetchPermitInfo -- 137 '' '' true",
-    "run-script": "tsx",
+    "run-script": "node --loader ts-node/esm --experimental-json-modules --experimental-specifier-resolution=node",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
@@ -52,6 +52,7 @@
     "lodash": "^4.17.21",
     "p-retry": "^6.1.0",
     "p-throttle": "^5.1.0",
+    "ts-node": "^10.9.1",
     "winston": "^3.17.0"
   },
   "devDependencies": {
@@ -59,7 +60,6 @@
     "copyfiles": "^2.4.1",
     "eslint": "^8.52.0",
     "prettier": "^3.0.3",
-    "tsx": "^4.20.3",
     "typescript": "^5.2.2"
   }
 }
