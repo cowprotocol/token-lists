@@ -28,6 +28,8 @@
     "fetchPermitInfo:sepolia": "yarn run fetchPermitInfo -- 11155111",
     "fetchPermitInfo:avalanche": "yarn run fetchPermitInfo -- 43114",
     "fetchPermitInfo:polygon": "yarn run fetchPermitInfo -- 137",
+    "fetchPermitInfo:bnb": "yarn run fetchPermitInfo -- 56",
+    "fetchPermitInfo:lens": "yarn run fetchPermitInfo -- 232",
     "recheckPermitInfo:mainnet": "yarn run fetchPermitInfo -- 1 '' '' true",
     "recheckPermitInfo:arb1": "yarn run fetchPermitInfo -- 42161 '' '' true",
     "recheckPermitInfo:base": "yarn run fetchPermitInfo -- 8453 '' '' true",
@@ -36,6 +38,8 @@
     "recheckPermitInfo:avalanche": "yarn run fetchPermitInfo -- 43114 '' '' true",
     "recheckPermitInfo:polygon": "yarn run fetchPermitInfo -- 137 '' '' true",
     "run-script": "node --loader ts-node/esm --experimental-json-modules --experimental-specifier-resolution=node",
+    "recheckPermitInfo:bnb": "yarn run fetchPermitInfo -- 56 '' '' true",
+    "recheckPermitInfo:lens": "yarn run fetchPermitInfo -- 232 '' '' true",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
