@@ -91,6 +91,12 @@ jobs:
             } else if (values.network === 'POLYGON'){
               values.chainId = 137
               values.blockExplorer = 'polygonscan.com'
+            } else if (values.network === 'BNB'){
+              values.chainId = 56
+              values.blockExplorer = 'bscscan.com'
+            } else if (values.network === 'LENS'){
+              values.chainId = 232
+              values.blockExplorer = 'explorer.lens.xyz'
             } else {
               values.chainId = 100
               values.blockExplorer = 'gnosisscan.io'
