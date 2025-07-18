@@ -1,17 +1,12 @@
-import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { SupportedChainId, mapSupportedNetworks } from '@cowprotocol/cow-sdk'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { BASE_PATH } from '../const'
 import { Token } from '../types'
 
 const tokenListsByNetwork: Record<SupportedChainId, string> = {
-  [SupportedChainId.MAINNET]: 'CowSwap.json',
-  [SupportedChainId.ARBITRUM_ONE]: 'CowSwap.json',
-  [SupportedChainId.BASE]: 'CowSwap.json',
-  [SupportedChainId.GNOSIS_CHAIN]: 'CowSwap.json',
+  ...mapSupportedNetworks('CowSwap.json'),
   [SupportedChainId.SEPOLIA]: 'CowSwapSepolia.json',
-  [SupportedChainId.POLYGON]: 'CowSwap.json',
-  [SupportedChainId.AVALANCHE]: 'CowSwap.json',
 }
 
 export async function getTokensFromTokenList(
