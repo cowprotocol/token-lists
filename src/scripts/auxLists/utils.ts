@@ -36,6 +36,8 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.SEPOLIA]: null,
   [SupportedChainId.POLYGON]: 'polygon-pos',
   [SupportedChainId.AVALANCHE]: 'avalanche',
+  [SupportedChainId.BNB]: 'binance-smart-chain',
+  [SupportedChainId.LENS]: 'lens',
 }
 
 export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
@@ -46,6 +48,8 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.SEPOLIA]: null,
   [SupportedChainId.POLYGON]: 'Polygon',
   [SupportedChainId.AVALANCHE]: 'Avalanche',
+  [SupportedChainId.BNB]: 'BNB',
+  [SupportedChainId.LENS]: 'Lens',
 }
 
 export const VS_CURRENCY = 'usd'
