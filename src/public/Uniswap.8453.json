@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 33,
+    "minor": 34,
     "patch": 0
   },
   "tokens": [
@@ -1390,9 +1390,24 @@
       "symbol": "ASM",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/11605/large/200-200.png?1740625606"
+    },
+    {
+      "chainId": 8453,
+      "address": "0x1f73EAf55d696BFFA9b0EA16fa987B93b0f4d302",
+      "name": "Rocket Pool Protocol",
+      "symbol": "RPL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/2090/large/rocket_pool_%28RPL%29.png?1696503058",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xD33526068D116cE69F19A9ee46F0bd304F21A51f"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Base",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-07-08T00:04:29.468Z"
+  "timestamp": "2025-07-23T00:04:47.456Z"
 }
