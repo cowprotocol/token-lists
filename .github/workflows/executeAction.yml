@@ -17,7 +17,7 @@ on:
         type: string
 
 env:
-  IMAGES_BASE_PATH: src/public/images/
+  CHAIN_BASE_PATH: src/public/images/${{ fromJSON(inputs.issueInfo).chainId }}
   LIST_PATH: src/public/CowSwap.json
 
 jobs:
@@ -26,47 +26,46 @@ jobs:
     steps:
 
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
 
-      # https://stackoverflow.com/questions/62627931/github-actions-expression-functions-string-manipulation
-      - name: Set ADDRESS env var
+      - name: Set environment variables
+        run: |
+          ADDRESS=$(echo "$INPUT_ADDRESS" | tr '[:upper:]' '[:lower:]')
+          echo "BASE_PATH=$CHAIN_BASE_PATH/$ADDRESS" >> "$GITHUB_ENV"
         env:
-          INPUT: ${{ fromJSON(inputs.issueInfo).address }}
-        run: echo ADDRESS=`echo "print('$INPUT'.lower())" | python3` >> "$GITHUB_ENV"
-
-      - name: Set BASE_PATH env var
-        env:
-          CHAIN_ID: ${{ fromJSON(inputs.issueInfo).chainId }}
-        run: echo "BASE_PATH=${{ env.IMAGES_BASE_PATH }}${{ env.CHAIN_ID }}/${{ env.ADDRESS }}/" >> "$GITHUB_ENV"
+          INPUT_ADDRESS: ${{ fromJSON(inputs.issueInfo).address }}
 
       - name: Create base path and info.json if it doesn't exist
         run: |
-          mkdir -p ${{ env.BASE_PATH }} 
-          touch "${{ env.BASE_PATH }}info.json"
+          mkdir -p $BASE_PATH
+          touch "$BASE_PATH/info.json"
 
       - name: Save input into local file
-        run: |
-          cat << EOF > data.json
-          ${{ inputs.issueInfo }}
-          EOF
+        run: echo $ISSUE_INFO > data.json
+        env:
+          ISSUE_INFO: ${{ inputs.issueInfo }}
 
       # Image handling
       - name: Download image
         if: ${{ inputs.operation == 'addImage' || inputs.operation == 'addToken' }}
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: ${{ fromJSON(inputs.issueInfo).address }}
 
       - name: Move image to destination
         if: ${{ inputs.operation == 'addImage' || inputs.operation == 'addToken' }}
-        run: mv output.png ${{ env.BASE_PATH }}logo.png
+        run: mv output.png $BASE_PATH/logo.png
 
       - name: Update json files
-        run: yarn workflowHelper ${{ inputs.operation }} data.json
+        run: yarn workflowHelper $OPERATION data.json
+        env:
+          OPERATION: ${{ inputs.operation }}
 
       # Validation steps
       - name: Set up node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: lts/*
           cache: yarn
@@ -80,7 +79,7 @@ jobs:
       # Passed validation
       - name: Create Pull Request
         id: cpr
-        uses: peter-evans/create-pull-request@v4
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
           commit-message: "[${{ inputs.operation }}] ${{ fromJSON(inputs.issueInfo).network }}/${{ fromJSON(inputs.issueInfo).address }}"
           branch: ${{ inputs.operation }}/${{ fromJSON(inputs.issueInfo).chainId }}_${{ fromJSON(inputs.issueInfo).address }}
@@ -88,22 +87,22 @@ jobs:
           title: ${{ inputs.prTitle }}
           body: |
             # ${{ inputs.operation }}
-            
+
             **Note** This is an automated PR
-            
-            Submitted by @${{ github.event.issue.user.login }} 
-            
+
+            Submitted by @${{ github.event.issue.user.login }}
+
             Closes #${{ github.event.issue.number }}
-            
+
             ---
-            
+
             ${{ inputs.prBody }}
           add-paths: |
             ${{ env.BASE_PATH }}/*
             ${{ env.LIST_PATH }}
 
       - name: Comment on issue
-        uses: peter-evans/create-or-update-comment@v2
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043 # v4.0.0
         with:
           issue-number: ${{ github.event.issue.number }}
           body: |
@@ -112,13 +111,13 @@ jobs:
 
       - name: Report error
         if: ${{ failure() }}
-        uses: peter-evans/close-issue@v2
+        uses: peter-evans/close-issue@276d7966e389d888f011539a86c8920025ea0626 # v3.0.1
         with:
           comment: |
             Failed to ${{ inputs.operation }}
-            
+
             Check the input is correct and try again in a new issue
-            
+
             If the issue persists, create a bug report
-            
+
             cc @cowprotocol/frontend
