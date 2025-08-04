@@ -5,7 +5,7 @@ import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { fetchPermitInfo } from './fetchPermitInfo'
 
 function fetchPermitInfoByChain() {
-  const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck] = argv
+  const [, scriptPath, chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck, token] = argv
 
   if (!chainId) {
     console.error('ChainId is missing. Invoke the script with the chainId as the first parameter.')
@@ -22,6 +22,7 @@ function fetchPermitInfoByChain() {
     rpcUrl,
     recheckUnsupported: recheckUnsupported === 'true',
     forceRecheck: forceRecheck === 'true',
+    token: token,
   }).then(() => console.info(`Done 🏁`))
 }
 
