@@ -30,81 +30,18 @@ jobs:
             🔄 Your request has been received and is being processed.
             This issue will be updated when completed.
 
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+
       - name: Extract and validate issue information
         id: extract-info
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
         with:
-          script: |
-            const { issue } = context.payload;
-            const body = issue.body;
-            const labels = issue.labels.map(l => l.name);
-
-            // Network configuration mapping
-            const NETWORK_CONFIG = {
-              'MAINNET': { chainId: 1, blockExplorer: 'etherscan.io' },
-              'ARBITRUM_ONE': { chainId: 42161, blockExplorer: 'arbiscan.io' },
-              'BASE': { chainId: 8453, blockExplorer: 'basescan.org' },
-              'AVALANCHE': { chainId: 43114, blockExplorer: 'snowscan.xyz' },
-              'POLYGON': { chainId: 137, blockExplorer: 'polygonscan.com' },
-              'BNB': { chainId: 56, blockExplorer: 'bscscan.com' },
-              'LENS': { chainId: 232, blockExplorer: 'explorer.lens.xyz' },
-              'GNOSIS': { chainId: 100, blockExplorer: 'gnosisscan.io' }
-            };
-
-            // Extract field values
-            const fieldNames = process.env.FIELD_NAMES.split(',');
-            const values = fieldNames.reduce((acc, field) => {
-              const regex = new RegExp(`${field}\\s+(?<${field.toLowerCase()}>.*?)(\\s+###|$)`, 's');
-              return { ...acc, ...body.match(regex)?.groups };
-            }, {});
-
-            // Normalize address
-            if (values.address) {
-              values.address = values.address.toLowerCase();
-            }
-
-            // Add network configuration
-            const networkConfig = NETWORK_CONFIG[values.network] || NETWORK_CONFIG['GNOSIS'];
-            Object.assign(values, networkConfig);
-
-            // Generate URLs
-            if (values.chainId && values.address) {
-              values.prImageUrl = `https://raw.githubusercontent.com/cowprotocol/token-lists/{0}/${ values.chainId }_${ values.address }/src/public/images/${ values.chainId }/${ values.address }/logo.png`;
-              // Will be the final URL once it's merged to `main`
-              values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/${ values.chainId }/${ values.address }/logo.png`;
-            }
-
-            // Validation rules
-            const validationRules = {
-              addImage: ['network', 'url', 'address'],
-              addToken: ['network', 'symbol', 'name', 'url', 'decimals', 'address', 'reason'],
-              removeToken: ['network', 'reason', 'address']
-            };
-
-            // Determine operation type
-            const operation = labels.find(label => ['addImage', 'addToken', 'removeToken'].includes(label));
-
-            if (!operation) {
-              throw new Error('No valid operation label found');
-            }
-
-            // Validate required fields
-            const requiredFields = validationRules[operation] || [];
-            const missingFields = requiredFields.filter(field => !values[field]);
-
-            if (missingFields.length > 0) {
-              throw new Error(`Missing required fields for ${operation}: ${missingFields.join(', ')}`);
-            }
-
-            // Additional validations
-            if (values.symbol && values.symbol.includes(' ')) {
-              throw new Error('Symbol cannot contain spaces');
-            }
-
-            // Set outputs for use in subsequent steps
-            core.setOutput('operation', operation);
-            core.setOutput('issueInfo', JSON.stringify(values));
-            core.setOutput('needsImageOptimization', ['addImage', 'addToken'].includes(operation));
+          script:
+            const { processRequest } = await import("{{github.workspace}}/scripts/processRequest.mjs");
+            processRequest(github.context, core);
 
       - name: Handle validation errors
         if: failure()
@@ -174,7 +111,7 @@ jobs:
 
   execute-add-image:
     needs: [process-request, optimize-image]
-    if: always() && needs.process-request.outputs.operation == 'addImage'
+    if: needs.process-request.outputs.operation == 'addImage'
     uses: ./.github/workflows/executeAction.yml
     secrets: inherit
     with:

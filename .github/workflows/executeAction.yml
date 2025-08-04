@@ -43,7 +43,7 @@ jobs:
           touch "$BASE_PATH/info.json"
 
       - name: Save input into local file
-        run: echo $ISSUE_INFO > data.json
+        run: echo "$ISSUE_INFO" > data.json
         env:
           ISSUE_INFO: ${{ inputs.issueInfo }}
 
