@@ -30,3 +30,6 @@ jobs:
 
       - name: Run validation
         run: yarn validate
+
+      - name: Run tests
+        run: yarn test
