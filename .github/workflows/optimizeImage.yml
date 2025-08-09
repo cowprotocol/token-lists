@@ -22,7 +22,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download image
-        run: curl -o image.png "${{ inputs.url }}"
+        run: curl -o image.png $URL
+        env:
+          URL: ${{ inputs.url }}
 
       - name: Install dependencies
         run: sudo apt install imagemagick librsvg2-bin
@@ -50,7 +52,7 @@ jobs:
           fi
 
       - name: Upload img
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: ${{ inputs.address }}
           path: output.png
@@ -58,7 +60,7 @@ jobs:
 
       - name: Report error
         if: ${{ failure() }}
-        uses: peter-evans/close-issue@v2
+        uses: peter-evans/close-issue@276d7966e389d888f011539a86c8920025ea0626 # v3.0.1
         with:
           comment: |
             Failed to optimize image
