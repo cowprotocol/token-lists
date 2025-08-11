@@ -53,10 +53,11 @@ export type FetchPermitInfoOptions = {
   rpcUrl?: string
   recheckUnsupported?: boolean
   forceRecheck?: boolean
+  token?: string
 }
 
 export async function fetchPermitInfo(options: FetchPermitInfoOptions): Promise<void> {
-  const { chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck } = options
+  const { chainId, tokenListPath, rpcUrl, recheckUnsupported, forceRecheck, token } = options
   // Load existing permitInfo.json file for given chainId
   const permitInfoPath = path.join(BASE_PATH, `PermitInfo.${chainId}.json`)
 
@@ -84,6 +85,20 @@ export async function fetchPermitInfo(options: FetchPermitInfoOptions): Promise<
   const tokens = recheckUnsupported
     ? getUnsupportedTokensFromPermitInfo(chainId, allPermitInfo)
     : await getTokensFromTokenList(chainId, tokenListPath)
+
+  if (token) {
+    const lowerCaseToken = token.toLowerCase()
+    const filteredTokens = tokens.filter((t) => t.address.toLowerCase() === lowerCaseToken)
+
+    if (filteredTokens.length === 0) {
+      console.log(`No token found with address: ${lowerCaseToken}`)
+      return
+    }
+
+    console.log(`Fetching permit info for specific token: ${filteredTokens[0].symbol} (${filteredTokens[0].address})`)
+    tokens.length = 0
+    tokens.push(...filteredTokens)
+  }
 
   // Create a list of promises to check all tokens
   const fetchAllPermits = tokens.map((token) => {
