@@ -2,7 +2,7 @@ import { describe, it } from 'node:test'
 import assert from 'node:assert'
 import Ajv from 'ajv'
 
-import schema from './permitInfo.schema.json' assert { type: 'json' }
+import schema from './permitInfo.schema.json' with { type: 'json' }
 
 describe('The permitInfo schema', () => {
   it('should be valid', () => {

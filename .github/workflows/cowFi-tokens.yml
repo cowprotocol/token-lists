@@ -9,58 +9,23 @@ permissions:
   id-token: write
   contents: read
 
-env:
-  NODE_VERSION: lts/gallium
-
 jobs:
-  setup:
-    name: Setup
+  generate-and-upload:
+    name: Generate and Upload cow.fi tokens
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up node
-        uses: actions/setup-node@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: yarn
+          persist-credentials: false
 
-      - name: Cache node_modules
-        id: cache-node-modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-  generate:
-    name: Generate and Post to S3
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Set up node
-        uses: actions/setup-node@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: lts/*
+          cache: yarn
 
-      - name: Load dependencies
-        id: cache-node-modules
-        uses: actions/cache@v4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules1-
-
-      # TODO: Remove! just a test
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
@@ -68,24 +33,24 @@ jobs:
         run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: cowFi-tokens.json
           path: src/cowFi/cowFi-tokens.json
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@b47578312673ae6fa5b5096b330d9fbac3d116df # v4.2.1
         with:
           role-to-assume: arn:aws:iam::693696263829:role/token-list-github-action-role
           role-session-name: githubactionsession
           aws-region: eu-central-1
 
-      - name: Upload to S3
+      - name: Upload to S3 and invalidate CloudFront cache
         run: |
+          # Upload to S3
           aws s3 cp src/cowFi/cowFi-tokens.json s3://files.cow.fi/tokens/cowFi-tokens.json
 
-      - name: Invalidate CloudFront cache
-        run: |
+          # Invalidate CloudFront cache
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.DISTRIBUTION }} \
             --paths "/tokens/*"
