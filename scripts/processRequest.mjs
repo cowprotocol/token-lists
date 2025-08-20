@@ -21,11 +21,12 @@ export const extractFieldValues = (body, fieldNames) => {
     const r = new RegExp(String.raw`${f}\s+(.*?)(\s+###|$)`, 'si')
 
     // Build an object with the capturing group and value for each field
-    return { ...acc, [f]: body.match(r)?.[1].trim() }
+    return { ...acc, [f.toLowerCase()]: body.match(r)?.[1].trim() }
   }, {})
 }
 
 export const applyNetworkConfig = (values) => {
+  console.log(values)
   const config = NETWORK_CONFIG[values.network]
 
   if (!config) {
