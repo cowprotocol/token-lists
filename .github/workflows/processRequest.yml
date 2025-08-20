@@ -41,7 +41,7 @@ jobs:
         with:
           script:
             const { processRequest } = await import("${{github.workspace}}/scripts/processRequest.mjs");
-            processRequest(github.context, core);
+            processRequest(context, core);
 
       - name: Handle validation errors
         if: failure()
