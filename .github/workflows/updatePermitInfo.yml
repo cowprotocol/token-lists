@@ -85,9 +85,11 @@ jobs:
 
       - name: Commit and push changes
         if: ${{ steps.git-check.outputs.no_changes == 'false' }}
+        env:
+          BRANCH: ${{ github.ref_name }}
         run: |
           git commit -m "chore: automated permit info update"
-          git push origin main
+          git push origin $BRANCH
 
   handle-failure:
     needs: update-permit-info
