@@ -45,8 +45,8 @@ jobs:
       - name: Commit and push changes
         if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
         run: |
-          git commit -m "chore: automated change"
           git push origin main
+          git commit -m "chore: automated auxiliary lists generation"
 
       - name: Create issue on failure
         if: failure()
