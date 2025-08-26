@@ -60,8 +60,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          persist-credentials: false
 
       - name: Download all
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
@@ -87,9 +85,11 @@ jobs:
 
       - name: Commit and push changes
         if: ${{ steps.git-check.outputs.no_changes == 'false' }}
+        env:
+          BRANCH: ${{ github.ref_name }}
         run: |
           git commit -m "chore: automated permit info update"
-          git push origin main
+          git push origin $BRANCH
 
   handle-failure:
     needs: update-permit-info
