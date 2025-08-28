@@ -55,7 +55,7 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
 export const VS_CURRENCY = 'usd'
 export const TOP_TOKENS_COUNT = 500
 const COINGECKO_CHAINS_NAMES = Object.values(COINGECKO_CHAINS)
-const TOKEN_LISTS_CACHE: Record<SupportedChainId, TokenInfo[]> = mapSupportedNetworks([])
+const TOKEN_LISTS_CACHE: Record<SupportedChainId, TokenInfo[]> = mapSupportedNetworks(() => [])
 
 export async function fetchWithApiKey(url: string): Promise<any> {
   try {

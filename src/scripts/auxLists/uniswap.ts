@@ -1,5 +1,5 @@
-import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { Logger } from 'winston'
 import { processTokenList } from './processTokenList'
 import {
   COINGECKO_CHAINS,
@@ -98,6 +98,11 @@ async function fetchAndProcessUniswapTokensForChain(
   try {
     const coingeckoTokens = await getTokenList(chainId)
     const tokens = await mapUniMainnetToChainTokens(chainId, uniswapTokens, coingeckoTokens, coingeckoIdsMap)
+
+    if (!tokens.length || !coingeckoTokens.length) {
+      console.log(`No tokens found for chain ${chainId} for list Uniswap`)
+      return
+    }
 
     await processTokenList({
       chainId,

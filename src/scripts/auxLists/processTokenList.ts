@@ -118,7 +118,7 @@ function saveUpdatedTokens({
       fs.writeFileSync(tokenListPath, JSON.stringify(updatedList, null, 2))
       console.log(`Token list saved to ${tokenListPath}`)
     } else {
-      console.log(`No changes detected for '${DISPLAY_CHAIN_NAMES[chainId]}'. Token list not updated.`)
+      console.log(`No changes detected for '${DISPLAY_CHAIN_NAMES[chainId]}'. Token list ${listName} not updated.`)
     }
   } catch (error) {
     console.error(`Error saving token list to ${tokenListPath}:`, error)

@@ -1,5 +1,5 @@
-import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { Logger } from 'winston'
 import { processTokenList } from './processTokenList'
 import {
   COINGECKO_CHAINS,
@@ -57,7 +57,7 @@ async function getCoingeckoMarket(
       `https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=${VS_CURRENCY}&per_page=${MARKET_API_CHUNK_SIZE}&ids=${ids}`,
     )
   } catch (error) {
-    console.error(`Error fetching Coingecko's coin list:`, error)
+    console.error(`Error fetching Coingecko's market data:`, error)
     return []
   }
 }
@@ -142,6 +142,11 @@ async function fetchAndProcessCoingeckoTokensForChain(
   try {
     const tokens = await getTokenList(chainId)
     const topTokens = (await getTokenVolumes(chainId, tokens, coingeckoIdsMap)).slice(0, TOP_TOKENS_COUNT)
+
+    if (!topTokens.length || !topTokens.length) {
+      console.log(`No tokens found for chain ${chainId} for list CoinGecko`)
+      return
+    }
 
     await processTokenList({
       chainId,
