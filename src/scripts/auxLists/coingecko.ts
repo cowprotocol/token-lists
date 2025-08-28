@@ -57,7 +57,7 @@ async function getCoingeckoMarket(
       `https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=${VS_CURRENCY}&per_page=${MARKET_API_CHUNK_SIZE}&ids=${ids}`,
     )
   } catch (error) {
-    console.error(`Error fetching Coingecko's coin list:`, error)
+    console.error(`Error fetching Coingecko's market data:`, error)
     return []
   }
 }
