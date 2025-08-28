@@ -1,5 +1,5 @@
-import { Logger } from 'winston'
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { Logger } from 'winston'
 import { processTokenList } from './processTokenList'
 import {
   COINGECKO_CHAINS,
@@ -142,6 +142,11 @@ async function fetchAndProcessCoingeckoTokensForChain(
   try {
     const tokens = await getTokenList(chainId)
     const topTokens = (await getTokenVolumes(chainId, tokens, coingeckoIdsMap)).slice(0, TOP_TOKENS_COUNT)
+
+    if (!topTokens.length || !topTokens.length) {
+      console.log(`No tokens found for chain ${chainId} for list CoinGecko`)
+      return
+    }
 
     await processTokenList({
       chainId,
