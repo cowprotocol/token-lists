@@ -1,43 +1,110 @@
 name: Validate Token Address
+
 on:
   issues:
     types: [opened, edited]
 
 jobs:
-  validate:
+  validate-address:
     runs-on: ubuntu-latest
+
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install ethers.js
+        run: npm install ethers
+
       - name: Extract address and network
         id: extract
         uses: actions/github-script@v7
         with:
           script: |
             const body = context.payload.issue.body;
-            const address = body.match(/Address\s*\n\s*0x[a-fA-F0-9]{40}/)?.[0].split('\n')[1].trim();
-            const network = body.match(/Network\s*\n\s*(.*)/)?.[1].trim();
-            core.setOutput('address', address);
-            core.setOutput('network', network);
-      - name: Validate onchain
+
+            // Extract Network
+            const networkMatch = body.match(/Network\s*\n\s*(.*)/);
+            const network = networkMatch ? networkMatch[1].trim() : null;
+
+            // Extract Address
+            const addressMatch = body.match(/Address\s*\n\s*(0x[a-fA-F0-9]{40})/);
+            const address = addressMatch ? addressMatch[1].trim() : null;
+
+            core.setOutput('network', network || '');
+            core.setOutput('address', address || '');
+
+      - name: Validate on-chain address
+        id: validate
         run: |
-          npm install ethers
           node -e "
-            const { ethers } = require('ethers');
-            const network = '${{ steps.extract.outputs.network }}';
-            const address = '${{ steps.extract.outputs.address }}';
-            const rpc = {
-              MAINNET: 'https://rpc.ankr.com/eth',
-              GNOSIS_CHAIN: 'https://rpc.gnosischain.com',
-              ARBITRUM_ONE: 'https://arb1.arbitrum.io/rpc',
-              POLYGON: 'https://polygon-rpc.com'
-            }[network];
-            if (!rpc) process.exit(0);
-            const provider = new ethers.JsonRpcProvider(rpc);
-            provider.getCode(address).then(code => {
-              if (code === '0x') {
-                console.error('❌ Address not found on', network);
-                process.exit(1);
-              } else {
-                console.log('✅ Address exists on', network);
-              }
-            });
+          const { ethers } = require('ethers');
+
+          const network = '${{ steps.extract.outputs.network }}';
+          const address = '${{ steps.extract.outputs.address }}';
+
+          if (!address) {
+            console.log('No address provided.');
+            process.exit(1);
+          }
+
+          const rpcMap = {
+            MAINNET: 'https://rpc.ankr.com/eth',
+            GNOSIS_CHAIN: 'https://rpc.gnosischain.com',
+            ARBITRUM_ONE: 'https://arb1.arbitrum.io/rpc',
+            BASE: 'https://mainnet.base.org',
+            POLYGON: 'https://polygon-rpc.com',
+            AVALANCHE: 'https://api.avax.network/ext/bc/C/rpc',
+            BNB: 'https://bsc-dataseed.binance.org/',
+            LENS: ''
+          };
+
+          const rpcUrl = rpcMap[network];
+          if (!rpcUrl) {
+            console.log('No RPC for network, skipping check.');
+            process.exit(0);
+          }
+
+          const provider = new ethers.JsonRpcProvider(rpcUrl);
+
+          provider.getCode(address).then(code => {
+            if (code === '0x') {
+              console.log('Address not found on chain.');
+              process.exit(1);
+            } else {
+              console.log('Address exists on chain.');
+            }
+          }).catch(err => {
+            console.error('Error checking address:', err);
+            process.exit(1);
+          });
           "
+
+      - name: Add comment and label if invalid
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue_number = context.issue.number;
+            const address = '${{ steps.extract.outputs.address }}';
+            const network = '${{ steps.extract.outputs.network }}';
+
+            // Add comment
+            await github.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              body: `⚠️ The address \`${address || 'N/A'}\` does not exist or is invalid on network \`${network || 'N/A'}\`. Please verify.`
+            });
+
+            // Add label
+            await github.issues.addLabels({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number,
+              labels: ['invalid-address']
+            });
