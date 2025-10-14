@@ -36,14 +36,18 @@ body:
     id: address
     attributes:
       label: Address
+      description: "Must be a valid 0x-prefixed address (40 hexadecimal characters). Example: 0x1234...abcd"
       placeholder: 0x...
     validations:
       required: true
+      pattern: "^0x[a-fA-F0-9]{40}$"
+
   - type: input
     id: imageUrl
     attributes:
       label: Image URL
-      description: Ideally a 256x256 PNG or SVG file. But we'll take care of optimizing it later.
-      placeholder: https://gateway.pinata.cloud/ipfs/Qme9B6jRpGtZsRFcPjHvA5T4ugFuL4c3SzWfxyMPa59AMo
+      description: "Ideally a 256x256 PNG or SVG file. But we'll take care of optimizing it later."
+      placeholder: "https://gateway.pinata.cloud/ipfs/Qme9B6jRpGtZsRFcPjHvA5T4ugFuL4c3SzWfxyMPa59AMo"
     validations:
       required: true
+      pattern: "^(https?://[\\w.-]+(?:/[\\w\\-.~!$&'()*+,;=:@%]*)*)$"
