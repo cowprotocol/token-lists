@@ -1,0 +1,43 @@
+name: Validate Token Address
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Extract address and network
+        id: extract
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.issue.body;
+            const address = body.match(/Address\s*\n\s*0x[a-fA-F0-9]{40}/)?.[0].split('\n')[1].trim();
+            const network = body.match(/Network\s*\n\s*(.*)/)?.[1].trim();
+            core.setOutput('address', address);
+            core.setOutput('network', network);
+      - name: Validate onchain
+        run: |
+          npm install ethers
+          node -e "
+            const { ethers } = require('ethers');
+            const network = '${{ steps.extract.outputs.network }}';
+            const address = '${{ steps.extract.outputs.address }}';
+            const rpc = {
+              MAINNET: 'https://rpc.ankr.com/eth',
+              GNOSIS_CHAIN: 'https://rpc.gnosischain.com',
+              ARBITRUM_ONE: 'https://arb1.arbitrum.io/rpc',
+              POLYGON: 'https://polygon-rpc.com'
+            }[network];
+            if (!rpc) process.exit(0);
+            const provider = new ethers.JsonRpcProvider(rpc);
+            provider.getCode(address).then(code => {
+              if (code === '0x') {
+                console.error('❌ Address not found on', network);
+                process.exit(1);
+              } else {
+                console.log('✅ Address exists on', network);
+              }
+            });
+          "
