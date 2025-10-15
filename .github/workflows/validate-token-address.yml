@@ -4,16 +4,21 @@ on:
   issues:
     types: [opened, edited]
 
+permissions: 
+  contents: read 
+  issues: write
+
 jobs:
   validate-address:
+    if: ${{ contains(join(github.event.issue.labels.*.name, ','), 'addImage') }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
 
@@ -40,48 +45,68 @@ jobs:
 
       - name: Validate on-chain address
         id: validate
+        timeout-minutes: 2
+        env: 
+          NETWORK: ${{ steps.extract.outputs.network }} 
+          ADDRESS: ${{ steps.extract.outputs.address }}
         run: |
           node -e "
-          const { ethers } = require('ethers');
+          const { ethers } = require("ethers");
 
-          const network = '${{ steps.extract.outputs.network }}';
-          const address = '${{ steps.extract.outputs.address }}';
+          const network = process.env.NETWORK;
+          const address = process.env.ADDRESS;
 
           if (!address) {
-            console.log('No address provided.');
+            console.log("No address provided.");
+            process.exit(1);
+          }
+
+          if (!ethers.isAddress(address)) {
+            console.log("Address is not valid");
             process.exit(1);
           }
 
           const rpcMap = {
-            MAINNET: 'https://rpc.ankr.com/eth',
-            GNOSIS_CHAIN: 'https://rpc.gnosischain.com',
-            ARBITRUM_ONE: 'https://arb1.arbitrum.io/rpc',
-            BASE: 'https://mainnet.base.org',
-            POLYGON: 'https://polygon-rpc.com',
-            AVALANCHE: 'https://api.avax.network/ext/bc/C/rpc',
-            BNB: 'https://bsc-dataseed.binance.org/',
-            LENS: ''
+            MAINNET: "https://rpc.mevblocker.io",
+            GNOSIS_CHAIN: "https://gnosis.oat.farm",
+            ARBITRUM_ONE: "https://arbitrum-one.public.blastapi.io",
+            BASE: "https://base.drpc.org",
+            POLYGON: "https://polygon-bor-rpc.publicnode.com",
+            AVALANCHE: "https://api.avax.network/ext/bc/C/rpc",
+            BNB: "https://public-bsc-mainnet.fastnode.io",
+            LENS: "https://lens.drpc.org",
           };
 
           const rpcUrl = rpcMap[network];
           if (!rpcUrl) {
-            console.log('No RPC for network, skipping check.');
+            console.log("No RPC for network, skipping check.");
             process.exit(0);
           }
 
           const provider = new ethers.JsonRpcProvider(rpcUrl);
 
-          provider.getCode(address).then(code => {
-            if (code === '0x') {
-              console.log('Address not found on chain.');
+          provider
+            .getCode(address)
+            .then((code) => {
+              if (code === "0x") {
+                console.log("Address not found on chain.");
+                process.exit(1);
+              } else {
+                console.log("Address exists on chain.");
+              }
+            })
+            .catch((err) => {
+              if (
+                err &&
+                (err.code === "INVALID_ARGUMENT" || /invalid address/i.test(String(err)))
+              ) {
+                console.log("Address not found on chain.");
+                process.exit(1);
+              }
+              console.error("Error checking address:", err);
               process.exit(1);
-            } else {
-              console.log('Address exists on chain.');
-            }
-          }).catch(err => {
-            console.error('Error checking address:', err);
-            process.exit(1);
-          });
+            });
+
           "
 
       - name: Add comment and label if invalid
