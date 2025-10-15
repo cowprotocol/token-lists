@@ -54,7 +54,18 @@ Instructions for setting up and running the various scripts locally
 
 ### Prerequisites
 
-Currently runs on Node.js LTS/Gallium v16.20.2
+Requires Node.js 20 LTS (Iron). Recommended: v20.19.0
+
+```bash
+# Tooling setup
+corepack enable
+
+# Use the project version (with nvm)
+nvm use || nvm install 20.19.0 && nvm use 20.19.0
+
+# Sanity check yarn version
+yarn --version
+```
 
 ```bash
 # Install dependencies
