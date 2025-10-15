@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 24,
+    "minor": 25,
     "patch": 0
   },
   "tokens": [
@@ -3069,9 +3069,39 @@
       "symbol": "ENA",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/36530/large/ethena.png?1711701436"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x327006c8712FE0AbdbbD55B7999DB39b0967342E",
+      "name": "PayPal USD",
+      "symbol": "PYUSD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/31212/large/PYUSD_Logo_%282%29.png?1691458314",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x6c3ea9036406852006290770BEdFcAbA0e23A0e8"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x7550dE0A4b9Fb8CAbA8c32E72Ee356AFdd217A33",
+      "name": "World Liberty Financial USD",
+      "symbol": "USD1",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/54977/large/USD1_1000x1000_transparent.png?1749297002",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x8d0D000Ee44948FC98c9B98A4FA4921476f08B0d"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-09-13T00:04:04.964Z"
+  "timestamp": "2025-10-15T00:04:25.317Z"
 }
