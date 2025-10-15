@@ -15,10 +15,10 @@ jobs:
 
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@69747b3848c30fc048b8eb496dcc7a6384f500d2
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@69747b3848c30fc048b8eb496dcc7a6384f500d2
         with:
           node-version: 20
 
