@@ -4,8 +4,8 @@ on:
   issues:
     types: [opened, edited]
 
-permissions: 
-  contents: read 
+permissions:
+  contents: read
   issues: write
 
 jobs:
@@ -23,11 +23,11 @@ jobs:
           node-version: 20
 
       - name: Install ethers.js
-        run: npm install ethers@5
+        run: npm install ethers
 
       - name: Extract address and network
         id: extract
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
         with:
           script: |
             const body = context.payload.issue.body;
@@ -46,13 +46,13 @@ jobs:
       - name: Validate on-chain address
         id: validate
         timeout-minutes: 2
-        env: 
-          NETWORK: ${{ steps.extract.outputs.network }} 
+        env:
+          NETWORK: ${{ steps.extract.outputs.network }}
           ADDRESS: ${{ steps.extract.outputs.address }}
         run: |
           node -e "
-          const { ethers } = require("ethers");
-
+          (() => {
+          const {ethers} = import('ethers')
           const network = process.env.NETWORK;
           const address = process.env.ADDRESS;
 
@@ -106,12 +106,12 @@ jobs:
               console.error("Error checking address:", err);
               process.exit(1);
             });
-
+          })()
           "
 
       - name: Add comment and label if invalid
         if: failure()
-        uses: actions/github-script@v7
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
         with:
           script: |
             const issue_number = context.issue.number;
