@@ -20,7 +20,11 @@ jobs:
           persist-credentials: false
 
       - name: Set up npmrc
-        run: src/scripts/install-sdk-preview.js
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        with:
+          script:
+            const { installSdkPreview } = await import("${{github.workspace}}/src/scripts/install-sdk-preview.js");
+            installSdkPreview(context, core);
         env:
           PACKAGE_READ_AUTH_TOKEN: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
