@@ -2,7 +2,7 @@ const fs = require('fs')
 
 const packageJson = require('../../package.json')
 
-export default function installSdkPreview(context, core) {
+export function installSdkPreview(context, core) {
   const sdkPrVersionRegex = /pr-\d+/
 
   const sdkPrefix = '@cowprotocol/'
