@@ -16,7 +16,7 @@ jobs:
     strategy:
       fail-fast: false # continue parallel jobs even if individual parts fail
       matrix:
-        chainId: [ 1, 56, 100, 137, 232, 8453, 42161, 43114 ] # all supported chains
+        chainId: [ 1, 56, 100, 137, 232, 8453, 9745, 42161, 43114, 59144 ] # all supported chains
 
     steps:
       - name: Checkout code
