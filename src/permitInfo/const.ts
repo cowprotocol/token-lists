@@ -15,6 +15,8 @@ export const DEFAULT_RPC_URLS: Record<SupportedChainId, string> = {
   [SupportedChainId.POLYGON]: 'https://polygon-rpc.com',
   [SupportedChainId.BNB]: 'https://bsc-dataseed.binance.org',
   [SupportedChainId.LENS]: 'https://rpc.lens.xyz',
+  [SupportedChainId.LINEA]: 'https://rpc.linea.build',
+  [SupportedChainId.PLASMA]: 'https://rpc.plasma.to',
 }
 
 export const BASE_PATH = join('..', 'public')

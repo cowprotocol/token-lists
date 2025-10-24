@@ -38,6 +38,8 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.AVALANCHE]: 'avalanche',
   [SupportedChainId.BNB]: 'binance-smart-chain',
   [SupportedChainId.LENS]: 'lens',
+  [SupportedChainId.LINEA]: 'linea',
+  [SupportedChainId.PLASMA]: 'plasma',
 }
 
 export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
@@ -50,6 +52,8 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.AVALANCHE]: 'Avalanche',
   [SupportedChainId.BNB]: 'BNB',
   [SupportedChainId.LENS]: 'Lens',
+  [SupportedChainId.LINEA]: 'Linea',
+  [SupportedChainId.PLASMA]: 'Plasma',
 }
 
 export const VS_CURRENCY = 'usd'
