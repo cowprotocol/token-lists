@@ -19,10 +19,13 @@ jobs:
         chainId: [ 1, 56, 100, 137, 232, 8453, 9745, 42161, 43114, 59144 ] # all supported chains
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+
       - name: Setup dependencies
         uses: ./.github/actions/setup-dependencies
-        with:
-          persist_credentials: false
 
       - name: Generate Permit Info
         env:

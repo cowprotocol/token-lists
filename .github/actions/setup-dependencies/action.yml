@@ -1,20 +1,9 @@
 name: 'Setup Dependencies'
-description: 'Checkout code, setup npmrc, and setup node with yarn'
-
-inputs:
-  persist_credentials:
-    description: 'Whether to persist credentials for checkout'
-    required: false
-    default: 'false'
+description: 'Setup npmrc and node with yarn (assumes code is already checked out)'
 
 runs:
   using: 'composite'
   steps:
-    - name: Checkout code
-      uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-      with:
-        persist-credentials: ${{ inputs.persist_credentials }}
-
     - name: Set up npmrc
       uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
       with:
