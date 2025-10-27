@@ -20,6 +20,15 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Set up npmrc
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea
+        with:
+          script:
+            const { installSdkPreview } = await import("${{github.workspace}}/src/scripts/install-sdk-preview.mjs");
+            installSdkPreview(context, core);
+        env:
+          PACKAGE_READ_AUTH_TOKEN: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
+
       - name: Set up Node.js
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
