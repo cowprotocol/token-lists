@@ -22,6 +22,8 @@ jobs:
 
       - name: Setup dependencies
         uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
       - name: Generate token lists for cow.fi
         run: USE_CACHE=false yarn cowFi:tokens

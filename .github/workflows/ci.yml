@@ -21,6 +21,8 @@ jobs:
 
       - name: Setup dependencies
         uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
       - name: Run validation
         run: yarn validate
