@@ -1,0 +1,28 @@
+name: 'Setup Dependencies'
+description: 'Setup npmrc and node with yarn (assumes code is already checked out)'
+
+inputs:
+  authToken:
+    description: 'Authentication token for package registry'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up npmrc
+      uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+      with:
+        script: const { installSdkPreview } = await import("${{github.workspace}}/src/scripts/install-sdk-preview.mjs");
+          installSdkPreview(context, core);
+      env:
+        PACKAGE_READ_AUTH_TOKEN: ${{ inputs.authToken }}
+
+    - name: Set up node
+      uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      with:
+        node-version: lts/*
+        cache: yarn
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile
+      shell: bash
