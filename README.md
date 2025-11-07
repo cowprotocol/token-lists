@@ -66,7 +66,7 @@ yarn coingecko
 
 ### Download images (deprecated)
 
-There's a script that will fetch all images form the CowSwap list and store them in `src/public/images/<chainId>/<address>.png`
+There's a script that will fetch all images from the CowSwap list and store them in `src/public/images/<chainId>/<address>.png`
 
 ```bash
 yarn downloadImages
@@ -99,10 +99,11 @@ The script generates token list files in `src/public/` for the following network
 
 - Ethereum (CoinGecko.1.json)
 - Arbitrum (CoinGecko.42161.json, Uniswap.42161.json)
-- Avalanche (Coingecko.43114.json, Uniswap.43114.json)
-- Base (CoinGecko.8453.json, Uniswap.8453.json)
-- Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
-- Polygon (CoinGecko.137.json, Uniswap.137.json)
 - Avalanche (CoinGecko.43114.json, Uniswap.43114.json)
-- Lens (CoinGecko.232.json)
+- Base (CoinGecko.8453.json, Uniswap.8453.json)
 - BNB (CoinGecko.56.json, Uniswap.56.json)
+- Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
+- Lens (CoinGecko.232.json, Uniswap.232.json)
+- Linea (CoinGecko.59144.json, Uniswap.59144.json)
+- Plasma (CoinGecko.9745.json, Uniswap.9745.json)
+- Polygon (CoinGecko.137.json, Uniswap.137.json)
