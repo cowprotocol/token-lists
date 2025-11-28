@@ -3,6 +3,10 @@ name: Deploy to S3
 on:
   release:
     types: [created]
+  workflow_run:
+    workflows: ["Update Permit Info"]
+    types:
+      - completed
 
 # Required for authenticating with AWS IAM
 permissions:
@@ -28,11 +32,12 @@ jobs:
       - name: Upload to S3
         run: |
           aws s3 cp src/public/CowSwap.json s3://files.cow.fi/tokens/CowSwap.json
+          aws s3 sync src/public s3://files.cow.fi/token-lists
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id $DIST_ID \
-            --paths "/tokens/*"
+            --paths "/tokens/*" "/token-lists/*"
         env:
           DIST_ID: ${{ secrets.DISTRIBUTION }}
