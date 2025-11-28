@@ -7,6 +7,8 @@ on:
     workflows: ["Update Permit Info"]
     types:
       - completed
+  # Allow manual trigger
+  workflow_dispatch:
 
 # Required for authenticating with AWS IAM
 permissions:
