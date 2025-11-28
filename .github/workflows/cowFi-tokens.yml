@@ -2,7 +2,7 @@ name: 'Cron: cow.fi tokens list'
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '0 */3 * * *' # Every 3 hours
 
 # Required for authenticating with AWS IAM
 permissions:
