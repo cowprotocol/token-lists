@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 5,
+    "minor": 6,
     "patch": 0
   },
   "tokens": [
@@ -42,19 +42,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x6100e367285b01f48d07953803a2d8dca5d19873",
-      "name": "Wrapped XPL",
-      "symbol": "WXPL",
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69509/large/plasma.png?1758805469"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
-      "name": "Stargate Bridged WETH",
-      "symbol": "WETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 9745,
@@ -74,11 +66,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
+      "address": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
+      "name": "Stargate Bridged WETH",
+      "symbol": "WETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+      "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
     },
     {
       "chainId": 9745,
@@ -90,27 +82,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
-      "name": "Metronome Synth USD",
-      "symbol": "MSUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
-    },
-    {
-      "chainId": 9745,
       "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
       "name": "Tether Gold Tokens",
       "symbol": "XAUT0",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
-      "name": "USDai",
-      "symbol": "USDAI",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
     },
     {
       "chainId": 9745,
@@ -122,6 +98,22 @@
     },
     {
       "chainId": 9745,
+      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+      "name": "USDai",
+      "symbol": "USDAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
+      "name": "Metronome Synth USD",
+      "symbol": "MSUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
+    },
+    {
+      "chainId": 9745,
       "address": "0x2a52b289ba68bbd02676640aa9f605700c9e5699",
       "name": "Resolv wstUSR",
       "symbol": "WSTUSR",
@@ -130,11 +122,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
-      "name": "Resolv Liquidity Provider Token",
-      "symbol": "RLP",
+      "address": "0x6100e367285b01f48d07953803a2d8dca5d19873",
+      "name": "Wrapped XPL",
+      "symbol": "WXPL",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
+      "logoURI": "https://assets.coingecko.com/coins/images/69509/large/plasma.png?1758805469"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xe0126f0c4451b2b917064a93040fd4770d6774b5",
+      "name": "Wrapped Aave Plasma USDT0",
+      "symbol": "WAPLAUSDT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/69597/large/waplasusdt0.png?1759197676"
     },
     {
       "chainId": 9745,
@@ -154,19 +154,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0xe0126f0c4451b2b917064a93040fd4770d6774b5",
-      "name": "Wrapped Aave Plasma USDT0",
-      "symbol": "WAPLAUSDT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/69597/large/waplasusdt0.png?1759197676"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
-      "name": "Yuzu USD",
-      "symbol": "YZUSD",
+      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
+      "name": "Resolv Liquidity Provider Token",
+      "symbol": "RLP",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
     },
     {
       "chainId": 9745,
@@ -186,35 +178,19 @@
     },
     {
       "chainId": 9745,
+      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
+      "name": "Yuzu USD",
+      "symbol": "YZUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+    },
+    {
+      "chainId": 9745,
       "address": "0x11113ff3a60c2450f4b22515cb760417259ee94b",
       "name": "Nest Basis Vault",
       "symbol": "NBASIS",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/55514/large/nBASIS-token.png?1746438043"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xc63f1a8c0cd4493e18f6f3371182be01ce0bef02",
-      "name": "Wrapped Aave Plasma USDe",
-      "symbol": "WAPLAUSDE",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69605/large/waplausde.png?1759216970"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xabb48792a3161e81b47ca084c0b7a22a50324a44",
-      "name": "Lithos",
-      "symbol": "LITH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70098/large/logo-lith1.png?1760553212"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
-      "name": "Staked Stream USD",
-      "symbol": "XUSD",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
     },
     {
       "chainId": 9745,
@@ -234,6 +210,22 @@
     },
     {
       "chainId": 9745,
+      "address": "0xc8a8df9b210243c55d31c73090f06787ad0a1bf6",
+      "name": "Staked Yuzu USD",
+      "symbol": "SYZUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70132/large/Group_427319351.png?1760695727"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x9c46ee1f01d2b551048f5ff99a4659d98d04bed1",
+      "name": "TelosC USDT0 Euler Vault",
+      "symbol": "246USDT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/70920/large/246usdt0.jpeg?1764576880"
+    },
+    {
+      "chainId": 9745,
       "address": "0x133a09dd6169f6f0509658a911f2a82fc8ab6a0d",
       "name": "Ionex Token",
       "symbol": "INX",
@@ -242,11 +234,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0x616185600989bf8339b58ac9e539d49536598343",
-      "name": "Trevee Staked Plasma USD",
-      "symbol": "SPLUSD",
+      "address": "0xc63f1a8c0cd4493e18f6f3371182be01ce0bef02",
+      "name": "Wrapped Aave Plasma USDe",
+      "symbol": "WAPLAUSDE",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70359/large/splUSD.png?1761654827"
+      "logoURI": "https://assets.coingecko.com/coins/images/69605/large/waplausde.png?1759216970"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xabb48792a3161e81b47ca084c0b7a22a50324a44",
+      "name": "Lithos",
+      "symbol": "LITH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70098/large/logo-lith1.png?1760553212"
     },
     {
       "chainId": 9745,
@@ -255,6 +255,22 @@
       "symbol": "PLUSD",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/70358/large/plUSD.png?1761654752"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
+      "name": "Staked Stream USD",
+      "symbol": "XUSD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x616185600989bf8339b58ac9e539d49536598343",
+      "name": "Trevee Staked Plasma USD",
+      "symbol": "SPLUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70359/large/splUSD.png?1761654827"
     },
     {
       "chainId": 9745,
@@ -267,5 +283,5 @@
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2025-11-10T00:04:27.393Z"
+  "timestamp": "2025-12-02T00:04:24.656Z"
 }
