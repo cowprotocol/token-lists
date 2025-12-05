@@ -107,3 +107,17 @@ The script generates token list files in `src/public/` for the following network
 - Linea (CoinGecko.59144.json, Uniswap.59144.json)
 - Plasma (CoinGecko.9745.json, Uniswap.9745.json)
 - Polygon (CoinGecko.137.json, Uniswap.137.json)
+
+<!-- ## Consumption
+
+The main CowSwap token list is available at: `https://tokenlists.org/cowprotocol/cowswap-default.json`
+
+https://tokenlists.org/token-list?url=https://files.cow.fi/tokens/CowSwap.json
+
+
+https://files.cow.fi/tokens/CowSwap.json - List following the spec of tokenlists.org
+https://files.cow.fi/cowFi-tokens.json  - JSON array from coingecko (mcap, volume, etc)
+
+
+
+-->
