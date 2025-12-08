@@ -41,8 +41,8 @@ export const applyNetworkConfig = (values) => {
 export const generateImageUrls = (values) => {
   const { chainId, address } = values
   if (chainId && address) {
-    values.prImageUrl = `https://raw.githubusercontent.com/cowprotocol/token-lists/{0}/${chainId}_${address}/src/public/images/${chainId}/${address}/logo.png`
-    values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/${chainId}/${address}/logo.png`
+    values.prImageUrl = `https://files.cow.fi/token-lists/images/${chainId}/${address}/logo.png`
+    values.logoURI = `https://files.cow.fi/token-lists/images/${chainId}/${address}/logo.png`
   }
 }
 
