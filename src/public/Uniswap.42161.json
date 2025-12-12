@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 27,
+    "minor": 28,
     "patch": 0
   },
   "tokens": [
@@ -3115,9 +3115,24 @@
       "symbol": "ERA",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/54475/large/Token_Logo.png?1749676251"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x73efDC761596328461B68E5FC58c3284CB15ba13",
+      "name": "Plume",
+      "symbol": "PLUME",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/53623/large/plume-token.png?1736896935",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x4C1746A800D224393fE2470C70A35717eD4eA5F1"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2025-12-06T00:04:31.181Z"
+  "timestamp": "2025-12-12T00:04:43.166Z"
 }
