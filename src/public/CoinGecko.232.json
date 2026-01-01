@@ -3,9 +3,9 @@
     "defi"
   ],
   "version": {
-    "major": 0,
-    "minor": 2,
-    "patch": 2
+    "major": 1,
+    "minor": 0,
+    "patch": 0
   },
   "tokens": [
     {
@@ -15,6 +15,14 @@
       "symbol": "LINK",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/877/large/Chainlink_Logo_500.png?1760023405"
+    },
+    {
+      "chainId": 232,
+      "address": "0x6bdc36e20d267ff0dd6097799f82e78907105e2f",
+      "name": "Wrapped GHO (Lens)",
+      "symbol": "WGHO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55536/large/gho.png?1746569568"
     },
     {
       "chainId": 232,
@@ -31,25 +39,9 @@
       "symbol": "WETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55548/large/eth1.png?1746723194"
-    },
-    {
-      "chainId": 232,
-      "address": "0x6bdc36e20d267ff0dd6097799f82e78907105e2f",
-      "name": "Wrapped GHO (Lens)",
-      "symbol": "WGHO",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55536/large/gho.png?1746569568"
-    },
-    {
-      "chainId": 232,
-      "address": "0xb0588f9a9cade7cd5f194a5fe77acd6a58250f82",
-      "name": "Bonsai Token",
-      "symbol": "BONSAI",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/35884/large/bonsaiToken.png?1744187538"
     }
   ],
   "name": "CoinGecko on Lens",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2025-10-10T00:04:38.109Z"
+  "timestamp": "2026-01-01T00:05:51.020Z"
 }
