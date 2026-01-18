@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 9,
+    "minor": 10,
     "patch": 0
   },
   "tokens": [
@@ -15,14 +15,6 @@
       "symbol": "LINK",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/877/large/Chainlink_Logo_500.png?1760023405"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
-      "name": "Plasma",
-      "symbol": "XPL",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/66489/large/Plasma-symbol-green-1.png?1755142558"
     },
     {
       "chainId": 9745,
@@ -50,11 +42,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
+      "address": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "name": "Plasma",
+      "symbol": "XPL",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+      "logoURI": "https://assets.coingecko.com/coins/images/66489/large/Plasma-symbol-green-1.png?1755142558"
     },
     {
       "chainId": 9745,
@@ -66,19 +58,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
-      "name": "USDai",
-      "symbol": "USDAI",
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x61e030a56d33e8260fdd81f03b162a79fe3449cd",
-      "name": "Fluid",
-      "symbol": "FLUID",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/14688/large/Logo_1_%28brighter%29.png?1734430693"
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 9745,
@@ -98,27 +82,19 @@
     },
     {
       "chainId": 9745,
+      "address": "0x61e030a56d33e8260fdd81f03b162a79fe3449cd",
+      "name": "Fluid",
+      "symbol": "FLUID",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/14688/large/Logo_1_%28brighter%29.png?1734430693"
+    },
+    {
+      "chainId": 9745,
       "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
       "name": "Staked USDai",
       "symbol": "SUSDAI",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55861/large/sUSDai_Token_Full_Glyph.png?1755229072"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x6100e367285b01f48d07953803a2d8dca5d19873",
-      "name": "Wrapped XPL",
-      "symbol": "WXPL",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69509/large/plasma.png?1758805469"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 9745,
@@ -130,19 +106,35 @@
     },
     {
       "chainId": 9745,
-      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
-      "name": "Plazzy the dog",
-      "symbol": "PLAZZY",
+      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
+      "name": "Resolv Liquidity Provider Token",
+      "symbol": "RLP",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
+      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
     },
     {
       "chainId": 9745,
-      "address": "0xe0126f0c4451b2b917064a93040fd4770d6774b5",
-      "name": "Wrapped Aave Plasma USDT0",
-      "symbol": "WAPLAUSDT0",
+      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+      "name": "USDai",
+      "symbol": "USDAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
+      "name": "Yuzu USD",
+      "symbol": "YZUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/69597/large/waplasusdt0.png?1759197676"
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 9745,
@@ -154,19 +146,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
-      "name": "Trillions",
-      "symbol": "TRILLIONS",
+      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
+      "name": "Plazzy the dog",
+      "symbol": "PLAZZY",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
-      "name": "Resolv Liquidity Provider Token",
-      "symbol": "RLP",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
+      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
     },
     {
       "chainId": 9745,
@@ -175,6 +159,30 @@
       "symbol": "MSUSD",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6100e367285b01f48d07953803a2d8dca5d19873",
+      "name": "Wrapped XPL",
+      "symbol": "WXPL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69509/large/plasma.png?1758805469"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
+      "name": "Trillions",
+      "symbol": "TRILLIONS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xe0126f0c4451b2b917064a93040fd4770d6774b5",
+      "name": "Wrapped Aave Plasma USDT0",
+      "symbol": "WAPLAUSDT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/69597/large/waplasusdt0.png?1759197676"
     },
     {
       "chainId": 9745,
@@ -210,11 +218,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
-      "name": "Yuzu USD",
-      "symbol": "YZUSD",
+      "address": "0xe90fe2de4a415ad48b6dcec08ba6ae98231948ac",
+      "name": "Trevee",
+      "symbol": "TREVEE",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+      "logoURI": "https://assets.coingecko.com/coins/images/70151/large/TREVEE.png?1760778357"
     },
     {
       "chainId": 9745,
@@ -226,27 +234,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x133a09dd6169f6f0509658a911f2a82fc8ab6a0d",
-      "name": "Ionex Token",
-      "symbol": "INX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70089/large/tokenLogo.png?1760540852"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xf91c31299e998c5127bc5f11e4a657fc0cf358cd",
-      "name": "Trevee Plasma USD",
-      "symbol": "PLUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70358/large/plUSD.png?1761654752"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xe90fe2de4a415ad48b6dcec08ba6ae98231948ac",
-      "name": "Trevee",
-      "symbol": "TREVEE",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70151/large/TREVEE.png?1760778357"
+      "address": "0xc53ac24320e3a54c7211e4993c8095078a0cb3cf",
+      "name": "Wild Goat Coin",
+      "symbol": "WGC",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/COIN_200x200.png?1716778831"
     },
     {
       "chainId": 9745,
@@ -258,6 +250,14 @@
     },
     {
       "chainId": 9745,
+      "address": "0xf91c31299e998c5127bc5f11e4a657fc0cf358cd",
+      "name": "Trevee Plasma USD",
+      "symbol": "PLUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70358/large/plUSD.png?1761654752"
+    },
+    {
+      "chainId": 9745,
       "address": "0x90729a45948c3078890bc80f2a4e7870a2ea4c5e",
       "name": "BiLira",
       "symbol": "TRYB",
@@ -266,11 +266,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0xb31bea5c2a43f942a3800558b1aa25978da75f8a",
-      "name": "Midas mHYPER",
-      "symbol": "MHYPER",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/68298/large/mHYPER.png?1755286538"
+      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
+      "name": "Staked Stream USD",
+      "symbol": "XUSD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
+      "name": "EURØP",
+      "symbol": "EUROP",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-symbol-rgb.jpg?1732634862"
     },
     {
       "chainId": 9745,
@@ -282,30 +290,30 @@
     },
     {
       "chainId": 9745,
+      "address": "0xb31bea5c2a43f942a3800558b1aa25978da75f8a",
+      "name": "Midas mHYPER",
+      "symbol": "MHYPER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/68298/large/mHYPER.png?1755286538"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x133a09dd6169f6f0509658a911f2a82fc8ab6a0d",
+      "name": "Ionex Token",
+      "symbol": "INX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70089/large/tokenLogo.png?1760540852"
+    },
+    {
+      "chainId": 9745,
       "address": "0x616185600989bf8339b58ac9e539d49536598343",
       "name": "Trevee Staked Plasma USD",
       "symbol": "SPLUSD",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/70359/large/splUSD.png?1761654827"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xc53ac24320e3a54c7211e4993c8095078a0cb3cf",
-      "name": "Wild Goat Coin",
-      "symbol": "WGC",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/COIN_200x200.png?1716778831"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
-      "name": "Staked Stream USD",
-      "symbol": "XUSD",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
     }
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2025-12-29T00:05:34.492Z"
+  "timestamp": "2026-01-18T00:05:40.346Z"
 }
