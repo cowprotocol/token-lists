@@ -42,7 +42,7 @@ async function downloadImage(logoURI, filePath) {
 async function main() {
   const scriptDir = dirname(fileURLToPath(import.meta.url))
   const projectRoot = path.join(scriptDir, '..')
-  
+
   let downloaded = 0
   let skipped = 0
   let failed = []
@@ -57,7 +57,7 @@ async function main() {
 
     try {
       const result = await downloadImage(logoURI, filePath)
-      
+
       if (result.skipped) {
         console.log(`Skipped ${symbol} - file already exists`)
         skipped++
