@@ -121,7 +121,7 @@ To support a new network (e.g. Ink, chain ID 57073), run these steps in order:
 
    This creates `src/public/CoinGecko.<chainId>.json` and `src/public/Uniswap.<chainId>.json` for the new network.
 
-2. **Fetch permit info** for the new chain. The default token list (`CowSwap.json`) does not include tokens for new networks, so you must pass the path to the chain-specific list as the **second** argument:
+2. **Fetch permit info** for the new chain. The default token list (`CowSwap.json`) will not include tokens for new networks yet if you haven't added any, so you must pass the path to the chain-specific list as the **second** argument:
 
    ```bash
    yarn run fetchPermitInfo -- <chainId> CoinGecko.<chainId>.json
