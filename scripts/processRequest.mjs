@@ -9,6 +9,7 @@ export const NETWORK_CONFIG = {
   GNOSIS: { chainId: 100, blockExplorer: 'gnosisscan.io' },
   LINEA: { chainId: 59144, blockExplorer: 'lineascan.build' },
   PLASMA: { chainId: 9745, blockExplorer: 'plasmascan.to' },
+  INK: { chainId: 57073, blockExplorer: 'explorer.inkonchain.com' },
 }
 
 export const VALIDATION_RULES = {
