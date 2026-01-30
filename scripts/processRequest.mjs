@@ -6,7 +6,7 @@ export const NETWORK_CONFIG = {
   POLYGON: { chainId: 137, blockExplorer: 'polygonscan.com' },
   BNB: { chainId: 56, blockExplorer: 'bscscan.com' },
   LENS: { chainId: 232, blockExplorer: 'explorer.lens.xyz' },
-  GNOSIS: { chainId: 100, blockExplorer: 'gnosisscan.io' },
+  GNOSIS_CHAIN: { chainId: 100, blockExplorer: 'gnosisscan.io' },
   LINEA: { chainId: 59144, blockExplorer: 'lineascan.build' },
   PLASMA: { chainId: 9745, blockExplorer: 'plasmascan.to' },
 }
