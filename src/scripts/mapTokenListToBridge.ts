@@ -42,13 +42,11 @@ async function generateGnosisChainList(source: string | TokenList, resultFile: s
     tokenListSource: source,
     bridgeContractAddress: OMNIBRIDGE_ADDRESS,
     bridgeContractAbi: OMNIBRIDGE_CONTRACT_ABI,
-    methodName: 'calculateL2TokenAddress',
+    methodName: 'bridgedTokenAddress',
     outputFilePath: resultFile,
     tokensToReplace: TOKENS_TO_REPLACE_ARBITRUM,
   })
 }
-
-
 
 async function generateArbitrumOneChainList(source: string | TokenList, resultFile: string) {
   console.log('*** Map tokens from Mainnet to Arbitrum One using Arbitrum bridge ***')

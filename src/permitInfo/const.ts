@@ -17,6 +17,7 @@ export const DEFAULT_RPC_URLS: Record<SupportedChainId, string> = {
   [SupportedChainId.LENS]: 'https://rpc.lens.xyz',
   [SupportedChainId.LINEA]: 'https://rpc.linea.build',
   [SupportedChainId.PLASMA]: 'https://rpc.plasma.to',
+  [SupportedChainId.INK]: 'https://rpc-ten.inkonchain.com',
 }
 
 export const BASE_PATH = join('..', 'public')

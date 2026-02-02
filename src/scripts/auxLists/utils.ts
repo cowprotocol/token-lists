@@ -40,6 +40,7 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LENS]: 'lens',
   [SupportedChainId.LINEA]: 'linea',
   [SupportedChainId.PLASMA]: 'plasma',
+  [SupportedChainId.INK]: 'ink',
 }
 
 export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
@@ -54,6 +55,7 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LENS]: 'Lens',
   [SupportedChainId.LINEA]: 'Linea',
   [SupportedChainId.PLASMA]: 'Plasma',
+  [SupportedChainId.INK]: 'Ink',
 }
 
 export const VS_CURRENCY = 'usd'

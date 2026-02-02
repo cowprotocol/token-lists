@@ -14,6 +14,8 @@
   },
   "ts-node": {
     // Tell ts-node CLI to install the --loader automatically
-    "esm": true
+    "esm": true,
+    "logError": true,
+    "pretty": true
   }
 }
