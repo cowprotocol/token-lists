@@ -3,8 +3,8 @@
     "defi"
   ],
   "version": {
-    "major": 0,
-    "minor": 1,
+    "major": 1,
+    "minor": 0,
     "patch": 0
   },
   "tokens": [
@@ -42,22 +42,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
-    },
-    {
-      "chainId": 57073,
       "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
       "name": "GHO",
       "symbol": "GHO",
@@ -82,27 +66,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189",
-      "name": "OpenUSDT",
-      "symbol": "OUSDT",
+      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 57073,
-      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
-      "name": "Re Protocol reUSD",
-      "symbol": "REUSD",
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
-      "name": "Wrapped FRAX",
-      "symbol": "WFRAX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 57073,
@@ -114,19 +90,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
-      "name": "Kraken Wrapped BTC",
-      "symbol": "KBTC",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/50879/large/kBTC.png?1730321084"
+      "address": "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189",
+      "name": "OpenUSDT",
+      "symbol": "OUSDT",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
     },
     {
       "chainId": 57073,
-      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
-      "name": "Solv Protocol BTC",
-      "symbol": "SOLVBTC",
+      "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
+      "name": "Wrapped FRAX",
+      "symbol": "WFRAX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+      "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
     },
     {
       "chainId": 57073,
@@ -138,11 +114,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
-      "name": "Universal BTC",
-      "symbol": "UNIBTC",
+      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
+      "name": "Re Protocol reUSD",
+      "symbol": "REUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
+      "name": "Kraken Wrapped BTC",
+      "symbol": "KBTC",
       "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
+      "logoURI": "https://assets.coingecko.com/coins/images/50879/large/kBTC.png?1730321084"
     },
     {
       "chainId": 57073,
@@ -154,6 +138,14 @@
     },
     {
       "chainId": 57073,
+      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
+      "name": "Solv Protocol BTC",
+      "symbol": "SOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+    },
+    {
+      "chainId": 57073,
       "address": "0xe8245188db1efc91aef32e7aa4cf346b9a5830cf",
       "name": "CF Large Cap Index",
       "symbol": "LCAP",
@@ -162,27 +154,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
-      "name": "Cat Call Agent",
-      "symbol": "CAT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x3d63825b0d8669307366e6c8202f656b9e91d368",
-      "name": "Wild Goat Coin",
-      "symbol": "WGC",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/wgcCoin-256px.png?1768798052"
-    },
-    {
-      "chainId": 57073,
       "address": "0xc99f5c922dae05b6e2ff83463ce705ef7c91f077",
       "name": "Solv Protocol Staked BTC",
       "symbol": "XSOLVBTC",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/39384/large/xSolvBTC.png?1744170824"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
+      "name": "Universal BTC",
+      "symbol": "UNIBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
     },
     {
       "chainId": 57073,
@@ -210,27 +194,27 @@
     },
     {
       "chainId": 57073,
+      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
+      "name": "Cat Call Agent",
+      "symbol": "CAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x3d63825b0d8669307366e6c8202f656b9e91d368",
+      "name": "Wild Goat Coin",
+      "symbol": "WGC",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/wgcCoin-256px.png?1768798052"
+    },
+    {
+      "chainId": 57073,
       "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
       "name": "Superseed",
       "symbol": "SUPR",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xca5f2ccbd9c40b32657df57c716de44237f80f05",
-      "name": "Kraken",
-      "symbol": "KRAKEN",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/52919/large/kraken.jpg?1734685461"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x62c99fac20b33b5423fdf9226179e973a8353e36",
-      "name": "Bert",
-      "symbol": "BERT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/68104/large/BERT_LOGO_4.jpg?1754802668"
     },
     {
       "chainId": 57073,
@@ -242,6 +226,14 @@
     },
     {
       "chainId": 57073,
+      "address": "0xca5f2ccbd9c40b32657df57c716de44237f80f05",
+      "name": "Kraken",
+      "symbol": "KRAKEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/52919/large/kraken.jpg?1734685461"
+    },
+    {
+      "chainId": 57073,
       "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
       "name": "WATCHDOGS",
       "symbol": "WATCH",
@@ -250,14 +242,14 @@
     },
     {
       "chainId": 57073,
-      "address": "0x7160644365e7011fa96ce60706743b434df32690",
-      "name": "KEK",
-      "symbol": "KEK",
+      "address": "0x62c99fac20b33b5423fdf9226179e973a8353e36",
+      "name": "Bert",
+      "symbol": "BERT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67904/large/200x200.jpg?1754222647"
+      "logoURI": "https://assets.coingecko.com/coins/images/68104/large/BERT_LOGO_4.jpg?1754802668"
     }
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-01-29T13:31:04.861Z"
+  "timestamp": "2026-02-05T00:07:20.954Z"
 }
