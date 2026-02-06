@@ -54,7 +54,7 @@ Instructions for setting up and running the various scripts locally
 
 ### Prerequisites
 
-Currently runs on Node.js v18 (as this scripts use `fetch`, which was introduced in Node.js 18)
+Currently runs on Node.js LTS/Gallium v16.20.2
 
 ```bash
 # Install dependencies

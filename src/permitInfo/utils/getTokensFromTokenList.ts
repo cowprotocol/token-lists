@@ -16,7 +16,7 @@ export async function getTokensFromTokenList(
   if (tokenListPath?.startsWith('http')) {
     return (await fetch(tokenListPath).then((r) => r.json())).tokens
   } else {
-    const filePath = tokenListPath ? join(BASE_PATH, tokenListPath) : join(BASE_PATH, tokenListsByNetwork[chainId])
+    const filePath = tokenListPath ? tokenListPath : join(BASE_PATH, tokenListsByNetwork[chainId])
 
     return JSON.parse(readFileSync(filePath, 'utf-8')).tokens
   }
