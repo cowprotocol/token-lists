@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 1,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
   "tokens": [
@@ -42,11 +42,27 @@
     },
     {
       "chainId": 57073,
+      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+      "name": "NVIDIA xStock",
+      "symbol": "NVDAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55633/large/Ticker_NVDA__Company_Name_NVIDIA_Corp__size_200x200_2x.png?1746862704"
+    },
+    {
+      "chainId": 57073,
       "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
       "name": "GHO",
       "symbol": "GHO",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 57073,
@@ -74,14 +90,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
-    },
-    {
-      "chainId": 57073,
       "address": "0x4200000000000000000000000000000000000006",
       "name": "Ink Bridged WETH (Ink)",
       "symbol": "WETH",
@@ -106,22 +114,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
-      "name": "Renzo Restaked ETH",
-      "symbol": "EZETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/34753/large/Ezeth_logo_circle.png?1713496404"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
-      "name": "Re Protocol reUSD",
-      "symbol": "REUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
-    },
-    {
-      "chainId": 57073,
       "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
       "name": "Kraken Wrapped BTC",
       "symbol": "KBTC",
@@ -138,11 +130,27 @@
     },
     {
       "chainId": 57073,
+      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
+      "name": "Re Protocol reUSD",
+      "symbol": "REUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
+    },
+    {
+      "chainId": 57073,
       "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
       "name": "Solv Protocol BTC",
       "symbol": "SOLVBTC",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
+      "name": "Renzo Restaked ETH",
+      "symbol": "EZETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/34753/large/Ezeth_logo_circle.png?1713496404"
     },
     {
       "chainId": 57073,
@@ -154,51 +162,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xc99f5c922dae05b6e2ff83463ce705ef7c91f077",
-      "name": "Solv Protocol Staked BTC",
-      "symbol": "XSOLVBTC",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/39384/large/xSolvBTC.png?1744170824"
-    },
-    {
-      "chainId": 57073,
       "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
       "name": "Universal BTC",
       "symbol": "UNIBTC",
       "decimals": 8,
       "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xa161132371c94299d215915d4cbc3b629e2059be",
-      "name": "Bedrock BTC",
-      "symbol": "BRBTC",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/53039/large/brBTC_200.png?1735074374"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x0606fc632ee812ba970af72f8489baaa443c4b98",
-      "name": "ANITA",
-      "symbol": "ANITA",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/68173/large/_L_L.png?1754996486"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xd642b49d10cc6e1bc1c6945725667c35e0875f22",
-      "name": "Purple",
-      "symbol": "PURPLE",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/53880/large/ink_purple.png?1738227741"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
-      "name": "Cat Call Agent",
-      "symbol": "CAT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
     },
     {
       "chainId": 57073,
@@ -210,19 +178,35 @@
     },
     {
       "chainId": 57073,
-      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
-      "name": "Superseed",
-      "symbol": "SUPR",
+      "address": "0x0606fc632ee812ba970af72f8489baaa443c4b98",
+      "name": "ANITA",
+      "symbol": "ANITA",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
+      "logoURI": "https://assets.coingecko.com/coins/images/68173/large/_L_L.png?1754996486"
     },
     {
       "chainId": 57073,
-      "address": "0x0c5e2d1c98cd265c751e02f8f3293bc5764f9111",
-      "name": "Shroomy",
-      "symbol": "SHROOMY",
+      "address": "0xa161132371c94299d215915d4cbc3b629e2059be",
+      "name": "Bedrock BTC",
+      "symbol": "BRBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/53039/large/brBTC_200.png?1735074374"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xc99f5c922dae05b6e2ff83463ce705ef7c91f077",
+      "name": "Solv Protocol Staked BTC",
+      "symbol": "XSOLVBTC",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/54002/large/1000000182.jpg?1737942213"
+      "logoURI": "https://assets.coingecko.com/coins/images/39384/large/xSolvBTC.png?1744170824"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
+      "name": "Cat Call Agent",
+      "symbol": "CAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
     },
     {
       "chainId": 57073,
@@ -234,11 +218,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
-      "name": "WATCHDOGS",
-      "symbol": "WATCH",
+      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
+      "name": "Superseed",
+      "symbol": "SUPR",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
+      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
     },
     {
       "chainId": 57073,
@@ -247,9 +231,33 @@
       "symbol": "BERT",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/68104/large/BERT_LOGO_4.jpg?1754802668"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xd642b49d10cc6e1bc1c6945725667c35e0875f22",
+      "name": "Purple",
+      "symbol": "PURPLE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/53880/large/ink_purple.png?1738227741"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x0c5e2d1c98cd265c751e02f8f3293bc5764f9111",
+      "name": "Shroomy",
+      "symbol": "SHROOMY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54002/large/1000000182.jpg?1737942213"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
+      "name": "WATCHDOGS",
+      "symbol": "WATCH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
     }
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-02-05T00:07:20.954Z"
+  "timestamp": "2026-02-11T00:11:23.800Z"
 }
