@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 29,
+    "minor": 30,
     "patch": 0
   },
   "tokens": [
@@ -3145,9 +3145,24 @@
           }
         }
       }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x9B86f3c7d145979ec6b2F42eD7f92D06cfC6C9d3",
+      "name": "Tether Gold",
+      "symbol": "XAUT",
+      "decimals": 6,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/10481/large/Tether_Gold.png?1696510471",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x68749665FF8D2d112Fa859AA293F07A622782F38"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-02-18T00:08:09.043Z"
+  "timestamp": "2026-02-20T00:07:07.584Z"
 }
