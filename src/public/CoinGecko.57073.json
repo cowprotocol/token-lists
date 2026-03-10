@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 4,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
   "tokens": [
@@ -42,11 +42,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
+      "name": "NVIDIA xStock",
+      "symbol": "NVDAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55633/large/Ticker_NVDA__Company_Name_NVIDIA_Corp__size_200x200_2x.png?1746862704"
     },
     {
       "chainId": 57073,
@@ -58,11 +58,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
-      "name": "Frax USD",
-      "symbol": "FRXUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
+      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 57073,
@@ -74,11 +74,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
-      "name": "NVIDIA xStock",
-      "symbol": "NVDAX",
+      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
+      "name": "Frax USD",
+      "symbol": "FRXUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55633/large/Ticker_NVDA__Company_Name_NVIDIA_Corp__size_200x200_2x.png?1746862704"
+      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
     },
     {
       "chainId": 57073,
@@ -106,27 +106,19 @@
     },
     {
       "chainId": 57073,
+      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
+      "name": "Solv Protocol BTC",
+      "symbol": "SOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+    },
+    {
+      "chainId": 57073,
       "address": "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189",
       "name": "OpenUSDT",
       "symbol": "OUSDT",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
-      "name": "Wrapped FRAX",
-      "symbol": "WFRAX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
-      "name": "Renzo Restaked ETH",
-      "symbol": "EZETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/34753/large/Ezeth_logo_circle.png?1713496404"
     },
     {
       "chainId": 57073,
@@ -138,6 +130,14 @@
     },
     {
       "chainId": 57073,
+      "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
+      "name": "Wrapped FRAX",
+      "symbol": "WFRAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
+    },
+    {
+      "chainId": 57073,
       "address": "0xc3eacf0612346366db554c991d7858716db09f58",
       "name": "Kelp DAO Restaked ETH",
       "symbol": "RSETH",
@@ -146,11 +146,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
-      "name": "Solv Protocol BTC",
-      "symbol": "SOLVBTC",
+      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
+      "name": "Renzo Restaked ETH",
+      "symbol": "EZETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+      "logoURI": "https://assets.coingecko.com/coins/images/34753/large/Ezeth_logo_circle.png?1713496404"
     },
     {
       "chainId": 57073,
@@ -178,11 +178,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
-      "name": "WATCHDOGS",
-      "symbol": "WATCH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
+      "address": "0x3d63825b0d8669307366e6c8202f656b9e91d368",
+      "name": "Wild Goat Coin",
+      "symbol": "WGC",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/wgcCoin-256px.png?1768798052"
     },
     {
       "chainId": 57073,
@@ -202,11 +202,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0x3d63825b0d8669307366e6c8202f656b9e91d368",
-      "name": "Wild Goat Coin",
-      "symbol": "WGC",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/wgcCoin-256px.png?1768798052"
+      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
+      "name": "Superseed",
+      "symbol": "SUPR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xc99f5c922dae05b6e2ff83463ce705ef7c91f077",
+      "name": "Solv Protocol Staked BTC",
+      "symbol": "XSOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/39384/large/xSolvBTC.png?1744170824"
     },
     {
       "chainId": 57073,
@@ -226,11 +234,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
-      "name": "Superseed",
-      "symbol": "SUPR",
+      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
+      "name": "WATCHDOGS",
+      "symbol": "WATCH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
+      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
     },
     {
       "chainId": 57073,
@@ -243,5 +251,5 @@
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-03-09T00:06:21.159Z"
+  "timestamp": "2026-03-10T00:05:14.912Z"
 }
