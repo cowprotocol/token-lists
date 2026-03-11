@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 31,
+    "minor": 32,
     "patch": 0
   },
   "tokens": [
@@ -3168,9 +3168,24 @@
       "symbol": "IDOS",
       "decimals": 18,
       "logoURI": "https://s2.coinmarketcap.com/static/img/coins/64x64/39596.png"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x0419E8bfBBB2623728c3A6129090DA4Ff4e48113",
+      "name": "Telcoin",
+      "symbol": "TEL",
+      "decimals": 2,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/1899/large/tel.png?1696502892",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x467Bccd9d29f223BcE8043b84E8C8B282827790F"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-03-04T00:06:42.081Z"
+  "timestamp": "2026-03-11T00:04:52.143Z"
 }
