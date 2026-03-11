@@ -103,7 +103,6 @@ The script generates token list files in `src/public/` for the following network
 - Base (CoinGecko.8453.json, Uniswap.8453.json)
 - BNB (CoinGecko.56.json, Uniswap.56.json)
 - Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
-- Lens (CoinGecko.232.json, Uniswap.232.json)
 - Linea (CoinGecko.59144.json, Uniswap.59144.json)
 - Plasma (CoinGecko.9745.json, Uniswap.9745.json)
 - Ink (CoinGecko.57073.json, Uniswap.57073.json)
