@@ -10,7 +10,7 @@ on:
 
 jobs:
   validate:
-    name: Validate list schema
+    name: Check TS & validate list schema & tests
     runs-on: ubuntu-latest
 
     steps:
@@ -24,8 +24,14 @@ jobs:
         with:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
-      - name: Run validation
-        run: yarn validate
+      - name: Run validation schema
+        run: yarn validate:schema
+
+      - name: Run validation chains
+        run: yarn validate:chains
+
+      - name: TypeScript check
+        run: yarn typecheck
 
       - name: Run tests
         run: yarn test
