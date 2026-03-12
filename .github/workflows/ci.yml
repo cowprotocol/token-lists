@@ -10,7 +10,7 @@ on:
 
 jobs:
   validate:
-    name: Validate list schema
+    name: Check TS & validate list schema & tests
     runs-on: ubuntu-latest
 
     steps:
