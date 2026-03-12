@@ -24,8 +24,11 @@ jobs:
         with:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
-      - name: Run validation
-        run: yarn validate
+      - name: Run validation schema
+        run: yarn validate:schema
+
+      - name: Run validation chains
+        run: yarn validate:chains
 
       - name: Run tests
         run: yarn test
