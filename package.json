@@ -45,6 +45,7 @@
     "recheckPermitInfo:plasma": "yarn run fetchPermitInfo -- 9745 '' '' true",
     "recheckPermitInfo:ink": "yarn run fetchPermitInfo -- 57073 '' '' true",
     "run-script": "node --loader ts-node/esm --experimental-json-modules --experimental-specifier-resolution=node",
+    "typecheck": "tsc --noEmit",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",

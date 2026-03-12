@@ -30,5 +30,8 @@ jobs:
       - name: Run validation chains
         run: yarn validate:chains
 
+      - name: TypeScript check
+        run: yarn typecheck
+
       - name: Run tests
         run: yarn test
