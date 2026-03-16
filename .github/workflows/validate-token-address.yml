@@ -75,6 +75,8 @@ jobs:
             AVALANCHE: "https://api.avax.network/ext/bc/C/rpc",
             BNB: "https://public-bsc-mainnet.fastnode.io",
             LENS: "https://lens.drpc.org",
+            LINEA: "https://rpc.linea.build",
+            PLASMA: "https://rpc.plasma.to"
           };
 
           const rpcUrl = rpcMap[network];
