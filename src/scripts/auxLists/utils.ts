@@ -38,6 +38,9 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.AVALANCHE]: 'avalanche',
   [SupportedChainId.BNB]: 'binance-smart-chain',
   [SupportedChainId.LENS]: 'lens',
+  [SupportedChainId.LINEA]: 'linea',
+  [SupportedChainId.PLASMA]: 'plasma',
+  [SupportedChainId.INK]: 'ink',
 }
 
 export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
@@ -50,6 +53,9 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.AVALANCHE]: 'Avalanche',
   [SupportedChainId.BNB]: 'BNB',
   [SupportedChainId.LENS]: 'Lens',
+  [SupportedChainId.LINEA]: 'Linea',
+  [SupportedChainId.PLASMA]: 'Plasma',
+  [SupportedChainId.INK]: 'Ink',
 }
 
 export const VS_CURRENCY = 'usd'
@@ -66,7 +72,12 @@ export async function fetchWithApiKey(url: string): Promise<any> {
       throw new Error(`HTTP error! status: ${response.status}`)
     }
 
-    return response.json()
+    console.log(`Fetched from ${url}:`, response.status)
+    const data = await response.json()
+
+    console.log(`Data from ${url}:`, data)
+
+    return data
   } catch (error) {
     console.error(`Failed to fetch from ${url}:`, error)
     throw error

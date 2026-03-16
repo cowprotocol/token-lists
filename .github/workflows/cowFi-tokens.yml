@@ -2,7 +2,7 @@ name: 'Cron: cow.fi tokens list'
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '0 */3 * * *' # Every 3 hours
 
 # Required for authenticating with AWS IAM
 permissions:
@@ -20,14 +20,10 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+      - name: Setup dependencies
+        uses: ./.github/actions/setup-dependencies
         with:
-          node-version: lts/*
-          cache: yarn
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
       - name: Generate token lists for cow.fi
         run: USE_CACHE=false yarn cowFi:tokens

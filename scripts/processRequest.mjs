@@ -6,7 +6,10 @@ export const NETWORK_CONFIG = {
   POLYGON: { chainId: 137, blockExplorer: 'polygonscan.com' },
   BNB: { chainId: 56, blockExplorer: 'bscscan.com' },
   LENS: { chainId: 232, blockExplorer: 'explorer.lens.xyz' },
-  GNOSIS: { chainId: 100, blockExplorer: 'gnosisscan.io' },
+  GNOSIS_CHAIN: { chainId: 100, blockExplorer: 'gnosisscan.io' },
+  LINEA: { chainId: 59144, blockExplorer: 'lineascan.build' },
+  PLASMA: { chainId: 9745, blockExplorer: 'plasmascan.to' },
+  INK: { chainId: 57073, blockExplorer: 'explorer.inkonchain.com' },
 }
 
 export const VALIDATION_RULES = {
@@ -40,7 +43,7 @@ export const generateImageUrls = (values) => {
   const { chainId, address } = values
   if (chainId && address) {
     values.prImageUrl = `https://raw.githubusercontent.com/cowprotocol/token-lists/{0}/${chainId}_${address}/src/public/images/${chainId}/${address}/logo.png`
-    values.logoURI = `https://raw.githubusercontent.com/cowprotocol/token-lists/main/src/public/images/${chainId}/${address}/logo.png`
+    values.logoURI = `https://files.cow.fi/token-lists/images/${chainId}/${address}/logo.png`
   }
 }
 

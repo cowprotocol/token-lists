@@ -8,7 +8,9 @@ const USE_CACHE = (process.env.USE_CACHE ?? 'true') === 'true'
 
 const cowListUrl = 'https://files.cow.fi/tokens/CowSwap.json'
 // const coinGeckoListUrl = "https://files.cow.fi/tokens/CoinGecko.json";
-const coinGeckoIdListUrl = 'https://api.coingecko.com/api/v3/coins/list'
+const coinGeckoCoinsUrl = 'https://api.coingecko.com/api/v3/coins'
+const coinGeckoCoinsQuoteParams = `localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
+const coinGeckoIdListUrl = `${coinGeckoCoinsUrl}/list`
 
 const LIST_DIR = path.join('src', 'cowFi')
 
@@ -123,10 +125,10 @@ async function getStaticData(idsData) {
 
   let index = 0
   const totalTokens = idsData.length + 1
+
   while (index < idsData.length) {
     const idItem = idsData[index]
-    const quoteParams = `localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
-    const url = `https://api.coingecko.com/api/v3/coins/${idItem.id}?${quoteParams}`
+    const url = `${coinGeckoCoinsUrl}/${idItem.id}?${coinGeckoCoinsQuoteParams}`
 
     console.log(`[${index + 1}/${totalTokens}] Fetching data for ID: ${idItem.id}`)
 
@@ -182,13 +184,22 @@ async function getStaticDataFinal(data) {
 
   // Filter current static list with only tokens from our 2 exists list
   const filtered = parsed.filter(({ platforms, description, id }) => {
-    return (
-      description?.en?.trim().length &&
-      !TOKENS_TO_REMOVE.includes(id) &&
-      Object.entries(platforms).some(
-        ([chain, address]) => combined_ids[address.toLowerCase()] && ['ethereum', 'xdai'].includes(chain),
+    if (!description?.en?.trim().length || TOKENS_TO_REMOVE.includes(id) || !platforms) {
+      return false
+    }
+
+    return Object.entries(platforms).some(([chain, address]) => {
+      if (typeof address !== 'string' || !address) {
+        console.warn(
+          `Platform entry for chain="${chain}" has no address. Skipping... Debug URL: ${coinGeckoCoinsUrl}/${id}?${coinGeckoCoinsQuoteParams}`,
+        )
+        return false
+      }
+
+      return (
+        combined_ids[address.toLowerCase()] && ['ethereum', 'xdai'].includes(chain)
       )
-    )
+    })
   })
 
   // Sort the data by market cap and take limit the list

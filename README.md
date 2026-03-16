@@ -66,7 +66,7 @@ yarn coingecko
 
 ### Download images (deprecated)
 
-There's a script that will fetch all images form the CowSwap list and store them in `src/public/images/<chainId>/<address>.png`
+There's a script that will fetch all images from the CowSwap list and store them in `src/public/images/<chainId>/<address>.png`
 
 ```bash
 yarn downloadImages
@@ -99,10 +99,40 @@ The script generates token list files in `src/public/` for the following network
 
 - Ethereum (CoinGecko.1.json)
 - Arbitrum (CoinGecko.42161.json, Uniswap.42161.json)
-- Avalanche (Coingecko.43114.json, Uniswap.43114.json)
-- Base (CoinGecko.8453.json, Uniswap.8453.json)
-- Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
-- Polygon (CoinGecko.137.json, Uniswap.137.json)
 - Avalanche (CoinGecko.43114.json, Uniswap.43114.json)
-- Lens (CoinGecko.232.json)
+- Base (CoinGecko.8453.json, Uniswap.8453.json)
 - BNB (CoinGecko.56.json, Uniswap.56.json)
+- Gnosis Chain (CoinGecko.100.json, Uniswap.100.json)
+- Lens (CoinGecko.232.json, Uniswap.232.json)
+- Linea (CoinGecko.59144.json, Uniswap.59144.json)
+- Plasma (CoinGecko.9745.json, Uniswap.9745.json)
+- Ink (CoinGecko.57073.json, Uniswap.57073.json)
+- Polygon (CoinGecko.137.json, Uniswap.137.json)
+
+### Adding a new network
+
+To support a new network (e.g. Ink, chain ID 57073), run these steps in order:
+
+1. **Generate auxiliary token lists** for the new chain (the chain must already be in `COINGECKO_CHAINS` in `src/scripts/auxLists/utils.ts`):
+
+   ```bash
+   COINGECKO_API_KEY=your_key yarn generateAuxLists
+   ```
+
+   This creates `src/public/CoinGecko.<chainId>.json` and `src/public/Uniswap.<chainId>.json` for the new network.
+
+2. **Fetch permit info** for the new chain. The default token list (`CowSwap.json`) will not include tokens for new networks yet if you haven't added any, so you must pass the path to the chain-specific list as the **second** argument:
+
+   ```bash
+   yarn run fetchPermitInfo -- <chainId> CoinGecko.<chainId>.json
+   ```
+
+   Example for Ink:
+
+   ```bash
+   yarn run fetchPermitInfo -- 57073 CoinGecko.57073.json
+   ```
+
+   Without the second argument, the script would use `CowSwap.json` and skip all tokens (they would have the wrong chainId), leaving the permit file empty.
+
+3. **Include only the new network's files in your PR.** The scripts above may have updated files for other networks too; do not include those changes, as they are updated daily by a cron job.
