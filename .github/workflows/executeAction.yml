@@ -68,8 +68,11 @@ jobs:
           OPERATION: ${{ inputs.operation }}
 
       # Validation steps
-      - name: Validate
-        run: yarn validate
+      - name: Validate schema
+        run: yarn validate:schema
+
+      - name: Validate chains
+        run: yarn validate:chains
 
       # Passed validation
       - name: Create Pull Request

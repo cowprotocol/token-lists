@@ -5,7 +5,6 @@ export const NETWORK_CONFIG = {
   AVALANCHE: { chainId: 43114, blockExplorer: 'snowscan.xyz' },
   POLYGON: { chainId: 137, blockExplorer: 'polygonscan.com' },
   BNB: { chainId: 56, blockExplorer: 'bscscan.com' },
-  LENS: { chainId: 232, blockExplorer: 'explorer.lens.xyz' },
   GNOSIS_CHAIN: { chainId: 100, blockExplorer: 'gnosisscan.io' },
   LINEA: { chainId: 59144, blockExplorer: 'lineascan.build' },
   PLASMA: { chainId: 9745, blockExplorer: 'plasmascan.to' },
