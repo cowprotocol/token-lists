@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 33,
+    "minor": 34,
     "patch": 0
   },
   "tokens": [
@@ -3191,9 +3191,24 @@
       "symbol": "RAIN",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/69134/large/Rain_logo_1_.png?1762952191"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x631a64e240180D4B604F736CB6E19c1A7eC77254",
+      "name": "Propy",
+      "symbol": "PRO",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/869/large/propy.png?1548332100",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x226bb599a12C826476e3A771454697EA52E9E220"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-03-20T00:08:07.675Z"
+  "timestamp": "2026-04-03T00:10:21.752Z"
 }
