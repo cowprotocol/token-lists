@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 34,
+    "minor": 35,
     "patch": 0
   },
   "tokens": [
@@ -3206,9 +3206,39 @@
           }
         }
       }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xF03a553Fbcb2F52DAaE15170347830e5d3D16096",
+      "name": "Layer3",
+      "symbol": "L3",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/37768/large/Square.png",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x88909D489678dD17aA6D9609F89B0419Bf78FD9a"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xd43f10cE4BC089782fF8635C17F015EDbc16d71B",
+      "name": "SKY Governance Token",
+      "symbol": "SKY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/39925/large/sky.jpg?1724827980",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x56072C95FAA701256059aa122697B133aDEd9279"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-04-03T00:10:21.752Z"
+  "timestamp": "2026-04-07T00:10:49.412Z"
 }
