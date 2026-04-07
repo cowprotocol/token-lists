@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 5,
-    "minor": 0,
+    "minor": 2,
     "patch": 0
   },
   "tokens": [
@@ -42,6 +42,14 @@
     },
     {
       "chainId": 57073,
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+    },
+    {
+      "chainId": 57073,
       "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
       "name": "NVIDIA xStock",
       "symbol": "NVDAX",
@@ -50,11 +58,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
+      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
+      "name": "Frax USD",
+      "symbol": "FRXUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
     },
     {
       "chainId": 57073,
@@ -74,14 +82,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
-      "name": "Frax USD",
-      "symbol": "FRXUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
-    },
-    {
-      "chainId": 57073,
       "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
       "name": "GHO",
       "symbol": "GHO",
@@ -98,51 +98,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
-      "name": "Kraken Wrapped BTC",
-      "symbol": "KBTC",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/50879/large/kBTC.png?1730321084"
-    },
-    {
-      "chainId": 57073,
       "address": "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189",
       "name": "OpenUSDT",
       "symbol": "OUSDT",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
-      "name": "Solv Protocol BTC",
-      "symbol": "SOLVBTC",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xc3eacf0612346366db554c991d7858716db09f58",
-      "name": "Kelp DAO Restaked ETH",
-      "symbol": "RSETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
-      "name": "Wrapped FRAX",
-      "symbol": "WFRAX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
-      "name": "Renzo Restaked ETH",
-      "symbol": "EZETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/34753/large/Ezeth_logo_circle.png?1713496404"
     },
     {
       "chainId": 57073,
@@ -154,11 +114,27 @@
     },
     {
       "chainId": 57073,
-      "address": "0xe8245188db1efc91aef32e7aa4cf346b9a5830cf",
-      "name": "CF Large Cap Index",
-      "symbol": "LCAP",
+      "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
+      "name": "Kraken Wrapped BTC",
+      "symbol": "KBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/50879/large/kBTC.png?1730321084"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
+      "name": "Renzo Restaked ETH",
+      "symbol": "EZETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69331/large/LCAP_1024.png?1758220127"
+      "logoURI": "https://assets.coingecko.com/coins/images/34753/large/Ezeth_logo_circle.png?1713496404"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
+      "name": "Solv Protocol BTC",
+      "symbol": "SOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
     },
     {
       "chainId": 57073,
@@ -170,6 +146,38 @@
     },
     {
       "chainId": 57073,
+      "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
+      "name": "Wrapped FRAX",
+      "symbol": "WFRAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xc3eacf0612346366db554c991d7858716db09f58",
+      "name": "Kelp DAO Restaked ETH",
+      "symbol": "RSETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xe8245188db1efc91aef32e7aa4cf346b9a5830cf",
+      "name": "CF Large Cap Index",
+      "symbol": "LCAP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69331/large/LCAP_1024.png?1758220127"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xc99f5c922dae05b6e2ff83463ce705ef7c91f077",
+      "name": "Solv Protocol Staked BTC",
+      "symbol": "XSOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/39384/large/xSolvBTC.png?1744170824"
+    },
+    {
+      "chainId": 57073,
       "address": "0x0606fc632ee812ba970af72f8489baaa443c4b98",
       "name": "ANITA",
       "symbol": "ANITA",
@@ -178,11 +186,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xd642b49d10cc6e1bc1c6945725667c35e0875f22",
-      "name": "Purple",
-      "symbol": "PURPLE",
+      "address": "0x7636244bab612264e1b2dfd4ba6e26d0311b1eb7",
+      "name": "Constellation Energy Corporation xStock",
+      "symbol": "CEGX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/53880/large/ink_purple.png?1738227741"
+      "logoURI": "https://assets.coingecko.com/coins/images/102172728/large/CEGx-logo.png?1775052068"
     },
     {
       "chainId": 57073,
@@ -194,11 +202,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
-      "name": "Superseed",
-      "symbol": "SUPR",
+      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
+      "name": "Cat Call Agent",
+      "symbol": "CAT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
+      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
     },
     {
       "chainId": 57073,
@@ -210,11 +218,27 @@
     },
     {
       "chainId": 57073,
-      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
-      "name": "Cat Call Agent",
-      "symbol": "CAT",
+      "address": "0xd642b49d10cc6e1bc1c6945725667c35e0875f22",
+      "name": "Purple",
+      "symbol": "PURPLE",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
+      "logoURI": "https://assets.coingecko.com/coins/images/53880/large/ink_purple.png?1738227741"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
+      "name": "Superseed",
+      "symbol": "SUPR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
+      "name": "WATCHDOGS",
+      "symbol": "WATCH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
     },
     {
       "chainId": 57073,
@@ -231,17 +255,9 @@
       "symbol": "SHROOMY",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/54002/large/1000000182.jpg?1737942213"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
-      "name": "WATCHDOGS",
-      "symbol": "WATCH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
     }
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-03-12T00:07:00.672Z"
+  "timestamp": "2026-04-03T00:10:21.584Z"
 }

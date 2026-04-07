@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 32,
+    "minor": 35,
     "patch": 0
   },
   "tokens": [
@@ -3183,9 +3183,62 @@
           }
         }
       }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x25118290e6A5f4139381D072181157035864099d",
+      "name": "RAIN",
+      "symbol": "RAIN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69134/large/Rain_logo_1_.png?1762952191"
+    },
+    {
+      "chainId": 42161,
+      "address": "0x631a64e240180D4B604F736CB6E19c1A7eC77254",
+      "name": "Propy",
+      "symbol": "PRO",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/869/large/propy.png?1548332100",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x226bb599a12C826476e3A771454697EA52E9E220"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xF03a553Fbcb2F52DAaE15170347830e5d3D16096",
+      "name": "Layer3",
+      "symbol": "L3",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/37768/large/Square.png",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x88909D489678dD17aA6D9609F89B0419Bf78FD9a"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xd43f10cE4BC089782fF8635C17F015EDbc16d71B",
+      "name": "SKY Governance Token",
+      "symbol": "SKY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/39925/large/sky.jpg?1724827980",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x56072C95FAA701256059aa122697B133aDEd9279"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-03-11T00:04:52.143Z"
+  "timestamp": "2026-04-07T00:10:49.412Z"
 }
