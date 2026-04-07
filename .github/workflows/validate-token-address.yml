@@ -10,7 +10,12 @@ permissions:
 
 jobs:
   validate-address:
-    if: ${{ contains(join(github.event.issue.labels.*.name, ','), 'addImage') }}
+    if: >-
+      ${{
+        contains(join(github.event.issue.labels.*.name, ','), 'addImage') ||
+        contains(join(github.event.issue.labels.*.name, ','), 'addToken') ||
+        contains(join(github.event.issue.labels.*.name, ','), 'removeToken')
+      }}
     runs-on: ubuntu-latest
 
     steps:
