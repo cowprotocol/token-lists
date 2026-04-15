@@ -42,7 +42,7 @@ async function generateLpTokenLists(platform: string) {
 
   const list: TokenList = {
     name: `LP ${platform} Token List`,
-    logoURI: 'https://files.cow.fi/token-lists/images/list-logo.png',
+    logoURI: 'https://files.cow.finance/token-lists/images/list-logo.png',
     timestamp: new Date().toISOString(),
     version: await getTokenListVersion(fileName),
     tokens: results.map(mapPlatformTokens).flat(),
