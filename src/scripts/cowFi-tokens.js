@@ -6,8 +6,8 @@ import _ from 'lodash'
 
 const USE_CACHE = (process.env.USE_CACHE ?? 'true') === 'true'
 
-const cowListUrl = 'https://files.cow.fi/tokens/CowSwap.json'
-// const coinGeckoListUrl = "https://files.cow.fi/tokens/CoinGecko.json";
+const cowListUrl = 'https://files.cow.finance/tokens/CowSwap.json'
+// const coinGeckoListUrl = "https://files.cow.finance/tokens/CoinGecko.json";
 const coinGeckoCoinsUrl = 'https://api.coingecko.com/api/v3/coins'
 const coinGeckoCoinsQuoteParams = `localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
 const coinGeckoIdListUrl = `${coinGeckoCoinsUrl}/list`
