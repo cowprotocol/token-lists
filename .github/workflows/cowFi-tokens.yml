@@ -1,4 +1,4 @@
-name: 'Cron: cow.finance tokens list'
+name: 'Cron: cow.fi tokens list'
 
 on:
   schedule:
@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   generate-and-upload:
-    name: Generate and Upload cow.finance tokens
+    name: Generate and Upload cow.fi tokens
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
         with:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
-      - name: Generate token lists for cow.finance
+      - name: Generate token lists for cow.fi
         run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Upload artifact
@@ -44,7 +44,7 @@ jobs:
       - name: Upload to S3 and invalidate CloudFront cache
         run: |
           # Upload to S3
-          aws s3 cp src/cowFi/cowFi-tokens.json s3://files.cow.finance/tokens/cowFi-tokens.json
+          aws s3 cp src/cowFi/cowFi-tokens.json s3://files.cow.fi/tokens/cowFi-tokens.json
 
           # Invalidate CloudFront cache
           aws cloudfront create-invalidation \
