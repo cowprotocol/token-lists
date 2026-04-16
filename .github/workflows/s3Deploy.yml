@@ -33,8 +33,8 @@ jobs:
 
       - name: Upload to S3
         run: |
-          aws s3 cp src/public/CowSwap.json s3://files.cow.finance/tokens/CowSwap.json
-          aws s3 sync src/public s3://files.cow.finance/token-lists --delete
+          aws s3 cp src/public/CowSwap.json s3://files.cow.fi/tokens/CowSwap.json
+          aws s3 sync src/public s3://files.cow.fi/token-lists --delete
 
       - name: Invalidate CloudFront cache
         run: |
