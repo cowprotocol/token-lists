@@ -46,8 +46,9 @@ async function fetchJupiterVerified(): Promise<JupiterToken[]> {
       })
       if (!res.ok) {
         const body = await res.text()
-        // 4xx is a client error (bad query, removed endpoint) — no point retrying.
-        if (res.status >= 400 && res.status < 500) {
+        // 429 (rate limit) is transient — let p-retry back off and retry.
+        // Other 4xx are client errors (bad query, removed endpoint) — abort.
+        if (res.status >= 400 && res.status < 500 && res.status !== 429) {
           throw new AbortError(`Jupiter request failed: ${res.status} ${body}`)
         }
         throw new Error(`Jupiter request failed: ${res.status} ${body}`)
