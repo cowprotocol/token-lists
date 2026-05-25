@@ -59,14 +59,13 @@ function isStrict(t: JupiterToken): boolean {
 }
 
 function isValidToken(t: JupiterToken): boolean {
-  // drop entries without the minimum data we need to render a row
+  // drop entries without the minimum data we need to render a token
   return Boolean(
     t.id &&
       t.symbol &&
       t.name &&
       typeof t.decimals === 'number' &&
       t.decimals >= 0 &&
-      t.icon &&
       (t.tokenProgram === TOKEN_PROGRAM_ID || t.tokenProgram === TOKEN_2022_PROGRAM_ID),
   )
 }
@@ -84,7 +83,8 @@ function toTokenInfo(t: JupiterToken): TokenInfo {
     name: t.name,
     symbol: t.symbol,
     decimals: t.decimals,
-    logoURI: t.icon as string,
+    // omit logoURI when Jupiter has no icon
+    ...(t.icon ? { logoURI: t.icon } : {}),
     // Mark only the Token-2022 mints.
     ...(isToken2022 ? { extensions: { isToken2022: true } } : {}),
   }
@@ -115,7 +115,7 @@ async function main() {
   const tokens = strict.filter(isValidToken).sort(sortByVolumeDesc).map(toTokenInfo)
 
   const dropped = strict.length - tokens.length
-  console.log(`Kept ${tokens.length} tokens, dropped ${dropped} (missing icon / bad fields / unknown program)`)
+  console.log(`Kept ${tokens.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
 
   const version = await getTokenListVersion(OUTPUT_FILE)
   const tokenList = buildTokenList(tokens, version)
