@@ -1,4 +1,5 @@
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
+import pRetry, { AbortError } from 'p-retry'
 import { getTokenListVersion, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
 
 /**
@@ -15,6 +16,8 @@ const LIST_NAME = 'Solana Default'
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
 const STRICT_TAG = 'strict'
+const REQUEST_TIMEOUT_MS = 15_000
+const MAX_RETRIES = 3
 const LOGO_URI =
   'https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png'
 
@@ -22,11 +25,6 @@ const LOGO_URI =
 // instructions through the classic Token program or Token-2022.
 const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
 const TOKEN_2022_PROGRAM_ID = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'
-
-interface JupiterStats {
-  buyVolume?: number | null
-  sellVolume?: number | null
-}
 
 // Raw Jupiter v2 token shape (only the fields we care about).
 interface JupiterToken {
@@ -37,21 +35,38 @@ interface JupiterToken {
   decimals: number
   tokenProgram: string
   tags?: string[]
-  stats24h?: JupiterStats | null
-  mcap?: number | null
 }
 
 async function fetchJupiterVerified(): Promise<JupiterToken[]> {
   console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
-  const res = await fetch(JUPITER_VERIFIED_URL)
-  if (!res.ok) {
-    throw new Error(`Jupiter request failed: ${res.status} ${await res.text()}`)
-  }
-  const json = (await res.json()) as JupiterToken[]
-  if (!Array.isArray(json)) {
-    throw new Error(`Unexpected Jupiter response shape: ${typeof json}`)
-  }
-  return json
+  return pRetry(
+    async () => {
+      const res = await fetch(JUPITER_VERIFIED_URL, {
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
+      })
+      if (!res.ok) {
+        const body = await res.text()
+        // 4xx is a client error (bad query, removed endpoint) — no point retrying.
+        if (res.status >= 400 && res.status < 500) {
+          throw new AbortError(`Jupiter request failed: ${res.status} ${body}`)
+        }
+        throw new Error(`Jupiter request failed: ${res.status} ${body}`)
+      }
+      const json = (await res.json()) as JupiterToken[]
+      if (!Array.isArray(json)) {
+        throw new AbortError(`Unexpected Jupiter response shape: ${typeof json}`)
+      }
+      return json
+    },
+    {
+      retries: MAX_RETRIES,
+      onFailedAttempt: (err) => {
+        console.warn(
+          `Jupiter attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`,
+        )
+      },
+    },
+  )
 }
 
 function isStrict(t: JupiterToken): boolean {
@@ -64,15 +79,10 @@ function isValidToken(t: JupiterToken): boolean {
     t.id &&
       t.symbol &&
       t.name &&
-      typeof t.decimals === 'number' &&
+      Number.isInteger(t.decimals) &&
       t.decimals >= 0 &&
       (t.tokenProgram === TOKEN_PROGRAM_ID || t.tokenProgram === TOKEN_2022_PROGRAM_ID),
   )
-}
-
-function volume24h(t: JupiterToken): number {
-  const s = t.stats24h ?? {}
-  return (s.buyVolume ?? 0) + (s.sellVolume ?? 0)
 }
 
 function toTokenInfo(t: JupiterToken): TokenInfo {
@@ -90,8 +100,9 @@ function toTokenInfo(t: JupiterToken): TokenInfo {
   }
 }
 
-function sortByVolumeDesc(a: JupiterToken, b: JupiterToken): number {
-  return volume24h(b) - volume24h(a)
+// sort by mint address to handle a lot off diffs regarding every token list update
+function sortByAddress(a: TokenInfo, b: TokenInfo): number {
+  return a.address < b.address ? -1 : a.address > b.address ? 1 : 0
 }
 
 function buildTokenList(tokens: TokenInfo[], version: TokenList['version']): TokenList {
@@ -112,7 +123,7 @@ async function main() {
   const strict = raw.filter(isStrict)
   console.log(`${strict.length} carry the "strict" tag`)
 
-  const tokens = strict.filter(isValidToken).sort(sortByVolumeDesc).map(toTokenInfo)
+  const tokens = strict.filter(isValidToken).map(toTokenInfo).sort(sortByAddress)
 
   const dropped = strict.length - tokens.length
   console.log(`Kept ${tokens.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
