@@ -1,9 +1,9 @@
 {
   "name": "CoW Swap",
-  "timestamp": "2026-05-19T12:39:12+00:00",
+  "timestamp": "2026-06-03T11:50:10.634Z",
   "version": {
     "major": 7,
-    "minor": 4,
+    "minor": 5,
     "patch": 1
   },
   "logoURI": "https://files.cow.fi/token-lists/images/list-logo.png",
@@ -1287,6 +1287,14 @@
       "logoURI": "https://files.cow.fi/token-lists/images/1/0xe07f9d810a48ab5c3c914ba3ca53af14e4491e8a/logo.png"
     },
     {
+      "address": "0xe1753f2e00940cc31213dd92013cf019dfe4ca1d",
+      "symbol": "sGHO",
+      "name": "Savings GHO",
+      "decimals": 18,
+      "chainId": 1,
+      "logoURI": "https://files.cow.fi/token-lists/images/1/0xe1753f2e00940cc31213dd92013cf019dfe4ca1d/logo.png"
+    },
+    {
       "address": "0xe2ba8693ce7474900a045757fe0efca900f6530b",
       "symbol": "fDAI",
       "name": "Flux DAI",
@@ -1413,22 +1421,6 @@
       "decimals": 18,
       "chainId": 1,
       "logoURI": "https://files.cow.fi/token-lists/images/1/0xfe4bce4b3949c35fb17691d8b03c3cadbe2e5e23/logo.png"
-    },
-    {
-      "chainId": 1,
-      "address": "0xbc920c7Fa25D3Cd5606394aa4C6751d71DCb7930",
-      "name": "K9",
-      "symbol": "K9",
-      "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xbc920c7Fa25D3Cd5606394aa4C6751d71DCb7930/logo.png"
-    },
-    {
-      "chainId": 1,
-      "address": "0x884649f1fE3Bf3Ae0Bd720Eaf660cB561dcE39ef",
-      "name": "PUPCUP",
-      "symbol": "PUPCUP",
-      "decimals": 18,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x884649f1fE3Bf3Ae0Bd720Eaf660cB561dcE39ef/logo.png"
     },
     {
       "address": "0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3",
@@ -2118,8 +2110,8 @@
     },
     {
       "address": "0x0200c29006150606b650577bbe7b6248f58470c1",
-      "symbol": "USD\u20ae0",
-      "name": "USD\u20ae0",
+      "symbol": "USD₮0",
+      "name": "USD₮0",
       "decimals": 6,
       "chainId": 57073,
       "logoURI": "https://files.cow.fi/token-lists/images/57073/0x0200c29006150606b650577bbe7b6248f58470c1/logo.png"
@@ -2179,6 +2171,22 @@
       "decimals": 18,
       "chainId": 59144,
       "logoURI": "https://files.cow.fi/token-lists/images/59144/0xe5d7c2a44ffddf6b295a15c148167daaaf5cf34f/logo.png"
+    },
+    {
+      "chainId": 1,
+      "address": "0xbc920c7Fa25D3Cd5606394aa4C6751d71DCb7930",
+      "name": "K9",
+      "symbol": "K9",
+      "decimals": 18,
+      "logoURI": "https://anvil.clutch.market/token-k9.png"
+    },
+    {
+      "chainId": 1,
+      "address": "0x884649f1fE3Bf3Ae0Bd720Eaf660cB561dcE39ef",
+      "name": "World Pup Coin",
+      "symbol": "PUPCUP",
+      "decimals": 18,
+      "logoURI": "https://anvil.clutch.market/token-pupcup.png"
     }
   ]
 }
