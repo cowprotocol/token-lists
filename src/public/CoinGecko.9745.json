@@ -3,8 +3,8 @@
     "defi"
   ],
   "version": {
-    "major": 6,
-    "minor": 1,
+    "major": 7,
+    "minor": 0,
     "patch": 0
   },
   "tokens": [
@@ -34,6 +34,14 @@
     },
     {
       "chainId": 9745,
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+    },
+    {
+      "chainId": 9745,
       "address": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
       "name": "Ethena Staked USDe",
       "symbol": "SUSDE",
@@ -50,35 +58,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xca632fa58397391c750c13f935daa61abbe0baa6",
-      "name": "Euler",
-      "symbol": "EUL",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/26149/large/Coingecko_logo_%281%29.png?1706026067"
-    },
-    {
-      "chainId": 9745,
       "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
       "name": "Staked USDai",
       "symbol": "SUSDAI",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55861/large/sUSDai_Token_Full_Glyph.png?1755229072"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
-      "name": "Trillions",
-      "symbol": "TRILLIONS",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
     },
     {
       "chainId": 9745,
@@ -90,35 +74,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+      "address": "0xca632fa58397391c750c13f935daa61abbe0baa6",
+      "name": "Euler",
+      "symbol": "EUL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/26149/large/Coingecko_logo_%281%29.png?1706026067"
     },
     {
       "chainId": 9745,
-      "address": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
-      "name": "Stargate Bridged WETH",
-      "symbol": "WETH",
+      "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
+      "name": "Trillions",
+      "symbol": "TRILLIONS",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
-      "name": "Metronome Synth USD",
-      "symbol": "MSUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
-      "name": "Metronome Synth ETH",
-      "symbol": "MSETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67512/large/metronome_mseth.png?1753017508"
+      "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
     },
     {
       "chainId": 9745,
@@ -130,11 +98,35 @@
     },
     {
       "chainId": 9745,
-      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
-      "name": "Yuzu USD",
-      "symbol": "YZUSD",
+      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
+      "name": "Metronome Synth USD",
+      "symbol": "MSUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
+      "name": "Stargate Bridged WETH",
+      "symbol": "WETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
+      "name": "Metronome Synth ETH",
+      "symbol": "MSETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67512/large/metronome_mseth.png?1753017508"
     },
     {
       "chainId": 9745,
@@ -154,14 +146,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
-      "name": "EURØP",
-      "symbol": "EUROP",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-symbol-rgb.jpg?1732634862"
-    },
-    {
-      "chainId": 9745,
       "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
       "name": "USDai",
       "symbol": "USDAI",
@@ -178,35 +162,19 @@
     },
     {
       "chainId": 9745,
+      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
+      "name": "EURØP",
+      "symbol": "EUROP",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-symbol-rgb.jpg?1732634862"
+    },
+    {
+      "chainId": 9745,
       "address": "0xebfc8c2fe73c431ef2a371aea9132110aab50dca",
       "name": "Yuzu Protection Pool",
       "symbol": "YZPP",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/71043/large/yzPP_%281%29.png?1765442029"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xc8a8df9b210243c55d31c73090f06787ad0a1bf6",
-      "name": "Staked Yuzu USD",
-      "symbol": "SYZUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70132/large/Group_427319351.png?1760695727"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xe90fe2de4a415ad48b6dcec08ba6ae98231948ac",
-      "name": "Trevee",
-      "symbol": "TREVEE",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70151/large/TREVEE.png?1760778357"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x11113ff3a60c2450f4b22515cb760417259ee94b",
-      "name": "Nest Basis Vault",
-      "symbol": "NBASIS",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/55514/large/nBASIS-token.png?1746438043"
     },
     {
       "chainId": 9745,
@@ -226,11 +194,51 @@
     },
     {
       "chainId": 9745,
-      "address": "0xabb48792a3161e81b47ca084c0b7a22a50324a44",
-      "name": "Lithos",
-      "symbol": "LITH",
+      "address": "0xe90fe2de4a415ad48b6dcec08ba6ae98231948ac",
+      "name": "Trevee",
+      "symbol": "TREVEE",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70098/large/logo-lith1.png?1760553212"
+      "logoURI": "https://assets.coingecko.com/coins/images/70151/large/TREVEE.png?1760778357"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
+      "name": "Yuzu USD",
+      "symbol": "YZUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xb31bea5c2a43f942a3800558b1aa25978da75f8a",
+      "name": "Midas mHYPER",
+      "symbol": "MHYPER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/68298/large/mHYPER.png?1755286538"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x2a52b289ba68bbd02676640aa9f605700c9e5699",
+      "name": "Resolv wstUSR",
+      "symbol": "WSTUSR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/51880/large/USR_LOGO.png?1732098841"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xc8a8df9b210243c55d31c73090f06787ad0a1bf6",
+      "name": "Staked Yuzu USD",
+      "symbol": "SYZUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70132/large/Group_427319351.png?1760695727"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xc53ac24320e3a54c7211e4993c8095078a0cb3cf",
+      "name": "Wild Goat Coin [OLD]",
+      "symbol": "WGC",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/wgc-v3-logo.png?1776225874"
     },
     {
       "chainId": 9745,
@@ -250,27 +258,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0xb31bea5c2a43f942a3800558b1aa25978da75f8a",
-      "name": "Midas mHYPER",
-      "symbol": "MHYPER",
+      "address": "0xabb48792a3161e81b47ca084c0b7a22a50324a44",
+      "name": "Lithos",
+      "symbol": "LITH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/68298/large/mHYPER.png?1755286538"
+      "logoURI": "https://assets.coingecko.com/coins/images/70098/large/logo-lith1.png?1760553212"
     },
     {
       "chainId": 9745,
-      "address": "0xc53ac24320e3a54c7211e4993c8095078a0cb3cf",
-      "name": "Wild Goat Coin",
-      "symbol": "WGC",
+      "address": "0x11113ff3a60c2450f4b22515cb760417259ee94b",
+      "name": "Nest Basis Vault",
+      "symbol": "NBASIS",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/37966/large/wgc-v3-logo.png?1776225874"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
-      "name": "Staked Stream USD",
-      "symbol": "XUSD",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
+      "logoURI": "https://assets.coingecko.com/coins/images/55514/large/nBASIS-token.png?1746438043"
     },
     {
       "chainId": 9745,
@@ -282,22 +282,14 @@
     },
     {
       "chainId": 9745,
-      "address": "0x2a52b289ba68bbd02676640aa9f605700c9e5699",
-      "name": "Resolv wstUSR",
-      "symbol": "WSTUSR",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/51880/large/USR_LOGO.png?1732098841"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x9c46ee1f01d2b551048f5ff99a4659d98d04bed1",
-      "name": "TelosC USDT0 Euler Vault",
-      "symbol": "246USDT0",
+      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
+      "name": "Staked Stream USD",
+      "symbol": "XUSD",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/70920/large/246usdt0.jpeg?1764576880"
+      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
     }
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-05-13T00:22:49.289Z"
+  "timestamp": "2026-06-02T00:29:56.186Z"
 }
