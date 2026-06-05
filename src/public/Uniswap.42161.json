@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 43,
+    "minor": 44,
     "patch": 0
   },
   "tokens": [
@@ -3320,9 +3320,24 @@
       "symbol": "AUSD",
       "decimals": 6,
       "logoURI": "https://coin-images.coingecko.com/coins/images/39284/large/AUSD_1024px.png?1764684132"
+    },
+    {
+      "chainId": 42161,
+      "address": "0xD7Ef1Cb315d4a3291a779bC0cD1C8f6B87E66104",
+      "name": "Anoma",
+      "symbol": "XAN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69380/large/Anoma_Logo_Roundel_RGB_Colour-01.png?1758356672",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0xCEDbEA37C8872c4171259Cdfd5255CB8923Cf8e7"
+          }
+        }
+      }
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-06-03T00:34:28.026Z"
+  "timestamp": "2026-06-05T00:26:58.997Z"
 }
