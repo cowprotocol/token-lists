@@ -1,0 +1,10 @@
+{
+  "removed": false,
+  "address": "0x953575d7352584e3c7b027e4b3a259d1c7f44d66",
+  "symbol": "PAM",
+  "name": "Perpetual Asteroid Machine",
+  "logoURI": "https://files.cow.fi/token-lists/images/1/0x953575d7352584e3c7b027e4b3a259d1c7f44d66/logo.png",
+  "reason": "PAM is a renounced ERC-20 paired with a custom Uniswap V4 hook that collects swap fees in ETH and converts them into ASTEROID (0xf280B16EF293D8e534e370794ef26bF312694126), distributing pro-rata to PAM holders via Roger Wu's magnifiedDividends pattern. Live on mainnet since 2026-04-23.\n\nAnti-scam evidence (all on-chain verifiable):\n\n1. Contract ownership renounced: PAM.owner() returns 0x0\n   Renounce TX: https://etherscan.io/tx/0x38ad3c9adc0b4730392d8640912dcc2a821f4a086bd2dfdceeb74fe9b3868661\n\n2. DividendTracker ownership renounced\n   Renounce TX: https://etherscan.io/tx/0x0bccdfd30d40897e39cd50862f01e92252da469fe53057aa907e740529ca17aa\n\n3. LP NFT (tokenId 219187 on Uniswap V4 PositionManager) locked on UNCX UniV4LiquidityLockerV3:\n   https://app.uncx.network/lockers/univ4/chain/1/address/0xd8d1acb0d2c718b06718305f7920e4056b498efdd5ab550e87bd6ce56afbc561\n\n4. Source verified on Etherscan, no proxy, no upgradeable storage:\n   https://etherscan.io/address/0x953575d7352584E3c7B027E4B3A259D1c7F44D66#code\n\n5. No buy/sell tax inside the token contract. Fees (4% buy, 6% sell) are charged at pool level via the V4 hook in ETH (currency0), not in PAM. Hook permissions byte 0xCC, source verified:\n   https://etherscan.io/address/0x34052720fD88197718251765fe03611d740c00Cc#code\n\nLiquidity: ~$7k in the V4 pool (374M PAM + 1.62 ETH at full range, fee tier 3000, tickSpacing 60). The pool is V4-native; no V2 or V3 pair exists.\nPoolId: 0xd8d1acb0d2c718b06718305f7920e4056b498efdd5ab550e87bd6ce56afbc561\nHook: 0x34052720fD88197718251765fe03611d740c00Cc\n\nPublic references:\n- Website: https://pameth.com\n- Twitter: https://x.com/Pamethereum\n- DexScreener: https://dexscreener.com/ethereum/0xd8d1acb0d2c718b06718305f7920e4056b498efdd5ab550e87bd6ce56afbc561\n- Etherscan: https://etherscan.io/token/0x953575d7352584E3c7B027E4B3A259D1c7F44D66",
+  "decimals": 18,
+  "chainId": 1
+}
