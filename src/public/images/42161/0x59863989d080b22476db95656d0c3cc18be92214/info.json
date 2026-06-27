@@ -1,0 +1,10 @@
+{
+  "removed": false,
+  "address": "0x59863989d080b22476db95656d0c3cc18be92214",
+  "symbol": "ARGt",
+  "name": "Argentine Peso token",
+  "logoURI": "https://files.cow.fi/token-lists/images/42161/0x59863989d080b22476db95656d0c3cc18be92214/logo.png",
+  "reason": "ARGt is the largest Argentine peso stablecoin by circulating supply, with 12.7B ARGt in circulation (approx. 8.1M USD), fully backed by Argentine treasury instruments. It is issued by Twin Finance, a LATAM blockchain infrastructure company that also issues fully-backed local-currency stablecoins for Brazil, Colombia, Peru, Mexico, Chile, and Bolivia. The token is already listed on Belo, one of the main wallets in LATAM with over 3M users.\n\n**Why add it:**\nARGt is being integrated by other providers (on/off-ramps, exchanges, wallets), which route swaps through LiFi, which in turn uses CoW Protocol as one of its solvers. Listing ARGt on CoW is a hard dependency for this integration to work.\n\n**Liquidity:**\nMarket makers are ready to provide liquidity programmatically via CoW Protocol limit orders from day one. A Uniswap V3 pool also exists on Arbitrum One and can be seeded if required by the review process.\n\n**Project links:**\nWebsite: https://twin.finance/\nX: https://x.com/twinfinance_",
+  "decimals": 18,
+  "chainId": 42161
+}
