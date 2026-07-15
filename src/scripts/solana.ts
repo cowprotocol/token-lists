@@ -1,6 +1,8 @@
+import path from 'path'
+import fs from 'fs'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import pRetry, { AbortError } from 'p-retry'
-import { getTokenListVersion, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
+import { getTokenListVersion, SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
 
 /**
  * Fetches the Solana default token list from Jupiter and writes it as
@@ -12,6 +14,7 @@ import { getTokenListVersion, writeTokenListToBuild, writeTokenListToSrc } from 
  */
 
 const OUTPUT_FILE = 'SolanaDefault.json'
+const OVERRIDES_FILE = 'SolanaOverrides.json'
 const LIST_NAME = 'Solana Default'
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
@@ -106,6 +109,46 @@ function sortByAddress(a: TokenInfo, b: TokenInfo): number {
   return a.address < b.address ? -1 : a.address > b.address ? 1 : 0
 }
 
+// Read hand-maintained overrides. Missing/invalid file → no overrides applied.
+function readOverrides(): TokenInfo[] {
+  const filePath = path.join(SRC_DIR, OVERRIDES_FILE)
+  if (!fs.existsSync(filePath)) {
+    console.log(`No overrides file at ${filePath}, skipping`)
+    return []
+  }
+  const parsed = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+  if (!Array.isArray(parsed)) {
+    console.warn(`Unexpected ${OVERRIDES_FILE} shape (expected array), skipping overrides`)
+    return []
+  }
+  return parsed as TokenInfo[]
+}
+
+// Merge overrides into the token list, keyed by `address`.
+// An override replaces a matching token entirely; otherwise it's appended.
+function applyOverrides(tokens: TokenInfo[], overrides: TokenInfo[]): TokenInfo[] {
+  if (overrides.length === 0) return tokens
+
+  const byAddress = new Map<string, TokenInfo>()
+  for (const token of tokens) {
+    byAddress.set(token.address, token)
+  }
+
+  let replaced = 0
+  let added = 0
+  for (const override of overrides) {
+    if (byAddress.has(override.address)) {
+      replaced++
+    } else {
+      added++
+    }
+    byAddress.set(override.address, override)
+  }
+
+  console.log(`Applied ${overrides.length} overrides (${replaced} replaced, ${added} added)`)
+  return [...byAddress.values()]
+}
+
 function buildTokenList(tokens: TokenInfo[], version: TokenList['version']): TokenList {
   return {
     name: LIST_NAME,
@@ -124,10 +167,12 @@ async function main() {
   const strict = raw.filter(isStrict)
   console.log(`${strict.length} carry the "strict" tag`)
 
-  const tokens = strict.filter(isValidToken).map(toTokenInfo).sort(sortByAddress)
+  const jupiterTokens = strict.filter(isValidToken).map(toTokenInfo)
 
-  const dropped = strict.length - tokens.length
-  console.log(`Kept ${tokens.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
+  const dropped = strict.length - jupiterTokens.length
+  console.log(`Kept ${jupiterTokens.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
+
+  const tokens = applyOverrides(jupiterTokens, readOverrides()).sort(sortByAddress)
 
   const version = await getTokenListVersion(OUTPUT_FILE)
   const tokenList = buildTokenList(tokens, version)
