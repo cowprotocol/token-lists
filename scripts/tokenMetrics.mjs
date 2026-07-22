@@ -92,10 +92,10 @@ export async function fetchHolders({ cmcSlug, address }) {
   if (!res.ok) throw new Error(`CMC returned HTTP ${res.status} for ${url}`)
 
   const html = await res.text()
-  const m = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)
-  if (!m) throw new Error(`No __NEXT_DATA__ found for ${url} (token may be unlisted on CMC DEX)`)
+  const matchData = html.match(/<script id="__NEXT_DATA__"[^>]*>([\s\S]*?)<\/script>/)
+  if (!matchData) throw new Error(`No __NEXT_DATA__ found for ${url} (token may be unlisted on CMC DEX)`)
 
-  return JSON.parse(m[1])?.props?.pageProps?.holdersCount ?? null
+  return JSON.parse(matchData[1])?.props?.pageProps?.holdersCount ?? null
 }
 
 /** Format a number as compact USD, or 'n/a'. */
