@@ -1,4 +1,4 @@
-import { enrichWithCmcMetrics } from './cmcMetrics.mjs'
+import { enrichWithTokenMetrics } from './tokenMetrics.mjs'
 
 export const NETWORK_CONFIG = {
   MAINNET: { chainId: 1, blockExplorer: 'etherscan.io' },
@@ -83,9 +83,10 @@ export const processRequest = async (context, core) => {
   const operation = getOperation(labels)
   validateFields(operation, values)
 
-  // Enrich addToken PRs with CMC DEX metrics. Never throws / never blocks.
+  // Enrich addToken PRs with token metrics (liquidity/volume + holders).
+  // Never throws / never blocks.
   if (operation === 'addToken') {
-    await enrichWithCmcMetrics(values)
+    await enrichWithTokenMetrics(values)
   }
 
   core.setOutput('operation', operation)

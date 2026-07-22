@@ -115,8 +115,14 @@ describe('processRequest', () => {
   })
 
   it('processes request', async () => {
-    // addToken triggers CMC enrichment -> mock fetch so the unit test stays offline.
-    global.fetch = mock.fn(async () => ({ ok: false, status: 404, text: async () => '' }))
+    // addToken triggers token-metrics enrichment (GeckoTerminal + CMC scrape) ->
+    // mock fetch so the unit test stays offline.
+    global.fetch = mock.fn(async () => ({
+      ok: false,
+      status: 404,
+      text: async () => '',
+      json: async () => ({}),
+    }))
     // Enrichment hits the catch/warn path on a 404 -> stub console.warn so no warning leaks.
     mock.method(console, 'warn', () => {})
 
@@ -149,12 +155,19 @@ describe('processRequest', () => {
     assert.equal(info.network, 'POLYGON')
     assert.equal(info.chainId, 137)
     // Enrichment ran but the token is "unlisted" (404) -> n/a, PR still proceeds.
-    assert.equal(info.cmcLiquidity, 'n/a')
+    assert.equal(info.tokenLiquidity, 'n/a')
+    assert.equal(info.tokenHolders, 'n/a')
     assert.equal(info.cmcUrl, 'https://dex.coinmarketcap.com/token/polygon/0x123/')
+    assert.equal(info.geckoTerminalUrl, 'https://www.geckoterminal.com/polygon_pos/tokens/0x123')
   })
 
-  it('skips CMC enrichment for non-addToken operations', async () => {
-    const fetchMock = mock.fn(async () => ({ ok: false, status: 404, text: async () => '' }))
+  it('skips token-metrics enrichment for non-addToken operations', async () => {
+    const fetchMock = mock.fn(async () => ({
+      ok: false,
+      status: 404,
+      text: async () => '',
+      json: async () => ({}),
+    }))
     global.fetch = fetchMock
 
     const body = `
@@ -173,7 +186,7 @@ describe('processRequest', () => {
 
     assert.equal(fetchMock.mock.callCount(), 0)
     const info = getIssueInfo(core)
-    assert.equal(info.cmcLiquidity, undefined)
+    assert.equal(info.tokenLiquidity, undefined)
   })
 
   it('handles errors', async () => {
