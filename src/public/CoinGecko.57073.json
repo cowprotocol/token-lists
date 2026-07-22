@@ -5,7 +5,7 @@
   "version": {
     "major": 19,
     "minor": 2,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -18,27 +18,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
-      "name": "Global Dollar",
-      "symbol": "USDG",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/51281/large/GDN_USDG_Token_200x200.png?1730484111"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x142cdc44890978b506e745bb3bd11607b7f7faef",
-      "name": "PayPal USD",
-      "symbol": "PYUSD",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/31212/large/PYUSD_Token_Logo_2x.png?1765987788"
-    },
-    {
-      "chainId": 57073,
       "address": "0x71052bae71c25c78e37fd12e5ff1101a71d9018f",
       "name": "Chainlink",
       "symbol": "LINK",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/877/large/Chainlink_Logo_500.png?1760023405"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+      "name": "Global Dollar",
+      "symbol": "USDG",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/51281/large/GDN_USDG_Token_200x200.png?1730484111"
     },
     {
       "chainId": 57073,
@@ -50,11 +42,27 @@
     },
     {
       "chainId": 57073,
-      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
-      "name": "Frax USD",
-      "symbol": "FRXUSD",
+      "address": "0x142cdc44890978b506e745bb3bd11607b7f7faef",
+      "name": "PayPal USD",
+      "symbol": "PYUSD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/31212/large/PYUSD_Token_Logo_2x.png?1765987788"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
+      "name": "Re Protocol reUSD",
+      "symbol": "REUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
+      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
+      "name": "GHO",
+      "symbol": "GHO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
     },
     {
       "chainId": 57073,
@@ -74,11 +82,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
-      "name": "GHO",
-      "symbol": "GHO",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
+      "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
+      "name": "Kraken Wrapped BTC",
+      "symbol": "KBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/50879/large/kBTC.png?1730321084"
     },
     {
       "chainId": 57073,
@@ -90,11 +98,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
-      "name": "Re Protocol reUSD",
-      "symbol": "REUSD",
+      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
+      "name": "Frax USD",
+      "symbol": "FRXUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
+      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
     },
     {
       "chainId": 57073,
@@ -103,6 +111,14 @@
       "symbol": "OUSDT",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xc3eacf0612346366db554c991d7858716db09f58",
+      "name": "Kelp DAO Restaked ETH",
+      "symbol": "RSETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
     },
     {
       "chainId": 57073,
@@ -122,11 +138,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x73e0c0d45e048d25fc26fa3159b0aa04bfa4db98",
-      "name": "Kraken Wrapped BTC",
-      "symbol": "KBTC",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/50879/large/kBTC.png?1730321084"
+      "address": "0xe8245188db1efc91aef32e7aa4cf346b9a5830cf",
+      "name": "CF Large Cap Index",
+      "symbol": "LCAP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69331/large/LCAP_1024.png?1758220127"
     },
     {
       "chainId": 57073,
@@ -146,35 +162,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xe8245188db1efc91aef32e7aa4cf346b9a5830cf",
-      "name": "CF Large Cap Index",
-      "symbol": "LCAP",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69331/large/LCAP_1024.png?1758220127"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xc3eacf0612346366db554c991d7858716db09f58",
-      "name": "Kelp DAO Restaked ETH",
-      "symbol": "RSETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
-    },
-    {
-      "chainId": 57073,
       "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
       "name": "Wrapped FRAX",
       "symbol": "WFRAX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
-      "name": "Solv Protocol BTC",
-      "symbol": "SOLVBTC",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
     },
     {
       "chainId": 57073,
@@ -186,11 +178,27 @@
     },
     {
       "chainId": 57073,
+      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
+      "name": "Solv Protocol BTC",
+      "symbol": "SOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+    },
+    {
+      "chainId": 57073,
       "address": "0x6f75ac3b1b6fbe8bb5f948e25af03620f26ae838",
       "name": "Energy Select Sector SPDR Fund xStock",
       "symbol": "XLEX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/102172852/large/xlex.png?1776234964"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
+      "name": "Superseed",
+      "symbol": "SUPR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
     },
     {
       "chainId": 57073,
@@ -203,10 +211,26 @@
     {
       "chainId": 57073,
       "address": "0x5e8a26a9ed06b56bc1d90ceee2c6ae892b4b835c",
-      "name": "Boardwalk",
+      "name": "Boardwalk [OLD]",
       "symbol": "BMX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/31699/large/256x256_frame.png?1777046529"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xbca703c64f616a17b4f2763f34f93400dbe20f17",
+      "name": "Eaton Corporation plc xStock",
+      "symbol": "ETNX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102172729/large/ETNx-logo.png?1775052343"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
+      "name": "WATCHDOGS",
+      "symbol": "WATCH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
     },
     {
       "chainId": 57073,
@@ -226,35 +250,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x53eb0098d09b8d1008f382bbd2a5d4f649111710",
-      "name": "WATCHDOGS",
-      "symbol": "WATCH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67089/large/GkveKRgXcAESEPj_%281%29.png?1751702681"
-    },
-    {
-      "chainId": 57073,
       "address": "0xca5f2ccbd9c40b32657df57c716de44237f80f05",
       "name": "Kraken",
       "symbol": "KRAKEN",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/52919/large/kraken.jpg?1734685461"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
-      "name": "Superseed",
-      "symbol": "SUPR",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xbca703c64f616a17b4f2763f34f93400dbe20f17",
-      "name": "Eaton Corporation plc xStock",
-      "symbol": "ETNX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102172729/large/ETNx-logo.png?1775052343"
     },
     {
       "chainId": 57073,
@@ -307,5 +307,5 @@
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-07-15T00:16:25.648Z"
+  "timestamp": "2026-07-22T00:18:13.091Z"
 }
