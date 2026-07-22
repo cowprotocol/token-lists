@@ -153,6 +153,29 @@ describe('processRequest', () => {
     assert.equal(info.cmcUrl, 'https://dex.coinmarketcap.com/token/polygon/0x123/')
   })
 
+  it('skips CMC enrichment for non-addToken operations', async () => {
+    const fetchMock = mock.fn(async () => ({ ok: false, status: 404, text: async () => '' }))
+    global.fetch = fetchMock
+
+    const body = `
+      ### network
+      MAINNET
+
+      ### reason
+      No longer needed
+
+      ### address
+      0x123`
+    const context = createContext(body, ['removeToken'])
+    const core = createMockCore()
+
+    await processRequest(context, core)
+
+    assert.equal(fetchMock.mock.callCount(), 0)
+    const info = getIssueInfo(core)
+    assert.equal(info.cmcLiquidity, undefined)
+  })
+
   it('handles errors', async () => {
     const errorCases = [
       { labels: ['invalid'], pattern: /No valid operation/ },

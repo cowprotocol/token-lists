@@ -109,6 +109,6 @@ export async function enrichWithCmcMetrics(values) {
     values.cmcVolume24h = usd(volume24h)
     values.cmcHolders = count(holders)
   } catch (err) {
-    console.warn(`Could not fetch CMC metrics for ${values.address}: ${err.message}`)
+    console.warn(`Could not fetch CMC metrics for ${values.address}: ${err?.message ?? err}`)
   }
 }
