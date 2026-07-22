@@ -41,7 +41,7 @@ jobs:
         with:
           script:
             const { processRequest } = await import("${{github.workspace}}/scripts/processRequest.mjs");
-            processRequest(context, core);
+            await processRequest(context, core);
 
       - name: Handle validation errors
         if: failure()
@@ -80,6 +80,14 @@ jobs:
         |-|-|
         | Original | ![original](${{ fromJSON(needs.process-request.outputs.issueInfo).url }}) |
         | Optimized | ![optimized](${{ format(fromJSON(needs.process-request.outputs.issueInfo).prImageUrl, 'addToken') }}) |
+
+        ### CoinMarketCap DEX metrics
+
+        | Liquidity | 24h Volume | Holders |
+        |-----------|-----------|---------|
+        | ${{ fromJSON(needs.process-request.outputs.issueInfo).cmcLiquidity }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).cmcVolume24h }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).cmcHolders }} |
+
+        [View on CoinMarketCap ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).cmcUrl }})
 
         ### Reason
 
