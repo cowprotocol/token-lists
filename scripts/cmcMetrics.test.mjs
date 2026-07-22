@@ -44,6 +44,7 @@ describe('enrichWithCmcMetrics', () => {
   const originalFetch = global.fetch
   afterEach(() => {
     global.fetch = originalFetch
+    mock.restoreAll()
   })
 
   it('populates formatted metrics on success', async () => {
@@ -61,6 +62,10 @@ describe('enrichWithCmcMetrics', () => {
   })
 
   it('defaults to n/a and does not throw when fetch rejects', async () => {
+    // This case intentionally hits enrichWithCmcMetrics' catch block, which
+    // logs via console.warn. Stub it here (and only here) so the expected
+    // failure-path warning doesn't leak into the test output.
+    const warn = mock.method(console, 'warn', () => {})
     global.fetch = mock.fn(async () => {
       throw new Error('network down')
     })
@@ -71,6 +76,7 @@ describe('enrichWithCmcMetrics', () => {
     assert.equal(values.cmcHolders, 'n/a')
     // Token URL is still set so the reviewer has a link.
     assert.equal(values.cmcUrl, 'https://dex.coinmarketcap.com/token/ethereum/0xabc/')
+    assert.equal(warn.mock.callCount(), 1)
   })
 
   it('defaults to n/a for unmapped chains without fetching', async () => {
@@ -85,10 +91,14 @@ describe('enrichWithCmcMetrics', () => {
   })
 
   it('defaults to n/a on non-ok HTTP response', async () => {
+    // Also intentionally hits the catch block via fetchCmcData's HTTP-status
+    // throw; stub console.warn here too so this expected warning is silent.
+    const warn = mock.method(console, 'warn', () => {})
     global.fetch = mock.fn(async () => ({ ok: false, status: 404, text: async () => '' }))
     const values = { network: 'BASE', address: '0xdef' }
     await enrichWithCmcMetrics(values)
     assert.equal(values.cmcHolders, 'n/a')
     assert.equal(values.cmcUrl, 'https://dex.coinmarketcap.com/token/base/0xdef/')
+    assert.equal(warn.mock.callCount(), 1)
   })
 })
