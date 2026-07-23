@@ -85,11 +85,9 @@ export const processRequest = async (context, core) => {
 
   // Enrich addToken PRs with token metrics (liquidity/volume + holders).
   // Never throws / never blocks.
-  if (operation === 'addToken') {
-    await enrichWithTokenMetrics(values)
-  }
+  const result = operation === 'addToken' ? await enrichWithTokenMetrics(values) : values
 
   core.setOutput('operation', operation)
-  core.setOutput('issueInfo', JSON.stringify(values))
+  core.setOutput('issueInfo', JSON.stringify(result))
   core.setOutput('needsImageOptimization', ['addImage', 'addToken'].includes(operation))
 }

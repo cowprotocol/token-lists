@@ -111,7 +111,7 @@ export function count(x) {
 }
 
 /**
- * Enrich `values` with formatted token metrics. NEVER throws.
+ * Enrich `results` with formatted token metrics. NEVER throws.
  *
  * Sets (all formatted strings, 'n/a' on miss):
  *   - tokenLiquidity, tokenVolume24h  (via GeckoTerminal)
@@ -122,11 +122,13 @@ export function count(x) {
  * The two sources are independent: a failure in one never affects the other.
  */
 export async function enrichWithTokenMetrics(values) {
-  values.tokenLiquidity = 'n/a'
-  values.tokenVolume24h = 'n/a'
-  values.tokenHolders = 'n/a'
-  values.geckoTerminalUrl = 'https://www.geckoterminal.com'
-  values.cmcUrl = 'https://dex.coinmarketcap.com'
+  const results = {}
+
+  results.tokenLiquidity = 'n/a'
+  results.tokenVolume24h = 'n/a'
+  results.tokenHolders = 'n/a'
+  results.geckoTerminalUrl = 'https://www.geckoterminal.com'
+  results.cmcUrl = 'https://dex.coinmarketcap.com'
 
   const network = String(values.network || '').toUpperCase()
   const address = values.address
@@ -134,11 +136,11 @@ export async function enrichWithTokenMetrics(values) {
   // Liquidity + 24h volume via GeckoTerminal.
   const gtNetwork = NETWORK_TO_GECKOTERMINAL[network]
   if (gtNetwork && address) {
-    values.geckoTerminalUrl = geckoTerminalUrl(gtNetwork, address)
+    results.geckoTerminalUrl = geckoTerminalUrl(gtNetwork, address)
     try {
       const { liquidity, volume24h } = await fetchLiquidityAndVolume({ gtNetwork, address })
-      values.tokenLiquidity = usd(liquidity)
-      values.tokenVolume24h = usd(volume24h)
+      results.tokenLiquidity = usd(liquidity)
+      results.tokenVolume24h = usd(volume24h)
     } catch (err) {
       console.warn(`Could not fetch liquidity/volume for ${address}: ${err?.message ?? err}`)
     }
@@ -147,11 +149,13 @@ export async function enrichWithTokenMetrics(values) {
   // Holders via CoinMarketCap DEX page scrape.
   const cmcSlug = NETWORK_TO_CMC_SLUG[network]
   if (cmcSlug && address) {
-    values.cmcUrl = cmcTokenUrl(cmcSlug, address)
+    results.cmcUrl = cmcTokenUrl(cmcSlug, address)
     try {
-      values.tokenHolders = count(await fetchHolders({ cmcSlug, address }))
+      results.tokenHolders = count(await fetchHolders({ cmcSlug, address }))
     } catch (err) {
       console.warn(`Could not fetch holders for ${address}: ${err?.message ?? err}`)
     }
   }
+
+  return results
 }
