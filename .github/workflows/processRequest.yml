@@ -83,11 +83,11 @@ jobs:
 
         ### Token metrics
 
-        | Liquidity | 24h Volume | Holders |
+        | Market cap | 24h Volume | Holders |
         |-----------|-----------|---------|
-        | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenLiquidity }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenVolume24h }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenHolders }} |
+        | ${{ fromJSON(needs.process-request.outputs.issueInfo).marketCap }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenVolume24h }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenHolders }} |
 
-        Liquidity & 24h volume via [GeckoTerminal ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).geckoTerminalUrl }}) · holders via [CoinMarketCap ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).cmcUrl }})
+        Market Cap & 24h volume via [GeckoTerminal ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).geckoTerminalUrl }}) · holders via [CoinMarketCap ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).cmcUrl }})
 
         ### Reason
 

@@ -4,11 +4,11 @@ import assert from 'node:assert/strict'
 import { enrichWithTokenMetrics, usd, count } from './tokenMetrics.mjs'
 
 // GeckoTerminal token response, mirroring data.attributes.{total_reserve_in_usd, volume_usd.h24}.
-const geckoJson = ({ liquidity, volume24h }) => ({
+const geckoJson = ({ marketCap, volume24h }) => ({
   ok: true,
   status: 200,
   json: async () => ({
-    data: { attributes: { total_reserve_in_usd: liquidity, volume_usd: { h24: volume24h } } },
+    data: { attributes: { market_cap_usd: marketCap, volume_usd: { h24: volume24h } } },
   }),
   text: async () => '',
 })
@@ -60,12 +60,12 @@ describe('enrichWithTokenMetrics', () => {
 
   it('populates all three metrics from both sources on success', async () => {
     global.fetch = routedFetch({
-      gecko: () => geckoJson({ liquidity: '1234567.89', volume24h: '98765.4' }),
+      gecko: () => geckoJson({ marketCap: '1234567.89', volume24h: '98765.4' }),
       cmc: () => cmcHtml({ holders: 12345 }),
     })
     const values = { network: 'MAINNET', address: '0xabc' }
     const results = await enrichWithTokenMetrics(values)
-    assert.equal(results.tokenLiquidity, '$1,234,568')
+    assert.equal(results.marketCap, '$1,234,568')
     assert.equal(results.tokenVolume24h, '$98,765')
     assert.equal(results.tokenHolders, '12,345')
     assert.equal(results.geckoTerminalUrl, 'https://www.geckoterminal.com/eth/tokens/0xabc')
@@ -82,20 +82,20 @@ describe('enrichWithTokenMetrics', () => {
     })
     const values = { network: 'MAINNET', address: '0xabc' }
     const results = await enrichWithTokenMetrics(values)
-    assert.equal(results.tokenLiquidity, 'n/a')
+    assert.equal(results.marketCap, 'n/a')
     assert.equal(results.tokenVolume24h, 'n/a')
     assert.equal(results.tokenHolders, '999')
   })
 
-  it('is independent: CMC scrape failure still yields liquidity/volume', async () => {
+  it('is independent: CMC scrape failure still yields marketCap/volume', async () => {
     mock.method(console, 'warn', () => {})
     global.fetch = routedFetch({
-      gecko: () => geckoJson({ liquidity: '5000', volume24h: '250' }),
+      gecko: () => geckoJson({ marketCap: '5000', volume24h: '250' }),
       cmc: () => ({ ok: false, status: 404, text: async () => '', json: async () => ({}) }),
     })
     const values = { network: 'BASE', address: '0xdef' }
     const results = await enrichWithTokenMetrics(values)
-    assert.equal(results.tokenLiquidity, '$5,000')
+    assert.equal(results.marketCap, '$5,000')
     assert.equal(results.tokenVolume24h, '$250')
     assert.equal(results.tokenHolders, 'n/a')
   })
@@ -112,7 +112,7 @@ describe('enrichWithTokenMetrics', () => {
     })
     const values = { network: 'MAINNET', address: '0xabc' }
     const results = await enrichWithTokenMetrics(values)
-    assert.equal(results.tokenLiquidity, 'n/a')
+    assert.equal(results.marketCap, 'n/a')
     assert.equal(results.tokenHolders, 'n/a')
   })
 
@@ -121,7 +121,7 @@ describe('enrichWithTokenMetrics', () => {
     global.fetch = fetchMock
     const values = { network: 'PLASMA', address: '0xabc' }
     const results = await enrichWithTokenMetrics(values)
-    assert.equal(results.tokenLiquidity, 'n/a')
+    assert.equal(results.marketCap, 'n/a')
     assert.equal(results.tokenHolders, 'n/a')
     assert.equal(fetchMock.mock.callCount(), 0)
     assert.equal(results.geckoTerminalUrl, 'https://www.geckoterminal.com')

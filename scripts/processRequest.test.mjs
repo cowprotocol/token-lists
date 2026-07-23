@@ -155,7 +155,7 @@ describe('processRequest', () => {
     assert.equal(info.network, 'POLYGON')
     assert.equal(info.chainId, 137)
     // Enrichment ran but the token is "unlisted" (404) -> n/a, PR still proceeds.
-    assert.equal(info.tokenLiquidity, 'n/a')
+    assert.equal(info.marketCap, 'n/a')
     assert.equal(info.tokenHolders, 'n/a')
     assert.equal(info.cmcUrl, 'https://dex.coinmarketcap.com/token/polygon/0x123/')
     assert.equal(info.geckoTerminalUrl, 'https://www.geckoterminal.com/polygon_pos/tokens/0x123')
@@ -186,7 +186,7 @@ describe('processRequest', () => {
 
     assert.equal(fetchMock.mock.callCount(), 0)
     const info = getIssueInfo(core)
-    assert.equal(info.tokenLiquidity, undefined)
+    assert.equal(info.marketCap, undefined)
   })
 
   it('handles errors', async () => {
