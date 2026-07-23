@@ -1,6 +1,6 @@
 // Fetch token market metrics for automated PR descriptions.
 //
-//   - Liquidity + 24h volume: GeckoTerminal public API (keyless, token-aggregate
+//   - marketCap + 24h volume: GeckoTerminal public API (keyless, token-aggregate
 //     across pools, documented JSON contract).
 //   - Holders: scraped from the CoinMarketCap DEX page — holder count is not
 //     exposed by GeckoTerminal, and CMC's free API does not provide it either.
@@ -21,7 +21,7 @@ export const NETWORK_TO_GECKOTERMINAL = {
   BNB: 'bsc',
   GNOSIS_CHAIN: 'xdai',
   LINEA: 'linea',
-  // PLASMA, INK: not on GeckoTerminal -> liquidity/volume stay 'n/a'.
+  // PLASMA, INK: not on GeckoTerminal -> marketCap/volume stay 'n/a'.
 }
 
 // token-lists network identifiers (NETWORK_CONFIG keys) -> CoinMarketCap DEX chain slug.
@@ -73,16 +73,16 @@ export function cmcTokenUrl(cmcSlug, address) {
   return `https://dex.coinmarketcap.com/token/${cmcSlug}/${address}/`
 }
 
-/** Fetch token-aggregate liquidity + 24h volume (USD) from GeckoTerminal. */
-export async function fetchLiquidityAndVolume({ gtNetwork, address }) {
+/** Fetch token-aggregate marketCap + 24h volume (USD) from GeckoTerminal. */
+export async function fetchMarketCapAndVolume({ gtNetwork, address }) {
   const url = `https://api.geckoterminal.com/api/v2/networks/${gtNetwork}/tokens/${address}`
   const res = await fetchWithRetry(url, { headers: { Accept: 'application/json' } })
   if (!res.ok) throw new Error(`GeckoTerminal returned HTTP ${res.status} for ${url}`)
 
   const attr = (await res.json())?.data?.attributes ?? {}
-  const liquidity = attr.total_reserve_in_usd != null ? Number(attr.total_reserve_in_usd) : null
+  const marketCap = attr.market_cap_usd != null ? Number(attr.market_cap_usd) : null
   const volume24h = attr.volume_usd?.h24 != null ? Number(attr.volume_usd.h24) : null
-  return { liquidity, volume24h }
+  return { marketCap, volume24h }
 }
 
 /** Scrape the holder count from the CoinMarketCap DEX page's __NEXT_DATA__ JSON. */
@@ -114,7 +114,7 @@ export function count(x) {
  * Enrich `results` with formatted token metrics. NEVER throws.
  *
  * Sets (all formatted strings, 'n/a' on miss):
- *   - tokenLiquidity, tokenVolume24h  (via GeckoTerminal)
+ *   - marketCap, tokenVolume24h  (via GeckoTerminal)
  *   - tokenHolders                    (scraped from CoinMarketCap)
  * and the source page URLs geckoTerminalUrl / cmcUrl (token pages when the
  * chain is mapped, otherwise the site homepages).
@@ -124,7 +124,7 @@ export function count(x) {
 export async function enrichWithTokenMetrics(values) {
   const results = { ...values }
 
-  results.tokenLiquidity = 'n/a'
+  results.marketCap = 'n/a'
   results.tokenVolume24h = 'n/a'
   results.tokenHolders = 'n/a'
   results.geckoTerminalUrl = 'https://www.geckoterminal.com'
@@ -133,16 +133,16 @@ export async function enrichWithTokenMetrics(values) {
   const network = String(values.network || '').toUpperCase()
   const address = values.address
 
-  // Liquidity + 24h volume via GeckoTerminal.
+  // market_cap_usd + 24h volume via GeckoTerminal.
   const gtNetwork = NETWORK_TO_GECKOTERMINAL[network]
   if (gtNetwork && address) {
     results.geckoTerminalUrl = geckoTerminalUrl(gtNetwork, address)
     try {
-      const { liquidity, volume24h } = await fetchLiquidityAndVolume({ gtNetwork, address })
-      results.tokenLiquidity = usd(liquidity)
+      const { marketCap, volume24h } = await fetchMarketCapAndVolume({ gtNetwork, address })
+      results.marketCap = usd(marketCap)
       results.tokenVolume24h = usd(volume24h)
     } catch (err) {
-      console.warn(`Could not fetch liquidity/volume for ${address}: ${err?.message ?? err}`)
+      console.warn(`Could not fetch marketCap/volume for ${address}: ${err?.message ?? err}`)
     }
   }
 
