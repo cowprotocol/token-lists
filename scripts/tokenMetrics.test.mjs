@@ -64,12 +64,12 @@ describe('enrichWithTokenMetrics', () => {
       cmc: () => cmcHtml({ holders: 12345 }),
     })
     const values = { network: 'MAINNET', address: '0xabc' }
-    await enrichWithTokenMetrics(values)
-    assert.equal(values.tokenLiquidity, '$1,234,568')
-    assert.equal(values.tokenVolume24h, '$98,765')
-    assert.equal(values.tokenHolders, '12,345')
-    assert.equal(values.geckoTerminalUrl, 'https://www.geckoterminal.com/eth/tokens/0xabc')
-    assert.equal(values.cmcUrl, 'https://dex.coinmarketcap.com/token/ethereum/0xabc/')
+    const results = await enrichWithTokenMetrics(values)
+    assert.equal(results.tokenLiquidity, '$1,234,568')
+    assert.equal(results.tokenVolume24h, '$98,765')
+    assert.equal(results.tokenHolders, '12,345')
+    assert.equal(results.geckoTerminalUrl, 'https://www.geckoterminal.com/eth/tokens/0xabc')
+    assert.equal(results.cmcUrl, 'https://dex.coinmarketcap.com/token/ethereum/0xabc/')
   })
 
   it('is independent: GeckoTerminal failure still yields holders', async () => {
@@ -81,10 +81,10 @@ describe('enrichWithTokenMetrics', () => {
       cmc: () => cmcHtml({ holders: 999 }),
     })
     const values = { network: 'MAINNET', address: '0xabc' }
-    await enrichWithTokenMetrics(values)
-    assert.equal(values.tokenLiquidity, 'n/a')
-    assert.equal(values.tokenVolume24h, 'n/a')
-    assert.equal(values.tokenHolders, '999')
+    const results = await enrichWithTokenMetrics(values)
+    assert.equal(results.tokenLiquidity, 'n/a')
+    assert.equal(results.tokenVolume24h, 'n/a')
+    assert.equal(results.tokenHolders, '999')
   })
 
   it('is independent: CMC scrape failure still yields liquidity/volume', async () => {
@@ -94,10 +94,10 @@ describe('enrichWithTokenMetrics', () => {
       cmc: () => ({ ok: false, status: 404, text: async () => '', json: async () => ({}) }),
     })
     const values = { network: 'BASE', address: '0xdef' }
-    await enrichWithTokenMetrics(values)
-    assert.equal(values.tokenLiquidity, '$5,000')
-    assert.equal(values.tokenVolume24h, '$250')
-    assert.equal(values.tokenHolders, 'n/a')
+    const results = await enrichWithTokenMetrics(values)
+    assert.equal(results.tokenLiquidity, '$5,000')
+    assert.equal(results.tokenVolume24h, '$250')
+    assert.equal(results.tokenHolders, 'n/a')
   })
 
   it('does not throw and defaults to n/a when both sources fail', async () => {
@@ -111,20 +111,20 @@ describe('enrichWithTokenMetrics', () => {
       },
     })
     const values = { network: 'MAINNET', address: '0xabc' }
-    await assert.doesNotReject(enrichWithTokenMetrics(values))
-    assert.equal(values.tokenLiquidity, 'n/a')
-    assert.equal(values.tokenHolders, 'n/a')
+    const results = await assert.doesNotReject(enrichWithTokenMetrics(values))
+    assert.equal(results.tokenLiquidity, 'n/a')
+    assert.equal(results.tokenHolders, 'n/a')
   })
 
   it('skips fetching for unmapped chains', async () => {
     const fetchMock = routedFetch({ gecko: () => geckoJson({}), cmc: () => cmcHtml({}) })
     global.fetch = fetchMock
     const values = { network: 'PLASMA', address: '0xabc' }
-    await enrichWithTokenMetrics(values)
-    assert.equal(values.tokenLiquidity, 'n/a')
-    assert.equal(values.tokenHolders, 'n/a')
+    const results = await enrichWithTokenMetrics(values)
+    assert.equal(results.tokenLiquidity, 'n/a')
+    assert.equal(results.tokenHolders, 'n/a')
     assert.equal(fetchMock.mock.callCount(), 0)
-    assert.equal(values.geckoTerminalUrl, 'https://www.geckoterminal.com')
-    assert.equal(values.cmcUrl, 'https://dex.coinmarketcap.com')
+    assert.equal(results.geckoTerminalUrl, 'https://www.geckoterminal.com')
+    assert.equal(results.cmcUrl, 'https://dex.coinmarketcap.com')
   })
 })
