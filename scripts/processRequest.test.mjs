@@ -1,4 +1,4 @@
-import { describe, it, mock } from 'node:test'
+import { describe, it, mock, afterEach } from 'node:test'
 import assert from 'node:assert/strict'
 
 import {
@@ -107,7 +107,25 @@ describe('validateFields', () => {
 
 describe('processRequest', () => {
   process.env.FIELD_NAMES = 'network,symbol,name,address,url,decimals,reason'
-  it('processes request', () => {
+
+  const originalFetch = global.fetch
+  afterEach(() => {
+    global.fetch = originalFetch
+    mock.restoreAll()
+  })
+
+  it('processes request', async () => {
+    // addToken triggers token-metrics enrichment (GeckoTerminal + CMC scrape) ->
+    // mock fetch so the unit test stays offline.
+    global.fetch = mock.fn(async () => ({
+      ok: false,
+      status: 404,
+      text: async () => '',
+      json: async () => ({}),
+    }))
+    // Enrichment hits the catch/warn path on a 404 -> stub console.warn so no warning leaks.
+    mock.method(console, 'warn', () => {})
+
     const body = `
       ### network
       POLYGON
@@ -131,14 +149,47 @@ describe('processRequest', () => {
     const context = createContext(body)
     const core = createMockCore()
 
-    processRequest(context, core)
+    await processRequest(context, core)
 
     const info = getIssueInfo(core)
     assert.equal(info.network, 'POLYGON')
     assert.equal(info.chainId, 137)
+    // Enrichment ran but the token is "unlisted" (404) -> n/a, PR still proceeds.
+    assert.equal(info.tokenLiquidity, 'n/a')
+    assert.equal(info.tokenHolders, 'n/a')
+    assert.equal(info.cmcUrl, 'https://dex.coinmarketcap.com/token/polygon/0x123/')
+    assert.equal(info.geckoTerminalUrl, 'https://www.geckoterminal.com/polygon_pos/tokens/0x123')
   })
 
-  it('handles errors', () => {
+  it('skips token-metrics enrichment for non-addToken operations', async () => {
+    const fetchMock = mock.fn(async () => ({
+      ok: false,
+      status: 404,
+      text: async () => '',
+      json: async () => ({}),
+    }))
+    global.fetch = fetchMock
+
+    const body = `
+      ### network
+      MAINNET
+
+      ### reason
+      No longer needed
+
+      ### address
+      0x123`
+    const context = createContext(body, ['removeToken'])
+    const core = createMockCore()
+
+    await processRequest(context, core)
+
+    assert.equal(fetchMock.mock.callCount(), 0)
+    const info = getIssueInfo(core)
+    assert.equal(info.tokenLiquidity, undefined)
+  })
+
+  it('handles errors', async () => {
     const errorCases = [
       { labels: ['invalid'], pattern: /No valid operation/ },
       { labels: ['addToken'], pattern: /Missing required/ },
@@ -147,7 +198,7 @@ describe('processRequest', () => {
     for (const { labels, pattern } of errorCases) {
       const context = createContext('### network\nMAINNET', labels)
       const core = createMockCore()
-      assert.throws(() => processRequest(context, core), pattern)
+      await assert.rejects(processRequest(context, core), pattern)
     }
   })
 })

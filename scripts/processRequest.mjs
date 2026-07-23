@@ -1,3 +1,5 @@
+import { enrichWithTokenMetrics } from './tokenMetrics.mjs'
+
 export const NETWORK_CONFIG = {
   MAINNET: { chainId: 1, blockExplorer: 'etherscan.io' },
   ARBITRUM_ONE: { chainId: 42161, blockExplorer: 'arbiscan.io' },
@@ -66,7 +68,7 @@ export const validateFields = (operation, values) => {
   }
 }
 
-export const processRequest = (context, core) => {
+export const processRequest = async (context, core) => {
   const { issue } = context.payload
   const body = issue.body
   const labels = issue.labels.map((label) => label.name)
@@ -81,7 +83,11 @@ export const processRequest = (context, core) => {
   const operation = getOperation(labels)
   validateFields(operation, values)
 
+  // Enrich addToken PRs with token metrics (liquidity/volume + holders).
+  // Never throws / never blocks.
+  const result = operation === 'addToken' ? await enrichWithTokenMetrics(values) : values
+
   core.setOutput('operation', operation)
-  core.setOutput('issueInfo', JSON.stringify(values))
+  core.setOutput('issueInfo', JSON.stringify(result))
   core.setOutput('needsImageOptimization', ['addImage', 'addToken'].includes(operation))
 }

@@ -41,7 +41,7 @@ jobs:
         with:
           script:
             const { processRequest } = await import("${{github.workspace}}/scripts/processRequest.mjs");
-            processRequest(context, core);
+            await processRequest(context, core);
 
       - name: Handle validation errors
         if: failure()
@@ -80,6 +80,14 @@ jobs:
         |-|-|
         | Original | ![original](${{ fromJSON(needs.process-request.outputs.issueInfo).url }}) |
         | Optimized | ![optimized](${{ format(fromJSON(needs.process-request.outputs.issueInfo).prImageUrl, 'addToken') }}) |
+
+        ### Token metrics
+
+        | Liquidity | 24h Volume | Holders |
+        |-----------|-----------|---------|
+        | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenLiquidity }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenVolume24h }} | ${{ fromJSON(needs.process-request.outputs.issueInfo).tokenHolders }} |
+
+        Liquidity & 24h volume via [GeckoTerminal ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).geckoTerminalUrl }}) · holders via [CoinMarketCap ↗︎](${{ fromJSON(needs.process-request.outputs.issueInfo).cmcUrl }})
 
         ### Reason
 
