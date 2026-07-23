@@ -111,7 +111,7 @@ describe('enrichWithTokenMetrics', () => {
       },
     })
     const values = { network: 'MAINNET', address: '0xabc' }
-    const results = await assert.doesNotReject(enrichWithTokenMetrics(values))
+    const results = await enrichWithTokenMetrics(values)
     assert.equal(results.tokenLiquidity, 'n/a')
     assert.equal(results.tokenHolders, 'n/a')
   })
