@@ -122,7 +122,7 @@ export function count(x) {
  * The two sources are independent: a failure in one never affects the other.
  */
 export async function enrichWithTokenMetrics(values) {
-  const results = {}
+  const results = { ...values }
 
   results.tokenLiquidity = 'n/a'
   results.tokenVolume24h = 'n/a'
