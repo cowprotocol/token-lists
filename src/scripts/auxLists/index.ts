@@ -11,6 +11,8 @@ OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0xe91d153e0b41518a2ce8dd3d7944fa863463
   name: 'Wrapped xDAI',
 } // incorrect symbol and name set on CoinGecko's list
 OVERRIDES[SupportedChainId.POLYGON]['0x0000000000000000000000000000000000001010'] = null // POL native token address
+OVERRIDES[SupportedChainId.MAINNET]['0x3231cb76718cdef2155fc47b5286d82e6eda273f'] = null // Legacy EURe
+OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0x3231cb76718cdef2155fc47b5286d82e6eda273f'] = null // Legacy EURe
 
 async function main(): Promise<void> {
   const COINGECKO_IDS_MAP = await getCoingeckoTokenIdsMap()
