@@ -3,13 +3,15 @@ import type { TokenList } from '@uniswap/token-lists'
 import { argv, exit } from 'node:process'
 import { ARBITRUM_BRIDGE_ABI } from '../abi/abitrumBridgeAbi'
 import { OMNIBRIDGE_CONTRACT_ABI } from '../abi/omnibridgeAbi'
-import coingeckoList from '../public/CoinGecko.json' assert { type: 'json' }
 import { OMNIBRIDGE_ADDRESS, UNISWAP_TOKENS_LIST } from './const'
 import { generateBridgedList } from './generateBridgeList'
 import { ARBITRUM_BRIDGE_ADDRESS, TOKENS_TO_REPLACE as TOKENS_TO_REPLACE_ARBITRUM } from './arbitrum/const'
 import path from 'node:path'
+import { readFileSync } from 'node:fs'
 import { ROOT_PATH } from './utils/file'
 import { readTokensCsv } from './utils/tokens'
+
+const coingeckoList: TokenList = JSON.parse(readFileSync(path.join(ROOT_PATH, 'public/CoinGecko.json'), 'utf-8'))
 
 const [, , chainId, listSource = 'coingecko'] = argv
 

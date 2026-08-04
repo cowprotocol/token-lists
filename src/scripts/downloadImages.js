@@ -1,8 +1,11 @@
-import cowSwapList from '../public/CowSwap.json' assert { type: 'json' }
-import { createWriteStream, existsSync, mkdirSync } from 'fs'
+import { createWriteStream, existsSync, mkdirSync, readFileSync } from 'fs'
 import { Readable } from 'stream'
 import path, { dirname } from 'path'
 import { fileURLToPath } from 'url'
+
+const cowSwapList = JSON.parse(
+  readFileSync(path.join(dirname(fileURLToPath(import.meta.url)), '../public/CowSwap.json'), 'utf-8'),
+)
 
 async function ensureDirectoryExists(filePath) {
   const dir = path.dirname(filePath)

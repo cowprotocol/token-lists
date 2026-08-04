@@ -1,9 +1,9 @@
 {
   "name": "Uniswap Labs Default",
-  "timestamp": "2024-04-29T18:27:01.188Z",
+  "timestamp": "2026-07-16T22:27:30.508Z",
   "version": {
-    "major": 11,
-    "minor": 23,
+    "major": 22,
+    "minor": 6,
     "patch": 0
   },
   "tags": {},
@@ -19,7 +19,7 @@
       "name": "1inch",
       "symbol": "1INCH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/13469/thumb/1inch-logo.jpeg?1759404663"
+      "logoURI": "https://assets.coingecko.com/coins/images/13469/thumb/1inch-token.png?1608803028"
     },
     {
       "chainId": 100,
@@ -31,7 +31,7 @@
     },
     {
       "chainId": 100,
-      "address": "0x55b6228758fcdb9135db500bc184473ad5fccd98",
+      "address": "0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7",
       "name": "agEur",
       "symbol": "agEUR",
       "decimals": 18,
@@ -87,14 +87,6 @@
     },
     {
       "chainId": 100,
-      "address": "0xaf3e09f831dc59c709da1ba20dd0d9602635a6c0",
-      "name": "Axelar",
-      "symbol": "AXL",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/27277/large/V-65_xQ1_400x400.jpeg"
-    },
-    {
-      "chainId": 100,
       "address": "0x0987c6b9357dee87404dfea0483c337de530be5a",
       "name": "Axie Infinity",
       "symbol": "AXS",
@@ -132,6 +124,14 @@
       "symbol": "BAT",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/677/thumb/basic-attention-token.png?1547034427"
+    },
+    {
+      "chainId": 100,
+      "address": "0x3801127c5a3254e432492498cae8fbce99e7cbab",
+      "name": "HarryPotterObamaSonic10Inu",
+      "symbol": "BITCOIN",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/30323/large/hpos10i_logo_casino_night-dexview.png?1696529224"
     },
     {
       "name": "Bancor Network Token",
@@ -190,20 +190,20 @@
       "logoURI": "https://assets.coingecko.com/coins/images/588/thumb/coval-logo.png?1599493950"
     },
     {
+      "chainId": 100,
+      "address": "0x177127622c4a00f3d409b75571e12cb3c8973d3c",
+      "name": "CoW Protocol",
+      "symbol": "COW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/24384/large/CoW-token_logo.png?1719524382"
+    },
+    {
       "name": "Curve DAO Token",
       "address": "0x712b3d230f3c1c19db860d80619288b1f0bdd0bd",
       "symbol": "CRV",
       "decimals": 18,
       "chainId": 100,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xD533a949740bb3306d119CC777fa900bA034cd52/logo.png"
-    },
-    {
-      "name": "Dai Stablecoin",
-      "address": "0x44fa8e6f47987339850636f88629646662444217",
-      "symbol": "DAI",
-      "decimals": 18,
-      "chainId": 100,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png"
     },
     {
       "chainId": 100,
@@ -241,7 +241,7 @@
       "chainId": 100,
       "address": "0x54e4cb2a4fa0ee46e3d9a98d13bea119666e09f6",
       "name": "Euro Coin",
-      "symbol": "EUROC",
+      "symbol": "EURC",
       "decimals": 6,
       "logoURI": "https://assets.coingecko.com/coins/images/26045/thumb/euro-coin.png?1655394420"
     },
@@ -284,14 +284,6 @@
       "decimals": 18,
       "chainId": 100,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6810e776880C02933D47DB1b9fc05908e5386b96/logo.png"
-    },
-    {
-      "chainId": 100,
-      "address": "0xfadc59d012ba3c110b08a15b7755a5cb7cbe77d7",
-      "name": "The Graph",
-      "symbol": "GRT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/13397/thumb/Graph_Token.png?1608145566"
     },
     {
       "chainId": 100,
@@ -372,14 +364,6 @@
       "decimals": 18,
       "chainId": 100,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png"
-    },
-    {
-      "chainId": 100,
-      "address": "0x7db0be7a41b5395268e065776e800e27181c81ab",
-      "name": "Livepeer",
-      "symbol": "LPT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/7137/thumb/logo-circle-green.png?1619593365"
     },
     {
       "name": "LoopringCoin V2",
@@ -487,6 +471,14 @@
     },
     {
       "chainId": 100,
+      "address": "0x4efdfbb7cca540a79a7e4dcad1cb6ed14f21c43e",
+      "name": "OKB",
+      "symbol": "OKB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/4463/large/WeChat_Image_20220118095654.png?1696505053"
+    },
+    {
+      "chainId": 100,
       "address": "0x8395f7123ba3ffad52e7414433d825931c81c879",
       "name": "OMG Network",
       "symbol": "OMG",
@@ -516,6 +508,14 @@
       "symbol": "POLS",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/12648/thumb/polkastarter.png?1609813702"
+    },
+    {
+      "chainId": 100,
+      "address": "0x410f618611493a03f1050db8fc66bbddf9061868",
+      "name": "PayPal USD",
+      "symbol": "PYUSD",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/31212/large/PYUSD_Logo_%282%29.png?1691458314"
     },
     {
       "chainId": 100,
@@ -591,6 +591,14 @@
     },
     {
       "chainId": 100,
+      "address": "0xf1b806cc3a104bbf0cb9d5411adf8bbca9f584f3",
+      "name": "Reserve Rights",
+      "symbol": "RSR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/8365/large/RSR_Blue_Circle_1000.png?1721777856"
+    },
+    {
+      "chainId": 100,
       "address": "0x4d18815d14fe5c3304e87b3fa18318baa5c23820",
       "name": "Safe",
       "symbol": "SAFE",
@@ -636,6 +644,14 @@
       "symbol": "SOCKS",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/10717/thumb/qFrcoiM.png?1582525244"
+    },
+    {
+      "chainId": 100,
+      "address": "0xab45c07de0ad06dacc48f802c3506e54ba8d58e1",
+      "name": "SOL Wormhole ",
+      "symbol": "SOL",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/22876/thumb/SOL_wh_small.png?1644224316"
     },
     {
       "name": "Storj Token",
@@ -726,20 +742,12 @@
       "logoURI": "ipfs://QmXttGpZrECX5qCyXbBQiqgQNytVGeZW5Anewvh2jc4psg"
     },
     {
-      "name": "USDCoin",
-      "address": "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83",
-      "symbol": "USDC",
-      "decimals": 6,
       "chainId": 100,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
-    },
-    {
-      "name": "Tether USD",
-      "address": "0x4ecaba5870353805a9f068101a40e0f32ed605c6",
-      "symbol": "USDT",
-      "decimals": 6,
-      "chainId": 100,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+      "address": "0xf992e7e717255ee2180e6443c23e09ededbf7887",
+      "name": "Pax Dollar",
+      "symbol": "USDP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/6013/standard/Pax_Dollar.png?1696506427"
     },
     {
       "name": "Wrapped BTC",
@@ -748,14 +756,6 @@
       "decimals": 8,
       "chainId": 100,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png"
-    },
-    {
-      "name": "Wrapped Ether",
-      "address": "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1",
-      "symbol": "WETH",
-      "decimals": 18,
-      "chainId": 100,
-      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
     },
     {
       "chainId": 100,

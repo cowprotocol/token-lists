@@ -12,7 +12,7 @@ import {
   TokenInfo,
 } from './utils'
 
-const UNISWAP_LIST = 'https://gateway.ipfs.io/ipns/tokens.uniswap.org'
+const UNISWAP_LIST = 'https://ipfs.io/ipns/tokens.uniswap.org'
 const UNISWAP_LOGO = 'ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir'
 
 interface TokenMap {
