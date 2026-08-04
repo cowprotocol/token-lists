@@ -1,10 +1,10 @@
 {
   "name": "CoinGecko",
-  "timestamp": "2024-05-24T13:35:46.782Z",
+  "timestamp": "2026-08-04T09:33:08.784Z",
   "version": {
     "major": 0,
-    "minor": 8,
-    "patch": 0
+    "minor": 0,
+    "patch": 1
   },
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
   "keywords": [
@@ -25,7 +25,7 @@
       "chainId": 42161,
       "name": "USD Coin",
       "symbol": "USDC",
-      "logoURI": "https://assets.coingecko.com/coins/images/6319/thumb/usdc.png?1696506694",
+      "logoURI": "https://assets.coingecko.com/coins/images/6319/thumb/USDC.png?1769615602",
       "decimals": 6,
       "address": "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
       "extensions": {}
@@ -42,7 +42,7 @@
       "chainId": 42161,
       "name": "Wrapped BTC",
       "symbol": "WBTC",
-      "logoURI": "https://assets.coingecko.com/coins/images/7598/thumb/wrapped_bitcoin_wbtc.png?1696507857",
+      "logoURI": "https://assets.coingecko.com/coins/images/7598/thumb/WBTCLOGO.png?1764496367",
       "decimals": 8,
       "address": "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
       "extensions": {}
@@ -51,7 +51,7 @@
       "chainId": 42161,
       "name": "Arbitrum",
       "symbol": "ARB",
-      "logoURI": "https://assets.coingecko.com/coins/images/16547/thumb/photo_2023-03-29_21.47.00.jpeg?1696516109",
+      "logoURI": "https://assets.coingecko.com/coins/images/16547/thumb/arb.jpg?1721358242",
       "decimals": 18,
       "address": "0x912ce59144191c1204e64559fe8253a0e49e6548",
       "extensions": {}
@@ -75,7 +75,7 @@
     },
     {
       "chainId": 42161,
-      "name": "Tether USD",
+      "name": "USD₮0",
       "symbol": "USDT",
       "logoURI": "https://assets.coingecko.com/coins/images/325/thumb/Tether.png?1696501661",
       "decimals": 6,
@@ -92,12 +92,10 @@
     },
     {
       "chainId": 42161,
+      "address": "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
       "name": "ChainLink Token",
       "symbol": "LINK",
-      "logoURI": "https://assets.coingecko.com/coins/images/877/thumb/chainlink-new-logo.png?1696502009",
-      "decimals": 18,
-      "address": "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
-      "extensions": {}
+      "decimals": 18
     },
     {
       "chainId": 42161,
@@ -109,10 +107,12 @@
     },
     {
       "chainId": 42161,
-      "address": "0xcb8b5cd20bdcaea9a010ac1f8d835824f5c87a04",
       "name": "CoW Protocol Token",
       "symbol": "COW",
-      "decimals": 18
+      "logoURI": "https://assets.coingecko.com/coins/images/24384/thumb/CoW-token_logo.png?1719524382",
+      "decimals": 18,
+      "address": "0xcb8b5cd20bdcaea9a010ac1f8d835824f5c87a04",
+      "extensions": {}
     },
     {
       "chainId": 42161,
@@ -133,11 +133,12 @@
     },
     {
       "chainId": 42161,
-      "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
       "name": "Wrapped Ether",
       "symbol": "WETH",
+      "logoURI": "https://files.cow.fi/token-lists/images/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1/logo.png",
       "decimals": 18,
-      "logoURI": "https://files.cow.fi/token-lists/images/42161/0x82af49447d8a07e3bd95bd0d56f35241523fbab1/logo.png"
+      "address": "0x82af49447d8a07e3bd95bd0d56f35241523fbab1",
+      "extensions": {}
     },
     {
       "chainId": 42161,
@@ -185,12 +186,11 @@
     },
     {
       "chainId": 42161,
+      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
       "name": "Renzo Restaked ETH",
       "symbol": "ezETH",
-      "logoURI": "https://ipfs.io/ipfs/QmQHcvw2CXmdTvjcuwrH1HtPdfDTQ4WaCY2gG4RCFtQuwd/ezeth.png",
       "decimals": 18,
-      "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
-      "extensions": {}
+      "logoURI": "https://ipfs.io/ipfs/QmQHcvw2CXmdTvjcuwrH1HtPdfDTQ4WaCY2gG4RCFtQuwd/ezeth.png"
     },
     {
       "chainId": 42161,
@@ -229,25 +229,23 @@
       "chainId": 42161,
       "name": "Frax",
       "symbol": "FRAX",
-      "logoURI": "https://assets.coingecko.com/coins/images/13422/thumb/FRAX_icon.png?1696513182",
+      "logoURI": "https://assets.coingecko.com/coins/images/13422/thumb/LFRAX.png?1751911193",
       "decimals": 18,
       "address": "0x17fc002b466eec40dae837fc4be5c67993ddbd6f",
       "extensions": {}
     },
     {
       "chainId": 42161,
+      "address": "0xcafcd85d8ca7ad1e1c6f82f651fa15e33aefd07b",
       "name": "Wootrade Network",
       "symbol": "WOO",
-      "logoURI": "https://assets.coingecko.com/coins/images/12921/thumb/WOO_Logos_2023_Profile_Pic_WOO.png?1696512709",
-      "decimals": 18,
-      "address": "0xcafcd85d8ca7ad1e1c6f82f651fa15e33aefd07b",
-      "extensions": {}
+      "decimals": 18
     },
     {
       "chainId": 42161,
       "name": "Livepeer Token",
       "symbol": "LPT",
-      "logoURI": "https://assets.coingecko.com/coins/images/7137/thumb/logo-circle-green.png?1696507437",
+      "logoURI": "https://assets.coingecko.com/coins/images/7137/thumb/badge-logo-circuit-green.png?1719357686",
       "decimals": 18,
       "address": "0x289ba1701c2f088cf0faf8b3705246331cb8a839",
       "extensions": {}
@@ -270,30 +268,27 @@
     },
     {
       "chainId": 42161,
+      "address": "0x561877b6b3dd7651313794e5f2894b2f18be0766",
       "name": "Polygon",
       "symbol": "MATIC",
-      "logoURI": "https://assets.coingecko.com/coins/images/4713/thumb/polygon.png?1698233745",
       "decimals": 18,
-      "address": "0x561877b6b3dd7651313794e5f2894b2f18be0766",
-      "extensions": {}
+      "logoURI": "https://assets.coingecko.com/coins/images/4713/thumb/polygon.png?1698233745"
     },
     {
       "chainId": 42161,
+      "address": "0xc8a4eea31e9b6b61c406df013dd4fec76f21e279",
       "name": "Render",
       "symbol": "RNDR",
-      "logoURI": "https://assets.coingecko.com/coins/images/11636/thumb/rndr.png?1696511529",
       "decimals": 18,
-      "address": "0xc8a4eea31e9b6b61c406df013dd4fec76f21e279",
-      "extensions": {}
+      "logoURI": "https://assets.coingecko.com/coins/images/11636/thumb/rndr.png?1696511529"
     },
     {
       "chainId": 42161,
+      "address": "0x2e9a6df78e42a30712c10a9dc4b1c8656f8f2879",
       "name": "Maker",
       "symbol": "MKR",
-      "logoURI": "https://assets.coingecko.com/coins/images/1364/thumb/Mark_Maker.png?1696502423",
       "decimals": 18,
-      "address": "0x2e9a6df78e42a30712c10a9dc4b1c8656f8f2879",
-      "extensions": {}
+      "logoURI": "https://assets.coingecko.com/coins/images/1364/thumb/Mark_Maker.png?1696502423"
     },
     {
       "chainId": 42161,
@@ -315,21 +310,19 @@
     },
     {
       "chainId": 42161,
+      "address": "0xb766039cc6db368759c1e56b79affe831d0cc507",
       "name": "Rocket Pool",
       "symbol": "RPL",
-      "logoURI": "https://assets.coingecko.com/coins/images/2090/thumb/rocket_pool_%28RPL%29.png?1696503058",
       "decimals": 18,
-      "address": "0xb766039cc6db368759c1e56b79affe831d0cc507",
-      "extensions": {}
+      "logoURI": "https://assets.coingecko.com/coins/images/2090/thumb/rocket_pool_%28RPL%29.png?1696503058"
     },
     {
       "chainId": 42161,
+      "address": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
       "name": "Balancer",
       "symbol": "BAL",
-      "logoURI": "https://assets.coingecko.com/coins/images/11683/thumb/Balancer.png?1696511572",
       "decimals": 18,
-      "address": "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
-      "extensions": {}
+      "logoURI": "https://assets.coingecko.com/coins/images/11683/thumb/Balancer.png?1696511572"
     },
     {
       "chainId": 42161,
@@ -381,12 +374,10 @@
     },
     {
       "chainId": 42161,
+      "address": "0x539bde0d7dbd336b79148aa742883198bbf60342",
       "name": "MAGIC",
       "symbol": "MAGIC",
-      "logoURI": "https://assets.coingecko.com/coins/images/18623/thumb/magic.png?1696518095",
-      "decimals": 18,
-      "address": "0x539bde0d7dbd336b79148aa742883198bbf60342",
-      "extensions": {}
+      "decimals": 18
     },
     {
       "chainId": 42161,
