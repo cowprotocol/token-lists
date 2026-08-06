@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 0,
-    "minor": 44,
+    "minor": 45,
     "patch": 0
   },
   "tokens": [
@@ -3335,9 +3335,32 @@
           }
         }
       }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x2D0012e68c4778E29B1E2f5E8f0453f8c36B666a",
+      "name": "Fidelity Digital Dollar",
+      "symbol": "FIDD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102171776/large/FIDD-Green_%28792px%29.png?1769612802",
+      "extensions": {
+        "bridgeInfo": {
+          "1": {
+            "tokenAddress": "0x7C135549504245B5eAe64fc0E99Fa5ebabb8e35D"
+          }
+        }
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x26C358F7c5fEdB20a6ddEf108cD91Efb6B8Da0Cb",
+      "name": "Stable Mint USD",
+      "symbol": "USDSM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102173681/standard/USDSM-logo-2.png?1780931561"
     }
   ],
   "name": "Uniswap on Arbitrum one",
   "logoURI": "ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir",
-  "timestamp": "2026-06-05T00:26:58.997Z"
+  "timestamp": "2026-08-06T00:17:59.777Z"
 }
