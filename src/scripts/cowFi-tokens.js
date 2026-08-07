@@ -3,14 +3,12 @@ import path from 'path'
 
 import pThrottle from 'p-throttle'
 
-const USE_CACHE = (process.env.USE_CACHE ?? 'true') === 'true'
 const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
 const COINGECKO_API_BASE = 'https://pro-api.coingecko.com/api/v3'
 
 const cowListUrl = 'https://files.cow.fi/tokens/CowSwap.json'
 
 const LIST_DIR = path.join('src', 'cowFi')
-const CANDIDATES_CACHE_PATH = path.join(LIST_DIR, 'TEMP-candidates-raw.json')
 const CUSTOM_DESCRIPTION_PATH = path.join('src', 'files', 'description.json')
 
 const IDS_FILE_NAME_FINAL = 'cowFi-tokenIds.json'
@@ -124,19 +122,6 @@ export function filterCandidates(coingeckoList, cowFiAddressesByChain) {
   return candidates
 }
 
-async function getCandidates(cowFiAddressesByChain) {
-  if (USE_CACHE && fs.existsSync(CANDIDATES_CACHE_PATH)) {
-    return JSON.parse(fs.readFileSync(CANDIDATES_CACHE_PATH, 'utf8'))
-  }
-
-  const coingeckoList = await fetchCoingecko('/coins/list?include_platform=true&status=active')
-  const candidates = filterCandidates(coingeckoList, cowFiAddressesByChain)
-
-  writeFile(LIST_DIR, path.basename(CANDIDATES_CACHE_PATH), candidates)
-
-  return candidates
-}
-
 export function sortByMarketCapDesc(candidates, marketCapById) {
   return [...candidates].sort((a, b) => (marketCapById.get(b.id) ?? 0) - (marketCapById.get(a.id) ?? 0))
 }
@@ -198,7 +183,8 @@ async function main() {
 
   const cowFiAddressesByChain = await getCowFiAddressesByChain()
 
-  const candidates = await getCandidates(cowFiAddressesByChain)
+  const coingeckoList = await fetchCoingecko('/coins/list?include_platform=true&status=active')
+  const candidates = filterCandidates(coingeckoList, cowFiAddressesByChain)
   console.log(`Candidates after address/platform filter: ${candidates.length}`)
 
   const ranked = await rankByMarketCap(candidates)

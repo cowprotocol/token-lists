@@ -36,7 +36,7 @@ jobs:
       - name: Generate token lists for cow.fi
         env:
           COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
-        run: USE_CACHE=false yarn cowFi:tokens
+        run: yarn cowFi:tokens
 
       - name: Upload artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
