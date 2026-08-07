@@ -3,6 +3,7 @@ name: 'Cron: cow.fi tokens list'
 on:
   schedule:
     - cron: '0 */3 * * *' # Every 3 hours
+  workflow_dispatch:
 
 # Required for authenticating with AWS IAM
 permissions:
