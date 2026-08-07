@@ -1,7 +1,6 @@
 import fs from 'fs'
 import path from 'path'
 
-import _ from 'lodash'
 import pThrottle from 'p-throttle'
 
 const USE_CACHE = (process.env.USE_CACHE ?? 'true') === 'true'
@@ -143,10 +142,11 @@ export function sortByMarketCapDesc(candidates, marketCapById) {
 }
 
 async function rankByMarketCap(candidates) {
-  const chunks = _.chunk(
-    candidates.map(({ id }) => id),
-    MARKET_API_CHUNK_SIZE,
-  )
+  const ids = candidates.map(({ id }) => id)
+  const chunks = []
+  for (let index = 0; index < ids.length; index += MARKET_API_CHUNK_SIZE) {
+    chunks.push(ids.slice(index, index + MARKET_API_CHUNK_SIZE))
+  }
 
   const pages = await Promise.all(
     chunks.map((ids) =>
