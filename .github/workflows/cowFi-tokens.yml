@@ -3,16 +3,24 @@ name: 'Cron: cow.fi tokens list'
 on:
   schedule:
     - cron: '0 */3 * * *' # Every 3 hours
+  workflow_dispatch:
 
 # Required for authenticating with AWS IAM
 permissions:
   id-token: write
   contents: read
 
+# Prevent overlapping runs: with the fetch now taking minutes instead of hours this shouldn't trigger
+# in practice, but it's cheap insurance against a slow CoinGecko incident causing another overlap.
+concurrency:
+  group: cowfi-tokens
+  cancel-in-progress: true
+
 jobs:
   generate-and-upload:
     name: Generate and Upload cow.fi tokens
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout code
@@ -26,7 +34,9 @@ jobs:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
       - name: Generate token lists for cow.fi
-        run: USE_CACHE=false yarn cowFi:tokens
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+        run: yarn cowFi:tokens
 
       - name: Upload artifact
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
