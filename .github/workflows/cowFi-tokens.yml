@@ -9,10 +9,17 @@ permissions:
   id-token: write
   contents: read
 
+# Prevent overlapping runs: with the fetch now taking minutes instead of hours this shouldn't trigger
+# in practice, but it's cheap insurance against a slow CoinGecko incident causing another overlap.
+concurrency:
+  group: cowfi-tokens
+  cancel-in-progress: true
+
 jobs:
   generate-and-upload:
     name: Generate and Upload cow.fi tokens
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout code
@@ -26,6 +33,8 @@ jobs:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
       - name: Generate token lists for cow.fi
+        env:
+          COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
         run: USE_CACHE=false yarn cowFi:tokens
 
       - name: Upload artifact
