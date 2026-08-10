@@ -111,6 +111,24 @@ describe('requestWithRetries', () => {
     assert.deepEqual(delays, [2000])
   })
 
+  it('uses exponential backoff when Retry-After is missing', async () => {
+    let calls = 0
+    const delays = []
+
+    await requestWithRetries(
+      async () => {
+        calls++
+        return calls === 1
+          ? { ok: false, status: 429, headers: new Headers() }
+          : { ok: true, json: async () => ({ id: 'token' }) }
+      },
+      async (delay) => delays.push(delay),
+    )
+
+    assert.equal(calls, 2)
+    assert.deepEqual(delays, [1000])
+  })
+
   it('does not retry a permanent response', async () => {
     let calls = 0
 

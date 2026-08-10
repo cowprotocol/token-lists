@@ -39,7 +39,7 @@ async function fetchJson(url) {
 const throttledFetch = pThrottle({ limit: COINGECKO_REQUESTS_PER_MINUTE, interval: 60_000 })(fetch)
 
 function getRetryDelay(retryAfter, attempt) {
-  const retryAfterMs = Number(retryAfter) * 1000
+  const retryAfterMs = Number.parseFloat(retryAfter) * 1000
   return Number.isFinite(retryAfterMs) && retryAfterMs >= 0
     ? Math.min(retryAfterMs, MAX_RETRY_AFTER_MS)
     : 1000 * 2 ** attempt
