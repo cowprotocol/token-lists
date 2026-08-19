@@ -1,4 +1,5 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import * as fs from 'fs'
 import { Logger } from 'winston'
 import { processTokenList } from './processTokenList'
 import {
@@ -20,11 +21,15 @@ const MARKET_API_CHUNK_SIZE = 250
 
 interface MarketData {
   id: string
+  circulating_supply: number | null
+  total_supply: number | null
   total_volume: number
 }
 
 interface TokenWithVolume {
   token: TokenInfo
+  circulatingSupply: number | null
+  totalSupply: number | null
   volume: number
 }
 
@@ -94,16 +99,22 @@ async function processTokenChunk(
   const volumeData = await chunk.volume
   const ids = coingeckoIdsMap[coingeckoChainName]
 
-  const volumeMap = volumeData.reduce<Record<string, number>>((acc, cur: MarketData) => {
-    if (cur.total_volume && ids[cur.id]) {
-      acc[ids[cur.id]] = cur.total_volume
+  const marketDataMap = volumeData.reduce<Record<string, MarketData>>((acc, cur) => {
+    if (ids[cur.id]) {
+      acc[ids[cur.id]] = cur
     }
     return acc
   }, {})
 
   return chunk.tokens.reduce<TokenWithVolume[]>((acc, token: TokenInfo) => {
-    if (volumeMap[token.address]) {
-      acc.push({ token, volume: volumeMap[token.address] })
+    const marketData = marketDataMap[token.address]
+    if (marketData?.total_volume) {
+      acc.push({
+        token,
+        circulatingSupply: marketData.circulating_supply,
+        totalSupply: marketData.total_supply,
+        volume: marketData.total_volume,
+      })
     }
     return acc
   }, [])
@@ -147,6 +158,23 @@ async function fetchAndProcessCoingeckoTokensForChain(
       console.log(`No tokens found for chain ${chainId} for list CoinGecko`)
       return
     }
+
+    fs.writeFileSync(
+      `src/public/TokenSupply.${chainId}.json`,
+      JSON.stringify(
+        {
+          timestamp: new Date().toISOString(),
+          tokens: Object.fromEntries(
+            topTokens.map(({ token, circulatingSupply, totalSupply }) => [
+              token.address.toLowerCase(),
+              { circulatingSupply, totalSupply },
+            ]),
+          ),
+        },
+        null,
+        2,
+      ),
+    )
 
     await processTokenList({
       chainId,
