@@ -1,0 +1,10 @@
+{
+  "removed": false,
+  "address": "0xe0c0f44a84cc4a60206360006eba237a5e8fc2dd",
+  "symbol": "STBU",
+  "name": "Stobox Token",
+  "logoURI": "https://files.cow.fi/token-lists/images/8453/0xe0c0f44a84cc4a60206360006eba237a5e8fc2dd/logo.png",
+  "reason": "STBU is the utility token of Stobox (stobox.io, RWA tokenization company founded in 2018). This is the single live contract after the migration of the legacy STBU tokens from Ethereum, BNB Chain, Polygon and Arbitrum to Base in September 2026. Source is verified on BaseScan, Blockscout and Sourcify (full match): https://repo.sourcify.dev/8453/0xe0c0F44A84CC4a60206360006ebA237a5e8fC2dd. The token is listed on CoinGecko (stobox-token) with this Base contract and on GeckoTerminal. Token page with the address and holder safety notes: https://www.stobox.io/stbu and https://www.stobox.io/stbu/safety. Liquidity: one Uniswap v4 pool STBU/USDC on Base, about 28,000 USD at the time of writing, pool id 0x28bd1d1afcc57d766c5d1c5c38bd8beb376a0c98de719460cdcef60900f7b8b5 (the pool uses a fee hook, so solver routing may need v4 hook support). We have not yet traded it on CoW Swap. If the liquidity is below your bar for the default list, please treat this as an image-only request (issue #1510). Thank you.",
+  "decimals": 18,
+  "chainId": 8453
+}
