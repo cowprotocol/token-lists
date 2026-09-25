@@ -27,7 +27,9 @@ jobs:
           URL: ${{ inputs.url }}
 
       - name: Install dependencies
-        run: sudo apt install imagemagick librsvg2-bin
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y imagemagick librsvg2-bin
 
       - name: Optimze image
         run: |
