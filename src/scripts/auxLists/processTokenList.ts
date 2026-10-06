@@ -3,7 +3,7 @@ import { TokenList } from '@uniswap/token-lists'
 import * as fs from 'fs'
 import path from 'path'
 import { Logger } from 'winston'
-import { DISPLAY_CHAIN_NAMES, Overrides, TokenInfo } from './utils'
+import { DISPLAY_CHAIN_NAMES, Overrides, TokenInfo } from './utils.js'
 
 const FORMATTER = new Intl.NumberFormat('en-us', { style: 'currency', currency: 'USD' })
 
