@@ -40,7 +40,8 @@ export function writeTokenListToSrc(outputPath: string, tokenList: TokenList) {
 }
 
 export async function getTokenListVersion(fileName: string): Promise<TokenList['version']> {
-  return import(`../public/${fileName}`, {assert: { type: 'json' }}).then(({default: res}) => {
-    return {...res.version, patch: res.version.patch + 1}
-  }).catch(() => defaultVersion)
+  const filePath = path.join(SRC_DIR, fileName)
+  if (!fs.existsSync(filePath)) return defaultVersion
+  const { version } = JSON.parse(fs.readFileSync(filePath, 'utf-8'))
+  return { ...version, patch: version.patch + 1 }
 }
