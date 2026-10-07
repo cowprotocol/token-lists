@@ -2,15 +2,20 @@ import path from 'path'
 import fs from 'fs'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import pRetry, { AbortError } from 'p-retry'
-import { getTokenListVersion, SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
+import { SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
 
 /**
- * Fetches the Solana default token list from Jupiter and writes it as
- * `SolanaDefault.json`
+ * Fetches the Solana default token list and writes it as `SolanaDefault.json`
  *
- * how does it work: pull Jupiter's `verified` set
- * and keep only those *also* tagged `strict`. The `strict` tag is Jupiter's
- * hand-curated "definitely not a scam" subset
+ * how does it work: a token has to clear two independent bars.
+ *
+ * 1. Jupiter decides whether it is legitimate — either it carries the legacy
+ *    `strict` tag, or its Organic Score clears MIN_ORGANIC_SCORE.
+ * 2. CoinGecko has to list it too, otherwise we cannot price it, and a token we
+ *    cannot price is a token we cannot settle.
+ *
+ * Metadata always comes from Jupiter; CoinGecko only decides membership and
+ * fills in a logo when Jupiter has none.
  */
 
 const OUTPUT_FILE = 'SolanaDefault.json'
@@ -18,11 +23,26 @@ const OVERRIDES_FILE = 'SolanaOverrides.json'
 const LIST_NAME = 'Solana Default'
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
+const COINGECKO_SOLANA_LIST_URL = 'https://tokens.coingecko.com/solana/all.json'
 const STRICT_TAG = 'strict'
 const REQUEST_TIMEOUT_MS = 15_000
 const MAX_RETRIES = 3
 const LOGO_URI =
   'https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png'
+
+// Organic Score (0-100) is Jupiter's measure of how genuine a token's trading
+// activity is. 25 is roughly where their own `medium` bucket starts.
+// https://developers.jup.ag/docs/tokens/organic-score
+const MIN_ORGANIC_SCORE = 25
+
+// Refuse to overwrite the list when it loses more than this share of its tokens
+// in one run — that usually means an upstream filter changed under us, not that
+// the tokens went away. Set ALLOW_LIST_SHRINK to override for a one-off run.
+const MAX_SHRINK_RATIO = 0.3
+
+const DEFAULT_VERSION = { major: 1, minor: 0, patch: 0 }
+
+const KEYWORDS = ['default', 'list', 'solana', 'jupiter', 'coingecko']
 
 // SPL Token program IDs. Needed downstream so the FE knows whether to issue
 // instructions through the classic Token program or Token-2022.
@@ -38,13 +58,23 @@ interface JupiterToken {
   decimals: number
   tokenProgram: string
   tags?: string[]
+  organicScore?: number
 }
 
-async function fetchJupiterVerified(): Promise<JupiterToken[]> {
-  console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
+// CoinGecko ships a Uniswap-style list, so `chainId` is null for Solana and
+// `decimals` occasionally carries an EVM-shaped 18. We only trust the address.
+interface CoingeckoToken {
+  address: string
+  name: string
+  symbol: string
+  decimals: number
+  logoURI?: string
+}
+
+async function fetchJson(url: string): Promise<unknown> {
   return pRetry(
     async () => {
-      const res = await fetch(JUPITER_VERIFIED_URL, {
+      const res = await fetch(url, {
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       })
       if (!res.ok) {
@@ -52,29 +82,53 @@ async function fetchJupiterVerified(): Promise<JupiterToken[]> {
         // 429 (rate limit) is transient — let p-retry back off and retry.
         // Other 4xx are client errors (bad query, removed endpoint) — abort.
         if (res.status >= 400 && res.status < 500 && res.status !== 429) {
-          throw new AbortError(`Jupiter request failed: ${res.status} ${body}`)
+          throw new AbortError(`Request to ${url} failed: ${res.status} ${body}`)
         }
-        throw new Error(`Jupiter request failed: ${res.status} ${body}`)
+        throw new Error(`Request to ${url} failed: ${res.status} ${body}`)
       }
-      const json = (await res.json()) as JupiterToken[]
-      if (!Array.isArray(json)) {
-        throw new AbortError(`Unexpected Jupiter response shape: ${typeof json}`)
-      }
-      return json
+      return res.json()
     },
     {
       retries: MAX_RETRIES,
       onFailedAttempt: (err) => {
-        console.warn(
-          `Jupiter attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`,
-        )
+        console.warn(`${url} attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`)
       },
     },
   )
 }
 
-function isStrict(t: JupiterToken): boolean {
-  return (t.tags ?? []).includes(STRICT_TAG)
+async function fetchJupiterVerified(): Promise<JupiterToken[]> {
+  console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
+  const json = await fetchJson(JUPITER_VERIFIED_URL)
+
+  if (!Array.isArray(json)) {
+    throw new Error(`Unexpected Jupiter response shape: ${typeof json}`)
+  }
+
+  return json as JupiterToken[]
+}
+
+async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
+  console.log(`Fetching CoinGecko Solana list: ${COINGECKO_SOLANA_LIST_URL}`)
+  const json = (await fetchJson(COINGECKO_SOLANA_LIST_URL)) as { tokens?: CoingeckoToken[] }
+
+  if (!Array.isArray(json?.tokens)) {
+    throw new Error('Unexpected CoinGecko response shape: expected a `tokens` array')
+  }
+
+  return new Map(json.tokens.map((token) => [token.address, token]))
+}
+
+// `strict` is a frozen leftover from Jupiter's V1 token list: the API no longer
+// accepts it as a query tag and the set only shrinks. We keep honouring it so
+// tokens already on the list don't vanish from under users, but it is no longer
+// the only way in.
+function isEligible(t: JupiterToken): boolean {
+  if ((t.tags ?? []).includes(STRICT_TAG)) {
+    return true
+  }
+
+  return (t.organicScore ?? 0) >= MIN_ORGANIC_SCORE
 }
 
 function isValidToken(t: JupiterToken): boolean {
@@ -89,16 +143,20 @@ function isValidToken(t: JupiterToken): boolean {
   )
 }
 
-function toTokenInfo(t: JupiterToken): TokenInfo {
+function toTokenInfo(t: JupiterToken, coingecko: CoingeckoToken | undefined): TokenInfo {
   const isToken2022 = t.tokenProgram === TOKEN_2022_PROGRAM_ID
+  const logoURI = t.icon || coingecko?.logoURI
+
   return {
     chainId: SOLANA_CHAIN_ID,
     address: t.id, // base58
     name: t.name,
     symbol: t.symbol,
+    // Always Jupiter's: it reads the mint account, whereas CoinGecko has handed
+    // out 18 for SPL mints that actually use 8.
     decimals: t.decimals,
-    // omit logoURI when Jupiter has no icon
-    ...(t.icon ? { logoURI: t.icon } : {}),
+    // omit logoURI when neither source has an icon
+    ...(logoURI ? { logoURI } : {}),
     // Mark only the Token-2022 mints.
     ...(isToken2022 ? { extensions: { isToken2022: true } } : {}),
   }
@@ -107,6 +165,16 @@ function toTokenInfo(t: JupiterToken): TokenInfo {
 // sort by mint address to handle a lot off diffs regarding every token list update
 function sortByAddress(a: TokenInfo, b: TokenInfo): number {
   return a.address < b.address ? -1 : a.address > b.address ? 1 : 0
+}
+
+function readCurrentList(): TokenList | null {
+  const filePath = path.join(SRC_DIR, OUTPUT_FILE)
+
+  if (!fs.existsSync(filePath)) {
+    return null
+  }
+
+  return JSON.parse(fs.readFileSync(filePath, 'utf-8')) as TokenList
 }
 
 // Read hand-maintained overrides. Missing/invalid file → no overrides applied.
@@ -149,32 +217,106 @@ function applyOverrides(tokens: TokenInfo[], overrides: TokenInfo[]): TokenInfo[
   return [...byAddress.values()]
 }
 
+function assertNoMassiveShrink(tokens: TokenInfo[], current: TokenList | null): void {
+  const previousCount = current?.tokens.length ?? 0
+  if (previousCount === 0) return
+
+  const shrinkRatio = 1 - tokens.length / previousCount
+  if (shrinkRatio <= MAX_SHRINK_RATIO) return
+
+  const percentage = Math.round(shrinkRatio * 100)
+  if (process.env.ALLOW_LIST_SHRINK) {
+    console.warn(`${OUTPUT_FILE} shrank by ${percentage}% — writing anyway because ALLOW_LIST_SHRINK is set`)
+    return
+  }
+
+  throw new Error(
+    `Refusing to write ${OUTPUT_FILE}: token count dropped from ${previousCount} to ${tokens.length} (-${percentage}%). ` +
+      `Check whether an upstream filter changed, then re-run with ALLOW_LIST_SHRINK=1 if the drop is expected.`,
+  )
+}
+
+// Key order is not guaranteed across runs, so compare entries, not raw JSON.
+function serializeExtensions(token: TokenInfo): string {
+  if (!token.extensions) return ''
+
+  return JSON.stringify(Object.entries(token.extensions).sort(([a], [b]) => (a < b ? -1 : 1)))
+}
+
+// Follows the token list spec the way the aux lists already do it: tokens
+// removed → major, tokens added → minor, metadata only → patch. The shared
+// patch-only helper is not enough here, because a list that both gains and
+// loses tokens needs a major bump to be picked up by clients.
+// Addresses are compared case-sensitively: base58 is not hex.
+function getNextVersion(current: TokenList | null, tokens: TokenInfo[]): TokenList['version'] {
+  const version = current?.version ?? DEFAULT_VERSION
+  if (!current) return version
+
+  const currentTokens = new Map(current.tokens.map((token) => [token.address, token]))
+  const newTokens = new Map(tokens.map((token) => [token.address, token]))
+
+  const removed = [...currentTokens.keys()].some((address) => !newTokens.has(address))
+  if (removed) return { major: version.major + 1, minor: 0, patch: 0 }
+
+  const added = [...newTokens.keys()].some((address) => !currentTokens.has(address))
+  if (added) return { ...version, minor: version.minor + 1, patch: 0 }
+
+  // `keywords` is part of the written list, so changing it has to bump too.
+  const keywordsChanged =
+    (current.keywords ?? []).length !== KEYWORDS.length ||
+    KEYWORDS.some((keyword, i) => current.keywords?.[i] !== keyword)
+
+  const changed = [...currentTokens.values()].some((listToken) => {
+    const token = newTokens.get(listToken.address)
+
+    return (
+      token &&
+      (listToken.name !== token.name ||
+        listToken.symbol !== token.symbol ||
+        listToken.decimals !== token.decimals ||
+        listToken.logoURI !== token.logoURI ||
+        // isToken2022 decides which program the FE talks to, so a correction
+        // here has to reach clients even when nothing else moved.
+        serializeExtensions(listToken) !== serializeExtensions(token))
+    )
+  })
+  if (keywordsChanged || changed) return { ...version, patch: version.patch + 1 }
+
+  return version
+}
+
 function buildTokenList(tokens: TokenInfo[], version: TokenList['version']): TokenList {
   return {
     name: LIST_NAME,
     timestamp: new Date().toISOString(),
     version,
     logoURI: LOGO_URI,
-    keywords: ['default', 'list', 'solana', 'jupiter'],
+    keywords: KEYWORDS,
     tokens,
   }
 }
 
 async function main() {
-  const raw = await fetchJupiterVerified()
-  console.log(`Got ${raw.length} verified tokens from Jupiter`)
+  const [raw, coingecko] = await Promise.all([fetchJupiterVerified(), fetchCoingeckoSolana()])
+  console.log(`Got ${raw.length} verified tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
 
-  const strict = raw.filter(isStrict)
-  console.log(`${strict.length} carry the "strict" tag`)
+  const eligible = raw.filter(isEligible)
+  console.log(`${eligible.length} clear the quality bar ("${STRICT_TAG}" tag or organicScore >= ${MIN_ORGANIC_SCORE})`)
 
-  const jupiterTokens = strict.filter(isValidToken).map(toTokenInfo)
+  const priceable = eligible.filter((t) => coingecko.has(t.id))
+  console.log(`${priceable.length} of those are listed on CoinGecko (dropped ${eligible.length - priceable.length})`)
 
-  const dropped = strict.length - jupiterTokens.length
+  const jupiterTokens = priceable.filter(isValidToken).map((t) => toTokenInfo(t, coingecko.get(t.id)))
+
+  const dropped = priceable.length - jupiterTokens.length
   console.log(`Kept ${jupiterTokens.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
 
   const tokens = applyOverrides(jupiterTokens, readOverrides()).sort(sortByAddress)
 
-  const version = await getTokenListVersion(OUTPUT_FILE)
+  const current = readCurrentList()
+  assertNoMassiveShrink(tokens, current)
+
+  const version = getNextVersion(current, tokens)
   const tokenList = buildTokenList(tokens, version)
 
   writeTokenListToBuild(OUTPUT_FILE, tokenList)

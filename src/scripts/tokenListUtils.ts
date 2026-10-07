@@ -40,7 +40,21 @@ export function writeTokenListToSrc(outputPath: string, tokenList: TokenList) {
 }
 
 export async function getTokenListVersion(fileName: string): Promise<TokenList['version']> {
-  return import(`../public/${fileName}`, {assert: { type: 'json' }}).then(({default: res}) => {
-    return {...res.version, patch: res.version.patch + 1}
-  }).catch(() => defaultVersion)
+  const filePath = path.join(SRC_DIR, fileName)
+
+  // No list yet — this is the first run for this file.
+  if (!fs.existsSync(filePath)) {
+    return defaultVersion
+  }
+
+  // Falling back to defaultVersion for an existing list would push the version
+  // backwards, and clients ignore a list whose version isn't higher than the one
+  // they already hold. Fail loudly instead.
+  try {
+    const { version } = JSON.parse(fs.readFileSync(filePath, 'utf-8')) as TokenList
+
+    return { ...version, patch: version.patch + 1 }
+  } catch (err) {
+    throw new Error(`Could not read the current version from ${filePath}: ${err}`)
+  }
 }
