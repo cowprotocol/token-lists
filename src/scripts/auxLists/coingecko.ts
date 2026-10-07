@@ -202,7 +202,10 @@ async function fetchAndProcessCoingeckoTokensForChain(
       ),
     )
 
-    if (!topTokens.length) return
+    if (!topTokens.length) {
+      console.log(`No tokens found for chain ${chainId} for list CoinGecko`)
+      return
+    }
 
     await processTokenList({
       chainId,
