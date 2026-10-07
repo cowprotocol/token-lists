@@ -11,6 +11,10 @@ import { getTokenListVersion, SRC_DIR, writeTokenListToBuild, writeTokenListToSr
  * how does it work: pull Jupiter's `verified` set
  * and keep only those *also* tagged `strict`. The `strict` tag is Jupiter's
  * hand-curated "definitely not a scam" subset
+ *
+ * Then drop every mint CoinGecko doesn't list on Solana. Token fields come
+ * from Jupiter, since CoinGecko has wrong decimals for some mints.
+ * Overrides are merged in after filtering, so they don't need to be in either list.
  */
 
 const OUTPUT_FILE = 'SolanaDefault.json'
@@ -18,6 +22,7 @@ const OVERRIDES_FILE = 'SolanaOverrides.json'
 const LIST_NAME = 'Solana Default'
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
+const COINGECKO_SOLANA_URL = 'https://tokens.coingecko.com/solana/all.json'
 const STRICT_TAG = 'strict'
 const REQUEST_TIMEOUT_MS = 15_000
 const MAX_RETRIES = 3
@@ -40,11 +45,11 @@ interface JupiterToken {
   tags?: string[]
 }
 
-async function fetchJupiterVerified(): Promise<JupiterToken[]> {
-  console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
+async function fetchJson(url: string): Promise<unknown> {
+  console.log(`Fetching ${url}`)
   return pRetry(
     async () => {
-      const res = await fetch(JUPITER_VERIFIED_URL, {
+      const res = await fetch(url, {
         signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       })
       if (!res.ok) {
@@ -52,25 +57,39 @@ async function fetchJupiterVerified(): Promise<JupiterToken[]> {
         // 429 (rate limit) is transient — let p-retry back off and retry.
         // Other 4xx are client errors (bad query, removed endpoint) — abort.
         if (res.status >= 400 && res.status < 500 && res.status !== 429) {
-          throw new AbortError(`Jupiter request failed: ${res.status} ${body}`)
+          throw new AbortError(`Request to ${url} failed: ${res.status} ${body}`)
         }
-        throw new Error(`Jupiter request failed: ${res.status} ${body}`)
+        throw new Error(`Request to ${url} failed: ${res.status} ${body}`)
       }
-      const json = (await res.json()) as JupiterToken[]
-      if (!Array.isArray(json)) {
-        throw new AbortError(`Unexpected Jupiter response shape: ${typeof json}`)
-      }
-      return json
+      return res.json()
     },
     {
       retries: MAX_RETRIES,
       onFailedAttempt: (err) => {
         console.warn(
-          `Jupiter attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`,
+          `Request to ${url} attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`,
         )
       },
     },
   )
+}
+
+async function fetchJupiterVerified(): Promise<JupiterToken[]> {
+  const json = await fetchJson(JUPITER_VERIFIED_URL)
+  if (!Array.isArray(json)) {
+    throw new Error(`Unexpected Jupiter response shape: ${typeof json}`)
+  }
+  return json
+}
+
+// Mint addresses CoinGecko lists on Solana. Base58 is case-sensitive, so don't lowercase them.
+async function fetchCoingeckoMints(): Promise<Set<string>> {
+  const json = (await fetchJson(COINGECKO_SOLANA_URL)) as { tokens?: { address: string }[] } | null
+  const tokens = json?.tokens
+  if (!Array.isArray(tokens)) {
+    throw new Error(`Unexpected CoinGecko response shape: ${typeof tokens}`)
+  }
+  return new Set(tokens.map((t) => t.address))
 }
 
 function isStrict(t: JupiterToken): boolean {
@@ -155,22 +174,28 @@ function buildTokenList(tokens: TokenInfo[], version: TokenList['version']): Tok
     timestamp: new Date().toISOString(),
     version,
     logoURI: LOGO_URI,
-    keywords: ['default', 'list', 'solana', 'jupiter'],
+    keywords: ['default', 'list', 'solana', 'jupiter', 'coingecko'],
     tokens,
   }
 }
 
 async function main() {
-  const raw = await fetchJupiterVerified()
-  console.log(`Got ${raw.length} verified tokens from Jupiter`)
+  const [raw, coingeckoMints] = await Promise.all([fetchJupiterVerified(), fetchCoingeckoMints()])
+  console.log(`Got ${raw.length} verified tokens from Jupiter and ${coingeckoMints.size} from CoinGecko`)
 
   const strict = raw.filter(isStrict)
   console.log(`${strict.length} carry the "strict" tag`)
 
-  const jupiterTokens = strict.filter(isValidToken).map(toTokenInfo)
+  const valid = strict.filter(isValidToken)
 
-  const dropped = strict.length - jupiterTokens.length
-  console.log(`Kept ${jupiterTokens.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
+  const dropped = strict.length - valid.length
+  console.log(`Kept ${valid.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
+
+  const jupiterTokens = valid.filter((t) => coingeckoMints.has(t.id)).map(toTokenInfo)
+  console.log(`${jupiterTokens.length} of them are also on CoinGecko`)
+  if (jupiterTokens.length === 0) {
+    throw new Error('No tokens are on both Jupiter and CoinGecko, refusing to write the list')
+  }
 
   const tokens = applyOverrides(jupiterTokens, readOverrides()).sort(sortByAddress)
 
