@@ -84,6 +84,9 @@ interface JupiterToken {
   tokenProgram: string
   tags?: string[]
   organicScore?: number
+  audit?: {
+    isSus?: boolean
+  }
 }
 
 // CoinGecko ships a Uniswap-style list, so `chainId` is null for Solana and
@@ -144,11 +147,22 @@ async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   return new Map(json.tokens.map((token) => [token.address, token]))
 }
 
-// `strict` is a frozen leftover from Jupiter's V1 token list: the API no longer
-// accepts it as a query tag and the set only shrinks. We keep honouring it so
-// tokens already on the list don't vanish from under users, but it is no longer
-// the only way in.
+/**
+ * `strict` is a frozen leftover from Jupiter's V1 token list: the API no longer
+ * accepts it as a query tag and the set only shrinks. We keep honouring it so
+ * tokens already on the list don't vanish from under users, but it is no longer
+ * the only way in.
+ *
+ * `audit.isSus` is checked first and overrides both routes. Organic Score says
+ * whether the trading is genuine, not whether the contract is — a honeypot can
+ * have perfectly real volume — so Jupiter's own fraud flag is the one signal that
+ * has to win outright.
+ */
 function isEligible(t: JupiterToken): boolean {
+  if (t.audit?.isSus) {
+    return false
+  }
+
   if ((t.tags ?? []).includes(STRICT_TAG)) {
     return true
   }
@@ -327,13 +341,24 @@ function buildTokenList(config: ListConfig, tokens: TokenInfo[], version: TokenL
   }
 }
 
-function publishList(config: ListConfig, jupiterTokens: TokenInfo[]): void {
+interface PreparedList {
+  config: ListConfig
+  tokens: TokenInfo[]
+  version: TokenList['version']
+}
+
+// Everything that can reject a list — overrides, the shrink guard, reading the
+// current file — happens here, so it happens before anything is written.
+function prepareList(config: ListConfig, jupiterTokens: TokenInfo[]): PreparedList {
   const tokens = applyOverrides(jupiterTokens, readOverrides(config.overridesFile)).sort(sortByAddress)
 
   const current = readCurrentList(config.outputFile)
   assertNoMassiveShrink(config.outputFile, tokens, current)
 
-  const version = getNextVersion(config, current, tokens)
+  return { config, tokens, version: getNextVersion(config, current, tokens) }
+}
+
+function writeList({ config, tokens, version }: PreparedList): void {
   const tokenList = buildTokenList(config, tokens, version)
 
   writeTokenListToBuild(config.outputFile, tokenList)
@@ -364,8 +389,12 @@ async function main() {
 
   const toInfo = (t: JupiterToken): TokenInfo => toTokenInfo(t, coingecko.get(t.id))
 
-  publishList(DEFAULT_LIST, rest.map(toInfo))
-  publishList(RWA_LIST, rwa.map(toInfo))
+  // Both lists are prepared and validated before either is written: a guard that
+  // trips on the second one would otherwise leave the first already rewritten, and
+  // the two published files describing overlapping sets of tokens.
+  const prepared = [prepareList(DEFAULT_LIST, rest.map(toInfo)), prepareList(RWA_LIST, rwa.map(toInfo))]
+
+  prepared.forEach(writeList)
 }
 
 main().catch((err) => {
