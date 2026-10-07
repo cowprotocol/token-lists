@@ -1,8 +1,8 @@
 {
   "name": "Solana RWA",
-  "timestamp": "2026-10-07T14:30:19.311Z",
+  "timestamp": "2026-10-07T18:44:38.213Z",
   "version": {
-    "major": 1,
+    "major": 2,
     "minor": 0,
     "patch": 0
   },
@@ -63,6 +63,17 @@
       "symbol": "IBM",
       "decimals": 6,
       "logoURI": "https://backpack.exchange/api/stock-logo/IBM",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "BULL151gUXcFV5wXEUqu9Am2L7Qt4bTJRLRuAUjkcspC",
+      "name": "Webull Corporation - Backpack Securities",
+      "symbol": "BULL",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/BULL",
       "extensions": {
         "isToken2022": true
       }
@@ -146,17 +157,6 @@
     },
     {
       "chainId": 1000000001,
-      "address": "FLWSojG1gB5VStYR3Sb4nQFRt43UBYkqih1j2CpVLqgd",
-      "name": "1-800-FLOWERS.COM - Backpack Securities",
-      "symbol": "FLWS",
-      "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/FLWS",
-      "extensions": {
-        "isToken2022": true
-      }
-    },
-    {
-      "chainId": 1000000001,
       "address": "GPRR2u6NS5yBQHWGauoJ9HXgjrTH8dDsrBfTV5zAYvDH",
       "name": "GoPro - Backpack Securities",
       "symbol": "GPRO",
@@ -220,17 +220,6 @@
     },
     {
       "chainId": 1000000001,
-      "address": "LMT3i1BHgixFqPUgcyteJhnEz2dpy9i3cYy4pi9BoeV",
-      "name": "Lockheed Martin - Backpack Securities",
-      "symbol": "LMT",
-      "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/LMT",
-      "extensions": {
-        "isToken2022": true
-      }
-    },
-    {
-      "chainId": 1000000001,
       "address": "LULUmT9VMttkfAJE236LXJcYJ2tTP7nunrSWR5G1BdS",
       "name": "lululemon athletica inc. - Backpack Securities",
       "symbol": "LULU",
@@ -269,6 +258,17 @@
       "symbol": "MRVL",
       "decimals": 6,
       "logoURI": "https://backpack.exchange/api/stock-logo/MRVL",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "MSTRdWXMeZxdE8osAQy3fA4rvTY5rgummDSMEx6U7Nz",
+      "name": "Strategy - Backpack Securities",
+      "symbol": "MSTR",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/MSTR?test=test",
       "extensions": {
         "isToken2022": true
       }
@@ -357,6 +357,17 @@
       "symbol": "OPENAI",
       "decimals": 9,
       "logoURI": "https://www.prestocks.com/logos/openai.png?cachebust=1",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "QUBTAD8C9bMU9LvmMNgKPhrmBGbHvxpu6vfWQtThxxw",
+      "name": "Quantum Computing - Backpack Securities",
+      "symbol": "QUBT",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/QUBT",
       "extensions": {
         "isToken2022": true
       }
@@ -456,17 +467,6 @@
       "symbol": "TTWO",
       "decimals": 6,
       "logoURI": "https://backpack.exchange/api/stock-logo/TTWO",
-      "extensions": {
-        "isToken2022": true
-      }
-    },
-    {
-      "chainId": 1000000001,
-      "address": "URARfsinxCRw4JpvQhuT4CxavdZXZEMjv9ZwWmWpwag",
-      "name": "Global X Uranium ETF - Backpack Securities",
-      "symbol": "URA",
-      "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/URA",
       "extensions": {
         "isToken2022": true
       }

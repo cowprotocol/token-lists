@@ -2,6 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import pRetry, { AbortError } from 'p-retry'
+import pThrottle from 'p-throttle'
 import { SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
 
 /**
@@ -10,13 +11,19 @@ import { SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenList
  *
  * how does it work: a token has to clear two independent bars.
  *
- * 1. Jupiter decides whether it is legitimate — either it carries the legacy
- *    `strict` tag, or its Organic Score clears MIN_ORGANIC_SCORE.
+ * 1. Jupiter decides whether the trading is real — either the token carries the
+ *    legacy `strict` tag, or its Organic Score clears MIN_ORGANIC_SCORE.
  * 2. CoinGecko has to list it too, otherwise we cannot price it, and a token we
  *    cannot price is a token we cannot settle.
  *
- * Whatever clears both is then split by kind: tokenised real-world assets go to
- * the RWA list, everything else to the default one. The two lists never overlap.
+ * Candidates are not limited to Jupiter's `verified` set. CoinGecko's list is the
+ * outer bound, and whatever it holds that `verified` does not is looked up through
+ * Jupiter's search endpoint — otherwise a genuinely traded token stays invisible to
+ * us just because Jupiter has not got round to verifying it. Almost all of those
+ * fail the Organic Score bar anyway; the handful that pass are the point.
+ *
+ * Whatever clears both bars is then split by kind: tokenised real-world assets go
+ * to the RWA list, everything else to the default one. The two lists never overlap.
  *
  * Metadata always comes from Jupiter; CoinGecko only decides membership and
  * fills in a logo when Jupiter has none.
@@ -50,7 +57,13 @@ const RWA_TAGS = new Set(['rwa', 'stocks', 'xstocks', 'equities', 'prestocks', '
 
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
+const JUPITER_SEARCH_URL = 'https://lite-api.jup.ag/tokens/v2/search'
 const COINGECKO_SOLANA_LIST_URL = 'https://tokens.coingecko.com/solana/all.json'
+
+// The search endpoint takes a comma-separated query and returns at most 100 hits,
+// so that is also the batch size. With CoinGecko holding ~7.3k Solana tokens this
+// is roughly 45 requests per run.
+const SEARCH_BATCH_SIZE = 100
 const STRICT_TAG = 'strict'
 const REQUEST_TIMEOUT_MS = 15_000
 const MAX_RETRIES = 3
@@ -133,6 +146,41 @@ async function fetchJupiterVerified(): Promise<JupiterToken[]> {
   return json as JupiterToken[]
 }
 
+// Jupiter rate-limits the lite API, and this is the only place we fan out.
+const throttledFetchJson = pThrottle({ limit: 2, interval: 1000 })(fetchJson)
+
+/**
+ * Look up mints Jupiter did not hand us in bulk. The `verified` tag endpoint is a
+ * subset of what Jupiter knows: `PAID` for instance scores 86 and sits in their own
+ * top-100 by Organic Score, yet is tagged `unknown` and never appears there.
+ */
+async function fetchJupiterByMints(mints: string[]): Promise<JupiterToken[]> {
+  if (mints.length === 0) return []
+
+  const batches: string[][] = []
+  for (let i = 0; i < mints.length; i += SEARCH_BATCH_SIZE) {
+    batches.push(mints.slice(i, i + SEARCH_BATCH_SIZE))
+  }
+
+  console.log(`Looking up ${mints.length} unverified mints via Jupiter search (${batches.length} batches)`)
+
+  const requested = new Set(mints)
+  const results = await Promise.all(
+    batches.map(async (batch) => {
+      const json = await throttledFetchJson(`${JUPITER_SEARCH_URL}?query=${batch.join(',')}`)
+
+      if (!Array.isArray(json)) {
+        throw new Error(`Unexpected Jupiter search response shape: ${typeof json}`)
+      }
+
+      // Search can match on more than the mint, so keep only what we asked for.
+      return (json as JupiterToken[]).filter((token) => requested.has(token.id))
+    }),
+  )
+
+  return results.flat()
+}
+
 async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   console.log(`Fetching CoinGecko Solana list: ${COINGECKO_SOLANA_LIST_URL}`)
   const json = (await fetchJson(COINGECKO_SOLANA_LIST_URL)) as { tokens?: CoingeckoToken[] }
@@ -144,12 +192,18 @@ async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   return new Map(json.tokens.map((token) => [token.address, token]))
 }
 
-// `strict` is a frozen leftover from Jupiter's V1 token list: the API no longer
-// accepts it as a query tag and the set only shrinks. We keep honouring it so
-// tokens already on the list don't vanish from under users, but it is no longer
-// the only way in.
-function isEligible(t: JupiterToken): boolean {
-  if ((t.tags ?? []).includes(STRICT_TAG)) {
+/**
+ * `strict` is a frozen leftover from Jupiter's V1 token list: the API no longer
+ * accepts it as a query tag and the set only shrinks. It survives here purely as a
+ * grandfather clause, so tokens already on our list don't vanish from under users.
+ *
+ * That only makes sense for tokens reachable through `verified`, which is where our
+ * list has always come from. Honouring the tag on unverified tokens would drag in
+ * ~160 dead legacy entries that were never on the list to begin with — median
+ * liquidity around $7k, Organic Score of 0.
+ */
+function isEligible(t: JupiterToken, isVerified: boolean): boolean {
+  if (isVerified && (t.tags ?? []).includes(STRICT_TAG)) {
     return true
   }
 
@@ -344,10 +398,19 @@ function publishList(config: ListConfig, jupiterTokens: TokenInfo[]): void {
 }
 
 async function main() {
-  const [raw, coingecko] = await Promise.all([fetchJupiterVerified(), fetchCoingeckoSolana()])
-  console.log(`Got ${raw.length} verified tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
+  const [verified, coingecko] = await Promise.all([fetchJupiterVerified(), fetchCoingeckoSolana()])
+  console.log(`Got ${verified.length} verified tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
 
-  const eligible = raw.filter(isEligible)
+  // CoinGecko bounds the candidate set: a token it does not list is unpriceable and
+  // would be dropped below anyway, so there is no point asking Jupiter about it.
+  const verifiedIds = new Set(verified.map((t) => t.id))
+  const unverified = await fetchJupiterByMints([...coingecko.keys()].filter((address) => !verifiedIds.has(address)))
+  console.log(`Jupiter knows ${unverified.length} of them outside the verified set`)
+
+  const eligible = [
+    ...verified.filter((t) => isEligible(t, true)),
+    ...unverified.filter((t) => isEligible(t, false)),
+  ]
   console.log(`${eligible.length} clear the quality bar ("${STRICT_TAG}" tag or organicScore >= ${MIN_ORGANIC_SCORE})`)
 
   const priceable = eligible.filter((t) => coingecko.has(t.id))
