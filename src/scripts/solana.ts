@@ -8,12 +8,10 @@ import { getTokenListVersion, SRC_DIR, writeTokenListToBuild, writeTokenListToSr
  * Fetches the Solana default token list from Jupiter and writes it as
  * `SolanaDefault.json`
  *
- * how does it work: pull Jupiter's `verified` set
- * and keep only those *also* tagged `strict`. The `strict` tag is Jupiter's
- * hand-curated "definitely not a scam" subset
- *
- * Then drop every mint CoinGecko doesn't list on Solana. Token fields come
- * from Jupiter, since CoinGecko has wrong decimals for some mints.
+ * how does it work: pull Jupiter's `verified` set, keep tokens Jupiter reports
+ * liquidity for, then drop every mint CoinGecko doesn't list on Solana. The
+ * backend needs a Jupiter route and a CoinGecko price to settle a token.
+ * Token fields come from Jupiter, since CoinGecko has wrong decimals for some mints.
  * Overrides are merged in after filtering, so they don't need to be in either list.
  */
 
@@ -23,7 +21,6 @@ const LIST_NAME = 'Solana Default'
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
 const COINGECKO_SOLANA_URL = 'https://tokens.coingecko.com/solana/all.json'
-const STRICT_TAG = 'strict'
 const REQUEST_TIMEOUT_MS = 15_000
 const MAX_RETRIES = 3
 const LOGO_URI =
@@ -42,7 +39,7 @@ interface JupiterToken {
   icon: string | null
   decimals: number
   tokenProgram: string
-  tags?: string[]
+  liquidity?: number | null // USD
 }
 
 async function fetchJson(url: string): Promise<unknown> {
@@ -92,8 +89,8 @@ async function fetchCoingeckoMints(): Promise<Set<string>> {
   return new Set(tokens.map((t) => t.address))
 }
 
-function isStrict(t: JupiterToken): boolean {
-  return (t.tags ?? []).includes(STRICT_TAG)
+function hasLiquidity(t: JupiterToken): boolean {
+  return (t.liquidity ?? 0) > 0
 }
 
 function isValidToken(t: JupiterToken): boolean {
@@ -183,15 +180,15 @@ async function main() {
   const [raw, coingeckoMints] = await Promise.all([fetchJupiterVerified(), fetchCoingeckoMints()])
   console.log(`Got ${raw.length} verified tokens from Jupiter and ${coingeckoMints.size} from CoinGecko`)
 
-  const strict = raw.filter(isStrict)
-  console.log(`${strict.length} carry the "strict" tag`)
+  const valid = raw.filter(isValidToken)
 
-  const valid = strict.filter(isValidToken)
-
-  const dropped = strict.length - valid.length
+  const dropped = raw.length - valid.length
   console.log(`Kept ${valid.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
 
-  const jupiterTokens = valid.filter((t) => coingeckoMints.has(t.id)).map(toTokenInfo)
+  const liquid = valid.filter(hasLiquidity)
+  console.log(`${liquid.length} of them have liquidity on Jupiter`)
+
+  const jupiterTokens = liquid.filter((t) => coingeckoMints.has(t.id)).map(toTokenInfo)
   console.log(`${jupiterTokens.length} of them are also on CoinGecko`)
   if (jupiterTokens.length === 0) {
     throw new Error('No tokens are on both Jupiter and CoinGecko, refusing to write the list')
