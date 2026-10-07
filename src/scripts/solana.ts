@@ -42,6 +42,8 @@ const MAX_SHRINK_RATIO = 0.3
 
 const DEFAULT_VERSION = { major: 1, minor: 0, patch: 0 }
 
+const KEYWORDS = ['default', 'list', 'solana', 'jupiter', 'coingecko']
+
 // SPL Token program IDs. Needed downstream so the FE knows whether to issue
 // instructions through the classic Token program or Token-2022.
 const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
@@ -234,6 +236,13 @@ function assertNoMassiveShrink(tokens: TokenInfo[], current: TokenList | null): 
   )
 }
 
+// Key order is not guaranteed across runs, so compare entries, not raw JSON.
+function serializeExtensions(token: TokenInfo): string {
+  if (!token.extensions) return ''
+
+  return JSON.stringify(Object.entries(token.extensions).sort(([a], [b]) => (a < b ? -1 : 1)))
+}
+
 // Follows the token list spec the way the aux lists already do it: tokens
 // removed → major, tokens added → minor, metadata only → patch. The shared
 // patch-only helper is not enough here, because a list that both gains and
@@ -252,6 +261,11 @@ function getNextVersion(current: TokenList | null, tokens: TokenInfo[]): TokenLi
   const added = [...newTokens.keys()].some((address) => !currentTokens.has(address))
   if (added) return { ...version, minor: version.minor + 1, patch: 0 }
 
+  // `keywords` is part of the written list, so changing it has to bump too.
+  const keywordsChanged =
+    (current.keywords ?? []).length !== KEYWORDS.length ||
+    KEYWORDS.some((keyword, i) => current.keywords?.[i] !== keyword)
+
   const changed = [...currentTokens.values()].some((listToken) => {
     const token = newTokens.get(listToken.address)
 
@@ -260,10 +274,13 @@ function getNextVersion(current: TokenList | null, tokens: TokenInfo[]): TokenLi
       (listToken.name !== token.name ||
         listToken.symbol !== token.symbol ||
         listToken.decimals !== token.decimals ||
-        listToken.logoURI !== token.logoURI)
+        listToken.logoURI !== token.logoURI ||
+        // isToken2022 decides which program the FE talks to, so a correction
+        // here has to reach clients even when nothing else moved.
+        serializeExtensions(listToken) !== serializeExtensions(token))
     )
   })
-  if (changed) return { ...version, patch: version.patch + 1 }
+  if (keywordsChanged || changed) return { ...version, patch: version.patch + 1 }
 
   return version
 }
@@ -274,7 +291,7 @@ function buildTokenList(tokens: TokenInfo[], version: TokenList['version']): Tok
     timestamp: new Date().toISOString(),
     version,
     logoURI: LOGO_URI,
-    keywords: ['default', 'list', 'solana', 'jupiter', 'coingecko'],
+    keywords: KEYWORDS,
     tokens,
   }
 }
