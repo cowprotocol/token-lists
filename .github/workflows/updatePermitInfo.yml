@@ -64,41 +64,30 @@ jobs:
           private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
           permission-contents: write
 
-      - name: Checkout code
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
-        with:
-          token: ${{ steps.app-token.outputs.token }}
-
       - name: Download all
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           path: src/public/
           merge-multiple: true
 
-      - name: Check for changes
-        id: git-check
-        run: |
-          git add src/public/PermitInfo.*.json
-          if git status --porcelain | grep "src/public/PermitInfo.*\.json$"; then
-            echo "no_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "no_changes=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Configure Git
-        if: ${{ steps.git-check.outputs.no_changes == 'false' }}
-        run: |
-          git config --local user.email "338667949+cow-fe-token-list-updater[bot]@users.noreply.github.com"
-          git config --local user.name "cow-fe-token-list-updater[bot]"
-
-      - name: Commit and push changes
-        if: ${{ steps.git-check.outputs.no_changes == 'false' }}
+      - name: Commit changes through the API
         env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           BRANCH: ${{ github.ref_name }}
+          MESSAGE: "chore: automated permit info update"
         run: |
-          git commit -m "chore: automated permit info update"
-          git pull --rebase origin "$BRANCH"
-          git push origin "HEAD:$BRANCH"
+          head=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$BRANCH" --jq .object.sha)
+          base_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$head" --jq .tree.sha)
+          tree=$(for f in src/public/PermitInfo.*.json; do
+              jq -n --arg path "$f" --rawfile content "$f" '{path: $path, mode: "100644", type: "blob", content: $content}'
+            done | jq -s --arg base "$base_tree" '{base_tree: $base, tree: .}' \
+            | gh api "repos/$GITHUB_REPOSITORY/git/trees" --input - --jq .sha)
+          if [ "$tree" = "$base_tree" ]; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          commit=$(gh api "repos/$GITHUB_REPOSITORY/git/commits" -f message="$MESSAGE" -f tree="$tree" -f "parents[]=$head" --jq .sha)
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" -f sha="$commit" -F force=false
 
   handle-failure:
     needs: update-permit-info
