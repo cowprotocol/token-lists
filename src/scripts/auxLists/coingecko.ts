@@ -1,7 +1,7 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import * as fs from 'fs'
 import { Logger } from 'winston'
-import { processTokenList } from './processTokenList'
+import { processTokenList } from './processTokenList.js'
 import {
   COINGECKO_CHAINS,
   type CoingeckoIdsMap,
@@ -14,10 +14,35 @@ import {
   TokenInfo,
   TOP_TOKENS_COUNT,
   VS_CURRENCY,
-} from './utils'
+} from './utils.js'
 
 const COINGECKO_LOGO = 'https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png'
 const MARKET_API_CHUNK_SIZE = 250
+const COINGECKO_MARKETS_URL = `https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=${VS_CURRENCY}&per_page=${MARKET_API_CHUNK_SIZE}`
+const NATIVE_ADDRESS = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+const NATIVE_COIN_IDS: Record<SupportedChainId, string | null> = {
+  [SupportedChainId.MAINNET]: 'ethereum',
+  [SupportedChainId.GNOSIS_CHAIN]: 'xdai',
+  [SupportedChainId.BASE]: 'ethereum',
+  [SupportedChainId.ARBITRUM_ONE]: 'ethereum',
+  [SupportedChainId.SEPOLIA]: 'ethereum',
+  [SupportedChainId.POLYGON]: 'polygon-ecosystem-token',
+  [SupportedChainId.AVALANCHE]: 'avalanche-2',
+  [SupportedChainId.BNB]: 'binancecoin',
+  [SupportedChainId.LINEA]: 'ethereum',
+  [SupportedChainId.PLASMA]: 'plasma',
+  [SupportedChainId.INK]: 'ethereum',
+}
+
+async function getNativeSupplies(): Promise<MarketData[]> {
+  const ids = [...new Set(Object.values(NATIVE_COIN_IDS).filter(Boolean))].join(',')
+  try {
+    return await fetchWithApiKey(`${COINGECKO_MARKETS_URL}&ids=${ids}`)
+  } catch (error) {
+    console.error('Failed to fetch native token supplies from CoinGecko:', error)
+    return []
+  }
+}
 
 interface MarketData {
   id: string
@@ -58,9 +83,7 @@ async function getCoingeckoMarket(
   }, '')
 
   try {
-    return await fetchWithApiKey(
-      `https://pro-api.coingecko.com/api/v3/coins/markets?vs_currency=${VS_CURRENCY}&per_page=${MARKET_API_CHUNK_SIZE}&ids=${ids}`,
-    )
+    return await fetchWithApiKey(`${COINGECKO_MARKETS_URL}&ids=${ids}`)
   } catch (error) {
     console.error(`Error fetching Coingecko's market data:`, error)
     return []
@@ -149,32 +172,40 @@ async function fetchAndProcessCoingeckoTokensForChain(
   coingeckoIdsMap: CoingeckoIdsMap,
   overrides: Overrides,
   logger: Logger,
+  nativeSupplies: MarketData[],
 ): Promise<void> {
   try {
     const tokens = await getTokenList(chainId)
     const topTokens = (await getTokenVolumes(chainId, tokens, coingeckoIdsMap)).slice(0, TOP_TOKENS_COUNT)
-
-    if (!topTokens.length || !topTokens.length) {
-      console.log(`No tokens found for chain ${chainId} for list CoinGecko`)
-      return
-    }
+    const nativeSupply = nativeSupplies.find((coin) => coin.id === NATIVE_COIN_IDS[chainId])
 
     fs.writeFileSync(
       `src/public/TokenSupply.${chainId}.json`,
       JSON.stringify(
         {
           timestamp: new Date().toISOString(),
-          tokens: Object.fromEntries(
-            topTokens.map(({ token, circulatingSupply, totalSupply }) => [
-              token.address.toLowerCase(),
-              { circulatingSupply, totalSupply },
-            ]),
-          ),
+          tokens: {
+            ...Object.fromEntries(
+              topTokens.map(({ token, circulatingSupply, totalSupply }) => [
+                token.address.toLowerCase(),
+                { circulatingSupply, totalSupply },
+              ]),
+            ),
+            [NATIVE_ADDRESS]: {
+              circulatingSupply: nativeSupply?.circulating_supply ?? null,
+              totalSupply: nativeSupply?.total_supply ?? null,
+            },
+          },
         },
         null,
         2,
       ),
     )
+
+    if (!topTokens.length) {
+      console.log(`No tokens found for chain ${chainId} for list CoinGecko`)
+      return
+    }
 
     await processTokenList({
       chainId,
@@ -198,6 +229,7 @@ export async function fetchAndProcessCoingeckoTokens(
   overrides: OverridesPerChain,
 ): Promise<void> {
   const logger = getLogger('coingecko-tokens')
+  const nativeSupplies = await getNativeSupplies()
   const supportedChains = Object.keys(COINGECKO_CHAINS)
     .map(Number)
     .filter((chain) => COINGECKO_CHAINS[chain as SupportedChainId])
@@ -210,6 +242,7 @@ export async function fetchAndProcessCoingeckoTokens(
         coingeckoIdsMap,
         overrides[chain as SupportedChainId],
         logger,
+        nativeSupplies,
       )
     }),
   )
