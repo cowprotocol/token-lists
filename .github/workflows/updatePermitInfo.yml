@@ -13,6 +13,8 @@ jobs:
   update-permit-info:
     name: Update permit info
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     strategy:
       fail-fast: false # continue parallel jobs even if individual parts fail
       matrix:
@@ -53,9 +55,16 @@ jobs:
     needs: update-permit-info
     if: success()
     runs-on: ubuntu-latest
+    environment: token-lists-bot
+    permissions: {}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_ID }}
+          private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
+          permission-contents: write
 
       - name: Download all
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
@@ -63,34 +72,32 @@ jobs:
           path: src/public/
           merge-multiple: true
 
-      - name: Check for changes
-        id: git-check
-        run: |
-          git add src/public/PermitInfo.*.json
-          if git status --porcelain | grep "src/public/PermitInfo.*\.json$"; then
-            echo "no_changes=false" >> $GITHUB_OUTPUT
-          else
-            echo "no_changes=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Configure Git
-        if: ${{ steps.git-check.outputs.no_changes == 'false' }}
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
-      - name: Commit and push changes
-        if: ${{ steps.git-check.outputs.no_changes == 'false' }}
+      - name: Commit changes through the API
         env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           BRANCH: ${{ github.ref_name }}
+          MESSAGE: "chore: automated permit info update"
         run: |
-          git commit -m "chore: automated permit info update"
-          git push origin $BRANCH
+          head="$GITHUB_SHA"
+          base_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$head" --jq .tree.sha)
+          for f in src/public/PermitInfo.*.json; do
+            jq -n --arg path "$f" --rawfile content "$f" '{path: $path, mode: "100644", type: "blob", content: $content}'
+          done > "$RUNNER_TEMP/entries.json"
+          tree=$(jq -s --arg base "$base_tree" '{base_tree: $base, tree: .}' "$RUNNER_TEMP/entries.json" \
+            | gh api "repos/$GITHUB_REPOSITORY/git/trees" --input - --jq .sha)
+          if [ "$tree" = "$base_tree" ]; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          commit=$(gh api "repos/$GITHUB_REPOSITORY/git/commits" -f message="$MESSAGE" -f tree="$tree" -f "parents[]=$head" --jq .sha)
+          gh api -X PATCH "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" -f sha="$commit" -F force=false
 
   handle-failure:
-    needs: update-permit-info
+    needs: [update-permit-info, commit-changes]
     if: failure()
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: Create issue on failure
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
