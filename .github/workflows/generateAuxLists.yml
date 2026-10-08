@@ -70,9 +70,10 @@ jobs:
         run: |
           head="$GITHUB_SHA"
           base_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$head" --jq .tree.sha)
-          tree=$(for f in src/public/*.json; do
-              jq -n --arg path "$f" --rawfile content "$f" '{path: $path, mode: "100644", type: "blob", content: $content}'
-            done | jq -s --arg base "$base_tree" '{base_tree: $base, tree: .}' \
+          for f in src/public/*.json; do
+            jq -n --arg path "$f" --rawfile content "$f" '{path: $path, mode: "100644", type: "blob", content: $content}'
+          done > "$RUNNER_TEMP/entries.json"
+          tree=$(jq -s --arg base "$base_tree" '{base_tree: $base, tree: .}' "$RUNNER_TEMP/entries.json" \
             | gh api "repos/$GITHUB_REPOSITORY/git/trees" --input - --jq .sha)
           if [ "$tree" = "$base_tree" ]; then
             echo "No changes to commit"
