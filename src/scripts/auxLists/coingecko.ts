@@ -1,4 +1,4 @@
-import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { getAddressKey, SOL_NATIVE_CURRENCY_ADDRESS, SupportedChainId } from '@cowprotocol/cow-sdk'
 import * as fs from 'fs'
 import { Logger } from 'winston'
 import { processTokenList } from './processTokenList.js'
@@ -32,6 +32,7 @@ const NATIVE_COIN_IDS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'ethereum',
   [SupportedChainId.PLASMA]: 'plasma',
   [SupportedChainId.INK]: 'ethereum',
+  [SupportedChainId.SOLANA]: 'solana',
 }
 
 async function getNativeSupplies(): Promise<MarketData[]> {
@@ -78,7 +79,7 @@ async function getCoingeckoMarket(
 
   const coingeckoIdsForChain = coingeckoIdsMap[coingeckoChainName]
   const ids = tokens.reduce((acc, token) => {
-    const coingeckoId = coingeckoIdsForChain[token.address]
+    const coingeckoId = coingeckoIdsForChain[getAddressKey(token.address)]
     return coingeckoId ? `${acc}${coingeckoId},` : acc
   }, '')
 
@@ -130,7 +131,7 @@ async function processTokenChunk(
   }, {})
 
   return chunk.tokens.reduce<TokenWithVolume[]>((acc, token: TokenInfo) => {
-    const marketData = marketDataMap[token.address]
+    const marketData = marketDataMap[getAddressKey(token.address)]
     if (marketData?.total_volume) {
       acc.push({
         token,
@@ -187,11 +188,11 @@ async function fetchAndProcessCoingeckoTokensForChain(
           tokens: {
             ...Object.fromEntries(
               topTokens.map(({ token, circulatingSupply, totalSupply }) => [
-                token.address.toLowerCase(),
+                getAddressKey(token.address),
                 { circulatingSupply, totalSupply },
               ]),
             ),
-            [NATIVE_ADDRESS]: {
+            [chainId === SupportedChainId.SOLANA ? SOL_NATIVE_CURRENCY_ADDRESS : NATIVE_ADDRESS]: {
               circulatingSupply: nativeSupply?.circulating_supply ?? null,
               totalSupply: nativeSupply?.total_supply ?? null,
             },
