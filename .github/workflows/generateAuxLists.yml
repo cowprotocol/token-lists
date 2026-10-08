@@ -11,10 +11,14 @@ jobs:
   generate:
     name: Generate auxiliary token lists
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
 
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
 
       - name: Setup dependencies
         uses: ./.github/actions/setup-dependencies
@@ -26,28 +30,68 @@ jobs:
           COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
         run: yarn generateAuxLists
 
-      - name: Check for changes
-        id: git-check
-        run: |
-          git add src/public/
-          git status --porcelain | grep "src/public/.*\.json$" || echo "no_changes=true" >> $GITHUB_OUTPUT
+      - name: Upload generated lists
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: aux-lists
+          path: |
+            src/public/CoinGecko.*.json
+            src/public/Uniswap.*.json
+            src/public/TokenSupply.*.json
+          retention-days: 1
 
-      - name: Configure Git
-        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
-        run: |
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
+  commit:
+    name: Commit auxiliary token lists
+    needs: generate
+    runs-on: ubuntu-latest
+    environment: token-lists-bot
+    permissions: {}
+
+    steps:
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_ID }}
+          private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
+          permission-contents: write
+
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Download generated lists
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: aux-lists
+          path: src/public/
 
       - name: Commit and push changes
-        if: ${{ !contains(steps.git-check.outputs, 'no_changes') }}
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
+          git add src/public/
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git config --local user.name "cow-fe-token-list-updater[bot]"
+          git config --local user.email "338667949+cow-fe-token-list-updater[bot]@users.noreply.github.com"
           git commit -m "chore: automated auxiliary lists generation"
-          git push origin $BRANCH
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:$BRANCH"
 
+  report-failure:
+    name: Report failure
+    needs: [generate, commit]
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+
+    steps:
       - name: Create issue on failure
-        if: failure()
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |

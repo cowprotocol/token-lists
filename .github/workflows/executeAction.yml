@@ -23,6 +23,8 @@ env:
 jobs:
   execute:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
@@ -75,10 +77,55 @@ jobs:
         run: yarn validate:chains
 
       # Passed validation
+      - name: Upload changes
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: request-changes
+          path: |
+            ${{ env.BASE_PATH }}
+            ${{ env.LIST_PATH }}
+          retention-days: 1
+
+  create-pr:
+    needs: execute
+    runs-on: ubuntu-latest
+    environment: token-lists-bot
+    permissions:
+      issues: write
+    steps:
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_ID }}
+          private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+
+      - name: Set environment variables
+        run: |
+          ADDRESS=$(echo "$INPUT_ADDRESS" | tr '[:upper:]' '[:lower:]')
+          echo "BASE_PATH=$CHAIN_BASE_PATH/$ADDRESS" >> "$GITHUB_ENV"
+        env:
+          INPUT_ADDRESS: ${{ fromJSON(inputs.issueInfo).address }}
+
+      - name: Download changes
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: request-changes
+          path: src/public/
+
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
+          token: ${{ steps.app-token.outputs.token }}
+          sign-commits: true
           commit-message: "[${{ inputs.operation }}] ${{ fromJSON(inputs.issueInfo).network }}/${{ fromJSON(inputs.issueInfo).address }}"
           branch: ${{ inputs.operation }}/${{ fromJSON(inputs.issueInfo).chainId }}_${{ fromJSON(inputs.issueInfo).address }}
           delete-branch: true
@@ -107,8 +154,14 @@ jobs:
             Your request is ready and will be reviewed by a team member.
             You can follow the progress in the Pull Request #${{ steps.cpr.outputs.pull-request-number }}
 
+  report-error:
+    needs: [execute, create-pr]
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
       - name: Report error
-        if: ${{ failure() }}
         uses: peter-evans/close-issue@276d7966e389d888f011539a86c8920025ea0626 # v3.0.1
         with:
           comment: |
