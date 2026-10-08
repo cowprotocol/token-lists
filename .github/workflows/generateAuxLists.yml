@@ -68,7 +68,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           MESSAGE: "chore: automated auxiliary lists generation"
         run: |
-          head=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$BRANCH" --jq .object.sha)
+          head="$GITHUB_SHA"
           base_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$head" --jq .tree.sha)
           tree=$(for f in src/public/*.json; do
               jq -n --arg path "$f" --rawfile content "$f" '{path: $path, mode: "100644", type: "blob", content: $content}'

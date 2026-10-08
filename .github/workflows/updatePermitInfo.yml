@@ -76,7 +76,7 @@ jobs:
           BRANCH: ${{ github.ref_name }}
           MESSAGE: "chore: automated permit info update"
         run: |
-          head=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/$BRANCH" --jq .object.sha)
+          head="$GITHUB_SHA"
           base_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$head" --jq .tree.sha)
           tree=$(for f in src/public/PermitInfo.*.json; do
               jq -n --arg path "$f" --rawfile content "$f" '{path: $path, mode: "100644", type: "blob", content: $content}'
@@ -90,7 +90,7 @@ jobs:
           gh api -X PATCH "repos/$GITHUB_REPOSITORY/git/refs/heads/$BRANCH" -f sha="$commit" -F force=false
 
   handle-failure:
-    needs: update-permit-info
+    needs: [update-permit-info, commit-changes]
     if: failure()
     runs-on: ubuntu-latest
     steps:
