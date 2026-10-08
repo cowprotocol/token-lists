@@ -91,6 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: token-lists-bot
     permissions:
+      contents: read
       issues: write
     steps:
       - name: Create GitHub App token
