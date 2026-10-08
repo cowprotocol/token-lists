@@ -131,7 +131,12 @@ export async function fetchAndProcessUniswapTokens(
 
   const supportedChains = Object.keys(COINGECKO_CHAINS)
     .map(Number)
-    .filter((chain) => chain !== SupportedChainId.MAINNET && COINGECKO_CHAINS[chain as SupportedChainId])
+    .filter(
+      (chain) =>
+        chain !== SupportedChainId.MAINNET &&
+        chain !== SupportedChainId.SOLANA &&
+        COINGECKO_CHAINS[chain as SupportedChainId],
+    )
 
   await Promise.all(
     supportedChains.map((chain) => {

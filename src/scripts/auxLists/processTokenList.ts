@@ -1,4 +1,4 @@
-import { SupportedChainId } from '@cowprotocol/cow-sdk'
+import { getAddressKey, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { TokenList } from '@uniswap/token-lists'
 import * as fs from 'fs'
 import path from 'path'
@@ -34,8 +34,8 @@ function getLocalTokenList(listPath: string, defaultEmptyList: Partial<TokenList
 
 function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): TokenList['version'] {
   const version = list.version || { major: 0, minor: 0, patch: 0 }
-  const currentAddresses = new Set(list.tokens?.map((token) => token.address.toLowerCase()) || [])
-  const newAddresses = new Set(tokens.map((token) => token.address.toLowerCase()))
+  const currentAddresses = new Set(list.tokens?.map((token) => getAddressKey(token.address)) || [])
+  const newAddresses = new Set(tokens.map((token) => getAddressKey(token.address)))
 
   // Check for removed tokens
   if (newAddresses.size < currentAddresses.size || !isSubsetOf(currentAddresses, newAddresses)) {
@@ -50,7 +50,7 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
   // Check for changes in token details
   if (currentAddresses.size === newAddresses.size) {
     for (const listToken of list.tokens || []) {
-      const token = tokens.find((token) => token.address.toLowerCase() === listToken.address.toLowerCase())
+      const token = tokens.find((token) => getAddressKey(token.address) === getAddressKey(listToken.address))
       if (
         token &&
         (listToken.name !== token.name ||
@@ -80,8 +80,8 @@ function mergeOrReplaceTokens(currentList: TokenInfo[], newList: TokenInfo[], re
     // merge tokens from currentList.tokens with tokens
     return Object.values(
       [...currentList, ...newList].reduce<Record<string, TokenInfo>>((acc, t) => {
-        if (!acc[t.address.toLowerCase()]) {
-          acc[t.address.toLowerCase()] = t
+        if (!acc[getAddressKey(t.address)]) {
+          acc[getAddressKey(t.address)] = t
         }
         return acc
       }, {}),
@@ -154,7 +154,7 @@ export async function processTokenList({
   })
 
   const updatedTokens = tokens.reduce((acc, { volume: _, ...token }) => {
-    const override = overrides[token.address.toLowerCase()]
+    const override = overrides[getAddressKey(token.address)]
     // if override is null, means we want to remove token from list
     if (override !== null) {
       acc.push({

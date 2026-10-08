@@ -1,4 +1,4 @@
-import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
+import { getAddressKey, mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import assert from 'assert'
 import fs from 'fs'
 import winston, { Logger } from 'winston'
@@ -40,6 +40,7 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'linea',
   [SupportedChainId.PLASMA]: 'plasma',
   [SupportedChainId.INK]: 'ink',
+  [SupportedChainId.SOLANA]: 'solana',
 }
 
 export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
@@ -54,6 +55,7 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'Linea',
   [SupportedChainId.PLASMA]: 'Plasma',
   [SupportedChainId.INK]: 'Ink',
+  [SupportedChainId.SOLANA]: 'Solana',
 }
 
 export const VS_CURRENCY = 'usd'
@@ -103,7 +105,8 @@ export async function getCoingeckoTokenIdsMap(): Promise<CoingeckoIdsMap> {
       COINGECKO_CHAINS_NAMES.forEach((chain) => {
         if (!chain) return
 
-        const address = token.platforms[chain]?.toLowerCase()
+        const platformAddress = token.platforms[chain]
+        const address = platformAddress ? getAddressKey(platformAddress) : undefined
         if (address) {
           tokenIdsMap[chain][address] = token.id
           tokenIdsMap[chain][token.id] = address // reverse mapping
@@ -126,7 +129,10 @@ export async function getTokenList(chain: SupportedChainId): Promise<TokenInfo[]
     return TOKEN_LISTS_CACHE[chain]
   }
 
-  const data = await fetchWithApiKey(getTokenListUrl(chain))
+  const data =
+    chain === SupportedChainId.SOLANA
+      ? JSON.parse(fs.readFileSync('src/public/SolanaDefault.json', 'utf8'))
+      : await fetchWithApiKey(getTokenListUrl(chain))
   TOKEN_LISTS_CACHE[chain] = data.tokens
   return data.tokens
 }
