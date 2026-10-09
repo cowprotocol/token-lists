@@ -5,8 +5,8 @@ import pRetry, { AbortError } from 'p-retry'
 import { SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
 
 /**
- * Fetches Solana tokens and writes them as two lists: `SolanaDefault.json` and
- * `SolanaRwa.json`.
+ * Fetches Solana tokens and writes them as two lists: `CowSwap.1000000001.json`
+ * and `Rwa.1000000001.json`.
  *
  * how does it work: a token has to clear two independent bars.
  *
@@ -30,14 +30,14 @@ interface ListConfig {
 }
 
 const DEFAULT_LIST: ListConfig = {
-  outputFile: 'SolanaDefault.json',
+  outputFile: 'CowSwap.1000000001.json',
   name: 'Solana Default',
   keywords: ['default', 'list', 'solana', 'jupiter', 'coingecko'],
   overridesFile: 'SolanaOverrides.json',
 }
 
 const RWA_LIST: ListConfig = {
-  outputFile: 'SolanaRwa.json',
+  outputFile: 'Rwa.1000000001.json',
   name: 'Solana RWA',
   keywords: ['rwa', 'list', 'solana', 'jupiter', 'coingecko'],
 }
