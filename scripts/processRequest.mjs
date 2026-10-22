@@ -11,6 +11,7 @@ export const NETWORK_CONFIG = {
   LINEA: { chainId: 59144, blockExplorer: 'lineascan.build' },
   PLASMA: { chainId: 9745, blockExplorer: 'plasmascan.to' },
   INK: { chainId: 57073, blockExplorer: 'explorer.inkonchain.com' },
+  ROBINHOOD: { chainId: 4663, blockExplorer: 'robin.etherscan.io' },
 }
 
 export const VALIDATION_RULES = {
