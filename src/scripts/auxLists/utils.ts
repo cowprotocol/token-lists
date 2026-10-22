@@ -40,6 +40,7 @@ export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'linea',
   [SupportedChainId.PLASMA]: 'plasma',
   [SupportedChainId.INK]: 'ink',
+  [SupportedChainId.ROBINHOOD]: 'robinhood',
   [SupportedChainId.SOLANA]: 'solana',
 }
 
@@ -55,6 +56,7 @@ export const DISPLAY_CHAIN_NAMES: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'Linea',
   [SupportedChainId.PLASMA]: 'Plasma',
   [SupportedChainId.INK]: 'Ink',
+  [SupportedChainId.ROBINHOOD]: 'Robinhood Chain',
   [SupportedChainId.SOLANA]: 'Solana',
 }
 
