@@ -1,0 +1,10 @@
+{
+  "removed": false,
+  "address": "0x7ab8d02cbb51ff7223fde700eaaa2a91bf750314",
+  "symbol": "TART",
+  "name": "TartSwap",
+  "logoURI": "https://files.cow.fi/token-lists/images/56/0x7ab8d02cbb51ff7223fde700eaaa2a91bf750314/logo.png",
+  "reason": "TART is the token of TartSwap (https://tartswap.com), a self-custody DeFi app on BNB Smart Chain (swap router over PancakeSwap liquidity, staking, LP farm, OTC desk). It is a plain BEP-20 with 9 decimals, a fixed supply of 10,000,000,000, no mint function and 0% buy/sell tax. The source is verified on BscScan and contract ownership is renounced: https://bscscan.com/tx/0xdc6594c9bb38febb9ce26a8fe850aa79880a3d57a93232aa4fd57dde81001301\n\nLiquidity: PancakeSwap V2 TART/WBNB, pair 0x30000a407FabeBe29439F8E437050512fF6661bE, about 287 WBNB on the WBNB side; 63.4% of the LP is locked until 31 Aug 2027 and 12.15% is burned. About 6,500 holders.\n\nListed on CoinGecko (https://www.coingecko.com/en/coins/tartswap) and CoinMarketCap (https://coinmarketcap.com/currencies/tartswap/). Project source and contract list: https://github.com/tartswap/tartswap\n\nThe CoW Protocol quote endpoint for BNB Chain already returns a quote for WBNB to TART. We have not executed a trade through CoW Swap ourselves yet.",
+  "decimals": 9,
+  "chainId": 56
+}
