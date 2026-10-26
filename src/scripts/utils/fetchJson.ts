@@ -3,6 +3,11 @@ import pRetry, { AbortError } from 'p-retry'
 const REQUEST_TIMEOUT_MS = 15_000
 const MAX_RETRIES = 3
 
+// Spelled out rather than left to p-retry: passing `minTimeout: undefined` does not fall back to
+// its default, it overwrites it, and `Math.max(undefined, 1)` makes every backoff NaN — which
+// setTimeout reads as 0, so the retries fire instantly and the rate limit is never waited out.
+const DEFAULT_RETRY_BASE_MS = 1_000
+
 export interface FetchJsonOptions {
   retries?: number
   /** First backoff delay in ms; p-retry doubles it on each further attempt. */
@@ -28,7 +33,7 @@ export async function fetchJson(url: string, options: FetchJsonOptions = {}): Pr
     },
     {
       retries: options.retries ?? MAX_RETRIES,
-      minTimeout: options.minTimeout,
+      minTimeout: options.minTimeout ?? DEFAULT_RETRY_BASE_MS,
       onFailedAttempt: (err) => {
         console.warn(`${url} attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`)
       },
