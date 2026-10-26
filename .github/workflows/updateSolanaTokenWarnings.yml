@@ -1,0 +1,60 @@
+name: Update Solana Token Warnings
+
+on:
+  schedule:
+    # Runs at 03:00 UTC every day, clear of the 00:00 auxiliary lists run so the
+    # two jobs never push to the same branch at once
+    - cron: '0 3 * * *'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  generate:
+    name: Generate Solana token warnings
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+
+      - name: Setup dependencies
+        uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
+
+      - name: Generate Solana token warnings
+        run: yarn solanaWarnings
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git add src/public/TokenWarnings.1000000001.json
+          git diff --cached --quiet && echo "no_changes=true" >> $GITHUB_OUTPUT || true
+
+      - name: Configure Git
+        if: steps.git-check.outputs.no_changes != 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.no_changes != 'true'
+        env:
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          git commit -m "chore: automated solana token warnings update"
+          git push origin $BRANCH
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Solana Token Warnings Update Failed',
+              body: `The workflow to update Solana token warnings failed on ${new Date().toISOString()}.
+
+              Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            })

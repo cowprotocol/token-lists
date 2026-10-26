@@ -9,6 +9,7 @@
     "build:auxLists": "yarn uniswapToGnosisChainList && yarn coingeckoToGnosisChainList && yarn coingeckoToArbitrumOneList ",
     "coingecko": "yarn run-script src/scripts/coingecko.js",
     "solana": "yarn run-script src/scripts/solana.ts",
+    "solanaWarnings": "yarn run-script src/scripts/solanaWarnings/index.ts",
     "downloadImages": "yarn run-script src/scripts/downloadImages",
     "cowFi:tokens": "yarn run-script ./src/scripts/cowFi-tokens.js",
     "generateAuxLists": "yarn run-script ./src/scripts/auxLists/index.ts",

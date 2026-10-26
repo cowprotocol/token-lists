@@ -108,6 +108,25 @@ The script generates token list files in `src/public/` for the following network
 - Ink (CoinGecko.57073.json, Uniswap.57073.json)
 - Polygon (CoinGecko.137.json, Uniswap.137.json)
 
+### Solana token warnings
+
+```bash
+yarn solanaWarnings
+```
+
+Builds `src/public/TokenWarnings.1000000001.json` from Jupiter's Shield endpoint: the risk warnings
+(`HAS_MINT_AUTHORITY`, `HAS_FREEZE_AUTHORITY`, `HIGH_SINGLE_OWNERSHIP`, transfer fees, and the rest)
+for every mint on `CowSwap.1000000001.json` and `Rwa.1000000001.json`. A daily workflow keeps it
+current, so run it by hand only when you want the file refreshed ahead of schedule.
+
+A mint absent from the file has no warnings. Warnings are not folded into the token lists themselves
+because several warning types are not legal token-list extension keys, and because they change often
+enough to bump the list version on most runs.
+
+The run aborts rather than publishing a partial file if a batch cannot be fetched, and refuses to
+write when the set of flagged mints shrinks by more than 30%. Override the latter with
+`ALLOW_WARNINGS_SHRINK=1` once you have confirmed the drop is real.
+
 ### Adding a new network
 
 To support a new network (e.g. Ink, chain ID 57073), run these steps in order:

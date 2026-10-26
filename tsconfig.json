@@ -6,6 +6,8 @@
     "strict": true,
     "alwaysStrict": true,
     "resolveJsonModule": true,
+    // node --test strips types and resolves the real specifier, so its imports carry the .ts extension
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
     "noUnusedLocals": true,
