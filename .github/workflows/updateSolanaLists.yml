@@ -1,4 +1,4 @@
-name: Update Solana Token Warnings
+name: Update Solana Lists
 
 on:
   schedule:
@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate:
-    name: Generate Solana token warnings
+    name: Generate Solana token lists and warnings
     runs-on: ubuntu-latest
 
     steps:
@@ -22,13 +22,21 @@ jobs:
         with:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
+      - name: Generate Solana token lists
+        run: yarn solana
+
+      # Must follow the lists in the same job: the warnings are keyed by the mints
+      # on those files, so generating them from a stale list would leave a freshly
+      # added token looking unflagged for a day.
       - name: Generate Solana token warnings
         run: yarn solanaWarnings
 
       - name: Check for changes
         id: git-check
         run: |
-          git add src/public/TokenWarnings.1000000001.json
+          git add src/public/CowSwap.1000000001.json \
+                  src/public/Rwa.1000000001.json \
+                  src/public/TokenWarnings.1000000001.json
           git diff --cached --quiet && echo "no_changes=true" >> $GITHUB_OUTPUT || true
 
       - name: Configure Git
@@ -42,7 +50,7 @@ jobs:
         env:
           BRANCH: ${{ github.ref_name }}
         run: |
-          git commit -m "chore: automated solana token warnings update"
+          git commit -m "chore: automated solana lists update"
           git push origin $BRANCH
 
       - name: Create issue on failure
@@ -53,8 +61,8 @@ jobs:
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: 'Solana Token Warnings Update Failed',
-              body: `The workflow to update Solana token warnings failed on ${new Date().toISOString()}.
+              title: 'Solana Lists Update Failed',
+              body: `The workflow to update the Solana token lists and warnings failed on ${new Date().toISOString()}.
 
               Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
             })

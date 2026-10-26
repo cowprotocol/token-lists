@@ -108,24 +108,31 @@ The script generates token list files in `src/public/` for the following network
 - Ink (CoinGecko.57073.json, Uniswap.57073.json)
 - Polygon (CoinGecko.137.json, Uniswap.137.json)
 
-### Solana token warnings
+### Solana lists
 
 ```bash
-yarn solanaWarnings
+yarn solana          # CowSwap.1000000001.json + Rwa.1000000001.json
+yarn solanaWarnings  # TokenWarnings.1000000001.json
 ```
 
-Builds `src/public/TokenWarnings.1000000001.json` from Jupiter's Shield endpoint: the risk warnings
-(`HAS_MINT_AUTHORITY`, `HAS_FREEZE_AUTHORITY`, `HIGH_SINGLE_OWNERSHIP`, transfer fees, and the rest)
-for every mint on `CowSwap.1000000001.json` and `Rwa.1000000001.json`. A daily workflow keeps it
-current, so run it by hand only when you want the file refreshed ahead of schedule.
+`yarn solana` rebuilds the two Solana token lists from Jupiter and CoinGecko, splitting tokenised
+real-world assets into the RWA list. `yarn solanaWarnings` then builds the risk warnings
+(`HAS_MINT_AUTHORITY`, `HAS_FREEZE_AUTHORITY`, `HAS_PERMANENT_DELEGATE`, transfer fees, and the rest)
+from Jupiter's Shield endpoint, for every mint on **both** lists.
 
-A mint absent from the file has no warnings. Warnings are not folded into the token lists themselves
-because several warning types are not legal token-list extension keys, and because they change often
-enough to bump the list version on most runs.
+The **Update Solana Lists** workflow runs the two in that order daily at 03:00 UTC and commits all
+three files together. Order matters: the warnings are keyed by the mints on the lists, so building
+them from a stale list would leave a freshly added token looking unflagged for a day. Run them by
+hand only when you want the files refreshed ahead of schedule, and always run `yarn solana` first.
 
-The run aborts rather than publishing a partial file if a batch cannot be fetched, and refuses to
-write when the set of flagged mints shrinks by more than 30%. Override the latter with
-`ALLOW_WARNINGS_SHRINK=1` once you have confirmed the drop is real.
+A mint absent from the warnings file has no warnings. Warnings are not folded into the token lists
+themselves because several warning types are not legal token-list extension keys, and because they
+change often enough to bump the list version on most runs.
+
+Both scripts refuse to overwrite a list that shrinks by more than 30% in one run, since that usually
+means an upstream filter moved rather than the tokens going away — override with
+`ALLOW_LIST_SHRINK=1` and `ALLOW_WARNINGS_SHRINK=1` respectively. The warnings run also aborts rather
+than publishing a partial file if a batch cannot be fetched.
 
 ### Adding a new network
 
