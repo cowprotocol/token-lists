@@ -8,6 +8,7 @@ import {
   buildWarnings,
   chunk,
   collectMints,
+  findUnansweredMints,
   isUnchanged,
   serializeWarningsFile,
   type ShieldResponse,
@@ -34,9 +35,12 @@ const SOURCE_LISTS = ['CowSwap.1000000001.json', 'Rwa.1000000001.json']
 const OUTPUT_FILE = 'TokenWarnings.1000000001.json'
 const SHIELD_URL = 'https://lite-api.jup.ag/ultra/v1/shield'
 
-// Shield truncates silently above 50 mints: ask for 100 and it answers for the
-// first 50 without saying so. Larger batches also risk a 414 on the query string.
-const MINTS_PER_REQUEST = 50
+// Shield truncates silently above 30 mints: ask for 40 and it answers for the
+// first 30, with no error and nothing in the body to say the rest were dropped.
+// A dropped mint is indistinguishable from a clean one, so `fetchShield` also
+// checks the response covers everything it asked for — the cap is Jupiter's to
+// change, and the next time they lower it this must fail rather than under-report.
+const MINTS_PER_REQUEST = 30
 
 // The free Shield tier starts answering 429 well before a list this size is
 // covered, so the run is paced and backs off for far longer than a single
@@ -99,6 +103,15 @@ async function fetchShield(mints: string[]): Promise<ShieldResponse> {
 
   if (!warnings || typeof warnings !== 'object') {
     throw new Error('Unexpected Shield response shape: expected a `warnings` object')
+  }
+
+  const unanswered = findUnansweredMints(mints, { warnings })
+
+  if (unanswered.length > 0) {
+    throw new Error(
+      `Shield answered for ${Object.keys(warnings).length} of ${mints.length} mints and dropped ` +
+        `${unanswered.length} without an error (first: ${unanswered[0]}). Lower MINTS_PER_REQUEST.`,
+    )
   }
 
   return { warnings }

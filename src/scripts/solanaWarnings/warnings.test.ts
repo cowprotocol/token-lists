@@ -7,6 +7,7 @@ import {
   buildWarnings,
   chunk,
   collectMints,
+  findUnansweredMints,
   isUnchanged,
   normalizeSeverity,
   serializeWarningsFile,
@@ -186,5 +187,21 @@ describe('serializeWarningsFile', () => {
 
   it('ends with a trailing newline', () => {
     assert.ok(serializeWarningsFile(file).endsWith('}\n'))
+  })
+})
+
+describe('findUnansweredMints', () => {
+  it('returns nothing when every mint was answered for', () => {
+    assert.deepEqual(findUnansweredMints(['mintA', 'mintB'], response({ mintA: [MINT_AUTHORITY], mintB: [] })), [])
+  })
+
+  it('treats an empty array as answered, because that is how Shield says "clean"', () => {
+    assert.deepEqual(findUnansweredMints(['mintA'], response({ mintA: [] })), [])
+  })
+
+  it('reports the mints Shield silently dropped, which would otherwise publish as clean', () => {
+    const truncated = response({ mintA: [MINT_AUTHORITY] })
+
+    assert.deepEqual(findUnansweredMints(['mintA', 'mintB', 'mintC'], truncated), ['mintB', 'mintC'])
   })
 })
