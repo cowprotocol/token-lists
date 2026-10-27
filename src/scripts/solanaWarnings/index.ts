@@ -9,14 +9,14 @@ import {
   chunk,
   collectMints,
   isUnchanged,
+  serializeWarningsFile,
   type ShieldResponse,
-  type TokenWarning,
   type TokenWarningsFile,
 } from './warnings'
 
 /**
  * Builds `TokenWarnings.1000000001.json`: the risk warnings Jupiter's Shield
- * reports for every mint on our Solana lists.
+ * reports for every mint on our Solana lists, under the short codes in `WARNING_CODES`.
  *
  * It is a sidecar rather than `extensions` on the lists themselves for three
  * reasons: warning types such as `1%_TRANSFER_FEES` are not legal token-list
@@ -70,7 +70,7 @@ function readCurrent(): TokenWarningsFile | null {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8')) as TokenWarningsFile
 }
 
-function assertNoMassiveShrink(next: Record<string, TokenWarning[]>, current: TokenWarningsFile | null): void {
+function assertNoMassiveShrink(next: Record<string, string[]>, current: TokenWarningsFile | null): void {
   const previousCount = Object.keys(current?.warnings ?? {}).length
   if (previousCount === 0) return
 
@@ -127,10 +127,10 @@ async function main(): Promise<void> {
     ...next,
   }
 
-  fs.writeFileSync(path.join(SRC_DIR, OUTPUT_FILE), JSON.stringify(file, null, 2))
+  fs.writeFileSync(path.join(SRC_DIR, OUTPUT_FILE), serializeWarningsFile(file))
   console.log(
     `Wrote ${Object.keys(next.warnings).length} flagged mints ` +
-      `(${Object.keys(next.messages).length} warning types) to ${OUTPUT_FILE}`,
+      `(${Object.keys(next.types).length} warning types) to ${OUTPUT_FILE}`,
   )
 }
 

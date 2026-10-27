@@ -9,6 +9,7 @@ import {
   collectMints,
   isUnchanged,
   normalizeSeverity,
+  serializeWarningsFile,
   type ShieldResponse,
   type TokenWarningsFile,
 } from './warnings.ts'
@@ -42,6 +43,12 @@ const FREEZE_AUTHORITY = {
   type: 'HAS_FREEZE_AUTHORITY',
   message: "The authority's owner has the ability to freeze your token account",
   severity: 'warning',
+}
+
+const TRANSFER_FEE = {
+  type: '2.69%_TRANSFER_FEES',
+  message: 'This token has a transfer fee of 2.69%',
+  severity: 'critical',
 }
 
 describe('chunk', () => {
@@ -85,14 +92,30 @@ describe('normalizeSeverity', () => {
 })
 
 describe('buildWarnings', () => {
-  it('hoists each message into the shared dictionary once', () => {
-    const { messages, warnings } = buildWarnings([
-      response({ mintA: [MINT_AUTHORITY], mintB: [MINT_AUTHORITY, FREEZE_AUTHORITY] }),
-    ])
+  it('publishes short codes, not Shield type strings', () => {
+    const { types, warnings } = buildWarnings([response({ mintA: [MINT_AUTHORITY, FREEZE_AUTHORITY] })])
 
-    assert.deepEqual(Object.keys(messages), ['HAS_FREEZE_AUTHORITY', 'HAS_MINT_AUTHORITY'])
-    assert.equal(messages['HAS_MINT_AUTHORITY'], MINT_AUTHORITY.message)
-    assert.deepEqual(warnings['mintA'], [{ type: 'HAS_MINT_AUTHORITY', severity: 'info' }])
+    assert.deepEqual(warnings['mintA'], ['FREEZE', 'MINT'])
+    assert.deepEqual(Object.keys(types), ['FREEZE', 'MINT'])
+  })
+
+  it('hoists severity and message onto the type, not each mint', () => {
+    const { types } = buildWarnings([response({ mintA: [MINT_AUTHORITY], mintB: [MINT_AUTHORITY] })])
+
+    assert.deepEqual(types['MINT'], { severity: 'info', message: MINT_AUTHORITY.message })
+  })
+
+  it('drops transfer-fee warnings entirely', () => {
+    const { types, warnings } = buildWarnings([response({ mintA: [TRANSFER_FEE, MINT_AUTHORITY] })])
+
+    assert.deepEqual(warnings['mintA'], ['MINT'])
+    assert.deepEqual(Object.keys(types), ['MINT'])
+  })
+
+  it('omits a mint whose only warnings were dropped', () => {
+    const { warnings } = buildWarnings([response({ mintA: [TRANSFER_FEE], mintB: [MINT_AUTHORITY] })])
+
+    assert.deepEqual(Object.keys(warnings), ['mintB'])
   })
 
   it('omits mints with no warnings', () => {
@@ -107,15 +130,11 @@ describe('buildWarnings', () => {
     assert.deepEqual(Object.keys(warnings), ['mintA', 'mintB'])
   })
 
-  it('sorts mints and each mint’s warnings so reruns produce no diff', () => {
+  it('sorts mints and each mint’s codes so reruns produce no diff', () => {
     const first = buildWarnings([response({ mintB: [MINT_AUTHORITY, FREEZE_AUTHORITY] })])
     const second = buildWarnings([response({ mintB: [FREEZE_AUTHORITY, MINT_AUTHORITY] })])
 
     assert.equal(JSON.stringify(first), JSON.stringify(second))
-    assert.deepEqual(
-      first.warnings['mintB'].map((warning) => warning.type),
-      ['HAS_FREEZE_AUTHORITY', 'HAS_MINT_AUTHORITY'],
-    )
   })
 })
 
@@ -132,7 +151,7 @@ describe('isUnchanged', () => {
     assert.equal(isUnchanged(content, null), false)
   })
 
-  it('is true when messages and warnings both match', () => {
+  it('is true when types and warnings both match', () => {
     assert.equal(isUnchanged(buildWarnings([response({ mintA: [MINT_AUTHORITY] })]), current), true)
   })
 
@@ -144,5 +163,28 @@ describe('isUnchanged', () => {
     const reworded = buildWarnings([response({ mintA: [{ ...MINT_AUTHORITY, message: 'Reworded upstream' }] })])
 
     assert.equal(isUnchanged(reworded, current), false)
+  })
+})
+
+describe('serializeWarningsFile', () => {
+  const file: TokenWarningsFile = {
+    timestamp: '2026-01-01T00:00:00.000Z',
+    chainId: 1000000001,
+    ...buildWarnings([response({ mintA: [MINT_AUTHORITY, FREEZE_AUTHORITY], mintB: [MINT_AUTHORITY] })]),
+  }
+
+  it('round-trips through JSON.parse', () => {
+    assert.deepEqual(JSON.parse(serializeWarningsFile(file)), file)
+  })
+
+  it('keeps each mint on one line, so a changed mint is a one-line diff', () => {
+    const lines = serializeWarningsFile(file).split('\n')
+
+    assert.ok(lines.some((line) => line.includes('"mintA": ["FREEZE","MINT"]')))
+    assert.ok(lines.some((line) => line.includes('"mintB": ["MINT"]')))
+  })
+
+  it('ends with a trailing newline', () => {
+    assert.ok(serializeWarningsFile(file).endsWith('}\n'))
   })
 })
