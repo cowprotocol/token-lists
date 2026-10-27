@@ -108,6 +108,49 @@ The script generates token list files in `src/public/` for the following network
 - Ink (CoinGecko.57073.json, Uniswap.57073.json)
 - Polygon (CoinGecko.137.json, Uniswap.137.json)
 
+### Solana lists
+
+```bash
+yarn solana          # CowSwap.1000000001.json + Rwa.1000000001.json
+yarn solanaWarnings  # TokenWarnings.1000000001.json
+```
+
+`yarn solana` rebuilds the two Solana token lists from Jupiter and CoinGecko, splitting tokenised
+real-world assets into the RWA list. `yarn solanaWarnings` then builds the risk warnings from
+Jupiter's Shield endpoint, for every mint on **both** lists.
+
+Warnings are published under short codes (`MINT`, `FREEZE`, `PERM_DEL`, `CONCENTRATED`, `LOW_LIQ`,
+`LOW_ORGANIC`, `LOW_VOLUME`, `UNVERIFIED`, `NO_SELL`), with severity and copy carried once in a
+`types` dictionary rather than repeated on every mint — Shield reports a given type at the same
+severity everywhere, so the per-mint entry only needs the codes:
+
+```jsonc
+{
+  "types": { "FREEZE": { "severity": "warning", "message": "The authority's owner can freeze…" } },
+  "warnings": { "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": ["FREEZE", "MINT"] }
+}
+```
+
+The codes are the contract with the interface, so renaming one is a breaking change. Shield's
+transfer-fee warnings are dropped: the interface already surfaces fee-bearing tokens, and the rate
+is baked into the type name (`2.69%_TRANSFER_FEES`), so the set would grow without bound.
+
+Run them in that order and commit the three files together. Order matters: the warnings are keyed
+by the mints on the lists, so building them from a stale list leaves a freshly added token looking
+unflagged.
+
+Neither script is automated — unlike the auxiliary lists, there is no workflow behind these, so the
+committed files are a snapshot that only moves when someone runs the scripts by hand.
+
+A mint absent from the warnings file has no warnings. Warnings are not folded into the token lists
+themselves because several warning types are not legal token-list extension keys, and because they
+change often enough to bump the list version on most runs.
+
+Both scripts refuse to overwrite a list that shrinks by more than 30% in one run, since that usually
+means an upstream filter moved rather than the tokens going away — override with
+`ALLOW_LIST_SHRINK=1` and `ALLOW_WARNINGS_SHRINK=1` respectively. The warnings run also aborts rather
+than publishing a partial file if a batch cannot be fetched.
+
 ### Adding a new network
 
 To support a new network (e.g. Ink, chain ID 57073), run these steps in order:

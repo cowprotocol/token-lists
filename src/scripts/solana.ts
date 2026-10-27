@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
-import pRetry, { AbortError } from 'p-retry'
 import { SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
+import { fetchJson } from './utils/fetchJson'
 
 /**
  * Fetches Solana tokens and writes them as two lists: `CowSwap.1000000001.json`
@@ -52,8 +52,6 @@ const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
 const COINGECKO_SOLANA_LIST_URL = 'https://tokens.coingecko.com/solana/all.json'
 const STRICT_TAG = 'strict'
-const REQUEST_TIMEOUT_MS = 15_000
-const MAX_RETRIES = 3
 const LOGO_URI =
   'https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png'
 
@@ -97,32 +95,6 @@ interface CoingeckoToken {
   symbol: string
   decimals: number
   logoURI?: string
-}
-
-async function fetchJson(url: string): Promise<unknown> {
-  return pRetry(
-    async () => {
-      const res = await fetch(url, {
-        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
-      })
-      if (!res.ok) {
-        const body = await res.text()
-        // 429 (rate limit) is transient — let p-retry back off and retry.
-        // Other 4xx are client errors (bad query, removed endpoint) — abort.
-        if (res.status >= 400 && res.status < 500 && res.status !== 429) {
-          throw new AbortError(`Request to ${url} failed: ${res.status} ${body}`)
-        }
-        throw new Error(`Request to ${url} failed: ${res.status} ${body}`)
-      }
-      return res.json()
-    },
-    {
-      retries: MAX_RETRIES,
-      onFailedAttempt: (err) => {
-        console.warn(`${url} attempt ${err.attemptNumber} failed (${err.retriesLeft} retries left): ${err.message}`)
-      },
-    },
-  )
 }
 
 async function fetchJupiterVerified(): Promise<JupiterToken[]> {
