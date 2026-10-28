@@ -20,7 +20,6 @@ export const NETWORK_TO_GECKOTERMINAL = {
   POLYGON: 'polygon_pos',
   BNB: 'bsc',
   GNOSIS_CHAIN: 'xdai',
-  LINEA: 'linea',
   ROBINHOOD: 'robinhood',
   // PLASMA, INK: not on GeckoTerminal -> marketCap/volume stay 'n/a'.
 }
@@ -34,7 +33,6 @@ export const NETWORK_TO_CMC_SLUG = {
   POLYGON: 'polygon',
   BNB: 'bnb',
   GNOSIS_CHAIN: 'gnosis',
-  LINEA: 'linea',
   // PLASMA, INK, ROBINHOOD: no CMC DEX slug -> holders stay 'n/a'.
 }
 
