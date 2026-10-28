@@ -20,20 +20,18 @@ interface TokenMap {
 }
 
 /**
- * Fetches the Uniswap token list
+ * Fetches the Uniswap token list. Throws instead of returning [] so a broken source fails the run
  */
 async function getUniswapTokens(): Promise<TokenInfo[]> {
-  try {
-    const response = await fetch(UNISWAP_TOKENS_LIST)
-    if (!response.ok) {
-      throw new Error(`Failed to fetch Uniswap list: ${response.statusText}`)
-    }
-    const list = await response.json()
-    return list.tokens
-  } catch (error) {
-    console.error('Error fetching Uniswap tokens:', error)
-    return []
+  const response = await fetch(UNISWAP_TOKENS_LIST)
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Uniswap list: ${response.statusText}`)
   }
+  const list = await response.json()
+  if (!Array.isArray(list.tokens) || !list.tokens.length) {
+    throw new Error(`Uniswap list from ${UNISWAP_TOKENS_LIST} has no tokens`)
+  }
+  return list.tokens
 }
 
 /**
