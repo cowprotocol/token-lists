@@ -7,6 +7,11 @@ on:
   # Allow manual trigger
   workflow_dispatch:
 
+# Let active Dune executions finish when another run is queued.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   generate:
     name: Generate auxiliary token lists
@@ -38,11 +43,47 @@ jobs:
             src/public/CoinGecko.*.json
             src/public/Uniswap.*.json
             src/public/TokenSupply.*.json
+          if-no-files-found: error
+          retention-days: 1
+
+  solana:
+    name: Generate Solana token lists and ranks
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup dependencies
+        uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
+
+      - name: Generate Solana lists, ranks and warnings
+        env:
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+        run: |
+          yarn solana
+          yarn solanaWarnings
+
+      - name: Upload generated Solana lists
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: solana-lists
+          path: |
+            src/public/CowSwap.1000000001.json
+            src/public/Rwa.1000000001.json
+            src/public/TokenWarnings.1000000001.json
+          if-no-files-found: error
           retention-days: 1
 
   commit:
-    name: Commit auxiliary token lists
-    needs: generate
+    name: Commit generated token lists
+    needs: [generate, solana]
+    if: ${{ !cancelled() && (needs.generate.result == 'success' || needs.solana.result == 'success') }}
     runs-on: ubuntu-latest
     environment: token-lists-bot
     permissions: {}
@@ -56,17 +97,25 @@ jobs:
           private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
           permission-contents: write
 
-      - name: Download generated lists
+      - name: Download generated auxiliary lists
+        if: needs.generate.result == 'success'
         uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
         with:
           name: aux-lists
+          path: src/public/
+
+      - name: Download generated Solana lists
+        if: needs.solana.result == 'success'
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: solana-lists
           path: src/public/
 
       - name: Commit changes through the API
         env:
           GH_TOKEN: ${{ steps.app-token.outputs.token }}
           BRANCH: ${{ github.ref_name }}
-          MESSAGE: "chore: automated auxiliary lists generation"
+          MESSAGE: 'chore: automated token lists generation'
         run: |
           head="$GITHUB_SHA"
           base_tree=$(gh api "repos/$GITHUB_REPOSITORY/git/commits/$head" --jq .tree.sha)
@@ -84,7 +133,7 @@ jobs:
 
   report-failure:
     name: Report failure
-    needs: [generate, commit]
+    needs: [generate, solana, commit]
     if: failure()
     runs-on: ubuntu-latest
     permissions:
@@ -98,8 +147,8 @@ jobs:
             github.rest.issues.create({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              title: 'Auxiliary Lists Generation Failed',
-              body: `The workflow to generate auxiliary token lists failed on ${new Date().toISOString()}.
+              title: 'Token Lists Generation Failed',
+              body: `The workflow to generate token lists failed on ${new Date().toISOString()}.
 
               Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
             })
