@@ -4,7 +4,7 @@
   ],
   "version": {
     "major": 14,
-    "minor": 0,
+    "minor": 1,
     "patch": 0
   },
   "tokens": [
@@ -50,14 +50,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
-      "name": "Staked USDai",
-      "symbol": "SUSDAI",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55861/large/sUSDai_Token_Full_Glyph.png?1755229072"
-    },
-    {
-      "chainId": 9745,
       "address": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
       "name": "Ethena Staked USDe",
       "symbol": "SUSDE",
@@ -74,22 +66,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
-      "name": "Stargate Bridged WETH",
-      "symbol": "WETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
-      "name": "USDai",
-      "symbol": "USDAI",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
-    },
-    {
-      "chainId": 9745,
       "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
       "name": "Tether Gold Tokens",
       "symbol": "XAUT0",
@@ -98,27 +74,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x61e030a56d33e8260fdd81f03b162a79fe3449cd",
-      "name": "Fluid",
-      "symbol": "FLUID",
+      "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+      "name": "Staked USDai",
+      "symbol": "SUSDAI",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/14688/large/Frame_1686566116_%281%29_%281%29.png?1784708239"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
-    },
-    {
-      "chainId": 9745,
-      "address": "0xca632fa58397391c750c13f935daa61abbe0baa6",
-      "name": "Euler",
-      "symbol": "EUL",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/26149/large/Coingecko_logo_%281%29.png?1706026067"
+      "logoURI": "https://assets.coingecko.com/coins/images/55861/large/sUSDai_Token_Full_Glyph.png?1755229072"
     },
     {
       "chainId": 9745,
@@ -130,11 +90,43 @@
     },
     {
       "chainId": 9745,
+      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+      "name": "USDai",
+      "symbol": "USDAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x9895d81bb462a195b4922ed7de0e3acd007c32cb",
+      "name": "Stargate Bridged WETH",
+      "symbol": "WETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
+    },
+    {
+      "chainId": 9745,
       "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
       "name": "Metronome Synth ETH",
       "symbol": "MSETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/67512/large/metronome_mseth.png?1753017508"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x61e030a56d33e8260fdd81f03b162a79fe3449cd",
+      "name": "Fluid",
+      "symbol": "FLUID",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/14688/large/Frame_1686566116_%281%29_%281%29.png?1784708239"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xca632fa58397391c750c13f935daa61abbe0baa6",
+      "name": "Euler",
+      "symbol": "EUL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/26149/large/Coingecko_logo_%281%29.png?1706026067"
     },
     {
       "chainId": 9745,
@@ -146,11 +138,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
-      "name": "EURØP",
-      "symbol": "EUROP",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-coin-rgb%281%29.png?1792638468"
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 9745,
@@ -162,11 +154,35 @@
     },
     {
       "chainId": 9745,
+      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
+      "name": "EURØP",
+      "symbol": "EUROP",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-coin-rgb%281%29.png?1792638468"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
+      "name": "Yuzu USD",
+      "symbol": "YZUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+    },
+    {
+      "chainId": 9745,
       "address": "0x9ecaf80c1303cca8791afbc0ad405c8a35e8d9f1",
       "name": "Kelp DAO Restaked ETH",
       "symbol": "RSETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xebfc8c2fe73c431ef2a371aea9132110aab50dca",
+      "name": "Yuzu Protection Pool",
+      "symbol": "YZPP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/71043/large/yzPP_%281%29.png?1765442029"
     },
     {
       "chainId": 9745,
@@ -178,14 +194,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
-      "name": "Plazzy the dog",
-      "symbol": "PLAZZY",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
-    },
-    {
-      "chainId": 9745,
       "address": "0xe0126f0c4451b2b917064a93040fd4770d6774b5",
       "name": "Wrapped Aave Plasma USDT0",
       "symbol": "WAPLAUSDT0",
@@ -194,11 +202,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
-      "name": "Yuzu USD",
-      "symbol": "YZUSD",
+      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
+      "name": "Plazzy the dog",
+      "symbol": "PLAZZY",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
+      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
     },
     {
       "chainId": 9745,
@@ -227,5 +235,5 @@
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-10-28T00:04:37.897Z"
+  "timestamp": "2026-10-29T00:04:39.544Z"
 }
