@@ -1,8 +1,10 @@
 import path from 'path'
 import fs from 'fs'
+import { randomUUID } from 'node:crypto'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
-import { SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils'
-import { fetchJson } from './utils/fetchJson'
+import { BUILD_DIR, SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils.js'
+import { fetchJson } from './utils/fetchJson.js'
+import { executeDuneVolumeSnapshot, prepareSolanaRankings, compareTokenAddresses } from './solanaRankings.js'
 
 /**
  * Fetches Solana tokens and writes them as two lists: `CowSwap.1000000001.json`
@@ -50,6 +52,7 @@ const RWA_TAGS = new Set(['rwa', 'stocks', 'xstocks', 'equities', 'prestocks', '
 
 const SOLANA_CHAIN_ID = 1000000001
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
+const JUPITER_SEARCH_URL = 'https://lite-api.jup.ag/tokens/v2/search'
 const COINGECKO_SOLANA_LIST_URL = 'https://tokens.coingecko.com/solana/all.json'
 const STRICT_TAG = 'strict'
 const LOGO_URI =
@@ -97,7 +100,7 @@ interface CoingeckoToken {
   logoURI?: string
 }
 
-async function fetchJupiterVerified(): Promise<JupiterToken[]> {
+async function fetchJupiterTokens(): Promise<JupiterToken[]> {
   console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
   const json = await fetchJson(JUPITER_VERIFIED_URL)
 
@@ -105,7 +108,23 @@ async function fetchJupiterVerified(): Promise<JupiterToken[]> {
     throw new Error(`Unexpected Jupiter response shape: ${typeof json}`)
   }
 
-  return json as JupiterToken[]
+  const tokens = new Map((json as JupiterToken[]).map((token) => [token.id, token]))
+  // Legacy strict mints can disappear from the verified endpoint while still passing our eligibility rules.
+  const currentMints = new Set(
+    [DEFAULT_LIST, RWA_LIST].flatMap(
+      (config) => readCurrentList(config.outputFile)?.tokens.map((token) => token.address) ?? [],
+    ),
+  )
+  const missing = [...currentMints].filter((mint) => !tokens.has(mint))
+  for (let offset = 0; offset < missing.length; offset += 100) {
+    const batch = missing.slice(offset, offset + 100)
+    const matches = await fetchJson(`${JUPITER_SEARCH_URL}?query=${batch.join(',')}`)
+    if (!Array.isArray(matches)) throw new Error('Unexpected Jupiter mint lookup response: expected an array')
+    for (const token of matches as JupiterToken[]) {
+      if (batch.includes(token.id)) tokens.set(token.id, token)
+    }
+  }
+  return [...tokens.values()]
 }
 
 async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
@@ -171,11 +190,6 @@ function toTokenInfo(t: JupiterToken, coingecko: CoingeckoToken | undefined): To
     // Mark only the Token-2022 mints.
     ...(isToken2022 ? { extensions: { isToken2022: true } } : {}),
   }
-}
-
-// sort by mint address to handle a lot off diffs regarding every token list update
-function sortByAddress(a: TokenInfo, b: TokenInfo): number {
-  return a.address < b.address ? -1 : a.address > b.address ? 1 : 0
 }
 
 function isRwa(t: JupiterToken): boolean {
@@ -319,30 +333,52 @@ interface PreparedList {
   version: TokenList['version']
 }
 
-// Everything that can reject a list — overrides, the shrink guard, reading the
-// current file — happens here, so it happens before anything is written.
-function prepareList(config: ListConfig, jupiterTokens: TokenInfo[]): PreparedList {
-  const tokens = applyOverrides(jupiterTokens, readOverrides(config.overridesFile)).sort(sortByAddress)
-
+function prepareList(config: ListConfig, tokens: TokenInfo[]): PreparedList {
   const current = readCurrentList(config.outputFile)
   assertNoMassiveShrink(config.outputFile, tokens, current)
 
   return { config, tokens, version: getNextVersion(config, current, tokens) }
 }
 
-function writeList({ config, tokens, version }: PreparedList): void {
-  const tokenList = buildTokenList(config, tokens, version)
-
-  writeTokenListToBuild(config.outputFile, tokenList)
-  writeTokenListToSrc(config.outputFile, tokenList)
-  console.log(
-    `Wrote ${tokens.length} tokens to ${config.outputFile} (v${version.major}.${version.minor}.${version.patch})`,
-  )
+/** Stage every complete source/build file before replacement. Individual renames are not a transaction. */
+function writeLists(prepared: PreparedList[]): void {
+  const staged: { temporary: string; destination: string }[] = []
+  try {
+    for (const { config, tokens, version } of prepared) {
+      const tokenList = buildTokenList(config, tokens, version)
+      const temporaryName = '.' + config.outputFile + '.' + randomUUID() + '.tmp'
+      staged.push(
+        {
+          temporary: path.join(BUILD_DIR, 'lists', temporaryName),
+          destination: path.join(BUILD_DIR, 'lists', config.outputFile),
+        },
+        { temporary: path.join(SRC_DIR, temporaryName), destination: path.join(SRC_DIR, config.outputFile) },
+      )
+      writeTokenListToBuild(temporaryName, tokenList)
+      writeTokenListToSrc(temporaryName, tokenList)
+    }
+    for (const { temporary, destination } of staged) fs.renameSync(temporary, destination)
+  } finally {
+    // A cleanup failure must not hide the original write error.
+    for (const { temporary } of staged) {
+      try {
+        fs.rmSync(temporary, { force: true })
+      } catch {}
+    }
+  }
+  for (const { config, tokens, version } of prepared) {
+    console.log(
+      `Wrote ${tokens.length} tokens to ${config.outputFile} (v${version.major}.${version.minor}.${version.patch})`,
+    )
+  }
 }
 
 async function main() {
-  const [raw, coingecko] = await Promise.all([fetchJupiterVerified(), fetchCoingeckoSolana()])
-  console.log(`Got ${raw.length} verified tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
+  if (process.argv.length > 2) throw new Error('yarn solana does not accept arguments')
+  const apiKey = process.env.DUNE_API_KEY?.trim()
+  if (!apiKey) throw new Error('Set DUNE_API_KEY to execute the Solana volume query')
+  const [raw, coingecko] = await Promise.all([fetchJupiterTokens(), fetchCoingeckoSolana()])
+  console.log(`Got ${raw.length} tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
 
   const eligible = raw.filter(isEligible)
   console.log(`${eligible.length} clear the quality bar ("${STRICT_TAG}" tag or organicScore >= ${MIN_ORGANIC_SCORE})`)
@@ -361,12 +397,25 @@ async function main() {
 
   const toInfo = (t: JupiterToken): TokenInfo => toTokenInfo(t, coingecko.get(t.id))
 
-  // Both lists are prepared and validated before either is written: a guard that
-  // trips on the second one would otherwise leave the first already rewritten, and
-  // the two published files describing overlapping sets of tokens.
-  const prepared = [prepareList(DEFAULT_LIST, rest.map(toInfo)), prepareList(RWA_LIST, rwa.map(toInfo))]
-
-  prepared.forEach(writeList)
+  const defaultTokens = applyOverrides(rest.map(toInfo), readOverrides(DEFAULT_LIST.overridesFile)).sort(
+    compareTokenAddresses,
+  )
+  const rwaTokens = rwa.map(toInfo).sort(compareTokenAddresses)
+  // Reject membership loss before starting a paid execution.
+  assertNoMassiveShrink(DEFAULT_LIST.outputFile, defaultTokens, readCurrentList(DEFAULT_LIST.outputFile))
+  assertNoMassiveShrink(RWA_LIST.outputFile, rwaTokens, readCurrentList(RWA_LIST.outputFile))
+  const snapshot = await executeDuneVolumeSnapshot(apiKey)
+  const ranked = prepareSolanaRankings(defaultTokens, rwaTokens, snapshot)
+  const prepared = [prepareList(DEFAULT_LIST, ranked), prepareList(RWA_LIST, rwaTokens)]
+  console.log(
+    JSON.stringify({
+      ...snapshot.metadata,
+      ...snapshot.provenance,
+      rankedTokens: ranked.filter((token) => token.extensions?.rank != null).length,
+      defaultTokens: ranked.length,
+    }),
+  )
+  writeLists(prepared)
 }
 
 main().catch((err) => {
