@@ -110,14 +110,21 @@ The script generates token list files in `src/public/` for the following network
 
 ### Solana lists
 
+Set your Dune API key before running the generator:
+
 ```bash
+export DUNE_API_KEY='<your-dune-api-key>'
 yarn solana          # CowSwap.1000000001.json + Rwa.1000000001.json
 yarn solanaWarnings  # TokenWarnings.1000000001.json
 ```
 
+Each `yarn solana` run executes [Dune query 8910905](https://dune.com/queries/8910905) and uses Dune credits.
+
 `yarn solana` rebuilds the two Solana token lists from Jupiter and CoinGecko, splitting tokenised
 real-world assets into the RWA list. `yarn solanaWarnings` then builds the risk warnings from
 Jupiter's Shield endpoint, for every mint on **both** lists.
+
+Default tokens get `extensions.rank` from their average position by 90-day and 30-day trading volume. Tokens without volume data and RWA tokens stay unranked. Rank-only changes bump the patch version.
 
 Warnings are published under short codes (`MINT`, `FREEZE`, `PERM_DEL`, `CONCENTRATED`, `LOW_LIQ`,
 `LOW_ORGANIC`, `LOW_VOLUME`, `UNVERIFIED`, `NO_SELL`), with severity and copy carried once in a
@@ -139,8 +146,7 @@ Run them in that order and commit the three files together. Order matters: the w
 by the mints on the lists, so building them from a stale list leaves a freshly added token looking
 unflagged.
 
-Neither script is automated — unlike the auxiliary lists, there is no workflow behind these, so the
-committed files are a snapshot that only moves when someone runs the scripts by hand.
+The **Generate Auxiliary Lists** workflow runs daily or manually and commits the generated lists. It needs `DUNE_API_KEY` in the repository's Actions secrets.
 
 A mint absent from the warnings file has no warnings. Warnings are not folded into the token lists
 themselves because several warning types are not legal token-list extension keys, and because they
