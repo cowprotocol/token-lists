@@ -136,17 +136,12 @@ async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   return new Map(json.tokens.map((token) => [token.address, token]))
 }
 
-/** Keep existing members through score changes; Jupiter's suspicious flag always wins. */
 function isEligible(t: JupiterToken, wasListed: boolean): boolean {
   if (t.audit?.isSus) {
     return false
   }
 
-  if (wasListed || (t.tags ?? []).includes(STRICT_TAG)) {
-    return true
-  }
-
-  return (t.organicScore ?? 0) >= MIN_ORGANIC_SCORE
+  return wasListed || (t.tags ?? []).includes(STRICT_TAG) || (t.organicScore ?? 0) >= MIN_ORGANIC_SCORE
 }
 
 function isValidToken(t: JupiterToken): boolean {
