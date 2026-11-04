@@ -12,8 +12,8 @@ import { executeDuneVolumeSnapshot, prepareSolanaRankings, compareTokenAddresses
  *
  * how does it work: a token has to clear two independent bars.
  *
- * 1. Jupiter decides whether it is legitimate — either it carries the legacy
- *    `strict` tag, or its Organic Score clears MIN_ORGANIC_SCORE.
+ * 1. Jupiter must not flag it as suspicious. New tokens also need the legacy
+ *    `strict` tag or an Organic Score of at least MIN_ORGANIC_SCORE.
  * 2. CoinGecko has to list it too, otherwise we cannot price it, and a token we
  *    cannot price is a token we cannot settle.
  *
@@ -51,6 +51,7 @@ const RWA_LIST: ListConfig = {
 const RWA_TAGS = new Set(['rwa', 'stocks', 'xstocks', 'equities', 'prestocks', 'pre-ipo', 'ondo', 'commodities'])
 
 const SOLANA_CHAIN_ID = 1000000001
+const NATIVE_SOL_MINT = '11111111111111111111111111111111'
 const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
 const JUPITER_SEARCH_URL = 'https://lite-api.jup.ag/tokens/v2/search'
 const COINGECKO_SOLANA_LIST_URL = 'https://tokens.coingecko.com/solana/all.json'
@@ -100,7 +101,7 @@ interface CoingeckoToken {
   logoURI?: string
 }
 
-async function fetchJupiterTokens(): Promise<JupiterToken[]> {
+async function fetchJupiterTokens(requiredMints: Set<string>): Promise<JupiterToken[]> {
   console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
   const json = await fetchJson(JUPITER_VERIFIED_URL)
 
@@ -109,13 +110,8 @@ async function fetchJupiterTokens(): Promise<JupiterToken[]> {
   }
 
   const tokens = new Map((json as JupiterToken[]).map((token) => [token.id, token]))
-  // Legacy strict mints can disappear from the verified endpoint while still passing our eligibility rules.
-  const currentMints = new Set(
-    [DEFAULT_LIST, RWA_LIST].flatMap(
-      (config) => readCurrentList(config.outputFile)?.tokens.map((token) => token.address) ?? [],
-    ),
-  )
-  const missing = [...currentMints].filter((mint) => !tokens.has(mint))
+  // Recheck missing members and overrides; native SOL is not an SPL mint.
+  const missing = [...requiredMints].filter((mint) => mint !== NATIVE_SOL_MINT && !tokens.has(mint))
   for (let offset = 0; offset < missing.length; offset += 100) {
     const batch = missing.slice(offset, offset + 100)
     const matches = await fetchJson(`${JUPITER_SEARCH_URL}?query=${batch.join(',')}`)
@@ -123,6 +119,8 @@ async function fetchJupiterTokens(): Promise<JupiterToken[]> {
     for (const token of matches as JupiterToken[]) {
       if (batch.includes(token.id)) tokens.set(token.id, token)
     }
+    const unresolved = batch.filter((mint) => !tokens.has(mint))
+    if (unresolved.length) throw new Error('Jupiter did not return required mints: ' + unresolved.join(', '))
   }
   return [...tokens.values()]
 }
@@ -138,23 +136,13 @@ async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   return new Map(json.tokens.map((token) => [token.address, token]))
 }
 
-/**
- * `strict` is a frozen leftover from Jupiter's V1 token list: the API no longer
- * accepts it as a query tag and the set only shrinks. We keep honouring it so
- * tokens already on the list don't vanish from under users, but it is no longer
- * the only way in.
- *
- * `audit.isSus` is checked first and overrides both routes. Organic Score says
- * whether the trading is genuine, not whether the contract is — a honeypot can
- * have perfectly real volume — so Jupiter's own fraud flag is the one signal that
- * has to win outright.
- */
-function isEligible(t: JupiterToken): boolean {
+/** Keep existing members through score changes; Jupiter's suspicious flag always wins. */
+function isEligible(t: JupiterToken, wasListed: boolean): boolean {
   if (t.audit?.isSus) {
     return false
   }
 
-  if ((t.tags ?? []).includes(STRICT_TAG)) {
+  if (wasListed || (t.tags ?? []).includes(STRICT_TAG)) {
     return true
   }
 
@@ -377,11 +365,20 @@ async function main() {
   if (process.argv.length > 2) throw new Error('yarn solana does not accept arguments')
   const apiKey = process.env.DUNE_API_KEY?.trim()
   if (!apiKey) throw new Error('Set DUNE_API_KEY to execute the Solana volume query')
-  const [raw, coingecko] = await Promise.all([fetchJupiterTokens(), fetchCoingeckoSolana()])
+  const overrides = readOverrides(DEFAULT_LIST.overridesFile)
+  const currentMints = new Set(
+    [DEFAULT_LIST, RWA_LIST].flatMap(
+      (config) => readCurrentList(config.outputFile)?.tokens.map((token) => token.address) ?? [],
+    ),
+  )
+  const requiredMints = new Set([...currentMints, ...overrides.map((token) => token.address)])
+  const [raw, coingecko] = await Promise.all([fetchJupiterTokens(requiredMints), fetchCoingeckoSolana()])
   console.log(`Got ${raw.length} tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
 
-  const eligible = raw.filter(isEligible)
-  console.log(`${eligible.length} clear the quality bar ("${STRICT_TAG}" tag or organicScore >= ${MIN_ORGANIC_SCORE})`)
+  const eligible = raw.filter((token) => isEligible(token, currentMints.has(token.id)))
+  console.log(
+    `${eligible.length} pass safety checks and are existing members, "${STRICT_TAG}", or organicScore >= ${MIN_ORGANIC_SCORE}`,
+  )
 
   const priceable = eligible.filter((t) => coingecko.has(t.id))
   console.log(`${priceable.length} of those are listed on CoinGecko (dropped ${eligible.length - priceable.length})`)
@@ -397,9 +394,10 @@ async function main() {
 
   const toInfo = (t: JupiterToken): TokenInfo => toTokenInfo(t, coingecko.get(t.id))
 
-  const defaultTokens = applyOverrides(rest.map(toInfo), readOverrides(DEFAULT_LIST.overridesFile)).sort(
-    compareTokenAddresses,
+  const safeOverrides = overrides.filter(
+    (override) => !raw.some((token) => token.id === override.address && token.audit?.isSus),
   )
+  const defaultTokens = applyOverrides(rest.map(toInfo), safeOverrides).sort(compareTokenAddresses)
   const rwaTokens = rwa.map(toInfo).sort(compareTokenAddresses)
   // Reject membership loss before starting a paid execution.
   assertNoMassiveShrink(DEFAULT_LIST.outputFile, defaultTokens, readCurrentList(DEFAULT_LIST.outputFile))

@@ -187,7 +187,7 @@ test('existing provider eligibility, overrides, native SOL and RWA separation su
   assert.equal(f.read(defaultFile).tokens.find((t) => t.address === unmeasured.address).address, unmeasured.address)
 })
 
-test('mint lookup retains legacy strict tokens without bypassing safety or pricing rules', (t) => {
+test('mint lookup retains existing zero-score tokens without bypassing safety or pricing rules', (t) => {
   const f = fixture(t)
   const candidates = members
     .filter(
@@ -195,18 +195,70 @@ test('mint lookup retains legacy strict tokens without bypassing safety or prici
         !overrides.some((override) => override.address === token.address) && token.address !== unmeasured.address,
     )
     .slice(0, 3)
-  const [legacy, suspicious, unpriced] = candidates
+  const [existing, suspicious, unpriced] = candidates
   const omitted = new Set(candidates.map((token) => token.address))
   f.providers.jupiter = f.providers.jupiter.filter((token) => !omitted.has(token.id))
-  f.providers.jupiterLookup = candidates.map((token) => ({ ...jupiter(token), organicScore: 0 }))
+  f.providers.jupiterLookup = candidates.map((token) => ({ ...jupiter(token), tags: ['verified'], organicScore: 0 }))
   f.providers.jupiterLookup[1].audit = { isSus: true }
   f.providers.coingecko.tokens = f.providers.coingecko.tokens.filter((token) => token.address !== unpriced.address)
   const result = f.run()
   assert.equal(result.status, 0, result.stderr)
   const addresses = new Set(f.read(defaultFile).tokens.map((token) => token.address))
-  assert.ok(addresses.has(legacy.address), 'a strict token omitted by the verified endpoint must survive mint lookup')
+  assert.ok(addresses.has(existing.address), 'an existing zero-score token must survive mint lookup')
   assert.ok(!addresses.has(suspicious.address))
   assert.ok(!addresses.has(unpriced.address))
+})
+
+test('existing members survive score drops but suspicious members are removed despite high volume or overrides', (t) => {
+  const f = fixture(t)
+  const retained = f.providers.jupiter.find((token) => token.id === unmeasured.address)
+  retained.tags = ['verified']
+  retained.organicScore = 0
+  const retainedRwa = f.providers.jupiter.find((token) => token.id === rwa.address)
+  retainedRwa.tags = ['verified', 'rwa']
+  retainedRwa.organicScore = 0
+  const suspicious = f.providers.jupiter.find((token) => token.id === wrappedSol)
+  suspicious.organicScore = 100
+  suspicious.audit = { isSus: true }
+  const result = f.run()
+  assert.equal(result.status, 0, result.stderr)
+  const addresses = new Set(f.read(defaultFile).tokens.map((token) => token.address))
+  assert.ok(addresses.has(unmeasured.address))
+  assert.ok(!addresses.has(wrappedSol), 'neither volume nor overrides can restore a flagged token')
+  assert.ok(!addresses.has(outsiders[1].address), 'a new low-score token must still be rejected')
+  assert.ok(f.read(rwaFile).tokens.some((token) => token.address === rwa.address))
+  assert.deepEqual(f.read(defaultFile).version, { major: 3, minor: 0, patch: 0 })
+
+  f.providers.jupiter = f.providers.jupiter.filter((token) => token.id !== wrappedSol)
+  f.providers.jupiterLookup = [suspicious]
+  const next = f.run()
+  assert.equal(next.status, 0, next.stderr)
+  assert.ok(
+    !f.read(defaultFile).tokens.some((token) => token.address === wrappedSol),
+    'an override must not restore a flagged mint after it leaves the list and verified response',
+  )
+
+  const before = f.preserved()
+  f.providers.jupiterLookup = []
+  writeFileSync(join(f.root, 'requests.jsonl'), '')
+  const unresolved = f.run()
+  assert.notEqual(unresolved.status, 0)
+  assert.match(unresolved.stderr, /Jupiter did not return required mints/)
+  assert.deepEqual(f.preserved(), before)
+  const requests = readFileSync(join(f.root, 'requests.jsonl'), 'utf8').trim().split('\n').map(JSON.parse)
+  assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
+})
+
+test('an unresolved existing mint fails before Dune or file writes', (t) => {
+  const f = fixture(t)
+  const before = f.preserved()
+  f.providers.jupiter = f.providers.jupiter.filter((token) => token.id !== unmeasured.address)
+  const result = f.run()
+  assert.notEqual(result.status, 0)
+  assert.match(result.stderr, /Jupiter did not return required mints/)
+  assert.deepEqual(f.preserved(), before)
+  const requests = readFileSync(join(f.root, 'requests.jsonl'), 'utf8').trim().split('\n').map(JSON.parse)
+  assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
 })
 
 test('historical CSV ranks current members inside the existing JSON, with rank-only patch bumps and repeatable ranks', (t) => {
@@ -264,7 +316,7 @@ test('membership additions and removals keep minor and major version rules', (t)
   f.providers.coingecko.tokens.push(outsiders[4])
   assert.equal(f.run().status, 0)
   assert.deepEqual(f.read(defaultFile).version, { major: 2, minor: 4, patch: 0 })
-  f.providers.jupiter = f.providers.jupiter.filter((t) => t.id !== unmeasured.address)
+  f.providers.jupiter.find((t) => t.id === unmeasured.address).audit = { isSus: true }
   assert.equal(f.run().status, 0)
   assert.deepEqual(f.read(defaultFile).version, { major: 3, minor: 0, patch: 0 })
 })
@@ -294,7 +346,9 @@ test('source validation, membership overlap and shrink failures preserve both li
   writeFileSync(join(f.root, 'src/public/SolanaOverrides.json'), JSON.stringify([...overrides, rwa]))
   assert.notEqual(f.run().status, 0)
   writeFileSync(join(f.root, 'src/public/SolanaOverrides.json'), JSON.stringify(overrides))
-  f.providers.jupiter = []
+  f.providers.jupiter.forEach((token) => {
+    token.audit = { isSus: true }
+  })
   const shrink = f.run()
   assert.notEqual(shrink.status, 0)
   assert.match(shrink.stderr, /token count dropped/)
