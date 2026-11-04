@@ -52,7 +52,7 @@ function readTimestamp(value: unknown): string {
   return new Date(time).toISOString()
 }
 
-/** Check the source ID, full time window and age so old or incomplete data cannot replace approved ranks. */
+/** Reject the wrong query, incomplete time windows, and stale data. */
 function readMetadata(input: unknown): SnapshotMetadata {
   const raw = readObject(input, 'source metadata')
   if (raw.queryId !== QUERY_ID) throw new Error('Expected Dune query ' + QUERY_ID)
@@ -73,7 +73,8 @@ function readMetadata(input: unknown): SnapshotMetadata {
   }
   const invalidOrder = windowEndMs > completedAtMs || completedAtMs > now
   const tooOld = now - completedAtMs > 7 * DAY_MS || now - windowEndMs > 7 * DAY_MS
-  const tooLate = completedAtMs - windowEndMs > DAY_MS
+  // A query started before midnight can finish on the next UTC day.
+  const tooLate = completedAtMs - windowEndMs > DAY_MS + EXECUTION_TIMEOUT_MS
   if (invalidOrder || tooOld || tooLate) {
     throw new Error('Source is stale, future-dated, or has an inconsistent window')
   }
@@ -88,7 +89,7 @@ function readMetadata(input: unknown): SnapshotMetadata {
   }
 }
 
-/** Accept only Solana keys that decode to 32 bytes, keeping exact spelling so different addresses never match. */
+/** Validate a 32-byte Solana mint without changing its case. */
 function isSolanaMint(value: unknown): value is string {
   if (typeof value !== 'string' || !/^[1-9A-HJ-NP-Za-km-z]{32,44}$/.test(value)) return false
   let decoded = 0n
@@ -99,7 +100,7 @@ function isSolanaMint(value: unknown): value is string {
   return byteCount + leadingZeroBytes === 32
 }
 
-/** Read a valid USD amount without turning missing data into zero, which would change a token's score. */
+/** Keep missing volumes as null; zero would affect ranking. */
 function readUsdVolume(value: unknown): number | null {
   if (value === null || (typeof value === 'string' && ['', '<nil>'].includes(value.trim()))) return null
   if (
@@ -115,7 +116,7 @@ function readUsdVolume(value: unknown): number | null {
   return number
 }
 
-/** Add one mint's metrics and reject duplicates or extra rows so a source cannot silently change its size. */
+/** Add a mint's volumes, rejecting duplicate mints and extra rows. */
 function addRow(volumes: VolumeSnapshot['volumes'], input: unknown, expectedRows: number): void {
   const row = readObject(input, 'volume row')
   if (!isSolanaMint(row.mint)) throw new Error('Invalid mint in volume source')
@@ -131,7 +132,7 @@ function addRow(volumes: VolumeSnapshot['volumes'], input: unknown, expectedRows
 
 const sha256 = (value: string): string => createHash('sha256').update(value).digest('hex')
 
-/** Check that every expected row arrived and hash metrics in exact mint order so input row order does not change the checksum. */
+/** Check the row count and sort by mint before hashing, so row order does not affect the checksum. */
 function completeSnapshot(metadata: SnapshotMetadata, volumes: VolumeSnapshot['volumes']): VolumeSnapshot {
   if (volumes.size !== metadata.rowCount) throw new Error('Incomplete source row count')
   const rows = [...volumes].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
@@ -142,7 +143,7 @@ function completeSnapshot(metadata: SnapshotMetadata, volumes: VolumeSnapshot['v
   }
 }
 
-/** Read one Dune page with time limits and at most three attempts so a network failure cannot leave generation waiting forever. */
+/** Fetch a Dune page with a timeout and at most three attempts. */
 async function fetchDunePage(url: string, key: string, deadline: number): Promise<unknown> {
   try {
     return await pRetry(
@@ -181,7 +182,7 @@ async function fetchDunePage(url: string, key: string, deadline: number): Promis
   }
 }
 
-/** Check that a page belongs to the completed source and has the expected columns and count so partial or mixed results fail. */
+/** Check the page's execution, columns, and row count. Reject partial results. */
 function readDuneRows(
   page: Record<string, unknown>,
   metadata: SnapshotMetadata,
@@ -217,7 +218,7 @@ function readDuneRows(
   return { rows: result.rows, columns }
 }
 
-/** Check page offsets and returned URLs so missing rows, repeated pages or another server cannot enter the source. */
+/** Reject page gaps, repeated pages, and URLs for another server or execution. */
 function validatePagination(page: Record<string, unknown>, end: number, total: number, pathname: string): number {
   const lastPage = end === total
   const expectedNext = lastPage ? null : end
@@ -240,7 +241,7 @@ function validatePagination(page: Record<string, unknown>, end: number, total: n
   return end
 }
 
-/** Read every page from one completed execution, keeping its identity and source checks fixed. */
+/** Fetch and validate all pages from one completed Dune execution. */
 export async function loadDuneVolumeSnapshot(
   input: unknown,
   apiKey: string,
@@ -275,7 +276,7 @@ export async function loadDuneVolumeSnapshot(
   return completeSnapshot(metadata, volumes)
 }
 
-/** Start one paid execution without retries, then poll and download only that execution's results. */
+/** Start one paid query without retrying, wait for completion, and fetch its results. */
 export async function executeDuneVolumeSnapshot(apiKey: string): Promise<VolumeSnapshot> {
   const key = apiKey.trim()
   if (!key) throw new Error('Set DUNE_API_KEY to execute the Solana volume query')

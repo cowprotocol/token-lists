@@ -340,7 +340,7 @@ function prepareList(config: ListConfig, tokens: TokenInfo[]): PreparedList {
   return { config, tokens, version: getNextVersion(config, current, tokens) }
 }
 
-/** Stage every complete source/build file before replacement. Individual renames are not a transaction. */
+/** Write temporary files first, then replace each output file. A failed rename can leave a partial update. */
 function writeLists(prepared: PreparedList[]): void {
   const staged: { temporary: string; destination: string }[] = []
   try {

@@ -428,6 +428,48 @@ test('executes with verified parameters, uses complete UTC days and downloads ev
   assert.ok(requests.slice(1).every(([path]) => path.includes(executionId)))
 })
 
+test('accepts a Dune execution crossing midnight without moving its UTC volume window', async (t) => {
+  t.mock.method(Date, 'now', () => Date.parse('2026-10-30T00:11:00Z'))
+  const meta = metadata({
+    executionEndedAt: '2026-10-30T00:03:00.000Z',
+    windowStart: '2026-07-31T00:00:00.000Z',
+    windowEnd: '2026-10-29T00:00:00.000Z',
+    rowCount: 1,
+  })
+  let posts = 0
+  t.mock.method(globalThis, 'fetch', async (url, options) => {
+    if (options.method === 'POST') {
+      posts++
+      return Response.json({ execution_id: executionId })
+    }
+    if (new URL(url).pathname.endsWith('/status')) {
+      return Response.json({
+        execution_id: executionId,
+        query_id: 8910905,
+        state: 'QUERY_STATE_COMPLETED',
+        is_execution_finished: true,
+        execution_started_at: '2026-10-29T23:58:00Z',
+        execution_ended_at: meta.executionEndedAt,
+        result_metadata: { total_row_count: 1 },
+      })
+    }
+    return Response.json(page(meta, [{ mint: sol, volume_90d: 100 }]))
+  })
+  const result = await executeDuneVolumeSnapshot('test-key')
+  assert.deepEqual(result.metadata, meta)
+  assert.equal(result.volumes.get(sol).volume90dUsd, 100)
+  assert.equal(posts, 1)
+
+  const atLimit = { ...meta, executionEndedAt: '2026-10-30T00:10:00.000Z' }
+  t.mock.method(globalThis, 'fetch', async () => Response.json(page(atLimit, [{ mint: sol, volume_90d: 100 }])))
+  assert.equal((await loadDuneVolumeSnapshot(atLimit, 'test-key')).volumes.size, 1)
+  t.mock.method(globalThis, 'fetch', async () => assert.fail('Late metadata must fail before fetching'))
+  await assert.rejects(
+    loadDuneVolumeSnapshot({ ...meta, executionEndedAt: '2026-10-30T00:10:00.001Z' }, 'test-key'),
+    /inconsistent window/,
+  )
+})
+
 test('never retries an ambiguous paid execution and hides credentials in its error', async (t) => {
   let calls = 0
   t.mock.method(globalThis, 'fetch', async () => {
