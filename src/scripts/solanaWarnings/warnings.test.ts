@@ -7,8 +7,10 @@ import {
   buildWarnings,
   chunk,
   collectMints,
+  findUnansweredMints,
   isUnchanged,
   normalizeSeverity,
+  selectMintsToCheck,
   serializeWarningsFile,
   type ShieldResponse,
   type TokenWarningsFile,
@@ -62,6 +64,28 @@ describe('chunk', () => {
 
   it('keeps a shorter input as a single batch', () => {
     assert.deepEqual(chunk([1, 2], 50), [[1, 2]])
+  })
+})
+
+describe('selectMintsToCheck', () => {
+  it('keeps only the mints Jupiter knows and we do not list', () => {
+    assert.deepEqual(selectMintsToCheck(['Zb', 'Ac', 'Mz'], ['Ac']), ['Mz', 'Zb'])
+  })
+
+  it('skips a listed mint even when Jupiter reports it twice', () => {
+    assert.deepEqual(selectMintsToCheck(['Ac', 'Ac', 'Mz'], ['Ac']), ['Mz'])
+  })
+
+  it('drops the native SOL placeholder, which is not a mint', () => {
+    assert.deepEqual(selectMintsToCheck(['11111111111111111111111111111111', 'Ac'], []), ['Ac'])
+  })
+
+  it('returns nothing when every mint in the universe is listed', () => {
+    assert.deepEqual(selectMintsToCheck(['Ac', 'Mz'], ['Mz', 'Ac']), [])
+  })
+
+  it('ignores a listed mint Jupiter does not report', () => {
+    assert.deepEqual(selectMintsToCheck(['Ac'], ['Zz']), ['Ac'])
   })
 })
 
@@ -186,5 +210,21 @@ describe('serializeWarningsFile', () => {
 
   it('ends with a trailing newline', () => {
     assert.ok(serializeWarningsFile(file).endsWith('}\n'))
+  })
+})
+
+describe('findUnansweredMints', () => {
+  it('returns nothing when every mint was answered for', () => {
+    assert.deepEqual(findUnansweredMints(['mintA', 'mintB'], response({ mintA: [MINT_AUTHORITY], mintB: [] })), [])
+  })
+
+  it('treats an empty array as answered, because that is how Shield says "clean"', () => {
+    assert.deepEqual(findUnansweredMints(['mintA'], response({ mintA: [] })), [])
+  })
+
+  it('reports the mints Shield silently dropped, which would otherwise publish as clean', () => {
+    const truncated = response({ mintA: [MINT_AUTHORITY] })
+
+    assert.deepEqual(findUnansweredMints(['mintA', 'mintB', 'mintC'], truncated), ['mintB', 'mintC'])
   })
 })

@@ -99,9 +99,35 @@ export function collectMints(lists: TokenList[]): string[] {
 }
 
 /**
- * Shield answers only for mints it has something to say about, so a mint
- * missing from the response is a mint with no warnings.
+ * The mints worth asking Shield about: Jupiter's universe minus everything already on a CoW list.
  *
+ * Curation is the signal. A token we list never shows a risk signal in the interface, so publishing
+ * warnings for it produces a file whose every entry is one the interface must then suppress — which
+ * is what the first version of this did, and why USDC arrived carrying freeze and mint authority.
+ * The warnings that matter are for the tokens a person imports from outside our lists.
+ */
+export function selectMintsToCheck(universe: string[], listedMints: string[]): string[] {
+  const excluded = new Set([...listedMints, ...UNMINTED_ADDRESSES])
+  const mints = new Set(universe.filter((mint) => !excluded.has(mint)))
+
+  // base58 is case-sensitive, so this is a plain codepoint sort
+  return [...mints].sort()
+}
+
+/**
+ * Mints Shield did not answer for.
+ *
+ * Shield returns an entry for every mint it was asked about, an empty array when it has nothing to
+ * report, so an omission is never "this mint is clean" — it means the request was truncated. It
+ * truncates above its per-request cap with no error and nothing in the body to say so, and the
+ * published file cannot tell a dropped mint from a clean one, so a short answer has to fail the
+ * run rather than quietly under-report.
+ */
+export function findUnansweredMints(mints: string[], response: ShieldResponse): string[] {
+  return mints.filter((mint) => !(mint in response.warnings))
+}
+
+/**
  * Severity and copy are hoisted into `types`: Shield reports the same severity for every
  * occurrence of a type, so carrying it on each of several hundred entries stores nothing extra.
  */

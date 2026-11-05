@@ -8,6 +8,8 @@ import {
   buildWarnings,
   chunk,
   collectMints,
+  findUnansweredMints,
+  selectMintsToCheck,
   isUnchanged,
   serializeWarningsFile,
   type ShieldResponse,
@@ -16,7 +18,15 @@ import {
 
 /**
  * Builds `TokenWarnings.1000000001.json`: the risk warnings Jupiter's Shield
- * reports for every mint on our Solana lists, under the short codes in `WARNING_CODES`.
+ * reports for the mints a person can import but we do not list, under the short
+ * codes in `WARNING_CODES`.
+ *
+ * The universe is Jupiter's verified set rather than our own lists. Checking our
+ * lists was the original shape and it was backwards: every mint it could answer
+ * for was one we had already vouched for, so the file described exactly the
+ * tokens the interface must stay silent about — USDC included, which Shield
+ * reports with freeze and mint authority — while the imported tokens the
+ * warnings exist for were absent from it.
  *
  * It is a sidecar rather than `extensions` on the lists themselves for three
  * reasons: warning types such as `1%_TRANSFER_FEES` are not legal token-list
@@ -34,9 +44,18 @@ const SOURCE_LISTS = ['CowSwap.1000000001.json', 'Rwa.1000000001.json']
 const OUTPUT_FILE = 'TokenWarnings.1000000001.json'
 const SHIELD_URL = 'https://lite-api.jup.ag/ultra/v1/shield'
 
-// Shield truncates silently above 50 mints: ask for 100 and it answers for the
-// first 50 without saying so. Larger batches also risk a 414 on the query string.
-const MINTS_PER_REQUEST = 50
+// The same verified set `solana.ts` draws our lists from, before the organic-score
+// and CoinGecko filters narrow it. Jupiter's category endpoints (toptraded,
+// toporganicscore, toptrending) cap at 100 results whatever `limit` asks for, so
+// they cannot stand in for a universe.
+const JUPITER_UNIVERSE_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
+
+// Shield truncates silently above 30 mints: ask for 40 and it answers for the
+// first 30, with no error and nothing in the body to say the rest were dropped.
+// A dropped mint is indistinguishable from a clean one, so `fetchShield` also
+// checks the response covers everything it asked for — the cap is Jupiter's to
+// change, and the next time they lower it this must fail rather than under-report.
+const MINTS_PER_REQUEST = 30
 
 // The free Shield tier starts answering 429 well before a list this size is
 // covered, so the run is paced and backs off for far longer than a single
@@ -47,7 +66,9 @@ const SHIELD_RETRY_BASE_MS = 5_000
 
 // Refuse to publish when the set of flagged mints collapses — that reads as an
 // upstream outage, and a warnings file that lost its warnings is worse than a
-// stale one. Set ALLOW_WARNINGS_SHRINK to override for a one-off run.
+// stale one. Set ALLOW_WARNINGS_SHRINK to override for a one-off run; the first
+// run after the universe moved off our lists is one, because every mint the old
+// file carried is now skipped as listed.
 const MAX_SHRINK_RATIO = 0.3
 
 function readList(fileName: string): TokenList {
@@ -90,6 +111,21 @@ function assertNoMassiveShrink(next: Record<string, string[]>, current: TokenWar
   )
 }
 
+interface JupiterToken {
+  id?: string
+}
+
+async function fetchUniverseMints(): Promise<string[]> {
+  console.log(`Fetching Jupiter token universe: ${JUPITER_UNIVERSE_URL}`)
+  const json = await fetchJson(JUPITER_UNIVERSE_URL)
+
+  if (!Array.isArray(json)) {
+    throw new Error(`Unexpected Jupiter response shape: ${typeof json}`)
+  }
+
+  return (json as JupiterToken[]).map((token) => token.id).filter((id): id is string => Boolean(id))
+}
+
 async function fetchShield(mints: string[]): Promise<ShieldResponse> {
   const json = await fetchJson(`${SHIELD_URL}?mints=${mints.join(',')}`, {
     retries: SHIELD_RETRIES,
@@ -101,13 +137,27 @@ async function fetchShield(mints: string[]): Promise<ShieldResponse> {
     throw new Error('Unexpected Shield response shape: expected a `warnings` object')
   }
 
+  const unanswered = findUnansweredMints(mints, { warnings })
+
+  if (unanswered.length > 0) {
+    throw new Error(
+      `Shield answered for ${Object.keys(warnings).length} of ${mints.length} mints and dropped ` +
+        `${unanswered.length} without an error (first: ${unanswered[0]}). Lower MINTS_PER_REQUEST.`,
+    )
+  }
+
   return { warnings }
 }
 
 async function main(): Promise<void> {
-  const mints = collectMints(SOURCE_LISTS.map(readList))
+  const listedMints = collectMints(SOURCE_LISTS.map(readList))
+  const universe = await fetchUniverseMints()
+  const mints = selectMintsToCheck(universe, listedMints)
   const batches = chunk(mints, MINTS_PER_REQUEST)
-  console.log(`Checking ${mints.length} mints against Shield in ${batches.length} batches`)
+  console.log(
+    `Checking ${mints.length} mints against Shield in ${batches.length} batches ` +
+      `(${universe.length} in Jupiter's universe, ${listedMints.length} skipped as listed)`,
+  )
 
   const throttle = pThrottle({ limit: 1, interval: REQUEST_INTERVAL_MS })
   const fetchBatch = throttle(fetchShield)
