@@ -3,7 +3,7 @@
     "defi"
   ],
   "version": {
-    "major": 30,
+    "major": 31,
     "minor": 0,
     "patch": 0
   },
@@ -50,35 +50,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
-      "name": "Re Protocol reUSD",
-      "symbol": "REUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
-    },
-    {
-      "chainId": 57073,
       "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
       "name": "NVIDIA xStock",
       "symbol": "NVDAX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55633/large/Ticker_NVDA__Company_Name_NVIDIA_Corp__size_200x200_2x.png?1746862704"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
-      "name": "GHO",
-      "symbol": "GHO",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 57073,
@@ -90,11 +66,35 @@
     },
     {
       "chainId": 57073,
-      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x5bcf6b008bf80b9296238546bace1797657b05d6",
+      "name": "Re Protocol reUSD",
+      "symbol": "REUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66291/large/Points_Program_Group_91.png?1749676055"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
+      "name": "GHO",
+      "symbol": "GHO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xf1815bd50389c46847f0bda824ec8da914045d14",
+      "name": "Stargate Bridged USDC",
+      "symbol": "USDC.E",
       "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+      "logoURI": "https://assets.coingecko.com/coins/images/69316/large/usdc.jpg?1758186473"
     },
     {
       "chainId": 57073,
@@ -103,6 +103,14 @@
       "symbol": "WQQQX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/102179491/large/wqqqx.png?1791956037"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 57073,
@@ -122,11 +130,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xf1815bd50389c46847f0bda824ec8da914045d14",
-      "name": "Stargate Bridged USDC",
-      "symbol": "USDC.E",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/69316/large/usdc.jpg?1758186473"
+      "address": "0xb63efbc28860c8097e341de1fcf59456161e9d98",
+      "name": "Sandisk Corporation xStock",
+      "symbol": "SNDKX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102172849/large/sndkx.png?1776231942"
     },
     {
       "chainId": 57073,
@@ -138,14 +146,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0xb63efbc28860c8097e341de1fcf59456161e9d98",
-      "name": "Sandisk Corporation xStock",
-      "symbol": "SNDKX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102172849/large/sndkx.png?1776231942"
-    },
-    {
-      "chainId": 57073,
       "address": "0x2416092f143378750bb29b79ed961ab195cceea5",
       "name": "Renzo Restaked ETH",
       "symbol": "EZETH",
@@ -154,11 +154,27 @@
     },
     {
       "chainId": 57073,
+      "address": "0xc3eacf0612346366db554c991d7858716db09f58",
+      "name": "Kelp DAO Restaked ETH",
+      "symbol": "RSETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
+    },
+    {
+      "chainId": 57073,
       "address": "0x64445f0aecc51e94ad52d8ac56b7190e764e561a",
       "name": "Wrapped FRAX",
       "symbol": "WFRAX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/55432/large/wfrax_64.png?1745993624"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xefd30445a4ec1f4b3e0a6f4d9bdbd215f805047f",
+      "name": "Moderna xStock",
+      "symbol": "MRNAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175802/large/MRNA.webp?1787656673"
     },
     {
       "chainId": 57073,
@@ -178,11 +194,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xc3eacf0612346366db554c991d7858716db09f58",
-      "name": "Kelp DAO Restaked ETH",
-      "symbol": "RSETH",
+      "address": "0xd95b9a5fa7c2708fd4fe0e07e59bde1ef35b194a",
+      "name": "Beast",
+      "symbol": "BEAST",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
+      "logoURI": "https://assets.coingecko.com/coins/images/102176648/large/Backgroundless_Beast_200x200.png?1788410365"
     },
     {
       "chainId": 57073,
@@ -194,51 +210,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xefd30445a4ec1f4b3e0a6f4d9bdbd215f805047f",
-      "name": "Moderna xStock",
-      "symbol": "MRNAX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102175802/large/MRNA.webp?1787656673"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
-      "name": "Universal BTC",
-      "symbol": "UNIBTC",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xd95b9a5fa7c2708fd4fe0e07e59bde1ef35b194a",
-      "name": "Beast",
-      "symbol": "BEAST",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176648/large/Backgroundless_Beast_200x200.png?1788410365"
-    },
-    {
-      "chainId": 57073,
       "address": "0x44e49dde02c954cd9b67923af7b1070412e8f34e",
       "name": "Vida Global xStock",
       "symbol": "VIDAX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/102176425/large/VIDAx.png?1787822930"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
-      "name": "Solv Protocol BTC",
-      "symbol": "SOLVBTC",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x32bcb803f696c99eb263d60a05cafd8689026575",
-      "name": "Krak Mask",
-      "symbol": "KRAKMASK",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176742/large/Untitled_-_August_1__2026_22.35_2.jpg?1788632503"
     },
     {
       "chainId": 57073,
@@ -250,6 +226,22 @@
     },
     {
       "chainId": 57073,
+      "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
+      "name": "Universal BTC",
+      "symbol": "UNIBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x32bcb803f696c99eb263d60a05cafd8689026575",
+      "name": "Krak Mask",
+      "symbol": "KRAKMASK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176742/large/Untitled_-_August_1__2026_22.35_2.jpg?1788632503"
+    },
+    {
+      "chainId": 57073,
       "address": "0xd642b49d10cc6e1bc1c6945725667c35e0875f22",
       "name": "Purple",
       "symbol": "PURPLE",
@@ -258,19 +250,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xcf010ba185fd6ee6027b141e2c32614d673f8258",
-      "name": "HOOKIT",
-      "symbol": "HKT",
+      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
+      "name": "Solv Protocol BTC",
+      "symbol": "SOLVBTC",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102179082/large/IMG_8186.png?1791134386"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xef172ee53fbbe945ae2bd6ccff93384acf9cf19d",
-      "name": "Ink Cat",
-      "symbol": "ICAT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102178462/large/photo_2026-08-24_23-39-19.jpg?1789630768"
+      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
     },
     {
       "chainId": 57073,
@@ -282,11 +266,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x6f75ac3b1b6fbe8bb5f948e25af03620f26ae838",
-      "name": "Energy Select Sector SPDR Fund xStock",
-      "symbol": "XLEX",
+      "address": "0xcf010ba185fd6ee6027b141e2c32614d673f8258",
+      "name": "HOOKIT",
+      "symbol": "HKT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102172852/large/xlex.png?1776234964"
+      "logoURI": "https://assets.coingecko.com/coins/images/102179082/large/IMG_8186.png?1791134386"
     },
     {
       "chainId": 57073,
@@ -306,11 +290,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x22e1991e5f82736a2a990322a46aac0e95826c5b",
-      "name": "Bit Digital xStock",
-      "symbol": "BTBTX",
+      "address": "0x0e04ca25b5cd15047946d89e21cbcdbae43a323b",
+      "name": "Otomate",
+      "symbol": "OTO",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69657/large/Ticker_BTBTx__Company_Name_Bit_Digital__size_200x200.png?1759233843"
+      "logoURI": "https://assets.coingecko.com/coins/images/102176957/large/oto-dexscreener-logo-200.png?1789108556"
     },
     {
       "chainId": 57073,
@@ -322,19 +306,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0xc0c2150cf0870e2d7abc7cde17c20a542fafbb9b",
-      "name": "TeraWulf xStock",
-      "symbol": "WULFX",
+      "address": "0x22e1991e5f82736a2a990322a46aac0e95826c5b",
+      "name": "Bit Digital xStock",
+      "symbol": "BTBTX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69625/large/Ticker_WULFx__Company_Name_TeraWulf__size_200x200.png?1759233242"
+      "logoURI": "https://assets.coingecko.com/coins/images/69657/large/Ticker_BTBTx__Company_Name_Bit_Digital__size_200x200.png?1759233843"
     },
     {
       "chainId": 57073,
-      "address": "0x7636244bab612264e1b2dfd4ba6e26d0311b1eb7",
-      "name": "Constellation Energy Corporation xStock",
-      "symbol": "CEGX",
+      "address": "0xef172ee53fbbe945ae2bd6ccff93384acf9cf19d",
+      "name": "Ink Cat",
+      "symbol": "ICAT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102172728/large/CEGx-logo.png?1775052068"
+      "logoURI": "https://assets.coingecko.com/coins/images/102178462/large/photo_2026-08-24_23-39-19.jpg?1789630768"
     },
     {
       "chainId": 57073,
@@ -346,19 +330,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0x0e04ca25b5cd15047946d89e21cbcdbae43a323b",
-      "name": "Otomate",
-      "symbol": "OTO",
+      "address": "0xc0c2150cf0870e2d7abc7cde17c20a542fafbb9b",
+      "name": "TeraWulf xStock",
+      "symbol": "WULFX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176957/large/oto-dexscreener-logo-200.png?1789108556"
+      "logoURI": "https://assets.coingecko.com/coins/images/69625/large/Ticker_WULFx__Company_Name_TeraWulf__size_200x200.png?1759233242"
     },
     {
       "chainId": 57073,
-      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
-      "name": "Cat Call Agent",
-      "symbol": "CAT",
+      "address": "0x6f75ac3b1b6fbe8bb5f948e25af03620f26ae838",
+      "name": "Energy Select Sector SPDR Fund xStock",
+      "symbol": "XLEX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
+      "logoURI": "https://assets.coingecko.com/coins/images/102172852/large/xlex.png?1776234964"
     },
     {
       "chainId": 57073,
@@ -383,9 +367,17 @@
       "symbol": "SHROOMY",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/54002/large/1000000182.jpg?1737942213"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
+      "name": "Cat Call Agent",
+      "symbol": "CAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
     }
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-05T00:03:40.051Z"
+  "timestamp": "2026-11-06T00:03:36.730Z"
 }
