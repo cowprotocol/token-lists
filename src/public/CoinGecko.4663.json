@@ -1,0 +1,4014 @@
+{
+  "keywords": [
+    "defi"
+  ],
+  "version": {
+    "major": 0,
+    "minor": 1,
+    "patch": 0
+  },
+  "tokens": [
+    {
+      "chainId": 4663,
+      "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168",
+      "name": "Global Dollar",
+      "symbol": "USDG",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/51281/large/GDN_USDG_Token_200x200.png?1730484111"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcec185eb182c47d1ba1efc84e6959e18cd620be4",
+      "name": "Coinbase Wrapped BTC",
+      "symbol": "CBBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/40143/large/cbbtc.webp?1726136727"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0bd7d308f8e1639fab988df18a8011f41eacad73",
+      "name": "Robinhood Wrapped ETH (Robinhood Chain)",
+      "symbol": "WETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174283/large/weth-robinhood.jpeg?1782924507"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x492641f648a4986844848e0befe66d14817bce34",
+      "name": "Chainlink",
+      "symbol": "LINK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/877/large/Chainlink_Logo_500.png?1760023405"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xce24439f2d9c6a2289f741120fe202248b666666",
+      "name": "United Stables",
+      "symbol": "U",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/71157/large/united-stables-logo.jpg?1766061640"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x74be72affafbc8de30f0c11247814036314d625f",
+      "name": "Pudgy Penguins",
+      "symbol": "PENGU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/52622/large/PUDGY_PENGUINS_PENGU_PFP.png?1733809110"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xeeca2e7dc194a320d349122d88259bb9595a4cb0",
+      "name": "Lighter",
+      "symbol": "LIT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/71121/large/lighter.png?1765888098"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa5b562d13486735d2a96d6b230489b1f33731440",
+      "name": "Big Titty Coin",
+      "symbol": "BTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179782/large/logo.png?1792952458"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5e49e1f85813f2b65858860a3fa231b4186f2e0e",
+      "name": "Pendle",
+      "symbol": "PENDLE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/15069/large/Pendle_Logo_Normal-03.png?1696514728"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
+      "name": "SPDR S&P 500 ETF Trust • Robinhood Token",
+      "symbol": "SPY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174115/large/0x117cc2133c37b721f49de2a7a74833232b3b4c0c.png?1782444578"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5d3a1ff2b6bab83b63cd9ad0787074081a52ef34",
+      "name": "Ethena USDe",
+      "symbol": "USDE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33613/large/usde.png?1733810059"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc6911796042b15d7fa4f6cde69e245ddcd3d9c31",
+      "name": "Virtuals Protocol",
+      "symbol": "VIRTUAL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/34057/large/LOGOMARK.png?1708356054"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x39dbed3a2bd333467115de45665cc57f813c4571",
+      "name": "Pons",
+      "symbol": "PONS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174571/large/jhitvkisdq8fhxvimdkpcw7y3dx5.?1784093932"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1755c2910c126ee1b0cf1e08a307dc9e787285a0",
+      "name": "1INCH",
+      "symbol": "1INCH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/13469/large/0x111111111117dc0aa78b770fa6a738034120c302_0x2b2c127f11a6604d4319c936334506b86c339a3773b6f2731db0ed4a4fb7fb72.jpg?1787890016"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8f86a15ec17cb3369d8b3e666dadbc11daa82b79",
+      "name": "ApeCoin",
+      "symbol": "APE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/24383/large/APECOIN.png?1756551529"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+      "name": "NVIDIA • Robinhood Token",
+      "symbol": "NVDA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174110/large/0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec.png?1782444565"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea",
+      "name": "SpaceX • Robinhood Token",
+      "symbol": "SPCX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174129/large/0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea.png?1782444614"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc0d6457c16cc70d6790dd43521c899c87ce02f35",
+      "name": "Meta Platforms • Robinhood Token",
+      "symbol": "META",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174122/large/0xc0d6457c16cc70d6790dd43521c899c87ce02f35.png?1782444595"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
+      "name": "Invesco QQQ • Robinhood Token",
+      "symbol": "QQQ",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174119/large/0xd5f3879160bc7c32ebb4dc785f8a4f505888de68.png?1782444588"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7eebda046d451bc7a7d12491eff72a861aa8136e",
+      "name": "SWARM ENGINE",
+      "symbol": "SWARM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179329/large/logo_SWARM.jpg?1791469499"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x020bfc650a365f8bb26819deaabf3e21291018b4",
+      "name": "Cash Cat",
+      "symbol": "CASHCAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174280/large/cashcat-logo.jpg?1782922765"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x30de7ae4c9578d110a97367ede9f7765cdce06ea",
+      "name": "Pangea",
+      "symbol": "PANGEA",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179697/large/pangea.jpg?1792650662"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2e8c31162b855a2ffa90f6f8634643ad6f111e18",
+      "name": "Artificial Inu",
+      "symbol": "AI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176647/large/5ou9sb7h478ezv28urbjpzf1fl3e.?1788401429"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x67c51c928d5d8383f3a58fc591a4e6f6463949ed",
+      "name": "Ansem Cat",
+      "symbol": "ANSEMCAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174690/large/logo.png?1784628480"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa85abef37c7e812aca761b2bec62fff7f3728f1e",
+      "name": "Superform",
+      "symbol": "UP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70945/large/superform.png?1764747920"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0bb40d7fbae7f0c69bc5910c601987dce697d85f",
+      "name": "Sushi",
+      "symbol": "SUSHI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/12271/large/512x512_Logo_no_chop.png?1696512101"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xec262a75e413fafd0df80480274532c79d42da09",
+      "name": "Strategy Inc. • Robinhood Token",
+      "symbol": "MSTR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174143/large/0xec262a75e413fafd0df80480274532c79d42da09.png?1782444651"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0830a9dd26a04e959657ab6788d45f5725590c32",
+      "name": "Degen",
+      "symbol": "DEGEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/34515/large/android-chrome-512x512.png?1706198225"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc9a981fee1f9dec688bb123ccdecc63d0debfc4e",
+      "name": "SPDR Gold Shares • Robinhood Token",
+      "symbol": "GLD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175452/large/GLD.png?1786367509"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x322f0929c4625ed5bad873c95208d54e1c003b2d",
+      "name": "Tesla • Robinhood Token",
+      "symbol": "TSLA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174112/large/0x322f0929c4625ed5bad873c95208d54e1c003b2d.png?1782444570"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5",
+      "name": "Circle Internet Group • Robinhood Token",
+      "symbol": "CRCL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174121/large/0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5.png?1782444593"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xaf3d76f1834a1d425780943c99ea8a608f8a93f9",
+      "name": "Apple • Robinhood Token",
+      "symbol": "AAPL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174123/large/0xaf3d76f1834a1d425780943c99ea8a608f8a93f9.png?1782444598"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
+      "name": "Micron Technology • Robinhood Token",
+      "symbol": "MU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174111/large/0xff080c8ce2e5feadaca0da81314ae59d232d4afd.png?1782444567"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x61a10e8556bed032ea176330e7f17d6a12a10000",
+      "name": "Unity USD",
+      "symbol": "UUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102172413/large/UUSD.png?1773390929"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x241f3caad03db31137f641bef005a32176530024",
+      "name": "Non-Playable Coin",
+      "symbol": "NPC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/31193/large/NPC_200x200.png?1696530021"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xccee82fe024c36fa15e1005ede3e9e4787e23d09",
+      "name": "Hims & Hers Health, Inc. • Robinhood Token",
+      "symbol": "HIMS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175360/large/HIMS.png?1786131590"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344",
+      "name": "United States Oil Fund • Robinhood Token",
+      "symbol": "USO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174125/large/0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344.png?1782444603"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x18e674231a58c239dc7daedcffe15ec3a24cff5c",
+      "name": "Hookr.fun",
+      "symbol": "HOOKR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175265/large/hookr.jpg?1786013509"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x12f190a9f9d7d37a250758b26824b97ce941bf54",
+      "name": "Amazon • Robinhood Token",
+      "symbol": "AMZN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174126/large/0x12f190a9f9d7d37a250758b26824b97ce941bf54.png?1782444606"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x07ebb29a38fbcb41563817e5e19f2cec619c90d2",
+      "name": "Bundle Cat",
+      "symbol": "BUN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176682/large/catttyyy_%281%29.png?1788500479"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5ab3d4c385b400f3abb49e80de2faf6a88a7b691",
+      "name": "FLOCK",
+      "symbol": "FLOCK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/53178/large/FLock_Token_Logo.png?1735561398"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3",
+      "name": "Alphabet Class A • Robinhood Token",
+      "symbol": "GOOGL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174124/large/0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3.png?1782444601"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x894e1ec2d74ffe5aef8dc8a9e84686accb964f2a",
+      "name": "Palantir Technologies • Robinhood Token",
+      "symbol": "PLTR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174117/large/0x894e1ec2d74ffe5aef8dc8a9e84686accb964f2a.png?1782444583"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x812486eaea648819853f8e372dc9f1516c7868bd",
+      "name": "ubik",
+      "symbol": "UBIK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176699/large/ubik.webp?1788510522"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x91a2dae9699f0b82540b5886b0d8759c22820ba3",
+      "name": "musebook",
+      "symbol": "MUSEBOOK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178465/large/musebook.png?1789657052"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xaa07a0e9209e16ac99708c3ec70159c6ef3128a3",
+      "name": "Orbio.so",
+      "symbol": "ORBIO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176665/large/orbio.jpg?1788424660"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x385f4f8ae47651ce5f58f5265395a669f8281e18",
+      "name": "A Meme Coin",
+      "symbol": "AMC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176700/large/amc.jpg?1788511294"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf82119ebd01eb6ab67105c9536a713d61a25cf9f",
+      "name": "heyAura",
+      "symbol": "ADX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/847/large/token.png?1775296339"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x57c0e45cb534413d1c20a4240955d6bb250bb4f1",
+      "name": "up",
+      "symbol": "UP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174542/large/tgeb6e7cyzun3qkeab3th5cj23qv.?1783957652"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7fe995a80075df3dc8ae11a9b82c7fe4202cd87f",
+      "name": "Thinking Cat",
+      "symbol": "HMM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174672/large/fmu02lq7zai1iyp4qqwfnmu5wr1v.?1784552285"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc72b96e0e48ecd4dc75e1e45396e26300bc39681",
+      "name": "Intel • Robinhood Token",
+      "symbol": "INTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174118/large/0xc72b96e0e48ecd4dc75e1e45396e26300bc39681.png?1782444585"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5cb6f181081301b44905f3ae15419112ecabd8a6",
+      "name": "pipedog",
+      "symbol": "PIPEDOG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174876/large/pipedog.png?1785289835"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x45242320dbb855eea8fd36804c6487e10e97fcf9",
+      "name": "TENDIES",
+      "symbol": "TENDIES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174418/large/x1o0qj8dm7mlay3licerc1y75hr4.?1783667012"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7dbf38976f6d3b9c529e7d9484a71898b409ee6a",
+      "name": "ZZZ",
+      "symbol": "ZZZ",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176737/large/zzz-new-logo-black.png?1791254593"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5173d45a1191ee33cbb7d8c7e65f21b04ed54802",
+      "name": "Ramses",
+      "symbol": "RAM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70707/large/ram_%281%29.png?1780632663"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xedbf91223639800bcd5756815caf908df3b890be",
+      "name": "Priors Agents",
+      "symbol": "PRIORS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178765/large/priors.jpg?1790233255"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x000050e18ffa3f8f7ad170eb9cef160eb3ed1111",
+      "name": "torch",
+      "symbol": "TORCH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179438/large/photo_2026-08-07_13-08-05.jpg?1791793419"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfe7e19cbce2f896c6c528bc355baf5a768291e18",
+      "name": "SPACEHOOD",
+      "symbol": "SPACEHOOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176731/large/spacehood-primary-avatar.png?1789394437"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x178e54df3d091ee4d0b2534742ef9e3692b76526",
+      "name": "BankrCoin",
+      "symbol": "BNKR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/52626/large/bankr-static.png?1736405365"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x86923f96303d656e4aa86d9d42d1e57ad2023fdc",
+      "name": "AMD • Robinhood Token",
+      "symbol": "AMD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174114/large/0x86923f96303d656e4aa86d9d42d1e57ad2023fdc.png?1782444575"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0e0d2c89a5a019fe1cf762e5e33187631dacc21b",
+      "name": "Chump Coin",
+      "symbol": "CHUMP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175847/large/1000313188.jpg?1788160023"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe934e36a439c94017b64a3fece66af12099abf50",
+      "name": "StonkBroker",
+      "symbol": "STONKBROKER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174654/large/9gwu14e3hpizobkefg65k66l70wu.?1784445702"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x43b07d15ce533bec5476d70c22a78a1b2b662155",
+      "name": "Moderna, Inc. • Robinhood Token",
+      "symbol": "MRNA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175366/large/MRNA.png?1786131713"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x05a3d1cd21d0c88145e82600e62e7e496e0f222b",
+      "name": "AMC Entertainment Holdings, Inc. • Robinhood Token",
+      "symbol": "AMC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175476/large/AMC.png?1786375197"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd9db30bb0d2b8d2eae3826a1372117e058791e18",
+      "name": "Memory cow Moo",
+      "symbol": "MOO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176669/large/QTB0jMQ7_400x400.jpg?1788425621"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x88c4c42ed68584ff02f5a00d5d3d985108a3961c",
+      "name": "Edel",
+      "symbol": "EDEL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70661/large/edel-mark-dark-DKW6ovcZ_%281%29.png?1790067790"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd7321801caae694090694ff55a9323139f043b88",
+      "name": "The Juggernaut",
+      "symbol": "JUGGERNAUT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174595/large/juggernaut.jpg?1784167487"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
+      "name": "Microsoft • Robinhood Token",
+      "symbol": "MSFT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174116/large/0xe93237c50d904957cf27e7b1133b510c669c2e74.png?1782444580"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x42afa2124ca5a2b83898e46b2da9a190995b1e18",
+      "name": "SCHIFFY",
+      "symbol": "SCHIFFY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176912/large/437ilu0a4p3x2igq9tp8ermhbkr9.?1789018298"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8ff92566f2e81bdd68edfaa8cde73942a723796b",
+      "name": "ProjectVex",
+      "symbol": "VEX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174375/large/vex.jpg?1783487786"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3ba500f1ababbcf0f0247d06d1c56fd7e6c4c09d",
+      "name": "Agent Wormhole",
+      "symbol": "WORM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178404/large/Untitled_design_%288%29.png?1789483430"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x58ffe4a942d3885baa22d7520691f611ef09e7aa",
+      "name": "Taiwan Semiconductor Manufacturing • Robinhood Token",
+      "symbol": "TSM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174148/large/0x58ffe4a942d3885baa22d7520691f611ef09e7aa.png?1782444664"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1b0e319c6a659f002271b69db8a7df2f911c153e",
+      "name": "GameStop • Robinhood Token",
+      "symbol": "GME",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174150/large/0x1b0e319c6a659f002271b69db8a7df2f911c153e.png?1782444670"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfb3febaa029f58be6c5882c235e1970ee1c5b67d",
+      "name": "LOTS",
+      "symbol": "LOTS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179749/large/lots-token-200x200.png?1792859668"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x51250b135174ca09450ec01c4aff73cf69dbb590",
+      "name": "NovaAI",
+      "symbol": "NOVAAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176980/large/d7a22qb6lkc6aus29z2r776nge0s.?1789112942"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725",
+      "name": "microduck",
+      "symbol": "MICRODUCK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176663/large/bvw8hqnmvgvs61nw2h4et0zj00jx.?1788422151"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x05b37fb53a299a1b874a619e1c4c404d52c36f4c",
+      "name": "Reddit • Robinhood Token",
+      "symbol": "RDDT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174197/large/0x05b37fb53a299a1b874a619e1c4c404d52c36f4c.png?1782444795"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf9e990ccb47806ac9268922bd21dc9a91c8e8899",
+      "name": "Doge Pepe",
+      "symbol": "DOPE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179565/large/logo.png?1792138050"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x822cc93ffd030293e9842c30bbd678f530701867",
+      "name": "Bloom Energy • Robinhood Token",
+      "symbol": "BE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174131/large/0x822cc93ffd030293e9842c30bbd678f530701867.png?1782444619"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x94641b97010608c3827fb058074889f19868ff33",
+      "name": "Commander Vrax",
+      "symbol": "VRAX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178985/large/9ynfoj2ibjxo3rlf9aghubks9n96.?1790822107"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6330d8c3178a418788df01a47479c0ce7ccf450b",
+      "name": "Coinbase • Robinhood Token",
+      "symbol": "COIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174136/large/0x6330d8c3178a418788df01a47479c0ce7ccf450b.png?1782444632"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xea0071a8778fa02c12378e88868255e0e0952be6",
+      "name": "Farming Season",
+      "symbol": "SEASON",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179661/large/mwzfibc26ww2sqencyg3rgav7szf.?1792509147"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfce34d21a92069100e3226638140706cf03a266e",
+      "name": "Goldstein",
+      "symbol": "GLDSTN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179092/large/13C4593B-E474-42D8-82EE-3F3BF3C376A5.jpeg?1791136194"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x98096d17e191b3da1d5f99a6d7b3584351b11e18",
+      "name": "Boner Coin",
+      "symbol": "BONER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176671/large/boner.jpg?1788451067"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x56910d4409f3a0c78c64dd8d0545ff0705389870",
+      "name": "The Index",
+      "symbol": "INDEX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174740/large/qffiSdBd_400x400_%281%29.jpg?1784708104"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb11384a6ac2b3708e3d25a834c8a88687accbcd1",
+      "name": "Creora",
+      "symbol": "CREORA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179726/large/Creora.png?1792730101"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb8fa8010833463aac5595b55b9045479239eff79",
+      "name": "what the hook?",
+      "symbol": "WTH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175551/large/Hook_Logo_Metallic_Black_BG.png?1788414631"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x411efb0e7f985935daec3d4c3ebaea0d0ad7d89f",
+      "name": "iShares Silver Trust • Robinhood Token",
+      "symbol": "SLV",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174120/large/0x411efb0e7f985935daec3d4c3ebaea0d0ad7d89f.png?1782444590"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x88ad8ddf1e3898412146a534538d418c6f8a9062",
+      "name": "STANDARD",
+      "symbol": "STANDARD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178385/large/standard.png?1789445039"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6f63d869011f95274498023b4abfc00b30c34378",
+      "name": "OpenRoboto",
+      "symbol": "SN80",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66445/large/Image_Container.png?1789264897"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb47e8ad95ca1e0ba1c76768fe0f109d82b5fdcc4",
+      "name": "VOOI",
+      "symbol": "VOOI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/70365/large/VOOI_Token_Logo.png?1764177739"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xab093def657f15df31b33922a95e047add645b29",
+      "name": "MUSHROOM",
+      "symbol": "SHROOM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176720/large/shroom.jpg?1788592860"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xca6f20e241c73de4eeb873107b217ce2463c3b1d",
+      "name": "Dual",
+      "symbol": "DUAL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102172467/large/dual.png?1773499983"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb90a19ff0af67f7779aff50a882a9cff42446400",
+      "name": "Sandisk Corporation • Robinhood Token",
+      "symbol": "SNDK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174113/large/0xb90a19ff0af67f7779aff50a882a9cff42446400.png?1782444573"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf3081494b87e8d5fb7960f066e931d1d0e6e3d67",
+      "name": "ForeverMoney Wrapped TAO",
+      "symbol": "TAO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178769/large/tao.png?1790233971"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0500a1a597a631cec9637767f7b75c5b5d0c1db4",
+      "name": "Sleuth Intel",
+      "symbol": "SLEUTH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176559/large/sleuth_logo.jpg?1788165245"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xddde5965d49e69b6362bd8743e139a45dbfeb7b3",
+      "name": "Pareton",
+      "symbol": "SN10",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66310/large/icon.png?1787813856"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdcd885f5c60b3ad49f6d58718696417314e8724d",
+      "name": "Gloam",
+      "symbol": "GLOAM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179670/large/GloaM.jpg?1792541476"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe8ffd7e24187f72afb08d75b1bb13088a989a791",
+      "name": "Delta",
+      "symbol": "DELTA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176692/large/fsh29xwdtuxwvc6pcdhi0jqrl5vd.?1788505313"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xaa5751ff3fb61e613993b2eb4eab1fce017081fc",
+      "name": "HyperDex",
+      "symbol": "HYDX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178835/large/final_profile_%281%29.png?1790447560"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4db7374e966097be94c6680d49156d580f097bbf",
+      "name": "Ribbita",
+      "symbol": "TIBBIR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178960/large/Untitled_design.png?1790752407"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x84cab63bc87912e71ad199ff14a0ba45de68fef8",
+      "name": "SK Hynix • Robinhood Token",
+      "symbol": "SKYHY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175527/large/SKYHY.png?1786610155"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x72be1277e198d0c476869253cb4e62807e14533c",
+      "name": "Raeto",
+      "symbol": "RAETO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179638/large/raeto.jpg?1792417069"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x20024e485c0b22b42855589700721b28320a7777",
+      "name": "Prism Assets",
+      "symbol": "PRISM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175383/large/IMG_1143.jpeg?1786208540"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7163ae1b5aea2f09ebc609c52b4dcac0a7a4bc2d",
+      "name": "GAGE",
+      "symbol": "GAGE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176839/large/w5wyrkznf1hhp7npgdzf36otoni1.?1788877817"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb63d07cef74be747231d601bb2faa6b252c68106",
+      "name": "Fables",
+      "symbol": "FABLES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179751/large/200px.png?1792860010"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xad25ac6c84d497db898fa1e8387bf6af3532a1c4",
+      "name": "Alibaba • Robinhood Token",
+      "symbol": "BABA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174135/large/0xad25ac6c84d497db898fa1e8387bf6af3532a1c4.png?1782444629"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6b1d42927b1a84ec28fa88d4fc6fa7af404966be",
+      "name": "PAIR",
+      "symbol": "PAIR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176666/large/nzdi2t0ef88s8iqz9nx7xvrt3g4k.?1788424842"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdc45b71d7203c2e8baafc43a19bca0eb993bb54e",
+      "name": "Darkwoods",
+      "symbol": "DARK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178762/large/9kepyh97lvtf9bziwupbjgze6zdc.?1790221201"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4eb990547bce4a982432ca88cf5fae7eed1a2d35",
+      "name": "flybrain",
+      "symbol": "FLYBRAIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176964/large/vrk0x9ki7s671o2pqj0nz56ijfac.?1789110498"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x451b42a15100c340ca12f7c66de06fac5ea2d751",
+      "name": "Longbow",
+      "symbol": "BOW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175862/large/longbow.jpg?1787808621"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xefab538cf3c29237a47c6afb145d50ddf204a0a3",
+      "name": "United Founders Group",
+      "symbol": "UFG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176615/large/logo-small.png?1788338479"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x79bbf4508b1391af3a0f4b30bb5fc4aa9ab0e07c",
+      "name": "Hey Anon",
+      "symbol": "ANON",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/52961/large/AAI__ANON_SQ_Wb_250x250.png?1740500195"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4ea005168d7f09a7a0ba9d1def21a479950e44c2",
+      "name": "Costco • Robinhood Token",
+      "symbol": "COST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174152/large/0x4ea005168d7f09a7a0ba9d1def21a479950e44c2.png?1782444675"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8005d266423c7ea827372c9c864491e5786600ea",
+      "name": "Eli Lilly • Robinhood Token",
+      "symbol": "LLY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174175/large/0x8005d266423c7ea827372c9c864491e5786600ea.png?1782444737"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc60ba256b44334a0cd2c7242e98b88f031abb006",
+      "name": "Programmable",
+      "symbol": "V4",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179216/large/programmable.jpg?1791355040"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbd1a43744409a33d131cfc0c14103d6dcff11c12",
+      "name": "v4 Marketplace",
+      "symbol": "V4M",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179742/large/a41nsmxouxa2gzi38r3lwq819907.?1792827689"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc4f730335fb9e439ca5552f7b52b8e638c4245b0",
+      "name": "Note Systems",
+      "symbol": "NOTE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178376/large/tfsn9q7e2jtn0i7vu1ixmprbylgf.?1789396278"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb9972ca7188e511174947e3936a5315ac7073277",
+      "name": "Prologue",
+      "symbol": "PROLOGUE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175608/large/h1krcass1houq56whug4r5pofmsv.?1787073888"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd",
+      "name": "Dell • Robinhood Token",
+      "symbol": "DELL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174139/large/0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd.png?1782444640"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x092963938debd8013a2e545b3549f8a5ec0d2286",
+      "name": "Autonolas",
+      "symbol": "OLAS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/31099/large/OLAS-token.png?1696529930"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x12d5ee7917ca430073c3a638ee1e6f0648a98a01",
+      "name": "FATCOIN",
+      "symbol": "FATCOIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176676/large/fatcoin.jpg?1788493964"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf6589f11bc40b669e584073f428b05562f568733",
+      "name": "Snap Inc. • Robinhood Token",
+      "symbol": "SNAP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175399/large/SNAP.png?1786287522"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6245e67affa44a23077f0ea7f981a8dc743a0c47",
+      "name": "frong",
+      "symbol": "FRONG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175259/large/frong.png?1786003344"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x11b70d0243baf75e85ce03201a92b5b7c33beb59",
+      "name": "Robin the Frog",
+      "symbol": "ROBIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176757/large/36680.jpg?1791527760"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5173b8ea6923c2d40267890d45c46a3480954773",
+      "name": "World is Flat",
+      "symbol": "WIF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175446/large/our_logo_200.png?1786347883"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x72d5bf142874d24d1565f8633621307fd2871111",
+      "name": "ANTIMATTER",
+      "symbol": "ANTI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179555/large/1000576021.jpg?1792127377"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf0c4bf4c582cb3836e98394b1d4e7b7281101be8",
+      "name": "Roblox • Robinhood Token",
+      "symbol": "RBLX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174202/large/0xf0c4bf4c582cb3836e98394b1d4e7b7281101be8.png?1782444808"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9f4ba41f91a59a34e17ee8c9eb3a51363b11abd5",
+      "name": "grift.world",
+      "symbol": "GRIFT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179077/large/1661868jxthxsobil4960m0u1kgu.?1791099363"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x47569d49471bdbabfaf5531c0f74d9f2de82a11a",
+      "name": "Prophet The Dog",
+      "symbol": "PROPHET",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178801/large/prophet.jpg?1790321884"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2d427692e928fa156ec22acfabafa0447c5805b7",
+      "name": "Galaxy Digital Inc. • Robinhood Token",
+      "symbol": "GLXY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175402/large/GLXY.png?1786287575"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfc5a5c521c80d8e1d6b5aee6454b8c9483c91bff",
+      "name": "Lighthouse",
+      "symbol": "LLL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179527/large/lighthouse.jpg?1792028981"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5e81213613b6b86eab4c6c50d718d34359459786",
+      "name": "Take-Two Interactive Software • Robinhood Token",
+      "symbol": "TTWO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174176/large/0x5e81213613b6b86eab4c6c50d718d34359459786.png?1782444740"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x408c14038a04f7bd235329e26d2bf569ee20e250",
+      "name": "Nu • Robinhood Token",
+      "symbol": "NU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174171/large/0x408c14038a04f7bd235329e26d2bf569ee20e250.png?1782444726"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4c1dab3be86347977f3dfc4b9688224ef2272939",
+      "name": "Wrapped 0G",
+      "symbol": "W0G",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69681/large/0g.png?1759289984"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfed6b187f6da04e2eae5d3ea89b57129da62b28a",
+      "name": "GongFu",
+      "symbol": "GF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179752/large/GongFu.png?1792860130"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x511f76a3de41f000ec11ea4fd212fb3587c6cef3",
+      "name": "Darwin",
+      "symbol": "DARWIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179692/large/4ndqyic225nv5xrlikbrd3rtr31w.?1792643392"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6ddb8541af17dadea47df41d1c13faf8deee1902",
+      "name": "Kaskad",
+      "symbol": "KSKD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102173678/large/KSKD-TOKEN-CIRCLE-2_._png.png?1780901262"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0b7c6c138dc75622f4200d157b13fb93e6bd94fa",
+      "name": "MowCat",
+      "symbol": "MOW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175295/large/logo.jpg?1786074528"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbbb8ef3181661512ceab66e0b213c29211b24b6c",
+      "name": "Unstable Coin",
+      "symbol": "USDUC",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/56006/large/usduc-logo.jpg?1748000956"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0f17206447090e464c277571124dd2688e48aea9",
+      "name": "Qualcomm • Robinhood Token",
+      "symbol": "QCOM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174137/large/0x0f17206447090e464c277571124dd2688e48aea9.png?1782444635"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2eb2849cde7957b86d0dfd4b59e450a9f9d15559",
+      "name": "GH0ST",
+      "symbol": "GH0ST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179690/large/44gdnqd1l17sffn4df1600bezhae.?1792640800"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9d9c6684f596f66a64c030b93a886d51fd4d7931",
+      "name": "Nebius Group • Robinhood Token",
+      "symbol": "NBIS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174160/large/0x9d9c6684f596f66a64c030b93a886d51fd4d7931.png?1782444697"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xca9c78dd337a67f6e0077f65f5e9218719d30edf",
+      "name": "NetNet",
+      "symbol": "NET",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174712/large/netnet_400x400.jpg?1784646716"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x41f4267525a8aff329540ef24fd83d9044758b33",
+      "name": "Figma, Inc. • Robinhood Token",
+      "symbol": "FIG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175289/large/FIG.png?1786070068"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2cc0fac44b8252f6b10208b091aff2c94b4da77d",
+      "name": "Sinjoh",
+      "symbol": "INJOH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176724/large/rv875asiyqnp45sd0wdrpl853c4d.?1788594132"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6e2feee56bc5f0db2104ab1dac2cf1fb0334eb49",
+      "name": "Umi",
+      "symbol": "SN78",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/71103/large/2026-09-24_09.53.11.jpg?1790319672"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb0788f5f65a9f4c0d8a634c45c391234f46221ab",
+      "name": "Aurum",
+      "symbol": "AUR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178826/large/9nyu9vnqhsheg9pr3eovfuvofepu.?1790408011"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x32807d54ee1570cba97e256c59426dd80dcd9fcf",
+      "name": "Symbiosis",
+      "symbol": "SIS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/20805/large/sis_token.png?1788879592"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x116f00968269b7bfbad4109ce591d6e74c0601d4",
+      "name": "Cloudflare, Inc. • Robinhood Token",
+      "symbol": "NET",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175457/large/NET.png?1786367590"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf44702b17d9abd53815f703e772f35e9c71a53af",
+      "name": "RAXOL",
+      "symbol": "RAXOL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174343/large/tljlld1hjqbs8rz1f0hdznr8ouls.?1783332390"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5f10a1c971b69e47e059e1dc91901b59b3fb49c3",
+      "name": "CoreWeave • Robinhood Token",
+      "symbol": "CRWV",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174127/large/0x5f10a1c971b69e47e059e1dc91901b59b3fb49c3.png?1782444608"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x63ee32ac3077d1fbd8a77ebba2a6ed4b8e9c1e18",
+      "name": "iNu",
+      "symbol": "INU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178243/large/inu.jpg?1789199253"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd5d49d68a555f3c50ccda9bd9a8691692e5ce172",
+      "name": "Busted",
+      "symbol": "BUSTED",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179600/large/99de5760-f9d2-4122-a938-3a907aa4d6da.png?1792394902"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdee52f2ab639b6942b0d0f0565400b93b7a0fbe5",
+      "name": "Harmonic Agent",
+      "symbol": "HARMONIC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176668/large/harmonic.jpg?1788425266"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x727701f88f09fed71eb217bcea88b3f314cf7079",
+      "name": "GRID by Virtuals",
+      "symbol": "GRID",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174630/large/41nxlf8zihm0bizumu35snw3bls9.?1784288993"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1d11f0496982706c5e14a514d4e79f2e6bde4516",
+      "name": "Trump Media & Technology Group Corp. • Robinhood Token",
+      "symbol": "DJT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175474/large/DJT.png?1786375153"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4e62068525ab11fe768e29dfd00ef909b9803016",
+      "name": "Lululemon • Robinhood Token",
+      "symbol": "LULU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174187/large/0x4e62068525ab11fe768e29dfd00ef909b9803016.png?1782444768"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xeb5e4f655eee663a01419bec7dd74b5ee45b5f67",
+      "name": "BULLISH",
+      "symbol": "BULLISH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179364/large/rhbuliish.jpg?1791551533"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x061732dc141e0a2d37f5fa91cf5343f24064e60f",
+      "name": "motion",
+      "symbol": "MOTION",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179533/large/motion.png?1792052634"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x378a50eac56f45fb74e4ce7f1962dbca33515c14",
+      "name": "Meridian Capital",
+      "symbol": "MCD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179205/large/meridian-mark-1024.png?1791342218"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2d8d6f4a93acd7a916a5a654ec8b690ba3b3eadd",
+      "name": "Statics Protocol",
+      "symbol": "STATICS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176707/large/04_Statics_Icon_Only_Dark.png?1788516332"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf0568863195770965a6d8abb0aa87f4314b80320",
+      "name": "SLIPPY",
+      "symbol": "SLIPPY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174710/large/slippy_400x400.jpg?1784646272"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8",
+      "name": "Netflix • Robinhood Token",
+      "symbol": "NFLX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174165/large/0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8.png?1782444710"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x701d277984550745df2a53dcc15079cc1e2d1111",
+      "name": "TORCHY",
+      "symbol": "TORCHY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179664/large/torchy_400x400.jpg?1792510288"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xceebf25b318201f1f949be2fabbfcee231737139",
+      "name": "富贵 (Wealth and Prosperity)",
+      "symbol": "富贵",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178312/large/puppy.jpg?1789275783"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb9d3824149ad8ac984153ceec91d5a2405d1fb95",
+      "name": "Neron Lyra",
+      "symbol": "NLYRA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178456/large/NLYRA-logo-200x200.png?1789570403"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3458e003f6ed93df0f537b8acac6fbe08e41247f",
+      "name": "Roo",
+      "symbol": "ROO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178753/large/s37lk6dz5vrxo6kiip3g8d24gdfd.?1790219509"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcd291fa4d3e2eb43e4639625092d31ae10e61111",
+      "name": "loudscene",
+      "symbol": "LOUD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179761/large/loud-logo-200.png?1792861875"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x156e175dd063a8ce274c50654ef40e0032b3fbcf",
+      "name": "Broadcom • Robinhood Token",
+      "symbol": "AVGO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174164/large/0x156e175dd063a8ce274c50654ef40e0032b3fbcf.png?1782444707"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd917b029c761d264c6a312bbbcda868658ef86a6",
+      "name": "USA Rare Earth • Robinhood Token",
+      "symbol": "USAR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174132/large/0xd917b029c761d264c6a312bbbcda868658ef86a6.png?1782444621"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x76cf788606f3d968b93b8a243d0e185c974ee407",
+      "name": "Origami hOHM",
+      "symbol": "HOHM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66457/large/hOHM_200px.png?1749435178"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbc9e7b1c5c0081f4ae85e71ec95703d3dec9ffad",
+      "name": "Bucket Shop",
+      "symbol": "BUCKET",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175842/large/bucket-shop-logo-200.png?1789713079"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6249519883b8d7ccf915dfcd6c0442984dae9d24",
+      "name": "Cashed Money",
+      "symbol": "CASHED",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178828/large/yjpsg2mfbt92e9gjs0q41fpf1fj8.?1790408791"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4d3ace48b1590bc4c5dd46f05237c133be564eb3",
+      "name": "Umbra",
+      "symbol": "UMBRA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179791/large/wa5a047te2z80zl6jj9h0uzcx5w5.?1793021010"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x100765a16f42636bd84ee1e86bc5107b84bcdba3",
+      "name": "Chop",
+      "symbol": "CHOP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179284/large/chop.jpg?1791436737"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc",
+      "name": "iShares MSCI South Korea fund • Robinhood Token",
+      "symbol": "EWY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174159/large/0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc.png?1782444694"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4a72b9702f991b790788f8afa9e7112541f4e8f8",
+      "name": "Route",
+      "symbol": "ROUTE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176834/large/route_400x400.jpg?1788874748"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x385b36ff682ab4c76e7c37a66b96aabc466471d5",
+      "name": "pools.trade",
+      "symbol": "POOLS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175260/large/pools.png?1786007584"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xded852de9fe9ba9b6f27f39e8e81cf851a5c79cc",
+      "name": "ROBINCAT",
+      "symbol": "ROBINCAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176715/large/IMG_4475.png?1791901838"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbf2f5b48428fc7c6fb13bd7a4848f209f482b9df",
+      "name": "Onagi",
+      "symbol": "ONAGI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179777/large/onagi-token-500.png?1792941465"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfd82d8db539b6ace0d50815845133767e24f1e18",
+      "name": "ASTEROID",
+      "symbol": "ASTEROID",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176740/large/asteroid.jpg?1788631346"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd5e8473eeec8433c8004821477fcc5c8af870723",
+      "name": "Robotics Reserve",
+      "symbol": "RBTX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179696/large/don5k2t3ggtru5k6yyas4p83sj81.?1792645946"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbf3e53713a53e9c3d5d1ddc25dd2c65669244663",
+      "name": "Pussy Cat Club",
+      "symbol": "PCC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176801/large/IMG_1919.jpeg?1788768859"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2e8e2dbf58b5f141f9a3d04dba0812b416574e83",
+      "name": "dopameme",
+      "symbol": "DOPAMEME",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175796/large/dopameme.png?1792911235"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x89b76dcdda801f2e456765742c64950eb2a0c93c",
+      "name": "Borro.Markets",
+      "symbol": "BORRO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179355/large/07u7ndh5l6utmcf8u4taixbtdf80.?1791530684"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x15d36b6a28d8327abc7afabf0f106ae2c9af5c4d",
+      "name": "Pare",
+      "symbol": "PARE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176704/large/pare.jpg?1788515275"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7e187fe67ae04c1b1738f01b424656390e45e1c9",
+      "name": "TETRAVAULT",
+      "symbol": "TETRA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179758/large/tetra-icon-200.png?1792861393"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc72f232a6869e6cf34dc06129affd07f8a2a246a",
+      "name": "Mancer",
+      "symbol": "MANCER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175391/large/mancer.jpg?1786259391"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb9ce619b168f325b4eb8c2e8e073501838c7a407",
+      "name": "Tiny Humans AI",
+      "symbol": "TINY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175762/large/Tiny_Icon_round_transparent.png?1787471819"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x03dfbbe0ac4e7bcdafd08ed41a400326b77d8c80",
+      "name": "Johnson & Johnson • Robinhood Token",
+      "symbol": "JNJ",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175443/large/JNJ.png?1786301555"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe4b8723d202fdd0298b1d7496a86656b2986c532",
+      "name": "StockRip",
+      "symbol": "RIP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175496/large/vpyhjvrmn9d36us63d0hadtdtrb6.?1786443960"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xedaee44320107caa714baaec486261a87f27022d",
+      "name": "PONGO",
+      "symbol": "PONGO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176709/large/52hr48l6z4kqtfyswqbn9sodd8zz.?1788518468"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6939c0cb6d8ceaefd5a2824fc2e0bed52d3c8076",
+      "name": "GIWAMAPS",
+      "symbol": "GIWAS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179770/large/83n4x310065jje6vdnoywcim5tp9.?1792911759"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa92768863a55d8a0591709f7f5e594a249d36ea3",
+      "name": "heyaskr",
+      "symbol": "ASKR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178515/large/5qf8m5kylmwnuf5c644k2abyvjt9.?1789803287"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9b23573b156b52565012f5ce02cdf60afbaa70be",
+      "name": "Penguin Solutions • Robinhood Token",
+      "symbol": "PENG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174204/large/0x9b23573b156b52565012f5ce02cdf60afbaa70be.png?1782444814"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe77d354898a44808ff3999947002785cd727bed5",
+      "name": "saffron.finance",
+      "symbol": "SFI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/13117/large/sfi_red_250px.png?1696512904"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2a13008cc2f5a853f6fb21cbd90841806c64b247",
+      "name": "Troll in Hood",
+      "symbol": "TROLL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179132/large/photo_2026-09-09_16-53-13.png?1791292361"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa3b6aee90017b72c0812dc1e013de70eb2917ba3",
+      "name": "EARN",
+      "symbol": "EARN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176712/large/k3n00yq3siqytaot4x7hnkghnhwi.?1788519318"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4a88cf518ea6b7d1184184d6eab78df7252a74f1",
+      "name": "NinjaCat",
+      "symbol": "NINJACAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176554/large/a59d031c-e999-4b92-b555-43fedbafd8c2.JPG?1788120311"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8d4dfaaa4198b6486e0293fec914c2b6a821d4dc",
+      "name": "Kitsu",
+      "symbol": "KITSU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174287/large/kitsu-logo.jpg?1782940070"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x766bd6598182586beda76414dc5f8deb1530a213",
+      "name": "Chain Insights",
+      "symbol": "CIA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179787/large/ci.png?1793019383"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x15f3385625d7e364c5a6216fbbceadf10fa90e7d",
+      "name": "Abyss",
+      "symbol": "ABYSS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179528/large/abyss.jpg?1792029280"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfa31d04462746aaa24bc7e5626403e09e4b106ec",
+      "name": "Artificial Girlfriend Intelligence",
+      "symbol": "AGI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178588/large/agi_400x400.jpg?1790088282"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4874845b0d4acffd896dde1e42828a543717af7f",
+      "name": "ur mom",
+      "symbol": "URMOM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176910/large/vpkax8e87h2eu13ad4dphegh0xnv.?1789017433"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xef67e3064bef1a27e81925ec7132f23e533bd5f6",
+      "name": "Greatest Meme Ever",
+      "symbol": "GME",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176793/large/logo-512_%281%29.png?1792544829"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5f62c57e5c537887117eef828b7e3ad41c009feb",
+      "name": "Good In The Hood",
+      "symbol": "GOOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175335/large/GOOD-newIkon.jpg?1787202654"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7cd7073a71eaf5f6e4febfa98460ee66cd97deb1",
+      "name": "Biscotti",
+      "symbol": "BISCOTTI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176685/large/uhi4hfcdozjt72clkps8kpelxikj.?1788500996"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x61e0deba0a6bd1d0df92af816739449c861e3cce",
+      "name": "SYNTHS",
+      "symbol": "SYNTHS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179447/large/d4964ll4e20dey2lf21wvjfuvsjv.?1791813498"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x980dcf6766fa79f5cf0c4aadb3ab477ff15a9619",
+      "name": "International Business Machines Corporation • Robinhood Toke",
+      "symbol": "IBM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175357/large/IBM.png?1786131546"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x00000000043c1117dafa3a3d0c7148eb48b30130",
+      "name": "flETH",
+      "symbol": "FLETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54177/large/weth.png?1738632581"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x774b0e022477e83108530a975e9edf26cc4301bf",
+      "name": "Kolshi.bet",
+      "symbol": "KOLSHI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179663/large/Screenshot_2026-10-19_at_20.02.18.png?1792509791"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf2915d1e3c1b0c769d0c756ec43f1c1f6c99cd03",
+      "name": "Arrow",
+      "symbol": "ARROW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174345/large/AF-PP-Inverted.png?1783421306"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x50832d74a7160e2f7d361f5e678e107d228b9aa6",
+      "name": "The Arena",
+      "symbol": "ARENA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/51173/large/_ARENA_TokenLogo_200x200.png?1730282003"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdd90bfa4adc7f4401e611abac692d939f9f4cb07",
+      "name": "OpenZaps",
+      "symbol": "0XZAPS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176695/large/mxp8c67k7dc4mkb1qccqt7eyp8x1.?1788505881"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4",
+      "name": "Quantum Computing • Robinhood Token",
+      "symbol": "QUBT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174141/large/0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4.png?1782444645"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4da3916d3ae6feece32ec8a2c4856d4abeb41bfd",
+      "name": "SCROOGE",
+      "symbol": "SCROOGE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178887/large/scrooge-token-icon-512.png?1790819160"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x710a0414dc599112987515ac8d76e0cd28546bc1",
+      "name": "MorrowFunds",
+      "symbol": "MORROW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179506/large/Glossy_Neon_Ribbon_M_Logo_%281%29.png?1792392795"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x168661c52e5922288dfb2b3f323b6cf90eb21e18",
+      "name": "Strategy Coin",
+      "symbol": "STRATEGY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176978/large/strategy.jpg?1789112506"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x19dcb63c4d2f29a6f077f094a4f858fc790145e1",
+      "name": "CrawlScan",
+      "symbol": "CRAWLSCAN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179206/large/ayhy2qt9j7anm2lnrzw1u8go9p2b.?1791347131"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3f9108a3beca998c14c6dda822a7e8eaeb88e20d",
+      "name": "Hedgehood",
+      "symbol": "HEDGE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178469/large/5k2xlryonilehzhrw6ctgk4f4x95.?1789658229"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd0ca71118ca21d674f9018a53026a38a0ab54dbf",
+      "name": "Ducat",
+      "symbol": "DUCAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179526/large/Ducat.jpg?1792028367"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x16391c40e85fb2246a2c8c17bfa2594c5d3ef84b",
+      "name": "Touch Grass",
+      "symbol": "GRASS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176732/large/tg.jpg?1788605774"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x83a49b808f8d5e02cb2931cd2352988f498e5ba3",
+      "name": "Agrippa",
+      "symbol": "AGRIPPA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178597/large/arigpa.jpg?1790138103"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5d102d1e69e77591d486aa4f663b3645151bbdf6",
+      "name": "VOLT INU",
+      "symbol": "VOLT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178510/large/Bazaart_AA3B7569-80A4-429F-A4DD-3ABFA751EAD2.jpeg?1789769029"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7df5daaf80e65dfcc7a1435d9b52bcf2b5753fbe",
+      "name": "Unipcs",
+      "symbol": "UNIPCS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176764/large/xsxhaafb8mhfuy9qt8uhj17ij1eh.?1788678764"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xedb51558887cc193be97c3163d47306e38966435",
+      "name": "NoMaD Wolf Clan",
+      "symbol": "NMD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179725/large/nomad-worlf-clan.jpg?1792730131"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x62fd0668e10d8b72339be2dcf7643001688ff13b",
+      "name": "Marvell Technology • Robinhood Token",
+      "symbol": "MRVL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174140/large/0x62fd0668e10d8b72339be2dcf7643001688ff13b.png?1782444643"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x48e39e56acdba37b09020c0b734a613c9a2f100a",
+      "name": "BlackBerry Limited • Robinhood Token",
+      "symbol": "BB",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175397/large/BB.png?1786287486"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x62c71cd34a52c30d894419cbcc55db2afa8032ea",
+      "name": "YOLO",
+      "symbol": "YOLO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174641/large/fzvhldxmvphx85ls235mclk6bf3x.?1784363718"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7066a64c24e4206cd62e83bf198c1e7eb361f51e",
+      "name": "Pfizer Inc. • Robinhood Token",
+      "symbol": "PFE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175439/large/PFE.png?1786301478"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x806ba27b5e1c4c2e989a3757a8def9fe1145ed10",
+      "name": "Wojak",
+      "symbol": "WOJAK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179288/large/xdw98uqzcex2f6xqpyofsdvt7kit.?1791437608"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x72dc556fff14115c077a540921e5f35499a4dca7",
+      "name": "throne",
+      "symbol": "THRONE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178458/large/throne_crown_green_on_black_2048.png?1789628296"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x54a557dc542676f56ce2b1b5807cc76bedca308a",
+      "name": "Zoki",
+      "symbol": "ZOKI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178561/large/zoki.jpg?1789996369"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x298348d5b2e45c774e3ee4f1a0924071dfbdc8c7",
+      "name": "Swappy",
+      "symbol": "SWAPPY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175444/large/IMG_4921.png?1786342335"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0ff9072a1ead154d92c2d2fef16afba6028ce2b2",
+      "name": "Optimus",
+      "symbol": "OPTIMUS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179599/large/optimus-logo-square-200px.png?1792394416"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9fa1c5e90a11294f83a9f135b81ad1b537a5ffdc",
+      "name": "Zeal",
+      "symbol": "ZEAL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176778/large/zeal_400x400.jpg?1788687773"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5d6ef090a1461b11c9427ac319260122d1c61e18",
+      "name": "iCoin",
+      "symbol": "ICOIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176711/large/ru663u19n7z9b32zlwzhauj9873z.?1788519085"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb8dbf92f9741c9ac1c32115e78581f23509916fd",
+      "name": "Applied Digital • Robinhood Token",
+      "symbol": "APLD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174167/large/0xb8dbf92f9741c9ac1c32115e78581f23509916fd.png?1782444716"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe1838f0dff03a9327dea87b2a2285850791297ec",
+      "name": "SurplusLLM",
+      "symbol": "SURPLUS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179134/large/surplus-app-icon-180.png?1791292597"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x352a746f58fd970358593b8f60d1283a46f90528",
+      "name": "dat frong",
+      "symbol": "DATFRONG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176940/large/datfrong.jpg?1789050817"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf0ab0c93be6f41369d302e55db1a96b3c430212d",
+      "name": "IREN Limited • Robinhood Token",
+      "symbol": "IREN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174151/large/0xf0ab0c93be6f41369d302e55db1a96b3c430212d.png?1782444672"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x27c99fbde9d0d2aa4f4bfb4943f237843ddf6958",
+      "name": "Datadog • Robinhood Token",
+      "symbol": "DDOG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174188/large/0x27c99fbde9d0d2aa4f4bfb4943f237843ddf6958.png?1782444771"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb83fc6010c8dcf628abe787a161c619fcc543117",
+      "name": "PENPE",
+      "symbol": "PENPE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176972/large/penpe.jpg?1789111432"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x440e339a46eaa3be8d723c2cbed2a30af74536d5",
+      "name": "Ticker Spring",
+      "symbol": "SPRING",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178444/large/download_%281%29.png?1789569231"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc65a7c91591a2dd4d5624e75e814b1bbe88b984a",
+      "name": "Trenchers",
+      "symbol": "TRENCHERS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179402/large/trenchers-avatar.png?1791735184"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd1e861cc5eee7ea88649206b74504d78ccd7aeea",
+      "name": "Alandale",
+      "symbol": "LUTE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175846/large/alandale-logo-200.png?1787741146"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b",
+      "name": "Rivian Automotive • Robinhood Token",
+      "symbol": "RIVN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174195/large/0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b.png?1782444790"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5108cda97b40cebe635a2031454c1524da9350b0",
+      "name": "PolarAI",
+      "symbol": "POLAR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179514/large/logo_polar.jpg?1792025647"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x96f455a90a80dcf0c2df6703ea4ba3bedf286e43",
+      "name": "Verdex",
+      "symbol": "VERDEX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179011/large/verdex-pfp.png?1790920188"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x07292f0c46f25ef5ecfdba20935a68718c424a51",
+      "name": "Kyro Markets",
+      "symbol": "KYRO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179685/large/icon-512.png?1792579016"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x75742c18bc1f1c5c5f448f4c9d9c6f66dafaaa38",
+      "name": "iShares Semiconductor ETF • Robinhood Token",
+      "symbol": "SOXX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174155/large/0x75742c18bc1f1c5c5f448f4c9d9c6f66dafaaa38.png?1782444683"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4d21483a44bf67a86b77e3da301411880797d452",
+      "name": "Boeing • Robinhood Token",
+      "symbol": "BA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174190/large/0x4d21483a44bf67a86b77e3da301411880797d452.png?1782444776"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6572eade9fb17f4027baf92feac222b9aa746bd0",
+      "name": "Grey Goo",
+      "symbol": "GOO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179552/large/goo.png?1792120284"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x28e3c0c404088f1a5d739221072ddf6ab4431022",
+      "name": "Iridius",
+      "symbol": "IRIDIUS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179573/large/b1rrdry4x9ugba2g3huky0b42vdj.?1792194461"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcef9027c7d6985b85f0ba431125073529a947a68",
+      "name": "Webull Corporation • Robinhood Token",
+      "symbol": "BULL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175340/large/BULL.png?1786119809"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9c87b4cfa21266d1638f437c96dbe1012cb81111",
+      "name": "OddsEngine",
+      "symbol": "ODDS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179654/large/x-profile-400x400.png?1792507200"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0a8b4763c71ac39101b3b8a97e62da0b81549a4f",
+      "name": "own.money",
+      "symbol": "MONEY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178239/large/a2ansya0nk0sf9u09vuexevohvh5.?1789198401"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf23250dac154d05bb671cb0d0ebef3c635c79ce2",
+      "name": "UPS • Robinhood Token",
+      "symbol": "UPS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174201/large/0xf23250dac154d05bb671cb0d0ebef3c635c79ce2.png?1782444806"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc839a88a05b231515a82c71ee97b4f18973c1340",
+      "name": "NATION",
+      "symbol": "NATION",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178455/large/5FE17FC2-5186-4EDD-8A47-9480485D00CA.jpeg?1789570339"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd79eb5d4edf7bd843eef5109f1a1ff5c96b17948",
+      "name": "Knight",
+      "symbol": "KNIGHT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176852/large/r6tcujdyra8v1ykv6xx954i0eknr.?1788927968"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd4dc6b48ad73ec51e71d9b8f65568f88609b92c1",
+      "name": "Sherwood",
+      "symbol": "SHERWOOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175769/large/IMG_0719.jpeg?1787486090"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x65b445518b1ad0d9c597731494f5bd2991b7ec08",
+      "name": "ClawBank",
+      "symbol": "$CLAWBANK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102172948/large/X_Prof_pic.jpg?1776782170"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc465130ac047cc363d3839b4de1c8f35cf8ae9fd",
+      "name": "Ripples",
+      "symbol": "RIPPLES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178432/large/ripples_400x400.jpg?1789563065"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x27495511b8a2e163efc75d788706a40dd100bc27",
+      "name": "THE BROTHERHOOD",
+      "symbol": "PACK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176686/large/PACK_CoinGecko_Logo_200x200.png?1788501143"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x134c4fb13dc3c873d699957a8493e463b56f1e18",
+      "name": "We Love Cats",
+      "symbol": "WELOVECATS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176915/large/welovecats.jpg?1789028612"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3b4a0048a00787a644932cd648faa043410c163e",
+      "name": "The Dogestar",
+      "symbol": "SIRIUS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176564/large/logo_200x200.png?1792392859"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x329fcaceb9ad6f9580dd5f643fed0646900d043c",
+      "name": "Lockheed Martin Corp. • Robinhood Token",
+      "symbol": "LMT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175412/large/LMT.png?1786295459"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x38cdc65b82c66fc206d09192e6b123fdabf21cfe",
+      "name": "UPay",
+      "symbol": "UPAY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179293/large/gymu5w9im58o5hw3vj56hqar8m63.?1791439106"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa4ddf89a40a35264e9d7f896a1ef01c59b1e977a",
+      "name": "Anyroute",
+      "symbol": "ANYR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179018/large/7hi4yqmv84v7237vfeeehlrf5j6v.?1790925841"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb0992820e760d836549ba69bc7598b4af75dee03",
+      "name": "Oracle • Robinhood Token",
+      "symbol": "ORCL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174128/large/0xb0992820e760d836549ba69bc7598b4af75dee03.png?1782444611"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x29d3945d0c7e4c78d194a343d3db0e909a0a8a91",
+      "name": "Influencefamily",
+      "symbol": "INFLUENCE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179633/large/U4M0xH8J_400x400.png?1792403116"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x01e6301bc1118be90cc6bc2d1b5c0c44bb883111",
+      "name": "IGNITION",
+      "symbol": "IGNITION",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179575/large/Untitled_Design_%285%29.png?1792278780"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x62ed300a5916aed339a65e04754392763982a967",
+      "name": "MINTED",
+      "symbol": "MNTD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179720/large/Mint_Green_Token_Icon_%282%29.png?1792672177"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4f8eb44cd1a5290d12d5729bc53f3f2bcee78684",
+      "name": "Levee",
+      "symbol": "LEVEE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179591/large/qah2fr5igtwhw3rntyhwkbm29azd.?1792288039"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4b3a3ff4ec9d289727e24a8152f406bada44264d",
+      "name": "Frog In Hood",
+      "symbol": "FIH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178438/large/FIH_logo.png?1789567661"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xab528169dcc80d68837a33b1e2b866bb7d7ee301",
+      "name": "Wrestler",
+      "symbol": "WRESTLER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178386/large/wrestler_400x400.jpg?1789459741"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x99f2e3420c1071bff35b8aef98a1339ea823ce24",
+      "name": "RobinHODL",
+      "symbol": "RH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179632/large/rh-crest-transparent-512.png?1792508684"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8eaa17be69ae9616cede4671e6d837bb89491e18",
+      "name": "Cat Processing Unit",
+      "symbol": "CPU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178516/large/cpu.jpg?1789803736"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x777777783478dadf54678d1d92dad3fb5bd42eb2",
+      "name": "crow with knife",
+      "symbol": "CAW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/36067/large/200px.png?1710405601"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe8a61c11d418daccbcf12466e052d2ac5f7387a9",
+      "name": "Control",
+      "symbol": "CTRL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179763/large/photo_5395794717531907627_y.jpg?1792862116"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x420393b70a34d6aef855ef56e87d4d4161f27c27",
+      "name": "The Lighter Liger",
+      "symbol": "LIGER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176776/large/liger_400x400.jpg?1788684421"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x316fa3ab9a8fd8d7567a823dedecf28d9fee2894",
+      "name": "zerotrace",
+      "symbol": "ZERO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179066/large/2bs5q0nqt3kuu0r2ohb38nox30fy.?1791096846"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8ef20885f94e3d9bc7eb3080279188bd5ed7c08c",
+      "name": "Lumentum • Robinhood Token",
+      "symbol": "LITE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174138/large/0x8ef20885f94e3d9bc7eb3080279188bd5ed7c08c.png?1782444637"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xac2ba65e2c2e7e7c0002942dbe9c89856ef21eca",
+      "name": "Strategic Bitcoin Reserve",
+      "symbol": "SBR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178524/large/Strategic_Bitcoin_Reserve.png?1789843248"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x238e40b75ae78a1388a14e517d855893e92e58db",
+      "name": "Sight",
+      "symbol": "SGT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179016/large/6q2vklddv6jsg0vuwx5jj4tlc2qn.?1790925458"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0762c1708f0d23f86b29d6b857121ff7df357506",
+      "name": "this is not a website",
+      "symbol": "WEBSITE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175241/large/notawebsite.jpg?1785896695"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x47f93d52cbec7c6d2cfc080e154002370a60daea",
+      "name": "ASML Holding NV • Robinhood Token",
+      "symbol": "ASML",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174168/large/0x47f93d52cbec7c6d2cfc080e154002370a60daea.png?1782444718"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x652720b02272c37d9328f08ee8343554d1caa8e7",
+      "name": "KlineO",
+      "symbol": "KLO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179546/large/klo-200.png?1792061906"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8e62f281f282686fca6dcb39288069a93fc23f1c",
+      "name": "Hoodrat",
+      "symbol": "HOODRAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174350/large/sOAZF0mL_400x400.jpg?1783654472"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfad17d7cc41d9c9ca4a459da798a4446dd217974",
+      "name": "Potatchi",
+      "symbol": "POTATCHI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178884/large/ncgr6h17s96rsl1apobpa157ggez.?1790601834"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf8bc08092c06db6148114dcf82af881f1085f92b",
+      "name": "Sherwood Protocol",
+      "symbol": "WOOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174574/large/4vvnmslrns3stkpsmbsnsv4cu5ae.?1784094690"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfde368debe9e80f80785064a65719cec1f809dec",
+      "name": "Pepons",
+      "symbol": "PEPONS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178736/large/Pepons.png?1790171569"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x45443a4a7b58ab26a4b4d72616cf36d5aae7188c",
+      "name": "hotdog",
+      "symbol": "HOTDOG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178964/large/hotdog.jpg?1790773100"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x302dacc52492095fb054937112a5aac4617ecfb3",
+      "name": "Alvey Chain",
+      "symbol": "WALV",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178602/large/tcj4zi16iwwigec7pxj3s347fsh8.?1790139390"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf52597345a8edf418bc4071b4a35112472277d3e",
+      "name": "Western Digital Corporation • Robinhood Token",
+      "symbol": "WDC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175283/large/WDC.png?1786069944"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xeb6986485b052102ac611e8675321406e0354686",
+      "name": "Confetti Inu",
+      "symbol": "CONFETTI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179551/large/logo.jpg?1792115744"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe15db7c8547a0add11eb26a700246cca08aefce5",
+      "name": "Shibinhood",
+      "symbol": "WOOF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174898/large/7thwbtf3gwr8kknbqmtv10fgaijr.?1785395134"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1c1daef0300551adbfbe403e7d567b6c5aff566f",
+      "name": "hotdog",
+      "symbol": "HOTDOG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176654/large/xFUGsZ_P_400x400.jpg?1789026057"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x060a0600abe74166e629f6749de284910ff8d8a3",
+      "name": "Rovyn.fi",
+      "symbol": "RVN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178773/large/1ecba284-937c-4aa2-a825-e10b4d1e15b8.png?1790235363"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5f78b48a50f94b1f794aebb72ad6d3f99eca13ca",
+      "name": "Snarket AI",
+      "symbol": "SNARKET",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179524/large/148n3njp0wct935s0gpio1ns045s.?1792027559"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb33eb16782776b4d738c0fd643577cb0284db610",
+      "name": "Hey Research Lab",
+      "symbol": "HEY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176950/large/2026-09-10_02.15.14.jpg?1789106470"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa01ff10774cfe53c3fbc1d7d124c42e19f6afcbd",
+      "name": "OWO",
+      "symbol": "OWOWO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179681/large/IMG_4232.jpeg?1792577336"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x532c5583671870723ceef573600208af49c87c54",
+      "name": "Canopy Finance",
+      "symbol": "CNPY",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175659/large/Canopy_Finance.png?1787278239"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x96765066f6a040a21eb027167d2315b707c82633",
+      "name": "Ravenhood",
+      "symbol": "RVH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174431/large/ba178407-dda3-4969-a7e3-071cec79c121.png?1783670771"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7b630f080807df83908b4ade46ba6396ee66b098",
+      "name": "dont blink",
+      "symbol": "BLINK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176626/large/dont-blink-icon-200.png?1788350276"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xaa2d398d66c36164c572783bff3da1450d988ed9",
+      "name": "Blad",
+      "symbol": "BLAD",
+      "decimals": 18
+    },
+    {
+      "chainId": 4663,
+      "address": "0x25c288e6d899b9bc30160965ad9644c67e73be0c",
+      "name": "Ford Motor • Robinhood Token",
+      "symbol": "F",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174185/large/0x25c288e6d899b9bc30160965ad9644c67e73be0c.png?1782444763"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6d0f5047704ca09d73c946612dc98ef62561fd5c",
+      "name": "PromptDuel",
+      "symbol": "DUEL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178831/large/promptduel-x-profile.png?1790443424"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xeb288e3ca1607e7b921bcb47d5831e88331d65ef",
+      "name": "Bond",
+      "symbol": "BOND",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179729/large/59F22B24-231E-47A0-B98B-84EF1E2ACADB.jpeg?1792731182"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x49bac47750f3dcdba49350b5d74fd399e90f97c6",
+      "name": "The Bull",
+      "symbol": "BULL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175420/large/The_Bull.jpg?1786296896"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb7eaecc89d3e2f9fd597d61726ae824900db8360",
+      "name": "Stratton Market",
+      "symbol": "STRATTON",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176730/large/stratton.jpg?1788602124"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x92e4b008161ac64a7d0c5e540f453f8e6b8bd8d7",
+      "name": "Golden Kitty",
+      "symbol": "GOLDEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176922/large/Golden_Kitty.png?1789034734"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9a7c661be578e50927268fb770146d701b3368e7",
+      "name": "INVARA Core",
+      "symbol": "INVR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179645/large/image-1792501414675.png?1792736624"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x63ee90921eac3c3f87961c17556bb3ebdf2490a9",
+      "name": "COPY",
+      "symbol": "COPY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178256/large/sieOCL56_400x400_%282%29.jpg?1789228011"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6adb9cd443f4653572101e2f91b35ea1ed5f6b69",
+      "name": "RobinSeed",
+      "symbol": "SEED",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179545/large/seed.jpg?1792060451"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfb2bb4bfb97a796abfae750113086b83173b0dcc",
+      "name": "LOL",
+      "symbol": "LOL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179376/large/PFP.png?1791650595"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x923d915ddf0fe60c04addac68e13f0d5af03164f",
+      "name": "Hades",
+      "symbol": "HADES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178813/large/hades.jpg?1790342001"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x63b814ddbd6bf339f25fed8c36158a008d5b373e",
+      "name": "GE Aerospace • Robinhood Token",
+      "symbol": "GE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175414/large/GE.png?1786295546"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbe98b75361935b18d688409424a869a4c3dc7401",
+      "name": "SEND NUDES",
+      "symbol": "NUDES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176916/large/Screenshot_2569-09-10_at_01.53.02.png?1789030287"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x232cdfc415d10b673845d83dc02ba2eabe7e30d1",
+      "name": "What IF",
+      "symbol": "IF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174859/large/CoinGecko_Logo_200x200.png?1785157954"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdd0c034dada72325bc893fa39bc392e82bf847d7",
+      "name": "LoomDesk",
+      "symbol": "LOOM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178580/large/aC8BpUYj_400x400.jpg?1790085575"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x862cdccb67c8a22fdb247d09a08b1dad09447777",
+      "name": "mooncat",
+      "symbol": "MOON",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176590/large/cat_400x400.jpg?1788271891"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xba0cab75495255d0cb58e22b648bfed4ecd1f47e",
+      "name": "Snowflake Inc. • Robinhood Token",
+      "symbol": "SNOW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175401/large/SNOW.png?1786287558"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa9efe2fc94de79734c03051515f48f254ce61e18",
+      "name": "Doggie Mode",
+      "symbol": "DOGGIE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176612/large/rh72nxltv0viusc6kikfz7pd6ruz.?1788331678"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe44951407d2ed8e73dce4b7002908732bc0d0bc3",
+      "name": "Kindra by virtuals",
+      "symbol": "KINDRA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174551/large/IMG_0751.jpeg?1784014646"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x08a5d78a4bc7754e8aff87b4509e007baeb685f3",
+      "name": "Gazz",
+      "symbol": "GAZZ",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176552/large/gazzlogo200.png?1788100093"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0088ce7905025c4b5ea1d49ab6179b6aaadb3b9c",
+      "name": "fly.ai",
+      "symbol": "FLYAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178363/large/IMG_8131.webp?1789386859"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4a6eec8a30b49d289b9fc865fd374b4d61eab8fb",
+      "name": "Liluni",
+      "symbol": "LILUNI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175213/large/liluni-pfp.png?1785613331"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7168563b0e70124f0c7c0cf2f13a8d1861baf4a5",
+      "name": "Backed",
+      "symbol": "BACKED",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174659/large/zpo16kazej461buko6zozopkfqdc.?1784446814"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf24f8f6b08fe87cf062e833a732ad7f636064bc8",
+      "name": "Premium",
+      "symbol": "PRM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178236/large/prm.jpg?1789132618"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc32ab2e562ade6fba6d3d1e3960d49b0957ef645",
+      "name": "Liege Agents",
+      "symbol": "LIEGE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179014/large/download_%2810%29.png?1790920697"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x38bb87cf3e7344a82be7cd671c191f015b97eee6",
+      "name": "SANTAHOOD",
+      "symbol": "SANTACOIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174554/large/30768.png?1784014852"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf1b266c11f68bc936f218ad20712c4feb3e61e18",
+      "name": "OPEN",
+      "symbol": "OPEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178316/large/open.jpg?1789276671"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4b7d1e5ec6889e63e70d39561edf925095dbed88",
+      "name": "RHTools",
+      "symbol": "TOOLS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178378/large/pkhf84af3bszo48bcc1e66axfo9w.?1789396780"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe3fa12da7fa026b21817f16622e8ae48fa785166",
+      "name": "Yardkeeper",
+      "symbol": "YARD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175525/large/yardkeeper.jpg?1786588542"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8d1612b4b78ebf08cfbf01a04fa270ccbb0509a2",
+      "name": "rocket strategy",
+      "symbol": "RKST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176781/large/rocket_strategy_logo_200x200.png?1789012984"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xacef2e09adb47ad6abebad9ff06689e60615c2b6",
+      "name": "iShares MSCI India ETF • Robinhood Token",
+      "symbol": "INDA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175449/large/INDA.png?1786367418"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x570c5aa79c798e7a418412cc8399ae5bcce570c5",
+      "name": "Ekubo Stock Liquidity Token",
+      "symbol": "STONX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176618/large/stonx.png?1788348513"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x71d58cfcea7382cdbdd678f965a076ba1bcc8f20",
+      "name": "DigiHealth",
+      "symbol": "DGH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176817/large/dgh.png?1790742993"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2103faa9d1762e27a716c61718b3acf3ec1f9bf1",
+      "name": "Robin Hood",
+      "symbol": "FOX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174509/large/rhood.jpg?1783842242"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3df3644bcf4ce0d993e18c86c3080e53bfea06f1",
+      "name": "Be like Jacob",
+      "symbol": "JACOB",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176902/large/aqqmsrotxmtpsn502v1aazosgm3r.?1789015781"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcacb0e9caccee63ec4d82952e561a291c68bcb68",
+      "name": "Golden Goose",
+      "symbol": "GG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176694/large/golden_goose.jpg?1788505713"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf53f66751b1eff985311b693531e3290f600c410",
+      "name": "Shopify • Robinhood Token",
+      "symbol": "SHOP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174182/large/0xf53f66751b1eff985311b693531e3290f600c410.png?1782444755"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9411673acad2ff68810713cbc04e029c8d636fe6",
+      "name": "catwiffeather",
+      "symbol": "CATWIFFEATHER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178607/large/27k2ozi06ey0vwyxu9ugr076wio9.?1790140320"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbc2283d12b1f2f46c1613ae672e95c55b69ca414",
+      "name": "PaperDAO",
+      "symbol": "PULP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179352/large/paper.png?1791530137"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf9b46d3d1b22199d4d1025a9cedb540a33f1a2d5",
+      "name": "Exxon Holdings Corporation • Robinhood Token",
+      "symbol": "XOM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174170/large/0xf9b46d3d1b22199d4d1025a9cedb540a33f1a2d5.png?1782444723"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0441a16767215fe33056a0fb9ce2e4dee842fa8f",
+      "name": "TAOLaunch",
+      "symbol": "TAOLAUNCH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178946/large/c0aptetj1vx7zdbw4nwg02kp2677.?1790747752"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3f9f0b6073ee8c495aed96869af31850fed40feb",
+      "name": "Dice Protocol",
+      "symbol": "DICE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174900/large/3hi8m11pdx5a118am4mfhgk8s9jr.?1785396206"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe0eba1b76b73be7bfa7716b6ca96f724930e2263",
+      "name": "Robbie",
+      "symbol": "$ROBBIE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176690/large/robbie.jpg?1788502785"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x81e770ba8343232b6f200209bf9a2c1430c2dea1",
+      "name": "VEYA",
+      "symbol": "VEYA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179303/large/C49ECAFE-772C-426B-B9BD-DB9EF03FA6C2.jpeg?1791446319"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x416d0c4b431cfa33b4a4974e3dfc9f5089137148",
+      "name": "Arrowfarm",
+      "symbol": "ARROWFARM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178970/large/Icon_bg.png?1790777746"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc97714b727ccfb3d3e4cb2946344351b262f6af9",
+      "name": "MCAPS",
+      "symbol": "MCAPS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179505/large/MCAPS-bull-orange-red-gradient-495-coingecko.png?1792193453"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfde6b5d9bb419b10c23268c74e369abff39c0460",
+      "name": "Red Cat Holdings, Inc. • Robinhood Token",
+      "symbol": "RCAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175352/large/RCAT.png?1786124386"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x01637b14b7378b99de75a64d50656d98488d9a4d",
+      "name": "Lady Marian",
+      "symbol": "MARIAN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174281/large/marian.jpg?1783654680"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x85a574f2ff0795685f58d1d7b0d4b51f148ac489",
+      "name": "PRINTER",
+      "symbol": "PRINTER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176683/large/gcn3zm66z0d3yx29aiwxbh5yku3f.?1788500887"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb5e40b5f16996e9d76ec2b16e7a4ead3c06a9fa2",
+      "name": "Axon",
+      "symbol": "AXON",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178830/large/Axon-icon-1x1.png?1790442602"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb911f04a24a9f6234537829290335e623ee71e18",
+      "name": "Uranus",
+      "symbol": "URANUS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178517/large/uranus.jpg?1789804360"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1e6ea1e89151cdc8443968bf047cfa3177181e18",
+      "name": "Gasoline Inu",
+      "symbol": "GASOLINU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178249/large/gas.jpg?1789200385"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x945626601703d126877c33a3d0def244c833550d",
+      "name": "Wolverinu",
+      "symbol": "WOLVERINU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179106/large/1000564244.png?1791189822"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4472c69d299382f8847ebce4fc6ed8e295510e3e",
+      "name": "Arcus BTC (3x Long)",
+      "symbol": "PBTC3X",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178744/large/3xBTC_Long.png?1790173748"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb2d1fa50508550b3488c0e9860d1f08937a29145",
+      "name": "EmpireX",
+      "symbol": "EMPIREX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179578/large/cai6zzzwdnf2fhm844j9oytajwv1.?1792282685"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbf818efe65aac127ac8f9fec6fec203ee222c851",
+      "name": "Bundle Pepe",
+      "symbol": "BPEPE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178993/large/Bpepe.png?1790836966"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfc6d48974ac0a538624ca97380c9a3753664c85b",
+      "name": "HUME MARKETS",
+      "symbol": "HUME",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179446/large/m8nlbzfnzlfedt7dqbwoqejqzag1.?1791812858"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe8729dc9dca85167e06b7e9c66a58b22457c5f30",
+      "name": "Aeva",
+      "symbol": "AEVA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178824/large/aeva.jpg?1790407551"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6742883eef788e2424ce5a1b0d4303144aaec0a5",
+      "name": "Mossvale",
+      "symbol": "MOSS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178965/large/Y_gGJqeo_400x400.jpg?1790773277"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x275bd09e2dd9ea3da99e9160277d8691e33f47fa",
+      "name": "hoodrat",
+      "symbol": "HOODRAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176792/large/hoodrat.png?1788716437"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf2ed00e0558a0de8b7336c9fac001a0127422377",
+      "name": "Codemen",
+      "symbol": "CODEMEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178810/large/codemen.jpg?1790323524"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7ba36be14dd06ba492f08be6c1b2979c1d0b652c",
+      "name": "PerpsHood",
+      "symbol": "PERPSHOOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176553/large/photo_6005963086138904630_y_%281%29.jpg?1788100390"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x756bc80af765c82da966a788858d65adf14f3793",
+      "name": "Sunrun Inc. • Robinhood Token",
+      "symbol": "RUN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175398/large/RUN.png?1786287505"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x17c35105dab9936f113af60f3bf74783caf08301",
+      "name": "Hood Domains",
+      "symbol": "HD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174531/large/HoodDomains.png?1783930998"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1cdb289befdfac8af945a288bcdccc382cb34d32",
+      "name": "X Link",
+      "symbol": "XL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178327/large/Artboard_1.jpg?1789353144"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x93e7a34db439a3371d4149eb9e6794343312d4f2",
+      "name": "Howl.fi",
+      "symbol": "HOWL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179602/large/IMG_2441.jpeg?1792395048"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6d1f3baefb22d725b8068e60105b45c8a97da1fa",
+      "name": "AlfaClub",
+      "symbol": "ALFA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179003/large/IMG_7752.jpeg?1790840721"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf39a492d391970410b4ee685bdea448a5bda698a",
+      "name": "DUST",
+      "symbol": "DUST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176881/large/Dust.png?1788960082"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x79a74fd91f8e1c4ab8e76253dec5c91f3094393f",
+      "name": "Superstables",
+      "symbol": "STBL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178856/large/logo_x_%282%29.png?1790505225"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa4ddf100e3e0d3a9dd897e89d025622b794f0c08",
+      "name": "OmniRail",
+      "symbol": "RAIL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179041/large/avatar.png?1791044749"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd1e92ba7c7355c2698addd894919cba198601e18",
+      "name": "QUBIT",
+      "symbol": "$QUBIT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178334/large/290826_QUANTUM-DOG_1.jpg?1789374329"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0336cd0ab1bba42369b98934c4972dd7c501c682",
+      "name": "JustOneSui",
+      "symbol": "ONE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178962/large/one-current.jpg?1792392642"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfc39e99e78524d7c891669f70d5aa92ab1041eb6",
+      "name": "Select",
+      "symbol": "SELECT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175254/large/hdcb8aaghz9urr1l9ip0kpl203sh.?1785999863"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9936403a9cc72cf306063e3496ea387428a3aecd",
+      "name": "ABSOLUTE CINEMA",
+      "symbol": "CINEMA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176708/large/dlsfhfhc42jwjvqim1h2nx1mncms.?1788516532"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa5c8cc9fbe4b41b383edb70348d28dd287c63e18",
+      "name": "LootMarch",
+      "symbol": "LM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179152/large/6n48u07okok11ymg4nsxt5we5z09.?1791297331"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8ec17c059f250a5c19566c3fc56ee13a343dd283",
+      "name": "Mumu The Bull",
+      "symbol": "MUMU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174805/large/e589hufyxhv81u1xhhx9tttbgvlu.?1784970765"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf086c53f2780e601f0d005fabb3ee5a220336062",
+      "name": "Coupons",
+      "symbol": "COUPONS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178569/large/coupons_400x400.jpg?1790005682"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x507b6f349a80114097a67b8b4677367acc15b220",
+      "name": "par",
+      "symbol": "PAR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176892/large/logo-square.png?1788962567"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa3602804e096cb73bd8344afc1ff3f3390b899c5",
+      "name": "PEZ",
+      "symbol": "PEZ",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176797/large/pez.png?1788756593"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x285a9ddf53bef60ebcc55f5752724a30ef7b2d17",
+      "name": "cradle",
+      "symbol": "CRADLE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179073/large/f5k1pwkxuoas1rcyy64zgz9ygd0h.?1791098493"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1d08d2e96e7712b754048dd1c2e7a6e878ed4913",
+      "name": "Avenro",
+      "symbol": "ANR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179390/large/623apoafilnh16aqhhbu60av8ebz.?1791701494"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8e8266b11eaff21998b31c5ad258198e103e1fb0",
+      "name": "OLY",
+      "symbol": "OLY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176943/large/OLY_LOGO_CLEAN.png?1789068230"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6245db7f52379bd9757c9ddce6519768ffab3a4f",
+      "name": "Overcall",
+      "symbol": "OVER",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178529/large/OVER.png?1789844684"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x59cbe15eb2c034fcf6800a998225ce06b68a0229",
+      "name": "Robinvista",
+      "symbol": "VISTA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174634/large/zyadtlnqzwoufadtwxbe4y31s8yv.?1784293650"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5f15401af8d13ce62599f1e5c86c37b5e84e7fb9",
+      "name": "REA.fund",
+      "symbol": "REAFUND",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179731/large/2img.png?1792731467"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4d67253bc223e6b0e104f1084c1fb2b669ddc41b",
+      "name": "Credo Technology Group Holding Ltd Ordinary Shares • Robinho",
+      "symbol": "CRDO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175285/large/CRDO.png?1786069996"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa26992c4268a8a78a4d872fe4bdad2ed03ac287d",
+      "name": "Manyways Inference",
+      "symbol": "MANY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176698/large/manyways.jpg?1788507503"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd417da78e3ce742deb8a16638b473f5b7cdb1111",
+      "name": "BlackHookFinance",
+      "symbol": "BHF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179683/large/bhf-token-200.png?1792577703"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb6ff957e31286f748989cbf69183b1b5e8d921a8",
+      "name": "Conviction",
+      "symbol": "CONV",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179760/large/conviction-icon-500.png?1792861714"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0000000005aca17e8bd5779fc87e13cb433aed24",
+      "name": "NUKE",
+      "symbol": "NUKE",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176888/large/token-icon.png?1788962037"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x26c7121e41e779327adbd5682646dc5deb764539",
+      "name": "HIVE",
+      "symbol": "HIVE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174390/large/app-icon-200x200.png?1783578375"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x368580343a637b8b91d27c8a8be124f534329a30",
+      "name": "ROBIT",
+      "symbol": "ROBIT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178966/large/robit_logo_1.png?1790773385"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x93dbb1d2dc5d63f4abacff30485273f538df68ac",
+      "name": "Comfort Systems USA, Inc. • Robinhood Token",
+      "symbol": "FIX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175425/large/FIX.png?1786299246"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x86e5d8818eff06f0dea9e5eca87f056bc44c7777",
+      "name": "Kekistan",
+      "symbol": "KEK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176536/large/logokekrh-resized-no-bg.png?1788027774"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x28bff607409535285a5392f0b79516673b6072ac",
+      "name": "Cat Purrcessing Unit",
+      "symbol": "CPU",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176524/large/CPU.jpg?1788020490"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdb97b2aefd6816485a757ae49280d598a5c9c848",
+      "name": "Not In Labor Force",
+      "symbol": "NILF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176874/large/pfp.png?1792132398"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1a95c10e4839033686225eaad3ac348f0d8edc4f",
+      "name": "PFEAGLE",
+      "symbol": "PFEAGLE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179601/large/1ba3fe9b-7b88-4020-8094-50727333dfc0.png?1792394978"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5baaec1b70864f01dbdb747358ff59f2e2ccf7d5",
+      "name": "GIGA",
+      "symbol": "GIGA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176629/large/giga-token-round.png?1788351103"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf4c450c1570c2dbda91de1ed2e39995a15028c97",
+      "name": "Diamond Hands",
+      "symbol": "HODL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174373/large/4un2w5gi4dfttub6y5hianoyvffa.?1783486971"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfb2664f07b6aadd29ea7a59d8859b1aeb8645cda",
+      "name": "UiPath, Inc. • Robinhood Token",
+      "symbol": "PATH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175364/large/PATH.png?1786131669"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x459476869af797eb9061b41fa04de46a60fbedbd",
+      "name": "BV7X",
+      "symbol": "BV7X",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178464/large/Logo.png?1789636820"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd421141b9d6afa274572a747e9a3fdd24ba8c400",
+      "name": "ComputersRH Coin",
+      "symbol": "CRH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179348/large/ulkrg37x73qgj9uxfczyboc0v92h.?1791529548"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa5be0eeb82a013dc7867b9e020c36a69da666666",
+      "name": "CLOCK IN",
+      "symbol": "CLOCKIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175744/large/clockin.jpg?1787297622"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x623ede6b702721e2014d9a420c759abfe0f1e3f3",
+      "name": "Dubs the Cat",
+      "symbol": "RDUBS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178549/large/rdubs-logo-200-transparent.png?1789934257"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9663985492af1b339d959a800592ed131090f264",
+      "name": "Luna Nine",
+      "symbol": "LUNA9",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176920/large/IMG_2681.jpeg?1789034374"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x232b8ed6377be97813853b0ac104c4cda8378d1b",
+      "name": "Adobe Inc. • Robinhood Token",
+      "symbol": "ADBE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175287/large/ADBE.png?1786070056"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x77061b45c5e4d440bd681b5f72bd0f4231a6fc04",
+      "name": "RobinVault",
+      "symbol": "ROBINVAULT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175857/large/qqj1v2xpwlgb7nwyka41s4dgfeof.?1787806930"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xca18a528ea897040f715edc92e6e4572780c5ca1",
+      "name": "Kairence",
+      "symbol": "KAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176542/large/QmSfRb4v3uxnjq792Nwq1f5DE34Aur6VbgS1RQXQMqhEWv_copy.png?1788029178"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x59dd09d4900c2e4b5f75b7c0d4e6796fcc234cb1",
+      "name": "Hewlett Packard Enterprise Company • Robinhood Token",
+      "symbol": "HPE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175416/large/HPE.png?1786295591"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0c020bef365d7001611ef1cecd6084cdd6b73683",
+      "name": "L4VA",
+      "symbol": "L4VA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179006/large/l4va.jpg?1790904937"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x14641000a501bdc736116abf84e6fcea9b90a713",
+      "name": "MESH Gateway",
+      "symbol": "MESH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175790/large/ChatGPT_Image_Aug_17__2026__08_41_41_PM.png?1787569312"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa249baf1063af884807c1e1400aef7784836917e",
+      "name": "Applovin Corporation • Robinhood Token",
+      "symbol": "APP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175411/large/APP.png?1786295429"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfb1bcb6817f7b8fa86896d3253b16aeb7bd6a5a8",
+      "name": "one life, its worth an attempt",
+      "symbol": "WORTH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174519/large/worth.jpg?1783855128"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa156048aa84d13b1de40dfa8288d28b2593fc35c",
+      "name": "Crossbow Finance",
+      "symbol": "XBOW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178475/large/2026-09-12_10.09.08_4.png?1789699290"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa15cd06dd305269a0f48bebeb30aa3588fba7b32",
+      "name": "Merrymen by Virtuals",
+      "symbol": "MERRYMEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174731/large/mrxvnxar3u7g7ktbuhekb01doafd.?1784703453"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfd036176739e03bab9e5ea881069ca2845e5c0de",
+      "name": "NoMore",
+      "symbol": "NOMO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175750/large/1i9ln5ixq48483dkgidqg4xnkett.?1787384249"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbbd09f72b025360fee5c928053dca6248d35be54",
+      "name": "ON Semiconductor Corporation • Robinhood Token",
+      "symbol": "ON",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175355/large/ON.png?1786124453"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa80eb66b3e0cf66ccb46f8b8c9e7ff5803eeb820",
+      "name": "Wen Lambo",
+      "symbol": "WEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174429/large/Screenshot_2026-07-10_at_6.46.16%E2%80%AFAM.png?1783670272"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x26dcbfb34fc83cabd6990f449674efdc6097ff85",
+      "name": "ViaSat, Inc. • Robinhood Token",
+      "symbol": "VSAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175417/large/VSAT.png?1786295596"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5b97476b922f3305131b8f0b9d333172e87f4aae",
+      "name": "Atlassian Corporation • Robinhood Token",
+      "symbol": "TEAM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175400/large/TEAM.png?1786287540"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7a586d4f3b2b659e3b06e555726107e4cbbceab2",
+      "name": "Hen Egg",
+      "symbol": "HEGG",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179344/large/HenLogo.png?1791518632"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x692dcca648e2e26baaf9da4aebf7cdd5ac2171d5",
+      "name": "robn",
+      "symbol": "ROBN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174735/large/fua1doc7gw0w2dhy9zwzr9wcubpf.?1784704012"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9d783133a3ff9ba27fa1605547368cf9a316341e",
+      "name": "EquiFold",
+      "symbol": "EQUI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174807/large/EQUI_logo.png?1784996283"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x521cf887e6531c6f667b5bc4d896e5d9bfe8eb2e",
+      "name": "Applied Optoelectronics • Robinhood Token",
+      "symbol": "AAOI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174149/large/0x521cf887e6531c6f667b5bc4d896e5d9bfe8eb2e.png?1782444667"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x398aca5e6ae801b002d684333affadc1a25e897c",
+      "name": "Listed exchange",
+      "symbol": "LISTED",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178400/large/logo_squre.png?1789481325"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6eacc0461fdf3bd446634ccd0ed774a1ead028cc",
+      "name": "Shuffle",
+      "symbol": "SHUFFLE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178767/large/F4351F21-2AD2-434B-B078-95A08C5EF531.jpeg?1790233760"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa65d0267c8637fcc46ff91e48de766721c750fe3",
+      "name": "Farting Unicorn",
+      "symbol": "FUNI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176706/large/1000333166.jpg?1788515591"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x80877fe12ede96f807422d5d4ee4f4c47cebc8ff",
+      "name": "Kudo",
+      "symbol": "KUDO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179239/large/kudo-token-1024.png?1791368014"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbaabcb1800c539a58a46035d3982403a37fd6d5d",
+      "name": "Meridian",
+      "symbol": "MRDN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69336/large/logo-128.png?1758225720"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x12e3c047bf9aecaf9ddc98c05c31bfd1dd043993",
+      "name": "Kohl's Corporation • Robinhood Token",
+      "symbol": "KSS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175473/large/KSS.png?1786375136"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x373c06c4f7bde527d7dae4ba169e42b55e393ced",
+      "name": "Aurora Innovation, Inc. • Robinhood Token",
+      "symbol": "AUR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175431/large/AUR.png?1786299466"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5e453647539d4dd766d7c4c3d6ce589900d39415",
+      "name": "Sports Brackets",
+      "symbol": "BRACKETS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175379/large/IMG_1105.jpeg?1786204256"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe1e5f00a9b0255ca4df85b3130ee0f77d15acc2d",
+      "name": "Pushin' 🅿️",
+      "symbol": "🅿️",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176808/large/8tidogcagkv09us5mqf7oglgkjxn.?1788772272"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0379e228f6887c6f18bf394042ecaf81b308cb2e",
+      "name": "MUSEGOD",
+      "symbol": "MUSEGOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179779/large/musegod-logo-black-1408.jpg?1792941860"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9ca1cc0c90d97b4f36c5e2232d4fbd705a73c65d",
+      "name": "TA FUND",
+      "symbol": "TA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175372/large/kamxnsoze4jsqy51dwkzlg1n6una.?1786160200"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa3054f28c48b387d4825be8f3b79ed161abc5405",
+      "name": "Wrapped BESC",
+      "symbol": "WBESC",
+      "decimals": 9,
+      "logoURI": "https://assets.coingecko.com/coins/images/68170/large/IMG_20250811_025232_632.png?1754993709"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8bef3368af47c29746d13a6f1f3844dd685b90d2",
+      "name": "SafeCircle",
+      "symbol": "SC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179705/large/safecircle.jpg?1792655729"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9651342cea770ae9a2969ba2a52611523146aef9",
+      "name": "Carnival Corporation • Robinhood Token",
+      "symbol": "CCL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174200/large/0x9651342cea770ae9a2969ba2a52611523146aef9.png?1782444803"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcebc0cfbc5dd0893a9e3b9d0f75b211ddf5934a0",
+      "name": "clan.tech",
+      "symbol": "CLAN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176482/large/clan.tech.png?1787890965"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf7894d31d569e6330592d346ecfefdf4257f3ec1",
+      "name": "Sable Network",
+      "symbol": "SABLE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178410/large/v5cef1lbwbee5a256e312skbbhlb.?1789485313"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb9195597f91f179ebb05d3f1765b35c3d8491acb",
+      "name": "Indie Creations",
+      "symbol": "CREATIONS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178995/large/logo.jpg?1790838905"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3139d77ace0cbaa5bdfd38bd1f1911a794af0b0e",
+      "name": "AbCellera Biologics Inc. • Robinhood Token",
+      "symbol": "ABCL",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175455/large/ABCL.png?1786367560"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd5bf43f29bf7aa5bb42ae9e217b84b86eb7a4b94",
+      "name": "HoodLock",
+      "symbol": "LOCK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175801/large/LOCK_token.jpg?1789109718"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x743acf789e0f5419f550323a2349732a61c15439",
+      "name": "WHEN",
+      "symbol": "WHEN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175810/large/Bildschirmfoto_2026-08-24_um_08.38.38.png?1787664252"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x51a5853ba953f092c9466516d768ecf056dbc62e",
+      "name": "Mosaic",
+      "symbol": "MOS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176659/large/mosaic.jpg?1788420373"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xac6aa69489dc51fb002a8ae4096b35cbd9f405ac",
+      "name": "Hoodie",
+      "symbol": "HOODIE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178584/large/IMG_4638.png?1790086472"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4189f0c66ebbb0bfef1c31f763131361ef32f77c",
+      "name": "Permian Resources • Robinhood Token",
+      "symbol": "PR",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174186/large/0x4189f0c66ebbb0bfef1c31f763131361ef32f77c.png?1782444766"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x43eea882b845a8493152ebc55cf30ae9281b02d5",
+      "name": "FIRE",
+      "symbol": "FIRE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174789/large/FIRE.png?1784876296"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xdc453b1405cfe25e2afba8e7f4272b0a00437777",
+      "name": "TasQ Network",
+      "symbol": "TASQ",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179357/large/tasq.jpg?1791530989"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x15cd20759ce7f3285c29a319de2d1a2e098c6f43",
+      "name": "State Street Technology Select Sector SPDR ETF • Robinhood T",
+      "symbol": "XLK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174157/large/0x15cd20759ce7f3285c29a319de2d1a2e098c6f43.png?1782444689"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x03bc731ffb162cdd7b98d3c6542bfc291126075d",
+      "name": "Firefly Aerospace Inc. • Robinhood Token",
+      "symbol": "FLY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175350/large/FLY.png?1786124271"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0188da44dcc9b6c9d0d80de904c633c5ff227777",
+      "name": "Givest",
+      "symbol": "GIVEST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174636/large/givest.jpg?1784293859"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9e7abd3c9139d14e4c86dce0e455aab7a0c2fb3e",
+      "name": "WhiteFiber, Inc. • Robinhood Token",
+      "symbol": "WYFI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175349/large/WYFI.png?1786124263"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe49a1c3033ecc6b804bc423021d3f71f1a3e0f9b",
+      "name": "RobinWifHat",
+      "symbol": "WIF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174351/large/roh_400x400.jpg?1783361275"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf1953dab6fad537488d5a022361ffaa8b4c95ec6",
+      "name": "Innodata • Robinhood Token",
+      "symbol": "INOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174189/large/0xf1953dab6fad537488d5a022361ffaa8b4c95ec6.png?1782444774"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x24d8657e10af588b12de3e102a116f77b9e35ee8",
+      "name": "Greenwood",
+      "symbol": "GWOOD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176490/large/Greenwood.jpg?1787897049"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0b5fb4031cae9163db10b169ee72685f0edc8545",
+      "name": "The Trade Desk, Inc. • Robinhood Token",
+      "symbol": "TTD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175351/large/TTD.png?1786124328"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9a73d60b9c8c2d330eb6d885e69fcc1399c33c18",
+      "name": "Vibestarter",
+      "symbol": "VIBES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174032/large/Vibestarterlogo.png?1781969166"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x39ec44bee4f6a116c6f9b8de566848a985c53c60",
+      "name": "e.l.f. Beauty • Robinhood Token",
+      "symbol": "ELF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174196/large/0x39ec44bee4f6a116c6f9b8de566848a985c53c60.png?1782444793"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbf7eb6679d1c833e6a58ac9a122c993c4e691b31",
+      "name": "Auditchain",
+      "symbol": "AUDT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/6398/large/auditchain.png?1696506764"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe02c53d448a62067b2ac10ed70f5bc6c29471386",
+      "name": "UseNosh",
+      "symbol": "NOSH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178566/large/nihyhkh7hfvow1edr9zc3j9xwru3.?1790004491"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7dc013eb55e436f30d7ed1afe4e36d6e45e3c3f7",
+      "name": "Zscaler • Robinhood Token",
+      "symbol": "ZS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174154/large/0x7dc013eb55e436f30d7ed1afe4e36d6e45e3c3f7.png?1782444680"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x897d151787ca84994ac8df68500f17e587794796",
+      "name": "CoresRent",
+      "symbol": "CORES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179209/large/ujmqgjnl7qt91mgtig0wba8sl410.?1791348273"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb039597ed45cba7b6e2fb9e8be51802969cee5be",
+      "name": "Palo Alto Networks, Inc. • Robinhood Token",
+      "symbol": "PANW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175428/large/PANW.png?1786299348"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x833a7fa750628b391c35bf384d7706652c7e8202",
+      "name": "SECONDED",
+      "symbol": "SECONDED",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179097/large/seconded-token-200.png?1791188776"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x561e2a49212b7ccf47f2744ccb83e200722fadbc",
+      "name": "Vistra Corp. • Robinhood Token",
+      "symbol": "VST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175418/large/VST.png?1786295605"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x77581054581b9c525e7dd7a0155de43867532d03",
+      "name": "WISHBONE",
+      "symbol": "WISHBONE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174392/large/wishbone.png?1783579749"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf37f0568898475dbc21d3f3fd60e396f4548fe98",
+      "name": "TetraScore",
+      "symbol": "SCORE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178968/large/tetrascore-token-glow.png?1790773577"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6eda83fc299c10d474068a7e69771c809bcbbba3",
+      "name": "AgentOS",
+      "symbol": "AGENTOS",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174570/large/b6b5ojnnrpnx7zs0zm302gumiizv.?1784093688"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xe6613d2bbd5f5c5bb203c36ee414ffaa4a47a977",
+      "name": "Safevano Wallet",
+      "symbol": "SAFEVANO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175201/large/48078.jpg?1785493579"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x658bf542c9384dc000a07540b0b29ef7e79fe126",
+      "name": "Possum",
+      "symbol": "POSM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175261/large/pos.jpg?1786007920"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x48d60243c66437c6ac3c2495be94747aed5dfe25",
+      "name": "L3Harris Technologies, Inc. • Robinhood Token",
+      "symbol": "LHX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175426/large/LHX.png?1786299267"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x41f41f7b849a25e027876c485544c8088f447a11",
+      "name": "Catcoin",
+      "symbol": "CATCOIN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102172993/large/axtt4lvrtgids5t0emi1p56igs49.?1777044509"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcdae63d95d6dd4f89f6e508c77bd4388b4e5c8ab",
+      "name": "Project Hive",
+      "symbol": "HIVE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178947/large/9ot4af9ht6nqdaozfe3yuoqtc80j.?1790747943"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x000b2164a76560323163343431db8be550f164b8",
+      "name": "Chrome Dino",
+      "symbol": "DINO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176675/large/photo_2026-09-05_03-12-00.jpg?1788678446"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x348be1a8663f15edde5cdf8a96bb69078f7ab6fd",
+      "name": "TeraWulf Inc. • Robinhood Token",
+      "symbol": "WULF",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175288/large/WULF.png?1786070062"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8e45bb9f243a5885187cc855fbbe94c5c33dcdf0",
+      "name": "BRODIE",
+      "symbol": "BRODIE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178314/large/brodie.jpg?1789276365"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0145acbccefbed6f303c420beeaaac72e905430b",
+      "name": "Wolf Pack",
+      "symbol": "PACK",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176713/large/pack-token-200.png?1788551610"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc02f12b9fe9e707079ec0d546f3050d3f6c1f8bd",
+      "name": "DigitalOcean Holdings, Inc. • Robinhood Token",
+      "symbol": "DOCN",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175442/large/DOCN.png?1786301513"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xba527c23903eff094a987197ccd643f2da76e4ff",
+      "name": "Dancing Dog",
+      "symbol": "DOGGO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178238/large/doggo.jpg?1789198162"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x63d5a3b6939a33f1e75d8bcd85759858239600db",
+      "name": "Cognizant Technology Solutions Corporation Class A • Robinho",
+      "symbol": "CTSH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175434/large/CTSH.png?1786301179"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3ec8a8174129d5cbecef67ee2af8621319c34c03",
+      "name": "DOGE-1",
+      "symbol": "DOGE-1",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176677/large/Doge1CTO.png?1789984459"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1cdad396db64bda184d5182a97dd9b3c62100b7d",
+      "name": "Everpure • Robinhood Token",
+      "symbol": "P",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174199/large/0x1cdad396db64bda184d5182a97dd9b3c62100b7d.png?1782444800"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0025bd2fe04e3b64145d3af2bc865b8a3ff46ca0",
+      "name": "Boop",
+      "symbol": "BOOP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33874/large/Boop_resized.png?1703144302"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x6b1497cd68878f0b14ecbbd3db81b46103d66e3d",
+      "name": "Drip",
+      "symbol": "DRIP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178586/large/l8m8uxengmqj8fc8091xud5yj9ah.?1790087651"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x7c04e6a3368f2a1de3874f0e80d2e0a1a9915da6",
+      "name": "Corning • Robinhood Token",
+      "symbol": "GLW",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174144/large/0x7c04e6a3368f2a1de3874f0e80d2e0a1a9915da6.png?1782444653"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x11fddcac2c8b3df9a06730ca888add8ba07ea27d",
+      "name": "Tin Hat Cat",
+      "symbol": "THC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179237/large/THC_round_logo_v2a.png?1791367856"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x44c4f142009036cf477ed2d09932051843137cf1",
+      "name": "Zoom • Robinhood Token",
+      "symbol": "ZM",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102174191/large/0x44c4f142009036cf477ed2d09932051843137cf1.png?1782444779"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0ab8d01664d4bb625705f9f3c595a8a19b3dcfb0",
+      "name": "sushicat",
+      "symbol": "SUSHICAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102175574/large/sushicat.jpg?1786925386"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8e7a9f9817ecf2649c0316b22fea274d522c7b9b",
+      "name": "VIBE AI",
+      "symbol": "VIBE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/66856/large/Vibe3DPurple.png?1750841683"
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa905d663a8ceb43bf9fb1b866bba7604a0b4791c",
+      "name": "Hood Siege",
+      "symbol": "SIEGE",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179044/large/WhatsApp_Image_2026-09-11_at_01.01.07.jpeg?1791045463"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4606bd72eba7259c40f910ecd76cf82950c0428c",
+      "name": "DOG WIF HOOD",
+      "symbol": "WIFH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178834/large/IMG_1993.jpeg?1790447218"
+    },
+    {
+      "chainId": 4663,
+      "address": "0x56fcb5cc32d8dda466dcc5fe4300576e67fcf20e",
+      "name": "Tribes",
+      "symbol": "TRIBES",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179233/large/C00773C7-E171-477C-A465-CCB26275E20D.jpeg?1791367198"
+    }
+  ],
+  "name": "CoinGecko on Robinhood Chain",
+  "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
+  "timestamp": "2026-10-26T17:07:15.826Z"
+}

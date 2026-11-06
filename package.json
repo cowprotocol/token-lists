@@ -35,6 +35,7 @@
     "fetchPermitInfo:linea": "yarn run fetchPermitInfo -- 59144",
     "fetchPermitInfo:plasma": "yarn run fetchPermitInfo -- 9745",
     "fetchPermitInfo:ink": "yarn run fetchPermitInfo -- 57073",
+    "fetchPermitInfo:robinhood": "yarn run fetchPermitInfo -- 4663",
     "recheckPermitInfo:mainnet": "yarn run fetchPermitInfo -- 1 '' '' true",
     "recheckPermitInfo:arb1": "yarn run fetchPermitInfo -- 42161 '' '' true",
     "recheckPermitInfo:base": "yarn run fetchPermitInfo -- 8453 '' '' true",
@@ -46,13 +47,14 @@
     "recheckPermitInfo:linea": "yarn run fetchPermitInfo -- 59144 '' '' true",
     "recheckPermitInfo:plasma": "yarn run fetchPermitInfo -- 9745 '' '' true",
     "recheckPermitInfo:ink": "yarn run fetchPermitInfo -- 57073 '' '' true",
+    "recheckPermitInfo:robinhood": "yarn run fetchPermitInfo -- 4663 '' '' true",
     "run-script": "node --loader ts-node/esm --experimental-json-modules --experimental-specifier-resolution=node",
     "typecheck": "tsc --noEmit",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
-    "@cowprotocol/cow-sdk": "9.2.6",
+    "@cowprotocol/cow-sdk": "9.3.0",
     "@cowprotocol/permit-utils": "^0.7.0-RC.1",
     "@uniswap/token-lists": "^1.0.0-beta.33",
     "ajv": "^8.17.1",

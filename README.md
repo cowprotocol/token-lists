@@ -106,6 +106,7 @@ The script generates token list files in `src/public/` for the following network
 - Linea (CoinGecko.59144.json, Uniswap.59144.json)
 - Plasma (CoinGecko.9745.json, Uniswap.9745.json)
 - Ink (CoinGecko.57073.json, Uniswap.57073.json)
+- Robinhood Chain (CoinGecko.4663.json, Uniswap.4663.json)
 - Polygon (CoinGecko.137.json, Uniswap.137.json)
 
 ### Solana lists

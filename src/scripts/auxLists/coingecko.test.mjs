@@ -114,7 +114,7 @@ test('generates native supplies separately from wrapped tokens and volume rankin
     assert.equal(supply(solana)[nativeSol].totalSupply, scenario === 'success' ? 600 : null)
     assert.deepEqual(supply(56)[wbnb], { circulatingSupply: 2, totalSupply: 3 })
     assert.equal(Object.keys(supply(1)).length, 501)
-    for (const chain of [8453, 42161, 59144, 57073]) assert.deepEqual(supply(chain)[native], supply(1)[native])
+    for (const chain of [8453, 42161, 59144, 57073, 4663]) assert.deepEqual(supply(chain)[native], supply(1)[native])
     assert.equal(supply(1)[native].circulatingSupply, scenario === 'success' ? 120_000_000 : null)
     assert.equal(supply(56)[native].circulatingSupply, scenario === 'success' ? 150_000_000 : null)
     assert.equal(supply(56)[native].totalSupply, null)

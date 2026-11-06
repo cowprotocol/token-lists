@@ -32,6 +32,7 @@ const NATIVE_COIN_IDS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'ethereum',
   [SupportedChainId.PLASMA]: 'plasma',
   [SupportedChainId.INK]: 'ethereum',
+  [SupportedChainId.ROBINHOOD]: 'ethereum',
   [SupportedChainId.SOLANA]: 'solana',
 }
 

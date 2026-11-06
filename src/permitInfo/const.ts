@@ -17,6 +17,7 @@ export const DEFAULT_RPC_URLS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.LINEA]: 'https://rpc.linea.build',
   [SupportedChainId.PLASMA]: 'https://rpc.plasma.to',
   [SupportedChainId.INK]: 'https://rpc-ten.inkonchain.com',
+  [SupportedChainId.ROBINHOOD]: 'https://rpc.mainnet.chain.robinhood.com',
   [SupportedChainId.SOLANA]: null,
 }
 

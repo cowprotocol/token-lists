@@ -1,5 +1,6 @@
 import { SupportedChainId } from '@cowprotocol/cow-sdk'
 import { Logger } from 'winston'
+import { UNISWAP_TOKENS_LIST } from '../const'
 import { processTokenList } from './processTokenList'
 import {
   COINGECKO_CHAINS,
@@ -12,7 +13,6 @@ import {
   TokenInfo,
 } from './utils'
 
-const UNISWAP_LIST = 'https://ipfs.io/ipns/tokens.uniswap.org'
 const UNISWAP_LOGO = 'ipfs://QmNa8mQkrNKp1WEEeGjFezDmDeodkWRevGFN8JCV7b4Xir'
 
 interface TokenMap {
@@ -20,20 +20,18 @@ interface TokenMap {
 }
 
 /**
- * Fetches the Uniswap token list from IPFS
+ * Fetches the Uniswap token list. Throws instead of returning [] so a broken source fails the run
  */
 async function getUniswapTokens(): Promise<TokenInfo[]> {
-  try {
-    const response = await fetch(UNISWAP_LIST)
-    if (!response.ok) {
-      throw new Error(`Failed to fetch Uniswap list: ${response.statusText}`)
-    }
-    const list = await response.json()
-    return list.tokens
-  } catch (error) {
-    console.error('Error fetching Uniswap tokens:', error)
-    return []
+  const response = await fetch(UNISWAP_TOKENS_LIST)
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Uniswap list: ${response.statusText}`)
   }
+  const list = await response.json()
+  if (!Array.isArray(list.tokens) || !list.tokens.length) {
+    throw new Error(`Uniswap list from ${UNISWAP_TOKENS_LIST} has no tokens`)
+  }
+  return list.tokens
 }
 
 /**
