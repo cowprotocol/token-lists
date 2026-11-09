@@ -68,6 +68,7 @@ const LOGO_URI =
 // activity is. 25 is roughly where their own `medium` bucket starts.
 // https://developers.jup.ag/docs/tokens/organic-score
 const MIN_ORGANIC_SCORE = 25
+const MAX_MISSING_PRICE_RATIO = 0.3
 
 const DEFAULT_VERSION = { major: 1, minor: 0, patch: 0 }
 
@@ -402,11 +403,8 @@ function validateSolana(): void {
 async function generateSolanaLists() {
   const approvedRanking = loadApprovedRanking()
   const overrides = readOverrides(DEFAULT_LIST.overridesFile)
-  const currentMints = new Set(
-    [DEFAULT_LIST, RWA_LIST].flatMap(
-      (config) => readCurrentList(config.outputFile)?.tokens.map((token) => token.address) ?? [],
-    ),
-  )
+  const currentLists = [DEFAULT_LIST, RWA_LIST].map((config) => readCurrentList(config.outputFile))
+  const currentMints = new Set(currentLists.flatMap((list) => list?.tokens.map((token) => token.address) ?? []))
   const requiredMints = new Set([...currentMints, ...overrides.map((token) => token.address)])
   const [raw, coingecko] = await Promise.all([fetchJupiterTokens(requiredMints), fetchCoingeckoSolana()])
   console.log(`Got ${raw.length} tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
@@ -416,14 +414,24 @@ async function generateSolanaLists() {
     `${eligible.length} pass safety checks and are existing members, "${STRICT_TAG}", or organicScore >= ${MIN_ORGANIC_SCORE}`,
   )
 
+  // Broken provider data must not remove existing tokens. Safety removals were handled above.
+  const existing = eligible.filter((token) => currentMints.has(token.id))
+  const invalid = existing.find((token) => !isValidToken(token))
+  if (invalid) throw new Error('Jupiter returned invalid metadata for existing token ' + invalid.id)
+
+  for (const list of currentLists) {
+    if (!list) continue
+    const mints = new Set(list.tokens.map((token) => token.address))
+    const members = existing.filter((token) => mints.has(token.id))
+    const missingPrices = members.filter((token) => !coingecko.has(token.id))
+    if (missingPrices.length > members.length * MAX_MISSING_PRICE_RATIO)
+      throw new Error(
+        `CoinGecko is missing prices for over ${MAX_MISSING_PRICE_RATIO * 100}% of eligible tokens in ${list.name}`,
+      )
+  }
+
   const priceable = eligible.filter((t) => coingecko.has(t.id))
   console.log(`${priceable.length} of those are listed on CoinGecko (dropped ${eligible.length - priceable.length})`)
-
-  // A truncated pricing feed must not empty the lists. Jupiter safety removals have no limit.
-  const existing = eligible.filter((token) => currentMints.has(token.id))
-  const missingPrices = existing.filter((token) => !coingecko.has(token.id))
-  if (missingPrices.length > existing.length * 0.3)
-    throw new Error('CoinGecko is missing prices for over 30% of otherwise eligible existing tokens')
 
   const valid = priceable.filter(isValidToken)
 

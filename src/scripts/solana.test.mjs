@@ -317,14 +317,24 @@ test('an unresolved existing mint fails before Dune or file writes', async (t) =
   assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
 })
 
-test('empty or truncated CoinGecko feeds preserve existing lists', async (t) => {
+test('empty or truncated CoinGecko feeds preserve each existing list', async (t) => {
   const f = fixture(t)
   const before = f.preserved()
-  for (const tokens of [[], [members[0]]]) {
+  for (const tokens of [[], [members[0]], members]) {
     f.providers.coingecko.tokens = tokens
     await assert.rejects(() => f.run(), /CoinGecko/)
     assert.deepEqual(f.preserved(), before)
   }
+})
+
+test('missing Jupiter metadata preserves existing lists', async (t) => {
+  const f = fixture(t)
+  const before = f.preserved()
+  f.providers.jupiter.forEach((token) => {
+    delete token.tokenProgram
+  })
+  await assert.rejects(() => f.run(), /Jupiter returned invalid metadata for existing token/)
+  assert.deepEqual(f.preserved(), before)
 })
 
 test('historical CSV ranks current members inside the existing JSON, with rank-only patch bumps and repeatable ranks', async (t) => {
@@ -393,6 +403,7 @@ test('membership overlap preserves both lists, while safety checks can remove an
   assert.deepEqual(f.preserved(), before)
   f.providers.jupiter.forEach((token) => {
     token.audit = { isSus: true }
+    delete token.tokenProgram
   })
   await f.run()
   assert.deepEqual(
