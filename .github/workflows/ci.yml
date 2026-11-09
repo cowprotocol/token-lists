@@ -3,7 +3,7 @@ name: CI
 on:
   # Build on PR creation/updates, also when pushing to main/develop, or create a release
   pull_request:
-    types: [opened, synchronize]
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main, develop]
     tags: [v*]
@@ -26,6 +26,14 @@ jobs:
 
       - name: Run validation schema
         run: yarn validate:schema
+
+      - name: Check Solana ranks and warnings
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_BRANCH: ${{ github.base_ref }}
+        run: |
+          git fetch --no-tags --depth=1 origin "$BASE_BRANCH"
+          RANKING_BASE_REF=FETCH_HEAD yarn validate:solana
 
       - name: Run validation chains
         run: yarn validate:chains

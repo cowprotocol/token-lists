@@ -111,26 +111,16 @@ The script generates token list files in `src/public/` for the following network
 
 ### Solana lists
 
-Set your Dune API key before running the generator:
+Each week, `yarn solana --refresh-rankings` runs one paid [Dune query](https://dune.com/queries/9087267) and generates `TokenRanking.1000000001.json` from 90-day and 30-day trading volumes. The weekly workflow opens a PR with this file for review.
+
+Each day, `yarn solana` rebuilds `CowSwap.1000000001.json` using the last merged ranks from `TokenRanking.1000000001.json`. It adds and removes tokens using Jupiter safety checks and CoinGecko pricing support, updates token metadata, and refreshes the separate RWA list and Jupiter Shield warnings. Tokens without ranks remain listed. Daily runs do not call Dune. Failed fetches or writes leave the previous lists and warnings unchanged.
 
 ```bash
-export DUNE_API_KEY='<your-dune-api-key>'
-yarn solana          # CowSwap.1000000001.json + Rwa.1000000001.json
-yarn solanaWarnings  # TokenWarnings.1000000001.json
+DUNE_API_KEY='<key>' yarn solana --refresh-rankings
+yarn solana
 ```
 
-Each `yarn solana` run executes [Dune query 8910905](https://dune.com/queries/8910905) and uses Dune credits.
-
-`yarn solana` rebuilds the two Solana token lists from Jupiter and CoinGecko, splitting tokenised
-real-world assets into the RWA list. `yarn solanaWarnings` then builds the risk warnings from
-Jupiter's Shield endpoint, for every mint on **both** lists.
-
-Default tokens get `extensions.rank` from their average position by 90-day and 30-day trading volume. Tokens without volume data and RWA tokens stay unranked. Rank-only changes bump the patch version.
-
-Warnings are published under short codes (`MINT`, `FREEZE`, `PERM_DEL`, `CONCENTRATED`, `LOW_LIQ`,
-`LOW_ORGANIC`, `LOW_VOLUME`, `UNVERIFIED`, `NO_SELL`), with severity and copy carried once in a
-`types` dictionary rather than repeated on every mint — Shield reports a given type at the same
-severity everywhere, so the per-mint entry only needs the codes:
+`TokenWarnings.1000000001.json` stores Jupiter Shield warnings by token address using short codes (`MINT`, `FREEZE`, `PERM_DEL`, `CONCENTRATED`, `LOW_LIQ`, `LOW_ORGANIC`, `LOW_VOLUME`, `UNVERIFIED`, `NO_SELL`). The `types` dictionary stores each code's severity and message once. Each successful daily run removes warnings that Jupiter no longer reports.
 
 ```jsonc
 {
@@ -138,25 +128,6 @@ severity everywhere, so the per-mint entry only needs the codes:
   "warnings": { "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": ["FREEZE", "MINT"] }
 }
 ```
-
-The codes are the contract with the interface, so renaming one is a breaking change. Shield's
-transfer-fee warnings are dropped: the interface already surfaces fee-bearing tokens, and the rate
-is baked into the type name (`2.69%_TRANSFER_FEES`), so the set would grow without bound.
-
-Run them in that order and commit the three files together. Order matters: the warnings are keyed
-by the mints on the lists, so building them from a stale list leaves a freshly added token looking
-unflagged.
-
-The **Generate Auxiliary Lists** workflow runs daily or manually and commits the generated lists. It needs `DUNE_API_KEY` in the repository's Actions secrets.
-
-A mint absent from the warnings file has no warnings. Warnings are not folded into the token lists
-themselves because several warning types are not legal token-list extension keys, and because they
-change often enough to bump the list version on most runs.
-
-Both scripts refuse to overwrite a list that shrinks by more than 30% in one run, since that usually
-means an upstream filter moved rather than the tokens going away — override with
-`ALLOW_LIST_SHRINK=1` and `ALLOW_WARNINGS_SHRINK=1` respectively. The warnings run also aborts rather
-than publishing a partial file if a batch cannot be fetched.
 
 ### Adding a new network
 
