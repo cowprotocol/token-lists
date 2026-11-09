@@ -198,13 +198,19 @@ test('existing provider eligibility, overrides, native SOL and RWA separation su
   assert.equal(f.read(defaultFile).tokens.find((t) => t.address === unmeasured.address).address, unmeasured.address)
 })
 
-test('ranking validator bootstrap imports only the exact ranks already embedded on its trusted base', async (t) => {
+test('ranking validation accepts unchanged legacy snapshots and bootstraps only approved ranks', async (t) => {
   const f = fixture(t)
   const candidate = { ...f.snapshot, queryId: 8910905 }
   f.write('TokenRanking.1000000001.json', candidate)
   await f.run()
   const base = validationBase(f, false)
   await f.run(['--validate'], { RANKING_BASE_REF: base })
+  const baseWithSnapshot = validationBase(f)
+  f.write('TokenRanking.1000000001.json', {
+    ...Object.fromEntries(Object.entries(candidate).reverse()),
+    ranks: Object.fromEntries(Object.entries(candidate.ranks).reverse()),
+  })
+  await f.run(['--validate'], { RANKING_BASE_REF: baseWithSnapshot })
   const altered = changedCandidate({ ...f, snapshot: candidate })
   f.write('TokenRanking.1000000001.json', altered)
   await assert.rejects(() => f.run(['--validate'], { RANKING_BASE_REF: base }), /Initial snapshot must preserve/)
@@ -309,6 +315,16 @@ test('an unresolved existing mint fails before Dune or file writes', async (t) =
   assert.deepEqual(f.preserved(), before)
   const requests = f.requests
   assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
+})
+
+test('empty or truncated CoinGecko feeds preserve existing lists', async (t) => {
+  const f = fixture(t)
+  const before = f.preserved()
+  for (const tokens of [[], [members[0]]]) {
+    f.providers.coingecko.tokens = tokens
+    await assert.rejects(() => f.run(), /CoinGecko/)
+    assert.deepEqual(f.preserved(), before)
+  }
 })
 
 test('historical CSV ranks current members inside the existing JSON, with rank-only patch bumps and repeatable ranks', async (t) => {
@@ -496,27 +512,100 @@ test('resolved warnings clear on the next daily run, including when all warnings
   assert.deepEqual(f.read('TokenWarnings.1000000001.json').warnings, {})
 })
 
+test('warning validation rejects invalid definitions for referenced codes', async (t) => {
+  const f = fixture(t)
+  f.providers.shield = {
+    warnings: {
+      [unmeasured.address]: [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Mint authority' }],
+    },
+  }
+  await f.run()
+  await f.run(['--validate'])
+  const warnings = f.read('TokenWarnings.1000000001.json')
+  for (const type of [
+    null,
+    {},
+    { severity: 'unknown', message: 'Warning' },
+    { severity: 'warning', message: 42 },
+    { severity: 'warning', message: ' ' },
+  ]) {
+    warnings.types.MINT = type
+    f.write('TokenWarnings.1000000001.json', warnings)
+    await assert.rejects(() => f.run(['--validate']), /Invalid Solana warning definition/)
+  }
+})
+
 test('Shield, staging and replacement failures preserve the complete prior bundle', async (t) => {
   const f = fixture(t)
   await f.run()
-  const files = [defaultFile, rwaFile, 'TokenWarnings.1000000001.json', 'TokenRanking.1000000001.json']
-  const contents = () => files.map((name) => hash(readFileSync(join(f.root, 'src/public', name))))
+  const files = [defaultFile, rwaFile, 'TokenWarnings.1000000001.json']
+  const directories = ['src/public', 'build/lists']
+  const contents = () =>
+    directories.flatMap((directory) => files.map((name) => hash(readFileSync(join(f.root, directory, name)))))
   const before = contents()
+  f.providers.jupiter.find((token) => token.id === unmeasured.address).name = 'Updated default token'
+  f.providers.jupiter.find((token) => token.id === rwa.address).name = 'Updated RWA token'
+  f.providers.shield = {
+    warnings: {
+      [unmeasured.address]: [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Mint authority' }],
+    },
+  }
   f.providers.shieldFailure = true
   await assert.rejects(() => f.run())
   assert.deepEqual(contents(), before)
   f.providers.shieldFailure = false
-  for (const method of ['writeFileSync', 'renameSync']) {
-    const original = fs[method]
-    const mocked = t.mock.method(fs, method, (file, ...args) => {
-      const destination = method === 'renameSync' ? args[0] : file
-      if (String(destination).includes(rwaFile)) throw new Error('Simulated file failure')
-      return original(file, ...args)
-    })
-    await assert.rejects(() => f.run(), /Simulated file failure/)
-    mocked.mock.restore()
-    assert.deepEqual(contents(), before)
-    for (const directory of ['src/public', 'build/lists'])
-      assert.ok(readdirSync(join(f.root, directory)).every((name) => !name.endsWith('.tmp')))
+  for (const method of ['writeFileSync', 'renameSync'])
+    for (const directory of directories)
+      for (const name of files) {
+        const original = fs[method]
+        const mocked = t.mock.method(fs, method, (file, ...args) => {
+          const destination = String(method === 'renameSync' ? args[0] : file)
+          if (destination.startsWith(directory + '/') && destination.includes(name))
+            throw new Error('Simulated file failure')
+          return original(file, ...args)
+        })
+        await assert.rejects(() => f.run(), /Simulated file failure/)
+        mocked.mock.restore()
+        assert.deepEqual(contents(), before)
+        for (const directory of directories)
+          assert.ok(readdirSync(join(f.root, directory)).every((name) => !name.endsWith('.tmp')))
+      }
+})
+
+test('a failed restoration reports both errors and still restores the other files', async (t) => {
+  const f = fixture(t)
+  await f.run()
+  const write = fs.writeFileSync
+  const rename = fs.renameSync
+  const before = ['src/public', 'build/lists'].flatMap((directory) =>
+    [defaultFile, rwaFile, 'TokenWarnings.1000000001.json'].map((name) => {
+      const file = join(directory, name)
+      return [file, hash(readFileSync(file))]
+    }),
+  )
+  f.providers.jupiter.forEach((token) => {
+    token.name = 'Updated token name'
+  })
+  const writeError = new Error('Simulated replacement failure')
+  const restoreError = new Error('Simulated restoration failure')
+  // Fail the last replacement after the default and RWA destinations were replaced.
+  t.mock.method(fs, 'renameSync', (source, destination) => {
+    if (destination === 'src/public/TokenWarnings.1000000001.json') throw writeError
+    return rename(source, destination)
+  })
+  t.mock.method(fs, 'writeFileSync', (file, ...args) => {
+    if (file === 'src/public/Rwa.1000000001.json') throw restoreError
+    return write(file, ...args)
+  })
+  await assert.rejects(
+    () => f.run(),
+    (error) => {
+      assert.deepEqual(error.errors, [writeError, restoreError])
+      return true
+    },
+  )
+  for (const [file, previous] of before) {
+    if (file === 'src/public/Rwa.1000000001.json') assert.notEqual(hash(readFileSync(file)), previous)
+    else assert.equal(hash(readFileSync(file)), previous, file)
   }
 })

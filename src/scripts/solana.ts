@@ -2,6 +2,7 @@ import path from 'path'
 import fs from 'fs'
 import { randomUUID } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
+import { isDeepStrictEqual } from 'node:util'
 import { pathToFileURL } from 'node:url'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import { BUILD_DIR, SRC_DIR } from './tokenListUtils.js'
@@ -128,8 +129,8 @@ async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   console.log(`Fetching CoinGecko Solana list: ${COINGECKO_SOLANA_LIST_URL}`)
   const json = (await fetchJson(COINGECKO_SOLANA_LIST_URL)) as { tokens?: CoingeckoToken[] }
 
-  if (!Array.isArray(json?.tokens)) {
-    throw new Error('Unexpected CoinGecko response shape: expected a `tokens` array')
+  if (!Array.isArray(json?.tokens) || json.tokens.length === 0) {
+    throw new Error('Unexpected CoinGecko response: expected a non-empty `tokens` array')
   }
 
   return new Map(json.tokens.map((token) => [token.address, token]))
@@ -295,7 +296,7 @@ function prepareList(config: ListConfig, tokens: TokenInfo[]): TokenList {
   return buildTokenList(config, tokens, getNextVersion(config, current, tokens))
 }
 
-// Stage all files first. Restore the previous bundle if replacing any file fails.
+// Stage all files first. Attempt to restore replaced files if a write fails.
 function writeSolanaBundle(files: Record<string, string>): void {
   const staged: { temporary: string; destination: string; previous: Buffer | null }[] = []
   const replaced: typeof staged = []
@@ -318,10 +319,16 @@ function writeSolanaBundle(files: Record<string, string>): void {
       replaced.push(item)
     }
   } catch (error) {
+    const errors = [error]
     for (const { destination, previous } of replaced.reverse()) {
-      if (previous === null) fs.rmSync(destination, { force: true })
-      else fs.writeFileSync(destination, previous)
+      try {
+        if (previous === null) fs.rmSync(destination, { force: true })
+        else fs.writeFileSync(destination, previous)
+      } catch (restoreError) {
+        errors.push(restoreError)
+      }
     }
+    if (errors.length > 1) throw new AggregateError(errors, 'Solana bundle write and restoration failed')
     throw error
   } finally {
     // A cleanup failure must not hide the original write error.
@@ -349,7 +356,7 @@ function validateSolana(): void {
   if (baseRef) {
     const list = readBase('src/public/CowSwap.1000000001.json') as TokenList
     const rwa = readBase('src/public/Rwa.1000000001.json') as TokenList
-    if (previous && JSON.stringify(candidate) !== JSON.stringify(previous)) {
+    if (previous && !isDeepStrictEqual(candidate, previous)) {
       validateRankingCandidate(candidate, list, rwa.tokens)
     } else if (!previous) {
       // Bootstrap may import only ranks already approved on the trusted base.
@@ -378,6 +385,16 @@ function validateSolana(): void {
   for (const [mint, codes] of Object.entries(warnings.warnings)) {
     if (!mints.has(mint) || !Array.isArray(codes) || codes.some((code) => !Object.hasOwn(warnings.types, code)))
       throw new Error('Warnings contain invalid mints or codes')
+    for (const code of codes) {
+      const type = warnings.types[code]
+      if (
+        !type ||
+        !['info', 'warning', 'critical'].includes(type.severity) ||
+        typeof type.message !== 'string' ||
+        !type.message.trim()
+      )
+        throw new Error('Invalid Solana warning definition')
+    }
   }
   console.log('Validated Solana lists, approved ranks and warnings')
 }
@@ -401,6 +418,12 @@ async function generateSolanaLists() {
 
   const priceable = eligible.filter((t) => coingecko.has(t.id))
   console.log(`${priceable.length} of those are listed on CoinGecko (dropped ${eligible.length - priceable.length})`)
+
+  // A truncated pricing feed must not empty the lists. Jupiter safety removals have no limit.
+  const existing = eligible.filter((token) => currentMints.has(token.id))
+  const missingPrices = existing.filter((token) => !coingecko.has(token.id))
+  if (missingPrices.length > existing.length * 0.3)
+    throw new Error('CoinGecko is missing prices for over 30% of otherwise eligible existing tokens')
 
   const valid = priceable.filter(isValidToken)
 

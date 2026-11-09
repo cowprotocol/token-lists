@@ -113,10 +113,14 @@ The script generates token list files in `src/public/` for the following network
 
 Each week, `yarn solana --refresh-rankings` runs one paid [Dune query](https://dune.com/queries/9087267) and generates `TokenRanking.1000000001.json` from 90-day and 30-day trading volumes. The weekly workflow opens a PR with this file for review.
 
-Each day, `yarn solana` rebuilds `CowSwap.1000000001.json` using the last merged ranks from `TokenRanking.1000000001.json`. It adds and removes tokens using Jupiter safety checks and CoinGecko pricing support, updates token metadata, and refreshes the separate RWA list and Jupiter Shield warnings. Tokens without ranks remain listed. Daily runs do not call Dune. Failed fetches or writes leave the previous lists and warnings unchanged.
+Each day, the workflow runs `yarn solana` on `main` to rebuild `CowSwap.1000000001.json` using the last merged ranks from `TokenRanking.1000000001.json`. It adds and removes tokens using Jupiter safety checks and CoinGecko pricing support, updates token metadata, and refreshes the separate RWA list and Jupiter Shield warnings. Tokens without ranks remain listed. Daily runs do not call Dune. Failed runs are not published.
+
+Run either command locally. `yarn solana` uses the ranking file in your checkout, including any unmerged changes.
 
 ```bash
+# Generate a weekly ranking proposal
 DUNE_API_KEY='<key>' yarn solana --refresh-rankings
+# Rebuild the lists and warnings using the current ranking file
 yarn solana
 ```
 

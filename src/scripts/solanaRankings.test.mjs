@@ -570,18 +570,21 @@ test('the same thirty-minute deadline covers submission, polling and final resul
 test('query preflight uses safe reads and rejects changed SQL/version before any paid execution', async (t) => {
   const sql = querySql
   let calls = 0
+  let posts = 0
   for (const patch of [{}, { query_sql: sql + '-- changed' }, { version: 2 }]) {
     t.mock.method(globalThis, 'fetch', async (url, options) => {
       calls++
+      if (options.method === 'POST') posts++
       assert.equal(options.method, 'GET')
       assert.equal(new URL(url).pathname, '/api/v1/query/9087267')
       return Response.json({ query_id: 9087267, version: 1, query_sql: sql, ...patch })
     })
     if (Object.keys(patch).length)
-      await assert.rejects(verifyDuneRankingQuery('test-key'), /differs from the reviewed query/)
+      await assert.rejects(executeDuneVolumeSnapshot('test-key'), /differs from the reviewed query/)
     else assert.equal((await verifyDuneRankingQuery('test-key')).queryVersion, 1)
   }
   assert.equal(calls, 3)
+  assert.equal(posts, 0)
 })
 
 test('recovery rejects an execution without a matching receipt before any Dune read', async (t) => {
