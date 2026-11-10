@@ -7,9 +7,9 @@ import { DISPLAY_CHAIN_NAMES, Overrides, TokenInfo } from './utils.js'
 
 const FORMATTER = new Intl.NumberFormat('en-us', { style: 'currency', currency: 'USD' })
 
-function getEmptyList(): Partial<TokenList> {
+function getEmptyList(keywords: string[] = ['defi']): Partial<TokenList> {
   return {
-    keywords: ['defi'],
+    keywords,
     version: { major: 0, minor: 0, patch: 0 },
     tokens: [],
   }
@@ -73,6 +73,7 @@ interface SaveUpdatedTokensParams {
   tokens: TokenInfo[]
   listName: string
   replaceExisting: boolean
+  keywords?: string[]
 }
 
 function mergeOrReplaceTokens(currentList: TokenInfo[], newList: TokenInfo[], replaceExisting: boolean): TokenInfo[] {
@@ -97,9 +98,10 @@ function saveUpdatedTokens({
   tokens: newTokens,
   listName,
   replaceExisting,
+  keywords,
 }: SaveUpdatedTokensParams): void {
   const tokenListPath = path.join(getOutputPath(prefix, chainId))
-  const currentList = getLocalTokenList(tokenListPath, getEmptyList())
+  const currentList = getLocalTokenList(tokenListPath, getEmptyList(keywords))
 
   const tokens = mergeOrReplaceTokens(currentList.tokens || [], newTokens, replaceExisting)
 
@@ -132,6 +134,9 @@ interface ProcessTokenListParams {
   logo: string
   overrides?: Overrides
   replaceExisting?: boolean
+  keywords?: string[]
+  /** Name of the list, before the chain name. `prefix` by default */
+  title?: string
   logMessage: string
   logger: Logger
 }
@@ -143,6 +148,8 @@ export async function processTokenList({
   logo,
   overrides = {},
   replaceExisting = true,
+  keywords,
+  title = prefix,
   logMessage,
   logger,
 }: ProcessTokenListParams): Promise<void> {
@@ -166,8 +173,8 @@ export async function processTokenList({
     return acc
   }, [] as TokenInfo[])
 
-  const listName = getListName(chainId, prefix)
-  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting })
+  const listName = getListName(chainId, title)
+  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting, keywords })
 }
 
 function isSubsetOf(setA: Set<string>, setB: Set<string>): boolean {

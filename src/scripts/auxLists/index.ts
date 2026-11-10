@@ -1,5 +1,6 @@
 import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { fetchAndProcessCoingeckoTokens } from './coingecko'
+import { fetchAndProcessRwaTokens } from './rwa'
 import { fetchAndProcessUniswapTokens } from './uniswap'
 import { getCoingeckoTokenIdsMap, OverridesPerChain, removeOldLogs } from './utils'
 
@@ -21,9 +22,11 @@ async function main(): Promise<void> {
 
   removeOldLogs('coingecko-tokens')
   removeOldLogs('uniswap-tokens')
+  removeOldLogs('rwa-tokens')
 
   fetchAndProcessCoingeckoTokens(COINGECKO_IDS_MAP, OVERRIDES)
   fetchAndProcessUniswapTokens(COINGECKO_IDS_MAP, OVERRIDES)
+  fetchAndProcessRwaTokens().catch((error) => console.error('Error processing RWA tokens:', error))
 }
 
 main()

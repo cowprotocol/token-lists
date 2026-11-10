@@ -83,6 +83,7 @@ yarn generateAuxLists
 This script fetches and processes token data from both Coingecko and Uniswap APIs to create auxiliary token lists. These lists are used to enhance token metadata and support across different networks.
 
 - Coingecko lists contain up to the top 500 tokens per chain, sorted by volume
+- RWA lists (`CoinGeckoRwa.<chainId>.json`) contain every tokenized real-world asset (stocks, ETFs, commodities) from the [CoinGecko RWA API](https://docs.coingecko.com/reference/rwa-overview), from any issuer, sorted by market cap. Each token carries `extensions.assetType` and, when known, `extensions.issuer`
 - Uniswap lists are a combination of:
   - Token for given chain already existing in the default Uniswap list
   - Mainnet tokens, mapped to the target chain, via Coingecko api

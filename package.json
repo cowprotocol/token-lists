@@ -13,6 +13,7 @@
     "downloadImages": "yarn run-script src/scripts/downloadImages",
     "cowFi:tokens": "yarn run-script ./src/scripts/cowFi-tokens.js",
     "generateAuxLists": "yarn run-script ./src/scripts/auxLists/index.ts",
+    "rwaLists": "yarn run-script ./src/scripts/auxLists/generateRwaLists.ts",
     "uniswapToGnosisChainList": "yarn run-script src/scripts/mapTokenListToBridge.ts 100 uniswap",
     "coingeckoToGnosisChainList": "yarn run-script src/scripts/mapTokenListToBridge.ts 100 coingecko",
     "coingeckoToArbitrumOneList": "yarn run-script src/scripts/mapTokenListToBridge.ts 42161 coingecko",
@@ -48,13 +49,13 @@
     "recheckPermitInfo:plasma": "yarn run fetchPermitInfo -- 9745 '' '' true",
     "recheckPermitInfo:ink": "yarn run fetchPermitInfo -- 57073 '' '' true",
     "recheckPermitInfo:robinhood": "yarn run fetchPermitInfo -- 4663 '' '' true",
-    "run-script": "node --loader ts-node/esm --experimental-json-modules --experimental-specifier-resolution=node",
+    "run-script": "node --env-file-if-exists=.env --loader ts-node/esm --experimental-json-modules --experimental-specifier-resolution=node",
     "typecheck": "tsc --noEmit",
     "test": "node --test"
   },
   "license": "(MIT OR Apache-2.0)",
   "dependencies": {
-    "@cowprotocol/cow-sdk": "9.3.0",
+    "@cowprotocol/cow-sdk": "9.3.3",
     "@cowprotocol/permit-utils": "^0.7.0-RC.1",
     "@uniswap/token-lists": "^1.0.0-beta.33",
     "ajv": "^8.17.1",
