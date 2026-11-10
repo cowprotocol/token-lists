@@ -113,6 +113,8 @@ The script generates token list files in `src/public/` for the following network
 
 Each week, `yarn solana --refresh-rankings` runs one paid [Dune query](https://dune.com/queries/9087267) and generates `TokenRanking.1000000001.json` from 90-day and 30-day trading volumes. The weekly workflow opens a PR with this file for review.
 
+The paid execution is saved as a receipt artifact. If the run fails after starting the query, or main's membership changes before the proposal is merged, run **Refresh Solana Rankings** manually with `execution_id` and `receipt_run_id` (the ranking PR body lists both; for a failed run, use its run ID and the `Dune execution:` line from its log). It re-reads the same execution against current main without paying again. Dune results older than 7 days are rejected, so this only works until the next weekly run.
+
 Each day, the workflow runs `yarn solana` on `main` to rebuild `CowSwap.1000000001.json` using the last merged ranks from `TokenRanking.1000000001.json`. It adds and removes tokens using Jupiter safety checks and CoinGecko pricing support, updates token metadata, and refreshes the separate RWA list and Jupiter Shield warnings. Tokens without ranks remain listed. Daily runs do not call Dune. Failed runs are not published.
 
 Run either command locally. `yarn solana` uses the ranking file in your checkout, including any unmerged changes.
