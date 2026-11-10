@@ -1,27 +1,34 @@
 import path from 'path'
 import fs from 'fs'
 import { randomUUID } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { isDeepStrictEqual } from 'node:util'
+import { pathToFileURL } from 'node:url'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
-import { BUILD_DIR, SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils.js'
+import { BUILD_DIR, SRC_DIR } from './tokenListUtils.js'
 import { fetchJson } from './utils/fetchJson.js'
-import { executeDuneVolumeSnapshot, prepareSolanaRankings, compareTokenAddresses } from './solanaRankings.js'
+import { assertNoMassiveShrink } from './utils/shrinkGuard.js'
+import {
+  compareTokenAddresses,
+  applyApprovedRanking,
+  checkRankingFreshness,
+  loadApprovedRanking,
+  readRankingSnapshot,
+  validateRankingCandidate,
+  refreshSolanaRankings,
+  SNAPSHOT_PATH,
+} from './solanaRankings.js'
+import { generateSolanaWarnings } from './solanaWarnings/index.js'
+import { serializeWarningsFile, type TokenWarningsFile } from './solanaWarnings/warnings.js'
 
 /**
- * Fetches Solana tokens and writes them as two lists: `CowSwap.1000000001.json`
- * and `Rwa.1000000001.json`.
+ * Daily build of the default and RWA lists, with Jupiter Shield warnings.
+ * Jupiter supplies metadata and safety flags. New tokens need verification or
+ * MIN_ORGANIC_SCORE; existing members stay unless they fail safety or pricing checks.
+ * CoinGecko confirms pricing support and supplies missing logos.
  *
- * how does it work: a token has to clear two independent bars.
- *
- * 1. Jupiter must not flag it as suspicious. New tokens also need the legacy
- *    `strict` tag or an Organic Score of at least MIN_ORGANIC_SCORE.
- * 2. CoinGecko has to list it too, otherwise we cannot price it, and a token we
- *    cannot price is a token we cannot settle.
- *
- * Whatever clears both is then split by kind: tokenised real-world assets go to
- * the RWA list, everything else to the default one. The two lists never overlap.
- *
- * Metadata always comes from Jupiter; CoinGecko only decides membership and
- * fills in a logo when Jupiter has none.
+ * Daily runs copy saved ranks by mint. Only --refresh-rankings calls Dune,
+ * and that mode changes the separate ranking file for review.
  */
 
 interface ListConfig {
@@ -63,11 +70,7 @@ const LOGO_URI =
 // activity is. 25 is roughly where their own `medium` bucket starts.
 // https://developers.jup.ag/docs/tokens/organic-score
 const MIN_ORGANIC_SCORE = 25
-
-// Refuse to overwrite the list when it loses more than this share of its tokens
-// in one run — that usually means an upstream filter changed under us, not that
-// the tokens went away. Set ALLOW_LIST_SHRINK to override for a one-off run.
-const MAX_SHRINK_RATIO = 0.3
+const MAX_MISSING_PRICE_RATIO = 0.3
 
 const DEFAULT_VERSION = { major: 1, minor: 0, patch: 0 }
 
@@ -129,8 +132,8 @@ async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
   console.log(`Fetching CoinGecko Solana list: ${COINGECKO_SOLANA_LIST_URL}`)
   const json = (await fetchJson(COINGECKO_SOLANA_LIST_URL)) as { tokens?: CoingeckoToken[] }
 
-  if (!Array.isArray(json?.tokens)) {
-    throw new Error('Unexpected CoinGecko response shape: expected a `tokens` array')
+  if (!Array.isArray(json?.tokens) || json.tokens.length === 0) {
+    throw new Error('Unexpected CoinGecko response: expected a non-empty `tokens` array')
   }
 
   return new Map(json.tokens.map((token) => [token.address, token]))
@@ -231,25 +234,6 @@ function applyOverrides(tokens: TokenInfo[], overrides: TokenInfo[]): TokenInfo[
   return [...byAddress.values()]
 }
 
-function assertNoMassiveShrink(outputFile: string, tokens: TokenInfo[], current: TokenList | null): void {
-  const previousCount = current?.tokens.length ?? 0
-  if (previousCount === 0) return
-
-  const shrinkRatio = 1 - tokens.length / previousCount
-  if (shrinkRatio <= MAX_SHRINK_RATIO) return
-
-  const percentage = Math.round(shrinkRatio * 100)
-  if (process.env.ALLOW_LIST_SHRINK) {
-    console.warn(`${outputFile} shrank by ${percentage}% — writing anyway because ALLOW_LIST_SHRINK is set`)
-    return
-  }
-
-  throw new Error(
-    `Refusing to write ${outputFile}: token count dropped from ${previousCount} to ${tokens.length} (-${percentage}%). ` +
-      `Check whether an upstream filter changed, then re-run with ALLOW_LIST_SHRINK=1 if the drop is expected.`,
-  )
-}
-
 // Key order is not guaranteed across runs, so compare entries, not raw JSON.
 function serializeExtensions(token: TokenInfo): string {
   if (!token.extensions) return ''
@@ -310,37 +294,45 @@ function buildTokenList(config: ListConfig, tokens: TokenInfo[], version: TokenL
   }
 }
 
-interface PreparedList {
-  config: ListConfig
-  tokens: TokenInfo[]
-  version: TokenList['version']
-}
-
-function prepareList(config: ListConfig, tokens: TokenInfo[]): PreparedList {
+function prepareList(config: ListConfig, tokens: TokenInfo[]): TokenList {
   const current = readCurrentList(config.outputFile)
-  assertNoMassiveShrink(config.outputFile, tokens, current)
-
-  return { config, tokens, version: getNextVersion(config, current, tokens) }
+  return buildTokenList(config, tokens, getNextVersion(config, current, tokens))
 }
 
-/** Write temporary files first, then replace each output file. A failed rename can leave a partial update. */
-function writeLists(prepared: PreparedList[]): void {
-  const staged: { temporary: string; destination: string }[] = []
+// Stage all files first. Attempt to restore replaced files if a write fails.
+function writeSolanaBundle(files: Record<string, string>): void {
+  const staged: { temporary: string; destination: string; previous: Buffer | null }[] = []
+  const replaced: typeof staged = []
   try {
-    for (const { config, tokens, version } of prepared) {
-      const tokenList = buildTokenList(config, tokens, version)
-      const temporaryName = '.' + config.outputFile + '.' + randomUUID() + '.tmp'
-      staged.push(
-        {
-          temporary: path.join(BUILD_DIR, 'lists', temporaryName),
-          destination: path.join(BUILD_DIR, 'lists', config.outputFile),
-        },
-        { temporary: path.join(SRC_DIR, temporaryName), destination: path.join(SRC_DIR, config.outputFile) },
-      )
-      writeTokenListToBuild(temporaryName, tokenList)
-      writeTokenListToSrc(temporaryName, tokenList)
+    for (const [name, content] of Object.entries(files)) {
+      for (const directory of [path.join(BUILD_DIR, 'lists'), SRC_DIR]) {
+        fs.mkdirSync(directory, { recursive: true })
+        const destination = path.join(directory, name)
+        const temporary = path.join(directory, '.' + name + '.' + randomUUID() + '.tmp')
+        staged.push({
+          temporary,
+          destination,
+          previous: fs.existsSync(destination) ? fs.readFileSync(destination) : null,
+        })
+        fs.writeFileSync(temporary, content)
+      }
     }
-    for (const { temporary, destination } of staged) fs.renameSync(temporary, destination)
+    for (const item of staged) {
+      fs.renameSync(item.temporary, item.destination)
+      replaced.push(item)
+    }
+  } catch (error) {
+    const errors = [error]
+    for (const { destination, previous } of replaced.reverse()) {
+      try {
+        if (previous === null) fs.rmSync(destination, { force: true })
+        else fs.writeFileSync(destination, previous)
+      } catch (restoreError) {
+        errors.push(restoreError)
+      }
+    }
+    if (errors.length > 1) throw new AggregateError(errors, 'Solana bundle write and restoration failed')
+    throw error
   } finally {
     // A cleanup failure must not hide the original write error.
     for (const { temporary } of staged) {
@@ -349,23 +341,72 @@ function writeLists(prepared: PreparedList[]): void {
       } catch {}
     }
   }
-  for (const { config, tokens, version } of prepared) {
-    console.log(
-      `Wrote ${tokens.length} tokens to ${config.outputFile} (v${version.major}.${version.minor}.${version.patch})`,
-    )
-  }
 }
 
-async function main() {
-  if (process.argv.length > 2) throw new Error('yarn solana does not accept arguments')
-  const apiKey = process.env.DUNE_API_KEY?.trim()
-  if (!apiKey) throw new Error('Set DUNE_API_KEY to execute the Solana volume query')
+const readJson = (name: string) => JSON.parse(fs.readFileSync(path.join(SRC_DIR, name), 'utf8'))
+
+/** PRs validate the candidate against current main; deploys validate the approved public bundle. */
+function validateSolana(): void {
+  // A proposal must use current main's membership, while published lists keep the old ranks.
+  const baseRef = process.env.RANKING_BASE_REF
+  if (baseRef && !/^[A-Za-z0-9_./-]+$/.test(baseRef)) throw new Error('Invalid ranking base ref')
+  const readBase = (path: string) =>
+    JSON.parse(execFileSync('git', ['show', `${baseRef}:${path}`], { encoding: 'utf8' }))
+  const candidate = loadApprovedRanking()
+  const hasPrevious =
+    baseRef && execFileSync('git', ['ls-tree', '--name-only', baseRef, SNAPSHOT_PATH], { encoding: 'utf8' }).trim()
+  const previous = hasPrevious ? readRankingSnapshot(readBase(SNAPSHOT_PATH)) : undefined
+  if (baseRef) {
+    const list = readBase('src/public/CowSwap.1000000001.json') as TokenList
+    const rwa = readBase('src/public/Rwa.1000000001.json') as TokenList
+    if (previous && !isDeepStrictEqual(candidate, previous)) {
+      validateRankingCandidate(candidate, list, rwa.tokens)
+    } else if (!previous) {
+      // Bootstrap may import only ranks already approved on the trusted base.
+      const ranks = new Map(
+        list.tokens.flatMap((t) => (t.extensions?.rank === undefined ? [] : [[t.address, t.extensions.rank] as const])),
+      )
+      if (
+        candidate.queryId !== 8910905 ||
+        Object.keys(candidate.ranks).length !== ranks.size ||
+        Object.entries(candidate.ranks).some(([mint, rank]) => ranks.get(mint) !== rank)
+      )
+        throw new Error('Initial snapshot must preserve the currently approved embedded ranks')
+    }
+  }
+  const [list, rwa] = [DEFAULT_LIST, RWA_LIST].map(({ outputFile }) => readJson(outputFile) as TokenList)
+  if (rwa.tokens.some((t) => t.extensions?.rank !== undefined)) throw new Error('RWA tokens must remain unranked')
+  const expected = applyApprovedRanking(list.tokens, rwa.tokens, previous ?? candidate)
+  if (list.tokens.some((token, index) => token.extensions?.rank !== expected[index].extensions?.rank))
+    throw new Error('Public ranks do not match the approved snapshot; run the daily bundle generator')
+
+  // Every published warning must refer to a listed token and a defined warning code.
+  const mints = new Set([...list.tokens, ...rwa.tokens].map((token) => token.address))
+  const warnings = readJson('TokenWarnings.1000000001.json') as TokenWarningsFile
+  if (warnings.chainId !== SOLANA_CHAIN_ID || !warnings.types || !warnings.warnings || Array.isArray(warnings.warnings))
+    throw new Error('Invalid Solana warnings')
+  for (const [mint, codes] of Object.entries(warnings.warnings)) {
+    if (!mints.has(mint) || !Array.isArray(codes) || codes.some((code) => !Object.hasOwn(warnings.types, code)))
+      throw new Error('Warnings contain invalid mints or codes')
+    for (const code of codes) {
+      const type = warnings.types[code]
+      if (
+        !type ||
+        !['info', 'warning', 'critical'].includes(type.severity) ||
+        typeof type.message !== 'string' ||
+        !type.message.trim()
+      )
+        throw new Error('Invalid Solana warning definition')
+    }
+  }
+  console.log('Validated Solana lists, approved ranks and warnings')
+}
+
+async function generateSolanaLists() {
+  const approvedRanking = loadApprovedRanking()
   const overrides = readOverrides(DEFAULT_LIST.overridesFile)
-  const currentMints = new Set(
-    [DEFAULT_LIST, RWA_LIST].flatMap(
-      (config) => readCurrentList(config.outputFile)?.tokens.map((token) => token.address) ?? [],
-    ),
-  )
+  const currentLists = [DEFAULT_LIST, RWA_LIST].map((config) => readCurrentList(config.outputFile))
+  const currentMints = new Set(currentLists.flatMap((list) => list?.tokens.map((token) => token.address) ?? []))
   const requiredMints = new Set([...currentMints, ...overrides.map((token) => token.address)])
   const [raw, coingecko] = await Promise.all([fetchJupiterTokens(requiredMints), fetchCoingeckoSolana()])
   console.log(`Got ${raw.length} tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
@@ -374,6 +415,22 @@ async function main() {
   console.log(
     `${eligible.length} pass safety checks and are existing members, "${STRICT_TAG}", or organicScore >= ${MIN_ORGANIC_SCORE}`,
   )
+
+  // Broken provider data must not remove existing tokens. Safety removals were handled above.
+  const existing = eligible.filter((token) => currentMints.has(token.id))
+  const invalid = existing.find((token) => !isValidToken(token))
+  if (invalid) throw new Error('Jupiter returned invalid metadata for existing token ' + invalid.id)
+
+  for (const list of currentLists) {
+    if (!list) continue
+    const mints = new Set(list.tokens.map((token) => token.address))
+    const members = existing.filter((token) => mints.has(token.id))
+    const missingPrices = members.filter((token) => !coingecko.has(token.id))
+    if (missingPrices.length > members.length * MAX_MISSING_PRICE_RATIO)
+      throw new Error(
+        `CoinGecko is missing prices for over ${MAX_MISSING_PRICE_RATIO * 100}% of eligible tokens in ${list.name}`,
+      )
+  }
 
   const priceable = eligible.filter((t) => coingecko.has(t.id))
   console.log(`${priceable.length} of those are listed on CoinGecko (dropped ${eligible.length - priceable.length})`)
@@ -394,24 +451,46 @@ async function main() {
   )
   const defaultTokens = applyOverrides(rest.map(toInfo), safeOverrides).sort(compareTokenAddresses)
   const rwaTokens = rwa.map(toInfo).sort(compareTokenAddresses)
-  // Reject membership loss before starting a paid execution.
-  assertNoMassiveShrink(DEFAULT_LIST.outputFile, defaultTokens, readCurrentList(DEFAULT_LIST.outputFile))
-  assertNoMassiveShrink(RWA_LIST.outputFile, rwaTokens, readCurrentList(RWA_LIST.outputFile))
-  const snapshot = await executeDuneVolumeSnapshot(apiKey)
-  const ranked = prepareSolanaRankings(defaultTokens, rwaTokens, snapshot)
-  const prepared = [prepareList(DEFAULT_LIST, ranked), prepareList(RWA_LIST, rwaTokens)]
-  console.log(
-    JSON.stringify({
-      ...snapshot.metadata,
-      ...snapshot.provenance,
-      rankedTokens: ranked.filter((token) => token.extensions?.rank != null).length,
-      defaultTokens: ranked.length,
-    }),
-  )
-  writeLists(prepared)
+  const ranked = applyApprovedRanking(defaultTokens, rwaTokens, approvedRanking)
+  // Before any Shield call, so a collapsed membership fails cheaply.
+  for (const [config, current, next] of [
+    [DEFAULT_LIST, currentLists[0], ranked],
+    [RWA_LIST, currentLists[1], rwaTokens],
+  ] as const)
+    assertNoMassiveShrink({
+      file: config.outputFile,
+      unit: 'tokens',
+      previousCount: current?.tokens.length ?? 0,
+      nextCount: next.length,
+      override: 'ALLOW_LIST_SHRINK',
+    })
+  const defaultList = prepareList(DEFAULT_LIST, ranked)
+  const rwaList = prepareList(RWA_LIST, rwaTokens)
+  // Check warnings for the new membership before replacing any published file.
+  const warnings = await generateSolanaWarnings([defaultList, rwaList])
+  writeSolanaBundle({
+    [DEFAULT_LIST.outputFile]: JSON.stringify(defaultList, null, 2),
+    [RWA_LIST.outputFile]: JSON.stringify(rwaList, null, 2),
+    'TokenWarnings.1000000001.json': serializeWarningsFile(warnings),
+  })
+  console.log(`Wrote complete Solana bundle; ${ranked.length} default tokens, source ${approvedRanking.timestamp}`)
 }
 
-main().catch((err) => {
-  console.error(err)
-  process.exit(1)
-})
+export async function main(args = process.argv.slice(2)): Promise<void> {
+  if (args.length === 1 && args[0] === '--validate') return validateSolana()
+  if (args.length === 1 && args[0] === '--check-ranking') return checkRankingFreshness()
+  if (args[0] === '--refresh-rankings') {
+    if (args.length !== 1 && (args.length !== 3 || args[1] !== '--execution-id' || !/^[A-Z0-9]{26}$/.test(args[2])))
+      throw new Error('Use yarn solana --refresh-rankings [--execution-id ID]')
+    return refreshSolanaRankings(args[2])
+  }
+  if (args.length)
+    throw new Error('Use yarn solana [--refresh-rankings [--execution-id ID] | --validate | --check-ranking]')
+  return generateSolanaLists()
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href)
+  main().catch((err) => {
+    console.error(err)
+    process.exit(1)
+  })

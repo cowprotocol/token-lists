@@ -1,0 +1,64 @@
+name: Refresh Solana Rankings
+
+on:
+  schedule:
+    - cron: '0 2 * * 1' # Monday UTC. Daily list generation stays separate.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: solana-ranking-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: token-lists-bot
+    timeout-minutes: 35 # Dune gets 30 minutes; allow setup and receipt saving too.
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
+      - name: Generate ranking proposal
+        env:
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+          SOLANA_EXECUTION_RECEIPT: ${{ runner.temp }}/solana-execution.json
+        run: yarn solana --refresh-rankings
+      # Keep the execution ID and settings so a failed run can resume without paying again.
+      - name: Retain execution receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: solana-ranking-execution
+          path: ${{ runner.temp }}/solana-execution.json
+          if-no-files-found: warn
+          retention-days: 14
+      # Use the bot token so the PR triggers CI.
+      - id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_ID }}
+          private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+      # Reuse one PR. Review is required before merging the proposed ranks.
+      - name: Open or update the ranking PR
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          sign-commits: true
+          base: main
+          branch: automation/solana-rankings
+          commit-message: 'chore: refresh Solana volume rankings'
+          title: 'chore: refresh Solana volume rankings'
+          body: |
+            Refresh ranks using https://dune.com/queries/9087267. Daily lists and Jupiter Shield warnings update separately.
+
+            Review the ranking diff before merging. If membership changed, recover this execution on current main using its saved receipt.
+          add-paths: src/public/TokenRanking.1000000001.json
