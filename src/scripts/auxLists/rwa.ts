@@ -3,10 +3,13 @@ import { processTokenList } from './processTokenList.js'
 import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, TokenInfo } from './utils.js'
 
 /**
- * Builds `CoinGeckoRwa.<chainId>.json`: every tokenized real-world asset (stocks, ETFs, commodities) CoinGecko knows
- * about, on each chain CoW supports, from any issuer. Biggest token market cap first.
+ * Builds `CoinGeckoRwa.<chainId>.json`: every tokenized real-world asset CoinGecko knows about, on each chain CoW
+ * supports, from any issuer. Biggest token market cap first.
  *
- * Source: https://docs.coingecko.com/reference/rwa-overview
+ * Sources:
+ * - the RWA API (https://docs.coingecko.com/reference/rwa-overview): stocks, ETFs and commodities, with issuers
+ * - `RWA_CATEGORIES`: what the RWA API misses, such as treasuries, money market funds, credit and non-US stocks.
+ *   Category queries skip coins without market data, which is fine: CoW can't trade them without liquidity anyway
  */
 
 export const RWA_PREFIX = 'CoinGeckoRwa'
@@ -15,6 +18,44 @@ const API_URL = 'https://pro-api.coingecko.com/api/v3'
 const PAGE_SIZE = 250
 const CONCURRENCY = 8
 const MAX_RETRIES = 5
+
+/**
+ * CoinGecko category -> asset type of its coins. A coin in several categories takes the type of the first one.
+ *
+ * Only categories of asset tokens: the broad `real-world-assets-rwa`, `tokenized-products`, `rwa-protocol` and
+ * `real-estate` categories also hold protocol and governance tokens (LINK, ONDO, Propy...), and
+ * `yield-bearing-stablecoins` holds DeFi stablecoins (sUSDe, sUSDS...).
+ */
+export const RWA_CATEGORIES: Record<string, string> = {
+  'tokenized-stock': 'stock',
+  'tokenized-pre-ipo-stocks': 'stock',
+  'republic-tokenized-pre-ipo-assets': 'stock',
+  'tessera-tokenized-pre-ipo-assets': 'stock',
+  'tokenized-exchange-traded-funds-etfs': 'etf',
+  'tokenized-exchange-traded-product-etps': 'etf',
+  'tokenized-closed-end-funds-cefs': 'etf',
+  'tokenized-commodity-exchange-traded-products-etps': 'commodity',
+  'tokenized-commodities': 'commodity',
+  'tokenized-gold': 'commodity',
+  'tokenized-silver': 'commodity',
+  'tokenized-uranium': 'commodity',
+  'commodity-backed-stablecoin': 'commodity',
+  'tokenized-treasuries': 'bond',
+  'tokenized-t-bills': 'bond',
+  'tokenized-non-us-government-securities': 'bond',
+  'tokenized-money-market-fund-mmfs': 'fund',
+  'tokenized-credit': 'credit',
+  'tokenized-private-credit': 'credit',
+  'tokenized-bank-deposit': 'deposit',
+  // Issuer ecosystems, for their tokens CoinGecko has not classified yet
+  'xstocks-ecosystem': 'other',
+  'bstocks-ecosystem': 'other',
+  'backpack-securities-ecosystem': 'other',
+  'ondo-tokenized-assets': 'other',
+  'remora-markets-tokenized-rstocks': 'other',
+  'securitize-ecosystem': 'other',
+  'prestocks-ecosystem': 'other',
+}
 
 interface RwaListItem {
   id: string
@@ -33,6 +74,13 @@ interface RwaDetails extends RwaListItem {
   tokens?: RwaToken[]
 }
 
+interface CoinListItem {
+  id: string
+  symbol: string
+  name: string
+  platforms?: Record<string, string | null>
+}
+
 interface CoinMarket {
   id: string
   market_cap: number | null
@@ -44,51 +92,79 @@ interface CoinDetails {
   detail_platforms?: Record<string, { decimal_place: number | null } | undefined>
 }
 
+interface RwaCoin {
+  id: string
+  symbol: string
+  name: string
+  platforms: Record<string, string | null>
+  assetType: string
+  issuer?: string
+}
+
 interface RwaTokenInfo extends TokenInfo {
   marketCap: number
 }
 
 export async function fetchAndProcessRwaTokens(): Promise<void> {
+  const startedAt = Date.now()
   const logger = getLogger('rwa-tokens')
   const chains = (Object.keys(COINGECKO_CHAINS).map(Number) as SupportedChainId[]).filter(
     (chainId) => COINGECKO_CHAINS[chainId],
   )
+  log(`Generating RWA lists for ${chains.map((chainId) => DISPLAY_CHAIN_NAMES[chainId]).join(', ')}`)
 
-  // Any failed RWA request aborts the run, otherwise its tokens would be dropped from the lists
-  const rwas = await mapConcurrent(await coingecko<RwaListItem[]>('/rwas/list'), (rwa) =>
-    coingecko<RwaDetails>(`/rwas/${encodeURIComponent(rwa.id)}?tokens=true`),
-  )
-  const coins = rwas.flatMap((rwa) => (rwa.tokens ?? []).map((token) => ({ rwa, token })))
-  console.log(`Fetched ${rwas.length} RWAs with ${coins.length} tokens`)
+  // Any failed RWA or category request aborts the run, otherwise its tokens would be dropped from the lists
+  const [rwaCoins, coinList] = await Promise.all([fetchRwaApiCoins(), fetchCoinList()])
+  const categoryCoins = await fetchCategoryCoins(coinList)
+  const rwaIds = new Set(rwaCoins.map((coin) => coin.id))
+  const extraCoins = categoryCoins.coins.filter((coin) => !rwaIds.has(coin.id))
+  const coins = [...rwaCoins, ...extraCoins]
+  log(`${rwaCoins.length} RWA API tokens and ${extraCoins.length} more from categories`)
 
-  const markets = await fetchCoinMarkets([...new Set(coins.map(({ token }) => token.id))])
+  const markets = new Map([
+    ...categoryCoins.markets,
+    ...(await fetchCoinMarkets([...rwaIds].filter((id) => !categoryCoins.markets.has(id)))),
+  ])
+
+  log('Building token lists')
 
   await Promise.all(
     chains.map(async (chainId) => {
+      const chainName = DISPLAY_CHAIN_NAMES[chainId]
       const platform = COINGECKO_CHAINS[chainId] as string
       const listed = await fetchCoingeckoTokenList(platform)
       const tokens = new Map<string, RwaTokenInfo>()
+      const candidates = coins.filter((coin) => coin.platforms[platform])
+      let skipped = 0
+      let fromDetails = 0
 
-      for (const { rwa, token } of coins) {
-        const address = token.platforms?.[platform]
+      log(`${chainName}: ${candidates.length} candidate tokens, ${listed.size} tokens in CoinGecko's ${platform} list`)
 
-        if (!address || !isChainAddress(chainId, address)) continue
+      for (const coin of candidates) {
+        const address = coin.platforms[platform] as string
+
+        if (!isChainAddress(chainId, address)) {
+          skipped++
+          continue
+        }
 
         const key = getAddressKey(address)
 
         if (tokens.has(key)) continue
 
-        const info = await buildToken({ chainId, platform, key, rwa, token, listed, market: markets.get(token.id) })
+        if (!listed.has(key)) fromDetails++
+
+        const info = await buildToken({ chainId, platform, key, coin, listed, market: markets.get(coin.id) })
 
         if (info) tokens.set(key, info)
+        else skipped++
       }
 
       const sorted = [...tokens.values()].sort((a, b) => b.marketCap - a.marketCap || a.address.localeCompare(b.address))
 
-      if (!sorted.length) {
-        console.log(`No RWA tokens found for ${DISPLAY_CHAIN_NAMES[chainId]}`)
-        return
-      }
+      log(`${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped)`)
+
+      if (!sorted.length) return
 
       await processTokenList({
         chainId,
@@ -103,14 +179,97 @@ export async function fetchAndProcessRwaTokens(): Promise<void> {
       })
     }),
   )
+
+  log(`Done in ${Math.round((Date.now() - startedAt) / 1000)}s`)
+}
+
+async function fetchRwaApiCoins(): Promise<RwaCoin[]> {
+  const list = await coingecko<RwaListItem[]>('/rwas/list')
+
+  log(`Fetching tokens of ${list.length} RWAs`)
+
+  const rwas = await mapConcurrent(
+    list,
+    (rwa) => coingecko<RwaDetails>(`/rwas/${encodeURIComponent(rwa.id)}?tokens=true`),
+    'RWA details',
+  )
+
+  return rwas.flatMap((rwa) =>
+    (rwa.tokens ?? []).map((token) => ({
+      id: token.id,
+      symbol: token.symbol,
+      name: token.name,
+      platforms: token.platforms ?? {},
+      assetType: rwa.asset_type,
+      issuer: token.issuer_details?.name,
+    })),
+  )
+}
+
+async function fetchCoinList(): Promise<CoinListItem[]> {
+  const coinList = await coingecko<CoinListItem[]>('/coins/list?include_platform=true')
+
+  log(`Fetched ${coinList.length} coins with their platforms`)
+
+  return coinList
+}
+
+/** Coins of `RWA_CATEGORIES`, with their market data, which `/coins/markets` answers along with the category */
+async function fetchCategoryCoins(
+  coinList: CoinListItem[],
+): Promise<{ coins: RwaCoin[]; markets: Map<string, CoinMarket> }> {
+  const categories = Object.keys(RWA_CATEGORIES)
+
+  log(`Fetching coins of ${categories.length} categories`)
+
+  const categoryMarkets = await mapConcurrent(categories, fetchCategoryMarkets, 'Categories')
+  const platformsById = new Map(coinList.map((coin) => [coin.id, coin]))
+  const coins = new Map<string, RwaCoin>()
+  const markets = new Map<string, CoinMarket>()
+
+  categories.forEach((category, index) => {
+    for (const market of categoryMarkets[index]) {
+      markets.set(market.id, market)
+
+      const coin = platformsById.get(market.id)
+
+      if (!coin || coins.has(coin.id)) continue
+
+      coins.set(coin.id, {
+        id: coin.id,
+        symbol: coin.symbol,
+        name: coin.name,
+        platforms: coin.platforms ?? {},
+        assetType: RWA_CATEGORIES[category],
+      })
+    }
+  })
+
+  return { coins: [...coins.values()], markets }
+}
+
+async function fetchCategoryMarkets(category: string): Promise<CoinMarket[]> {
+  const coins: CoinMarket[] = []
+
+  for (let page = 1; ; page++) {
+    const items = await coingecko<CoinMarket[]>(
+      `/coins/markets?vs_currency=usd&category=${encodeURIComponent(category)}&per_page=${PAGE_SIZE}&page=${page}`,
+    )
+
+    coins.push(...items)
+
+    if (items.length < PAGE_SIZE) {
+      log(`Category ${category}: ${coins.length} coins`)
+      return coins
+    }
+  }
 }
 
 interface BuildTokenParams {
   chainId: SupportedChainId
   platform: string
   key: string
-  rwa: RwaDetails
-  token: RwaToken
+  coin: RwaCoin
   listed: Map<string, TokenInfo>
   market: CoinMarket | undefined
 }
@@ -119,30 +278,29 @@ async function buildToken({
   chainId,
   platform,
   key,
-  rwa,
-  token,
+  coin,
   listed,
   market,
 }: BuildTokenParams): Promise<RwaTokenInfo | null> {
   const fromList = listed.get(key)
-  const details = fromList ? undefined : await fetchCoinDetails(token.id)
+  const details = fromList ? undefined : await fetchCoinDetails(coin.id)
   const decimals = fromList?.decimals ?? details?.detail_platforms?.[platform]?.decimal_place
 
   if (!Number.isInteger(decimals) || (decimals as number) < 0) {
-    console.warn(`Skipping RWA token ${token.id} on ${platform}: unknown decimals`)
+    console.warn(`Skipping RWA token ${coin.id} on ${platform}: unknown decimals`)
     return null
   }
 
   return {
     chainId,
     address: key,
-    name: fromList?.name ?? token.name,
-    symbol: fromList?.symbol ?? token.symbol.toUpperCase(),
+    name: fromList?.name ?? coin.name,
+    symbol: fromList?.symbol ?? coin.symbol.toUpperCase(),
     decimals: decimals as number,
     logoURI: toLogoUrl(market?.image) ?? toLogoUrl(fromList?.logoURI) ?? toLogoUrl(details?.image?.large),
     // The token list schema limits extension strings to 42 characters, too short for CoinGecko ids
     extensions: Object.fromEntries(
-      Object.entries({ assetType: rwa.asset_type, issuer: token.issuer_details?.name }).filter(
+      Object.entries({ assetType: coin.assetType, issuer: coin.issuer }).filter(
         (entry): entry is [string, string] => !!entry[1] && entry[1].length <= 42,
       ),
     ),
@@ -180,8 +338,12 @@ async function fetchCoinMarkets(ids: string[]): Promise<Map<string, CoinMarket>>
 
   for (let i = 0; i < ids.length; i += PAGE_SIZE) batches.push(ids.slice(i, i + PAGE_SIZE))
 
-  const results = await mapConcurrent(batches, (batch) =>
-    coingecko<CoinMarket[]>(`/coins/markets?vs_currency=usd&per_page=${PAGE_SIZE}&ids=${batch.join(',')}`),
+  log(`Fetching market data of ${ids.length} coins`)
+
+  const results = await mapConcurrent(
+    batches,
+    (batch) => coingecko<CoinMarket[]>(`/coins/markets?vs_currency=usd&per_page=${PAGE_SIZE}&ids=${batch.join(',')}`),
+    'Market data batches',
   )
 
   return new Map(results.flat().map((coin) => [coin.id, coin]))
@@ -220,13 +382,17 @@ async function request<T>(url: string, headers: Record<string, string> = {}): Pr
     } catch (error) {
       if (attempt >= MAX_RETRIES) throw error
 
-      await sleep(2 ** attempt * 1000)
+      const delay = 2 ** attempt * 1000
+      log(`${label} failed (${error instanceof Error ? error.message : error}), retry ${attempt + 1} in ${delay}ms`)
+      await sleep(delay)
       continue
     }
 
     if ((response.status === 429 || response.status >= 500) && attempt < MAX_RETRIES) {
       const retryAfter = Number(response.headers?.get('retry-after'))
-      await sleep(retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000)
+      const delay = retryAfter > 0 ? retryAfter * 1000 : 2 ** attempt * 1000
+      log(`${label} responded with ${response.status}, retry ${attempt + 1} in ${delay}ms`)
+      await sleep(delay)
       continue
     }
 
@@ -236,20 +402,32 @@ async function request<T>(url: string, headers: Record<string, string> = {}): Pr
   }
 }
 
-async function mapConcurrent<T, R>(items: T[], fn: (item: T) => Promise<R>): Promise<R[]> {
+/** With `progressLabel`, logs the progress at every 10% */
+async function mapConcurrent<T, R>(items: T[], fn: (item: T) => Promise<R>, progressLabel?: string): Promise<R[]> {
   const results = new Array<R>(items.length)
+  const step = Math.max(1, Math.ceil(items.length / 10))
   let next = 0
+  let done = 0
 
   async function worker(): Promise<void> {
     while (next < items.length) {
       const index = next++
       results[index] = await fn(items[index])
+      done++
+
+      if (progressLabel && (done % step === 0 || done === items.length)) {
+        log(`${progressLabel}: ${done}/${items.length} (${Math.round((done / items.length) * 100)}%)`)
+      }
     }
   }
 
   await Promise.all(Array.from({ length: Math.min(CONCURRENCY, items.length) }, worker))
 
   return results
+}
+
+function log(message: string): void {
+  console.log(`[rwa] ${message}`)
 }
 
 function sleep(ms: number): Promise<void> {

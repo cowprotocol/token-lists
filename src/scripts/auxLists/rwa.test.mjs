@@ -54,8 +54,24 @@ const RWAS = {
   },
 }
 
+const usdy = '0x96f6ef951840721adbf46ac996b59e0235cb985c'
+
+/** CoinGecko categories: USDY is only in a category, 3M xStock also in the RWA API, LINK is not an asset token */
+const CATEGORIES = {
+  'tokenized-treasuries': [
+    { id: 'ondo-us-dollar-yield', market_cap: 1_500, image: 'https://img/usdy.png' },
+  ],
+  'xstocks-ecosystem': [{ id: '3m-xstock', market_cap: 1_000 }],
+}
+const COINS_LIST = [
+  { id: 'ondo-us-dollar-yield', symbol: 'usdy', name: 'Ondo US Dollar Yield', platforms: { ethereum: usdy } },
+  { id: '3m-xstock', symbol: 'mmmx', name: '3M xStock', platforms: { ethereum: xstock } },
+  { id: 'chainlink', symbol: 'link', name: 'Chainlink', platforms: { ethereum: '0x514910771af9ca656af840dff83e8264ecf986ca' } },
+]
+
 const TOKEN_LISTS = {
   ethereum: [
+    { chainId: 1, address: usdy, name: 'Ondo US Dollar Yield', symbol: 'USDY', decimals: 18 },
     {
       chainId: 1,
       address: xstock.toLowerCase(),
@@ -93,7 +109,13 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
     } else if (pathname.startsWith('/api/v3/rwas/')) {
       assert.equal(searchParams.get('tokens'), 'true')
       data = RWAS[pathname.split('/').pop()]
+    } else if (pathname === '/api/v3/coins/list') {
+      assert.equal(searchParams.get('include_platform'), 'true')
+      data = COINS_LIST
+    } else if (pathname === '/api/v3/coins/markets' && searchParams.has('category')) {
+      data = searchParams.get('page') === '1' ? CATEGORIES[searchParams.get('category')] ?? [] : []
     } else if (pathname === '/api/v3/coins/markets') {
+      assert.ok(!searchParams.get('ids').split(',').includes('3m-xstock'), 'market data of category coins is reused')
       const caps = { 'tether-gold': 2_000, '3m-xstock': 1_000, '3m-rstock': 10 }
       data = searchParams
         .get('ids')
@@ -131,6 +153,15 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
       decimals: 6,
       logoURI: 'https://assets.coingecko.com/coins/images/2/large/xaut.png',
       extensions: { assetType: 'commodity', issuer: 'Tether' },
+    },
+    {
+      chainId: 1,
+      address: usdy,
+      name: 'Ondo US Dollar Yield',
+      symbol: 'USDY',
+      decimals: 18,
+      logoURI: 'https://img/usdy.png',
+      extensions: { assetType: 'bond' },
     },
     {
       chainId: 1,
