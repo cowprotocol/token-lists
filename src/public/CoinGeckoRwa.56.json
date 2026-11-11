@@ -6,7 +6,7 @@
   "version": {
     "major": 0,
     "minor": 2,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -223,17 +223,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x862829e8dcf0fd939d61d1b0d4a3aaf983ee4f73",
-      "name": "Verified Emeralds",
-      "symbol": "VEREM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71720/large/logo_verem_200x200.jpg?1769060928",
-      "extensions": {
-        "assetType": "commodity"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xcdf2f3e0fa43c47a6662a91c9e4a7c5f69762699",
       "name": "Micron Technology (bStocks Tokenized Stock)",
       "symbol": "MUB",
@@ -242,6 +231,17 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x862829e8dcf0fd939d61d1b0d4a3aaf983ee4f73",
+      "name": "Verified Emeralds",
+      "symbol": "VEREM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71720/large/logo_verem_200x200.jpg?1769060928",
+      "extensions": {
+        "assetType": "commodity"
       }
     },
     {
@@ -402,18 +402,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xca750ef65f295bbecd685abf54e82caf297bdb61",
-      "name": "SK Hynix (bStocks Tokenized Stock)",
-      "symbol": "SKHYB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174549/large/skhynix.png?1784001947",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x7138b48df7d98d7e3cc221bfe7192d0a178182d8",
       "name": "SPY (bStocks Tokenized Stock)",
       "symbol": "SPYB",
@@ -421,6 +409,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174366/large/spyb-bstocks.png?1783452995",
       "extensions": {
         "assetType": "etf",
+        "issuer": "BTech Holdings Limited"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xca750ef65f295bbecd685abf54e82caf297bdb61",
+      "name": "SK Hynix (bStocks Tokenized Stock)",
+      "symbol": "SKHYB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174549/large/skhynix.png?1784001947",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "BTech Holdings Limited"
       }
     },
@@ -628,18 +628,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x364f210f430ec2448fc68a49203040f6124096f0",
-      "name": "Coinbase xStock",
-      "symbol": "COINX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55602/large/Ticker_COIN__Company_Name_Coinbase__size_200x200_2x.png?1746858187",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x71507068e98049cba81e9bbc8d901e4a2f4222eb",
       "name": "SoFi Technologies (Ondo Tokenized Stock)",
       "symbol": "SOFION",
@@ -648,6 +636,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x364f210f430ec2448fc68a49203040f6124096f0",
+      "name": "Coinbase xStock",
+      "symbol": "COINX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55602/large/Ticker_COIN__Company_Name_Coinbase__size_200x200_2x.png?1746858187",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -796,6 +796,17 @@
     },
     {
       "chainId": 56,
+      "address": "0xe658c62195f32bc53226e7e2642e3d76b4382fb8",
+      "name": "Ondo Diversified Growth Powered by BlackRock",
+      "symbol": "BLKDIGON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178495/large/blkdigon_160x160.png?1790049763",
+      "extensions": {
+        "assetType": "other"
+      }
+    },
+    {
+      "chainId": 56,
       "address": "0xab78b89b5bb00236be0b4b20704cbfa04efc711c",
       "name": "TSMC (bStocks Tokenized Stock)",
       "symbol": "TSMB",
@@ -832,34 +843,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xe658c62195f32bc53226e7e2642e3d76b4382fb8",
-      "name": "Ondo Diversified Growth Powered by BlackRock",
-      "symbol": "BLKDIGON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178495/large/blkdigon_160x160.png?1790049763",
-      "extensions": {
-        "assetType": "other"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x16cd4fe7e8880ecc3ba222795229e20489fc2c76",
       "name": "Marvell Technology (bStocks Tokenized Stock)",
       "symbol": "MRVLB",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174586/large/mrvlb-bstocks.png?1784149265",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
-      }
-    },
-    {
-      "chainId": 56,
-      "address": "0x3548da95a9effe481e8604664d75e95821e557f5",
-      "name": "BitMine Immersion Technologies (bStocks Tokenized Stock)",
-      "symbol": "BMNRB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175305/large/BMNRB.png?1786083822",
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
@@ -874,6 +862,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102178491/large/brainon_160x160.png?1789709616",
       "extensions": {
         "assetType": "other"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x3548da95a9effe481e8604664d75e95821e557f5",
+      "name": "BitMine Immersion Technologies (bStocks Tokenized Stock)",
+      "symbol": "BMNRB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175305/large/BMNRB.png?1786083822",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -1010,18 +1010,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x52ad57a7ea642e99a892afc79e937b383f1b59e9",
-      "name": "BitMine Immersion Technologies (Ondo Tokenized Stock)",
-      "symbol": "BMNRON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71411/large/bmnron_160x160.png?1767879134",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x23def658ea0b4081161d9ab8fdfeef5345bcafbd",
       "name": "iShares International Country Rotation Active ETF (Ondo Toke",
       "symbol": "COROON",
@@ -1034,14 +1022,14 @@
     },
     {
       "chainId": 56,
-      "address": "0x9e82e3da8f1115b73d24bb24113ab836ffdab6b6",
-      "name": "Tradr 2X Long SNDK ETF (bStocks Tokenized ETF)",
-      "symbol": "SNXXB",
+      "address": "0x52ad57a7ea642e99a892afc79e937b383f1b59e9",
+      "name": "BitMine Immersion Technologies (Ondo Tokenized Stock)",
+      "symbol": "BMNRON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174764/large/SNXXB.png?1784797018",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71411/large/bmnron_160x160.png?1767879134",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "BTech Holdings Limited"
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -1054,6 +1042,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x9e82e3da8f1115b73d24bb24113ab836ffdab6b6",
+      "name": "Tradr 2X Long SNDK ETF (bStocks Tokenized ETF)",
+      "symbol": "SNXXB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174764/large/SNXXB.png?1784797018",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -1188,18 +1188,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x4684d9887fc1c71cba7bab8e88835cec217eb598",
-      "name": "Oracle (bStocks Tokenized Stock)",
-      "symbol": "ORCLB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174766/large/oracle.png?1784797651",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xeaad46f4146ded5a47b55aa7f6c48c191deaec88",
       "name": "Marvell xStock",
       "symbol": "MRVLX",
@@ -1212,13 +1200,14 @@
     },
     {
       "chainId": 56,
-      "address": "0x7c8d5502b544ddaf8852fc46d1174e34876d545c",
-      "name": "Cea Industries",
-      "symbol": "BNC4",
+      "address": "0x4684d9887fc1c71cba7bab8e88835cec217eb598",
+      "name": "Oracle (bStocks Tokenized Stock)",
+      "symbol": "ORCLB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176864/large/CEA_industries.png?1788932352",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174766/large/oracle.png?1784797651",
       "extensions": {
-        "assetType": "stock"
+        "assetType": "stock",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -1231,6 +1220,17 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x7c8d5502b544ddaf8852fc46d1174e34876d545c",
+      "name": "Cea Industries",
+      "symbol": "BNC4",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176864/large/CEA_industries.png?1788932352",
+      "extensions": {
+        "assetType": "stock"
       }
     },
     {
@@ -1271,11 +1271,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
-      "name": "Apple (bStocks Tokenized Stock)",
-      "symbol": "AAPLB",
+      "address": "0xa455ae0f04a2b86eee47adca98985e61d14cbefb",
+      "name": "Axe Compute (bStocks Tokenized Stock)",
+      "symbol": "AGPUB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175182/large/aaplb.png?1785455573",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178973/large/axe.jpg?1790818410",
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
@@ -1283,11 +1283,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xa455ae0f04a2b86eee47adca98985e61d14cbefb",
-      "name": "Axe Compute (bStocks Tokenized Stock)",
-      "symbol": "AGPUB",
+      "address": "0x431a3bee82e2ca41e49895cbece5bb0f76a89b7a",
+      "name": "Apple (bStocks Tokenized Stock)",
+      "symbol": "AAPLB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178973/large/axe.jpg?1790818410",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175182/large/aaplb.png?1785455573",
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
@@ -1307,17 +1307,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x0cfd1030e2431e0fa15d4cc3f3e43076fe93f8f9",
-      "name": "Ondo 5 Targeted Income TR Portfolio",
-      "symbol": "YLD5ON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178492/large/brainon_160x160.png?1789709823",
-      "extensions": {
-        "assetType": "other"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x0ed2e3180edf393e6bf8db124bd15ddd54de150a",
       "name": "Broadcom (Ondo Tokenized Stock)",
       "symbol": "AVGOON",
@@ -1326,6 +1315,17 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x0cfd1030e2431e0fa15d4cc3f3e43076fe93f8f9",
+      "name": "Ondo 5 Targeted Income TR Portfolio",
+      "symbol": "YLD5ON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178492/large/brainon_160x160.png?1789709823",
+      "extensions": {
+        "assetType": "other"
       }
     },
     {
@@ -1413,18 +1413,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x405f38b90bebf1259062cf29da299f3398662bcb",
-      "name": "Coca-Cola (Ondo Tokenized Stock)",
-      "symbol": "KOON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68569/large/koon_160x160.png?1756106230",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x94174e3d1335db402dd03a092f7aa7ac2cb32be4",
       "name": "United States Oil Fund (Ondo Tokenized)",
       "symbol": "USOON",
@@ -1432,6 +1420,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/71471/large/usoon_160x160.png?1767892001",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x405f38b90bebf1259062cf29da299f3398662bcb",
+      "name": "Coca-Cola (Ondo Tokenized Stock)",
+      "symbol": "KOON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68569/large/koon_160x160.png?1756106230",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Ondo Finance"
       }
     },
@@ -1509,18 +1509,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x4fd67cb8cfedc718bac984b5936abe3330d0a2a4",
-      "name": "SanDisk (Ondo Tokenized)",
-      "symbol": "SNDKON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102172440/large/sndkon_160x160.png?1773419692",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xb034f6cb52b7f2fd5a7eeeffca6b9adcd6b9a6f6",
       "name": "ASML Holding NV (Ondo Tokenized Stock)",
       "symbol": "ASMLON",
@@ -1540,6 +1528,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/68646/large/iwmon_160x160.png?1756156170",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x4fd67cb8cfedc718bac984b5936abe3330d0a2a4",
+      "name": "SanDisk (Ondo Tokenized)",
+      "symbol": "SNDKON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102172440/large/sndkon_160x160.png?1773419692",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Ondo Finance"
       }
     },
@@ -1713,18 +1713,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xe8ff70859ce4cbd72e4352b4fb45f5bf39d07464",
-      "name": "IBM (Ondo Tokenized Stock)",
-      "symbol": "IBMON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68608/large/ibmon_160x160.png?1756130056",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xfdc2f2cab77b28f7ef6c819a404706cfa9bca33b",
       "name": "IREN Limited (bStocks Tokenized Stock)",
       "symbol": "IRENB",
@@ -1733,6 +1721,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xe8ff70859ce4cbd72e4352b4fb45f5bf39d07464",
+      "name": "IBM (Ondo Tokenized Stock)",
+      "symbol": "IBMON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68608/large/ibmon_160x160.png?1756130056",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -1797,18 +1797,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x9bdc8b470dbf89dbcb123587c6f5e49cca3463be",
-      "name": "AXT (bStocks Tokenized Stock)",
-      "symbol": "AXTIB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174759/large/axtbstock.png?1784795690",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x52d134c6db5889fad3542a09eaf7aa90c0fdf9e4",
       "name": "Backed IBTA $ Treasury Bond 1-3yr",
       "symbol": "BIBTA",
@@ -1817,6 +1805,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x9bdc8b470dbf89dbcb123587c6f5e49cca3463be",
+      "name": "AXT (bStocks Tokenized Stock)",
+      "symbol": "AXTIB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174759/large/axtbstock.png?1784795690",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -1905,18 +1905,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x1cde419fae0ef7f7931ae3e29e5f411c8c5e5fa1",
-      "name": "Visa (Ondo Tokenized Stock)",
-      "symbol": "VON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68626/large/von_160x160.png?1756130294",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xa6a65ac27e76cd53cb790473e4345c46e5ebf961",
       "name": "Netflix xStock",
       "symbol": "NFLXX",
@@ -1925,6 +1913,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x1cde419fae0ef7f7931ae3e29e5f411c8c5e5fa1",
+      "name": "Visa (Ondo Tokenized Stock)",
+      "symbol": "VON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68626/large/von_160x160.png?1756130294",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -2001,18 +2001,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x12992613fdd35abe95dec5a4964331b1ee23b50d",
-      "name": "Berkshire Hathaway xStock",
-      "symbol": "BRK.BX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55599/large/Ticker_BRK.B__Company_Name_berkshire-hathaway__size_200x200_2x.png?1746857982",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xecc1299f183b6a720a6f4729bf24f82cd8d50828",
       "name": "Toyota (Ondo Tokenized Stock)",
       "symbol": "TMON",
@@ -2021,6 +2009,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x12992613fdd35abe95dec5a4964331b1ee23b50d",
+      "name": "Berkshire Hathaway xStock",
+      "symbol": "BRK.BX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55599/large/Ticker_BRK.B__Company_Name_berkshire-hathaway__size_200x200_2x.png?1746857982",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -2169,18 +2169,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xbd730e618bcd88c82ddee52e10275cf2f88a4777",
-      "name": "Vanguard xStock",
-      "symbol": "VTIX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/66697/large/Ticker_VTI__Company_Name_Vanguard__size_200x200_2x.png?1750266977",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xcb2a0f46f67dc4c58a316f1c008edef5c2311795",
       "name": "iShares Gold Trust (Ondo Tokenized Stock)",
       "symbol": "IAUON",
@@ -2189,6 +2177,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xbd730e618bcd88c82ddee52e10275cf2f88a4777",
+      "name": "Vanguard xStock",
+      "symbol": "VTIX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/66697/large/Ticker_VTI__Company_Name_Vanguard__size_200x200_2x.png?1750266977",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "xStocks"
       }
     },
     {
@@ -2421,14 +2421,14 @@
     },
     {
       "chainId": 56,
-      "address": "0x19c41ea77b34bbdee61c3a87a75d1abda2ed0be4",
-      "name": "Eli Lilly xStock",
-      "symbol": "LLYX",
+      "address": "0xe92be960ae64f6a914ca77014cac9e56de7f36c1",
+      "name": "JD.com (Ondo Tokenized Stock)",
+      "symbol": "JDON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55623/large/Ticker_LLY__Company_Name_Lilly__size_200x200_2x.png?1746862036",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68573/large/jdon_160x160.png?1756106373",
       "extensions": {
         "assetType": "stock",
-        "issuer": "xStocks"
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -2445,14 +2445,14 @@
     },
     {
       "chainId": 56,
-      "address": "0xe92be960ae64f6a914ca77014cac9e56de7f36c1",
-      "name": "JD.com (Ondo Tokenized Stock)",
-      "symbol": "JDON",
+      "address": "0x19c41ea77b34bbdee61c3a87a75d1abda2ed0be4",
+      "name": "Eli Lilly xStock",
+      "symbol": "LLYX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68573/large/jdon_160x160.png?1756106373",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55623/large/Ticker_LLY__Company_Name_Lilly__size_200x200_2x.png?1746862036",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Ondo Finance"
+        "issuer": "xStocks"
       }
     },
     {
@@ -2517,11 +2517,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x0d4f9b25f81163fb4840ba4f434672543823000c",
-      "name": "Goldman Sachs (Ondo Tokenized Stock)",
-      "symbol": "GSON",
+      "address": "0x374d03a6c0d5bd4be0a5117ebe1b49d52ac8a53f",
+      "name": "PayPal (Ondo Tokenized Stock)",
+      "symbol": "PYPLON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68621/large/gson_160x160.png?1756130252",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68551/large/pyplon_160x160.png?1756105622",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -2529,11 +2529,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x374d03a6c0d5bd4be0a5117ebe1b49d52ac8a53f",
-      "name": "PayPal (Ondo Tokenized Stock)",
-      "symbol": "PYPLON",
+      "address": "0x0d4f9b25f81163fb4840ba4f434672543823000c",
+      "name": "Goldman Sachs (Ondo Tokenized Stock)",
+      "symbol": "GSON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68551/large/pyplon_160x160.png?1756105622",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68621/large/gson_160x160.png?1756130252",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -2625,18 +2625,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xeee9eee593cb8f7946260b4066cba7907f40acfa",
-      "name": "Disney (Ondo Tokenized Stock)",
-      "symbol": "DISON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68587/large/dison_160x160.png?1756129802",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x0e7a51966c66648999d506e1372efdea1b78cb0b",
       "name": "Dell (bStocks Tokenized Stock)",
       "symbol": "DELLB",
@@ -2645,6 +2633,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xeee9eee593cb8f7946260b4066cba7907f40acfa",
+      "name": "Disney (Ondo Tokenized Stock)",
+      "symbol": "DISON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68587/large/dison_160x160.png?1756129802",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -2685,18 +2685,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x50a1291f69d9d3853def8209cfb1af0b46927be1",
-      "name": "AppLovin xStock",
-      "symbol": "APPX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55591/large/Ticker_APP__Company_Name_app_lovin__size_200x200_2x.png?1746809021",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xf21132a811ad1a878e21af60f64d4e690c9daa42",
       "name": "Boeing (Ondo Tokenized Stock)",
       "symbol": "BAON",
@@ -2705,6 +2693,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x50a1291f69d9d3853def8209cfb1af0b46927be1",
+      "name": "AppLovin xStock",
+      "symbol": "APPX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55591/large/Ticker_APP__Company_Name_app_lovin__size_200x200_2x.png?1746809021",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -2757,18 +2757,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x04b16ff1f9673146f68aa5d5f57aa45adcf068e1",
-      "name": "iShares Ethereum Trust (Ondo Tokenized)",
-      "symbol": "ETHAON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102172422/large/ethaon_160x160.png?1773394777",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x55b370b704240a914f42b5bbb3195431c031f9f8",
       "name": "S&P Global (Ondo Tokenized Stock)",
       "symbol": "SPGION",
@@ -2781,13 +2769,13 @@
     },
     {
       "chainId": 56,
-      "address": "0xde9d6036fca870f7efc5a82722ae694c371ac909",
-      "name": "Uber (Ondo Tokenized Stock)",
-      "symbol": "UBERON",
+      "address": "0x04b16ff1f9673146f68aa5d5f57aa45adcf068e1",
+      "name": "iShares Ethereum Trust (Ondo Tokenized)",
+      "symbol": "ETHAON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68562/large/uberon_160x160.png?1756105997",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102172422/large/ethaon_160x160.png?1773394777",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Ondo Finance"
       }
     },
@@ -2801,6 +2789,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xde9d6036fca870f7efc5a82722ae694c371ac909",
+      "name": "Uber (Ondo Tokenized Stock)",
+      "symbol": "UBERON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68562/large/uberon_160x160.png?1756105997",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -3093,18 +3093,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x20cce6656e5f7f79f280e2d0f5db55b401bdbfce",
-      "name": "Goldman Sachs (bStocks Tokenized Stock)",
-      "symbol": "GSB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175188/large/GSB.png?1785457374",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xca3a5c955f1f01f20aacf9501b03e4aa235e478b",
       "name": "Texas Instruments (Ondo Tokenized)",
       "symbol": "TXNON",
@@ -3129,13 +3117,14 @@
     },
     {
       "chainId": 56,
-      "address": "0x2f20d5dfbaffa3e6351e06b8b18059747cd7ee72",
-      "name": "Ondo 8 Targeted Income TR Portfolio",
-      "symbol": "YLD8ON",
+      "address": "0x20cce6656e5f7f79f280e2d0f5db55b401bdbfce",
+      "name": "Goldman Sachs (bStocks Tokenized Stock)",
+      "symbol": "GSB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178493/large/brainon_160x160.png?1789709953",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175188/large/GSB.png?1785457374",
       "extensions": {
-        "assetType": "other"
+        "assetType": "stock",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -3148,6 +3137,17 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x2f20d5dfbaffa3e6351e06b8b18059747cd7ee72",
+      "name": "Ondo 8 Targeted Income TR Portfolio",
+      "symbol": "YLD8ON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178493/large/brainon_160x160.png?1789709953",
+      "extensions": {
+        "assetType": "other"
       }
     },
     {
@@ -3236,18 +3236,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x0393c28065c54e48b45bdb05eff5c401cf891da1",
-      "name": "Cypherpunk Technologies (bStocks Tokenized Stock)",
-      "symbol": "CYPHB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178975/large/CYPHB.jpg?1790819040",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x64748bea17b6d19e242adf20425de2440c656142",
       "name": "Lumentum Holdings (bStocks Tokenized Stock)",
       "symbol": "LITEB",
@@ -3260,11 +3248,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x96e7d606e229448ef817a7f35fd7394c3e15d00c",
-      "name": "AMC Entertainment Holdings (bStocks Tokenized Stock)",
-      "symbol": "AMCB",
+      "address": "0x0393c28065c54e48b45bdb05eff5c401cf891da1",
+      "name": "Cypherpunk Technologies (bStocks Tokenized Stock)",
+      "symbol": "CYPHB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178974/large/amcb.jpg?1790818784",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178975/large/CYPHB.jpg?1790819040",
       "extensions": {
         "assetType": "stock",
         "issuer": "BTech Holdings Limited"
@@ -3280,6 +3268,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x96e7d606e229448ef817a7f35fd7394c3e15d00c",
+      "name": "AMC Entertainment Holdings (bStocks Tokenized Stock)",
+      "symbol": "AMCB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178974/large/amcb.jpg?1790818784",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -3308,18 +3308,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x521860bb5df5468358875266b89bfe90d990c6e7",
-      "name": "DFDV xStock",
-      "symbol": "DFDVX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/66919/large/DFDVx.png?1751053171",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x0f31e21b7881f5583ea94ddbcb0bcaf22b1abeab",
       "name": "SharonAI (bStocks Tokenized Stock)",
       "symbol": "SHAZB",
@@ -3332,14 +3320,14 @@
     },
     {
       "chainId": 56,
-      "address": "0xd42890342929f9ee362a8de900b638bc10095346",
-      "name": "Berkshire Hathaway (bStocks Tokenized Stock)",
-      "symbol": "BRKBB",
+      "address": "0x521860bb5df5468358875266b89bfe90d990c6e7",
+      "name": "DFDV xStock",
+      "symbol": "DFDVX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179699/large/BRKBB.webp?1792654238",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/66919/large/DFDVx.png?1751053171",
       "extensions": {
         "assetType": "stock",
-        "issuer": "BTech Holdings Limited"
+        "issuer": "xStocks"
       }
     },
     {
@@ -3352,6 +3340,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xd42890342929f9ee362a8de900b638bc10095346",
+      "name": "Berkshire Hathaway (bStocks Tokenized Stock)",
+      "symbol": "BRKBB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179699/large/BRKBB.webp?1792654238",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "BTech Holdings Limited"
       }
     },
     {
@@ -3835,11 +3835,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x5fa699c0c1319b8d86489af77dfde4fa97b47df8",
-      "name": "BitGo Holdings (Ondo Tokenized Stock)",
-      "symbol": "BTGOON",
+      "address": "0x784584933c2192caa062e90d8140d94768ce62d8",
+      "name": "Intuitive Surgical (Ondo Tokenized Stock)",
+      "symbol": "ISRGON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71702/large/btgoon_160x160.png?1769009385",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71428/large/isrgon_160x160.png?1767882550",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -3847,11 +3847,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x784584933c2192caa062e90d8140d94768ce62d8",
-      "name": "Intuitive Surgical (Ondo Tokenized Stock)",
-      "symbol": "ISRGON",
+      "address": "0x5fa699c0c1319b8d86489af77dfde4fa97b47df8",
+      "name": "BitGo Holdings (Ondo Tokenized Stock)",
+      "symbol": "BTGOON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71428/large/isrgon_160x160.png?1767882550",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71702/large/btgoon_160x160.png?1769009385",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -3895,11 +3895,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xc4a88a72b848255fd24da3c1ad6755d980535fb1",
-      "name": "Riot Platforms (Ondo Tokenized Stock)",
-      "symbol": "RIOTON",
+      "address": "0xa1daab37da2a29a1ec721922b55962eb8b481001",
+      "name": "Fabrinet (Ondo Tokenized)",
+      "symbol": "FNON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68547/large/rioton_160x160.png?1756105446",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173794/large/fnon_160x160.png?1781494322",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -3907,11 +3907,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xa1daab37da2a29a1ec721922b55962eb8b481001",
-      "name": "Fabrinet (Ondo Tokenized)",
-      "symbol": "FNON",
+      "address": "0xc4a88a72b848255fd24da3c1ad6755d980535fb1",
+      "name": "Riot Platforms (Ondo Tokenized Stock)",
+      "symbol": "RIOTON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173794/large/fnon_160x160.png?1781494322",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68547/large/rioton_160x160.png?1756105446",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -3931,18 +3931,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x3ee7e9b3a992fd23cd1c363b0e296856b04ab149",
-      "name": "Goldman Sachs xStock",
-      "symbol": "GSX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55611/large/Ticker_GS__Company_Name_Goldman_Sachs__size_200x200_2x.png?1746858834",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x515f386fc664980db2ab30c574ec210983232493",
       "name": "GraniteShares 2x Short SK Hynix Daily ETF (bStocks Tokenized",
       "symbol": "SKDDB",
@@ -3951,6 +3939,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "BTech Holdings Limited"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x3ee7e9b3a992fd23cd1c363b0e296856b04ab149",
+      "name": "Goldman Sachs xStock",
+      "symbol": "GSX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55611/large/Ticker_GS__Company_Name_Goldman_Sachs__size_200x200_2x.png?1746858834",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -4207,18 +4207,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xfbf2398df672cee4afcc2a4a733222331c742a6a",
-      "name": "AbbVie xStock",
-      "symbol": "ABBVX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55646/large/Ticker_ABBV__Company_Name_SP500__size_200x200_2x.png?1746864179",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xc79fc7af952c8b41c6b7b7657dd24f44f7c10f2a",
       "name": "Symbotic (Ondo Tokenized)",
       "symbol": "SYMON",
@@ -4227,6 +4215,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xfbf2398df672cee4afcc2a4a733222331c742a6a",
+      "name": "AbbVie xStock",
+      "symbol": "ABBVX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55646/large/Ticker_ABBV__Company_Name_SP500__size_200x200_2x.png?1746864179",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -4279,11 +4279,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x4baf4dc56cf6a525a0874e25cc6372a6a8915135",
-      "name": "MP Materials (Ondo Tokenized)",
-      "symbol": "MPON",
+      "address": "0x99e01f02d66455bb106d91d469c9eaf6ab4904f6",
+      "name": "SharpLink Gaming, Inc (Ondo Tokenized Stock)",
+      "symbol": "SBETON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71444/large/mpon_160x160.png?1767889675",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68657/large/sbeton_160x160.png?1756156393",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -4291,11 +4291,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x99e01f02d66455bb106d91d469c9eaf6ab4904f6",
-      "name": "SharpLink Gaming, Inc (Ondo Tokenized Stock)",
-      "symbol": "SBETON",
+      "address": "0x4baf4dc56cf6a525a0874e25cc6372a6a8915135",
+      "name": "MP Materials (Ondo Tokenized)",
+      "symbol": "MPON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68657/large/sbeton_160x160.png?1756156393",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71444/large/mpon_160x160.png?1767889675",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -4411,18 +4411,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x314938c596f5ce31c3f75307d2979338c346d7f2",
-      "name": "Bank of America xStock",
-      "symbol": "BACX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55595/large/Ticker_BAC__Company_Name_Bank_of_America_Corporation__size_200x200_2x.png?1746809283",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x031d85943ba7ca0304323195e7086a76c35366fb",
       "name": "iShares Short Duration Bond Active ETF (Ondo Tokenized ETF)",
       "symbol": "NEARON",
@@ -4431,6 +4419,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x314938c596f5ce31c3f75307d2979338c346d7f2",
+      "name": "Bank of America xStock",
+      "symbol": "BACX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55595/large/Ticker_BAC__Company_Name_Bank_of_America_Corporation__size_200x200_2x.png?1746809283",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -4531,18 +4531,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xc16f47c4a7ed39372b9a0e3e2016cede9b4cb83a",
-      "name": "VanEck Rare Earth and Strategic Metals ETF (Ondo Tokenized)",
-      "symbol": "REMXON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71472/large/remxon_160x160.png?1767892092",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xd226d8170ee38793430c7dec6903df4b818bb74c",
       "name": "MARA Holdings (Ondo Tokenized Stock)",
       "symbol": "MARAON",
@@ -4550,6 +4538,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/68548/large/maraon_160x160.png?1756105480",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xc16f47c4a7ed39372b9a0e3e2016cede9b4cb83a",
+      "name": "VanEck Rare Earth and Strategic Metals ETF (Ondo Tokenized)",
+      "symbol": "REMXON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71472/large/remxon_160x160.png?1767892092",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Ondo Finance"
       }
     },
@@ -4579,18 +4579,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xbc7170a1280be28513b4e940c681537eb25e39f4",
-      "name": "Comcast xStock",
-      "symbol": "CMCSAX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55601/large/Ticker_CMCSA__Company_Name_Comcast__size_200x200_2x.png?1746858138",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xfc2067e3e6a289c205151d96ef67a032f339566d",
       "name": "Invesco DB Commodity Index Tracking Fund (Ondo Tokenized ETF",
       "symbol": "DBCON",
@@ -4611,6 +4599,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xbc7170a1280be28513b4e940c681537eb25e39f4",
+      "name": "Comcast xStock",
+      "symbol": "CMCSAX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55601/large/Ticker_CMCSA__Company_Name_Comcast__size_200x200_2x.png?1746858138",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -4795,11 +4795,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x1dcd320c5d7b84cd407437c58d56cbbdd0d9d8f3",
-      "name": "MACOM Technology Solutions Holdings (Ondo Tokenized)",
-      "symbol": "MTSION",
+      "address": "0x55b56cc2cdcbc2c58668f72663be7599a46ed79f",
+      "name": "Wolfspeed (Ondo Tokenized)",
+      "symbol": "WOLFON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173798/large/mtsion_160x160.png?1781494334",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173761/large/wolfon_160x160.png?1781494228",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -4807,11 +4807,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x55b56cc2cdcbc2c58668f72663be7599a46ed79f",
-      "name": "Wolfspeed (Ondo Tokenized)",
-      "symbol": "WOLFON",
+      "address": "0x1dcd320c5d7b84cd407437c58d56cbbdd0d9d8f3",
+      "name": "MACOM Technology Solutions Holdings (Ondo Tokenized)",
+      "symbol": "MTSION",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173761/large/wolfon_160x160.png?1781494228",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173798/large/mtsion_160x160.png?1781494334",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -4915,11 +4915,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xfb4a89a077b9020c7101b1af760beb708f37a416",
-      "name": "Entegris (Ondo Tokenized)",
-      "symbol": "ENTGON",
+      "address": "0xed2a500eb2b66679e0bbd76e51a60049ae5f3271",
+      "name": "Rigetti Computing (Ondo Tokenized)",
+      "symbol": "RGTION",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173778/large/entgon_160x160.png?1781494276",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71462/large/rgtion_160x160.png?1767890590",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -4927,11 +4927,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xed2a500eb2b66679e0bbd76e51a60049ae5f3271",
-      "name": "Rigetti Computing (Ondo Tokenized)",
-      "symbol": "RGTION",
+      "address": "0xfb4a89a077b9020c7101b1af760beb708f37a416",
+      "name": "Entegris (Ondo Tokenized)",
+      "symbol": "ENTGON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71462/large/rgtion_160x160.png?1767890590",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173778/large/entgon_160x160.png?1781494276",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -5107,18 +5107,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x15059c599c16fd8f70b633ade165502d6402cd49",
-      "name": "Linde xStock",
-      "symbol": "LINX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55651/large/Ticker_LIN__Company_Name_SP500__size_200x200_2x.png?1746864301",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xa5351c9bf08055e03642b6b8649a0f7e895501bf",
       "name": "US Natural Gas Fund (Ondo Tokenized)",
       "symbol": "UNGON",
@@ -5127,6 +5115,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x15059c599c16fd8f70b633ade165502d6402cd49",
+      "name": "Linde xStock",
+      "symbol": "LINX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55651/large/Ticker_LIN__Company_Name_SP500__size_200x200_2x.png?1746864301",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -5359,11 +5359,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xe9d43f7e6b2237e8873a7003b3f43c6b03160be5",
-      "name": "NextEra Energy (Ondo Tokenized)",
-      "symbol": "NEEON",
+      "address": "0xe6837794fbc6dd024733a1a31f86061296fa2752",
+      "name": "CrowdStrike (Ondo Tokenized Stock)",
+      "symbol": "CRWDON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71446/large/neeon_160x160.png?1767889812",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71418/large/crwdon_160x160.png?1767881071",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -5371,11 +5371,11 @@
     },
     {
       "chainId": 56,
-      "address": "0xe6837794fbc6dd024733a1a31f86061296fa2752",
-      "name": "CrowdStrike (Ondo Tokenized Stock)",
-      "symbol": "CRWDON",
+      "address": "0xe9d43f7e6b2237e8873a7003b3f43c6b03160be5",
+      "name": "NextEra Energy (Ondo Tokenized)",
+      "symbol": "NEEON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71418/large/crwdon_160x160.png?1767881071",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71446/large/neeon_160x160.png?1767889812",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -5455,18 +5455,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xbbe4dfe7a349fb72aec6f52d5cd9bdd78ae8f313",
-      "name": "Talen Energy (Ondo Tokenized Stock)",
-      "symbol": "TLNON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71582/large/tlnon_160x160.webp?1768405587",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x7437203800140ba7d9081dde8cef09ee40e3bf03",
       "name": "KraneShares CSI China Internet ETF (Ondo Tokenized)",
       "symbol": "KWEBON",
@@ -5474,6 +5462,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102172430/large/kwebon_160x160.png?1773395551",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xbbe4dfe7a349fb72aec6f52d5cd9bdd78ae8f313",
+      "name": "Talen Energy (Ondo Tokenized Stock)",
+      "symbol": "TLNON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71582/large/tlnon_160x160.webp?1768405587",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Ondo Finance"
       }
     },
@@ -5935,18 +5935,6 @@
     },
     {
       "chainId": 56,
-      "address": "0x4255279af47cf10efb9a5c8839f90170f4ef759f",
-      "name": "AT&T (Ondo Tokenized Stock)",
-      "symbol": "TON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71570/large/ton_160x160.webp?1768403639",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x06f272082339a90e81e1dcb8ab892fd1a8c5e4c0",
       "name": "Amazon aStock",
       "symbol": "AAMZN",
@@ -5955,6 +5943,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0x4255279af47cf10efb9a5c8839f90170f4ef759f",
+      "name": "AT&T (Ondo Tokenized Stock)",
+      "symbol": "TON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71570/large/ton_160x160.webp?1768403639",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
       }
     },
     {
@@ -6019,18 +6019,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xcfd1f0df84300ea1a4e2ba5238043a2fa5a7237c",
-      "name": "Pinterest (Ondo Tokenized)",
-      "symbol": "PINSON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/71457/large/pinson_160x160.png?1767890343",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0xdcd4536508060dab8f43c334b3a6c72c39528da5",
       "name": "First Trust NASDAQ Cybersecurity ETF (Ondo Tokenized)",
       "symbol": "CIBRON",
@@ -6038,6 +6026,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102172488/large/cibron_160x160.png?1773507107",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xcfd1f0df84300ea1a4e2ba5238043a2fa5a7237c",
+      "name": "Pinterest (Ondo Tokenized)",
+      "symbol": "PINSON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/71457/large/pinson_160x160.png?1767890343",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Ondo Finance"
       }
     },
@@ -6115,18 +6115,6 @@
     },
     {
       "chainId": 56,
-      "address": "0xaff6b836d3ebd29aeb0c8b840add04ef79d79678",
-      "name": "GlobalFoundries (Ondo Tokenized)",
-      "symbol": "GFSON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173868/large/gfson_160x160.png?1781494374",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 56,
       "address": "0x5a4860addcc094fce026384caeecb1e634dd9af4",
       "name": "Robinhood aStock",
       "symbol": "AHOOD",
@@ -6144,6 +6132,18 @@
       "symbol": "VCXON",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102173867/large/vcxon_160x160.png?1781494371",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 56,
+      "address": "0xaff6b836d3ebd29aeb0c8b840add04ef79d79678",
+      "name": "GlobalFoundries (Ondo Tokenized)",
+      "symbol": "GFSON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173868/large/gfson_160x160.png?1781494374",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -6799,11 +6799,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x8755c5c39b1aa9053a83ac731242a2cf4d04b0fe",
-      "name": "SolarEdge Technologies (Ondo Tokenized)",
-      "symbol": "SEDGON",
+      "address": "0x8b46599e0e80a34f37e97df58e741ca904cdfabd",
+      "name": "STMicroelectronics (Ondo Tokenized)",
+      "symbol": "STMON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102172442/large/sedgon_160x160.png?1773419776",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173784/large/stmon_160x160.png?1781494293",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -6811,11 +6811,11 @@
     },
     {
       "chainId": 56,
-      "address": "0x8b46599e0e80a34f37e97df58e741ca904cdfabd",
-      "name": "STMicroelectronics (Ondo Tokenized)",
-      "symbol": "STMON",
+      "address": "0x8755c5c39b1aa9053a83ac731242a2cf4d04b0fe",
+      "name": "SolarEdge Technologies (Ondo Tokenized)",
+      "symbol": "SEDGON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173784/large/stmon_160x160.png?1781494293",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102172442/large/sedgon_160x160.png?1773419776",
       "extensions": {
         "assetType": "stock",
         "issuer": "Ondo Finance"
@@ -15370,5 +15370,5 @@
   ],
   "name": "RWA on BNB",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-11T08:18:14.268Z"
+  "timestamp": "2026-11-11T08:48:29.823Z"
 }

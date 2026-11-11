@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict'
-import { existsSync, mkdirSync, mkdtempSync, readFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs'
 import { register } from 'node:module'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -13,6 +13,7 @@ const xstock = '0x707C6BC22B6CF83B930B0A68C3BB20A94836DE71'
 const rstock = '0x7a4db38b68a964efed8b8eda770fda84f3320195'
 const gold = '0x68749665ff8d2d112fa859aa293f07a622782f38'
 const noDecimals = '0x1111111111111111111111111111111111111111'
+const delisted = '0x3333333333333333333333333333333333333333'
 const solMint = 'XsTEo8W2L8JprN57bmJgatDT84z57ReJYizr5f32BfP'
 
 const RWAS = {
@@ -48,6 +49,7 @@ const RWAS = {
         issuer_details: { id: 'tether-ecosystem', name: 'Tether' },
       },
       { id: 'broken', symbol: 'brk', name: 'Broken', platforms: { ethereum: noDecimals } },
+      { id: 'delisted', symbol: 'dls', name: 'Delisted', platforms: { ethereum: delisted } },
       // Same contract listed under another RWA must not be duplicated
       { id: '3m-xstock', symbol: 'mmmx', name: '3M xStock', platforms: { ethereum: xstock } },
     ],
@@ -58,15 +60,18 @@ const usdy = '0x96f6ef951840721adbf46ac996b59e0235cb985c'
 
 /** CoinGecko categories: USDY is only in a category, 3M xStock also in the RWA API, LINK is not an asset token */
 const CATEGORIES = {
-  'tokenized-treasuries': [
-    { id: 'ondo-us-dollar-yield', market_cap: 1_500, image: 'https://img/usdy.png' },
-  ],
+  'tokenized-treasuries': [{ id: 'ondo-us-dollar-yield', market_cap: 1_500, image: 'https://img/usdy.png' }],
   'xstocks-ecosystem': [{ id: '3m-xstock', market_cap: 1_000 }],
 }
 const COINS_LIST = [
   { id: 'ondo-us-dollar-yield', symbol: 'usdy', name: 'Ondo US Dollar Yield', platforms: { ethereum: usdy } },
   { id: '3m-xstock', symbol: 'mmmx', name: '3M xStock', platforms: { ethereum: xstock } },
-  { id: 'chainlink', symbol: 'link', name: 'Chainlink', platforms: { ethereum: '0x514910771af9ca656af840dff83e8264ecf986ca' } },
+  {
+    id: 'chainlink',
+    symbol: 'link',
+    name: 'Chainlink',
+    platforms: { ethereum: '0x514910771af9ca656af840dff83e8264ecf986ca' },
+  },
 ]
 
 const TOKEN_LISTS = {
@@ -85,7 +90,18 @@ const TOKEN_LISTS = {
   'arbitrum-one': [{ chainId: 42161, address: rstock, name: '3M Reality', symbol: 'rMMM', decimals: 18 }],
 }
 
-test('generates per-chain RWA token lists from CoinGecko', async (t) => {
+/** Coin id -> `/coins/{id}` response, or the HTTP status it fails with */
+const COIN_DETAILS = {
+  'tether-gold': {
+    image: { large: 'https://assets.coingecko.com/coins/images/2/large/xaut.png' },
+    detail_platforms: { ethereum: { decimal_place: 6 } },
+  },
+  broken: { detail_platforms: { ethereum: { decimal_place: null } } },
+  delisted: 404,
+}
+
+/** Runs in a new temporary directory, with a `src/public` folder */
+function useTempDir(t) {
   const cwd = process.cwd()
   const dir = mkdtempSync(join(tmpdir(), 'rwa-'))
   mkdirSync(join(dir, 'src/public'), { recursive: true })
@@ -93,7 +109,9 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
   t.after(() => process.chdir(cwd))
   t.mock.method(console, 'log', () => {})
   t.mock.method(console, 'warn', () => {})
+}
 
+function mockCoinGecko(t, { rwas = RWAS, coinDetails = COIN_DETAILS } = {}) {
   const requests = []
   t.mock.method(globalThis, 'fetch', async (url, init) => {
     const { hostname, pathname, searchParams } = new URL(url)
@@ -105,10 +123,10 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
       if (!list) return { ok: false, status: 404 }
       data = { tokens: list }
     } else if (pathname === '/api/v3/rwas/list') {
-      data = Object.values(RWAS).map(({ id, asset_type }) => ({ id, asset_type }))
+      data = Object.values(rwas).map(({ id, asset_type }) => ({ id, asset_type }))
     } else if (pathname.startsWith('/api/v3/rwas/')) {
       assert.equal(searchParams.get('tokens'), 'true')
-      data = RWAS[pathname.split('/').pop()]
+      data = rwas[pathname.split('/').pop()]
     } else if (pathname === '/api/v3/coins/list') {
       assert.equal(searchParams.get('include_platform'), 'true')
       data = COINS_LIST
@@ -122,19 +140,26 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
         .split(',')
         .filter((id) => caps[id])
         .map((id) => ({ id, market_cap: caps[id], image: id === 'tether-gold' ? 'missing_large.png' : undefined }))
-    } else if (pathname === '/api/v3/coins/tether-gold') {
-      data = {
-        image: { large: 'https://assets.coingecko.com/coins/images/2/large/xaut.png' },
-        detail_platforms: { ethereum: { decimal_place: 6 } },
-      }
-    } else if (pathname === '/api/v3/coins/broken') {
-      data = { detail_platforms: { ethereum: { decimal_place: null } } }
+    } else if (pathname.startsWith('/api/v3/coins/') && pathname.split('/').pop() in coinDetails) {
+      const details = coinDetails[pathname.split('/').pop()]
+      if (typeof details === 'number') return { ok: false, status: details }
+      data = details
     } else {
       throw new Error(`Unexpected request ${url}`)
     }
 
     return { ok: true, status: 200, json: async () => data }
   })
+
+  return requests
+}
+
+test('generates per-chain RWA token lists from CoinGecko', async (t) => {
+  useTempDir(t)
+  // Polygon had RWA tokens before, but has none anymore
+  const polygonList = JSON.stringify({ name: 'RWA on Polygon', tokens: [{ address: gold }] })
+  writeFileSync('src/public/CoinGeckoRwa.137.json', polygonList)
+  const requests = mockCoinGecko(t)
 
   await fetchAndProcessRwaTokens()
 
@@ -181,6 +206,7 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
 
   assert.deepEqual(read(42161).tokens[0].extensions, { assetType: 'stock' })
   assert.equal(existsSync('src/public/CoinGeckoRwa.100.json'), false)
+  assert.equal(readFileSync('src/public/CoinGeckoRwa.137.json', 'utf8'), polygonList)
 
   const api = requests.filter(({ pathname }) => pathname.startsWith('/api/v3/'))
   assert.ok(api.every(({ headers }) => headers['x-cg-pro-api-key'] === 'test'))
@@ -188,22 +214,33 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
 })
 
 test('does not write lists when an RWA cannot be fetched', async (t) => {
-  const cwd = process.cwd()
-  const dir = mkdtempSync(join(tmpdir(), 'rwa-'))
-  mkdirSync(join(dir, 'src/public'), { recursive: true })
-  process.chdir(dir)
-  t.after(() => process.chdir(cwd))
-  t.mock.method(console, 'log', () => {})
+  useTempDir(t)
+  mockCoinGecko(t)
+  const fetch = globalThis.fetch
+  t.mock.method(globalThis, 'fetch', async (url, init) =>
+    new URL(url).pathname === '/api/v3/rwas/gold' ? { ok: false, status: 403 } : fetch(url, init),
+  )
 
-  t.mock.method(globalThis, 'fetch', async (url) => {
-    const { pathname } = new URL(url)
-    if (pathname === '/api/v3/rwas/list') {
-      return { ok: true, status: 200, json: async () => [{ id: '3m', asset_type: 'stock' }] }
-    }
-    return { ok: false, status: 404 }
-  })
+  await assert.rejects(fetchAndProcessRwaTokens(), /rwas\/gold responded with 403/)
+  assert.equal(existsSync('src/public/CoinGeckoRwa.1.json'), false)
+})
 
-  await assert.rejects(fetchAndProcessRwaTokens(), /404/)
+test('does not write any list when coin details cannot be fetched', async (t) => {
+  useTempDir(t)
+  const silver = '0x2222222222222222222222222222222222222222'
+  const rwas = {
+    '3m': RWAS['3m'],
+    silver: {
+      id: 'silver',
+      asset_type: 'commodity',
+      tokens: [{ id: 'tether-silver', symbol: 'xags', name: 'Tether Silver', platforms: { ethereum: silver } }],
+    },
+  }
+  mockCoinGecko(t, { rwas, coinDetails: { 'tether-silver': 403 } })
+
+  await assert.rejects(fetchAndProcessRwaTokens(), /coins\/tether-silver responded with 403/)
+  // Arbitrum needs no coin details, but must not be written either
+  assert.equal(existsSync('src/public/CoinGeckoRwa.42161.json'), false)
   assert.equal(existsSync('src/public/CoinGeckoRwa.1.json'), false)
 })
 
@@ -220,7 +257,14 @@ test('bumps the list version when only token extensions change', async (t) => {
   const logger = { info: () => {} }
   const token = { chainId: 1, address: xstock, name: '3M xStock', symbol: 'MMMx', decimals: 18 }
   const save = (extensions) =>
-    processTokenList({ chainId: 1, tokens: [{ ...token, extensions }], prefix: 'Test', logo: '', logMessage: '', logger })
+    processTokenList({
+      chainId: 1,
+      tokens: [{ ...token, extensions }],
+      prefix: 'Test',
+      logo: '',
+      logMessage: '',
+      logger,
+    })
   const read = () => JSON.parse(readFileSync('src/public/Test.1.json', 'utf8'))
 
   await save({ assetType: 'other' })
@@ -232,4 +276,25 @@ test('bumps the list version when only token extensions change', async (t) => {
 
   await save({ assetType: 'stock', issuer: 'xStocks' })
   assert.deepEqual(read().version, { major: 0, minor: 1, patch: 1 })
+})
+
+test('bumps the list version when only the token order changes', async (t) => {
+  const { processTokenList } = await import('./processTokenList.ts')
+  useTempDir(t)
+
+  const logger = { info: () => {} }
+  const tokenA = { chainId: 1, address: xstock, name: '3M xStock', symbol: 'MMMx', decimals: 18 }
+  const tokenB = { chainId: 1, address: gold, name: 'Tether Gold', symbol: 'XAUT', decimals: 6 }
+  const save = (tokens) => processTokenList({ chainId: 1, tokens, prefix: 'Test', logo: '', logMessage: '', logger })
+  const read = () => JSON.parse(readFileSync('src/public/Test.1.json', 'utf8'))
+
+  await save([tokenA, tokenB])
+  assert.deepEqual(read().version, { major: 0, minor: 1, patch: 0 })
+
+  await save([tokenB, tokenA])
+  assert.deepEqual(read().version, { major: 0, minor: 1, patch: 1 })
+  assert.deepEqual(
+    read().tokens.map(({ symbol }) => symbol),
+    ['XAUT', 'MMMx'],
+  )
 })

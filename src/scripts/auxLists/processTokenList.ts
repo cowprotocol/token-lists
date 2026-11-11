@@ -47,8 +47,14 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
     return { ...version, minor: version.minor + 1, patch: 0 }
   }
 
-  // Check for changes in token details
+  // Check for changes in token details or order
   if (currentAddresses.size === newAddresses.size) {
+    const currentOrder = list.tokens?.map((token) => getAddressKey(token.address)) || []
+
+    if (tokens.some((token, index) => getAddressKey(token.address) !== currentOrder[index])) {
+      return { ...version, patch: version.patch + 1 }
+    }
+
     for (const listToken of list.tokens || []) {
       const token = tokens.find((token) => getAddressKey(token.address) === getAddressKey(listToken.address))
       if (

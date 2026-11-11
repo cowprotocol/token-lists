@@ -1,4 +1,5 @@
 import { getAddressKey, isEvmAddress, isSolanaAddress, SupportedChainId } from '@cowprotocol/cow-sdk'
+import { existsSync } from 'fs'
 import { processTokenList } from './processTokenList.js'
 import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, TokenInfo } from './utils.js'
 
@@ -128,59 +129,81 @@ export async function fetchAndProcessRwaTokens(): Promise<void> {
 
   log('Building token lists')
 
-  await Promise.all(
-    chains.map(async (chainId) => {
-      const chainName = DISPLAY_CHAIN_NAMES[chainId]
-      const platform = COINGECKO_CHAINS[chainId] as string
-      const listed = await fetchCoingeckoTokenList(platform)
-      const tokens = new Map<string, RwaTokenInfo>()
-      const candidates = coins.filter((coin) => coin.platforms[platform])
-      let skipped = 0
-      let fromDetails = 0
-
-      log(`${chainName}: ${candidates.length} candidate tokens, ${listed.size} tokens in CoinGecko's ${platform} list`)
-
-      for (const coin of candidates) {
-        const address = coin.platforms[platform] as string
-
-        if (!isChainAddress(chainId, address)) {
-          skipped++
-          continue
-        }
-
-        const key = getAddressKey(address)
-
-        if (tokens.has(key)) continue
-
-        if (!listed.has(key)) fromDetails++
-
-        const info = await buildToken({ chainId, platform, key, coin, listed, market: markets.get(coin.id) })
-
-        if (info) tokens.set(key, info)
-        else skipped++
-      }
-
-      const sorted = [...tokens.values()].sort((a, b) => b.marketCap - a.marketCap || a.address.localeCompare(b.address))
-
-      log(`${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped)`)
-
-      if (!sorted.length) return
-
-      await processTokenList({
-        chainId,
-        tokens: sorted.map(({ marketCap, ...token }) => ({ ...token, volume: marketCap })),
-        prefix: RWA_PREFIX,
-        logo: RWA_LOGO,
-        keywords: ['rwa', 'coingecko'],
-        // The token list schema limits names to 30 characters
-        title: 'RWA',
-        logMessage: `RWA tokens by market cap`,
-        logger,
-      })
-    }),
+  // All lists are built before any is written, so a failed request can't leave some chains updated and others not
+  const lists = await Promise.all(
+    chains.map(async (chainId) => ({ chainId, tokens: await buildChainTokens(chainId, coins, markets) })),
   )
 
+  for (const { chainId, tokens } of lists) {
+    if (!tokens.length) {
+      // The token list schema requires at least one token, and the aux lists workflow can't delete a file
+      if (existsSync(getRwaListPath(chainId))) {
+        console.warn(`[rwa] ${DISPLAY_CHAIN_NAMES[chainId]} has no RWA tokens anymore, keeping its previous list`)
+      }
+      continue
+    }
+
+    await processTokenList({
+      chainId,
+      tokens: tokens.map(({ marketCap, ...token }) => ({ ...token, volume: marketCap })),
+      prefix: RWA_PREFIX,
+      logo: RWA_LOGO,
+      keywords: ['rwa', 'coingecko'],
+      // The token list schema limits names to 30 characters
+      title: 'RWA',
+      logMessage: `RWA tokens by market cap`,
+      logger,
+    })
+  }
+
   log(`Done in ${Math.round((Date.now() - startedAt) / 1000)}s`)
+}
+
+function getRwaListPath(chainId: SupportedChainId): string {
+  return `src/public/${RWA_PREFIX}.${chainId}.json`
+}
+
+/** RWA tokens of a chain, biggest market cap first */
+async function buildChainTokens(
+  chainId: SupportedChainId,
+  coins: RwaCoin[],
+  markets: Map<string, CoinMarket>,
+): Promise<RwaTokenInfo[]> {
+  const chainName = DISPLAY_CHAIN_NAMES[chainId]
+  const platform = COINGECKO_CHAINS[chainId] as string
+  const listed = await fetchCoingeckoTokenList(platform)
+  const tokens = new Map<string, RwaTokenInfo>()
+  const candidates = coins.filter((coin) => coin.platforms[platform])
+  let skipped = 0
+  let fromDetails = 0
+
+  log(`${chainName}: ${candidates.length} candidate tokens, ${listed.size} tokens in CoinGecko's ${platform} list`)
+
+  for (const coin of candidates) {
+    const address = coin.platforms[platform] as string
+
+    if (!isChainAddress(chainId, address)) {
+      skipped++
+      continue
+    }
+
+    const key = getAddressKey(address)
+
+    if (tokens.has(key)) continue
+
+    if (!listed.has(key)) fromDetails++
+
+    const info = await buildToken({ chainId, platform, key, coin, listed, market: markets.get(coin.id) })
+
+    if (info) tokens.set(key, info)
+    else skipped++
+  }
+
+  const sorted = [...tokens.values()].sort((a, b) => b.marketCap - a.marketCap || a.address.localeCompare(b.address))
+
+  log(`${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped)`)
+
+  return sorted
 }
 
 async function fetchRwaApiCoins(): Promise<RwaCoin[]> {
@@ -353,18 +376,32 @@ const coinDetails = new Map<string, Promise<CoinDetails | undefined>>()
 
 function fetchCoinDetails(id: string): Promise<CoinDetails | undefined> {
   if (!coinDetails.has(id)) {
-    const path = `/coins/${encodeURIComponent(id)}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false`
+    const path = `/coins/${encodeURIComponent(
+      id,
+    )}?localization=false&tickers=false&market_data=false&community_data=false&developer_data=false`
 
     coinDetails.set(
       id,
+      // A coin CoinGecko doesn't know is skipped. Any other failure aborts the run, so it can't drop the token
       coingecko<CoinDetails>(path).catch((error) => {
-        console.warn(`Failed to fetch CoinGecko coin ${id}:`, error)
+        if (!(error instanceof HttpError && error.status === 404)) throw error
+
+        console.warn(`CoinGecko coin ${id} not found`)
         return undefined
       }),
     )
   }
 
   return coinDetails.get(id) as Promise<CoinDetails | undefined>
+}
+
+class HttpError extends Error {
+  constructor(
+    message: string,
+    readonly status: number,
+  ) {
+    super(message)
+  }
 }
 
 function coingecko<T>(path: string): Promise<T> {
@@ -396,7 +433,7 @@ async function request<T>(url: string, headers: Record<string, string> = {}): Pr
       continue
     }
 
-    if (!response.ok) throw new Error(`${label} responded with ${response.status}`)
+    if (!response.ok) throw new HttpError(`${label} responded with ${response.status}`, response.status)
 
     return response.json() as Promise<T>
   }

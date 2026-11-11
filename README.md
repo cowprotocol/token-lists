@@ -54,7 +54,7 @@ Instructions for setting up and running the various scripts locally
 
 ### Prerequisites
 
-Currently runs on Node.js LTS/Gallium v16.20.2
+Requires Node.js 22.9 or later (CI uses the current LTS)
 
 ```bash
 # Install dependencies

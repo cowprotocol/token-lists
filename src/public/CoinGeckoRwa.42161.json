@@ -6,7 +6,7 @@
   "version": {
     "major": 0,
     "minor": 2,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -304,18 +304,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x10fe806857055d3b5ae00d2eabafd3e61f0e89aa",
-      "name": "Strategy Tokenized Stock (Reality)",
-      "symbol": "RMSTR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177025/large/e9ea7f64e4d755d3eeec374d1fd708b5.png?1789116591",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x2380f2673c640fb67e2d6b55b44c62f0e0e69da9",
       "name": "Gold xStock",
       "symbol": "GLDX",
@@ -324,6 +312,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x10fe806857055d3b5ae00d2eabafd3e61f0e89aa",
+      "name": "Strategy Tokenized Stock (Reality)",
+      "symbol": "RMSTR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177025/large/e9ea7f64e4d755d3eeec374d1fd708b5.png?1789116591",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -721,18 +721,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xe5f6d3b2405abdfe6f660e63202b25d23763160d",
-      "name": "Gamestop xStock",
-      "symbol": "GMEX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55607/large/Ticker_GME__Company_Name_gamestop__size_200x200_2x.png?1746858467",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x3fde83d2d577f21f1c0f61c7a53f4f578f8d800f",
       "name": "AMD Tokenized Stock (Reality)",
       "symbol": "RAMD",
@@ -741,6 +729,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xe5f6d3b2405abdfe6f660e63202b25d23763160d",
+      "name": "Gamestop xStock",
+      "symbol": "GMEX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55607/large/Ticker_GME__Company_Name_gamestop__size_200x200_2x.png?1746858467",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -997,11 +997,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x7e120a8ae6a6e14c13970adcf6fe8ad1df564900",
-      "name": "BitMine Immersion Technologies Tokenized Stock (Reality)",
-      "symbol": "RBMNR",
+      "address": "0xe172d18ea50377eee45cd73ee2e122c5a5bb9be6",
+      "name": "AST SpaceMobile Tokenized Stock (Reality)",
+      "symbol": "RASTS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177191/large/e825e3b09c96bfdd8fb67e3cc86f9376.png?1789117111",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177045/large/025cab7176be299412cc335570b790c8.png?1789116655",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1009,11 +1009,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xe172d18ea50377eee45cd73ee2e122c5a5bb9be6",
-      "name": "AST SpaceMobile Tokenized Stock (Reality)",
-      "symbol": "RASTS",
+      "address": "0x7e120a8ae6a6e14c13970adcf6fe8ad1df564900",
+      "name": "BitMine Immersion Technologies Tokenized Stock (Reality)",
+      "symbol": "RBMNR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177045/large/025cab7176be299412cc335570b790c8.png?1789116655",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177191/large/e825e3b09c96bfdd8fb67e3cc86f9376.png?1789117111",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1164,18 +1164,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xfba9e358f9ad443236155e5c67f2aade032db7a1",
-      "name": "Amazon Tokenized Stock (Reality)",
-      "symbol": "RAMZN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176986/large/e8ee6c0d73a79e1d36d130b68addfd23.png?1789116291",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xade3da26fa78ef08960ba17285e963bcc3e286fb",
       "name": "Strive (Dinari Tokenized Stock)",
       "symbol": "ASST",
@@ -1184,6 +1172,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xfba9e358f9ad443236155e5c67f2aade032db7a1",
+      "name": "Amazon Tokenized Stock (Reality)",
+      "symbol": "RAMZN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176986/large/e8ee6c0d73a79e1d36d130b68addfd23.png?1789116291",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -1212,18 +1212,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xeedb0273c5af792745180e9ff568cd01550ffa13",
-      "name": "Exxon Mobil xStock",
-      "symbol": "XOMX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55644/large/Ticker_XOM__Company_Name_ExxonMobil__size_200x200_2x.png?1746863917",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x36d37b6cbca364cf1d843eff8c2f6824491bcf81",
       "name": "Tesla (Dinari Tokenized Stock)",
       "symbol": "TSLA",
@@ -1232,6 +1220,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xeedb0273c5af792745180e9ff568cd01550ffa13",
+      "name": "Exxon Mobil xStock",
+      "symbol": "XOMX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55644/large/Ticker_XOM__Company_Name_ExxonMobil__size_200x200_2x.png?1746863917",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -1380,11 +1380,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xdf249e5eca6c07aa29633d06456abb9b56a93093",
-      "name": "AppLovin Tokenized Stock (Reality)",
-      "symbol": "RAPP",
+      "address": "0xaba5e0c80e9f58e391214689fb342049c0d31892",
+      "name": "Apple Tokenized Stock (Reality)",
+      "symbol": "RAAPL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177044/large/102ae651f63e89c1e5c8e66c7d602f55.png?1789116652",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174884/large/raapl.png?1785330068",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1392,11 +1392,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xaba5e0c80e9f58e391214689fb342049c0d31892",
-      "name": "Apple Tokenized Stock (Reality)",
-      "symbol": "RAAPL",
+      "address": "0xdf249e5eca6c07aa29633d06456abb9b56a93093",
+      "name": "AppLovin Tokenized Stock (Reality)",
+      "symbol": "RAPP",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174884/large/raapl.png?1785330068",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177044/large/102ae651f63e89c1e5c8e66c7d602f55.png?1789116652",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1547,18 +1547,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x1ac765b5bea23184802c7d2d497f7c33f1444a9e",
-      "name": "Pfizer xStock",
-      "symbol": "PFEX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55635/large/Ticker_PFE__Company_Name_pfizer__size_200x200_2x.png?1746863254",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xf365f22a34a5a0d88cf375a4015446f78fdb883f",
       "name": "MercadoLibre Tokenized Stock (Reality)",
       "symbol": "RMELI",
@@ -1571,11 +1559,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x2f9a35ab5ddfbc49927bfdeab98a86c53dc6e763",
-      "name": "Amber xStock",
-      "symbol": "AMBRX",
+      "address": "0x1ac765b5bea23184802c7d2d497f7c33f1444a9e",
+      "name": "Pfizer xStock",
+      "symbol": "PFEX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/66917/large/amber.png?1754983963",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55635/large/Ticker_PFE__Company_Name_pfizer__size_200x200_2x.png?1746863254",
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
@@ -1603,6 +1591,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x2f9a35ab5ddfbc49927bfdeab98a86c53dc6e763",
+      "name": "Amber xStock",
+      "symbol": "AMBRX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/66917/large/amber.png?1754983963",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -1763,11 +1763,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x1a0279b9da7cabfff39bf978f3a6608c14a712c0",
-      "name": "Bloom Energy Tokenized Stock (Reality)",
-      "symbol": "RBE",
+      "address": "0x0e49db0b454608762c05f28249b8e162692b0ece",
+      "name": "Novo Nordisk Tokenized Stock (Reality)",
+      "symbol": "RNVO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177006/large/899d43ffd6c99637982e5c5bd6e892c9.png?1789116384",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177061/large/a14ddaa9de79c3720bf617e16ce708ac.png?1789116705",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1775,11 +1775,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x0e49db0b454608762c05f28249b8e162692b0ece",
-      "name": "Novo Nordisk Tokenized Stock (Reality)",
-      "symbol": "RNVO",
+      "address": "0x1a0279b9da7cabfff39bf978f3a6608c14a712c0",
+      "name": "Bloom Energy Tokenized Stock (Reality)",
+      "symbol": "RBE",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177061/large/a14ddaa9de79c3720bf617e16ce708ac.png?1789116705",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177006/large/899d43ffd6c99637982e5c5bd6e892c9.png?1789116384",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1907,11 +1907,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x7d93a61e3839d81dad2e72cdec53e181a66cd0d0",
-      "name": "KLA Tokenized Stock (Reality)",
-      "symbol": "RKLAC",
+      "address": "0x888e33434b29c3522440478650b5895ab2844799",
+      "name": "Aehr Test Systems Tokenized Stock (Reality)",
+      "symbol": "RAEHR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177565/large/a1e32c9060a76c8bea9ec9bef9a92808.png?1789118337",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177322/large/9d123b5f1c0fef61b04ef9c21f851fa9.png?1789117536",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1919,11 +1919,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x888e33434b29c3522440478650b5895ab2844799",
-      "name": "Aehr Test Systems Tokenized Stock (Reality)",
-      "symbol": "RAEHR",
+      "address": "0x7d93a61e3839d81dad2e72cdec53e181a66cd0d0",
+      "name": "KLA Tokenized Stock (Reality)",
+      "symbol": "RKLAC",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177322/large/9d123b5f1c0fef61b04ef9c21f851fa9.png?1789117536",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177565/large/a1e32c9060a76c8bea9ec9bef9a92808.png?1789118337",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -1943,18 +1943,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x5aa7649fdbda47de64a07ac81d64b682af9c0724",
-      "name": "Wrapped Apple xStock",
-      "symbol": "WAAPLX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55769/large/Ticker_AAPL__Company_Name_Apple_Inc.__size_200x200_2x.png?1747330791",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x25a02eefffe70897d4cba1c7459380788cc1cba7",
       "name": "VanEck Semiconductor ETF Tokenized Stock (Reality)",
       "symbol": "RSMH",
@@ -1963,6 +1951,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x5aa7649fdbda47de64a07ac81d64b682af9c0724",
+      "name": "Wrapped Apple xStock",
+      "symbol": "WAAPLX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55769/large/Ticker_AAPL__Company_Name_Apple_Inc.__size_200x200_2x.png?1747330791",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -2039,14 +2039,14 @@
     },
     {
       "chainId": 42161,
-      "address": "0xbc7170a1280be28513b4e940c681537eb25e39f4",
-      "name": "Comcast xStock",
-      "symbol": "CMCSAX",
+      "address": "0xc4e61904b1f3dc2a05ad47915694fe4ca533806a",
+      "name": "Invesco QQQ Trust, Series 1 Tokenized Stock (Reality)",
+      "symbol": "RQQQI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55601/large/Ticker_CMCSA__Company_Name_Comcast__size_200x200_2x.png?1746858138",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177546/large/d362f2d4bbf95dad7137d675e50be820.png?1789118275",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
+        "assetType": "etf",
+        "issuer": "Reality"
       }
     },
     {
@@ -2063,18 +2063,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xc4e61904b1f3dc2a05ad47915694fe4ca533806a",
-      "name": "Invesco QQQ Trust, Series 1 Tokenized Stock (Reality)",
-      "symbol": "RQQQI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177546/large/d362f2d4bbf95dad7137d675e50be820.png?1789118275",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x3c42b785e4a0314ca55d7dfa927062482e2af597",
       "name": "SPDR Gold Shares Tokenized Stock (Reality)",
       "symbol": "RGLD",
@@ -2083,6 +2071,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xbc7170a1280be28513b4e940c681537eb25e39f4",
+      "name": "Comcast xStock",
+      "symbol": "CMCSAX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55601/large/Ticker_CMCSA__Company_Name_Comcast__size_200x200_2x.png?1746858138",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -2171,18 +2171,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x39bce681d72720f80424914800a78c63fdfaf645",
-      "name": "iShares Gold Trust (Dinari Tokenized ETF)",
-      "symbol": "IAU",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174959/large/dinari-logo-green-with-margin.png?1785402703",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x98b41a04a1eaeed0c4bfac33e23777e7dd1df9ce",
       "name": "Arm Holdings plc Tokenized Stock (Reality)",
       "symbol": "RARM",
@@ -2191,6 +2179,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x39bce681d72720f80424914800a78c63fdfaf645",
+      "name": "iShares Gold Trust (Dinari Tokenized ETF)",
+      "symbol": "IAU",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174959/large/dinari-logo-green-with-margin.png?1785402703",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
       }
     },
     {
@@ -2231,18 +2231,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xeb9841b1a057f2ceca4f5c89197fd3fb5650a320",
-      "name": "Bank of America Tokenized Stock (Reality)",
-      "symbol": "RBAC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177247/large/8d131b41949445ac55e42e19cfb7a42f.png?1789117290",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x7c5fed5e0f8d05748cc12ffe1ca400b07de0f983",
       "name": "Broadcom (Dinari Tokenized Stock)",
       "symbol": "AVGO",
@@ -2251,6 +2239,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xeb9841b1a057f2ceca4f5c89197fd3fb5650a320",
+      "name": "Bank of America Tokenized Stock (Reality)",
+      "symbol": "RBAC",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177247/large/8d131b41949445ac55e42e19cfb7a42f.png?1789117290",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -2819,18 +2819,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xa150245f155778e749185c9446e9e59e406674ef",
-      "name": "Wrapped Berkshire Hathaway xStock",
-      "symbol": "WBRK.BX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/55779/large/Ticker_BRK.B__Company_Name_berkshire-hathaway__size_200x200_2x.png?1747331467",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xd2ec64a82a212d6833d0bf851237091a4197aa76",
       "name": "IonQ Tokenized Stock (Reality)",
       "symbol": "RIONQ",
@@ -2839,6 +2827,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xa150245f155778e749185c9446e9e59e406674ef",
+      "name": "Wrapped Berkshire Hathaway xStock",
+      "symbol": "WBRK.BX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/55779/large/Ticker_BRK.B__Company_Name_berkshire-hathaway__size_200x200_2x.png?1747331467",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -3023,11 +3023,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x4cb894d1a5fc353ec18ba50cb087b88f6f73121f",
-      "name": "Grayscale Ethereum Staking ETF (Dinari Tokenized ETF)",
-      "symbol": "ETHE",
+      "address": "0x9fe6002c876972d8d84124ec25000a6fa14c88ec",
+      "name": "Direxion Daily Semiconductor Bull 3X ETF (Dinari Tokenized E",
+      "symbol": "SOXL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174961/large/dinari-logo-green-with-margin.png?1785402710",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174996/large/dinari-logo-green-with-margin.png?1785402836",
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
@@ -3035,11 +3035,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x9fe6002c876972d8d84124ec25000a6fa14c88ec",
-      "name": "Direxion Daily Semiconductor Bull 3X ETF (Dinari Tokenized E",
-      "symbol": "SOXL",
+      "address": "0x4cb894d1a5fc353ec18ba50cb087b88f6f73121f",
+      "name": "Grayscale Ethereum Staking ETF (Dinari Tokenized ETF)",
+      "symbol": "ETHE",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174996/large/dinari-logo-green-with-margin.png?1785402836",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174961/large/dinari-logo-green-with-margin.png?1785402710",
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
@@ -3083,6 +3083,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0xa651e444f39594c1f5718fbc5c4d6bf11e5cb15f",
+      "name": "Intuitive Machines Tokenized Stock (Reality)",
+      "symbol": "RLUNR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177046/large/69715a510afc89a85528c503971bc7f6.png?1789116658",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xda7ff55652a2583ec7656a45d3235870bd34efa6",
       "name": "Boeing Tokenized Stock (Reality)",
       "symbol": "RBA",
@@ -3107,13 +3119,13 @@
     },
     {
       "chainId": 42161,
-      "address": "0xa651e444f39594c1f5718fbc5c4d6bf11e5cb15f",
-      "name": "Intuitive Machines Tokenized Stock (Reality)",
-      "symbol": "RLUNR",
+      "address": "0x85a46658ec7a09f1626651ca469d387935621a0e",
+      "name": "Global X Uranium ETF Tokenized Stock (Reality)",
+      "symbol": "RURA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177046/large/69715a510afc89a85528c503971bc7f6.png?1789116658",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177157/large/71b5d75c174a07d45429acfa2dbab217.png?1789117008",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Reality"
       }
     },
@@ -3124,18 +3136,6 @@
       "symbol": "RCOPX",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177156/large/71b5d75c174a07d45429acfa2dbab217.png?1789117005",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x85a46658ec7a09f1626651ca469d387935621a0e",
-      "name": "Global X Uranium ETF Tokenized Stock (Reality)",
-      "symbol": "RURA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177157/large/71b5d75c174a07d45429acfa2dbab217.png?1789117008",
       "extensions": {
         "assetType": "etf",
         "issuer": "Reality"
@@ -3239,11 +3239,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x9772f39128352142e90e11eb522e151296f3ccb3",
-      "name": "Snowflake Tokenized Stock (Reality)",
-      "symbol": "RSNOW",
+      "address": "0xb5c9c0823d83103e6bcb83b3c68aa9afedc7306b",
+      "name": "Galaxy Digital Tokenized Stock (Reality)",
+      "symbol": "RGLXY",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177076/large/ceeca1bc3093e7e52d1e95e687db2a62.png?1789116753",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177099/large/23ac4d9dbca61ffd657b1baf0e197610.png?1789116825",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -3251,11 +3251,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xb5c9c0823d83103e6bcb83b3c68aa9afedc7306b",
-      "name": "Galaxy Digital Tokenized Stock (Reality)",
-      "symbol": "RGLXY",
+      "address": "0x9772f39128352142e90e11eb522e151296f3ccb3",
+      "name": "Snowflake Tokenized Stock (Reality)",
+      "symbol": "RSNOW",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177099/large/23ac4d9dbca61ffd657b1baf0e197610.png?1789116825",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177076/large/ceeca1bc3093e7e52d1e95e687db2a62.png?1789116753",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -3347,11 +3347,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x680a4e8752dde9859c7b981308d2085202fded65",
-      "name": "Rio Tinto Tokenized Stock (Reality)",
-      "symbol": "RRIO",
+      "address": "0x8ad2e038005359cb2955292a3411a84516e99ed3",
+      "name": "Hyperliquid Strategies Tokenized Stock (Reality)",
+      "symbol": "RPURR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177374/large/RIO.png?1789117708",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177731/large/finnhub_logo20260911-1-t5fkx0.png?1789120686",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -3359,11 +3359,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x8ad2e038005359cb2955292a3411a84516e99ed3",
-      "name": "Hyperliquid Strategies Tokenized Stock (Reality)",
-      "symbol": "RPURR",
+      "address": "0x680a4e8752dde9859c7b981308d2085202fded65",
+      "name": "Rio Tinto Tokenized Stock (Reality)",
+      "symbol": "RRIO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177731/large/finnhub_logo20260911-1-t5fkx0.png?1789120686",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177374/large/RIO.png?1789117708",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -3383,11 +3383,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x90f35e808c6357c6ba3c6c08e34be5edc62f6a84",
-      "name": "Lockheed Tokenized Stock (Reality)",
-      "symbol": "RLMT",
+      "address": "0x79ccacc14f7fde321a6fd696acbcfeba84dfd089",
+      "name": "POET Technologies Tokenized Stock (Reality)",
+      "symbol": "RPOET",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177218/large/1bb6f254d51063efb9cee77e4ee4d8a8.png?1789117198",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177702/large/finnhub_logo20260911-1-thb91v.png?1789120600",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -3395,11 +3395,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x79ccacc14f7fde321a6fd696acbcfeba84dfd089",
-      "name": "POET Technologies Tokenized Stock (Reality)",
-      "symbol": "RPOET",
+      "address": "0x90f35e808c6357c6ba3c6c08e34be5edc62f6a84",
+      "name": "Lockheed Tokenized Stock (Reality)",
+      "symbol": "RLMT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177702/large/finnhub_logo20260911-1-thb91v.png?1789120600",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177218/large/1bb6f254d51063efb9cee77e4ee4d8a8.png?1789117198",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -3503,18 +3503,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x8679b2d91e4f65236e1c28c9cd0d5a6f6e734cdd",
-      "name": "Oracle (Dinari Tokenized Stock)",
-      "symbol": "ORCL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175029/large/dinari-logo-green-with-margin.png?1785402953",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xd7f64f582ef3c1a5a7bf332f0735fe44bb90e5f8",
       "name": "SoFi Technologies Tokenized Stock (Reality)",
       "symbol": "RSOFI",
@@ -3523,6 +3511,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x8679b2d91e4f65236e1c28c9cd0d5a6f6e734cdd",
+      "name": "Oracle (Dinari Tokenized Stock)",
+      "symbol": "ORCL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175029/large/dinari-logo-green-with-margin.png?1785402953",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -3611,18 +3611,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x65a641c78c58c08bb9f25d0f0d39ca64b0cf696a",
-      "name": "Uber Tokenized Stock (Reality)",
-      "symbol": "RUBER",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177063/large/fa3cc88b843b3d7935431cdd74b01a1e.png?1789116712",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x827f892083eee74cfb43146c9f5e397517e16d7e",
       "name": "VanEck Semiconductor ETF (Dinari Tokenized ETF)",
       "symbol": "SMH",
@@ -3631,6 +3619,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x65a641c78c58c08bb9f25d0f0d39ca64b0cf696a",
+      "name": "Uber Tokenized Stock (Reality)",
+      "symbol": "RUBER",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177063/large/fa3cc88b843b3d7935431cdd74b01a1e.png?1789116712",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -3803,18 +3803,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x367b6dc77cd48b589af5645c852f33d8bdb64929",
-      "name": "ARK Innovation ETF Tokenized Stock (Reality)",
-      "symbol": "RARKK",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177120/large/f8c0e9308e727358364dbeea4d7948ea.png?1789116891",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x4ec6556983d09e58882e60c01dc71f6528ee2453",
       "name": "The Travelers Companies Tokenized Stock (Reality)",
       "symbol": "RTRV",
@@ -3822,6 +3810,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177468/large/TRV.png?1789118017",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x367b6dc77cd48b589af5645c852f33d8bdb64929",
+      "name": "ARK Innovation ETF Tokenized Stock (Reality)",
+      "symbol": "RARKK",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177120/large/f8c0e9308e727358364dbeea4d7948ea.png?1789116891",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Reality"
       }
     },
@@ -3971,6 +3971,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0x9cbaf44854c13235fe2d5913a25635732198bb91",
+      "name": "Forward Industries Tokenized Stock (Reality)",
+      "symbol": "RFWDI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177568/large/85f917992b01f36511da553b4431941e.png?1789118346",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x9eae13a89c01b035c0897b4525e8a1a2e3b780e4",
       "name": "GameStop Tokenized Stock (Reality)",
       "symbol": "RGME",
@@ -3988,18 +4000,6 @@
       "symbol": "RDUK",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177406/large/DUK.png?1789117812",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x9cbaf44854c13235fe2d5913a25635732198bb91",
-      "name": "Forward Industries Tokenized Stock (Reality)",
-      "symbol": "RFWDI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177568/large/85f917992b01f36511da553b4431941e.png?1789118346",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -4043,11 +4043,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xcd9e33500da0d1b373baa9550820820bef865260",
-      "name": "Victoria's Secret Tokenized Stock (Reality)",
-      "symbol": "RVSXY",
+      "address": "0x64b17f404a0a67795f5362411c74069a44a49407",
+      "name": "JD.com Tokenized Stock (Reality)",
+      "symbol": "RJD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177330/large/29c6799525cb644034ad30978a37128d.png?1789117562",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177134/large/4217c68f3d655d2aabb79786b38954f6.png?1789116936",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -4055,11 +4055,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x64b17f404a0a67795f5362411c74069a44a49407",
-      "name": "JD.com Tokenized Stock (Reality)",
-      "symbol": "RJD",
+      "address": "0xcd9e33500da0d1b373baa9550820820bef865260",
+      "name": "Victoria's Secret Tokenized Stock (Reality)",
+      "symbol": "RVSXY",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177134/large/4217c68f3d655d2aabb79786b38954f6.png?1789116936",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177330/large/29c6799525cb644034ad30978a37128d.png?1789117562",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -4139,18 +4139,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xc4ab69e24de1bf7b1ffc0a5eb71a6fd42ef0c14b",
-      "name": "Cypherpunk Technologies (Dinari Tokenized Stock)",
-      "symbol": "CYPH",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175119/large/dinari-logo-green-with-margin.png?1785403271",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x3bac3e119b0cc954593a40057670009f71befb40",
       "name": "ProShares UltraPro S&P500 ETF Tokenized Stock (Reality)",
       "symbol": "RUPRO",
@@ -4159,6 +4147,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xc4ab69e24de1bf7b1ffc0a5eb71a6fd42ef0c14b",
+      "name": "Cypherpunk Technologies (Dinari Tokenized Stock)",
+      "symbol": "CYPH",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175119/large/dinari-logo-green-with-margin.png?1785403271",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -4319,18 +4319,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x0e929101c4fa7c91eaa64d7216161ba3eee387fe",
-      "name": "Chevron Corp (Dinari Tokenized Stock)",
-      "symbol": "CVX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174954/large/dinari-logo-green-with-margin.png?1785402685",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xff5dee7dd0aeec64747fd0f5503ab7645eaa9881",
       "name": "Amphenol Tokenized Stock (Reality)",
       "symbol": "RAPH",
@@ -4339,6 +4327,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x0e929101c4fa7c91eaa64d7216161ba3eee387fe",
+      "name": "Chevron Corp (Dinari Tokenized Stock)",
+      "symbol": "CVX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174954/large/dinari-logo-green-with-margin.png?1785402685",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -4763,18 +4763,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x97923b63ca8062cfc2ddef8e306c29dc90dbdcdf",
-      "name": "United Microelectronics Tokenized Stock (Reality)",
-      "symbol": "RUMC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177174/large/4969ac60633b0a4e34ca4f105e014ba7.png?1789117058",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x808167ea744e02c6fec3f56636d19f3448b72981",
       "name": "Hut 8 (Dinari Tokenized Stock)",
       "symbol": "HUT",
@@ -4783,6 +4771,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x97923b63ca8062cfc2ddef8e306c29dc90dbdcdf",
+      "name": "United Microelectronics Tokenized Stock (Reality)",
+      "symbol": "RUMC",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177174/large/4969ac60633b0a4e34ca4f105e014ba7.png?1789117058",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -4883,11 +4883,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x33ce2a4bd3db9fb05cb6027dcfe5a1b1c63227b3",
-      "name": "Analog Devices Tokenized Stock (Reality)",
-      "symbol": "RADI",
+      "address": "0x65636726185f0ca193eaa43840b24286df9218e3",
+      "name": "Quantum Computing Tokenized Stock (Reality)",
+      "symbol": "RQUBT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177244/large/cd4a7f9848579d251ecd4b9fd8e15b62.png?1789117281",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177034/large/ab65072e4e59b343fa8bda6ca4df1fb0.png?1789116620",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -4895,11 +4895,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x65636726185f0ca193eaa43840b24286df9218e3",
-      "name": "Quantum Computing Tokenized Stock (Reality)",
-      "symbol": "RQUBT",
+      "address": "0x33ce2a4bd3db9fb05cb6027dcfe5a1b1c63227b3",
+      "name": "Analog Devices Tokenized Stock (Reality)",
+      "symbol": "RADI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177034/large/ab65072e4e59b343fa8bda6ca4df1fb0.png?1789116620",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177244/large/cd4a7f9848579d251ecd4b9fd8e15b62.png?1789117281",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -4967,6 +4967,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0x0b5ac0d7dcf6964609a12af4f6c6f3c257070193",
+      "name": "Riot Platforms (Dinari Tokenized Stock)",
+      "symbol": "RIOT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174929/large/dinari-logo-green-with-margin.png?1785402598",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xcfceb3fd88fa3148cf4d96725b9ebdf077421fe9",
       "name": "Salesforce Tokenized Stock (Reality)",
       "symbol": "RCRM",
@@ -4987,18 +4999,6 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x0b5ac0d7dcf6964609a12af4f6c6f3c257070193",
-      "name": "Riot Platforms (Dinari Tokenized Stock)",
-      "symbol": "RIOT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174929/large/dinari-logo-green-with-margin.png?1785402598",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
       }
     },
     {
@@ -5027,6 +5027,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0x6090c04ddcc0902682b60b4b5f61f3f19001b356",
+      "name": "Linde plc Tokenized Stock (Reality)",
+      "symbol": "RLIN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177360/large/LIN.png?1789117661",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xa6f344abc6e2501b2b303fcbba99cd89f136b5fb",
       "name": "Franklin Bitcoin ETF (Dinari Tokenized ETF)",
       "symbol": "EZBC",
@@ -5044,18 +5056,6 @@
       "symbol": "RALB",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177153/large/b70c6c33ab8c02e4909ec9cc2d032180.png?1789116995",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x6090c04ddcc0902682b60b4b5f61f3f19001b356",
-      "name": "Linde plc Tokenized Stock (Reality)",
-      "symbol": "RLIN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177360/large/LIN.png?1789117661",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -5255,11 +5255,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x1b71d09c0238a52cb5c9ef036fe85895931cb359",
-      "name": "CME Group (Dinari Tokenized Stock)",
-      "symbol": "CME",
+      "address": "0xd43b7db03807fb040cf4503618202d5f51a3513b",
+      "name": "Hims & Hers Health (Dinari Tokenized Stock)",
+      "symbol": "HIMS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175129/large/dinari-logo-green-with-margin.png?1785403306",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175097/large/dinari-logo-green-with-margin.png?1785403193",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -5267,11 +5267,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xd43b7db03807fb040cf4503618202d5f51a3513b",
-      "name": "Hims & Hers Health (Dinari Tokenized Stock)",
-      "symbol": "HIMS",
+      "address": "0x1b71d09c0238a52cb5c9ef036fe85895931cb359",
+      "name": "CME Group (Dinari Tokenized Stock)",
+      "symbol": "CME",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175097/large/dinari-logo-green-with-margin.png?1785403193",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175129/large/dinari-logo-green-with-margin.png?1785403306",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -5471,18 +5471,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x024d54bee1dfef9ad96ab56f722653ee9f3e3b7f",
-      "name": "Firefly Aerospace Tokenized Stock (Reality)",
-      "symbol": "RFLY",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177699/large/finnhub_logo20260911-1-pf7tjn.png?1789120590",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xab4d506f5535644ea446ad11b1e4a71b9a2b1372",
       "name": "State Street SPDR Dow Jones Industrial Average ETF Trust Tok",
       "symbol": "RDIA",
@@ -5490,6 +5478,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177580/large/22b77315e93f2dde68704972a666c56e.png?1789118384",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x024d54bee1dfef9ad96ab56f722653ee9f3e3b7f",
+      "name": "Firefly Aerospace Tokenized Stock (Reality)",
+      "symbol": "RFLY",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177699/large/finnhub_logo20260911-1-pf7tjn.png?1789120590",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Reality"
       }
     },
@@ -5627,6 +5627,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0x21a122bae6a7207e155390e53a33ad303d2654a8",
+      "name": "VanEck Rare Earth and Strategic Metals ETF Tokenized Stock (",
+      "symbol": "RREMX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177160/large/c4ddde3ef48008476c33cb611a71a542.png?1789117017",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x315a2dca4b1b633d3a707c71d96243534c02f7c4",
       "name": "Exxon Mobil (Dinari Tokenized Stock)",
       "symbol": "XOM",
@@ -5656,18 +5668,6 @@
       "symbol": "RXLV",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177603/large/699f356fe118de11b541c39c32b9bdb4.png?1789118455",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x21a122bae6a7207e155390e53a33ad303d2654a8",
-      "name": "VanEck Rare Earth and Strategic Metals ETF Tokenized Stock (",
-      "symbol": "RREMX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177160/large/c4ddde3ef48008476c33cb611a71a542.png?1789117017",
       "extensions": {
         "assetType": "etf",
         "issuer": "Reality"
@@ -6143,18 +6143,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x95a7b62e786df1fe2c8f3bde21070cfc0a48b265",
-      "name": "Interactive Brokers Group Tokenized Stock (Reality)",
-      "symbol": "RIBKR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177378/large/IBKR.png?1789117721",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x23f318840a200fa488627849a369a138f66b3577",
       "name": "Bank of America (Dinari Tokenized Stock)",
       "symbol": "BAC",
@@ -6163,6 +6151,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x95a7b62e786df1fe2c8f3bde21070cfc0a48b265",
+      "name": "Interactive Brokers Group Tokenized Stock (Reality)",
+      "symbol": "RIBKR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177378/large/IBKR.png?1789117721",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -6335,11 +6335,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xe3569d225de3b6290f69e15ad39e129bd54ea430",
-      "name": "Zoetis Tokenized Stock (Reality)",
-      "symbol": "RZTS",
+      "address": "0x6b25e9cdec221c9a3a555af25fae68d5f15aa109",
+      "name": "Devon Energy Tokenized Stock (Reality)",
+      "symbol": "RDVN",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177618/large/3d7d632fab1f731482056eb0ffeb24ff.png?1789118502",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177494/large/DVN.png?1789118105",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -6347,11 +6347,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x6b25e9cdec221c9a3a555af25fae68d5f15aa109",
-      "name": "Devon Energy Tokenized Stock (Reality)",
-      "symbol": "RDVN",
+      "address": "0xe3569d225de3b6290f69e15ad39e129bd54ea430",
+      "name": "Zoetis Tokenized Stock (Reality)",
+      "symbol": "RZTS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177494/large/DVN.png?1789118105",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177618/large/3d7d632fab1f731482056eb0ffeb24ff.png?1789118502",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -6587,18 +6587,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xd3e2f024bf35ee17b55653260e8922e1fff27aad",
-      "name": "D-Wave Quantum (Dinari Tokenized Stock)",
-      "symbol": "QBTS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175105/large/dinari-logo-green-with-margin.png?1785403221",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x1a4fd0e749c86eeb6f80d1047d6c25432c703d48",
       "name": "ARK Innovation ETF (Dinari Tokenized ETF)",
       "symbol": "ARKK",
@@ -6611,14 +6599,14 @@
     },
     {
       "chainId": 42161,
-      "address": "0x923878a97e1528bbff0d049c4256dc03c90ff53f",
-      "name": "Block Tokenized Stock (Reality)",
-      "symbol": "RXYZ",
+      "address": "0xd3e2f024bf35ee17b55653260e8922e1fff27aad",
+      "name": "D-Wave Quantum (Dinari Tokenized Stock)",
+      "symbol": "QBTS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177058/large/8b1c128dfd2f2f4d20cd39388b5149c8.png?1789116696",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175105/large/dinari-logo-green-with-margin.png?1785403221",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Reality"
+        "issuer": "Dinari"
       }
     },
     {
@@ -6628,6 +6616,18 @@
       "symbol": "RWULF",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177057/large/7eba7169887f2edbd1e1461111087042.png?1789116693",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x923878a97e1528bbff0d049c4256dc03c90ff53f",
+      "name": "Block Tokenized Stock (Reality)",
+      "symbol": "RXYZ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177058/large/8b1c128dfd2f2f4d20cd39388b5149c8.png?1789116696",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -6671,18 +6671,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x93bbd2c73e180f1e0142a1a4b19021faa0e3b056",
-      "name": "TTM Technologies Tokenized Stock (Reality)",
-      "symbol": "RTTMI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177727/large/finnhub_logo20260911-1-el1rvf.png?1789120673",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x8b365c1afcb3dd64c2e4f859e441b4200f2b402f",
       "name": "iShares MSCI India ETF Tokenized Stock (Reality)",
       "symbol": "RINDA",
@@ -6690,6 +6678,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177140/large/1b59e66a9292825e499c09fbf15cf087.png?1789116955",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x93bbd2c73e180f1e0142a1a4b19021faa0e3b056",
+      "name": "TTM Technologies Tokenized Stock (Reality)",
+      "symbol": "RTTMI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177727/large/finnhub_logo20260911-1-el1rvf.png?1789120673",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Reality"
       }
     },
@@ -6887,18 +6887,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xe15602ceeb794feb4163b049fe82a1f8432781b2",
-      "name": "JPMorgan Chase (Dinari Tokenized Stock)",
-      "symbol": "JPM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174983/large/dinari-logo-green-with-margin.png?1785402790",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x8c92b0bb0237098e581e7054f9254aa5f5b07465",
       "name": "One Stop Systems Tokenized Stock (Reality)",
       "symbol": "ROSS",
@@ -6911,14 +6899,14 @@
     },
     {
       "chainId": 42161,
-      "address": "0xb27abd21683c54c8dff5a38f281120ddd13f3cb6",
-      "name": "Liquidia Tokenized Stock (Reality)",
-      "symbol": "RLQDA",
+      "address": "0xe15602ceeb794feb4163b049fe82a1f8432781b2",
+      "name": "JPMorgan Chase (Dinari Tokenized Stock)",
+      "symbol": "JPM",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177694/large/finnhub_logo20260911-1-j04d6r.png?1789120575",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174983/large/dinari-logo-green-with-margin.png?1785402790",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Reality"
+        "issuer": "Dinari"
       }
     },
     {
@@ -6928,6 +6916,18 @@
       "symbol": "RAMKR",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177554/large/efd4a9d0a833d094eba5cc3ee197ef42.png?1789118301",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xb27abd21683c54c8dff5a38f281120ddd13f3cb6",
+      "name": "Liquidia Tokenized Stock (Reality)",
+      "symbol": "RLQDA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177694/large/finnhub_logo20260911-1-j04d6r.png?1789120575",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -6971,18 +6971,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x28bf1c9ee2eb746a2d61a0bec97a344028171d6c",
-      "name": "AMC ENTERTAINMENT HOLDINGS (Dinari Tokenized Stock)",
-      "symbol": "AMC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174948/large/dinari-logo-green-with-margin.png?1785402664",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xcf70f411d3c82f0656aa4a0e74dd48655662b105",
       "name": "Direxion Daily FTSE China Bull 3X ETF Tokenized Stock (Reali",
       "symbol": "RYINN",
@@ -6991,6 +6979,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x28bf1c9ee2eb746a2d61a0bec97a344028171d6c",
+      "name": "AMC ENTERTAINMENT HOLDINGS (Dinari Tokenized Stock)",
+      "symbol": "AMC",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174948/large/dinari-logo-green-with-margin.png?1785402664",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -7175,11 +7175,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x30528b36af78b116897dca7d7b32e40c2126b5ec",
-      "name": "Hewlett Packard Enterprise Tokenized Stock (Reality)",
-      "symbol": "RHPE",
+      "address": "0x4065f02c29fda4e8701c1a48d7f5227ec4eb9ce1",
+      "name": "Okta Tokenized Stock (Reality)",
+      "symbol": "ROKTA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177215/large/843b608cedc542e9282940661197f460.png?1789117188",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177147/large/62a8689f8d785eb9188e2b25571ee18c.png?1789116976",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -7187,11 +7187,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x4065f02c29fda4e8701c1a48d7f5227ec4eb9ce1",
-      "name": "Okta Tokenized Stock (Reality)",
-      "symbol": "ROKTA",
+      "address": "0x30528b36af78b116897dca7d7b32e40c2126b5ec",
+      "name": "Hewlett Packard Enterprise Tokenized Stock (Reality)",
+      "symbol": "RHPE",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177147/large/62a8689f8d785eb9188e2b25571ee18c.png?1789116976",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177215/large/843b608cedc542e9282940661197f460.png?1789117188",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -7343,18 +7343,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x7ec1fca636d6114b2c61b45db14b8e8ca96d4424",
-      "name": "Opendoor Technologies (Dinari Tokenized Stock)",
-      "symbol": "OPEN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175070/large/dinari-logo-green-with-margin.png?1785403098",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x3b735796658e6f1e4d8abf98c281015e2ebc1c09",
       "name": "Shopify Tokenized Stock (Reality)",
       "symbol": "RSHOP",
@@ -7363,6 +7351,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x7ec1fca636d6114b2c61b45db14b8e8ca96d4424",
+      "name": "Opendoor Technologies (Dinari Tokenized Stock)",
+      "symbol": "OPEN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175070/large/dinari-logo-green-with-margin.png?1785403098",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -7451,6 +7451,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0xaf358f1d2cdc4d743c1d1dfa240a2ea3e00ff903",
+      "name": "Amprius Technologies Tokenized Stock (Reality)",
+      "symbol": "RAMPX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177696/large/finnhub_logo20260911-1-dfr4pe.png?1789120581",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0x128559450e68bf43165e0df93957cdb1c178cc34",
       "name": "CME Group Tokenized Stock (Reality)",
       "symbol": "RCME",
@@ -7510,30 +7522,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xaf358f1d2cdc4d743c1d1dfa240a2ea3e00ff903",
-      "name": "Amprius Technologies Tokenized Stock (Reality)",
-      "symbol": "RAMPX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177696/large/finnhub_logo20260911-1-dfr4pe.png?1789120581",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x3ad7d684839a14d61f7c6200bb07c42d86191c2a",
-      "name": "GraniteShares ETF Trust GraniteShares 2x Short NVDA Daily ET",
-      "symbol": "RNVD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177537/large/24613960b50aaf8d803d77b0b1bc699b.png?1789118246",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xd78940db580d9e18bea4cc61512166c411950f04",
       "name": "Figma (Dinari Tokenized Stock)",
       "symbol": "FIG",
@@ -7553,6 +7541,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177217/large/82c846ff545f175fd95b587fa88a803f.png?1789117194",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x3ad7d684839a14d61f7c6200bb07c42d86191c2a",
+      "name": "GraniteShares ETF Trust GraniteShares 2x Short NVDA Daily ET",
+      "symbol": "RNVD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177537/large/24613960b50aaf8d803d77b0b1bc699b.png?1789118246",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Reality"
       }
     },
@@ -7954,14 +7954,14 @@
     },
     {
       "chainId": 42161,
-      "address": "0x30cce6b905c8c3a78c6f8bd2e394c1f52c7d4cb6",
-      "name": "Direxion Daily Semiconductor Bear 3X ETF (Dinari Tokenized E",
-      "symbol": "SOXS",
+      "address": "0x1cdc2727ac5c448c1554f18085c9970befda8127",
+      "name": "MACOM Technology Solutions Holdings Tokenized Stock (Reality",
+      "symbol": "RMTSI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175024/large/dinari-logo-green-with-margin.png?1785402935",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177656/large/finnhub_logo20260911-1-hqjn0x.png?1789120462",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -7978,14 +7978,14 @@
     },
     {
       "chainId": 42161,
-      "address": "0x1cdc2727ac5c448c1554f18085c9970befda8127",
-      "name": "MACOM Technology Solutions Holdings Tokenized Stock (Reality",
-      "symbol": "RMTSI",
+      "address": "0x30cce6b905c8c3a78c6f8bd2e394c1f52c7d4cb6",
+      "name": "Direxion Daily Semiconductor Bear 3X ETF (Dinari Tokenized E",
+      "symbol": "SOXS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177656/large/finnhub_logo20260911-1-hqjn0x.png?1789120462",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175024/large/dinari-logo-green-with-margin.png?1785402935",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
+        "assetType": "etf",
+        "issuer": "Dinari"
       }
     },
     {
@@ -8062,6 +8062,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0x10ddf4850c43de1bcab504f53becdcd66a53d5c4",
+      "name": "ARK Space & Defense Innovation ETF (Dinari Tokenized ETF)",
+      "symbol": "ARKX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174980/large/dinari-logo-green-with-margin.png?1785402779",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xcc603c6626408fbfe2c1fea3565acb5d10c85274",
       "name": "Delta Air Lines (Dinari Tokenized Stock)",
       "symbol": "DAL",
@@ -8081,18 +8093,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175120/large/dinari-logo-green-with-margin.png?1785403274",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x10ddf4850c43de1bcab504f53becdcd66a53d5c4",
-      "name": "ARK Space & Defense Innovation ETF (Dinari Tokenized ETF)",
-      "symbol": "ARKX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174980/large/dinari-logo-green-with-margin.png?1785402779",
-      "extensions": {
-        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -8386,18 +8386,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x2524f62630c08bc6d134911549408e7ec9c3a470",
-      "name": "Stryker Tokenized Stock (Reality)",
-      "symbol": "RSYK",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177392/large/SYK.png?1789117766",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x0b45e5afea928030988704ef60995d8925b91cd6",
       "name": "Vertiv aStock",
       "symbol": "AVRT",
@@ -8406,6 +8394,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x2524f62630c08bc6d134911549408e7ec9c3a470",
+      "name": "Stryker Tokenized Stock (Reality)",
+      "symbol": "RSYK",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177392/large/SYK.png?1789117766",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -8422,18 +8422,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x6e8568ba7b43138d9210959a9523155e274550c9",
-      "name": "SK Hynix (Anchored Tokenized Stock)",
-      "symbol": "ASKHY",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175661/large/coingecko-aSKHY.png?1787279624",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x08e0f51fe43b9b90451d1d76497fe09bd98ee16d",
       "name": "monday.com Tokenized Stock (Reality)",
       "symbol": "RMNDY",
@@ -8442,6 +8430,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x6e8568ba7b43138d9210959a9523155e274550c9",
+      "name": "SK Hynix (Anchored Tokenized Stock)",
+      "symbol": "ASKHY",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175661/large/coingecko-aSKHY.png?1787279624",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -9022,18 +9022,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xf6e17746aa392d659eb4d4ffdc5b86f2b02397a7",
-      "name": "Airbnb Tokenized Stock (Reality)",
-      "symbol": "RABNB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177103/large/cd1a1cc4ee9c906e45eb38185ec213b3.png?1789116837",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xc8c3bbd0af3f10293d75dd468c51f3f81fc22fee",
       "name": "IONQ aStock",
       "symbol": "AIONQ",
@@ -9042,6 +9030,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xf6e17746aa392d659eb4d4ffdc5b86f2b02397a7",
+      "name": "Airbnb Tokenized Stock (Reality)",
+      "symbol": "RABNB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177103/large/cd1a1cc4ee9c906e45eb38185ec213b3.png?1789116837",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -9454,18 +9454,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x260077010af0aad032d32041e2e3b72919c49240",
-      "name": "eToro Group (Dinari Tokenized Stock)",
-      "symbol": "ETOR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175093/large/dinari-logo-green-with-margin.png?1785403179",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xe4daefbde7361c57d9f26e0a915707fdfc2cf096",
       "name": "Atlassian Tokenized Stock (Reality)",
       "symbol": "RTEAM",
@@ -9474,6 +9462,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x260077010af0aad032d32041e2e3b72919c49240",
+      "name": "eToro Group (Dinari Tokenized Stock)",
+      "symbol": "ETOR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175093/large/dinari-logo-green-with-margin.png?1785403179",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -9574,6 +9574,18 @@
     },
     {
       "chainId": 42161,
+      "address": "0xa8111ae8f926a47bf2ae309e2880dddd72af5e84",
+      "name": "Modine Manufacturing Tokenized Stock (Reality)",
+      "symbol": "RMOD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178055/large/finnhub_logo20260911-1-loz3ih.png?1789121682",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xec6ee097accb6c2d251de69de534f82065978066",
       "name": "Unilever Tokenized Stock (Reality)",
       "symbol": "RUL",
@@ -9582,18 +9594,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0x72fadfa9767fe47fde2650b64766abbc6639ff95",
-      "name": "Goldman Sachs Group (Dinari Tokenized Stock)",
-      "symbol": "GS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175030/large/dinari-logo-green-with-margin.png?1785402956",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
       }
     },
     {
@@ -9610,23 +9610,23 @@
     },
     {
       "chainId": 42161,
+      "address": "0x72fadfa9767fe47fde2650b64766abbc6639ff95",
+      "name": "Goldman Sachs Group (Dinari Tokenized Stock)",
+      "symbol": "GS",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175030/large/dinari-logo-green-with-margin.png?1785402956",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
       "address": "0xf86875e7594f2f4c6a92b25307c2655105a3ab7c",
       "name": "Gold Fields Limited Tokenized Stock (Reality)",
       "symbol": "RGFI",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102177806/large/finnhub_logo20260911-1-ydiehw.png?1789120919",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
-      "address": "0xa8111ae8f926a47bf2ae309e2880dddd72af5e84",
-      "name": "Modine Manufacturing Tokenized Stock (Reality)",
-      "symbol": "RMOD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178055/large/finnhub_logo20260911-1-loz3ih.png?1789121682",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -10354,11 +10354,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xed2dae9466a6cd539a67ecb73ff428ce76060903",
-      "name": "NetEase Tokenized Stock (Reality)",
-      "symbol": "RNTES",
+      "address": "0x094e32b9167d8d01335f0be340ee06a8e7c68048",
+      "name": "Zscaler Tokenized Stock (Reality)",
+      "symbol": "RZS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177318/large/aabbb27fd4c369f3593db06523863472.png?1789117523",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177237/large/8221114cb38674261cf27af5e00bc3c9.png?1789117258",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -10366,11 +10366,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x094e32b9167d8d01335f0be340ee06a8e7c68048",
-      "name": "Zscaler Tokenized Stock (Reality)",
-      "symbol": "RZS",
+      "address": "0xed2dae9466a6cd539a67ecb73ff428ce76060903",
+      "name": "NetEase Tokenized Stock (Reality)",
+      "symbol": "RNTES",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177237/large/8221114cb38674261cf27af5e00bc3c9.png?1789117258",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177318/large/aabbb27fd4c369f3593db06523863472.png?1789117523",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -10677,18 +10677,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0x44052ad98b6e6747c59e8dd20f5abbb091883890",
-      "name": "British American Tobacco Tokenized Stock (Reality)",
-      "symbol": "RBTI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177383/large/BTI.png?1789117737",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0x302154f8ba133d6357c14e5d35446ca540f1444b",
       "name": "Tapestry Tokenized Stock (Reality)",
       "symbol": "RTPR",
@@ -10701,14 +10689,14 @@
     },
     {
       "chainId": 42161,
-      "address": "0x40914f6007da3fcee3c8a6db211b5797848f8882",
-      "name": "iPath Series B S&P 500 VIX Short-Term Futures ETN (Dinari To",
-      "symbol": "VXX",
+      "address": "0x44052ad98b6e6747c59e8dd20f5abbb091883890",
+      "name": "British American Tobacco Tokenized Stock (Reality)",
+      "symbol": "RBTI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174962/large/dinari-logo-green-with-margin.png?1785402714",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177383/large/BTI.png?1789117737",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -10733,6 +10721,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0x40914f6007da3fcee3c8a6db211b5797848f8882",
+      "name": "iPath Series B S&P 500 VIX Short-Term Futures ETN (Dinari To",
+      "symbol": "VXX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174962/large/dinari-logo-green-with-margin.png?1785402714",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
       }
     },
     {
@@ -10797,18 +10797,6 @@
     },
     {
       "chainId": 42161,
-      "address": "0xb6c6f1e02a47ffe7fd6a490e9640fa194379e686",
-      "name": "Comcast Tokenized Stock (Reality)",
-      "symbol": "RCMCSA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177422/large/CMCSA.png?1789117865",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Reality"
-      }
-    },
-    {
-      "chainId": 42161,
       "address": "0xedaaa08b77ade52199140c7cd9fe3bb873b7ab3a",
       "name": "Ares Capital (Dinari Tokenized Stock)",
       "symbol": "ARCC",
@@ -10817,6 +10805,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 42161,
+      "address": "0xb6c6f1e02a47ffe7fd6a490e9640fa194379e686",
+      "name": "Comcast Tokenized Stock (Reality)",
+      "symbol": "RCMCSA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177422/large/CMCSA.png?1789117865",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Reality"
       }
     },
     {
@@ -10953,11 +10953,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0xa26f19f1f6bdac48295084a90a4df8939ba17739",
-      "name": "Aegon Ltd. Tokenized Stock (Reality)",
-      "symbol": "RAEG",
+      "address": "0x3a94c302634e67ba833e819ebb2b264a8073969b",
+      "name": "Jabil Tokenized Stock (Reality)",
+      "symbol": "RJBL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178004/large/finnhub_logo20260911-1-9s2bua.png?1789121524",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102177589/large/232b4dc5994179bc1901ce857d7c7752.png?1789118412",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -10965,11 +10965,11 @@
     },
     {
       "chainId": 42161,
-      "address": "0x3a94c302634e67ba833e819ebb2b264a8073969b",
-      "name": "Jabil Tokenized Stock (Reality)",
-      "symbol": "RJBL",
+      "address": "0xa26f19f1f6bdac48295084a90a4df8939ba17739",
+      "name": "Aegon Ltd. Tokenized Stock (Reality)",
+      "symbol": "RAEG",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102177589/large/232b4dc5994179bc1901ce857d7c7752.png?1789118412",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178004/large/finnhub_logo20260911-1-9s2bua.png?1789121524",
       "extensions": {
         "assetType": "stock",
         "issuer": "Reality"
@@ -22079,5 +22079,5 @@
   ],
   "name": "RWA on Arbitrum one",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-11T08:18:13.935Z"
+  "timestamp": "2026-11-11T08:48:29.837Z"
 }
