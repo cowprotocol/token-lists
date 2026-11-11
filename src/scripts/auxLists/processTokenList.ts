@@ -56,7 +56,8 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
         (listToken.name !== token.name ||
           listToken.symbol !== token.symbol ||
           listToken.decimals !== token.decimals ||
-          listToken.logoURI !== token.logoURI)
+          listToken.logoURI !== token.logoURI ||
+          JSON.stringify(listToken.extensions) !== JSON.stringify(token.extensions))
       ) {
         return { ...version, patch: version.patch + 1 }
       }

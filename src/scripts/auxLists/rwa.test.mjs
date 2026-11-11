@@ -206,3 +206,30 @@ test('does not write lists when an RWA cannot be fetched', async (t) => {
   await assert.rejects(fetchAndProcessRwaTokens(), /404/)
   assert.equal(existsSync('src/public/CoinGeckoRwa.1.json'), false)
 })
+
+test('bumps the list version when only token extensions change', async (t) => {
+  const { processTokenList } = await import('./processTokenList.ts')
+  const cwd = process.cwd()
+  const dir = mkdtempSync(join(tmpdir(), 'rwa-'))
+  mkdirSync(join(dir, 'src/public'), { recursive: true })
+  process.chdir(dir)
+  t.after(() => process.chdir(cwd))
+  t.mock.method(console, 'log', () => {})
+  t.mock.method(console, 'warn', () => {})
+
+  const logger = { info: () => {} }
+  const token = { chainId: 1, address: xstock, name: '3M xStock', symbol: 'MMMx', decimals: 18 }
+  const save = (extensions) =>
+    processTokenList({ chainId: 1, tokens: [{ ...token, extensions }], prefix: 'Test', logo: '', logMessage: '', logger })
+  const read = () => JSON.parse(readFileSync('src/public/Test.1.json', 'utf8'))
+
+  await save({ assetType: 'other' })
+  assert.deepEqual(read().version, { major: 0, minor: 1, patch: 0 })
+
+  await save({ assetType: 'stock', issuer: 'xStocks' })
+  assert.deepEqual(read().version, { major: 0, minor: 1, patch: 1 })
+  assert.deepEqual(read().tokens[0].extensions, { assetType: 'stock', issuer: 'xStocks' })
+
+  await save({ assetType: 'stock', issuer: 'xStocks' })
+  assert.deepEqual(read().version, { major: 0, minor: 1, patch: 1 })
+})

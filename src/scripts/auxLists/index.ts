@@ -26,7 +26,11 @@ async function main(): Promise<void> {
 
   fetchAndProcessCoingeckoTokens(COINGECKO_IDS_MAP, OVERRIDES)
   fetchAndProcessUniswapTokens(COINGECKO_IDS_MAP, OVERRIDES)
-  fetchAndProcessRwaTokens().catch((error) => console.error('Error processing RWA tokens:', error))
+  fetchAndProcessRwaTokens().catch((error) => {
+    console.error('Error processing RWA tokens:', error)
+    // Fail the job, so the failure is reported instead of the previous lists being committed again
+    process.exitCode = 1
+  })
 }
 
 main()
