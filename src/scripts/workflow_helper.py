@@ -54,7 +54,7 @@ def handle_remove_token(data):
         token_list["tokens"] = [
             token
             for token in token_list["tokens"]
-            if token["address"].lower() != data["address"].lower()
+            if not (token["address"].lower() == data["address"].lower() and token["chainId"] == int(data["chainId"]))
         ]
 
         f.seek(0)
