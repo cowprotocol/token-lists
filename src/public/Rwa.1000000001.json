@@ -1,8 +1,8 @@
 {
   "name": "Solana RWA",
-  "timestamp": "2026-11-06T00:13:11.921Z",
+  "timestamp": "2026-11-13T00:03:37.935Z",
   "version": {
-    "major": 3,
+    "major": 4,
     "minor": 2,
     "patch": 0
   },
@@ -15,6 +15,17 @@
     "coingecko"
   ],
   "tokens": [
+    {
+      "chainId": 1000000001,
+      "address": "5GgRAEmv8ZxF2PR5hY72Qs5x1bnQ6UK2RbTPoqJ3wSwW",
+      "name": "PAX Gold",
+      "symbol": "PAXG",
+      "decimals": 6,
+      "logoURI": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PAXG%20Metadata%202026/PAXG-Symbol-512x512px-Circle.png",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
     {
       "chainId": 1000000001,
       "address": "AMC1qwR9KhiyrQBRPrxnfo4JfMeMZqEBvt5tgTytNNoc",
@@ -32,7 +43,18 @@
       "name": "Advanced Micro Devices - Backpack Securities",
       "symbol": "AMD",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/AMD",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/793235c61d851bffdb664cfe1a5121317a1138dca2b5eb21b36b3f5af6c3fbb1.webp",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "AMZNw7cwU9L9c7ewZXxTws2PwQYxBGm2Rxg3FLDBJz9B",
+      "name": "Amazon - Backpack Securities",
+      "symbol": "AMZN",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/AMZN",
       "extensions": {
         "isToken2022": true
       }
@@ -51,7 +73,18 @@
       "name": "Alibaba Group Holding - Backpack Securities",
       "symbol": "BABA",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/BABA",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/4c636159b2656380143d0d077bef66673cb03ec78b2788011e417db3816f9718.webp",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "BArimz1PcKZr8PcPh3tcZ2dg4S7FJLk3cw6R5F8GsHKg",
+      "name": "The Boeing Company - Backpack Securities",
+      "symbol": "BA",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/BA",
       "extensions": {
         "isToken2022": true
       }
@@ -117,7 +150,7 @@
       "name": "Trump Media & Technology Group Corp. Common Stock - Backpack Securities",
       "symbol": "DJT",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/DJT",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/f0812d91a4c276ff05fd4440ce0d8442a78af4651523b696de77c54f07984967.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -242,6 +275,17 @@
     },
     {
       "chainId": 1000000001,
+      "address": "LMT3i1BHgixFqPUgcyteJhnEz2dpy9i3cYy4pi9BoeV",
+      "name": "Lockheed Martin - Backpack Securities",
+      "symbol": "LMT",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/LMT",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
       "address": "LULUmT9VMttkfAJE236LXJcYJ2tTP7nunrSWR5G1BdS",
       "name": "lululemon athletica inc. - Backpack Securities",
       "symbol": "LULU",
@@ -301,7 +345,7 @@
       "name": "Micron Technology - Backpack Securities",
       "symbol": "MU",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/MU?cacheburst=1",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/975a31c528c85444a5487dab1e166728b2e3f967e856a419c28be29dec1482b1.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -312,7 +356,7 @@
       "name": "Nike - Backpack Securities",
       "symbol": "NKE",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/NKE",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/fb43dae47099f22fcbca1877ab0ac820ef49a5760078adc25dfe5f79621044ce.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -323,7 +367,7 @@
       "name": "Nvidia - Backpack Securities",
       "symbol": "NVDA",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/NVDA",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/17e6cc483ab59f3b394ee4b8a530ad390e38be10629c61605779e7a565ce5a51.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -335,6 +379,17 @@
       "symbol": "PFE",
       "decimals": 6,
       "logoURI": "https://backpack.exchange/api/stock-logo/PFE",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "PTNzAfFAB4LvoUQEUUGrFMyUoRLExMYjH6CcfyQfsVP",
+      "name": "Palatin Technologies, Inc. - Backpack Securities",
+      "symbol": "PTN",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/PTN",
       "extensions": {
         "isToken2022": true
       }
@@ -363,6 +418,17 @@
     },
     {
       "chainId": 1000000001,
+      "address": "PreZad18qfPtbxNpMtMuAuX2zVpvkEU8DnJx56faCWd",
+      "name": "Figure AI PreStocks",
+      "symbol": "FIGUREAI",
+      "decimals": 9,
+      "logoURI": "https://www.prestocks.com/logos/figureai.png?cachebust=1",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
       "address": "PrekqLJvJ3qVdXmBGDiexvwUTF4rLFDa6HWS4HJbw9S",
       "name": "Neuralink PreStocks",
       "symbol": "NEURALINK",
@@ -378,7 +444,7 @@
       "name": "Anthropic PreStocks",
       "symbol": "ANTHROPIC",
       "decimals": 9,
-      "logoURI": "https://www.prestocks.com/logos/anthropic.png?cachebust=1",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/81a91f1835cbfd8e1460eea7d3deadaf6a8e7055ba4228cc548b01e67507838c.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -400,7 +466,7 @@
       "name": "OpenAI PreStocks",
       "symbol": "OPENAI",
       "decimals": 9,
-      "logoURI": "https://www.prestocks.com/logos/openai.png?cachebust=1",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/820f1a2a573326ba3919a02c4f441d73fd930d2253a775a4398be5502bacc0ea.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -455,7 +521,7 @@
       "name": "SK Hynix - Backpack Securities",
       "symbol": "SKHY",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/SKHY",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/9f2c1e754f0faf77a0751c06f2b3475dd25ddd638b76f96700d618bf304eeed9.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -488,7 +554,7 @@
       "name": "SpaceX - Backpack Securities",
       "symbol": "SPCX",
       "decimals": 6,
-      "logoURI": "https://s3-symbol-logo.tradingview.com/spacex.svg",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/039b99d71bdc05b3771f9f6ad628367cf7a4bf1cde181a0a45684f3277bf56bb.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -499,18 +565,18 @@
       "name": "SPDR S&P 500 ETF Trust - Backpack Securities",
       "symbol": "SPY",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/SPY",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/2e05e480e5483dee6678bb2cdafb91392e378ba71b40c7497a2504f6ea259e24.webp",
       "extensions": {
         "isToken2022": true
       }
     },
     {
       "chainId": 1000000001,
-      "address": "SiLVFMgD3eD2rgK628NbTBq9MnuJF5FW2CRaVyTB35L",
-      "name": "Dominion Silver",
-      "symbol": "SILV",
-      "decimals": 6,
-      "logoURI": "https://app.dominion.market/silv.png",
+      "address": "TKLSidmLVt3cqGaaodG8tyRzoANfQwoh67AccjmubeZ",
+      "name": "T-Kalshi",
+      "symbol": "tKalshi",
+      "decimals": 9,
+      "logoURI": "https://cdn.tesseralab.co/tessera/tokenicon_T-Kalshi.svg",
       "extensions": {
         "isToken2022": true
       }
@@ -521,7 +587,7 @@
       "name": "Tesla - Backpack Securities",
       "symbol": "TSLA",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/TSLA",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/232ac23e5a35bc332ef86fceaea62a8e8a3f14ad4cf2e61bed0ba4738e8219a0.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -532,7 +598,7 @@
       "name": "Take-Two Interactive Software - Backpack Securities",
       "symbol": "TTWO",
       "decimals": 6,
-      "logoURI": "https://backpack.exchange/api/stock-logo/TTWO",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/e53092ed0fb1086010f623855199a84756a09b1946bb819db35b471de00da95f.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -587,7 +653,7 @@
       "name": "SpaceX xStock",
       "symbol": "SPCXx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/SPCXx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/408050c7fcb89ee19487cf7b549476b645151a6bb777dc925bba09fb49eb69e1.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -642,7 +708,7 @@
       "name": "Alphabet xStock",
       "symbol": "GOOGLx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/GOOGLx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/12d3b57880ed15dda32a5f89564aa9adf6e30f5dd8a44d1a645b3dc00f7e45be.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -653,7 +719,7 @@
       "name": "Tesla xStock",
       "symbol": "TSLAx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/TSLAx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/e1d90902b191d70826c331e81dee1c19bf7d8884e436626153ff09397c36d278.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -664,7 +730,7 @@
       "name": "MicroStrategy xStock",
       "symbol": "MSTRx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/MSTRx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/80e0f9b2b1a97b8aee2ce90f161e9c9557f9afdb81abc86e2d543197e996d470.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -675,7 +741,7 @@
       "name": "Meta xStock",
       "symbol": "METAx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/METAx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/a636a567e1cfdaa487635e36e24467d111a7bdd6f072b41eb41bea784088e9ab.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -708,7 +774,7 @@
       "name": "NVIDIA xStock",
       "symbol": "NVDAx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/NVDAx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/5550a81a36c9cce2af5d8b738bcf665c7b4da250a4652dd025107a5d6f0b9458.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -774,7 +840,7 @@
       "name": "SP500 xStock",
       "symbol": "SPYx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/SPYx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/4d04cfdd8396f0c9274d49f135a458b7d4726cc098e3fc69bb3b4124eb24a2f2.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -785,7 +851,7 @@
       "name": "Microsoft xStock",
       "symbol": "MSFTx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/MSFTx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/01cc89d2a92ce9845c11e410e1b21614cc211f65239934b3c54d95cf06a84910.webp",
       "extensions": {
         "isToken2022": true
       }
@@ -818,7 +884,7 @@
       "name": "Gold xStock",
       "symbol": "GLDx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/GLDx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/4b57f2ddf52a0b96ed41fa9678f5540a6f08ca0aa81e735a884c8106e7ea8add.webp",
       "extensions": {
         "isToken2022": true
       }

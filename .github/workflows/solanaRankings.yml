@@ -1,0 +1,103 @@
+name: Refresh Solana Rankings
+
+on:
+  schedule:
+    - cron: '0 2 * * 1' # Monday UTC. Daily list generation stays separate.
+  workflow_dispatch:
+    inputs:
+      execution_id:
+        description: 'Resume this Dune execution instead of paying for a new one (26 chars). Leave empty for a fresh run.'
+        required: false
+        default: ''
+      receipt_run_id:
+        description: 'ID of the workflow run that uploaded the receipt for execution_id. Results older than 7 days are rejected.'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+  actions: read # Download the receipt artifact from an earlier run.
+
+concurrency:
+  group: solana-ranking-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: token-lists-bot
+    timeout-minutes: 35 # Dune gets 30 minutes; allow setup and receipt saving too.
+    steps:
+      - name: Check resume inputs
+        env:
+          EXECUTION_ID: ${{ inputs.execution_id }}
+          RECEIPT_RUN_ID: ${{ inputs.receipt_run_id }}
+        run: |
+          if [ -z "$EXECUTION_ID" ] && [ -z "$RECEIPT_RUN_ID" ]; then exit 0; fi
+          if ! [[ "$EXECUTION_ID" =~ ^[A-Z0-9]{26}$ ]] || ! [[ "$RECEIPT_RUN_ID" =~ ^[0-9]+$ ]]; then
+            echo "::error::Resuming needs both execution_id (26 chars) and a numeric receipt_run_id"
+            exit 1
+          fi
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
+      - name: Restore execution receipt
+        if: inputs.execution_id != ''
+        uses: actions/download-artifact@634f93cb2916e3fdff6788551b99b062d0335ce0 # v5.0.0
+        with:
+          name: solana-ranking-execution
+          path: ${{ runner.temp }}
+          run-id: ${{ inputs.receipt_run_id }}
+          github-token: ${{ github.token }}
+      - name: Generate ranking proposal
+        id: generate
+        env:
+          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
+          SOLANA_EXECUTION_RECEIPT: ${{ runner.temp }}/solana-execution.json
+          EXECUTION_ID: ${{ inputs.execution_id }}
+        run: |
+          yarn solana --refresh-rankings ${EXECUTION_ID:+--execution-id "$EXECUTION_ID"}
+          echo "execution_id=$(jq -r .executionId "$SOLANA_EXECUTION_RECEIPT")" >> "$GITHUB_OUTPUT"
+      # Keep the execution ID and settings so a failed run can resume without paying again.
+      # Dune results older than 7 days are rejected, so a longer retention would not help.
+      - name: Retain execution receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: solana-ranking-execution
+          path: ${{ runner.temp }}/solana-execution.json
+          if-no-files-found: warn
+          retention-days: 7
+      # Use the bot token so the PR triggers CI.
+      - id: app-token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        with:
+          app-id: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_ID }}
+          private-key: ${{ secrets.COW_FE_TOKEN_LIST_UPDATER_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+      # Reuse one PR. Review is required before merging the proposed ranks.
+      - name: Open or update the ranking PR
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          sign-commits: true
+          base: main
+          branch: automation/solana-rankings
+          commit-message: 'chore: refresh Solana volume rankings'
+          title: 'chore: refresh Solana volume rankings'
+          body: |
+            Refresh ranks using https://dune.com/queries/9087267. Daily lists and Jupiter Shield warnings update separately.
+
+            Review the ranking diff before merging.
+
+            If CI reports that membership changed on main, re-rank against current main without a new paid execution: run **Refresh Solana Rankings** manually with
+            - `execution_id`: `${{ steps.generate.outputs.execution_id }}`
+            - `receipt_run_id`: `${{ github.run_id }}`
+
+            This works for 7 days after the execution; after that, wait for the next weekly run.
+          add-paths: src/public/TokenRanking.1000000001.json

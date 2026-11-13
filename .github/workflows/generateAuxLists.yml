@@ -6,8 +6,12 @@ on:
     - cron: '0 0 * * *'
   # Allow manual trigger
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - src/public/TokenRanking.1000000001.json
 
-# Let active Dune executions finish when another run is queued.
+# Let active generation finish when another run is queued.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: false
@@ -48,7 +52,7 @@ jobs:
           retention-days: 1
 
   solana:
-    name: Generate Solana token lists and ranks
+    name: Generate daily Solana membership and warnings
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -63,12 +67,12 @@ jobs:
         with:
           authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
 
-      - name: Generate Solana lists, ranks and warnings
-        env:
-          DUNE_API_KEY: ${{ secrets.DUNE_API_KEY }}
-        run: |
-          yarn solana
-          yarn solanaWarnings
+      - name: Regenerate Solana lists and warnings
+        run: yarn solana
+
+      # Nothing else checks this bundle: the commit job pushes straight to main.
+      - name: Validate the generated Solana bundle
+        run: yarn validate:solana
 
       - name: Upload generated Solana lists
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
@@ -81,10 +85,31 @@ jobs:
           if-no-files-found: error
           retention-days: 1
 
+  # Separate from `solana` on purpose: stale ranks still publish, but a weekly
+  # refresh that stopped landing has to reach someone instead of only the logs.
+  ranking-freshness:
+    name: Check approved ranking freshness
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        with:
+          persist-credentials: false
+
+      - name: Setup dependencies
+        uses: ./.github/actions/setup-dependencies
+        with:
+          authToken: ${{ secrets.PACKAGE_READ_AUTH_TOKEN }}
+
+      - name: Check approved ranks
+        run: yarn solana --check-ranking
+
   commit:
     name: Commit generated token lists
     needs: [generate, solana]
-    if: ${{ !cancelled() && (needs.generate.result == 'success' || needs.solana.result == 'success') }}
+    if: ${{ !cancelled() && github.ref == 'refs/heads/main' && (needs.generate.result == 'success' || needs.solana.result == 'success') }}
     runs-on: ubuntu-latest
     environment: token-lists-bot
     permissions: {}
@@ -134,7 +159,7 @@ jobs:
 
   report-failure:
     name: Report failure
-    needs: [generate, solana, commit]
+    needs: [generate, solana, ranking-freshness, commit]
     if: failure()
     runs-on: ubuntu-latest
     permissions:
@@ -145,11 +170,17 @@ jobs:
         uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
         with:
           script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'Token Lists Generation Failed',
-              body: `The workflow to generate token lists failed on ${new Date().toISOString()}.
+            const title = 'Token Lists Generation Failed'
+            const body = `The workflow to generate token lists failed on ${new Date().toISOString()}.
 
-              Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
-            })
+            Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
+            const { owner, repo } = context.repo
+            // The ranking freshness check fails on every run until someone merges a
+            // refresh, so a new issue per day would bury the one already open.
+            const open = await github.paginate(github.rest.issues.listForRepo, { owner, repo, state: 'open', per_page: 100 })
+            const existing = open.find((issue) => issue.title === title && !issue.pull_request)
+            if (existing) {
+              await github.rest.issues.createComment({ owner, repo, issue_number: existing.number, body })
+              return
+            }
+            await github.rest.issues.create({ owner, repo, title, body })

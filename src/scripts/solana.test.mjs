@@ -1,29 +1,26 @@
 import assert from 'node:assert/strict'
-import { spawnSync } from 'node:child_process'
+import { execFileSync } from 'node:child_process'
+import { register } from 'node:module'
 import { createHash } from 'node:crypto'
-import {
-  copyFileSync,
-  mkdirSync,
-  mkdtempSync,
-  readFileSync,
-  readdirSync,
-  rmSync,
-  symlinkSync,
-  writeFileSync,
-} from 'node:fs'
+import fs, { mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { Readable } from 'node:stream'
 import { test } from 'node:test'
-import { fileURLToPath } from 'node:url'
 import csv from 'csv-parser'
 import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
+
+register('ts-node/esm', import.meta.url)
+const { main } = await import('./solana.ts')
+const { DUNE_QUERY } = await import('./solanaRankings.ts')
 
 const repo = new URL('../../', import.meta.url)
 // The upstream TokenList schema assumes hex addresses; retain its other constraints for Solana.
 const schema = JSON.parse(readFileSync(new URL('node_modules/@uniswap/token-lists/dist/tokenlist.schema.json', repo)))
 schema.definitions.TokenInfo.properties.address.pattern = '^[1-9A-HJ-NP-Za-km-z]{32,44}$'
+schema.definitions.TokenInfo.properties.symbol = { type: 'string', minLength: 1, maxLength: 20 }
+schema.definitions.TokenInfo.properties.name.maxLength = 128
 const ajv = new Ajv({ allErrors: true, strict: false })
 addFormats(ajv)
 const validateList = ajv.compile(schema)
@@ -75,104 +72,117 @@ const jupiter = (token) => ({
   tags: ['strict'],
 })
 
-/** Copy the actual entry point into a disposable repo and intercept every HTTP request at the process boundary. */
+// Each test writes to its own folder and mocks APIs before calling the real entry point.
 function fixture(t) {
-  const root = mkdtempSync(join(tmpdir(), 'fe989-solana-'))
-  t.after(() => rmSync(root, { recursive: true, force: true }))
-  mkdirSync(join(root, 'src/scripts/utils'), { recursive: true })
-  mkdirSync(join(root, 'src/public'), { recursive: true })
-  for (const name of ['solana', 'solanaRankings', 'tokenListUtils']) {
-    copyFileSync(new URL('src/scripts/' + name + '.ts', repo), join(root, 'src/scripts', name + '.ts'))
-  }
-  for (const name of ['fetchJson', 'jupiter']) {
-    copyFileSync(new URL('src/scripts/utils/' + name + '.ts', repo), join(root, 'src/scripts/utils/' + name + '.ts'))
-  }
-  for (const name of ['package.json', 'tsconfig.json']) copyFileSync(new URL(name, repo), join(root, name))
-  symlinkSync(fileURLToPath(new URL('node_modules', repo)), join(root, 'node_modules'), 'dir')
-  const input = { ...defaultList, version: { major: 2, minor: 3, patch: 4 }, tokens: members }
-  writeFileSync(join(root, 'src/public', defaultFile), JSON.stringify(input))
-  writeFileSync(join(root, 'src/public', rwaFile), JSON.stringify({ ...rwaList, tokens: [rwa] }))
-  writeFileSync(join(root, 'src/public/SolanaOverrides.json'), JSON.stringify(overrides))
-  const upstream = members.filter((t) => t.address !== nativeSol).map(jupiter)
-  upstream.find((t) => t.id === wrappedSol).name = 'Upstream override replaced'
-  upstream.find((t) => t.id === unmeasured.address).tags = []
-  upstream.find((t) => t.id === unmeasured.address).organicScore = 25
-  const rejected = outsiders.map(jupiter)
-  rejected[0].audit = { isSus: true }
-  rejected[1].tags = []
-  rejected[1].organicScore = 24
-  rejected[2].name = ''
-  rejected[3].tokenProgram = 'unknown'
-  // The fifth outsider has no CoinGecko price.
+  const root = mkdtempSync(join(tmpdir(), 'solana-test-'))
+  const cwd = process.cwd()
+  process.chdir(root)
+  t.after(() => {
+    process.chdir(cwd)
+    rmSync(root, { recursive: true, force: true })
+  })
+  mkdirSync('src/public', { recursive: true })
+  const read = (name) => JSON.parse(readFileSync(join(root, 'src/public', name)))
+  const write = (name, value) => writeFileSync(join(root, 'src/public', name), JSON.stringify(value))
+  write(defaultFile, { ...defaultList, version: { major: 2, minor: 3, patch: 4 }, tokens: members })
+  write(rwaFile, { ...rwaList, tokens: [rwa] })
+  write('SolanaOverrides.json', overrides)
   const sourceDay = new Date(Date.now() - 86_400_000).toISOString().slice(0, 10)
+  const snapshot = {
+    timestamp: sourceDay + 'T12:01:00.000Z',
+    queryId: DUNE_QUERY.id,
+    executionId,
+    windowEnd: sourceDay + 'T00:00:00.000Z',
+    rowCount: rows.length,
+    eligibleMintsSha256: hash(JSON.stringify(members.map((m) => m.address).sort())),
+    ranks: expectedRanks,
+  }
+  write('TokenRanking.1000000001.json', snapshot)
   const providers = {
-    startedAt: sourceDay + 'T12:00:00Z',
-    endedAt: sourceDay + 'T12:01:00Z',
-    jupiter: [...upstream, { ...jupiter(rwa), tags: ['strict', 'rwa'] }, ...rejected],
-    coingecko: { tokens: [...members, rwa, ...outsiders.slice(0, 4)] },
-    duneRows: rows.map((row) => ({ mint: row.mint, volume_90d: row.volume_90d_usd, volume_30d: row.volume_30d_usd })),
+    jupiter: [
+      ...members.filter((t) => t.address !== nativeSol).map(jupiter),
+      { ...jupiter(rwa), tags: ['strict', 'rwa'] },
+    ],
+    coingecko: { tokens: [...members, rwa] },
   }
-  const preload = join(root, 'preload.mjs')
-  writeFileSync(
-    preload,
-    `
-import fs from 'node:fs'
-const providers = JSON.parse(fs.readFileSync('providers.json'))
-globalThis.fetch = async (input, options = {}) => {
-  const url = new URL(input)
-  fs.appendFileSync('requests.jsonl', JSON.stringify({ url: String(url), method: options.method ?? 'GET' }) + '\\n')
-  if (url.host === 'lite-api.jup.ag') return Response.json(url.pathname.endsWith('/search') ? providers.jupiterLookup ?? [] : providers.jupiter)
-  if (url.host === 'tokens.coingecko.com') return Response.json(providers.coingecko)
-  if (url.host !== 'api.dune.com') throw new Error('Unexpected HTTP: ' + url)
-  if (providers.duneFailure) return new Response('', { status: 401 })
-  if (options.method === 'POST') return Response.json({ execution_id: '${executionId}' })
-  const details = { column_names: providers.duneColumns ?? ['mint', 'volume_90d', 'volume_30d'], total_row_count: providers.duneRows.length }
-  const status = { query_id: 8910905, execution_id: '${executionId}', state: 'QUERY_STATE_COMPLETED', is_execution_finished: true, execution_started_at: providers.startedAt, execution_ended_at: providers.endedAt, result_metadata: details }
-  if (url.pathname.endsWith('/status')) return Response.json(status)
-  return Response.json({ ...status, result: { metadata: details, rows: providers.duneRows } })
-}
-if (process.env.SOLANA_TEST_WRITE_FAILURE) {
-  const write = fs.writeFileSync
-  fs.writeFileSync = (file, ...args) => {
-    if (String(file).includes('Rwa.1000000001.json') && String(file).endsWith('.tmp')) throw new Error('Simulated staging failure')
-    return write(file, ...args)
+  const requests = []
+  const output = []
+  t.mock.method(console, 'log', (...args) => output.push(args.join(' ')))
+  t.mock.method(console, 'warn', (...args) => output.push(args.join(' ')))
+  t.mock.method(globalThis, 'fetch', async (input, options = {}) => {
+    const url = new URL(input)
+    requests.push({ url: String(url), method: options.method ?? 'GET' })
+    if (url.host === 'lite-api.jup.ag') {
+      if (!url.pathname.endsWith('/shield'))
+        return Response.json(url.pathname.endsWith('/search') ? providers.jupiterLookup ?? [] : providers.jupiter)
+      if (providers.shieldFailure) return new Response('{}', { status: 400 })
+      const mints = url.searchParams.get('mints').split(',')
+      // Shield answers for every mint it was asked about, with an empty array when it has nothing
+      // to report. `shieldTruncates` models it silently dropping the tail of a batch instead.
+      const answered = providers.shieldTruncates ? mints.slice(0, -1) : mints
+      return Response.json({
+        warnings: Object.fromEntries(answered.map((mint) => [mint, providers.shield?.warnings?.[mint] ?? []])),
+      })
+    }
+    if (url.host === 'tokens.coingecko.com') return Response.json(providers.coingecko)
+    throw new Error('Unexpected HTTP request ' + url)
+  })
+
+  const run = async (args = [], env = {}) => {
+    const values = {
+      DUNE_API_KEY: 'test-key-never-log',
+      SOLANA_EXECUTION_RECEIPT: join(root, 'execution-receipt.json'),
+      RANKING_BASE_REF: '',
+      ...env,
+    }
+    const previous = Object.fromEntries(Object.keys(values).map((key) => [key, process.env[key]]))
+    Object.assign(process.env, values)
+    try {
+      await main(args)
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key]
+        else process.env[key] = value
+      }
+    }
   }
-}
-`,
-  )
-  const run = (args = [], env = {}) => {
-    writeFileSync(join(root, 'providers.json'), JSON.stringify(providers))
-    return spawnSync(
-      process.execPath,
-      [
-        '--no-warnings',
-        '--experimental-specifier-resolution=node',
-        '--import',
-        preload,
-        '--loader',
-        'ts-node/esm',
-        'src/scripts/solana.ts',
-        ...args,
-      ],
-      {
-        cwd: root,
-        encoding: 'utf8',
-        timeout: 30_000,
-        env: { ...process.env, DUNE_API_KEY: 'test-key-never-log', ALLOW_LIST_SHRINK: '', ...env },
-      },
-    )
-  }
-  /** Read outputs and input files from this fixture only. */
-  const read = (file) => JSON.parse(readFileSync(join(root, 'src/public', file)))
   const preserved = () =>
     [defaultFile, rwaFile, 'SolanaOverrides.json'].map((file) => hash(readFileSync(join(root, 'src/public', file))))
-  return { root, providers, input, run, read, preserved }
+  const refresh = (args = [], env = {}) => run(['--refresh-rankings', ...args], env)
+  return { root, providers, run, refresh, read, write, preserved, snapshot, requests, output }
 }
 
-test('existing provider eligibility, overrides, native SOL and RWA separation survive generation', (t) => {
+/** A tree object supplies trusted base files without creating any commits. */
+function validationBase(f, includeSnapshot = true) {
+  const git = (args) =>
+    execFileSync('git', args, { cwd: f.root, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim()
+  git(['init', '--quiet'])
+  git(['add', '--', 'src/public'])
+  if (!includeSnapshot) git(['update-index', '--force-remove', 'src/public/TokenRanking.1000000001.json'])
+  return git(['write-tree'])
+}
+
+function changedCandidate(f) {
+  const candidate = structuredClone(f.snapshot)
+  const [first, second] = Object.keys(candidate.ranks).sort((a, b) => candidate.ranks[a] - candidate.ranks[b])
+  ;[candidate.ranks[first], candidate.ranks[second]] = [candidate.ranks[second], candidate.ranks[first]]
+  return candidate
+}
+
+test('existing provider eligibility, overrides, native SOL and RWA separation survive generation', async (t) => {
   const f = fixture(t)
-  const result = f.run()
-  assert.equal(result.status, 0, result.stderr)
+  f.providers.jupiter.find((token) => token.id === wrappedSol).name = 'Changed Jupiter name'
+  f.providers.jupiter.push(
+    { ...jupiter(outsiders[0]), audit: { isSus: true } },
+    { ...jupiter(outsiders[1]), tags: [], organicScore: 24 },
+    { ...jupiter(outsiders[2]), name: '' },
+    { ...jupiter(outsiders[3]), tokenProgram: 'unknown' },
+    jupiter(outsiders[4]), // Not on CoinGecko.
+  )
+  f.providers.coingecko.tokens.push(...outsiders.slice(0, 4))
+  await f.run([], { DUNE_API_KEY: '' })
+  const requests = f.requests
+  assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
   const list = f.read(defaultFile)
   assert.equal(list.tokens.length, 100)
   assert.deepEqual(
@@ -189,7 +199,60 @@ test('existing provider eligibility, overrides, native SOL and RWA separation su
   assert.equal(f.read(defaultFile).tokens.find((t) => t.address === unmeasured.address).address, unmeasured.address)
 })
 
-test('mint lookup retains existing zero-score tokens without bypassing safety or pricing rules', (t) => {
+test('ranking validation accepts unchanged legacy snapshots and bootstraps only approved ranks', async (t) => {
+  const f = fixture(t)
+  const candidate = { ...f.snapshot, queryId: 8910905 }
+  f.write('TokenRanking.1000000001.json', candidate)
+  await f.run()
+  const base = validationBase(f, false)
+  await f.run(['--validate'], { RANKING_BASE_REF: base })
+  const baseWithSnapshot = validationBase(f)
+  f.write('TokenRanking.1000000001.json', {
+    ...Object.fromEntries(Object.entries(candidate).reverse()),
+    ranks: Object.fromEntries(Object.entries(candidate.ranks).reverse()),
+  })
+  await f.run(['--validate'], { RANKING_BASE_REF: baseWithSnapshot })
+  const altered = changedCandidate({ ...f, snapshot: candidate })
+  f.write('TokenRanking.1000000001.json', altered)
+  await assert.rejects(() => f.run(['--validate'], { RANKING_BASE_REF: base }), /Initial snapshot must preserve/)
+})
+
+test('ranking validation accepts a pending candidate, but public lists must keep the approved ranks', async (t) => {
+  const f = fixture(t)
+  await f.run()
+  const base = validationBase(f)
+  const validate = () => f.run(['--validate'], { RANKING_BASE_REF: base })
+  await validate()
+  const before = f.preserved()
+  f.write('TokenRanking.1000000001.json', changedCandidate(f))
+  await validate()
+  assert.deepEqual(f.preserved(), before)
+  const list = f.read(defaultFile)
+  const ranked = list.tokens.filter((token) => token.extensions?.rank)
+  ;[ranked[0].extensions.rank, ranked[1].extensions.rank] = [ranked[1].extensions.rank, ranked[0].extensions.rank]
+  f.write(defaultFile, list)
+  await assert.rejects(() => validate(), /Public ranks do not match/)
+})
+
+test('ranking validator uses current-base membership even when the proposal checkout still has older lists', async (t) => {
+  const f = fixture(t)
+  await f.run()
+  const previousList = f.read(defaultFile)
+  const currentList = {
+    ...previousList,
+    tokens: previousList.tokens.filter((token) => token.address !== members[5].address),
+  }
+  f.write(defaultFile, currentList)
+  const currentBase = validationBase(f)
+  f.write(defaultFile, previousList)
+  f.write('TokenRanking.1000000001.json', changedCandidate(f))
+  await assert.rejects(
+    () => f.run(['--validate'], { RANKING_BASE_REF: currentBase }),
+    /Eligible membership changed on the current base/,
+  )
+})
+
+test('mint lookup retains existing zero-score tokens without bypassing safety or pricing rules', async (t) => {
   const f = fixture(t)
   const candidates = members
     .filter(
@@ -203,15 +266,14 @@ test('mint lookup retains existing zero-score tokens without bypassing safety or
   f.providers.jupiterLookup = candidates.map((token) => ({ ...jupiter(token), tags: ['verified'], organicScore: 0 }))
   f.providers.jupiterLookup[1].audit = { isSus: true }
   f.providers.coingecko.tokens = f.providers.coingecko.tokens.filter((token) => token.address !== unpriced.address)
-  const result = f.run()
-  assert.equal(result.status, 0, result.stderr)
+  await f.run()
   const addresses = new Set(f.read(defaultFile).tokens.map((token) => token.address))
   assert.ok(addresses.has(existing.address), 'an existing zero-score token must survive mint lookup')
   assert.ok(!addresses.has(suspicious.address))
   assert.ok(!addresses.has(unpriced.address))
 })
 
-test('existing members survive score drops but suspicious members are removed despite high volume or overrides', (t) => {
+test('existing members survive score drops but suspicious members are removed despite high volume or overrides', async (t) => {
   const f = fixture(t)
   const retained = f.providers.jupiter.find((token) => token.id === unmeasured.address)
   retained.tags = ['verified']
@@ -222,19 +284,16 @@ test('existing members survive score drops but suspicious members are removed de
   const suspicious = f.providers.jupiter.find((token) => token.id === wrappedSol)
   suspicious.organicScore = 100
   suspicious.audit = { isSus: true }
-  const result = f.run()
-  assert.equal(result.status, 0, result.stderr)
+  await f.run()
   const addresses = new Set(f.read(defaultFile).tokens.map((token) => token.address))
   assert.ok(addresses.has(unmeasured.address))
   assert.ok(!addresses.has(wrappedSol), 'neither volume nor overrides can restore a flagged token')
-  assert.ok(!addresses.has(outsiders[1].address), 'a new low-score token must still be rejected')
   assert.ok(f.read(rwaFile).tokens.some((token) => token.address === rwa.address))
   assert.deepEqual(f.read(defaultFile).version, { major: 3, minor: 0, patch: 0 })
 
   f.providers.jupiter = f.providers.jupiter.filter((token) => token.id !== wrappedSol)
   f.providers.jupiterLookup = [suspicious]
-  const next = f.run()
-  assert.equal(next.status, 0, next.stderr)
+  await f.run()
   assert.ok(
     !f.read(defaultFile).tokens.some((token) => token.address === wrappedSol),
     'an override must not restore a flagged mint after it leaves the list and verified response',
@@ -242,34 +301,49 @@ test('existing members survive score drops but suspicious members are removed de
 
   const before = f.preserved()
   f.providers.jupiterLookup = []
-  writeFileSync(join(f.root, 'requests.jsonl'), '')
-  const unresolved = f.run()
-  assert.notEqual(unresolved.status, 0)
-  assert.match(unresolved.stderr, /Jupiter did not return required mints/)
+  f.requests.length = 0
+  await assert.rejects(() => f.run(), /Jupiter did not return required mints/)
   assert.deepEqual(f.preserved(), before)
-  const requests = readFileSync(join(f.root, 'requests.jsonl'), 'utf8').trim().split('\n').map(JSON.parse)
+  const requests = f.requests
   assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
 })
 
-test('an unresolved existing mint fails before Dune or file writes', (t) => {
+test('an unresolved existing mint fails before Dune or file writes', async (t) => {
   const f = fixture(t)
   const before = f.preserved()
   f.providers.jupiter = f.providers.jupiter.filter((token) => token.id !== unmeasured.address)
-  const result = f.run()
-  assert.notEqual(result.status, 0)
-  assert.match(result.stderr, /Jupiter did not return required mints/)
+  await assert.rejects(() => f.run(), /Jupiter did not return required mints/)
   assert.deepEqual(f.preserved(), before)
-  const requests = readFileSync(join(f.root, 'requests.jsonl'), 'utf8').trim().split('\n').map(JSON.parse)
+  const requests = f.requests
   assert.ok(requests.every((request) => !request.url.includes('api.dune.com')))
 })
 
-test('historical CSV ranks current members inside the existing JSON, with rank-only patch bumps and repeatable ranks', (t) => {
+test('empty or truncated CoinGecko feeds preserve each existing list', async (t) => {
+  const f = fixture(t)
+  const before = f.preserved()
+  for (const tokens of [[], [members[0]], members]) {
+    f.providers.coingecko.tokens = tokens
+    await assert.rejects(() => f.run(), /CoinGecko/)
+    assert.deepEqual(f.preserved(), before)
+  }
+})
+
+test('missing Jupiter metadata preserves existing lists', async (t) => {
+  const f = fixture(t)
+  const before = f.preserved()
+  f.providers.jupiter.forEach((token) => {
+    delete token.tokenProgram
+  })
+  await assert.rejects(() => f.run(), /Jupiter returned invalid metadata for existing token/)
+  assert.deepEqual(f.preserved(), before)
+})
+
+test('historical CSV ranks current members inside the existing JSON, with rank-only patch bumps and repeatable ranks', async (t) => {
   assert.match(historicalCsv, /^rank,symbol,name,mint,/)
   assert.equal(rows.length, 100)
   assert.equal(eligibleRows.length, 98)
   const f = fixture(t)
-  const first = f.run()
-  assert.equal(first.status, 0, first.stderr)
+  await f.run()
   const list = f.read(defaultFile)
   const ranks = Object.fromEntries(
     list.tokens.filter((t) => t.extensions?.rank).map((t) => [t.address, t.extensions.rank]),
@@ -283,104 +357,291 @@ test('historical CSV ranks current members inside the existing JSON, with rank-o
     assert.equal(t.extensions?.isToken2022, members.find((m) => m.address === t.address).extensions?.isToken2022)
   }
   assert.deepEqual(JSON.parse(readFileSync(join(f.root, 'build/lists', defaultFile))), list)
-  assert.equal(f.run().status, 0)
+  await f.run()
   assert.deepEqual(f.read(defaultFile).tokens, list.tokens)
   assert.deepEqual(f.read(defaultFile).version, list.version)
-  assert.match(first.stdout, /rowsSha256/)
+  assert.equal(f.read('TokenRanking.1000000001.json').timestamp, f.snapshot.timestamp)
   assert.deepEqual(
     readdirSync(join(f.root, 'src/public')).sort(),
-    [defaultFile, rwaFile, 'SolanaOverrides.json'].sort(),
+    [
+      defaultFile,
+      rwaFile,
+      'SolanaOverrides.json',
+      'TokenWarnings.1000000001.json',
+      'TokenRanking.1000000001.json',
+    ].sort(),
   )
 })
 
-test('low coverage, zero, either metric and removal of old ranks succeed without a baseline or coverage guard', (t) => {
-  const f = fixture(t)
-  assert.equal(f.run().status, 0)
-  for (const metric of ['volume_90d', 'volume_30d']) {
-    f.providers.duneColumns = ['mint', metric]
-    f.providers.duneRows = [{ mint: wrappedSol, [metric]: 0 }]
-    const result = f.run()
-    assert.equal(result.status, 0, result.stderr)
-    const list = f.read(defaultFile)
-    assert.equal(list.tokens.find((t) => t.address === wrappedSol).extensions.rank, 1)
-    assert.equal(list.tokens.filter((t) => t.extensions?.rank).length, 1)
-  }
-  f.providers.duneRows = []
-  const previous = f.read(defaultFile).version
-  assert.equal(f.run().status, 0)
-  assert.ok(f.read(defaultFile).tokens.every((t) => t.extensions?.rank === undefined))
-  assert.deepEqual(f.read(defaultFile).version, { ...previous, patch: previous.patch + 1 })
-})
-
-test('membership additions and removals keep minor and major version rules', (t) => {
+test('membership additions and removals keep minor and major version rules', async (t) => {
   const f = fixture(t)
   f.providers.jupiter.push(jupiter(outsiders[4]))
   f.providers.coingecko.tokens.push(outsiders[4])
-  assert.equal(f.run().status, 0)
+  await f.run()
   assert.deepEqual(f.read(defaultFile).version, { major: 2, minor: 4, patch: 0 })
   f.providers.jupiter.find((t) => t.id === unmeasured.address).audit = { isSus: true }
-  assert.equal(f.run().status, 0)
+  await f.run()
   assert.deepEqual(f.read(defaultFile).version, { major: 3, minor: 0, patch: 0 })
+  f.providers.jupiter.find((token) => token.id === unmeasured.address).audit = { isSus: false }
+  await f.run()
+  assert.ok(f.read(defaultFile).tokens.some((token) => token.address === unmeasured.address))
 })
 
-test('missing credentials and unsupported arguments fail before fetching or writing', (t) => {
+test('unsupported arguments fail before fetching or writing', async (t) => {
   const f = fixture(t)
   const before = f.preserved()
-  const missing = f.run([], { DUNE_API_KEY: '' })
-  assert.notEqual(missing.status, 0)
-  assert.match(missing.stderr, /DUNE_API_KEY/)
-  const unsupported = f.run(['--dry-run'])
-  assert.notEqual(unsupported.status, 0)
-  assert.match(unsupported.stderr, /does not accept arguments/)
+  await assert.rejects(() => f.run(['--dry-run']), /Use yarn solana/)
   assert.deepEqual(f.preserved(), before)
-  assert.ok(!readdirSync(f.root).includes('requests.jsonl'))
+  assert.equal(f.requests.length, 0)
 })
 
-test('source validation, membership overlap and shrink failures preserve both lists', (t) => {
+test('membership overlap preserves both lists, and a collapsed membership needs ALLOW_LIST_SHRINK', async (t) => {
   const f = fixture(t)
   const before = f.preserved()
-  const validRows = structuredClone(f.providers.duneRows)
-  f.providers.duneRows[0].volume_90d = 'invalid'
-  const bad = f.run()
-  assert.notEqual(bad.status, 0)
-  assert.match(bad.stderr, /volume/)
-  f.providers.duneRows = validRows
-  writeFileSync(join(f.root, 'src/public/SolanaOverrides.json'), JSON.stringify([...overrides, rwa]))
-  assert.notEqual(f.run().status, 0)
-  writeFileSync(join(f.root, 'src/public/SolanaOverrides.json'), JSON.stringify(overrides))
+  f.write('SolanaOverrides.json', [...overrides, rwa])
+  await assert.rejects(() => f.run())
+  f.write('SolanaOverrides.json', overrides)
+  assert.deepEqual(f.preserved(), before)
   f.providers.jupiter.forEach((token) => {
     token.audit = { isSus: true }
+    delete token.tokenProgram
   })
-  const shrink = f.run()
-  assert.notEqual(shrink.status, 0)
-  assert.match(shrink.stderr, /token count dropped/)
+  await assert.rejects(() => f.run(), /Refusing to write CowSwap\.1000000001\.json/)
   assert.deepEqual(f.preserved(), before)
+  await f.run([], { ALLOW_LIST_SHRINK: '1' })
+  assert.deepEqual(
+    f.read(defaultFile).tokens.map((token) => token.address),
+    [nativeSol],
+  )
+  assert.deepEqual(f.read(rwaFile).tokens, [])
 })
 
-test('staging failure cleans temporary files before any destination is replaced', (t) => {
+test('explicit ranking mode starts one paid query and changes only review inputs; resume uses no POST', async (t) => {
   const f = fixture(t)
+  const querySql = 'select mint, symbol, volume_90d, volume_30d from test_volumes'
+  const sqlHash = DUNE_QUERY.sqlSha256
+  DUNE_QUERY.sqlSha256 = hash(querySql)
+  t.after(() => {
+    DUNE_QUERY.sqlSha256 = sqlHash
+  })
+  const dailyFetch = globalThis.fetch
+  let duneFailure = false
+  let duneRows = rows.map((row) => ({ mint: row.mint, volume_90d: row.volume_90d_usd, volume_30d: row.volume_30d_usd }))
+  t.mock.method(globalThis, 'fetch', async (input, options = {}) => {
+    const url = new URL(input)
+    if (url.host !== 'api.dune.com') return dailyFetch(input, options)
+    f.requests.push({ url: String(url), method: options.method ?? 'GET' })
+    if (duneFailure) return new Response('', { status: 401 })
+    if (url.pathname === '/api/v1/query/' + DUNE_QUERY.id)
+      return Response.json({ query_id: DUNE_QUERY.id, version: DUNE_QUERY.version, query_sql: querySql })
+    if (options.method === 'POST') return Response.json({ execution_id: executionId })
+    const metadata = { column_names: ['mint', 'volume_90d', 'volume_30d'], total_row_count: duneRows.length }
+    const day = f.snapshot.windowEnd.slice(0, 10)
+    const status = {
+      query_id: DUNE_QUERY.id,
+      execution_id: executionId,
+      state: 'QUERY_STATE_COMPLETED',
+      is_execution_finished: true,
+      execution_started_at: day + 'T12:00:00Z',
+      execution_ended_at: day + 'T12:01:00Z',
+      result_metadata: metadata,
+    }
+    if (url.pathname.endsWith('/status')) return Response.json(status)
+    const mints = [...url.searchParams.get('filters').matchAll(/'([^']+)'/g)].map((match) => match[1])
+    return Response.json({ ...status, result: { metadata, rows: duneRows.filter((row) => mints.includes(row.mint)) } })
+  })
   const before = f.preserved()
-  const result = f.run(undefined, { SOLANA_TEST_WRITE_FAILURE: '1' })
-  assert.notEqual(result.status, 0)
-  assert.match(result.stderr, /Simulated staging failure/)
+  await f.refresh([], { DUNE_API_KEY: 'test-key-never-log' })
   assert.deepEqual(f.preserved(), before)
-  assert.ok(readdirSync(join(f.root, 'src/public')).every((name) => !name.endsWith('.tmp')))
-  assert.ok(readdirSync(join(f.root, 'build/lists')).every((name) => !name.endsWith('.tmp')))
-})
-
-test('normal live mode executes one Dune query and pins its results; API failure never writes', (t) => {
-  const f = fixture(t)
-  f.providers.duneRows = [{ mint: wrappedSol, volume_90d: 10, volume_30d: 5 }]
-  const result = f.run([], { DUNE_API_KEY: 'test-key-never-log' })
-  assert.equal(result.status, 0, result.stderr)
-  assert.equal(f.read(defaultFile).tokens.filter((t) => t.extensions?.rank).length, 1)
-  const requests = readFileSync(join(f.root, 'requests.jsonl'), 'utf8').trim().split('\n').map(JSON.parse)
+  const candidate = JSON.parse(readFileSync(join(f.root, 'src/public/TokenRanking.1000000001.json')))
+  assert.deepEqual(candidate.ranks, expectedRanks)
+  const requests = f.requests
   assert.equal(requests.filter((r) => r.method === 'POST').length, 1)
   assert.ok(requests.some((r) => r.url.includes('/execution/' + executionId + '/results')))
-  assert.ok(!result.stdout.includes('test-key-never-log'))
-  const before = f.preserved()
-  f.providers.duneFailure = true
-  const failed = f.run([], { DUNE_API_KEY: 'test-key-never-log' })
-  assert.notEqual(failed.status, 0)
-  assert.deepEqual(f.preserved(), before)
+  assert.ok(!f.output.join('\n').includes('test-key-never-log'))
+  const receipt = JSON.parse(readFileSync(join(f.root, 'execution-receipt.json')))
+  assert.equal(receipt.executionId, executionId)
+  assert.deepEqual(receipt.parameters, { days: 90, min_volume_usd: 100000 })
+  f.requests.length = 0
+  await f.refresh(['--execution-id', executionId])
+  assert.ok(f.requests.every((request) => request.method === 'GET'))
+  const approved = readFileSync(join(f.root, 'src/public/TokenRanking.1000000001.json'), 'utf8')
+  for (const failure of ['http', 'empty']) {
+    duneFailure = failure === 'http'
+    if (failure === 'empty') duneRows = []
+    await assert.rejects(() => f.refresh([], { DUNE_API_KEY: 'test-key-never-log' }))
+    assert.deepEqual(f.preserved(), before)
+    assert.equal(readFileSync(join(f.root, 'src/public/TokenRanking.1000000001.json'), 'utf8'), approved)
+  }
+  // A ranking outage does not affect the independent daily path.
+  await f.run([], { DUNE_API_KEY: '' })
+})
+
+for (const expired of [false, true])
+  test(`daily lists and warnings update with ${expired ? 'expired' : 'fresh'} approved ranks`, async (t) => {
+    const f = fixture(t)
+    if (expired) {
+      f.snapshot.timestamp = new Date(Date.now() - 16 * 86400000).toISOString()
+      f.snapshot.windowEnd = f.snapshot.timestamp.slice(0, 10) + 'T00:00:00.000Z'
+      f.write('TokenRanking.1000000001.json', f.snapshot)
+    }
+    const retained = members.find((m) => expectedRanks[m.address] && m.address !== wrappedSol)
+    f.providers.jupiter.find((m) => m.id === retained.address).name = 'Fresh provider name'
+    f.providers.jupiter.push(jupiter(outsiders[4]))
+    f.providers.coingecko.tokens.push(outsiders[4])
+    f.providers.jupiter.find((m) => m.id === wrappedSol).audit = { isSus: true }
+    f.providers.shield = {
+      warnings: { [retained.address]: [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Fresh warning' }] },
+    }
+    await f.run([], { DUNE_API_KEY: '' })
+    const tokens = f.read(defaultFile).tokens
+    const updated = tokens.find((m) => m.address === retained.address)
+    assert.equal(updated.name, 'Fresh provider name')
+    assert.equal(updated.extensions?.rank, expectedRanks[retained.address])
+    assert.equal(tokens.find((m) => m.address === outsiders[4].address).extensions?.rank, undefined)
+    assert.ok(!tokens.some((m) => m.address === wrappedSol || m.address === rwa.address))
+    assert.deepEqual(f.read('TokenWarnings.1000000001.json').warnings[retained.address], ['MINT'])
+    assert.deepEqual(f.read('TokenRanking.1000000001.json'), f.snapshot)
+    if (expired) await assert.rejects(() => f.run(['--check-ranking']), /weekly refresh has not landed/)
+    else await f.run(['--check-ranking'])
+  })
+
+test('resolved warnings clear on the next daily run, and a collapse needs ALLOW_WARNINGS_SHRINK', async (t) => {
+  const f = fixture(t)
+  const flagged = members.filter((token) => token.address !== nativeSol).slice(0, 4)
+  f.providers.shield = {
+    warnings: Object.fromEntries(
+      flagged.map((token) => [
+        token.address,
+        [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Mint authority' }],
+      ]),
+    ),
+  }
+  await f.run()
+  delete f.providers.shield.warnings[flagged[0].address]
+  await f.run()
+  const warnings = f.read('TokenWarnings.1000000001.json')
+  assert.equal(warnings.warnings[flagged[0].address], undefined)
+  assert.equal(Object.keys(warnings.warnings).length, 3)
+  f.providers.shield.warnings = {}
+  await assert.rejects(() => f.run(), /flagged mints dropped from 3 to 0/)
+  assert.equal(Object.keys(f.read('TokenWarnings.1000000001.json').warnings).length, 3)
+  await f.run([], { ALLOW_WARNINGS_SHRINK: '1' })
+  assert.deepEqual(f.read('TokenWarnings.1000000001.json').warnings, {})
+})
+
+test('a silently truncated Shield batch fails the run instead of publishing its mints as clean', async (t) => {
+  const f = fixture(t)
+  const flagged = members.filter((token) => token.address !== nativeSol).slice(0, 4)
+  f.providers.shield = {
+    warnings: Object.fromEntries(
+      flagged.map((token) => [
+        token.address,
+        [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Mint authority' }],
+      ]),
+    ),
+  }
+  await f.run()
+  const published = f.read('TokenWarnings.1000000001.json')
+  f.providers.shieldTruncates = true
+  await assert.rejects(() => f.run(), /dropped 1 without an error/)
+  assert.deepEqual(f.read('TokenWarnings.1000000001.json'), published)
+})
+
+test('warning validation rejects invalid definitions for referenced codes', async (t) => {
+  const f = fixture(t)
+  f.providers.shield = {
+    warnings: {
+      [unmeasured.address]: [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Mint authority' }],
+    },
+  }
+  await f.run()
+  await f.run(['--validate'])
+  const warnings = f.read('TokenWarnings.1000000001.json')
+  for (const type of [
+    null,
+    {},
+    { severity: 'unknown', message: 'Warning' },
+    { severity: 'warning', message: 42 },
+    { severity: 'warning', message: ' ' },
+  ]) {
+    warnings.types.MINT = type
+    f.write('TokenWarnings.1000000001.json', warnings)
+    await assert.rejects(() => f.run(['--validate']), /Invalid Solana warning definition/)
+  }
+})
+
+test('Shield, staging and replacement failures preserve the complete prior bundle', async (t) => {
+  const f = fixture(t)
+  await f.run()
+  const files = [defaultFile, rwaFile, 'TokenWarnings.1000000001.json']
+  const directories = ['src/public', 'build/lists']
+  const contents = () =>
+    directories.flatMap((directory) => files.map((name) => hash(readFileSync(join(f.root, directory, name)))))
+  const before = contents()
+  f.providers.jupiter.find((token) => token.id === unmeasured.address).name = 'Updated default token'
+  f.providers.jupiter.find((token) => token.id === rwa.address).name = 'Updated RWA token'
+  f.providers.shield = {
+    warnings: {
+      [unmeasured.address]: [{ type: 'HAS_MINT_AUTHORITY', severity: 'warning', message: 'Mint authority' }],
+    },
+  }
+  f.providers.shieldFailure = true
+  await assert.rejects(() => f.run())
+  assert.deepEqual(contents(), before)
+  f.providers.shieldFailure = false
+  for (const method of ['writeFileSync', 'renameSync'])
+    for (const directory of directories)
+      for (const name of files) {
+        const original = fs[method]
+        const mocked = t.mock.method(fs, method, (file, ...args) => {
+          const destination = String(method === 'renameSync' ? args[0] : file)
+          if (destination.startsWith(directory + '/') && destination.includes(name))
+            throw new Error('Simulated file failure')
+          return original(file, ...args)
+        })
+        await assert.rejects(() => f.run(), /Simulated file failure/)
+        mocked.mock.restore()
+        assert.deepEqual(contents(), before)
+        for (const directory of directories)
+          assert.ok(readdirSync(join(f.root, directory)).every((name) => !name.endsWith('.tmp')))
+      }
+})
+
+test('a failed restoration reports both errors and still restores the other files', async (t) => {
+  const f = fixture(t)
+  await f.run()
+  const write = fs.writeFileSync
+  const rename = fs.renameSync
+  const before = ['src/public', 'build/lists'].flatMap((directory) =>
+    [defaultFile, rwaFile, 'TokenWarnings.1000000001.json'].map((name) => {
+      const file = join(directory, name)
+      return [file, hash(readFileSync(file))]
+    }),
+  )
+  f.providers.jupiter.forEach((token) => {
+    token.name = 'Updated token name'
+  })
+  const writeError = new Error('Simulated replacement failure')
+  const restoreError = new Error('Simulated restoration failure')
+  // Fail the last replacement after the default and RWA destinations were replaced.
+  t.mock.method(fs, 'renameSync', (source, destination) => {
+    if (destination === 'src/public/TokenWarnings.1000000001.json') throw writeError
+    return rename(source, destination)
+  })
+  t.mock.method(fs, 'writeFileSync', (file, ...args) => {
+    if (file === 'src/public/Rwa.1000000001.json') throw restoreError
+    return write(file, ...args)
+  })
+  await assert.rejects(
+    () => f.run(),
+    (error) => {
+      assert.deepEqual(error.errors, [writeError, restoreError])
+      return true
+    },
+  )
+  for (const [file, previous] of before) {
+    if (file === 'src/public/Rwa.1000000001.json') assert.notEqual(hash(readFileSync(file)), previous)
+    else assert.equal(hash(readFileSync(file)), previous, file)
+  }
 })
