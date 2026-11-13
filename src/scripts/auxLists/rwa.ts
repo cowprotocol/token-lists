@@ -1,5 +1,6 @@
 import { getAddressKey, isEvmAddress, isSolanaAddress, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { existsSync } from 'fs'
+import { fetchJupiterTokens, getTokenProgramExtensions, hasValidMint } from '../utils/jupiter.js'
 import { processTokenList } from './processTokenList.js'
 import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, TokenInfo } from './utils.js'
 
@@ -8,6 +9,8 @@ import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, To
  * supports, from any issuer. Biggest token market cap first.
  *
  * Sources:
+ * - Solana token metadata comes from Jupiter, which reads the mint: CoinGecko has wrong decimals for some mints and
+ *   doesn't tell Token-2022 mints apart. Mints Jupiter doesn't know are skipped
  * - the RWA API (https://docs.coingecko.com/reference/rwa-overview): stocks, ETFs and commodities, with issuers
  * - `RWA_CATEGORIES`: what the RWA API misses, such as treasuries, money market funds, credit and non-US stocks.
  *   Category queries skip coins without market data, which is fine: CoW can't trade them without liquidity anyway
@@ -171,13 +174,16 @@ async function buildChainTokens(
 ): Promise<RwaTokenInfo[]> {
   const chainName = DISPLAY_CHAIN_NAMES[chainId]
   const platform = COINGECKO_CHAINS[chainId] as string
-  const listed = await fetchCoingeckoTokenList(platform)
-  const tokens = new Map<string, RwaTokenInfo>()
   const candidates = coins.filter((coin) => coin.platforms[platform])
+  const listed =
+    chainId === SupportedChainId.SOLANA
+      ? await fetchJupiterTokenList(candidates.map((coin) => coin.platforms[platform] as string))
+      : await fetchCoingeckoTokenList(platform)
+  const tokens = new Map<string, RwaTokenInfo>()
   let skipped = 0
   let fromDetails = 0
 
-  log(`${chainName}: ${candidates.length} candidate tokens, ${listed.size} tokens in CoinGecko's ${platform} list`)
+  log(`${chainName}: ${candidates.length} candidate tokens, ${listed.size} tokens with metadata`)
 
   for (const coin of candidates) {
     const address = coin.platforms[platform] as string
@@ -191,7 +197,7 @@ async function buildChainTokens(
 
     if (tokens.has(key)) continue
 
-    if (!listed.has(key)) fromDetails++
+    if (!listed.has(key) && chainId !== SupportedChainId.SOLANA) fromDetails++
 
     const info = await buildToken({ chainId, platform, key, coin, listed, market: markets.get(coin.id) })
 
@@ -306,6 +312,13 @@ async function buildToken({
   market,
 }: BuildTokenParams): Promise<RwaTokenInfo | null> {
   const fromList = listed.get(key)
+
+  if (chainId === SupportedChainId.SOLANA && !fromList) {
+    // CoinGecko can't tell the token program, and a wrong one reads the user's balance as 0
+    console.warn(`Skipping RWA token ${coin.id} on ${platform}: unknown to Jupiter`)
+    return null
+  }
+
   const details = fromList ? undefined : await fetchCoinDetails(coin.id)
   const decimals = fromList?.decimals ?? details?.detail_platforms?.[platform]?.decimal_place
 
@@ -322,11 +335,14 @@ async function buildToken({
     decimals: decimals as number,
     logoURI: toLogoUrl(market?.image) ?? toLogoUrl(fromList?.logoURI) ?? toLogoUrl(details?.image?.large),
     // The token list schema limits extension strings to 42 characters, too short for CoinGecko ids
-    extensions: Object.fromEntries(
-      Object.entries({ assetType: coin.assetType, issuer: coin.issuer }).filter(
-        (entry): entry is [string, string] => !!entry[1] && entry[1].length <= 42,
+    extensions: {
+      ...fromList?.extensions,
+      ...Object.fromEntries(
+        Object.entries({ assetType: coin.assetType, issuer: coin.issuer }).filter(
+          (entry): entry is [string, string] => !!entry[1] && entry[1].length <= 42,
+        ),
       ),
-    ),
+    },
     marketCap: market?.market_cap ?? 0,
   }
 }
@@ -354,6 +370,30 @@ async function fetchCoingeckoTokenList(platform: string): Promise<Map<string, To
     console.warn(`No CoinGecko token list for ${platform}, falling back to coin details:`, error)
     return new Map()
   }
+}
+
+/** Mint -> token, with `isToken2022` in the extensions of Token-2022 mints */
+async function fetchJupiterTokenList(mints: string[]): Promise<Map<string, TokenInfo>> {
+  const jupiter = await fetchJupiterTokens(mints)
+  const tokens = new Map<string, TokenInfo>()
+
+  for (const token of jupiter.values()) {
+    if (!hasValidMint(token)) continue
+
+    const extensions = getTokenProgramExtensions(token)
+
+    tokens.set(getAddressKey(token.id), {
+      chainId: SupportedChainId.SOLANA,
+      address: token.id,
+      name: token.name,
+      symbol: token.symbol,
+      decimals: token.decimals,
+      ...(token.icon ? { logoURI: token.icon } : {}),
+      ...(extensions.isToken2022 ? { extensions } : {}),
+    })
+  }
+
+  return tokens
 }
 
 async function fetchCoinMarkets(ids: string[]): Promise<Map<string, CoinMarket>> {

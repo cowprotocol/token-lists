@@ -4,6 +4,7 @@ import { randomUUID } from 'node:crypto'
 import type { TokenInfo, TokenList } from '@uniswap/token-lists'
 import { BUILD_DIR, SRC_DIR, writeTokenListToBuild, writeTokenListToSrc } from './tokenListUtils.js'
 import { fetchJson } from './utils/fetchJson.js'
+import { fetchJupiterTokens, getTokenProgramExtensions, hasValidMint, JupiterToken } from './utils/jupiter.js'
 import { executeDuneVolumeSnapshot, prepareSolanaRankings, compareTokenAddresses } from './solanaRankings.js'
 
 /**
@@ -51,9 +52,6 @@ const RWA_LIST: ListConfig = {
 const RWA_TAGS = new Set(['rwa', 'stocks', 'xstocks', 'equities', 'prestocks', 'pre-ipo', 'ondo', 'commodities'])
 
 const SOLANA_CHAIN_ID = 1000000001
-const NATIVE_SOL_MINT = '11111111111111111111111111111111'
-const JUPITER_VERIFIED_URL = 'https://lite-api.jup.ag/tokens/v2/tag?query=verified'
-const JUPITER_SEARCH_URL = 'https://lite-api.jup.ag/tokens/v2/search'
 const COINGECKO_SOLANA_LIST_URL = 'https://tokens.coingecko.com/solana/all.json'
 const STRICT_TAG = 'strict'
 const LOGO_URI =
@@ -71,26 +69,6 @@ const MAX_SHRINK_RATIO = 0.3
 
 const DEFAULT_VERSION = { major: 1, minor: 0, patch: 0 }
 
-// SPL Token program IDs. Needed downstream so the FE knows whether to issue
-// instructions through the classic Token program or Token-2022.
-const TOKEN_PROGRAM_ID = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
-const TOKEN_2022_PROGRAM_ID = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'
-
-// Raw Jupiter v2 token shape (only the fields we care about).
-interface JupiterToken {
-  id: string // mint address
-  name: string
-  symbol: string
-  icon: string | null
-  decimals: number
-  tokenProgram: string
-  tags?: string[]
-  organicScore?: number
-  audit?: {
-    isSus?: boolean
-  }
-}
-
 // CoinGecko ships a Uniswap-style list, so `chainId` is null for Solana and
 // `decimals` occasionally carries an EVM-shaped 18. We only trust the address.
 interface CoingeckoToken {
@@ -101,28 +79,8 @@ interface CoingeckoToken {
   logoURI?: string
 }
 
-async function fetchJupiterTokens(requiredMints: Set<string>): Promise<JupiterToken[]> {
-  console.log(`Fetching Jupiter verified tokens: ${JUPITER_VERIFIED_URL}`)
-  const json = await fetchJson(JUPITER_VERIFIED_URL)
-
-  if (!Array.isArray(json)) {
-    throw new Error(`Unexpected Jupiter response shape: ${typeof json}`)
-  }
-
-  const tokens = new Map((json as JupiterToken[]).map((token) => [token.id, token]))
-  // Recheck missing members and overrides; native SOL is not an SPL mint.
-  const missing = [...requiredMints].filter((mint) => mint !== NATIVE_SOL_MINT && !tokens.has(mint))
-  for (let offset = 0; offset < missing.length; offset += 100) {
-    const batch = missing.slice(offset, offset + 100)
-    const matches = await fetchJson(`${JUPITER_SEARCH_URL}?query=${batch.join(',')}`)
-    if (!Array.isArray(matches)) throw new Error('Unexpected Jupiter mint lookup response: expected an array')
-    for (const token of matches as JupiterToken[]) {
-      if (batch.includes(token.id)) tokens.set(token.id, token)
-    }
-    const unresolved = batch.filter((mint) => !tokens.has(mint))
-    if (unresolved.length) throw new Error('Jupiter did not return required mints: ' + unresolved.join(', '))
-  }
-  return [...tokens.values()]
+async function fetchJupiterTokenList(requiredMints: Set<string>): Promise<JupiterToken[]> {
+  return [...(await fetchJupiterTokens(requiredMints, { strict: true })).values()]
 }
 
 async function fetchCoingeckoSolana(): Promise<Map<string, CoingeckoToken>> {
@@ -146,18 +104,11 @@ function isEligible(t: JupiterToken, wasListed: boolean): boolean {
 
 function isValidToken(t: JupiterToken): boolean {
   // drop entries without the minimum data we need to render a token
-  return Boolean(
-    t.id &&
-      t.symbol &&
-      t.name &&
-      Number.isInteger(t.decimals) &&
-      t.decimals >= 0 &&
-      (t.tokenProgram === TOKEN_PROGRAM_ID || t.tokenProgram === TOKEN_2022_PROGRAM_ID),
-  )
+  return Boolean(t.id && t.symbol && t.name && hasValidMint(t))
 }
 
 function toTokenInfo(t: JupiterToken, coingecko: CoingeckoToken | undefined): TokenInfo {
-  const isToken2022 = t.tokenProgram === TOKEN_2022_PROGRAM_ID
+  const extensions = getTokenProgramExtensions(t)
   const logoURI = t.icon || coingecko?.logoURI
 
   return {
@@ -171,7 +122,7 @@ function toTokenInfo(t: JupiterToken, coingecko: CoingeckoToken | undefined): To
     // omit logoURI when neither source has an icon
     ...(logoURI ? { logoURI } : {}),
     // Mark only the Token-2022 mints.
-    ...(isToken2022 ? { extensions: { isToken2022: true } } : {}),
+    ...(extensions.isToken2022 ? { extensions } : {}),
   }
 }
 
@@ -367,7 +318,7 @@ async function main() {
     ),
   )
   const requiredMints = new Set([...currentMints, ...overrides.map((token) => token.address)])
-  const [raw, coingecko] = await Promise.all([fetchJupiterTokens(requiredMints), fetchCoingeckoSolana()])
+  const [raw, coingecko] = await Promise.all([fetchJupiterTokenList(requiredMints), fetchCoingeckoSolana()])
   console.log(`Got ${raw.length} tokens from Jupiter, ${coingecko.size} Solana tokens from CoinGecko`)
 
   const eligible = raw.filter((token) => isEligible(token, currentMints.has(token.id)))

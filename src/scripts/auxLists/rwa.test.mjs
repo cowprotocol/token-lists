@@ -15,6 +15,10 @@ const gold = '0x68749665ff8d2d112fa859aa293f07a622782f38'
 const noDecimals = '0x1111111111111111111111111111111111111111'
 const delisted = '0x3333333333333333333333333333333333333333'
 const solMint = 'XsTEo8W2L8JprN57bmJgatDT84z57ReJYizr5f32BfP'
+const solClassicMint = 'EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v'
+const solUnknownMint = 'y6kSRF4i9tfMMjZziPHtQE1PeUS6bWEHTzZMFgXondo'
+const tokenProgram = 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'
+const token2022Program = 'TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb'
 
 const RWAS = {
   '3m': {
@@ -41,6 +45,9 @@ const RWAS = {
     id: 'gold',
     asset_type: 'commodity',
     tokens: [
+      { id: 'sol-gold', symbol: 'solg', name: 'Solana Gold', platforms: { solana: solClassicMint } },
+      // Jupiter knows neither mint: skipped instead of taking CoinGecko's decimals
+      { id: 'sol-unknown', symbol: 'unk', name: 'Unknown', platforms: { solana: solUnknownMint } },
       {
         id: 'tether-gold',
         symbol: 'xaut',
@@ -86,9 +93,28 @@ const TOKEN_LISTS = {
       logoURI: 'https://assets.coingecko.com/coins/images/1/thumb/MMMx.png',
     },
   ],
-  solana: [{ chainId: null, address: solMint, name: '3M xStock', symbol: 'MMMx', decimals: 8 }],
+  // CoinGecko has wrong decimals for both mints, Jupiter reads them from the mint
+  solana: [
+    { chainId: null, address: solMint, name: '3M xStock', symbol: 'MMMX', decimals: 18 },
+    { chainId: null, address: solUnknownMint, name: 'Unknown', symbol: 'UNK', decimals: 7 },
+  ],
   'arbitrum-one': [{ chainId: 42161, address: rstock, name: '3M Reality', symbol: 'rMMM', decimals: 18 }],
 }
+
+/** Jupiter's verified tokens; the classic SPL mint is only found by searching it */
+const JUPITER_VERIFIED = [
+  {
+    id: solMint,
+    name: '3M xStock',
+    symbol: 'MMMx',
+    icon: 'https://jup/mmmx.png',
+    decimals: 8,
+    tokenProgram: token2022Program,
+  },
+]
+const JUPITER_SEARCH = [
+  { id: solClassicMint, name: 'Solana Gold', symbol: 'SOLG', icon: null, decimals: 6, tokenProgram: tokenProgram },
+]
 
 /** Coin id -> `/coins/{id}` response, or the HTTP status it fails with */
 const COIN_DETAILS = {
@@ -118,7 +144,14 @@ function mockCoinGecko(t, { rwas = RWAS, coinDetails = COIN_DETAILS } = {}) {
     requests.push({ pathname, headers: init?.headers ?? {} })
     let data
 
-    if (hostname === 'tokens.coingecko.com') {
+    if (hostname === 'lite-api.jup.ag' && pathname === '/tokens/v2/tag') {
+      assert.equal(searchParams.get('query'), 'verified')
+      data = JUPITER_VERIFIED
+    } else if (hostname === 'lite-api.jup.ag' && pathname === '/tokens/v2/search') {
+      const mints = searchParams.get('query').split(',')
+      assert.deepEqual(mints.sort(), [solClassicMint, solUnknownMint].sort())
+      data = JUPITER_SEARCH.filter((token) => mints.includes(token.id))
+    } else if (hostname === 'tokens.coingecko.com') {
       const list = TOKEN_LISTS[pathname.split('/')[1]]
       if (!list) return { ok: false, status: 404 }
       data = { tokens: list }
@@ -200,9 +233,26 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
   ])
 
   const solana = read(1000000001)
-  assert.equal(solana.tokens.length, 1)
-  assert.equal(solana.tokens[0].address, solMint)
-  assert.equal(solana.tokens[0].decimals, 8)
+  assert.deepEqual(solana.tokens, [
+    {
+      chainId: 1000000001,
+      address: solMint,
+      name: '3M xStock',
+      symbol: 'MMMx',
+      decimals: 8,
+      logoURI: 'https://jup/mmmx.png',
+      extensions: { isToken2022: true, assetType: 'stock', issuer: 'xStocks' },
+    },
+    {
+      chainId: 1000000001,
+      address: solClassicMint,
+      name: 'Solana Gold',
+      symbol: 'SOLG',
+      decimals: 6,
+      extensions: { assetType: 'commodity' },
+    },
+  ])
+  assert.equal(requests.filter(({ pathname }) => pathname.startsWith('/api/v3/coins/sol-')).length, 0)
 
   assert.deepEqual(read(42161).tokens[0].extensions, { assetType: 'stock' })
   assert.equal(existsSync('src/public/CoinGeckoRwa.100.json'), false)

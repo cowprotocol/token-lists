@@ -84,7 +84,9 @@ function fixture(t) {
   for (const name of ['solana', 'solanaRankings', 'tokenListUtils']) {
     copyFileSync(new URL('src/scripts/' + name + '.ts', repo), join(root, 'src/scripts', name + '.ts'))
   }
-  copyFileSync(new URL('src/scripts/utils/fetchJson.ts', repo), join(root, 'src/scripts/utils/fetchJson.ts'))
+  for (const name of ['fetchJson', 'jupiter']) {
+    copyFileSync(new URL('src/scripts/utils/' + name + '.ts', repo), join(root, 'src/scripts/utils/' + name + '.ts'))
+  }
   for (const name of ['package.json', 'tsconfig.json']) copyFileSync(new URL(name, repo), join(root, name))
   symlinkSync(fileURLToPath(new URL('node_modules', repo)), join(root, 'node_modules'), 'dir')
   const input = { ...defaultList, version: { major: 2, minor: 3, patch: 4 }, tokens: members }
