@@ -3,7 +3,7 @@
     "defi"
   ],
   "version": {
-    "major": 21,
+    "major": 22,
     "minor": 0,
     "patch": 0
   },
@@ -58,14 +58,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
-    },
-    {
-      "chainId": 9745,
       "address": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
       "name": "Ethena Staked USDe",
       "symbol": "SUSDE",
@@ -79,6 +71,14 @@
       "symbol": "WEETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 9745,
@@ -106,6 +106,30 @@
     },
     {
       "chainId": 9745,
+      "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
+      "name": "Metronome Synth ETH",
+      "symbol": "MSETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67512/large/metronome_mseth.png?1753017508"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
+      "name": "Metronome Synth USD",
+      "symbol": "MSUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
+      "name": "EURØP",
+      "symbol": "EUROP",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-coin-rgb%281%29.png?1792638468"
+    },
+    {
+      "chainId": 9745,
       "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
       "name": "Staked USDai",
       "symbol": "SUSDAI",
@@ -122,14 +146,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
-      "name": "Metronome Synth USD",
-      "symbol": "MSUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
-    },
-    {
-      "chainId": 9745,
       "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
       "name": "Yuzu USD",
       "symbol": "YZUSD",
@@ -138,11 +154,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x98658bd74ef231158cadc21d8aba733a4e947e6a",
-      "name": "EURØP",
-      "symbol": "EUROP",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/52132/large/europ-coin-rgb%281%29.png?1792638468"
+      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
+      "name": "USDai",
+      "symbol": "USDAI",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
     },
     {
       "chainId": 9745,
@@ -154,19 +170,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
-      "name": "Metronome Synth ETH",
-      "symbol": "MSETH",
+      "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
+      "name": "Trillions",
+      "symbol": "TRILLIONS",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67512/large/metronome_mseth.png?1753017508"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
-      "name": "USDai",
-      "symbol": "USDAI",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55857/large/USDai_Token_Full_Glyph.png?1755229050"
+      "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
     },
     {
       "chainId": 9745,
@@ -186,27 +194,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
-      "name": "Trillions",
-      "symbol": "TRILLIONS",
+      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
+      "name": "Plazzy the dog",
+      "symbol": "PLAZZY",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x6eaf19b2fc24552925db245f9ff613157a7dbb4c",
-      "name": "Staked Stream USD",
-      "symbol": "XUSD",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/67383/large/xusd.jpg?1752627749"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
-      "name": "Resolv Liquidity Provider Token",
-      "symbol": "RLP",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
+      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
     },
     {
       "chainId": 9745,
@@ -223,9 +215,17 @@
       "symbol": "INX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/70089/large/tokenLogo.png?1760540852"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
+      "name": "Resolv Liquidity Provider Token",
+      "symbol": "RLP",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
     }
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-11T00:03:40.579Z"
+  "timestamp": "2026-11-13T00:03:39.642Z"
 }
