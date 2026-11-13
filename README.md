@@ -54,7 +54,7 @@ Instructions for setting up and running the various scripts locally
 
 ### Prerequisites
 
-Currently runs on Node.js LTS/Gallium v16.20.2
+Requires Node.js 22.9 or later (CI uses the current LTS)
 
 ```bash
 # Install dependencies
@@ -83,6 +83,10 @@ yarn generateAuxLists
 This script fetches and processes token data from both Coingecko and Uniswap APIs to create auxiliary token lists. These lists are used to enhance token metadata and support across different networks.
 
 - Coingecko lists contain up to the top 500 tokens per chain, sorted by volume
+- RWA lists (`CoinGeckoRwa.<chainId>.json`, `yarn rwaLists` alone) contain every tokenized real-world asset CoinGecko knows about, from any issuer, sorted by market cap:
+  - stocks, ETFs and commodities of the [CoinGecko RWA API](https://docs.coingecko.com/reference/rwa-overview)
+  - coins of the asset categories in `RWA_CATEGORIES` (`src/scripts/auxLists/rwa.ts`) that the RWA API misses: treasuries, money market funds, credit, non-US stocks...
+  - Each token carries `extensions.assetType` (`stock`, `etf`, `commodity`, `bond`, `fund`, `credit`, `deposit` or `other`) and, for RWA API tokens, `extensions.issuer`
 - Uniswap lists are a combination of:
   - Token for given chain already existing in the default Uniswap list
   - Mainnet tokens, mapped to the target chain, via Coingecko api

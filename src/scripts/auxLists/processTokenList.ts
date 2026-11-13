@@ -7,9 +7,9 @@ import { DISPLAY_CHAIN_NAMES, Overrides, TokenInfo } from './utils.js'
 
 const FORMATTER = new Intl.NumberFormat('en-us', { style: 'currency', currency: 'USD' })
 
-function getEmptyList(): Partial<TokenList> {
+function getEmptyList(keywords: string[] = ['defi']): Partial<TokenList> {
   return {
-    keywords: ['defi'],
+    keywords,
     version: { major: 0, minor: 0, patch: 0 },
     tokens: [],
   }
@@ -47,8 +47,14 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
     return { ...version, minor: version.minor + 1, patch: 0 }
   }
 
-  // Check for changes in token details
+  // Check for changes in token details or order
   if (currentAddresses.size === newAddresses.size) {
+    const currentOrder = list.tokens?.map((token) => getAddressKey(token.address)) || []
+
+    if (tokens.some((token, index) => getAddressKey(token.address) !== currentOrder[index])) {
+      return { ...version, patch: version.patch + 1 }
+    }
+
     for (const listToken of list.tokens || []) {
       const token = tokens.find((token) => getAddressKey(token.address) === getAddressKey(listToken.address))
       if (
@@ -56,7 +62,8 @@ function getTokenListVersion(list: Partial<TokenList>, tokens: TokenInfo[]): Tok
         (listToken.name !== token.name ||
           listToken.symbol !== token.symbol ||
           listToken.decimals !== token.decimals ||
-          listToken.logoURI !== token.logoURI)
+          listToken.logoURI !== token.logoURI ||
+          JSON.stringify(listToken.extensions) !== JSON.stringify(token.extensions))
       ) {
         return { ...version, patch: version.patch + 1 }
       }
@@ -73,6 +80,7 @@ interface SaveUpdatedTokensParams {
   tokens: TokenInfo[]
   listName: string
   replaceExisting: boolean
+  keywords?: string[]
 }
 
 function mergeOrReplaceTokens(currentList: TokenInfo[], newList: TokenInfo[], replaceExisting: boolean): TokenInfo[] {
@@ -97,9 +105,10 @@ function saveUpdatedTokens({
   tokens: newTokens,
   listName,
   replaceExisting,
+  keywords,
 }: SaveUpdatedTokensParams): void {
   const tokenListPath = path.join(getOutputPath(prefix, chainId))
-  const currentList = getLocalTokenList(tokenListPath, getEmptyList())
+  const currentList = getLocalTokenList(tokenListPath, getEmptyList(keywords))
 
   const tokens = mergeOrReplaceTokens(currentList.tokens || [], newTokens, replaceExisting)
 
@@ -132,6 +141,9 @@ interface ProcessTokenListParams {
   logo: string
   overrides?: Overrides
   replaceExisting?: boolean
+  keywords?: string[]
+  /** Name of the list, before the chain name. `prefix` by default */
+  title?: string
   logMessage: string
   logger: Logger
 }
@@ -143,6 +155,8 @@ export async function processTokenList({
   logo,
   overrides = {},
   replaceExisting = true,
+  keywords,
+  title = prefix,
   logMessage,
   logger,
 }: ProcessTokenListParams): Promise<void> {
@@ -166,8 +180,8 @@ export async function processTokenList({
     return acc
   }, [] as TokenInfo[])
 
-  const listName = getListName(chainId, prefix)
-  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting })
+  const listName = getListName(chainId, title)
+  saveUpdatedTokens({ chainId, prefix, logo, tokens: updatedTokens, listName, replaceExisting, keywords })
 }
 
 function isSubsetOf(setA: Set<string>, setB: Set<string>): boolean {

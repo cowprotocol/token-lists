@@ -1,4 +1,5 @@
 import { getAddressKey, mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
+import type { TokenInfo as TokenListTokenInfo } from '@uniswap/token-lists'
 import assert from 'assert'
 import fs from 'fs'
 import winston, { Logger } from 'winston'
@@ -11,6 +12,7 @@ export interface TokenInfo {
   decimals: number
   logoURI?: string
   volume?: number
+  extensions?: TokenListTokenInfo['extensions']
 }
 
 export type Overrides = Record<string, Partial<TokenInfo> | null>

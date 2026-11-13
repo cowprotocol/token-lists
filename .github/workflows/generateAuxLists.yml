@@ -45,6 +45,7 @@ jobs:
           name: aux-lists
           path: |
             src/public/CoinGecko.*.json
+            src/public/CoinGeckoRwa.*.json
             src/public/Uniswap.*.json
             src/public/TokenSupply.*.json
           if-no-files-found: error
