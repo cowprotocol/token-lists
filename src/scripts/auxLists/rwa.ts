@@ -330,8 +330,8 @@ async function buildToken({
   return {
     chainId,
     address: key,
-    name: fromList?.name ?? coin.name,
-    symbol: fromList?.symbol ?? coin.symbol.toUpperCase(),
+    name: fromList?.name || coin.name,
+    symbol: fromList?.symbol || coin.symbol.toUpperCase(),
     decimals: decimals as number,
     logoURI: toLogoUrl(market?.image) ?? toLogoUrl(fromList?.logoURI) ?? toLogoUrl(details?.image?.large),
     // The token list schema limits extension strings to 42 characters, too short for CoinGecko ids

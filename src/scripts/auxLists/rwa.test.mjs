@@ -101,7 +101,7 @@ const TOKEN_LISTS = {
   'arbitrum-one': [{ chainId: 42161, address: rstock, name: '3M Reality', symbol: 'rMMM', decimals: 18 }],
 }
 
-/** Jupiter's verified tokens; the classic SPL mint is only found by searching it */
+/** Jupiter's verified tokens; the classic SPL mint is only found by searching it, and has no name or symbol */
 const JUPITER_VERIFIED = [
   {
     id: solMint,
@@ -113,7 +113,7 @@ const JUPITER_VERIFIED = [
   },
 ]
 const JUPITER_SEARCH = [
-  { id: solClassicMint, name: 'Solana Gold', symbol: 'SOLG', icon: null, decimals: 6, tokenProgram: tokenProgram },
+  { id: solClassicMint, name: '', symbol: '', icon: null, decimals: 6, tokenProgram: tokenProgram },
 ]
 
 /** Coin id -> `/coins/{id}` response, or the HTTP status it fails with */
