@@ -6,7 +6,7 @@
   "version": {
     "major": 0,
     "minor": 2,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -575,11 +575,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
-      "name": "Micron Technology • Robinhood Token",
-      "symbol": "MU",
+      "address": "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8",
+      "name": "Netflix • Robinhood Token",
+      "symbol": "NFLX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174111/large/0xff080c8ce2e5feadaca0da81314ae59d232d4afd.png?1782444567",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174165/large/0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8.png?1782444710",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -587,11 +587,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8",
-      "name": "Netflix • Robinhood Token",
-      "symbol": "NFLX",
+      "address": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
+      "name": "Micron Technology • Robinhood Token",
+      "symbol": "MU",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174165/large/0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8.png?1782444710",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174111/large/0xff080c8ce2e5feadaca0da81314ae59d232d4afd.png?1782444567",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1583,18 +1583,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x1cdad396db64bda184d5182a97dd9b3c62100b7d",
-      "name": "Everpure • Robinhood Token",
-      "symbol": "P",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174199/large/0x1cdad396db64bda184d5182a97dd9b3c62100b7d.png?1782444800",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x06f272082339a90e81e1dcb8ab892fd1a8c5e4c0",
       "name": "Amazon aStock",
       "symbol": "AAMZN",
@@ -1603,6 +1591,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x1cdad396db64bda184d5182a97dd9b3c62100b7d",
+      "name": "Everpure • Robinhood Token",
+      "symbol": "P",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174199/large/0x1cdad396db64bda184d5182a97dd9b3c62100b7d.png?1782444800",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
     {
@@ -1631,18 +1631,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x10fad4a60adb421f8f5ca6f9f2eaf2dbc110e146",
-      "name": "Tesla aStock",
-      "symbol": "ATSLA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175733/large/TSLA.png?1787292426",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x1446501e886c7f830db9b494a1890cbccc072f57",
       "name": "Invesco QQQ aStock",
       "symbol": "AQQQ",
@@ -1650,6 +1638,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175713/large/QQQ.png?1787292360",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x10fad4a60adb421f8f5ca6f9f2eaf2dbc110e146",
+      "name": "Tesla aStock",
+      "symbol": "ATSLA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175733/large/TSLA.png?1787292426",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
@@ -1703,11 +1703,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xa1847139cbd660abc2f7b889d7cbcf18c56407fb",
-      "name": "Meta aStock",
-      "symbol": "AMETA",
+      "address": "0x701193374879131f923532987c7ef363a91a80eb",
+      "name": "NVIDIA aStock",
+      "symbol": "ANVDA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175698/large/META.png?1787292309",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175708/large/NVDA.png?1787292343",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -1715,11 +1715,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x701193374879131f923532987c7ef363a91a80eb",
-      "name": "NVIDIA aStock",
-      "symbol": "ANVDA",
+      "address": "0xa1847139cbd660abc2f7b889d7cbcf18c56407fb",
+      "name": "Meta aStock",
+      "symbol": "AMETA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175708/large/NVDA.png?1787292343",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175698/large/META.png?1787292309",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -2087,11 +2087,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x4d67253bc223e6b0e104f1084c1fb2b669ddc41b",
-      "name": "Credo Technology Group Holding Ltd Ordinary Shares • Robinho",
-      "symbol": "CRDO",
+      "address": "0x0c3260af4b8f13a69c4c2dfb84fd667890cdfa14",
+      "name": "ServiceNow • Robinhood Token",
+      "symbol": "NOW",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175285/large/CRDO.png?1786069996",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174161/large/0x0c3260af4b8f13a69c4c2dfb84fd667890cdfa14.png?1782444700",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2099,11 +2099,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x0c3260af4b8f13a69c4c2dfb84fd667890cdfa14",
-      "name": "ServiceNow • Robinhood Token",
-      "symbol": "NOW",
+      "address": "0x4d67253bc223e6b0e104f1084c1fb2b669ddc41b",
+      "name": "Credo Technology Group Holding Ltd Ordinary Shares • Robinho",
+      "symbol": "CRDO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174161/large/0x0c3260af4b8f13a69c4c2dfb84fd667890cdfa14.png?1782444700",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175285/large/CRDO.png?1786069996",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2291,18 +2291,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0xb1969f6604ca1ae7a2cd3f1827876e914594ca2d",
-      "name": "T1 Energy Inc. • Robinhood Token",
-      "symbol": "TE",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175339/large/TE.png?1786119787",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xad622320e520de39e72d41ef07438c3fd3354875",
       "name": "Invesco S&P 500 Momentum ETF • Robinhood Token",
       "symbol": "SPMO",
@@ -2310,6 +2298,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174183/large/0xad622320e520de39e72d41ef07438c3fd3354875.png?1782444758",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb1969f6604ca1ae7a2cd3f1827876e914594ca2d",
+      "name": "T1 Energy Inc. • Robinhood Token",
+      "symbol": "TE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175339/large/TE.png?1786119787",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -2363,11 +2363,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x48d60243c66437c6ac3c2495be94747aed5dfe25",
-      "name": "L3Harris Technologies, Inc. • Robinhood Token",
-      "symbol": "LHX",
+      "address": "0xaa4d64474c172010ab57719cb9951e6142a100d3",
+      "name": "Planet Labs PBC • Robinhood Token",
+      "symbol": "PL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175426/large/LHX.png?1786299267",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175292/large/PL.png?1786070084",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2375,11 +2375,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xaa4d64474c172010ab57719cb9951e6142a100d3",
-      "name": "Planet Labs PBC • Robinhood Token",
-      "symbol": "PL",
+      "address": "0x48d60243c66437c6ac3c2495be94747aed5dfe25",
+      "name": "L3Harris Technologies, Inc. • Robinhood Token",
+      "symbol": "LHX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175292/large/PL.png?1786070084",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175426/large/LHX.png?1786299267",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2963,18 +2963,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x4f9b7d336b1972dd4c93ca250121aacaa6b083aa",
-      "name": "Franklin FTSE South Korea aStock",
-      "symbol": "AFLKR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175688/large/FLKR.png?1787292275",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x12473790e09d415abac7441401f7abec64fa959c",
       "name": "SpaceX (Anchored Tokenized Stock)",
       "symbol": "ASPCX",
@@ -2982,6 +2970,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175662/large/coingecko-aSPCX.png?1787279738",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4f9b7d336b1972dd4c93ca250121aacaa6b083aa",
+      "name": "Franklin FTSE South Korea aStock",
+      "symbol": "AFLKR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175688/large/FLKR.png?1787292275",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
@@ -3011,11 +3011,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x1d236e2ef49bf8b425a5d81332230fdfdaa20aee",
-      "name": "Global X AI & Technology aStock",
-      "symbol": "AAIQ",
+      "address": "0x3e4a2f26fc4f92d92d7cd1e49ddade32869d00a4",
+      "name": "SPDR Gold Shares aStock",
+      "symbol": "AGLD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175666/large/AIQ.png?1787292203",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175692/large/GLD.png?1787292288",
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3023,11 +3023,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x3e4a2f26fc4f92d92d7cd1e49ddade32869d00a4",
-      "name": "SPDR Gold Shares aStock",
-      "symbol": "AGLD",
+      "address": "0x1d236e2ef49bf8b425a5d81332230fdfdaa20aee",
+      "name": "Global X AI & Technology aStock",
+      "symbol": "AAIQ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175692/large/GLD.png?1787292288",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175666/large/AIQ.png?1787292203",
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3155,11 +3155,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xfd38813a547b30155914383919cebe83a98435fa",
-      "name": "Super Micro Computer aStock",
-      "symbol": "ASMCI",
+      "address": "0xc8c3bbd0af3f10293d75dd468c51f3f81fc22fee",
+      "name": "IONQ aStock",
+      "symbol": "AIONQ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175722/large/SMCI.png?1787292390",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175697/large/IONQ.png?1787292305",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3167,11 +3167,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc8c3bbd0af3f10293d75dd468c51f3f81fc22fee",
-      "name": "IONQ aStock",
-      "symbol": "AIONQ",
+      "address": "0xfd38813a547b30155914383919cebe83a98435fa",
+      "name": "Super Micro Computer aStock",
+      "symbol": "ASMCI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175697/large/IONQ.png?1787292305",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175722/large/SMCI.png?1787292390",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3972,5 +3972,5 @@
   ],
   "name": "RWA on Robinhood Chain",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-13T11:25:47.216Z"
+  "timestamp": "2026-11-13T11:34:43.346Z"
 }
