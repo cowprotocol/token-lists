@@ -1,9 +1,9 @@
 {
   "name": "Solana RWA",
-  "timestamp": "2026-11-13T00:03:37.935Z",
+  "timestamp": "2026-11-14T00:03:28.154Z",
   "version": {
     "major": 4,
-    "minor": 2,
+    "minor": 3,
     "patch": 0
   },
   "logoURI": "https://raw.githubusercontent.com/solana-labs/token-list/main/assets/mainnet/So11111111111111111111111111111111111111112/logo.png",
@@ -22,6 +22,17 @@
       "symbol": "PAXG",
       "decimals": 6,
       "logoURI": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PAXG%20Metadata%202026/PAXG-Symbol-512x512px-Circle.png",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
+      "address": "AAPLEDt8RpzPgXyhvFzkMBofvFSQw9gpeMCoUdPdLnB8",
+      "name": "Apple - Backpack Securities",
+      "symbol": "AAPL",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/AAPL",
       "extensions": {
         "isToken2022": true
       }
@@ -517,6 +528,17 @@
     },
     {
       "chainId": 1000000001,
+      "address": "SCHHJ3jRdSjeFEVAaLrnYdx3Brphn92Ys7z1qkiCtPX",
+      "name": "Schwab U.S. REIT ETF - Backpack Securities",
+      "symbol": "SCHH",
+      "decimals": 6,
+      "logoURI": "https://backpack.exchange/api/stock-logo/SCHH",
+      "extensions": {
+        "isToken2022": true
+      }
+    },
+    {
+      "chainId": 1000000001,
       "address": "SKHYhSjuRWHgikq8eRKbtBbpABgJSkd7ytQV14i9EQ3",
       "name": "SK Hynix - Backpack Securities",
       "symbol": "SKHY",
@@ -807,7 +829,7 @@
       "name": "Broadcom xStock",
       "symbol": "AVGOx",
       "decimals": 8,
-      "logoURI": "https://xstocks-metadata.backed.fi/logos/tokens/AVGOx.png",
+      "logoURI": "https://static.datapi.jup.ag/token-icons/a8902bb7af8e0701d1ba733be7b946e1ff31053874790a618d6ee7c312b0f5ef.webp",
       "extensions": {
         "isToken2022": true
       }

@@ -3,7 +3,7 @@
     "defi"
   ],
   "version": {
-    "major": 35,
+    "major": 36,
     "minor": 0,
     "patch": 0
   },
@@ -58,19 +58,19 @@
     },
     {
       "chainId": 57073,
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+    },
+    {
+      "chainId": 57073,
       "address": "0xfc421ad3c883bf9e7c4f42de845c4e4405799e73",
       "name": "GHO",
       "symbol": "GHO",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
-      "name": "Frax USD",
-      "symbol": "FRXUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
     },
     {
       "chainId": 57073,
@@ -82,11 +82,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
+      "address": "0x80eede496655fb9047dd39d9f418d5483ed600df",
+      "name": "Frax USD",
+      "symbol": "FRXUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+      "logoURI": "https://assets.coingecko.com/coins/images/53963/large/frxUSD.png?1737792154"
     },
     {
       "chainId": 57073,
@@ -122,19 +122,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0xe7e553cd128f0011777323a0b44a7b96ea1cb540",
-      "name": "Wrapped SP500 xStock",
-      "symbol": "WSPYX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102179483/large/wspyx.png?1791952080"
-    },
-    {
-      "chainId": 57073,
       "address": "0x4200000000000000000000000000000000000006",
       "name": "Ink Bridged WETH (Ink)",
       "symbol": "WETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/52918/large/weth_2.jpg?1734684690"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xe7e553cd128f0011777323a0b44a7b96ea1cb540",
+      "name": "Wrapped SP500 xStock",
+      "symbol": "WSPYX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102179483/large/wspyx.png?1791952080"
     },
     {
       "chainId": 57073,
@@ -154,22 +154,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0xad09cd20e513e4d8cb78036f77ab9afde8555929",
-      "name": "Kraken Wrapped HYPE",
-      "symbol": "KHYPE",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176672/large/kHYPE.png?1788459787"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xefd30445a4ec1f4b3e0a6f4d9bdbd215f805047f",
-      "name": "Moderna xStock",
-      "symbol": "MRNAX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102175802/large/MRNA.webp?1787656673"
-    },
-    {
-      "chainId": 57073,
       "address": "0xe8245188db1efc91aef32e7aa4cf346b9a5830cf",
       "name": "CF Large Cap Index",
       "symbol": "LCAP",
@@ -178,19 +162,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
-      "name": "Universal BTC",
-      "symbol": "UNIBTC",
-      "decimals": 8,
-      "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
-    },
-    {
-      "chainId": 57073,
-      "address": "0x44e49dde02c954cd9b67923af7b1070412e8f34e",
-      "name": "Vida Global xStock",
-      "symbol": "VIDAX",
+      "address": "0xad09cd20e513e4d8cb78036f77ab9afde8555929",
+      "name": "Kraken Wrapped HYPE",
+      "symbol": "KHYPE",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176425/large/VIDAx.png?1787822930"
+      "logoURI": "https://assets.coingecko.com/coins/images/102176672/large/kHYPE.png?1788459787"
     },
     {
       "chainId": 57073,
@@ -202,35 +178,35 @@
     },
     {
       "chainId": 57073,
-      "address": "0x0606fc632ee812ba970af72f8489baaa443c4b98",
-      "name": "ANITA",
-      "symbol": "ANITA",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/68173/large/_L_L.png?1754996486"
+      "address": "0xd3c8da379d71a33bfee8875f87ac2748beb1d58d",
+      "name": "Universal BTC",
+      "symbol": "UNIBTC",
+      "decimals": 8,
+      "logoURI": "https://assets.coingecko.com/coins/images/39599/large/uniBTC_200px.png?1723064455"
     },
     {
       "chainId": 57073,
-      "address": "0xd95b9a5fa7c2708fd4fe0e07e59bde1ef35b194a",
-      "name": "Beast",
-      "symbol": "BEAST",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176648/large/Backgroundless_Beast_200x200.png?1788410365"
+      "address": "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189",
+      "name": "OpenUSDT",
+      "symbol": "OUSDT",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
     },
     {
       "chainId": 57073,
-      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
-      "name": "Solv Protocol BTC",
-      "symbol": "SOLVBTC",
+      "address": "0x44e49dde02c954cd9b67923af7b1070412e8f34e",
+      "name": "Vida Global xStock",
+      "symbol": "VIDAX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
+      "logoURI": "https://assets.coingecko.com/coins/images/102176425/large/VIDAx.png?1787822930"
     },
     {
       "chainId": 57073,
-      "address": "0x32bcb803f696c99eb263d60a05cafd8689026575",
-      "name": "Krak Mask",
-      "symbol": "KRAKMASK",
+      "address": "0xefd30445a4ec1f4b3e0a6f4d9bdbd215f805047f",
+      "name": "Moderna xStock",
+      "symbol": "MRNAX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176742/large/Untitled_-_August_1__2026_22.35_2.jpg?1788632503"
+      "logoURI": "https://assets.coingecko.com/coins/images/102175802/large/MRNA.webp?1787656673"
     },
     {
       "chainId": 57073,
@@ -250,11 +226,35 @@
     },
     {
       "chainId": 57073,
-      "address": "0x1217bfe6c773eec6cc4a38b5dc45b92292b6e189",
-      "name": "OpenUSDT",
-      "symbol": "OUSDT",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/54815/large/ousdt.jpg?1741848258"
+      "address": "0x0606fc632ee812ba970af72f8489baaa443c4b98",
+      "name": "ANITA",
+      "symbol": "ANITA",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/68173/large/_L_L.png?1754996486"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x4b0ee7c047d43ca403239f28f42115bedb7c0076",
+      "name": "Oklo xStock",
+      "symbol": "OKLOX",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69622/large/Ticker_OKLOx__Company_Name_Oklo__size_200x200.png?1759233239"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xd95b9a5fa7c2708fd4fe0e07e59bde1ef35b194a",
+      "name": "Beast",
+      "symbol": "BEAST",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102176648/large/Backgroundless_Beast_200x200.png?1788410365"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xae4efbc7736f963982aacb17efa37fcbab924cb3",
+      "name": "Solv Protocol BTC",
+      "symbol": "SOLVBTC",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/36800/large/solvBTC.png?1719810684"
     },
     {
       "chainId": 57073,
@@ -274,27 +274,19 @@
     },
     {
       "chainId": 57073,
-      "address": "0x62c99fac20b33b5423fdf9226179e973a8353e36",
-      "name": "Bert",
-      "symbol": "BERT",
+      "address": "0xcf010ba185fd6ee6027b141e2c32614d673f8258",
+      "name": "HOOKIT",
+      "symbol": "HKT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/68104/large/BERT_LOGO_4.jpg?1754802668"
+      "logoURI": "https://assets.coingecko.com/coins/images/102179082/large/IMG_8186.png?1791134386"
     },
     {
       "chainId": 57073,
-      "address": "0x7636244bab612264e1b2dfd4ba6e26d0311b1eb7",
-      "name": "Constellation Energy Corporation xStock",
-      "symbol": "CEGX",
+      "address": "0x32bcb803f696c99eb263d60a05cafd8689026575",
+      "name": "Krak Mask",
+      "symbol": "KRAKMASK",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102172728/large/CEGx-logo.png?1775052068"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xc0c2150cf0870e2d7abc7cde17c20a542fafbb9b",
-      "name": "TeraWulf xStock",
-      "symbol": "WULFX",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69625/large/Ticker_WULFx__Company_Name_TeraWulf__size_200x200.png?1759233242"
+      "logoURI": "https://assets.coingecko.com/coins/images/102176742/large/Untitled_-_August_1__2026_22.35_2.jpg?1788632503"
     },
     {
       "chainId": 57073,
@@ -306,19 +298,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xcf010ba185fd6ee6027b141e2c32614d673f8258",
-      "name": "HOOKIT",
-      "symbol": "HKT",
+      "address": "0x7636244bab612264e1b2dfd4ba6e26d0311b1eb7",
+      "name": "Constellation Energy Corporation xStock",
+      "symbol": "CEGX",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102179082/large/IMG_8186.png?1791134386"
-    },
-    {
-      "chainId": 57073,
-      "address": "0xef172ee53fbbe945ae2bd6ccff93384acf9cf19d",
-      "name": "Ink Cat",
-      "symbol": "ICAT",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102178462/large/photo_2026-08-24_23-39-19.jpg?1789630768"
+      "logoURI": "https://assets.coingecko.com/coins/images/102172728/large/CEGx-logo.png?1775052068"
     },
     {
       "chainId": 57073,
@@ -330,6 +314,22 @@
     },
     {
       "chainId": 57073,
+      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
+      "name": "Cat Call Agent",
+      "symbol": "CAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
+    },
+    {
+      "chainId": 57073,
+      "address": "0xef172ee53fbbe945ae2bd6ccff93384acf9cf19d",
+      "name": "Ink Cat",
+      "symbol": "ICAT",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/102178462/large/photo_2026-08-24_23-39-19.jpg?1789630768"
+    },
+    {
+      "chainId": 57073,
       "address": "0x6f75ac3b1b6fbe8bb5f948e25af03620f26ae838",
       "name": "Energy Select Sector SPDR Fund xStock",
       "symbol": "XLEX",
@@ -338,11 +338,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x0e04ca25b5cd15047946d89e21cbcdbae43a323b",
-      "name": "Otomate",
-      "symbol": "OTO",
+      "address": "0x62c99fac20b33b5423fdf9226179e973a8353e36",
+      "name": "Bert",
+      "symbol": "BERT",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/102176957/large/oto-dexscreener-logo-200.png?1789108556"
+      "logoURI": "https://assets.coingecko.com/coins/images/68104/large/BERT_LOGO_4.jpg?1754802668"
     },
     {
       "chainId": 57073,
@@ -354,11 +354,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x20c69c12abf2b6f8d8ca33604dd25c700c7e70a5",
-      "name": "Cat Call Agent",
-      "symbol": "CAT",
+      "address": "0x17906b1cd88aa8efaefc5e82891b52a22219bd45",
+      "name": "Superseed",
+      "symbol": "SUPR",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/54745/large/DV_dS5E9_400x400_%282%29.png?1741326959"
+      "logoURI": "https://assets.coingecko.com/coins/images/55519/large/Small.png?1746469855"
     },
     {
       "chainId": 57073,
@@ -367,9 +367,17 @@
       "symbol": "BMX",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/31699/large/256x256_frame.png?1777046529"
+    },
+    {
+      "chainId": 57073,
+      "address": "0x0c5e2d1c98cd265c751e02f8f3293bc5764f9111",
+      "name": "Shroomy",
+      "symbol": "SHROOMY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/54002/large/1000000182.jpg?1737942213"
     }
   ],
   "name": "CoinGecko on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-13T00:03:40.175Z"
+  "timestamp": "2026-11-14T00:03:29.488Z"
 }
