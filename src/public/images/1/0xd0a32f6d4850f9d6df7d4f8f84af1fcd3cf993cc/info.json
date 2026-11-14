@@ -1,0 +1,10 @@
+{
+  "removed": false,
+  "address": "0xd0a32f6d4850f9d6df7d4f8f84af1fcd3cf993cc",
+  "symbol": "SWAN",
+  "name": "SwanDAO",
+  "logoURI": "https://files.cow.fi/token-lists/images/1/0xd0a32f6d4850f9d6df7d4f8f84af1fcd3cf993cc/logo.png",
+  "reason": "Refile of #1604, which failed at image optimization: the previous image URL redirected from the apex domain to www, which the optimizer appears not to follow. This URL is the direct one (512x512 PNG, image/png, no redirect). Companion refile for swanUSD: #1605.\n\nSWAN is the governance token of SwanDAO, the DAO that owns and governs the swanUSD stablecoin on Monolith, the stablecoin-as-a-service protocol built by Inverse Finance. Fixed supply of 10,000,000 SWAN, confirmed on-chain. Staked SWAN (sSWAN) receives the DAO's share of protocol revenue paid in swanUSD and votes on parameters, the interest-rate controller, and treasury actions. Live on Ethereum mainnet since October 22, 2026.\n\nLegitimacy: the contract is source-verified on Etherscan, non-upgradeable and non-pausable, and was deployed from the audited Monolith governance factory (Electisec, ChainSecurity, Sherlock contest and ongoing Sherlock bug bounty). Note this is SwanDAO's SWAN at the address above, unrelated to Swan Chain's SWAN (`0x43e3De6745fad70127d7935198311386449fD9dd`) that may already appear in token searches.\n\nLiquidity: Curve SWAN/WETH pool `0x6AE289f469292fcE7feddA74c6D411D4527fa239` (roughly $60K as of Nov 12, 2026, growing alongside the protocol). The token already routes via this pool when pasted by address; this request is for default-list inclusion with name and logo.\n\nLinks: https://swanusd.com | https://docs.monolith.market | https://x.com/MonolithMarket\nContact: edo@inverse.finance",
+  "decimals": 18,
+  "chainId": 1
+}
