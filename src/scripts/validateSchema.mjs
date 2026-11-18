@@ -7,7 +7,7 @@ const LIST_FILE = 'src/public/CowSwap.json'
 
 // The upstream TokenList schema caps names at 40 characters, which is too short for
 // tokenized stocks and ETFs (e.g. "Franklin US Equity Bitcoin DRIP Index ETF (Ondo Tokenized)").
-// Keep its other constraints and match the limit used for the Solana lists.
+// Keep its other constraints and raise only the name limit to 64, enough for issuer-published names.
 const schema = JSON.parse(readFileSync(new URL('node_modules/@uniswap/token-lists/dist/tokenlist.schema.json', repo)))
 schema.definitions.TokenInfo.properties.name.maxLength = 64
 
