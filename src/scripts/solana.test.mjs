@@ -199,6 +199,21 @@ test('existing provider eligibility, overrides, native SOL and RWA separation su
   assert.equal(f.read(defaultFile).tokens.find((t) => t.address === unmeasured.address).address, unmeasured.address)
 })
 
+test('an RWA-tagged override stays in the default list with its extensions', async (t) => {
+  const f = fixture(t)
+  const override = overrides.find((token) => token.extensions?.assetType)
+  assert.ok(override, 'fixture needs an override with custom extensions')
+  const provider = f.providers.jupiter.find((token) => token.id === override.address)
+  if (provider) provider.tags = ['xstocks', 'rwa']
+  else f.providers.jupiter.push({ ...jupiter(override), tags: ['xstocks', 'rwa'] })
+  if (!f.providers.coingecko.tokens.some((token) => token.address === override.address))
+    f.providers.coingecko.tokens.push(override)
+  await f.run([], { DUNE_API_KEY: '' })
+  const generated = f.read(defaultFile).tokens.find((token) => token.address === override.address)
+  assert.deepEqual(generated?.extensions, override.extensions)
+  assert.ok(!f.read(rwaFile).tokens.some((token) => token.address === override.address))
+})
+
 test('ranking validation accepts unchanged legacy snapshots and bootstraps only approved ranks', async (t) => {
   const f = fixture(t)
   const candidate = { ...f.snapshot, queryId: 8910905 }

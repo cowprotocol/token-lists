@@ -391,8 +391,12 @@ async function generateSolanaLists() {
   const dropped = priceable.length - valid.length
   console.log(`Kept ${valid.length} tokens, dropped ${dropped} (bad fields / unknown program)`)
 
-  const rwa = valid.filter(isRwa)
-  const rest = valid.filter((t) => !isRwa(t))
+  // Overrides always belong to the default list, even if Jupiter later tags them as RWA,
+  // so the same mint never lands in both lists.
+  const overrideMints = new Set(overrides.map((token) => token.address))
+  const isRwaMember = (t: JupiterToken): boolean => isRwa(t) && !overrideMints.has(t.id)
+  const rwa = valid.filter(isRwaMember)
+  const rest = valid.filter((t) => !isRwaMember(t))
   console.log(`Split into ${rest.length} default and ${rwa.length} RWA tokens`)
 
   const toInfo = (t: JupiterToken): TokenInfo => toTokenInfo(t, coingecko.get(t.id))
