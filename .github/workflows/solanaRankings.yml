@@ -101,3 +101,19 @@ jobs:
 
             This works for 7 days after the execution; after that, wait for the next weekly run.
           add-paths: src/public/TokenRanking.1000000001.json
+
+  report-failure:
+    name: Report failure
+    needs: refresh
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Notify Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          WORKFLOW: ${{ github.workflow }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          jq -n --arg text ":rotating_light: ${WORKFLOW} failed: ${RUN_URL}" '{text: $text}' \
+            | curl -fsS -X POST -H 'Content-Type: application/json' --data @- "$SLACK_WEBHOOK_URL"
