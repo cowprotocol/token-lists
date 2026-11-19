@@ -1,5 +1,6 @@
 import { getAddressKey, isEvmAddress, isSolanaAddress, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { existsSync } from 'fs'
+import pThrottle from 'p-throttle'
 import { fetchJupiterTokens, getTokenProgramExtensions, hasValidMint } from '../utils/jupiter.js'
 import { processTokenList } from './processTokenList.js'
 import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, TokenInfo } from './utils.js'
@@ -20,8 +21,9 @@ export const RWA_PREFIX = 'CoinGeckoRwa'
 const RWA_LOGO = 'https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png'
 const API_URL = 'https://pro-api.coingecko.com/api/v3'
 const PAGE_SIZE = 250
-const CONCURRENCY = 8
 const MAX_RETRIES = 5
+// The Pro plan's 1,000 calls/min are shared by every key of the account: leave most of it to the services using it
+const COINGECKO_REQUESTS_PER_MINUTE = 100
 
 /**
  * CoinGecko category -> asset type of its coins. A coin in several categories takes the type of the first one.
@@ -133,9 +135,10 @@ export async function fetchAndProcessRwaTokens(): Promise<void> {
   log('Building token lists')
 
   // All lists are built before any is written, so a failed request can't leave some chains updated and others not
-  const lists = await Promise.all(
-    chains.map(async (chainId) => ({ chainId, tokens: await buildChainTokens(chainId, coins, markets) })),
-  )
+  const lists = await mapSequential(chains, async (chainId) => ({
+    chainId,
+    tokens: await buildChainTokens(chainId, coins, markets),
+  }))
 
   for (const { chainId, tokens } of lists) {
     if (!tokens.length) {
@@ -217,7 +220,7 @@ async function fetchRwaApiCoins(): Promise<RwaCoin[]> {
 
   log(`Fetching tokens of ${list.length} RWAs`)
 
-  const rwas = await mapConcurrent(
+  const rwas = await mapSequential(
     list,
     (rwa) => coingecko<RwaDetails>(`/rwas/${encodeURIComponent(rwa.id)}?tokens=true`),
     'RWA details',
@@ -251,7 +254,7 @@ async function fetchCategoryCoins(
 
   log(`Fetching coins of ${categories.length} categories`)
 
-  const categoryMarkets = await mapConcurrent(categories, fetchCategoryMarkets, 'Categories')
+  const categoryMarkets = await mapSequential(categories, fetchCategoryMarkets, 'Categories')
   const platformsById = new Map(coinList.map((coin) => [coin.id, coin]))
   const coins = new Map<string, RwaCoin>()
   const markets = new Map<string, CoinMarket>()
@@ -403,7 +406,7 @@ async function fetchCoinMarkets(ids: string[]): Promise<Map<string, CoinMarket>>
 
   log(`Fetching market data of ${ids.length} coins`)
 
-  const results = await mapConcurrent(
+  const results = await mapSequential(
     batches,
     (batch) => coingecko<CoinMarket[]>(`/coins/markets?vs_currency=usd&per_page=${PAGE_SIZE}&ids=${batch.join(',')}`),
     'Market data batches',
@@ -444,8 +447,10 @@ class HttpError extends Error {
   }
 }
 
+const throttledRequest = pThrottle({ limit: COINGECKO_REQUESTS_PER_MINUTE, interval: 60_000 })(request)
+
 function coingecko<T>(path: string): Promise<T> {
-  return request<T>(`${API_URL}${path}`, { 'x-cg-pro-api-key': COINGECKO_API_KEY as string })
+  return throttledRequest(`${API_URL}${path}`, { 'x-cg-pro-api-key': COINGECKO_API_KEY as string }) as Promise<T>
 }
 
 async function request<T>(url: string, headers: Record<string, string> = {}): Promise<T> {
@@ -479,26 +484,21 @@ async function request<T>(url: string, headers: Record<string, string> = {}): Pr
   }
 }
 
-/** With `progressLabel`, logs the progress at every 10% */
-async function mapConcurrent<T, R>(items: T[], fn: (item: T) => Promise<R>, progressLabel?: string): Promise<R[]> {
-  const results = new Array<R>(items.length)
+/**
+ * One request at a time: parallel requests trip CoinGecko's per-minute rate limit, and the job runs once a day.
+ * With `progressLabel`, logs the progress at every 10%
+ */
+async function mapSequential<T, R>(items: T[], fn: (item: T) => Promise<R>, progressLabel?: string): Promise<R[]> {
+  const results: R[] = []
   const step = Math.max(1, Math.ceil(items.length / 10))
-  let next = 0
-  let done = 0
 
-  async function worker(): Promise<void> {
-    while (next < items.length) {
-      const index = next++
-      results[index] = await fn(items[index])
-      done++
+  for (const item of items) {
+    results.push(await fn(item))
 
-      if (progressLabel && (done % step === 0 || done === items.length)) {
-        log(`${progressLabel}: ${done}/${items.length} (${Math.round((done / items.length) * 100)}%)`)
-      }
+    if (progressLabel && (results.length % step === 0 || results.length === items.length)) {
+      log(`${progressLabel}: ${results.length}/${items.length} (${Math.round((results.length / items.length) * 100)}%)`)
     }
   }
-
-  await Promise.all(Array.from({ length: Math.min(CONCURRENCY, items.length) }, worker))
 
   return results
 }
