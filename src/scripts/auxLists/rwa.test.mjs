@@ -131,6 +131,7 @@ function useTempDir(t) {
   const cwd = process.cwd()
   const dir = mkdtempSync(join(tmpdir(), 'rwa-'))
   mkdirSync(join(dir, 'src/public'), { recursive: true })
+  writeFileSync(join(dir, 'src/public/CowSwap.json'), JSON.stringify({ tokens: [] }))
   process.chdir(dir)
   t.after(() => process.chdir(cwd))
   t.mock.method(console, 'log', () => {})
@@ -194,11 +195,15 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
   writeFileSync('src/public/CoinGeckoRwa.137.json', polygonList)
   const requests = mockCoinGecko(t)
   const fresh = '0x77777777777777777777777777777777777777Aa'
+  const defaultToken = '0x6666666666666666666666666666666666666666'
+  writeFileSync('src/public/CowSwap.json', JSON.stringify({ tokens: [{ chainId: 1, address: defaultToken }] }))
 
   await fetchAndProcessRwaTokens([
     { chainId: 1, address: fresh, name: 'Fresh Stock', symbol: 'FRSH', decimals: 18, extensions: { assetType: 'stock' } },
     // CoinGecko's entry wins
     { chainId: 1, address: gold, name: 'Supplement Gold', symbol: 'SGLD', decimals: 18 },
+    // Added to CoW Swap's default tokens after the supplement was generated: never geoblocked
+    { chainId: 1, address: defaultToken, name: 'Default Token', symbol: 'DFLT', decimals: 18 },
   ])
 
   const read = (chainId) => JSON.parse(readFileSync(`src/public/CoinGeckoRwa.${chainId}.json`, 'utf8'))
@@ -285,8 +290,11 @@ test('rejects an invalid supplement before writing any list', async (t) => {
     [{ ...token, chainId: 10 }],
     [{ ...token, address: '0x1234' }],
     [{ ...token, decimals: 256 }],
+    [{ ...token, chainId: '1' }],
     [{ ...token, name: '<b>Gold</b>' }],
+    [{ ...token, name: undefined }],
     [{ ...token, logoURI: 'http://gold.png' }],
+    [{ ...token, extensions: { issuer: 'An issuer with a name longer than 42 characters' } }],
     [token, { ...token, address: '0x' + gold.slice(2).toUpperCase() }],
   ]
 
@@ -297,7 +305,6 @@ test('rejects an invalid supplement before writing any list', async (t) => {
 })
 
 const fresh = '0x55555555555555555555555555555555555555Aa'
-const listed = '0x4444444444444444444444444444444444444444'
 const cowToken = '0x6666666666666666666666666666666666666666'
 const freshStock = { chainId: 1, name: 'Fresh Stock', symbol: 'FRSH', decimals: 18 }
 const manualStock = {
@@ -309,12 +316,14 @@ const manualStock = {
   extensions: { assetType: 'stock', issuer: 'Manual Issuer' },
 }
 
-/** A temporary directory with `CowSwap.json`, `CoinGeckoRwa.1.json` and the manual tokens, and a mocked CMS */
+/** A temporary directory with `CowSwap.json`, RWA lists and the manual tokens, and a mocked CMS */
 async function useSupplementSources(t, manual) {
   const { generateRwaSupplement } = await import('./rwaSupplement.ts')
   useTempDir(t)
   writeFileSync('src/public/CowSwap.json', JSON.stringify({ tokens: [{ chainId: 1, address: cowToken }] }))
-  writeFileSync('src/public/CoinGeckoRwa.1.json', JSON.stringify({ tokens: [{ chainId: 1, address: listed }] }))
+  // As an earlier run of `rwa.ts` leaves them: holding the supplement tokens, which must not be dropped for it
+  writeFileSync('src/public/CoinGeckoRwa.1.json', JSON.stringify({ tokens: [{ chainId: 1, address: fresh }] }))
+  writeFileSync('src/public/CoinGeckoRwa.56.json', JSON.stringify({ tokens: [manualStock] }))
   writeFileSync('manual.json', JSON.stringify(manual))
 
   const provider = 'https://raw.githubusercontent.com/provider/list/abc123/tokenlist.json'
@@ -323,7 +332,6 @@ async function useSupplementSources(t, manual) {
       tokens: [
         { ...freshStock, address: fresh, logoURI: 'http://fresh.png', tags: ['provider'], extensions: { isin: 'US0' } },
         { ...freshStock, address: fresh },
-        { ...freshStock, address: listed },
         { ...freshStock, address: cowToken },
         { ...freshStock, address: fresh, chainId: 10 },
         { ...freshStock, address: '0x8888888888888888888888888888888888888888', name: '<script>' },
@@ -350,8 +358,7 @@ async function useSupplementSources(t, manual) {
 test('generates the supplement from the CMS token lists and the manual tokens', async (t) => {
   const generate = await useSupplementSources(t, [
     manualStock,
-    // Listed upstream by now: removed from the manual tokens
-    { ...freshStock, address: listed, symbol: 'OLD' },
+    // A provider lists it by now: removed from the manual tokens
     { ...freshStock, address: fresh.toLowerCase(), name: 'Fresh Stock by hand' },
   ])
 
