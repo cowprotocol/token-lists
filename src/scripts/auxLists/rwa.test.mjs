@@ -7,7 +7,7 @@ import { test } from 'node:test'
 
 register('ts-node/esm', import.meta.url)
 process.env.COINGECKO_API_KEY = 'test'
-const { fetchAndProcessRwaTokens } = await import('./rwa.ts')
+const { fetchAndProcessRwaTokens, getRwaSupplementError, getTokenKey } = await import('./rwa.ts')
 
 const xstock = '0x707C6BC22B6CF83B930B0A68C3BB20A94836DE71'
 const rstock = '0x7a4db38b68a964efed8b8eda770fda84f3320195'
@@ -280,6 +280,21 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
   const api = requests.filter(({ pathname }) => pathname.startsWith('/api/v3/'))
   assert.ok(api.every(({ headers }) => headers['x-cg-pro-api-key'] === 'test'))
   assert.equal(requests.filter(({ pathname }) => pathname === '/api/v3/coins/tether-gold').length, 1)
+})
+
+test('the committed supplement is valid and up to date with the manual tokens', () => {
+  const read = (file) => JSON.parse(readFileSync(new URL(file, import.meta.url), 'utf8'))
+  const supplement = read('./rwaSupplement.json')
+  const keys = new Set(supplement.map(getTokenKey))
+
+  // The nightly run aborts every RWA list over one invalid token
+  assert.equal(keys.size, supplement.length, 'duplicate supplement tokens')
+  for (const token of supplement) assert.equal(getRwaSupplementError(token), null, getTokenKey(token))
+
+  // `rwa.ts` only reads the supplement: a manual token is inert until `yarn rwaSupplement` runs
+  for (const token of read('./rwaManual.json')) {
+    assert.ok(keys.has(getTokenKey(token)), `${token.symbol} is missing, run \`yarn rwaSupplement\``)
+  }
 })
 
 test('rejects an invalid supplement before writing any list', async (t) => {
