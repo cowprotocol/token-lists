@@ -4,23 +4,11 @@
     "coingecko"
   ],
   "version": {
-    "major": 0,
-    "minor": 3,
+    "major": 1,
+    "minor": 0,
     "patch": 0
   },
   "tokens": [
-    {
-      "chainId": 57073,
-      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942",
-      "extensions": {
-        "assetType": "commodity",
-        "issuer": "Tether"
-      }
-    },
     {
       "chainId": 57073,
       "address": "0xc845b2894dbddd03858fd2d643b4ef725fe0849d",
@@ -31,6 +19,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 57073,
+      "address": "0xf50258d3c1dd88946c567920b986a12e65b50dac",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942",
+      "extensions": {
+        "assetType": "commodity",
+        "issuer": "Tether"
       }
     },
     {
@@ -119,18 +119,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0x7636244bab612264e1b2dfd4ba6e26d0311b1eb7",
-      "name": "Constellation Energy Corporation xStock",
-      "symbol": "CEGX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102172728/large/CEGx-logo.png?1775052068",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 57073,
       "address": "0x0e6607ab45d2ca779068cd6d9426c409773969fd",
       "name": "Global X Uranium ETF xStock",
       "symbol": "URAX",
@@ -138,6 +126,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102176414/large/URAx.png?1787822889",
       "extensions": {
         "assetType": "etf",
+        "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 57073,
+      "address": "0x7636244bab612264e1b2dfd4ba6e26d0311b1eb7",
+      "name": "Constellation Energy Corporation xStock",
+      "symbol": "CEGX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102172728/large/CEGx-logo.png?1775052068",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "xStocks"
       }
     },
@@ -208,18 +208,6 @@
       "symbol": "BTBTX",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/69657/large/Ticker_BTBTx__Company_Name_Bit_Digital__size_200x200.png?1759233843",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 57073,
-      "address": "0x68f3ddee8bae33691e7cd0372984fd857e842760",
-      "name": "T-Mobile xStock",
-      "symbol": "TMUSX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/69658/large/Ticker_TMUSx__Company_Name_T-Mobile__size_200x200.png?1759233844",
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
@@ -8779,5 +8767,5 @@
   ],
   "name": "RWA on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-13T11:25:47.234Z"
+  "timestamp": "2026-11-19T17:25:07.068Z"
 }

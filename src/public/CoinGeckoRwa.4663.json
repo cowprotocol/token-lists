@@ -5,8 +5,8 @@
   ],
   "version": {
     "major": 0,
-    "minor": 2,
-    "patch": 3
+    "minor": 3,
+    "patch": 0
   },
   "tokens": [
     {
@@ -83,18 +83,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
-      "name": "NVIDIA • Robinhood Token",
-      "symbol": "NVDA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174110/large/0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec.png?1782444565",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c",
       "name": "SPDR S&P 500 ETF Trust • Robinhood Token",
       "symbol": "SPY",
@@ -102,6 +90,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174115/large/0x117cc2133c37b721f49de2a7a74833232b3b4c0c.png?1782444578",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec",
+      "name": "NVIDIA • Robinhood Token",
+      "symbol": "NVDA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174110/large/0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec.png?1782444565",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -143,6 +143,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0x7b5026cfcb4de0cf3d9a39fe2a541514b71437a2",
+      "name": "Meta Platforms (Ondo Tokenized Stock)",
+      "symbol": "METAON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/68645/large/metaon_160x160.png?1756156152",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5",
       "name": "Circle Internet Group • Robinhood Token",
       "symbol": "CRCL",
@@ -150,6 +162,30 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174121/large/0xdf0992e440dd0be65bd8439b609d6d4366bf1cb5.png?1782444593",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3",
+      "name": "Alphabet Class A • Robinhood Token",
+      "symbol": "GOOGL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174124/large/0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3.png?1782444601",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
+      "name": "Invesco QQQ • Robinhood Token",
+      "symbol": "QQQ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174119/large/0xd5f3879160bc7c32ebb4dc785f8a4f505888de68.png?1782444588",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -167,30 +203,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x7b5026cfcb4de0cf3d9a39fe2a541514b71437a2",
-      "name": "Meta Platforms (Ondo Tokenized Stock)",
-      "symbol": "METAON",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/68645/large/metaon_160x160.png?1756156152",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3",
-      "name": "Alphabet Class A • Robinhood Token",
-      "symbol": "GOOGL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174124/large/0x2e0847e8910a9732eb3fb1bb4b70a580adad4fe3.png?1782444601",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xec262a75e413fafd0df80480274532c79d42da09",
       "name": "Strategy Inc. • Robinhood Token",
       "symbol": "MSTR",
@@ -198,18 +210,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174143/large/0xec262a75e413fafd0df80480274532c79d42da09.png?1782444651",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xd5f3879160bc7c32ebb4dc785f8a4f505888de68",
-      "name": "Invesco QQQ • Robinhood Token",
-      "symbol": "QQQ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174119/large/0xd5f3879160bc7c32ebb4dc785f8a4f505888de68.png?1782444588",
-      "extensions": {
-        "assetType": "etf",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -299,6 +299,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0x75113389169b154ddac67ca7efa542680d75f072",
+      "name": "iShares China Large-Cap ETF (Ondo Tokenized)",
+      "symbol": "FXION",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102172421/large/fxion_160x160.png?1773394705",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x1b0e319c6a659f002271b69db8a7df2f911c153e",
       "name": "GameStop • Robinhood Token",
       "symbol": "GME",
@@ -323,14 +335,14 @@
     },
     {
       "chainId": 4663,
-      "address": "0x75113389169b154ddac67ca7efa542680d75f072",
-      "name": "iShares China Large-Cap ETF (Ondo Tokenized)",
-      "symbol": "FXION",
+      "address": "0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344",
+      "name": "United States Oil Fund • Robinhood Token",
+      "symbol": "USO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102172421/large/fxion_160x160.png?1773394705",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174125/large/0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344.png?1782444603",
       "extensions": {
         "assetType": "etf",
-        "issuer": "Ondo Finance"
+        "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
     {
@@ -371,18 +383,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344",
-      "name": "United States Oil Fund • Robinhood Token",
-      "symbol": "USO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174125/large/0xa30fa36db767ad9ed3f7a60fc79526fb4d56d344.png?1782444603",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xe93237c50d904957cf27e7b1133b510c669c2e74",
       "name": "Microsoft • Robinhood Token",
       "symbol": "MSFT",
@@ -400,6 +400,18 @@
       "symbol": "HIMS",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175360/large/HIMS.png?1786131590",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5e81213613b6b86eab4c6c50d718d34359459786",
+      "name": "Take-Two Interactive Software • Robinhood Token",
+      "symbol": "TTWO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174176/large/0x5e81213613b6b86eab4c6c50d718d34359459786.png?1782444740",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -491,14 +503,14 @@
     },
     {
       "chainId": 4663,
-      "address": "0x5e81213613b6b86eab4c6c50d718d34359459786",
-      "name": "Take-Two Interactive Software • Robinhood Token",
-      "symbol": "TTWO",
+      "address": "0x4fc5b9f8933597d3ecf84d0611687e1dc8dd576f",
+      "name": "SPDR Bloomberg 1-3 Month T-Bill ETF (Anchored Tokenized ETF)",
+      "symbol": "ABIL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174176/large/0x5e81213613b6b86eab4c6c50d718d34359459786.png?1782444740",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175631/large/coingecko-aBIL.png?1787145231",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
+        "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -511,18 +523,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x4fc5b9f8933597d3ecf84d0611687e1dc8dd576f",
-      "name": "SPDR Bloomberg 1-3 Month T-Bill ETF (Anchored Tokenized ETF)",
-      "symbol": "ABIL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175631/large/coingecko-aBIL.png?1787145231",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -551,18 +551,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x43b07d15ce533bec5476d70c22a78a1b2b662155",
-      "name": "Moderna, Inc. • Robinhood Token",
-      "symbol": "MRNA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175366/large/MRNA.png?1786131713",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xb094d0d3221d7f7a9f14b0f78c34cd38d7acf6f2",
       "name": "GameStop (Ondo Tokenized Stock)",
       "symbol": "GMEON",
@@ -575,23 +563,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8",
-      "name": "Netflix • Robinhood Token",
-      "symbol": "NFLX",
+      "address": "0x43b07d15ce533bec5476d70c22a78a1b2b662155",
+      "name": "Moderna, Inc. • Robinhood Token",
+      "symbol": "MRNA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174165/large/0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8.png?1782444710",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
-      "name": "Micron Technology • Robinhood Token",
-      "symbol": "MU",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174111/large/0xff080c8ce2e5feadaca0da81314ae59d232d4afd.png?1782444567",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175366/large/MRNA.png?1786131713",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -611,6 +587,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8",
+      "name": "Netflix • Robinhood Token",
+      "symbol": "NFLX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174165/large/0xe0444ef8bf4ed74f74fd73686e2ddf4c1c5591e8.png?1782444710",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x5f10a1c971b69e47e059e1dc91901b59b3fb49c3",
       "name": "CoreWeave • Robinhood Token",
       "symbol": "CRWV",
@@ -623,11 +611,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd",
-      "name": "Dell • Robinhood Token",
-      "symbol": "DELL",
+      "address": "0xff080c8ce2e5feadaca0da81314ae59d232d4afd",
+      "name": "Micron Technology • Robinhood Token",
+      "symbol": "MU",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174139/large/0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd.png?1782444640",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174111/large/0xff080c8ce2e5feadaca0da81314ae59d232d4afd.png?1782444567",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -640,6 +628,18 @@
       "symbol": "ORCL",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174128/large/0xb0992820e760d836549ba69bc7598b4af75dee03.png?1782444611",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd",
+      "name": "Dell • Robinhood Token",
+      "symbol": "DELL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174139/large/0x941ae714ec6d8130c7b75d67160ca08f1e7d11dd.png?1782444640",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -671,11 +671,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xd917b029c761d264c6a312bbbcda868658ef86a6",
-      "name": "USA Rare Earth • Robinhood Token",
-      "symbol": "USAR",
+      "address": "0x980dcf6766fa79f5cf0c4aadb3ab477ff15a9619",
+      "name": "International Business Machines Corporation • Robinhood Toke",
+      "symbol": "IBM",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174132/large/0xd917b029c761d264c6a312bbbcda868658ef86a6.png?1782444621",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175357/large/IBM.png?1786131546",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -683,11 +683,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x980dcf6766fa79f5cf0c4aadb3ab477ff15a9619",
-      "name": "International Business Machines Corporation • Robinhood Toke",
-      "symbol": "IBM",
+      "address": "0xd917b029c761d264c6a312bbbcda868658ef86a6",
+      "name": "USA Rare Earth • Robinhood Token",
+      "symbol": "USAR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175357/large/IBM.png?1786131546",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174132/large/0xd917b029c761d264c6a312bbbcda868658ef86a6.png?1782444621",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -707,18 +707,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b",
-      "name": "Rivian Automotive • Robinhood Token",
-      "symbol": "RIVN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174195/large/0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b.png?1782444790",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x4e62068525ab11fe768e29dfd00ef909b9803016",
       "name": "Lululemon • Robinhood Token",
       "symbol": "LULU",
@@ -731,23 +719,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x156e175dd063a8ce274c50654ef40e0032b3fbcf",
-      "name": "Broadcom • Robinhood Token",
-      "symbol": "AVGO",
+      "address": "0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b",
+      "name": "Rivian Automotive • Robinhood Token",
+      "symbol": "RIVN",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174164/large/0x156e175dd063a8ce274c50654ef40e0032b3fbcf.png?1782444707",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x5c90450bbb4273d7b2f17cf6917aeb237a569679",
-      "name": "Cerebras Systems • Robinhood Token",
-      "symbol": "CBRS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174134/large/0x5c90450bbb4273d7b2f17cf6917aeb237a569679.png?1782444627",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174195/large/0xb1bf26c1d20ff267a4f93550d1e0d06ac40a114b.png?1782444790",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -791,23 +767,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x7066a64c24e4206cd62e83bf198c1e7eb361f51e",
-      "name": "Pfizer Inc. • Robinhood Token",
-      "symbol": "PFE",
+      "address": "0x5c90450bbb4273d7b2f17cf6917aeb237a569679",
+      "name": "Cerebras Systems • Robinhood Token",
+      "symbol": "CBRS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175439/large/PFE.png?1786301478",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xf6589f11bc40b669e584073f428b05562f568733",
-      "name": "Snap Inc. • Robinhood Token",
-      "symbol": "SNAP",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175399/large/SNAP.png?1786287522",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174134/large/0x5c90450bbb4273d7b2f17cf6917aeb237a569679.png?1782444627",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -827,6 +791,30 @@
     },
     {
       "chainId": 4663,
+      "address": "0x156e175dd063a8ce274c50654ef40e0032b3fbcf",
+      "name": "Broadcom • Robinhood Token",
+      "symbol": "AVGO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174164/large/0x156e175dd063a8ce274c50654ef40e0032b3fbcf.png?1782444707",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xf6589f11bc40b669e584073f428b05562f568733",
+      "name": "Snap Inc. • Robinhood Token",
+      "symbol": "SNAP",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175399/large/SNAP.png?1786287522",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x03dfbbe0ac4e7bcdafd08ed41a400326b77d8c80",
       "name": "Johnson & Johnson • Robinhood Token",
       "symbol": "JNJ",
@@ -839,11 +827,35 @@
     },
     {
       "chainId": 4663,
+      "address": "0x7066a64c24e4206cd62e83bf198c1e7eb361f51e",
+      "name": "Pfizer Inc. • Robinhood Token",
+      "symbol": "PFE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175439/large/PFE.png?1786301478",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xbef75684c43c4ea7bd18dd532a2244674ee8b926",
       "name": "Nano Nuclear Energy • Robinhood Token",
       "symbol": "NNE",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174203/large/0xbef75684c43c4ea7bd18dd532a2244674ee8b926.png?1782444811",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9a7842eded60b0fe1e03eec342c82a397c821ed0",
+      "name": "Bitmine Immersion Technologies, Inc. • Robinhood Token",
+      "symbol": "BMNR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176497/large/BMNR.png?1787940866",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -875,18 +887,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x41f4267525a8aff329540ef24fd83d9044758b33",
-      "name": "Figma, Inc. • Robinhood Token",
-      "symbol": "FIG",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175289/large/FIG.png?1786070068",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x4d21483a44bf67a86b77e3da301411880797d452",
       "name": "Boeing • Robinhood Token",
       "symbol": "BA",
@@ -899,11 +899,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xcef9027c7d6985b85f0ba431125073529a947a68",
-      "name": "Webull Corporation • Robinhood Token",
-      "symbol": "BULL",
+      "address": "0x41f4267525a8aff329540ef24fd83d9044758b33",
+      "name": "Figma, Inc. • Robinhood Token",
+      "symbol": "FIG",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175340/large/BULL.png?1786119809",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175289/large/FIG.png?1786070068",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -935,11 +935,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4",
-      "name": "Quantum Computing • Robinhood Token",
-      "symbol": "QUBT",
+      "address": "0x408c14038a04f7bd235329e26d2bf569ee20e250",
+      "name": "Nu • Robinhood Token",
+      "symbol": "NU",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174141/large/0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4.png?1782444645",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174171/large/0x408c14038a04f7bd235329e26d2bf569ee20e250.png?1782444726",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -947,23 +947,23 @@
     },
     {
       "chainId": 4663,
-      "address": "0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc",
-      "name": "iShares MSCI South Korea fund • Robinhood Token",
-      "symbol": "EWY",
+      "address": "0xcef9027c7d6985b85f0ba431125073529a947a68",
+      "name": "Webull Corporation • Robinhood Token",
+      "symbol": "BULL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174159/large/0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc.png?1782444694",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175340/large/BULL.png?1786119809",
       "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
     {
       "chainId": 4663,
-      "address": "0x2fdaa4604f10f4ae7f66fa48a174bcd25b1ece20",
-      "name": "McDonald's Corporation • Robinhood Token",
-      "symbol": "MCD",
+      "address": "0xf52597345a8edf418bc4071b4a35112472277d3e",
+      "name": "Western Digital Corporation • Robinhood Token",
+      "symbol": "WDC",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176509/large/MCD.png?1787951290",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175283/large/WDC.png?1786069944",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -983,37 +983,13 @@
     },
     {
       "chainId": 4663,
-      "address": "0xf52597345a8edf418bc4071b4a35112472277d3e",
-      "name": "Western Digital Corporation • Robinhood Token",
-      "symbol": "WDC",
+      "address": "0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc",
+      "name": "iShares MSCI South Korea fund • Robinhood Token",
+      "symbol": "EWY",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175283/large/WDC.png?1786069944",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174159/large/0x7f0abef0c07280f82c6a08ead09ded6bae2c13fc.png?1782444694",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x9a7842eded60b0fe1e03eec342c82a397c821ed0",
-      "name": "Bitmine Immersion Technologies, Inc. • Robinhood Token",
-      "symbol": "BMNR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176497/large/BMNR.png?1787940866",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x408c14038a04f7bd235329e26d2bf569ee20e250",
-      "name": "Nu • Robinhood Token",
-      "symbol": "NU",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174171/large/0x408c14038a04f7bd235329e26d2bf569ee20e250.png?1782444726",
-      "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -1024,6 +1000,18 @@
       "symbol": "AMAT",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174172/large/0x36046893810a7e7fce501229d57dc3fc8c8716d0.png?1782444729",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4",
+      "name": "Quantum Computing • Robinhood Token",
+      "symbol": "QUBT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174141/large/0x59818904ab4ce163b3ce4ffb64f2d6ca02c434b4.png?1782444645",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1043,23 +1031,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xa8f72952653864f7457e0c307fdb415e03c2ece1",
-      "name": "US Copper Index Fund (Ondo Tokenized)",
-      "symbol": "CPERON",
+      "address": "0x2fdaa4604f10f4ae7f66fa48a174bcd25b1ece20",
+      "name": "McDonald's Corporation • Robinhood Token",
+      "symbol": "MCD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102173898/large/cperon_160x160.png?1781494458",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Ondo Finance"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x501b1b3b79750313ad2c4cccd08586c4c17d7283",
-      "name": "The Walt Disney Company • Robinhood Token",
-      "symbol": "DIS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176573/large/DIS.png?1788214215",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176509/large/MCD.png?1787951290",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1079,11 +1055,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xa45abdc77918f7b9199b022eee400c0bc5712bd2",
-      "name": "PayPal Holdings, Inc. • Robinhood Token",
-      "symbol": "PYPL",
+      "address": "0x329fcaceb9ad6f9580dd5f643fed0646900d043c",
+      "name": "Lockheed Martin Corp. • Robinhood Token",
+      "symbol": "LMT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176593/large/PYPL.png?1788282849",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175412/large/LMT.png?1786295459",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1091,11 +1067,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x329fcaceb9ad6f9580dd5f643fed0646900d043c",
-      "name": "Lockheed Martin Corp. • Robinhood Token",
-      "symbol": "LMT",
+      "address": "0x501b1b3b79750313ad2c4cccd08586c4c17d7283",
+      "name": "The Walt Disney Company • Robinhood Token",
+      "symbol": "DIS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175412/large/LMT.png?1786295459",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176573/large/DIS.png?1788214215",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1115,23 +1091,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x9bff87700337babf5099e99f322f888dafb1d551",
-      "name": "Visa Inc. • Robinhood Token",
-      "symbol": "V",
+      "address": "0xa45abdc77918f7b9199b022eee400c0bc5712bd2",
+      "name": "PayPal Holdings, Inc. • Robinhood Token",
+      "symbol": "PYPL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176645/large/V.png?1788382152",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x3b14c39e89d60d627b42a1a4ca45b5bb45fc12e2",
-      "name": "Rocket Lab Corporation • Robinhood Token",
-      "symbol": "RKLB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174133/large/0x3b14c39e89d60d627b42a1a4ca45b5bb45fc12e2.png?1782444624",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176593/large/PYPL.png?1788282849",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1151,23 +1115,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xbd335aa5a1693f0121a5c0ef18a080e9958da78b",
-      "name": "Uber Technologies, Inc. • Robinhood Token",
-      "symbol": "UBER",
+      "address": "0x3b14c39e89d60d627b42a1a4ca45b5bb45fc12e2",
+      "name": "Rocket Lab Corporation • Robinhood Token",
+      "symbol": "RKLB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102176570/large/UBER.png?1788214139",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xf53f66751b1eff985311b693531e3290f600c410",
-      "name": "Shopify • Robinhood Token",
-      "symbol": "SHOP",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174182/large/0xf53f66751b1eff985311b693531e3290f600c410.png?1782444755",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174133/large/0x3b14c39e89d60d627b42a1a4ca45b5bb45fc12e2.png?1782444624",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1187,11 +1139,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x9e7abd3c9139d14e4c86dce0e455aab7a0c2fb3e",
-      "name": "WhiteFiber, Inc. • Robinhood Token",
-      "symbol": "WYFI",
+      "address": "0xf53f66751b1eff985311b693531e3290f600c410",
+      "name": "Shopify • Robinhood Token",
+      "symbol": "SHOP",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175349/large/WYFI.png?1786124263",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174182/large/0xf53f66751b1eff985311b693531e3290f600c410.png?1782444755",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1211,11 +1163,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xfde6b5d9bb419b10c23268c74e369abff39c0460",
-      "name": "Red Cat Holdings, Inc. • Robinhood Token",
-      "symbol": "RCAT",
+      "address": "0x9bff87700337babf5099e99f322f888dafb1d551",
+      "name": "Visa Inc. • Robinhood Token",
+      "symbol": "V",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175352/large/RCAT.png?1786124386",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176645/large/V.png?1788382152",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1230,6 +1182,30 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175453/large/VTI.png?1786367524",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbd335aa5a1693f0121a5c0ef18a080e9958da78b",
+      "name": "Uber Technologies, Inc. • Robinhood Token",
+      "symbol": "UBER",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102176570/large/UBER.png?1788214139",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x9e7abd3c9139d14e4c86dce0e455aab7a0c2fb3e",
+      "name": "WhiteFiber, Inc. • Robinhood Token",
+      "symbol": "WYFI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175349/large/WYFI.png?1786124263",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -1271,11 +1247,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc6cbad1016b38b797610c25e1dc7d95988b1f362",
-      "name": "Modine Manufacturing Co • Robinhood Token",
-      "symbol": "MOD",
+      "address": "0x98e75885157c80992a8d41b696d8c9c6fb30a926",
+      "name": "SoFi Technologies • Robinhood Token",
+      "symbol": "SOFI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175471/large/MOD.png?1786375100",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174163/large/0x98e75885157c80992a8d41b696d8c9c6fb30a926.png?1782444705",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1283,11 +1259,35 @@
     },
     {
       "chainId": 4663,
-      "address": "0x98e75885157c80992a8d41b696d8c9c6fb30a926",
-      "name": "SoFi Technologies • Robinhood Token",
-      "symbol": "SOFI",
+      "address": "0xa8f72952653864f7457e0c307fdb415e03c2ece1",
+      "name": "US Copper Index Fund (Ondo Tokenized)",
+      "symbol": "CPERON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174163/large/0x98e75885157c80992a8d41b696d8c9c6fb30a926.png?1782444705",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102173898/large/cperon_160x160.png?1781494458",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Ondo Finance"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0f17206447090e464c277571124dd2688e48aea9",
+      "name": "Qualcomm • Robinhood Token",
+      "symbol": "QCOM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174137/large/0x0f17206447090e464c277571124dd2688e48aea9.png?1782444635",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfde6b5d9bb419b10c23268c74e369abff39c0460",
+      "name": "Red Cat Holdings, Inc. • Robinhood Token",
+      "symbol": "RCAT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175352/large/RCAT.png?1786124386",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1319,23 +1319,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x0f17206447090e464c277571124dd2688e48aea9",
-      "name": "Qualcomm • Robinhood Token",
-      "symbol": "QCOM",
+      "address": "0x82da4646242e1d962e96e932269dc644c94a9caa",
+      "name": "Workday • Robinhood Token",
+      "symbol": "WDAY",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174137/large/0x0f17206447090e464c277571124dd2688e48aea9.png?1782444635",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x756bc80af765c82da966a788858d65adf14f3793",
-      "name": "Sunrun Inc. • Robinhood Token",
-      "symbol": "RUN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175398/large/RUN.png?1786287505",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174198/large/0x82da4646242e1d962e96e932269dc644c94a9caa.png?1782444798",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1355,11 +1343,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x59dd09d4900c2e4b5f75b7c0d4e6796fcc234cb1",
-      "name": "Hewlett Packard Enterprise Company • Robinhood Token",
-      "symbol": "HPE",
+      "address": "0x44c4f142009036cf477ed2d09932051843137cf1",
+      "name": "Zoom • Robinhood Token",
+      "symbol": "ZM",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175416/large/HPE.png?1786295591",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174191/large/0x44c4f142009036cf477ed2d09932051843137cf1.png?1782444779",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1379,18 +1367,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x82da4646242e1d962e96e932269dc644c94a9caa",
-      "name": "Workday • Robinhood Token",
-      "symbol": "WDAY",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174198/large/0x82da4646242e1d962e96e932269dc644c94a9caa.png?1782444798",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xd95b44124e475743a7589e68f3d74008a5536d44",
       "name": "Salesforce, Inc. • Robinhood Token",
       "symbol": "CRM",
@@ -1403,11 +1379,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x44c4f142009036cf477ed2d09932051843137cf1",
-      "name": "Zoom • Robinhood Token",
-      "symbol": "ZM",
+      "address": "0x59dd09d4900c2e4b5f75b7c0d4e6796fcc234cb1",
+      "name": "Hewlett Packard Enterprise Company • Robinhood Token",
+      "symbol": "HPE",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174191/large/0x44c4f142009036cf477ed2d09932051843137cf1.png?1782444779",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175416/large/HPE.png?1786295591",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1415,11 +1391,23 @@
     },
     {
       "chainId": 4663,
-      "address": "0x1af6446f07eb1d97c546afc8c9544cbdf3ad5137",
-      "name": "AST SpaceMobile • Robinhood Token",
-      "symbol": "ASTS",
+      "address": "0x756bc80af765c82da966a788858d65adf14f3793",
+      "name": "Sunrun Inc. • Robinhood Token",
+      "symbol": "RUN",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174162/large/0x1af6446f07eb1d97c546afc8c9544cbdf3ad5137.png?1782444702",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175398/large/RUN.png?1786287505",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc6cbad1016b38b797610c25e1dc7d95988b1f362",
+      "name": "Modine Manufacturing Co • Robinhood Token",
+      "symbol": "MOD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175471/large/MOD.png?1786375100",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1451,23 +1439,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xcf364ea52787e289de6f32077834056e3e70d6a8",
-      "name": "UnitedHealth Group Incorporated • Robinhood Token",
-      "symbol": "UNH",
+      "address": "0x1af6446f07eb1d97c546afc8c9544cbdf3ad5137",
+      "name": "AST SpaceMobile • Robinhood Token",
+      "symbol": "ASTS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175458/large/UNH.png?1786367605",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xb853bc83a753342a4f8320ea680b4b1e84118d21",
-      "name": "Infleqtion, Inc. • Robinhood Token",
-      "symbol": "INFQ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175353/large/INFQ.png?1786124407",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174162/large/0x1af6446f07eb1d97c546afc8c9544cbdf3ad5137.png?1782444702",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1487,11 +1463,35 @@
     },
     {
       "chainId": 4663,
+      "address": "0xb853bc83a753342a4f8320ea680b4b1e84118d21",
+      "name": "Infleqtion, Inc. • Robinhood Token",
+      "symbol": "INFQ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175353/large/INFQ.png?1786124407",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xeb30663bdff0622ef4e4e5cbb4e975f19f33f51d",
       "name": "Futu Holdings • Robinhood Token",
       "symbol": "FUTU",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174192/large/0xeb30663bdff0622ef4e4e5cbb4e975f19f33f51d.png?1782444782",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcf364ea52787e289de6f32077834056e3e70d6a8",
+      "name": "UnitedHealth Group Incorporated • Robinhood Token",
+      "symbol": "UNH",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175458/large/UNH.png?1786367605",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1511,59 +1511,23 @@
     },
     {
       "chainId": 4663,
-      "address": "0x232b8ed6377be97813853b0ac104c4cda8378d1b",
-      "name": "Adobe Inc. • Robinhood Token",
-      "symbol": "ADBE",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175287/large/ADBE.png?1786070056",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xb8dbf92f9741c9ac1c32115e78581f23509916fd",
-      "name": "Applied Digital • Robinhood Token",
-      "symbol": "APLD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174167/large/0xb8dbf92f9741c9ac1c32115e78581f23509916fd.png?1782444716",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x561e2a49212b7ccf47f2744ccb83e200722fadbc",
-      "name": "Vistra Corp. • Robinhood Token",
-      "symbol": "VST",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175418/large/VST.png?1786295605",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x73e9eb2c7a4b4e8c68232b31ea0f1246963d0375",
-      "name": "Microsoft aStock",
-      "symbol": "AMSFT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175702/large/MSFT.png?1787292323",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xea72ecca2d0f6bfa1394dbbcff85b52cd4233931",
       "name": "CrowdStrike Holdings • Robinhood Token",
       "symbol": "CRWD",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174169/large/0xea72ecca2d0f6bfa1394dbbcff85b52cd4233931.png?1782444721",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x232b8ed6377be97813853b0ac104c4cda8378d1b",
+      "name": "Adobe Inc. • Robinhood Token",
+      "symbol": "ADBE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175287/large/ADBE.png?1786070056",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1595,6 +1559,30 @@
     },
     {
       "chainId": 4663,
+      "address": "0x73e9eb2c7a4b4e8c68232b31ea0f1246963d0375",
+      "name": "Microsoft aStock",
+      "symbol": "AMSFT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175702/large/MSFT.png?1787292323",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb8dbf92f9741c9ac1c32115e78581f23509916fd",
+      "name": "Applied Digital • Robinhood Token",
+      "symbol": "APLD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174167/large/0xb8dbf92f9741c9ac1c32115e78581f23509916fd.png?1782444716",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x06f272082339a90e81e1dcb8ab892fd1a8c5e4c0",
       "name": "Amazon aStock",
       "symbol": "AAMZN",
@@ -1607,11 +1595,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xcbb95bbf36099d34da091dc6fa6f49efa257cee3",
-      "name": "CleanSpark • Robinhood Token",
-      "symbol": "CLSK",
+      "address": "0x561e2a49212b7ccf47f2744ccb83e200722fadbc",
+      "name": "Vistra Corp. • Robinhood Token",
+      "symbol": "VST",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174156/large/0xcbb95bbf36099d34da091dc6fa6f49efa257cee3.png?1782444686",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175418/large/VST.png?1786295605",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1627,6 +1615,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x10fad4a60adb421f8f5ca6f9f2eaf2dbc110e146",
+      "name": "Tesla aStock",
+      "symbol": "ATSLA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175733/large/TSLA.png?1787292426",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -1655,11 +1655,35 @@
     },
     {
       "chainId": 4663,
-      "address": "0x10fad4a60adb421f8f5ca6f9f2eaf2dbc110e146",
-      "name": "Tesla aStock",
-      "symbol": "ATSLA",
+      "address": "0x1eebee7f74517e0279dfb09d25b0407beec3fdd6",
+      "name": "NuScale Power Corporation • Robinhood Token",
+      "symbol": "SMR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175733/large/TSLA.png?1787292426",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175290/large/SMR.png?1786070080",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xbdcd7e902861094164d4b4048ac62d3897a32721",
+      "name": "Walmart aStock",
+      "symbol": "AWMT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175741/large/WMT.png?1787292453",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x4dfbcd033662bc41de8996886e751613c2b8e8e5",
+      "name": "Broadcom aStock",
+      "symbol": "AAVGO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175674/large/AVGO.png?1787292229",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -1679,18 +1703,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0xbdcd7e902861094164d4b4048ac62d3897a32721",
-      "name": "Walmart aStock",
-      "symbol": "AWMT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175741/large/WMT.png?1787292453",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xa1847139cbd660abc2f7b889d7cbcf18c56407fb",
       "name": "Meta aStock",
       "symbol": "AMETA",
@@ -1703,13 +1715,25 @@
     },
     {
       "chainId": 4663,
-      "address": "0xcf6b2d875361be807eafa57458c80f28521f9333",
-      "name": "POET Technologies • Robinhood Token",
-      "symbol": "POET",
+      "address": "0x93dbb1d2dc5d63f4abacff30485273f538df68ac",
+      "name": "Comfort Systems USA, Inc. • Robinhood Token",
+      "symbol": "FIX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174142/large/0xcf6b2d875361be807eafa57458c80f28521f9333.png?1782444648",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175425/large/FIX.png?1786299246",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xd63abb2c13d7a8421a8017a712802053568e3c1d",
+      "name": "Schwab US Dividend Equity ETF • Robinhood Token",
+      "symbol": "SCHD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175451/large/SCHD.png?1786367491",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -1739,38 +1763,14 @@
     },
     {
       "chainId": 4663,
-      "address": "0x558378e000d634a36593e338ebacdd6207640efe",
-      "name": "IonQ • Robinhood Token",
-      "symbol": "IONQ",
+      "address": "0x348be1a8663f15edde5cdf8a96bb69078f7ab6fd",
+      "name": "TeraWulf Inc. • Robinhood Token",
+      "symbol": "WULF",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174166/large/0x558378e000d634a36593e338ebacdd6207640efe.png?1782444713",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175288/large/WULF.png?1786070062",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x93dbb1d2dc5d63f4abacff30485273f538df68ac",
-      "name": "Comfort Systems USA, Inc. • Robinhood Token",
-      "symbol": "FIX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175425/large/FIX.png?1786299246",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x4dfbcd033662bc41de8996886e751613c2b8e8e5",
-      "name": "Broadcom aStock",
-      "symbol": "AAVGO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175674/large/AVGO.png?1787292229",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -1787,59 +1787,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x521cf887e6531c6f667b5bc4d896e5d9bfe8eb2e",
-      "name": "Applied Optoelectronics • Robinhood Token",
-      "symbol": "AAOI",
+      "address": "0x558378e000d634a36593e338ebacdd6207640efe",
+      "name": "IonQ • Robinhood Token",
+      "symbol": "IONQ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174149/large/0x521cf887e6531c6f667b5bc4d896e5d9bfe8eb2e.png?1782444667",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x62200915e7deab1ec7f79fb246dadbb80eacddd0",
-      "name": "Clover Health Investments, Corp. • Robinhood Token",
-      "symbol": "CLOV",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175472/large/CLOV.png?1786375116",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x1eebee7f74517e0279dfb09d25b0407beec3fdd6",
-      "name": "NuScale Power Corporation • Robinhood Token",
-      "symbol": "SMR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175290/large/SMR.png?1786070080",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x92ef19e82bd8ff36661de838d5eae7e5cef0effe",
-      "name": "Redwire • Robinhood Token",
-      "symbol": "RDW",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174174/large/0x92ef19e82bd8ff36661de838d5eae7e5cef0effe.png?1782444734",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x348be1a8663f15edde5cdf8a96bb69078f7ab6fd",
-      "name": "TeraWulf Inc. • Robinhood Token",
-      "symbol": "WULF",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175288/large/WULF.png?1786070062",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174166/large/0x558378e000d634a36593e338ebacdd6207640efe.png?1782444713",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1859,13 +1811,25 @@
     },
     {
       "chainId": 4663,
-      "address": "0xd63abb2c13d7a8421a8017a712802053568e3c1d",
-      "name": "Schwab US Dividend Equity ETF • Robinhood Token",
-      "symbol": "SCHD",
+      "address": "0x521cf887e6531c6f667b5bc4d896e5d9bfe8eb2e",
+      "name": "Applied Optoelectronics • Robinhood Token",
+      "symbol": "AAOI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175451/large/SCHD.png?1786367491",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174149/large/0x521cf887e6531c6f667b5bc4d896e5d9bfe8eb2e.png?1782444667",
       "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x92ef19e82bd8ff36661de838d5eae7e5cef0effe",
+      "name": "Redwire • Robinhood Token",
+      "symbol": "RDW",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174174/large/0x92ef19e82bd8ff36661de838d5eae7e5cef0effe.png?1782444734",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -1883,6 +1847,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0x62200915e7deab1ec7f79fb246dadbb80eacddd0",
+      "name": "Clover Health Investments, Corp. • Robinhood Token",
+      "symbol": "CLOV",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175472/large/CLOV.png?1786375116",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xbe274710bf3d9567e1b290ef6a5f9f90ca016fd8",
       "name": "iShares 1-3 Year Treasury Bond ETF • Robinhood Token",
       "symbol": "SHY",
@@ -1890,6 +1866,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175480/large/SHY.png?1786401178",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xcf6b2d875361be807eafa57458c80f28521f9333",
+      "name": "POET Technologies • Robinhood Token",
+      "symbol": "POET",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174142/large/0xcf6b2d875361be807eafa57458c80f28521f9333.png?1782444648",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
       }
     },
@@ -1919,59 +1907,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xb334c5ce741b80b5b671f47f5c269cb193fe8e24",
-      "name": "Joby Aviation, Inc. • Robinhood Token",
-      "symbol": "JOBY",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175341/large/JOBY.png?1786119882",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xf543967eebb6f1917992ef0e68de63ab07a5a0da",
       "name": "Cisco Systems, Inc. • Robinhood Token",
       "symbol": "CSCO",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175438/large/CSCO.png?1786301258",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xddf2266b79abf0b48898959b0ed6e6adf512be74",
-      "name": "MongoDB • Robinhood Token",
-      "symbol": "MDB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174178/large/0xddf2266b79abf0b48898959b0ed6e6adf512be74.png?1782444745",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x0b5fb4031cae9163db10b169ee72685f0edc8545",
-      "name": "The Trade Desk, Inc. • Robinhood Token",
-      "symbol": "TTD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175351/large/TTD.png?1786124328",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xfa78c12e6488814a0262e4e802749a4a737d5fb7",
-      "name": "Vertiv Holdings Co • Robinhood Token",
-      "symbol": "VRT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175405/large/VRT.png?1786287621",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -1991,11 +1931,23 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc583c60aef9dc401da72cec1b404743a93cea1cc",
-      "name": "D-Wave Quantum • Robinhood Token",
-      "symbol": "QBTS",
+      "address": "0xddf2266b79abf0b48898959b0ed6e6adf512be74",
+      "name": "MongoDB • Robinhood Token",
+      "symbol": "MDB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174145/large/0xc583c60aef9dc401da72cec1b404743a93cea1cc.png?1782444656",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174178/large/0xddf2266b79abf0b48898959b0ed6e6adf512be74.png?1782444745",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfa78c12e6488814a0262e4e802749a4a737d5fb7",
+      "name": "Vertiv Holdings Co • Robinhood Token",
+      "symbol": "VRT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175405/large/VRT.png?1786287621",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2008,18 +1960,6 @@
       "symbol": "CVNA",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175475/large/CVNA.png?1786375169",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x39ec44bee4f6a116c6f9b8de566848a985c53c60",
-      "name": "e.l.f. Beauty • Robinhood Token",
-      "symbol": "ELF",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174196/large/0x39ec44bee4f6a116c6f9b8de566848a985c53c60.png?1782444793",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2063,11 +2003,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x48961813349333209994750ffa89b3c5c22ec969",
-      "name": "MaxLinear • Robinhood Token",
-      "symbol": "MXL",
+      "address": "0x39ec44bee4f6a116c6f9b8de566848a985c53c60",
+      "name": "e.l.f. Beauty • Robinhood Token",
+      "symbol": "ELF",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174193/large/0x48961813349333209994750ffa89b3c5c22ec969.png?1782444784",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174196/large/0x39ec44bee4f6a116c6f9b8de566848a985c53c60.png?1782444793",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2080,6 +2020,42 @@
       "symbol": "NOW",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174161/large/0x0c3260af4b8f13a69c4c2dfb84fd667890cdfa14.png?1782444700",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x48961813349333209994750ffa89b3c5c22ec969",
+      "name": "MaxLinear • Robinhood Token",
+      "symbol": "MXL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174193/large/0x48961813349333209994750ffa89b3c5c22ec969.png?1782444784",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb039597ed45cba7b6e2fb9e8be51802969cee5be",
+      "name": "Palo Alto Networks, Inc. • Robinhood Token",
+      "symbol": "PANW",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175428/large/PANW.png?1786299348",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb334c5ce741b80b5b671f47f5c269cb193fe8e24",
+      "name": "Joby Aviation, Inc. • Robinhood Token",
+      "symbol": "JOBY",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175341/large/JOBY.png?1786119882",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2147,23 +2123,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x3139d77ace0cbaa5bdfd38bd1f1911a794af0b0e",
-      "name": "AbCellera Biologics Inc. • Robinhood Token",
-      "symbol": "ABCL",
+      "address": "0xc583c60aef9dc401da72cec1b404743a93cea1cc",
+      "name": "D-Wave Quantum • Robinhood Token",
+      "symbol": "QBTS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175455/large/ABCL.png?1786367560",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xeb61c0ed490a367d4e3631ccf8a74b3bfc7e775d",
-      "name": "Huntington Ingalls Industries, Inc. • Robinhood Token",
-      "symbol": "HII",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175437/large/HII.png?1786301234",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174145/large/0xc583c60aef9dc401da72cec1b404743a93cea1cc.png?1782444656",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2183,47 +2147,23 @@
     },
     {
       "chainId": 4663,
-      "address": "0xb039597ed45cba7b6e2fb9e8be51802969cee5be",
-      "name": "Palo Alto Networks, Inc. • Robinhood Token",
-      "symbol": "PANW",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175428/large/PANW.png?1786299348",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x92f9f459f1a9a5ad266b182be7bffd1c6c666894",
-      "name": "Coherent Corp. • Robinhood Token",
-      "symbol": "COHR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175344/large/COHR.png?1786119981",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xbe6702d7b70315376dc48a3293f24f0982f86386",
-      "name": "Navitas Semiconductor • Robinhood Token",
-      "symbol": "NVTS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174153/large/0xbe6702d7b70315376dc48a3293f24f0982f86386.png?1782444678",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x7fd06a4d81ccfa3f351394e144d5191874c31313",
       "name": "Kratos Defense & Security Solutions, Inc. • Robinhood Token",
       "symbol": "KTOS",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175345/large/KTOS.png?1786120005",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xeb61c0ed490a367d4e3631ccf8a74b3bfc7e775d",
+      "name": "Huntington Ingalls Industries, Inc. • Robinhood Token",
+      "symbol": "HII",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175437/large/HII.png?1786301234",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2255,23 +2195,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xad622320e520de39e72d41ef07438c3fd3354875",
-      "name": "Invesco S&P 500 Momentum ETF • Robinhood Token",
-      "symbol": "SPMO",
+      "address": "0x8ff63eaeee3fe54ba450c4f5538064ec5a893aef",
+      "name": "Onto Innovation Inc. • Robinhood Token",
+      "symbol": "ONTO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174183/large/0xad622320e520de39e72d41ef07438c3fd3354875.png?1782444758",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x26dcbfb34fc83cabd6990f449674efdc6097ff85",
-      "name": "ViaSat, Inc. • Robinhood Token",
-      "symbol": "VSAT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175417/large/VSAT.png?1786295596",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175429/large/ONTO.png?1786299373",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2291,11 +2219,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x99d9d8663545151603863c5acbd6fc3218899009",
-      "name": "Ambarella, Inc. • Robinhood Token",
-      "symbol": "AMBA",
+      "address": "0x748c32c3ca24edf31ea597db1f3d330a7a6da3dc",
+      "name": "Astera Labs, Inc. • Robinhood Token",
+      "symbol": "ALAB",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175456/large/AMBA.png?1786367575",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175284/large/ALAB.png?1786069983",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2303,11 +2231,71 @@
     },
     {
       "chainId": 4663,
-      "address": "0x748c32c3ca24edf31ea597db1f3d330a7a6da3dc",
-      "name": "Astera Labs, Inc. • Robinhood Token",
-      "symbol": "ALAB",
+      "address": "0x3139d77ace0cbaa5bdfd38bd1f1911a794af0b0e",
+      "name": "AbCellera Biologics Inc. • Robinhood Token",
+      "symbol": "ABCL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175284/large/ALAB.png?1786069983",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175455/large/ABCL.png?1786367560",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x92f9f459f1a9a5ad266b182be7bffd1c6c666894",
+      "name": "Coherent Corp. • Robinhood Token",
+      "symbol": "COHR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175344/large/COHR.png?1786119981",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x0b5fb4031cae9163db10b169ee72685f0edc8545",
+      "name": "The Trade Desk, Inc. • Robinhood Token",
+      "symbol": "TTD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175351/large/TTD.png?1786124328",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x26dcbfb34fc83cabd6990f449674efdc6097ff85",
+      "name": "ViaSat, Inc. • Robinhood Token",
+      "symbol": "VSAT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175417/large/VSAT.png?1786295596",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xad622320e520de39e72d41ef07438c3fd3354875",
+      "name": "Invesco S&P 500 Momentum ETF • Robinhood Token",
+      "symbol": "SPMO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174183/large/0xad622320e520de39e72d41ef07438c3fd3354875.png?1782444758",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x99d9d8663545151603863c5acbd6fc3218899009",
+      "name": "Ambarella, Inc. • Robinhood Token",
+      "symbol": "AMBA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175456/large/AMBA.png?1786367575",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2327,35 +2315,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xb1969f6604ca1ae7a2cd3f1827876e914594ca2d",
-      "name": "T1 Energy Inc. • Robinhood Token",
-      "symbol": "TE",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175339/large/TE.png?1786119787",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x52d50d0280ad1054b43f052bd70a49a212a1b128",
       "name": "Monolithic Power Systems, Inc. • Robinhood Token",
       "symbol": "MPWR",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175404/large/MPWR.png?1786287606",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x373c06c4f7bde527d7dae4ba169e42b55e393ced",
-      "name": "Aurora Innovation, Inc. • Robinhood Token",
-      "symbol": "AUR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175431/large/AUR.png?1786299466",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2399,11 +2363,35 @@
     },
     {
       "chainId": 4663,
+      "address": "0x373c06c4f7bde527d7dae4ba169e42b55e393ced",
+      "name": "Aurora Innovation, Inc. • Robinhood Token",
+      "symbol": "AUR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175431/large/AUR.png?1786299466",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xa48f22a46c0f1c46ca7d111cb6c137c271987180",
       "name": "Fair Isaac Corporation • Robinhood Token",
       "symbol": "FICO",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175356/large/FICO.png?1786124484",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x3fb8976980d486084b2eb4a404bd12e72823958f",
+      "name": "Fortinet, Inc. • Robinhood Token",
+      "symbol": "FTNT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175427/large/FTNT.png?1786299307",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2435,11 +2423,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x8ff63eaeee3fe54ba450c4f5538064ec5a893aef",
-      "name": "Onto Innovation Inc. • Robinhood Token",
-      "symbol": "ONTO",
+      "address": "0x7dc013eb55e436f30d7ed1afe4e36d6e45e3c3f7",
+      "name": "Zscaler • Robinhood Token",
+      "symbol": "ZS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175429/large/ONTO.png?1786299373",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174154/large/0x7dc013eb55e436f30d7ed1afe4e36d6e45e3c3f7.png?1782444680",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2459,54 +2447,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x3fb8976980d486084b2eb4a404bd12e72823958f",
-      "name": "Fortinet, Inc. • Robinhood Token",
-      "symbol": "FTNT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175427/large/FTNT.png?1786299307",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x7dc013eb55e436f30d7ed1afe4e36d6e45e3c3f7",
-      "name": "Zscaler • Robinhood Token",
-      "symbol": "ZS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174154/large/0x7dc013eb55e436f30d7ed1afe4e36d6e45e3c3f7.png?1782444680",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x40e7a279850e443f582059ae5dc1c3b6563e6395",
-      "name": "Ouster, Inc. • Robinhood Token",
-      "symbol": "OUST",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175354/large/OUST.png?1786124438",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xc02f12b9fe9e707079ec0d546f3050d3f6c1f8bd",
-      "name": "DigitalOcean Holdings, Inc. • Robinhood Token",
-      "symbol": "DOCN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175442/large/DOCN.png?1786301513",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x282e87451e10fa6679bc7d76c69be44cd3fc777c",
       "name": "Fluence Energy • Robinhood Token",
       "symbol": "FLNC",
@@ -2519,11 +2459,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc27dbd474af5181c5a8777903690d8d262d12648",
-      "name": "Axon Enterprise, Inc. • Robinhood Token",
-      "symbol": "AXON",
+      "address": "0xbe6702d7b70315376dc48a3293f24f0982f86386",
+      "name": "Navitas Semiconductor • Robinhood Token",
+      "symbol": "NVTS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175347/large/AXON.png?1786120043",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174153/large/0xbe6702d7b70315376dc48a3293f24f0982f86386.png?1782444678",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2543,6 +2483,42 @@
     },
     {
       "chainId": 4663,
+      "address": "0xc02f12b9fe9e707079ec0d546f3050d3f6c1f8bd",
+      "name": "DigitalOcean Holdings, Inc. • Robinhood Token",
+      "symbol": "DOCN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175442/large/DOCN.png?1786301513",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb1969f6604ca1ae7a2cd3f1827876e914594ca2d",
+      "name": "T1 Energy Inc. • Robinhood Token",
+      "symbol": "TE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175339/large/TE.png?1786119787",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc27dbd474af5181c5a8777903690d8d262d12648",
+      "name": "Axon Enterprise, Inc. • Robinhood Token",
+      "symbol": "AXON",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175347/large/AXON.png?1786120043",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x141eea040c2250eec0314e336975e81f85f6585e",
       "name": "AXT Inc • Robinhood Token",
       "symbol": "AXTI",
@@ -2555,11 +2531,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x57b0030166db0c31690d1a5aa167e2e26e2c29a4",
-      "name": "Lam Research Corporation • Robinhood Token",
-      "symbol": "LRCX",
+      "address": "0x40e7a279850e443f582059ae5dc1c3b6563e6395",
+      "name": "Ouster, Inc. • Robinhood Token",
+      "symbol": "OUST",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175343/large/LRCX.png?1786119951",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175354/large/OUST.png?1786124438",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2603,6 +2579,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0x57b0030166db0c31690d1a5aa167e2e26e2c29a4",
+      "name": "Lam Research Corporation • Robinhood Token",
+      "symbol": "LRCX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175343/large/LRCX.png?1786119951",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xf6290b5e7c26502e2da514c31509849718ea76a5",
       "name": "AeroVironment, Inc. • Robinhood Token",
       "symbol": "AVAV",
@@ -2639,35 +2627,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xdd356aa38f40a7b7076755ac854b6fbb1f0d305b",
-      "name": "Amkor Technology, Inc. • Robinhood Token",
-      "symbol": "AMKR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175358/large/AMKR.png?1786131555",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x0e6e67ba88e7b5d9b67636a215c76779b948de79",
       "name": "United Microelectronics • Robinhood Token",
       "symbol": "UMC",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174147/large/0x0e6e67ba88e7b5d9b67636a215c76779b948de79.png?1782444661",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x285b231728c7e4333799183df1094d775246a535",
-      "name": "SELLAS Life Sciences Group, Inc. • Robinhood Token",
-      "symbol": "SLS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175409/large/SLS.png?1786295383",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2687,11 +2651,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x96b933c74ecb4a0926b9210cef7b743ef46be2e9",
-      "name": "KLA Corporation • Robinhood Token",
-      "symbol": "KLAC",
+      "address": "0xdd356aa38f40a7b7076755ac854b6fbb1f0d305b",
+      "name": "Amkor Technology, Inc. • Robinhood Token",
+      "symbol": "AMKR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175291/large/KLAC.png?1786070082",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175358/large/AMKR.png?1786131555",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2704,6 +2668,30 @@
       "symbol": "TEAM",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175400/large/TEAM.png?1786287540",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x96b933c74ecb4a0926b9210cef7b743ef46be2e9",
+      "name": "KLA Corporation • Robinhood Token",
+      "symbol": "KLAC",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175291/large/KLAC.png?1786070082",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x63d5a3b6939a33f1e75d8bcd85759858239600db",
+      "name": "Cognizant Technology Solutions Corporation Class A • Robinho",
+      "symbol": "CTSH",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175434/large/CTSH.png?1786301179",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2735,6 +2723,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0x285b231728c7e4333799183df1094d775246a535",
+      "name": "SELLAS Life Sciences Group, Inc. • Robinhood Token",
+      "symbol": "SLS",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175409/large/SLS.png?1786295383",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x44f6d488021f8233b9416294d1fe9b1fee28382d",
       "name": "Ciena Corporation • Robinhood Token",
       "symbol": "CIEN",
@@ -2747,11 +2747,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x63d5a3b6939a33f1e75d8bcd85759858239600db",
-      "name": "Cognizant Technology Solutions Corporation Class A • Robinho",
-      "symbol": "CTSH",
+      "address": "0xcbb95bbf36099d34da091dc6fa6f49efa257cee3",
+      "name": "CleanSpark • Robinhood Token",
+      "symbol": "CLSK",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175434/large/CTSH.png?1786301179",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174156/large/0xcbb95bbf36099d34da091dc6fa6f49efa257cee3.png?1782444686",
       "extensions": {
         "assetType": "stock",
         "issuer": "Robinhood Assets (Jersey) Limited"
@@ -2759,14 +2759,14 @@
     },
     {
       "chainId": 4663,
-      "address": "0xa8eb3bccbf2017ee7cbfb652eb51cf2e1b153289",
-      "name": "Xanadu Quantum • Robinhood Token",
-      "symbol": "XNDU",
+      "address": "0xc924b71a10c356c15e3d7cb76ac8efe8f5522347",
+      "name": "US Brent Oil Fund aStock",
+      "symbol": "ABNO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174180/large/0xa8eb3bccbf2017ee7cbfb652eb51cf2e1b153289.png?1782444750",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175675/large/BNO.png?1787292232",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Robinhood Assets (Jersey) Limited"
+        "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -2783,13 +2783,25 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc924b71a10c356c15e3d7cb76ac8efe8f5522347",
-      "name": "US Brent Oil Fund aStock",
-      "symbol": "ABNO",
+      "address": "0xa8eb3bccbf2017ee7cbfb652eb51cf2e1b153289",
+      "name": "Xanadu Quantum • Robinhood Token",
+      "symbol": "XNDU",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175675/large/BNO.png?1787292232",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174180/large/0xa8eb3bccbf2017ee7cbfb652eb51cf2e1b153289.png?1782444750",
       "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x5f3b897deea4ea0cb6aefe50bd2ae556cf6f4b63",
+      "name": "RoboStrategy Inc aStock",
+      "symbol": "ABOT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178361/large/abot.png?1789385140",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
@@ -2807,11 +2819,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x5f3b897deea4ea0cb6aefe50bd2ae556cf6f4b63",
-      "name": "RoboStrategy Inc aStock",
-      "symbol": "ABOT",
+      "address": "0x0b45e5afea928030988704ef60995d8925b91cd6",
+      "name": "Vertiv aStock",
+      "symbol": "AVRT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178361/large/abot.png?1789385140",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175737/large/VRT.png?1787292439",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -2843,30 +2855,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0x294f40996134d067b56dcbacbf6a36396bbbea7a",
-      "name": "Strategy aStock",
-      "symbol": "AMSTR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175703/large/MSTR.png?1787292326",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x0b45e5afea928030988704ef60995d8925b91cd6",
-      "name": "Vertiv aStock",
-      "symbol": "AVRT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175737/large/VRT.png?1787292439",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x6e8568ba7b43138d9210959a9523155e274550c9",
       "name": "SK Hynix (Anchored Tokenized Stock)",
       "symbol": "ASKHY",
@@ -2886,30 +2874,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175686/large/ETN.png?1787292268",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x72e4f625b68f8d7a08dfb5a88065d6bb90052098",
-      "name": "Circle aStock",
-      "symbol": "ACRCL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175681/large/CRCL.png?1787292252",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x7388ed3371407471d48637b4ad8445b8d4fc3f8f",
-      "name": "US Oil Fund aStock",
-      "symbol": "AUSO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175736/large/USO.png?1787292436",
-      "extensions": {
-        "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
@@ -2951,6 +2915,54 @@
     },
     {
       "chainId": 4663,
+      "address": "0x7388ed3371407471d48637b4ad8445b8d4fc3f8f",
+      "name": "US Oil Fund aStock",
+      "symbol": "AUSO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175736/large/USO.png?1787292436",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x294f40996134d067b56dcbacbf6a36396bbbea7a",
+      "name": "Strategy aStock",
+      "symbol": "AMSTR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175703/large/MSTR.png?1787292326",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x72e4f625b68f8d7a08dfb5a88065d6bb90052098",
+      "name": "Circle aStock",
+      "symbol": "ACRCL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175681/large/CRCL.png?1787292252",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x12473790e09d415abac7441401f7abec64fa959c",
+      "name": "SpaceX (Anchored Tokenized Stock)",
+      "symbol": "ASPCX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175662/large/coingecko-aSPCX.png?1787279738",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xa01a050440b8d77fc868ff33d290a2dab5b79366",
       "name": "iShares MSCI South Korea aStock",
       "symbol": "AEWY",
@@ -2975,47 +2987,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x12473790e09d415abac7441401f7abec64fa959c",
-      "name": "SpaceX (Anchored Tokenized Stock)",
-      "symbol": "ASPCX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175662/large/coingecko-aSPCX.png?1787279738",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x057a4712d82d83909b149f6e4390e5298ffdeb3c",
       "name": "SPDR Bridgewater All Weather aStock",
       "symbol": "AALLW",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175667/large/ALLW.png?1787292206",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x8339d77b003589cf90f17729595afe05ad951ac5",
-      "name": "Salesforce aStock",
-      "symbol": "ACRM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175682/large/CRM.png?1787292255",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x3e4a2f26fc4f92d92d7cd1e49ddade32869d00a4",
-      "name": "SPDR Gold Shares aStock",
-      "symbol": "AGLD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175692/large/GLD.png?1787292288",
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3035,35 +3011,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc54ce75193a68602bc01ffd2b112da3948eb14a7",
-      "name": "Micron Technology aStock",
-      "symbol": "AMU",
+      "address": "0x3e4a2f26fc4f92d92d7cd1e49ddade32869d00a4",
+      "name": "SPDR Gold Shares aStock",
+      "symbol": "AGLD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175704/large/MU.png?1787292329",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x6b97a52c6877faf6f3836377b37e4a0a27edde01",
-      "name": "ServiceNow aStock",
-      "symbol": "ANOW",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175706/large/NOW.png?1787292336",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xa6d6d48d778539103d379a66697acc22dd7b1d3c",
-      "name": "iShares Silver Trust aStock",
-      "symbol": "ASLV",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175721/large/SLV.png?1787292387",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175692/large/GLD.png?1787292288",
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3071,11 +3023,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x49cccd75b2b0fb9ccd8c1d2a5d313e050c52fa89",
-      "name": "Vistra aStock",
-      "symbol": "AVST",
+      "address": "0xc54ce75193a68602bc01ffd2b112da3948eb14a7",
+      "name": "Micron Technology aStock",
+      "symbol": "AMU",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175738/large/VST.png?1787292443",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175704/large/MU.png?1787292329",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3095,6 +3047,42 @@
     },
     {
       "chainId": 4663,
+      "address": "0x49cccd75b2b0fb9ccd8c1d2a5d313e050c52fa89",
+      "name": "Vistra aStock",
+      "symbol": "AVST",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175738/large/VST.png?1787292443",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x8339d77b003589cf90f17729595afe05ad951ac5",
+      "name": "Salesforce aStock",
+      "symbol": "ACRM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175682/large/CRM.png?1787292255",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xa6d6d48d778539103d379a66697acc22dd7b1d3c",
+      "name": "iShares Silver Trust aStock",
+      "symbol": "ASLV",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175721/large/SLV.png?1787292387",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x4716cfb68c73bff797eea4f94ffad8d198aefc4b",
       "name": "SPDR S&P 500 aStock",
       "symbol": "ASPY",
@@ -3107,6 +3095,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0x6b97a52c6877faf6f3836377b37e4a0a27edde01",
+      "name": "ServiceNow aStock",
+      "symbol": "ANOW",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175706/large/NOW.png?1787292336",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xf63ad58f1d4d1276ea0de2490689942303d2d446",
       "name": "Technology Select Sector SPDR aStock",
       "symbol": "AXLK",
@@ -3114,6 +3114,42 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175742/large/XLK.png?1787292456",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xb57b6c37526cecdddbf92da1783b7f4b4b53d45f",
+      "name": "ProShares UltraPro QQQ aStock",
+      "symbol": "ATQQQ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175732/large/TQQQ.png?1787292423",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0x991c1f370adbab08e1f7978b01cb1dc022b902bb",
+      "name": "Cisco aStock",
+      "symbol": "ACSCO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175683/large/CSCO.png?1787292258",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xfd38813a547b30155914383919cebe83a98435fa",
+      "name": "Super Micro Computer aStock",
+      "symbol": "ASMCI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175722/large/SMCI.png?1787292390",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
@@ -3143,59 +3179,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xfd38813a547b30155914383919cebe83a98435fa",
-      "name": "Super Micro Computer aStock",
-      "symbol": "ASMCI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175722/large/SMCI.png?1787292390",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xb57b6c37526cecdddbf92da1783b7f4b4b53d45f",
-      "name": "ProShares UltraPro QQQ aStock",
-      "symbol": "ATQQQ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175732/large/TQQQ.png?1787292423",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0xc8c3bbd0af3f10293d75dd468c51f3f81fc22fee",
       "name": "IONQ aStock",
       "symbol": "AIONQ",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175697/large/IONQ.png?1787292305",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0x991c1f370adbab08e1f7978b01cb1dc022b902bb",
-      "name": "Cisco aStock",
-      "symbol": "ACSCO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175683/large/CSCO.png?1787292258",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
-      "address": "0xdfa678fa8d208ed3125e84a184fb39f2a22817a4",
-      "name": "D-Wave Quantum aStock",
-      "symbol": "AQBTS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175712/large/QBTS.png?1787292356",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3251,6 +3239,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0xdfa678fa8d208ed3125e84a184fb39f2a22817a4",
+      "name": "D-Wave Quantum aStock",
+      "symbol": "AQBTS",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175712/large/QBTS.png?1787292356",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0x49e30f2d4a1b9a1766f0675adaf04f70681fbb63",
       "name": "Western Digital aStock",
       "symbol": "AWDC",
@@ -3275,11 +3275,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0x57e2613fa6193c11913299cbdc1c8cb4916c15e8",
-      "name": "SanDisk aStock",
-      "symbol": "ASNDK",
+      "address": "0xc060d393df9ca0e96fb5434ff3223c085c4b2e2a",
+      "name": "Seagate Technology aStock",
+      "symbol": "ASTX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175724/large/SNDK.png?1787292397",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175729/large/STX.png?1787292413",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3299,11 +3299,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc060d393df9ca0e96fb5434ff3223c085c4b2e2a",
-      "name": "Seagate Technology aStock",
-      "symbol": "ASTX",
+      "address": "0x57e2613fa6193c11913299cbdc1c8cb4916c15e8",
+      "name": "SanDisk aStock",
+      "symbol": "ASNDK",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175729/large/STX.png?1787292413",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175724/large/SNDK.png?1787292397",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3323,18 +3323,6 @@
     },
     {
       "chainId": 4663,
-      "address": "0xdaba319970c3502e152088e45e5a803e78cf51d8",
-      "name": "Cameco aStock",
-      "symbol": "ACCJ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175677/large/CCJ.png?1787292239",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 4663,
       "address": "0x87db2ceac8b2321443d0bfef67340096867c91ba",
       "name": "Dell Technologies aStock",
       "symbol": "ADELL",
@@ -3347,11 +3335,11 @@
     },
     {
       "chainId": 4663,
-      "address": "0xc3b236fb3cd15e3d996f3b49c0ee034bc18accf9",
-      "name": "Rigetti Computing aStock",
-      "symbol": "ARGTI",
+      "address": "0xdaba319970c3502e152088e45e5a803e78cf51d8",
+      "name": "Cameco aStock",
+      "symbol": "ACCJ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175716/large/RGTI.png?1787292370",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175677/large/CCJ.png?1787292239",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -3366,6 +3354,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175731/large/TLT.png?1787292420",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 4663,
+      "address": "0xc3b236fb3cd15e3d996f3b49c0ee034bc18accf9",
+      "name": "Rigetti Computing aStock",
+      "symbol": "ARGTI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175716/large/RGTI.png?1787292370",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
@@ -3887,6 +3887,18 @@
     },
     {
       "chainId": 4663,
+      "address": "0xbbb6c29bcc3a1028a2b54310df73f4f7a3bcb373",
+      "name": "Anthropic, PBC • Robinhood Token",
+      "symbol": "ANT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102180312/large/ANT.png?1794954793",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Robinhood Assets (Jersey) Limited"
+      }
+    },
+    {
+      "chainId": 4663,
       "address": "0xd13163b837a3736c0ac4da9239b108fe0e04dbae",
       "name": "GeneDx Holdings Corp aStock",
       "symbol": "AWGS",
@@ -3972,5 +3984,5 @@
   ],
   "name": "RWA on Robinhood Chain",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-14T00:05:08.800Z"
+  "timestamp": "2026-11-19T17:25:07.045Z"
 }
