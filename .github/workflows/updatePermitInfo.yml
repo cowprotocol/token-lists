@@ -96,18 +96,14 @@ jobs:
     needs: [update-permit-info, commit-changes]
     if: failure()
     runs-on: ubuntu-latest
-    permissions:
-      issues: write
+    permissions: {}
     steps:
-      - name: Create issue on failure
-        uses: actions/github-script@60a0d83039c74a4aee543508d2ffcb1c3799cdea # v7.0.1
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: 'Permit Info Update Failed',
-              body: `The workflow to update permit info failed on ${new Date().toISOString()}.
-
-              Please check the workflow logs for more details: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`
-            })
+      - name: Notify Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          NEEDS: ${{ toJSON(needs) }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          failed=$(jq -r 'to_entries | map(select(.value.result == "failure") | .key) | join(", ")' <<< "$NEEDS")
+          jq -n --arg text ":rotating_light: Permit info update failed (${failed}): ${RUN_URL}" '{text: $text}' \
+            | curl -fsS -X POST -H 'Content-Type: application/json' --data @- "$SLACK_WEBHOOK_URL"

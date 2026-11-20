@@ -43,3 +43,19 @@ jobs:
             --paths "/tokens/*" "/token-lists/*"
         env:
           DIST_ID: ${{ secrets.DISTRIBUTION }}
+
+  report-failure:
+    name: Report failure
+    needs: deploy
+    if: failure()
+    runs-on: ubuntu-latest
+    permissions: {}
+    steps:
+      - name: Notify Slack
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          WORKFLOW: ${{ github.workflow }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          jq -n --arg text ":rotating_light: ${WORKFLOW} failed: ${RUN_URL}" '{text: $text}' \
+            | curl -fsS -X POST -H 'Content-Type: application/json' --data @- "$SLACK_WEBHOOK_URL"
