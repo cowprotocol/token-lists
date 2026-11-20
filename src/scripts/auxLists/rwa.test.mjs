@@ -193,8 +193,13 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
   const polygonList = JSON.stringify({ name: 'RWA on Polygon', tokens: [{ address: gold }] })
   writeFileSync('src/public/CoinGeckoRwa.137.json', polygonList)
   const requests = mockCoinGecko(t)
+  const fresh = '0x77777777777777777777777777777777777777Aa'
 
-  await fetchAndProcessRwaTokens()
+  await fetchAndProcessRwaTokens([
+    { chainId: 1, address: fresh, name: 'Fresh Stock', symbol: 'FRSH', decimals: 18, extensions: { assetType: 'stock' } },
+    // CoinGecko's entry wins
+    { chainId: 1, address: gold, name: 'Supplement Gold', symbol: 'SGLD', decimals: 18 },
+  ])
 
   const read = (chainId) => JSON.parse(readFileSync(`src/public/CoinGeckoRwa.${chainId}.json`, 'utf8'))
 
@@ -230,6 +235,15 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
       logoURI: 'https://assets.coingecko.com/coins/images/1/large/MMMx.png',
       extensions: { assetType: 'stock', issuer: 'xStocks' },
     },
+    // From the supplement: CoinGecko doesn't know it
+    {
+      chainId: 1,
+      address: fresh.toLowerCase(),
+      name: 'Fresh Stock',
+      symbol: 'FRSH',
+      decimals: 18,
+      extensions: { assetType: 'stock' },
+    },
   ])
 
   const solana = read(1000000001)
@@ -263,6 +277,73 @@ test('generates per-chain RWA token lists from CoinGecko', async (t) => {
   assert.equal(requests.filter(({ pathname }) => pathname === '/api/v3/coins/tether-gold').length, 1)
 })
 
+test('rejects an invalid supplement before writing any list', async (t) => {
+  useTempDir(t)
+  const token = { chainId: 1, address: gold, name: 'Gold', symbol: 'GLD', decimals: 18 }
+  const invalid = [
+    [{ ...token, chainId: 1000000001, address: solMint }],
+    [{ ...token, chainId: 10 }],
+    [{ ...token, address: '0x1234' }],
+    [{ ...token, decimals: 256 }],
+    [{ ...token, name: '<b>Gold</b>' }],
+    [{ ...token, logoURI: 'http://gold.png' }],
+    [token, { ...token, address: '0x' + gold.slice(2).toUpperCase() }],
+  ]
+
+  for (const supplement of invalid) {
+    await assert.rejects(fetchAndProcessRwaTokens(supplement), /RWA supplement token/)
+  }
+  assert.equal(existsSync('src/public/CoinGeckoRwa.1.json'), false)
+})
+
+test('generates the supplement from the token lists of the CMS records', async (t) => {
+  const { generateRwaSupplement } = await import('./rwaSupplement.ts')
+  useTempDir(t)
+  const fresh = '0x55555555555555555555555555555555555555Aa'
+  const listed = '0x4444444444444444444444444444444444444444'
+  const cowToken = '0x6666666666666666666666666666666666666666'
+  writeFileSync('src/public/CowSwap.json', JSON.stringify({ tokens: [{ chainId: 1, address: cowToken }] }))
+  writeFileSync('src/public/CoinGeckoRwa.1.json', JSON.stringify({ tokens: [{ chainId: 1, address: listed }] }))
+
+  const provider = 'https://raw.githubusercontent.com/provider/list/abc123/tokenlist.json'
+  const token = { chainId: 1, name: 'Fresh Stock', symbol: 'FRSH', decimals: 18 }
+  const lists = {
+    [provider]: {
+      tokens: [
+        { ...token, address: fresh, logoURI: 'http://fresh.png', tags: ['provider'], extensions: { isin: 'US0' } },
+        { ...token, address: fresh },
+        { ...token, address: listed },
+        { ...token, address: cowToken },
+        { ...token, address: fresh, chainId: 10 },
+        { ...token, address: '0x8888888888888888888888888888888888888888', name: '<script>' },
+      ],
+    },
+  }
+  const cms = {
+    data: [
+      { attributes: { name: 'Provider', tokenListUrl: provider } },
+      // Our own list: never fetched
+      { attributes: { name: 'Ours', tokenListUrl: 'https://files.cow.fi/token-lists/CoinGeckoRwa.1.json' } },
+    ],
+    meta: { pagination: { total: 2 } },
+  }
+  t.mock.method(globalThis, 'fetch', async (url) => {
+    const data = url.startsWith('https://cms.cow.fi/') ? cms : lists[url]
+    if (!data) throw new Error(`Unexpected request ${url}`)
+    return { ok: true, status: 200, json: async () => data }
+  })
+
+  await generateRwaSupplement('supplement.json')
+
+  const supplement = JSON.parse(readFileSync('supplement.json', 'utf8'))
+  assert.deepEqual(
+    supplement.filter(({ chainId }) => chainId === 1),
+    [{ chainId: 1, address: fresh.toLowerCase(), name: 'Fresh Stock', symbol: 'FRSH', decimals: 18 }],
+  )
+  // The manual tokens
+  assert.ok(supplement.some(({ chainId, symbol }) => chainId === 56 && symbol === 'ANTB'))
+})
+
 test('does not write lists when an RWA cannot be fetched', async (t) => {
   useTempDir(t)
   mockCoinGecko(t)
@@ -271,7 +352,7 @@ test('does not write lists when an RWA cannot be fetched', async (t) => {
     new URL(url).pathname === '/api/v3/rwas/gold' ? { ok: false, status: 403 } : fetch(url, init),
   )
 
-  await assert.rejects(fetchAndProcessRwaTokens(), /rwas\/gold responded with 403/)
+  await assert.rejects(fetchAndProcessRwaTokens([]), /rwas\/gold responded with 403/)
   assert.equal(existsSync('src/public/CoinGeckoRwa.1.json'), false)
 })
 
@@ -288,7 +369,7 @@ test('does not write any list when coin details cannot be fetched', async (t) =>
   }
   mockCoinGecko(t, { rwas, coinDetails: { 'tether-silver': 403 } })
 
-  await assert.rejects(fetchAndProcessRwaTokens(), /coins\/tether-silver responded with 403/)
+  await assert.rejects(fetchAndProcessRwaTokens([]), /coins\/tether-silver responded with 403/)
   // Arbitrum needs no coin details, but must not be written either
   assert.equal(existsSync('src/public/CoinGeckoRwa.42161.json'), false)
   assert.equal(existsSync('src/public/CoinGeckoRwa.1.json'), false)
