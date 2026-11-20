@@ -1,0 +1,10 @@
+{
+  "removed": false,
+  "address": "0x9bf2b2f57a2968a0e81546ed50cbbbb7c9d6e05e",
+  "symbol": "SWANUSD",
+  "name": "swanUSD",
+  "logoURI": "https://files.cow.fi/token-lists/images/1/0x9bf2b2f57a2968a0e81546ed50cbbbb7c9d6e05e/logo.png",
+  "reason": "Refile of #1603, which failed at image optimization: the previous image URL redirected from the apex domain to www, which the optimizer appears not to follow. This URL is the direct one (512x512 PNG, image/png, no redirect).\n\nswanUSD is a decentralized stablecoin minted against wstETH collateral on Monolith, the stablecoin-as-a-service protocol built by Inverse Finance, and governed by SwanDAO. It redeems 1:1 through a Peg Stability Module holding sUSDS reserves and directly against wstETH collateral via Monolith redemptions. Live on Ethereum mainnet since October 22, 2026.\n\nLegitimacy: the contract is source-verified on Etherscan, non-upgradeable and non-pausable, and was deployed from the audited Monolith factory (Electisec, ChainSecurity, Sherlock contest and ongoing Sherlock bug bounty). swanUSD is listed on CoinGecko and its staked form is live collateral on Inverse Finance's FiRM.\n\nLiquidity: Curve swanUSD/USDC pool `0xc1488f04027afea94fa68586b4ff245098a59432` (roughly $80K as of Nov 12, 2026, growing alongside the protocol). The token already routes on aggregators via this pool when pasted by address; this request is for default-list inclusion with name and logo.\n\nLinks: https://swanusd.com | https://docs.monolith.market | https://x.com/MonolithMarket\nContact: edo@inverse.finance",
+  "decimals": 18,
+  "chainId": 1
+}
