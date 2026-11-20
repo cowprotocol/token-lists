@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -102,17 +102,6 @@
     },
     {
       "chainId": 137,
-      "address": "0xbbcb0356bb9e6b3faa5cbf9e5f36185d53403ac9",
-      "name": "Backed Coinbase Global",
-      "symbol": "BCOIN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/31872/large/bCOIN_200p.png?1740041102",
-      "extensions": {
-        "assetType": "stock"
-      }
-    },
-    {
-      "chainId": 137,
       "address": "0xc8bb8eda94931ca2f20ef43ea7dbd58e68400400",
       "name": "VNX Gold",
       "symbol": "VNXAU",
@@ -121,6 +110,17 @@
       "extensions": {
         "assetType": "commodity",
         "issuer": "VNX"
+      }
+    },
+    {
+      "chainId": 137,
+      "address": "0xbbcb0356bb9e6b3faa5cbf9e5f36185d53403ac9",
+      "name": "Backed Coinbase Global",
+      "symbol": "BCOIN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/31872/large/bCOIN_200p.png?1740041102",
+      "extensions": {
+        "assetType": "stock"
       }
     },
     {
@@ -282,5 +282,5 @@
   ],
   "name": "RWA on Polygon",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-19T17:25:07.041Z"
+  "timestamp": "2026-11-20T11:17:02.293Z"
 }
