@@ -1,27 +1,32 @@
 import { getAddressKey } from '@cowprotocol/cow-sdk'
-import { existsSync, readFileSync, writeFileSync } from 'fs'
+import { readFileSync, writeFileSync } from 'fs'
 import {
-  getRwaListPath,
   getRwaSupplementError,
+  getTokenKey,
   isRwaSupplementChain,
+  readDefaultTokenKeys,
   request,
   RWA_SUPPLEMENT_PATH,
   toLogoUrl,
 } from './rwa.js'
-import { COINGECKO_CHAINS, TokenInfo } from './utils.js'
+import type { TokenInfo } from './utils.js'
 
 /**
- * Writes `rwaSupplement.json`, on demand (`yarn rwaSupplement`): RWA tokens that aren't in any
- * `CoinGeckoRwa.<chainId>.json` because CoinGecko doesn't know them yet. `rwa.ts` adds them to those lists on every
- * run, so they show up with the RWA badge, and are geoblocked wherever a CMS record points at those lists.
+ * Writes `rwaSupplement.json`, on demand (`yarn rwaSupplement`): RWA tokens for the lists of `rwa.ts`, which adds the
+ * ones CoinGecko doesn't know yet to `CoinGeckoRwa.<chainId>.json` on every run. They show up with the RWA badge, and
+ * are geoblocked wherever a CMS record points at those lists.
  *
  * Sources:
  * - the token lists of the CMS `restricted-token-lists` records, which pin them by commit. Our own `files.cow.fi`
  *   lists are skipped. Their tokens in `CowSwap.json` are skipped and reported: geoblocking a default token in ~50
  *   countries is a human call
  * - `rwaManual.json`: tokens added by hand, for issuers without a token list. Check `name()`, `symbol()` and
- *   `decimals()` on-chain and the explorer label before adding one. A token CoinGecko or a provider list has by now
- *   is removed from it. An invalid one, or one in `CowSwap.json`, aborts the run
+ *   `decimals()` on-chain and the explorer label before adding one. A token a provider list has by now is removed
+ *   from it. An invalid one, or one in `CowSwap.json`, aborts the run
+ *
+ * Doesn't compare with `CoinGeckoRwa.<chainId>.json`: those lists hold the supplement tokens too after a run, so they
+ * can't tell which tokens CoinGecko has. `rwa.ts` lets CoinGecko's entry win instead, and a manual token CoinGecko
+ * lists stays, as a fallback for when CoinGecko drops it.
  */
 
 const CMS_URL = 'https://cms.cow.fi/api/restricted-token-lists?pagination[pageSize]=100'
@@ -45,14 +50,7 @@ export async function generateRwaSupplement({
     throw new Error(`Only ${data.length} of ${meta.pagination.total} CMS records were fetched`)
   }
 
-  // Must exist: without it, default tokens would slip into the supplement
-  const cowSwap = new Set((JSON.parse(readFileSync('src/public/CowSwap.json', 'utf8')).tokens as TokenInfo[]).map(getKey))
-  const onCoinGecko = new Set(
-    Object.keys(COINGECKO_CHAINS)
-      .map((chainId) => getRwaListPath(Number(chainId)))
-      .filter((path) => existsSync(path))
-      .flatMap((path) => (JSON.parse(readFileSync(path, 'utf8')).tokens as TokenInfo[]).map(getKey)),
-  )
+  const cowSwap = readDefaultTokenKeys()
   const fromProviders = new Map<string, TokenInfo>()
 
   for (const { name, tokenListUrl } of data.map((record) => record.attributes)) {
@@ -61,18 +59,12 @@ export async function generateRwaSupplement({
     const { tokens } = await request<{ tokens: TokenInfo[] }>(tokenListUrl)
     const before = fromProviders.size
     let otherChains = 0
-    let listed = 0
 
     for (const token of tokens) {
-      const key = getKey(token)
+      const key = getTokenKey(token)
 
       if (!isRwaSupplementChain(token.chainId)) {
         otherChains++
-        continue
-      }
-
-      if (onCoinGecko.has(key)) {
-        listed++
         continue
       }
 
@@ -89,17 +81,17 @@ export async function generateRwaSupplement({
       fromProviders.set(key, entry)
     }
 
-    log(`${name}: ${fromProviders.size - before} added, ${listed} on CoinGecko, ${otherChains} on other chains`)
+    log(`${name}: ${fromProviders.size - before} added, ${otherChains} on other chains`)
   }
 
   const manual = JSON.parse(readFileSync(manualPath, 'utf8')) as TokenInfo[]
   const kept = new Map<string, TokenInfo>()
 
   for (const token of manual) {
-    const key = getKey(token)
+    const key = getTokenKey(token)
 
-    if (onCoinGecko.has(key) || fromProviders.has(key)) {
-      log(`Removing ${token.symbol} (${key}) from the manual tokens: ${onCoinGecko.has(key) ? 'CoinGecko' : 'a provider'} lists it`)
+    if (fromProviders.has(key)) {
+      log(`Removing ${token.symbol} (${key}) from the manual tokens: a provider lists it`)
       continue
     }
 
@@ -118,10 +110,6 @@ export async function generateRwaSupplement({
 
   writeJson(outputPath, supplement)
   log(`${supplement.length} tokens written, ${kept.size} of them manual`)
-}
-
-function getKey({ chainId, address }: TokenInfo): string {
-  return `${chainId}:${getAddressKey(address)}`
 }
 
 function toSupplementToken({ chainId, address, name, symbol, decimals, logoURI, extensions }: TokenInfo): TokenInfo {

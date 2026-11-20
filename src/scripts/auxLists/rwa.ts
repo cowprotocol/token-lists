@@ -1,4 +1,5 @@
 import { getAddressKey, isEvmAddress, isSolanaAddress, SupportedChainId } from '@cowprotocol/cow-sdk'
+import assert from 'assert'
 import { existsSync, readFileSync } from 'fs'
 import pThrottle from 'p-throttle'
 import { fetchJupiterTokens, getTokenProgramExtensions, hasValidMint } from '../utils/jupiter.js'
@@ -15,8 +16,9 @@ import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, To
  * - the RWA API (https://docs.coingecko.com/reference/rwa-overview): stocks, ETFs and commodities, with issuers
  * - `RWA_CATEGORIES`: what the RWA API misses, such as treasuries, money market funds, credit and non-US stocks.
  *   Category queries skip coins without market data, which is fine: CoW can't trade them without liquidity anyway
- * - `rwaSupplement.json`: RWA tokens CoinGecko doesn't know yet, written on demand by `yarn rwaSupplement`
- *   (`rwaSupplement.ts`). CoinGecko's entry wins when both have a token
+ * - `rwaSupplement.json`: the tokens of the CMS provider lists and `rwaManual.json`, written on demand by
+ *   `yarn rwaSupplement` (`rwaSupplement.ts`), for the tokens CoinGecko doesn't know yet. CoinGecko's entry wins when
+ *   both have a token. Tokens in `CowSwap.json` are skipped
  */
 
 export const RWA_PREFIX = 'CoinGeckoRwa'
@@ -117,8 +119,18 @@ interface RwaTokenInfo extends TokenInfo {
 export async function fetchAndProcessRwaTokens(
   supplement: TokenInfo[] = JSON.parse(readFileSync(RWA_SUPPLEMENT_PATH, 'utf8')),
 ): Promise<void> {
+  assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
   // Every token of these lists gets geoblocked: a bad supplement token aborts the run instead of being written
   validateRwaSupplement(supplement)
+
+  // The supplement was checked against `CowSwap.json` when generated, but a default token may have been added since
+  const defaultTokens = readDefaultTokenKeys()
+  const listable = supplement.filter((token) => {
+    if (!defaultTokens.has(getTokenKey(token))) return true
+
+    console.warn(`[rwa] Skipping supplement token ${token.symbol} (${getTokenKey(token)}): in CowSwap.json`)
+    return false
+  })
 
   const startedAt = Date.now()
   const logger = getLogger('rwa-tokens')
@@ -145,7 +157,7 @@ export async function fetchAndProcessRwaTokens(
   // All lists are built before any is written, so a failed request can't leave some chains updated and others not
   const lists = await mapSequential(chains, async (chainId) => ({
     chainId,
-    tokens: await buildChainTokens(chainId, coins, markets, supplement),
+    tokens: await buildChainTokens(chainId, coins, markets, listable),
   }))
 
   for (const { chainId, tokens } of lists) {
@@ -173,23 +185,39 @@ export async function fetchAndProcessRwaTokens(
   log(`Done in ${Math.round((Date.now() - startedAt) / 1000)}s`)
 }
 
-export function getRwaListPath(chainId: SupportedChainId): string {
+function getRwaListPath(chainId: SupportedChainId): string {
   return `src/public/${RWA_PREFIX}.${chainId}.json`
+}
+
+export function getTokenKey({ chainId, address }: TokenInfo): string {
+  return `${chainId}:${getAddressKey(address)}`
+}
+
+/** CoW Swap's default tokens: geoblocking one of them in ~50 countries is a human call, not a script's */
+export function readDefaultTokenKeys(): Set<string> {
+  return new Set((JSON.parse(readFileSync('src/public/CowSwap.json', 'utf8')).tokens as TokenInfo[]).map(getTokenKey))
 }
 
 /** EVM chains only: Solana tokens need the token program check of `buildToken` */
 export function isRwaSupplementChain(chainId: number): boolean {
-  return !!COINGECKO_CHAINS[chainId as SupportedChainId] && chainId !== SupportedChainId.SOLANA
+  return Number.isInteger(chainId) && !!COINGECKO_CHAINS[chainId as SupportedChainId] && chainId !== SupportedChainId.SOLANA
 }
 
 /** Why a supplement token can't be listed, if it can't. CoW Swap rejects a whole list over one invalid token */
-export function getRwaSupplementError({ chainId, address, name, symbol, decimals, logoURI }: TokenInfo): string | null {
+export function getRwaSupplementError(token: TokenInfo): string | null {
+  const { chainId, address, name, symbol, decimals, logoURI, extensions } = token
+
   if (!isRwaSupplementChain(chainId)) return 'unsupported chain'
   if (!isEvmAddress(address)) return 'invalid address'
   if (!Number.isInteger(decimals) || decimals < 0 || decimals > 255) return 'invalid decimals'
   // The limits of CoW Swap's token list schema
+  if (typeof name !== 'string' || typeof symbol !== 'string') return 'invalid name or symbol'
   if (!/^[^<>]{1,100}$/.test(name) || !/^[^<>]{1,80}$/.test(symbol)) return 'invalid name or symbol'
   if (logoURI !== undefined && toLogoUrl(logoURI) !== logoURI) return 'invalid logo'
+  // Like the CoinGecko tokens' extensions: strings within the token list schema's 42 characters
+  if (Object.values(extensions ?? {}).some((value) => typeof value !== 'string' || value.length > 42)) {
+    return 'invalid extensions'
+  }
   return null
 }
 
@@ -197,7 +225,7 @@ function validateRwaSupplement(tokens: TokenInfo[]): void {
   const keys = new Set<string>()
 
   for (const token of tokens) {
-    const key = `${token.chainId}:${getAddressKey(token.address)}`
+    const key = getTokenKey(token)
     const error = getRwaSupplementError(token) ?? (keys.has(key) ? 'duplicate' : null)
 
     if (error) throw new Error(`RWA supplement token ${token.symbol} (${key}): ${error}`)
@@ -266,12 +294,8 @@ async function buildChainTokens(
 
   log(
     `${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped, ` +
-      `${supplemented} from the supplement)`,
+      `${supplemented} from the supplement, ${onCoinGecko} more of which CoinGecko has)`,
   )
-
-  if (onCoinGecko) {
-    log(`${chainName}: ${onCoinGecko} supplement tokens are on CoinGecko now, run \`yarn rwaSupplement\` to drop them`)
-  }
 
   return sorted
 }

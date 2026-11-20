@@ -1,8 +1,9 @@
+import assert from 'assert'
 import { mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import { fetchAndProcessCoingeckoTokens } from './coingecko'
 import { fetchAndProcessRwaTokens } from './rwa'
 import { fetchAndProcessUniswapTokens } from './uniswap'
-import { getCoingeckoTokenIdsMap, OverridesPerChain, removeOldLogs } from './utils'
+import { COINGECKO_API_KEY, getCoingeckoTokenIdsMap, OverridesPerChain, removeOldLogs } from './utils'
 
 const OVERRIDES: OverridesPerChain = mapSupportedNetworks(() => ({}))
 OVERRIDES[SupportedChainId.BASE]['0x18dd5b087bca9920562aff7a0199b96b9230438b'] = { decimals: 8 } // incorrect decimals set on CoinGecko's list
@@ -18,6 +19,7 @@ OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0xcb444e90d8198415266c6a2724b7900fb12f
 OVERRIDES[SupportedChainId.GNOSIS_CHAIN]['0x5cb9073902f2035222b9749f8fb0c9bfe5527108'] = null // Legacy GBPe
 
 async function main(): Promise<void> {
+  assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
   const COINGECKO_IDS_MAP = await getCoingeckoTokenIdsMap()
 
   removeOldLogs('coingecko-tokens')
