@@ -27,6 +27,9 @@ import type { TokenInfo } from './utils.js'
  * Doesn't compare with `CoinGeckoRwa.<chainId>.json`: those lists hold the supplement tokens too after a run, so they
  * can't tell which tokens CoinGecko has. `rwa.ts` lets CoinGecko's entry win instead, and a manual token CoinGecko
  * lists stays, as a fallback for when CoinGecko drops it.
+ *
+ * Rerun it, and merge the result, after a CMS record is removed or re-pinned: until then, the tokens it dropped stay
+ * in the supplement, so they're still geoblocked wherever a CMS record points at `CoinGeckoRwa.<chainId>.json`.
  */
 
 const CMS_URL = 'https://cms.cow.fi/api/restricted-token-lists?pagination[pageSize]=100'
