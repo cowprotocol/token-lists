@@ -71,14 +71,19 @@ body:
       placeholder: 0x...
     validations:
       required: true
+  - type: upload
+    id: logoUpload
+    attributes:
+      label: Logo upload
+      description: Upload one PNG or SVG, ideally 256x256. We'll optimize it for you.
+    validations:
+      accept: '.png,.svg'
   - type: input
     id: imageUrl
     attributes:
       label: Image URL
-      description: Ideally a 256x256 PNG or SVG file. But we'll take care of optimizing it later.
+      description: If you don't upload a logo, paste a direct image URL. If you provide both, we'll use the upload.
       placeholder: https://gateway.pinata.cloud/ipfs/Qme9B6jRpGtZsRFcPjHvA5T4ugFuL4c3SzWfxyMPa59AMo
-    validations:
-      required: true
   - type: textarea
     id: reason
     attributes:

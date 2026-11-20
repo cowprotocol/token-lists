@@ -1,11 +1,6 @@
 name: OptimizeImage
 
-# Input: chain, address, CID
-# Steps:
-# - resolve image/download it
-# - optimize image: 256x256, remove metadata
-# - upload new image to ipfs: name file <address>.png, upload it
-# - return CID
+# Download and optimize a logo, then store the PNG as a workflow artifact.
 
 on:
   workflow_call:
@@ -22,7 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download image
-        run: curl -o image.png $URL
+        run: |
+          download_options=(--fail --silent --show-error --globoff --proto '=http,https' --connect-timeout 15 --max-time 60)
+
+          # GitHub attachment URLs redirect to a temporary download URL.
+          if [[ "$URL" =~ ^https://github\.com/user-attachments/assets/[0-9a-fA-F-]{36}$ ]]; then
+            download_options+=(--location --max-redirs 5 --proto-redir '=https')
+          fi
+
+          curl "${download_options[@]}" --output image.png -- "$URL"
         env:
           URL: ${{ inputs.url }}
 
@@ -31,7 +34,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y imagemagick librsvg2-bin
 
-      - name: Optimze image
+      - name: Optimize image
         run: |
           image_type=$(identify -format "%m" image.png)
 
