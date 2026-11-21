@@ -1,5 +1,6 @@
 import { getAddressKey, isEvmAddress, isSolanaAddress, SupportedChainId } from '@cowprotocol/cow-sdk'
-import { existsSync } from 'fs'
+import assert from 'assert'
+import { existsSync, readFileSync } from 'fs'
 import pThrottle from 'p-throttle'
 import { fetchJupiterTokens, getTokenProgramExtensions, hasValidMint } from '../utils/jupiter.js'
 import { processTokenList } from './processTokenList.js'
@@ -15,9 +16,13 @@ import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, To
  * - the RWA API (https://docs.coingecko.com/reference/rwa-overview): stocks, ETFs and commodities, with issuers
  * - `RWA_CATEGORIES`: what the RWA API misses, such as treasuries, money market funds, credit and non-US stocks.
  *   Category queries skip coins without market data, which is fine: CoW can't trade them without liquidity anyway
+ * - `rwaSupplement.json`: the tokens of the CMS provider lists and `rwaManual.json`, written on demand by
+ *   `yarn rwaSupplement` (`rwaSupplement.ts`), for the tokens CoinGecko doesn't know yet. CoinGecko's entry wins when
+ *   both have a token. Tokens in `CowSwap.json` are skipped
  */
 
 export const RWA_PREFIX = 'CoinGeckoRwa'
+export const RWA_SUPPLEMENT_PATH = new URL('./rwaSupplement.json', import.meta.url)
 const RWA_LOGO = 'https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png'
 const API_URL = 'https://pro-api.coingecko.com/api/v3'
 const PAGE_SIZE = 250
@@ -111,7 +116,22 @@ interface RwaTokenInfo extends TokenInfo {
   marketCap: number
 }
 
-export async function fetchAndProcessRwaTokens(): Promise<void> {
+export async function fetchAndProcessRwaTokens(
+  supplement: TokenInfo[] = JSON.parse(readFileSync(RWA_SUPPLEMENT_PATH, 'utf8')),
+): Promise<void> {
+  assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
+  // Every token of these lists gets geoblocked: a bad supplement token aborts the run instead of being written
+  validateRwaSupplement(supplement)
+
+  // The supplement was checked against `CowSwap.json` when generated, but a default token may have been added since
+  const defaultTokens = readDefaultTokenKeys()
+  const listable = supplement.filter((token) => {
+    if (!defaultTokens.has(getTokenKey(token))) return true
+
+    console.warn(`[rwa] Skipping supplement token ${token.symbol} (${getTokenKey(token)}): in CowSwap.json`)
+    return false
+  })
+
   const startedAt = Date.now()
   const logger = getLogger('rwa-tokens')
   const chains = (Object.keys(COINGECKO_CHAINS).map(Number) as SupportedChainId[]).filter(
@@ -137,7 +157,7 @@ export async function fetchAndProcessRwaTokens(): Promise<void> {
   // All lists are built before any is written, so a failed request can't leave some chains updated and others not
   const lists = await mapSequential(chains, async (chainId) => ({
     chainId,
-    tokens: await buildChainTokens(chainId, coins, markets),
+    tokens: await buildChainTokens(chainId, coins, markets, listable),
   }))
 
   for (const { chainId, tokens } of lists) {
@@ -169,11 +189,57 @@ function getRwaListPath(chainId: SupportedChainId): string {
   return `src/public/${RWA_PREFIX}.${chainId}.json`
 }
 
-/** RWA tokens of a chain, biggest market cap first */
+export function getTokenKey({ chainId, address }: TokenInfo): string {
+  return `${chainId}:${getAddressKey(address)}`
+}
+
+/** CoW Swap's default tokens: geoblocking one of them in ~50 countries is a human call, not a script's */
+export function readDefaultTokenKeys(): Set<string> {
+  return new Set((JSON.parse(readFileSync('src/public/CowSwap.json', 'utf8')).tokens as TokenInfo[]).map(getTokenKey))
+}
+
+/** EVM chains only: Solana tokens need the token program check of `buildToken` */
+export function isRwaSupplementChain(chainId: number): boolean {
+  return Number.isInteger(chainId) && !!COINGECKO_CHAINS[chainId as SupportedChainId] && chainId !== SupportedChainId.SOLANA
+}
+
+/** Why a supplement token can't be listed, if it can't. CoW Swap rejects a whole list over one invalid token */
+export function getRwaSupplementError(token: TokenInfo): string | null {
+  const { chainId, address, name, symbol, decimals, logoURI, extensions } = token
+
+  if (!isRwaSupplementChain(chainId)) return 'unsupported chain'
+  if (!isEvmAddress(address)) return 'invalid address'
+  if (!Number.isInteger(decimals) || decimals < 0 || decimals > 255) return 'invalid decimals'
+  // The limits of CoW Swap's token list schema
+  if (typeof name !== 'string' || typeof symbol !== 'string') return 'invalid name or symbol'
+  if (!/^[^<>]{1,100}$/.test(name) || !/^[^<>]{1,80}$/.test(symbol)) return 'invalid name or symbol'
+  if (logoURI !== undefined && toLogoUrl(logoURI) !== logoURI) return 'invalid logo'
+  // Like the CoinGecko tokens' extensions: strings within the token list schema's 42 characters
+  if (Object.values(extensions ?? {}).some((value) => typeof value !== 'string' || value.length > 42)) {
+    return 'invalid extensions'
+  }
+  return null
+}
+
+function validateRwaSupplement(tokens: TokenInfo[]): void {
+  const keys = new Set<string>()
+
+  for (const token of tokens) {
+    const key = getTokenKey(token)
+    const error = getRwaSupplementError(token) ?? (keys.has(key) ? 'duplicate' : null)
+
+    if (error) throw new Error(`RWA supplement token ${token.symbol} (${key}): ${error}`)
+
+    keys.add(key)
+  }
+}
+
+/** RWA tokens of a chain, biggest market cap first, then the supplement tokens CoinGecko doesn't have */
 async function buildChainTokens(
   chainId: SupportedChainId,
   coins: RwaCoin[],
   markets: Map<string, CoinMarket>,
+  supplement: TokenInfo[],
 ): Promise<RwaTokenInfo[]> {
   const chainName = DISPLAY_CHAIN_NAMES[chainId]
   const platform = COINGECKO_CHAINS[chainId] as string
@@ -208,9 +274,28 @@ async function buildChainTokens(
     else skipped++
   }
 
+  let supplemented = 0
+  let onCoinGecko = 0
+
+  for (const token of supplement) {
+    if (token.chainId !== chainId) continue
+
+    const key = getAddressKey(token.address)
+
+    if (tokens.has(key)) {
+      onCoinGecko++
+    } else {
+      tokens.set(key, { ...token, address: key, marketCap: 0 })
+      supplemented++
+    }
+  }
+
   const sorted = [...tokens.values()].sort((a, b) => b.marketCap - a.marketCap || a.address.localeCompare(b.address))
 
-  log(`${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped)`)
+  log(
+    `${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped, ` +
+      `${supplemented} from the supplement, ${onCoinGecko} more of which CoinGecko has)`,
+  )
 
   return sorted
 }
@@ -355,7 +440,7 @@ function isChainAddress(chainId: SupportedChainId, address: string): boolean {
 }
 
 /** CoinGecko answers `missing_large.png`, a relative path, for coins without an image */
-function toLogoUrl(image: string | null | undefined): string | undefined {
+export function toLogoUrl(image: string | null | undefined): string | undefined {
   try {
     return image && new URL(image).protocol === 'https:' ? image : undefined
   } catch {
@@ -453,7 +538,7 @@ function coingecko<T>(path: string): Promise<T> {
   return throttledRequest(`${API_URL}${path}`, { 'x-cg-pro-api-key': COINGECKO_API_KEY as string }) as Promise<T>
 }
 
-async function request<T>(url: string, headers: Record<string, string> = {}): Promise<T> {
+export async function request<T>(url: string, headers: Record<string, string> = {}): Promise<T> {
   const label = url.split('?')[0]
 
   for (let attempt = 0; ; attempt++) {
