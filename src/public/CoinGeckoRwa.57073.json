@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -95,11 +95,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0xf706585e7e8900be0267bee3b9a2f70835ec6628",
-      "name": "PayPal xStock",
-      "symbol": "PYPLX",
+      "address": "0x4b0ee7c047d43ca403239f28f42115bedb7c0076",
+      "name": "Oklo xStock",
+      "symbol": "OKLOX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/69635/large/Ticker_PYPLx__Company_Name_PYPLx__size_200x200.png?1759233606",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69622/large/Ticker_OKLOx__Company_Name_Oklo__size_200x200.png?1759233239",
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
@@ -107,11 +107,11 @@
     },
     {
       "chainId": 57073,
-      "address": "0x4b0ee7c047d43ca403239f28f42115bedb7c0076",
-      "name": "Oklo xStock",
-      "symbol": "OKLOX",
+      "address": "0xf706585e7e8900be0267bee3b9a2f70835ec6628",
+      "name": "PayPal xStock",
+      "symbol": "PYPLX",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/69622/large/Ticker_OKLOx__Company_Name_Oklo__size_200x200.png?1759233239",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69635/large/Ticker_PYPLx__Company_Name_PYPLx__size_200x200.png?1759233606",
       "extensions": {
         "assetType": "stock",
         "issuer": "xStocks"
@@ -179,18 +179,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0xaa28cb97d7f7e172f54dee950743886d2d65447d",
-      "name": "S&P Small Cap xStock",
-      "symbol": "IJRX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/69664/large/Ticker_IJRx__Company_Name_S_P_Small_Cap__size_200x200.png?1759233851",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 57073,
       "address": "0xc0c2150cf0870e2d7abc7cde17c20a542fafbb9b",
       "name": "TeraWulf xStock",
       "symbol": "WULFX",
@@ -198,6 +186,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/69625/large/Ticker_WULFx__Company_Name_TeraWulf__size_200x200.png?1759233242",
       "extensions": {
         "assetType": "stock",
+        "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 57073,
+      "address": "0xaa28cb97d7f7e172f54dee950743886d2d65447d",
+      "name": "S&P Small Cap xStock",
+      "symbol": "IJRX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69664/large/Ticker_IJRx__Company_Name_S_P_Small_Cap__size_200x200.png?1759233851",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "xStocks"
       }
     },
@@ -8767,5 +8767,5 @@
   ],
   "name": "RWA on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-19T17:25:07.068Z"
+  "timestamp": "2026-11-21T00:22:36.146Z"
 }

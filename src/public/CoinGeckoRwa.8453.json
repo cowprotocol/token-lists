@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 1,
-    "patch": 0
+    "patch": 1
   },
   "tokens": [
     {
@@ -230,6 +230,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xb200000000000000000000d9192b6b456483c2e8",
+      "name": "Amazon (Coinbase Tokenized Stock)",
+      "symbol": "AMZNC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178280/large/amzn-200.png?1789233782",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x52d134c6db5889fad3542a09eaf7aa90c0fdf9e4",
       "name": "Backed IBTA $ Treasury Bond 1-3yr",
       "symbol": "BIBTA",
@@ -238,18 +250,6 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb200000000000000000000397293cb8cda9a10c5",
-      "name": "SanDisk (Coinbase Tokenized Stock)",
-      "symbol": "SNDKC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178283/large/sndk-200.png?1789234014",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
       }
     },
     {
@@ -266,11 +266,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000d9192b6b456483c2e8",
-      "name": "Amazon (Coinbase Tokenized Stock)",
-      "symbol": "AMZNC",
+      "address": "0xb200000000000000000000397293cb8cda9a10c5",
+      "name": "SanDisk (Coinbase Tokenized Stock)",
+      "symbol": "SNDKC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178280/large/amzn-200.png?1789233782",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178283/large/sndk-200.png?1789234014",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -290,18 +290,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb2000000000000000000004884b426556b92883d",
-      "name": "MicroStrategy (Coinbase Tokenized Stock)",
-      "symbol": "MSTRC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178282/large/mstr-200.png?1789233935",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x92ecf64fdb76e60b76d78a29ad4bf9d38b7b1b97",
       "name": "NVIDIA (Dinari Tokenized Stock)",
       "symbol": "NVDA",
@@ -310,6 +298,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb2000000000000000000004884b426556b92883d",
+      "name": "MicroStrategy (Coinbase Tokenized Stock)",
+      "symbol": "MSTRC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178282/large/mstr-200.png?1789233935",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
       }
     },
     {
@@ -338,14 +338,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xca47fa9f4c55a8c2c83bfb872fd18d3c656795cf",
-      "name": "Strategy Stretch Preferred (Dinari Tokenized Stock)",
-      "symbol": "STRC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175169/large/dinari-logo-green-with-margin.png?1785403447",
+      "address": "0xb20000000000000000000016e38fd364d271ba28",
+      "name": "Anthropic, PBC (Coinbase Tokenized Stock)",
+      "symbol": "ANTC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102180335/large/ANTc-official.png?1795105161",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Dinari"
+        "issuer": "Coinbase"
       }
     },
     {
@@ -358,6 +358,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xca47fa9f4c55a8c2c83bfb872fd18d3c656795cf",
+      "name": "Strategy Stretch Preferred (Dinari Tokenized Stock)",
+      "symbol": "STRC",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175169/large/dinari-logo-green-with-margin.png?1785403447",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -397,14 +409,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb20000000000000000000016e38fd364d271ba28",
-      "name": "Anthropic, PBC (Coinbase Tokenized Stock)",
-      "symbol": "ANTC",
+      "address": "0x86856814e74456893cfc8946bedcbb472b5fa856",
+      "name": "Gold Token",
+      "symbol": "GLDT",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102180335/large/ANTc-official.png?1795105161",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/53968/large/gldt_200x200.png?1737793227",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
+        "assetType": "commodity"
       }
     },
     {
@@ -417,17 +428,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x86856814e74456893cfc8946bedcbb472b5fa856",
-      "name": "Gold Token",
-      "symbol": "GLDT",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/53968/large/gldt_200x200.png?1737793227",
-      "extensions": {
-        "assetType": "commodity"
       }
     },
     {
@@ -452,18 +452,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xcc7cef3de42be48110e1fb753e4a314cf6a574f2",
-      "name": "Strive (Dinari Tokenized Stock)",
-      "symbol": "ASST",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175177/large/dinari-logo-green-with-margin.png?1785403475",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
       }
     },
     {
@@ -503,6 +491,30 @@
     },
     {
       "chainId": 8453,
+      "address": "0xcc7cef3de42be48110e1fb753e4a314cf6a574f2",
+      "name": "Strive (Dinari Tokenized Stock)",
+      "symbol": "ASST",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175177/large/dinari-logo-green-with-margin.png?1785403475",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000f720c26062bc3067da",
+      "name": "Take-Two Interactive Software, Inc. (Coinbase Tokenized Stoc",
+      "symbol": "TTWOC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179263/large/TTWOc-icon-200.png?1791375817",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xb200000000000000000000fc737aea6196ab5a4c",
       "name": "Broadcom Inc. (Coinbase Tokenized Stock)",
       "symbol": "AVGOC",
@@ -527,18 +539,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000f720c26062bc3067da",
-      "name": "Take-Two Interactive Software, Inc. (Coinbase Tokenized Stoc",
-      "symbol": "TTWOC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179263/large/TTWOc-icon-200.png?1791375817",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb200000000000000000000347afba223d7b6b63c",
       "name": "Oracle Corporation (Coinbase Tokenized Stock)",
       "symbol": "ORCLC",
@@ -547,18 +547,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x41f7a63713e76c0ab800be03bae9f17b8a356348",
-      "name": "Apple (Dinari Tokenized Stock)",
-      "symbol": "AAPL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174907/large/dinari-logo-green-with-margin.png?1785402519",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
       }
     },
     {
@@ -575,13 +563,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0x7cee47e7b7cd04cf984e8dd86c42595b5771a9b2",
-      "name": "Etherfuse TESOURO",
-      "symbol": "TESOURO",
-      "decimals": 6,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/52383/large/stable.jpg?1733259572",
+      "address": "0x41f7a63713e76c0ab800be03bae9f17b8a356348",
+      "name": "Apple (Dinari Tokenized Stock)",
+      "symbol": "AAPL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174907/large/dinari-logo-green-with-margin.png?1785402519",
       "extensions": {
-        "assetType": "bond"
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -594,6 +583,17 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x7cee47e7b7cd04cf984e8dd86c42595b5771a9b2",
+      "name": "Etherfuse TESOURO",
+      "symbol": "TESOURO",
+      "decimals": 6,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/52383/large/stable.jpg?1733259572",
+      "extensions": {
+        "assetType": "bond"
       }
     },
     {
@@ -669,18 +669,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x0f6c508ef7257c4b99bd1bc8aef750da64840813",
-      "name": "Broadcom (Dinari Tokenized Stock)",
-      "symbol": "AVGO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174952/large/dinari-logo-green-with-margin.png?1785402678",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb200000000000000000000f1a0f91e34892e4718",
       "name": "Eli Lilly & Co (Coinbase Tokenized Stock)",
       "symbol": "LLYC",
@@ -701,6 +689,30 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "ST0x"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x0f6c508ef7257c4b99bd1bc8aef750da64840813",
+      "name": "Broadcom (Dinari Tokenized Stock)",
+      "symbol": "AVGO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174952/large/dinari-logo-green-with-margin.png?1785402678",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb2000000000000000000004aff16039ba04bdfbc",
+      "name": "Intel Corporation (Coinbase Tokenized Stock)",
+      "symbol": "INTCC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179182/large/cc2d84b704e34b83b5fc1f3b0e89c67e5ccc9142e666a50a5cbde261cf09e2aa.png?1791300868",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
       }
     },
     {
@@ -729,18 +741,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xaaf450456949eb5fc77987f619653e77383a8170",
-      "name": "Advanced Micro Devices (Dinari Tokenized Stock)",
-      "symbol": "AMD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174922/large/dinari-logo-green-with-margin.png?1785402573",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb20000000000000000000024170488e788cbbcb4",
       "name": "Berkshire Hathaway Inc. Class B (Coinbase Tokenized Stock)",
       "symbol": "BRK.BC",
@@ -753,35 +753,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb2000000000000000000004aff16039ba04bdfbc",
-      "name": "Intel Corporation (Coinbase Tokenized Stock)",
-      "symbol": "INTCC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179182/large/cc2d84b704e34b83b5fc1f3b0e89c67e5ccc9142e666a50a5cbde261cf09e2aa.png?1791300868",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb2000000000000000000008fde21a1f5c69fec0b",
-      "name": "Western Digital Corporation (Coinbase Tokenized Stock)",
-      "symbol": "WDCC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179242/large/WDCc-icon-200.png?1791375033",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xefa88fbe28d4f59d1449f1f33e09c9f90ba68a3f",
-      "name": "Nike (Dinari Tokenized Stock)",
-      "symbol": "NKE",
+      "address": "0xaaf450456949eb5fc77987f619653e77383a8170",
+      "name": "Advanced Micro Devices (Dinari Tokenized Stock)",
+      "symbol": "AMD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175033/large/dinari-logo-green-with-margin.png?1785402967",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174922/large/dinari-logo-green-with-margin.png?1785402573",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -801,11 +777,47 @@
     },
     {
       "chainId": 8453,
+      "address": "0xb2000000000000000000008fde21a1f5c69fec0b",
+      "name": "Western Digital Corporation (Coinbase Tokenized Stock)",
+      "symbol": "WDCC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179242/large/WDCc-icon-200.png?1791375033",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xb200000000000000000000ec3c4c7395cc609813",
       "name": "Marvell Technology, Inc. (Coinbase Tokenized Stock)",
       "symbol": "MRVLC",
       "decimals": 8,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102179187/large/MRVLc-icon-200.png?1791300885",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xefa88fbe28d4f59d1449f1f33e09c9f90ba68a3f",
+      "name": "Nike (Dinari Tokenized Stock)",
+      "symbol": "NKE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175033/large/dinari-logo-green-with-margin.png?1785402967",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000cf36d05963a3e2205c",
+      "name": "Applied Optoelectronics Inc (Coinbase Tokenized Stock)",
+      "symbol": "AAOIC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179198/large/AAOIc-icon-200.png?1791301547",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -825,11 +837,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000cf36d05963a3e2205c",
-      "name": "Applied Optoelectronics Inc (Coinbase Tokenized Stock)",
-      "symbol": "AAOIC",
+      "address": "0xf393d07e6ca9818a601055b4bb3c48a5bb98e701",
+      "name": "Amazon (Dinari Tokenized Stock)",
+      "symbol": "AMZN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174908/large/dinari-logo-green-with-margin.png?1785402523",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000eda6c2c6f11e0f838f",
+      "name": "Lumentum Holdings Inc (Coinbase Tokenized Stock)",
+      "symbol": "LITEC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179198/large/AAOIc-icon-200.png?1791301547",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179267/large/LITEc-icon-200.png?1791375829",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -837,11 +861,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xf393d07e6ca9818a601055b4bb3c48a5bb98e701",
-      "name": "Amazon (Dinari Tokenized Stock)",
-      "symbol": "AMZN",
+      "address": "0xf9011e88d8f1b5bb9b1f0b3bd604d250cf114afb",
+      "name": "Microsoft (Dinari Tokenized Stock)",
+      "symbol": "MSFT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174908/large/dinari-logo-green-with-margin.png?1785402523",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174912/large/dinari-logo-green-with-margin.png?1785402537",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -869,30 +893,6 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xf9011e88d8f1b5bb9b1f0b3bd604d250cf114afb",
-      "name": "Microsoft (Dinari Tokenized Stock)",
-      "symbol": "MSFT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174912/large/dinari-logo-green-with-margin.png?1785402537",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb200000000000000000000eda6c2c6f11e0f838f",
-      "name": "Lumentum Holdings Inc (Coinbase Tokenized Stock)",
-      "symbol": "LITEC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179267/large/LITEc-icon-200.png?1791375829",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
       }
     },
     {
@@ -956,18 +956,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb0169ad580aa888467bbac4a4b650812dee74939",
-      "name": "SP Funds S&P Global Technology ETF (Dinari Tokenized ETF)",
-      "symbol": "SPTE",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174972/large/dinari-logo-green-with-margin.png?1785402751",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb20000000000000000000066242d4067724cb7a1",
       "name": "Reddit, Inc. (Coinbase Tokenized Stock)",
       "symbol": "RDDTC",
@@ -992,18 +980,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xba921e840fb60adb0f92b2a977427fe8e5dd208c",
-      "name": "Ero Copper (Dinari Tokenized Stock)",
-      "symbol": "ERO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174966/large/dinari-logo-green-with-margin.png?1785402730",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x78c31580c97101694c70022c83d570150c11e935",
       "name": "BlackRock iShares 0-3 Month Treasury Bond (ST0x Tokenized ET",
       "symbol": "WTSGOV",
@@ -1012,6 +988,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "ST0x"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xba921e840fb60adb0f92b2a977427fe8e5dd208c",
+      "name": "Ero Copper (Dinari Tokenized Stock)",
+      "symbol": "ERO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174966/large/dinari-logo-green-with-margin.png?1785402730",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -1036,6 +1024,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb0169ad580aa888467bbac4a4b650812dee74939",
+      "name": "SP Funds S&P Global Technology ETF (Dinari Tokenized ETF)",
+      "symbol": "SPTE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174972/large/dinari-logo-green-with-margin.png?1785402751",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
       }
     },
     {
@@ -1088,18 +1088,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000f3049f4aa834b23b64",
-      "name": "Hesai Group (Coinbase Tokenized Stock)",
-      "symbol": "HSAIC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179459/large/HSAIc-icon-200.png?1791884710",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xcff62955b5fcd043ebc177d02b6723017a886076",
       "name": "MercadoLibre (Dinari Tokenized Stock)",
       "symbol": "MELI",
@@ -1108,18 +1096,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb200000000000000000000c8a7223510467d8563",
-      "name": "PDD Holdings Inc. (Coinbase Tokenized Stock)",
-      "symbol": "PDDC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179413/large/PDDc-icon-200.png?1791736627",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
       }
     },
     {
@@ -1148,6 +1124,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xb20000000000000000000026215d755356e5043f",
+      "name": "Arm Holdings plc (Coinbase Tokenized Stock)",
+      "symbol": "ARMC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179456/large/ARMc-icon-200.png?1791884689",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xb200000000000000000000428e3a3eebbb20692b",
       "name": "Trump Media & Technology Group Corp. (Coinbase Tokenized Sto",
       "symbol": "DJTC",
@@ -1160,11 +1148,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb20000000000000000000043a599976181bcf336",
-      "name": "Hims & Hers Health, Inc. (Coinbase Tokenized Stock)",
-      "symbol": "HIMSC",
+      "address": "0xb200000000000000000000f6b0417af5f52341fc",
+      "name": "Infosys Limited (Coinbase Tokenized Stock)",
+      "symbol": "INFYC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179176/large/HIMSc-icon-200.png?1791300353",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179460/large/INFYc-icon-200.png?1791884713",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -1196,11 +1184,35 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000f6b0417af5f52341fc",
-      "name": "Infosys Limited (Coinbase Tokenized Stock)",
-      "symbol": "INFYC",
+      "address": "0xb200000000000000000000c8a7223510467d8563",
+      "name": "PDD Holdings Inc. (Coinbase Tokenized Stock)",
+      "symbol": "PDDC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179460/large/INFYc-icon-200.png?1791884713",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179413/large/PDDc-icon-200.png?1791736627",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000f3049f4aa834b23b64",
+      "name": "Hesai Group (Coinbase Tokenized Stock)",
+      "symbol": "HSAIC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179459/large/HSAIc-icon-200.png?1791884710",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb20000000000000000000043a599976181bcf336",
+      "name": "Hims & Hers Health, Inc. (Coinbase Tokenized Stock)",
+      "symbol": "HIMSC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179176/large/HIMSc-icon-200.png?1791300353",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -1220,47 +1232,23 @@
     },
     {
       "chainId": 8453,
+      "address": "0xf3ec90ea681561ce77120976bcfe985f83d182d8",
+      "name": "SPDR Gold Trust (Dinari Tokenized ETF)",
+      "symbol": "GLD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174965/large/dinari-logo-green-with-margin.png?1785402726",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x903ce8c6196a78e5b6df62897a864951e71b6b34",
       "name": "Caterpillar (Dinari Tokenized Stock)",
       "symbol": "CAT",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175006/large/dinari-logo-green-with-margin.png?1785402871",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb20000000000000000000026215d755356e5043f",
-      "name": "Arm Holdings plc (Coinbase Tokenized Stock)",
-      "symbol": "ARMC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179456/large/ARMc-icon-200.png?1791884689",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x80e1c6d72ffa832415d82a01216eb4362aeaeed2",
-      "name": "Oracle (Dinari Tokenized Stock)",
-      "symbol": "ORCL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175029/large/dinari-logo-green-with-margin.png?1785402953",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x529f561fe997fa24b0af3b63cc1968612fba3a87",
-      "name": "Alphabet Class C (Dinari Tokenized Stock)",
-      "symbol": "GOOG",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175155/large/dinari-logo-green-with-margin.png?1785403398",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1280,30 +1268,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000d61efd9f54a23ef9eb",
-      "name": "Li Auto Inc. (Coinbase Tokenized Stock)",
-      "symbol": "LIC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179461/large/LIc-icon-200.png?1791884716",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xf3ec90ea681561ce77120976bcfe985f83d182d8",
-      "name": "SPDR Gold Trust (Dinari Tokenized ETF)",
-      "symbol": "GLD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174965/large/dinari-logo-green-with-margin.png?1785402726",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb2000000000000000000008d5328e9208773dc58",
       "name": "Novo Nordisk A/S (Coinbase Tokenized Stock)",
       "symbol": "NVOC",
@@ -1312,6 +1276,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x80e1c6d72ffa832415d82a01216eb4362aeaeed2",
+      "name": "Oracle (Dinari Tokenized Stock)",
+      "symbol": "ORCL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175029/large/dinari-logo-green-with-margin.png?1785402953",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -1328,14 +1304,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0x667c1ae4a75e5f8232e61485be214fe5cf861a22",
-      "name": "VanEck Semiconductor ETF (Dinari Tokenized ETF)",
-      "symbol": "SMH",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175127/large/dinari-logo-green-with-margin.png?1785403299",
+      "address": "0xb200000000000000000000d61efd9f54a23ef9eb",
+      "name": "Li Auto Inc. (Coinbase Tokenized Stock)",
+      "symbol": "LIC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179461/large/LIc-icon-200.png?1791884716",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
+        "assetType": "stock",
+        "issuer": "Coinbase"
       }
     },
     {
@@ -1352,6 +1328,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0x529f561fe997fa24b0af3b63cc1968612fba3a87",
+      "name": "Alphabet Class C (Dinari Tokenized Stock)",
+      "symbol": "GOOG",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175155/large/dinari-logo-green-with-margin.png?1785403398",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x11b5d2e647411ebb87ade3277e77133a930c2e18",
       "name": "Taiwan Semiconductor Manufacturing (Dinari Tokenized Stock)",
       "symbol": "TSM",
@@ -1364,14 +1352,62 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000d2b7d9aee52f6c6bef",
-      "name": "Baidu, Inc. (Coinbase Tokenized Stock)",
-      "symbol": "BIDUC",
+      "address": "0xb20000000000000000000017bb66e9301e913a99",
+      "name": "Banco Santander, S.A. (Coinbase Tokenized Stock)",
+      "symbol": "SANC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179407/large/BIDUc-icon-200.png?1791735788",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179457/large/SANc-icon-200.png?1791884704",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x667c1ae4a75e5f8232e61485be214fe5cf861a22",
+      "name": "VanEck Semiconductor ETF (Dinari Tokenized ETF)",
+      "symbol": "SMH",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175127/large/dinari-logo-green-with-margin.png?1785403299",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000ea2df44a307cab279c",
+      "name": "BitMine Immersion Technologies, Inc. (Coinbase Tokenized Sto",
+      "symbol": "BMNRC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179275/large/BMNR.png?1791375852",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xa26a3903cbba4e6c2c757d7601fbc569efc479ef",
+      "name": "Rocket Lab (Dinari Tokenized Stock)",
+      "symbol": "RKLB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174979/large/dinari-logo-green-with-margin.png?1785402776",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x94659ba5f3a5dbbd2a648616fe7bb400ca06fc1c",
+      "name": "ASML Holding (Dinari Tokenized Stock)",
+      "symbol": "ASML",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175081/large/dinari-logo-green-with-margin.png?1785403137",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -1388,11 +1424,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000ea2df44a307cab279c",
-      "name": "BitMine Immersion Technologies, Inc. (Coinbase Tokenized Sto",
-      "symbol": "BMNRC",
+      "address": "0xb200000000000000000000d2b7d9aee52f6c6bef",
+      "name": "Baidu, Inc. (Coinbase Tokenized Stock)",
+      "symbol": "BIDUC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179275/large/BMNR.png?1791375852",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179407/large/BIDUc-icon-200.png?1791735788",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000ca7c6d1438e7245eb6",
+      "name": "Bilibili Inc. (Coinbase Tokenized Stock)",
+      "symbol": "BILIC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179458/large/BILIc-icon-200.png?1791884707",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -1412,30 +1460,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb20000000000000000000017bb66e9301e913a99",
-      "name": "Banco Santander, S.A. (Coinbase Tokenized Stock)",
-      "symbol": "SANC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179457/large/SANc-icon-200.png?1791884704",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x94659ba5f3a5dbbd2a648616fe7bb400ca06fc1c",
-      "name": "ASML Holding (Dinari Tokenized Stock)",
-      "symbol": "ASML",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175081/large/dinari-logo-green-with-margin.png?1785403137",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x5cd14a54be52b04e5af848382c4cb9df56b3761f",
       "name": "IREN (Dinari Tokenized Stock)",
       "symbol": "IREN",
@@ -1448,26 +1472,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xa26a3903cbba4e6c2c757d7601fbc569efc479ef",
-      "name": "Rocket Lab (Dinari Tokenized Stock)",
-      "symbol": "RKLB",
+      "address": "0x6743d7d8de84021b4fec049a1f1278be9cd95b6e",
+      "name": "Visa (Dinari Tokenized Stock)",
+      "symbol": "V",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174979/large/dinari-logo-green-with-margin.png?1785402776",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174985/large/dinari-logo-green-with-margin.png?1785402797",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb200000000000000000000ca7c6d1438e7245eb6",
-      "name": "Bilibili Inc. (Coinbase Tokenized Stock)",
-      "symbol": "BILIC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179458/large/BILIc-icon-200.png?1791884707",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
       }
     },
     {
@@ -1484,35 +1496,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xca31298489e32041016ed95de4beea889335c5a5",
-      "name": "Fidelity Wise Origin Bitcoin Fund (Dinari Tokenized ETF)",
-      "symbol": "FBTC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174932/large/dinari-logo-green-with-margin.png?1785402609",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x000804047791c8e0fbd04f1a9f4567114130b9a7",
       "name": "Coca-Cola (Dinari Tokenized Stock)",
       "symbol": "KO",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175000/large/dinari-logo-green-with-margin.png?1785402851",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x6743d7d8de84021b4fec049a1f1278be9cd95b6e",
-      "name": "Visa (Dinari Tokenized Stock)",
-      "symbol": "V",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174985/large/dinari-logo-green-with-margin.png?1785402797",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1543,6 +1531,30 @@
     },
     {
       "chainId": 8453,
+      "address": "0xdddfb67063b57a834257e0db3b9aab39329fd4bd",
+      "name": "Pfizer (Dinari Tokenized Stock)",
+      "symbol": "PFE",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174915/large/dinari-logo-green-with-margin.png?1785402549",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x24fdd77381d3dd36a9bd7029bcdac350a0342de3",
+      "name": "iShares Bitcoin Trust ETF (Dinari Tokenized ETF)",
+      "symbol": "IBIT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174934/large/dinari-logo-green-with-margin.png?1785402616",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x068b598c2e4711b1b993415358038d71ea715f2d",
       "name": "Uber Technologies (Dinari Tokenized Stock)",
       "symbol": "UBER",
@@ -1555,13 +1567,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0xdddfb67063b57a834257e0db3b9aab39329fd4bd",
-      "name": "Pfizer (Dinari Tokenized Stock)",
-      "symbol": "PFE",
+      "address": "0xca31298489e32041016ed95de4beea889335c5a5",
+      "name": "Fidelity Wise Origin Bitcoin Fund (Dinari Tokenized ETF)",
+      "symbol": "FBTC",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174915/large/dinari-logo-green-with-margin.png?1785402549",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174932/large/dinari-logo-green-with-margin.png?1785402609",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -1579,18 +1591,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xff05e1bd696900dc6a52ca35ca61bb1024eda8e2",
-      "name": "MicroStrategy Incorporated ST0x",
-      "symbol": "WTMSTR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102172667/large/MSTR.png?1774599522",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x0883f32d23ed5535057a4b5e3eb1970fe08606af",
       "name": "Nike (ST0x Tokenized Stock)",
       "symbol": "WTNKE",
@@ -1603,26 +1603,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0x24fdd77381d3dd36a9bd7029bcdac350a0342de3",
-      "name": "iShares Bitcoin Trust ETF (Dinari Tokenized ETF)",
-      "symbol": "IBIT",
+      "address": "0xff05e1bd696900dc6a52ca35ca61bb1024eda8e2",
+      "name": "MicroStrategy Incorporated ST0x",
+      "symbol": "WTMSTR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174934/large/dinari-logo-green-with-margin.png?1785402616",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x6ad16e5efa5ea6181267af50f00868a31d42f2df",
-      "name": "Cypherpunk Technologies (Dinari Tokenized Stock)",
-      "symbol": "CYPH",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175119/large/dinari-logo-green-with-margin.png?1785403271",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102172667/large/MSTR.png?1774599522",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Dinari"
+        "issuer": "ST0x"
       }
     },
     {
@@ -1651,11 +1639,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x4863a721022d3531a96017f6a2a3c47818a92484",
-      "name": "Dell Technologies (Dinari Tokenized Stock)",
-      "symbol": "DELL",
+      "address": "0x6ad16e5efa5ea6181267af50f00868a31d42f2df",
+      "name": "Cypherpunk Technologies (Dinari Tokenized Stock)",
+      "symbol": "CYPH",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175034/large/dinari-logo-green-with-margin.png?1785402970",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175119/large/dinari-logo-green-with-margin.png?1785403271",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x2bb9282552228734cca01a1671605122258e276a",
+      "name": "GameStop (Dinari Tokenized Stock)",
+      "symbol": "GME",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174947/large/dinari-logo-green-with-margin.png?1785402661",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1675,23 +1675,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x2bb9282552228734cca01a1671605122258e276a",
-      "name": "GameStop (Dinari Tokenized Stock)",
-      "symbol": "GME",
+      "address": "0x4863a721022d3531a96017f6a2a3c47818a92484",
+      "name": "Dell Technologies (Dinari Tokenized Stock)",
+      "symbol": "DELL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174947/large/dinari-logo-green-with-margin.png?1785402661",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xab754c3998ba88e789329f250d90ea35fc87aea6",
-      "name": "Johnson & Johnson (Dinari Tokenized Stock)",
-      "symbol": "JNJ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174955/large/dinari-logo-green-with-margin.png?1785402689",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175034/large/dinari-logo-green-with-margin.png?1785402970",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1707,6 +1695,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xab754c3998ba88e789329f250d90ea35fc87aea6",
+      "name": "Johnson & Johnson (Dinari Tokenized Stock)",
+      "symbol": "JNJ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174955/large/dinari-logo-green-with-margin.png?1785402689",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -1728,18 +1728,6 @@
       "symbol": "SOXX",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175017/large/dinari-logo-green-with-margin.png?1785402910",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x0709f6caceefd70b867ed3ea278b911238eb7f6f",
-      "name": "iShares MSCI Emerging Markets ETF (Dinari Tokenized ETF)",
-      "symbol": "EEM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175004/large/dinari-logo-green-with-margin.png?1785402864",
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
@@ -1771,23 +1759,35 @@
     },
     {
       "chainId": 8453,
-      "address": "0xd6558a27008788041fd9b9e013e649bcab329218",
-      "name": "Paypal Holdings (Dinari Tokenized Stock)",
-      "symbol": "PYPL",
+      "address": "0x0709f6caceefd70b867ed3ea278b911238eb7f6f",
+      "name": "iShares MSCI Emerging Markets ETF (Dinari Tokenized ETF)",
+      "symbol": "EEM",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174916/large/dinari-logo-green-with-margin.png?1785402552",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175004/large/dinari-logo-green-with-margin.png?1785402864",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
     {
       "chainId": 8453,
-      "address": "0xfee9bee35fa54bf037ea3b49a6c791b989172dd0",
-      "name": "Circle Internet Group (Dinari Tokenized Stock)",
-      "symbol": "CRCL",
+      "address": "0x35fde767dbfaa610d12cf99914bcd6cfeda73b7b",
+      "name": "Playboy (ST0x Tokenized Stock)",
+      "symbol": "WTPLBY",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175035/large/dinari-logo-green-with-margin.png?1785402974",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178259/large/PLBY.png?1789228950",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "ST0x"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xd6558a27008788041fd9b9e013e649bcab329218",
+      "name": "Paypal Holdings (Dinari Tokenized Stock)",
+      "symbol": "PYPL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174916/large/dinari-logo-green-with-margin.png?1785402552",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1807,11 +1807,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x0400373ea12d84f578b8ab2c21556645333cc312",
-      "name": "Hut 8 (Dinari Tokenized Stock)",
-      "symbol": "HUT",
+      "address": "0xb9bd4717f85f603cde3596c13d88404cb98d8400",
+      "name": "International Business Machines (Dinari Tokenized Stock)",
+      "symbol": "IBM",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174995/large/dinari-logo-green-with-margin.png?1785402833",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175049/large/dinari-logo-green-with-margin.png?1785403023",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1831,23 +1831,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x35fde767dbfaa610d12cf99914bcd6cfeda73b7b",
-      "name": "Playboy (ST0x Tokenized Stock)",
-      "symbol": "WTPLBY",
+      "address": "0xfee9bee35fa54bf037ea3b49a6c791b989172dd0",
+      "name": "Circle Internet Group (Dinari Tokenized Stock)",
+      "symbol": "CRCL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178259/large/PLBY.png?1789228950",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb9bd4717f85f603cde3596c13d88404cb98d8400",
-      "name": "International Business Machines (Dinari Tokenized Stock)",
-      "symbol": "IBM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175049/large/dinari-logo-green-with-margin.png?1785403023",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175035/large/dinari-logo-green-with-margin.png?1785402974",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -1891,13 +1879,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0xbc5a3e15553d81ad692e0ce14b94a4d7d76af61d",
-      "name": "IonQ (Dinari Tokenized Stock)",
-      "symbol": "IONQ",
+      "address": "0x6278ee2a10d5ff703d8b2082ff55757598821e96",
+      "name": "abrdn Physical Platinum Shares ETF (Dinari Tokenized ETF)",
+      "symbol": "PPLT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175055/large/dinari-logo-green-with-margin.png?1785403044",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174968/large/dinari-logo-green-with-margin.png?1785402737",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -1927,30 +1915,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x6278ee2a10d5ff703d8b2082ff55757598821e96",
-      "name": "abrdn Physical Platinum Shares ETF (Dinari Tokenized ETF)",
-      "symbol": "PPLT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174968/large/dinari-logo-green-with-margin.png?1785402737",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x7ecae30ed8ee4f72653ada7b0941bde7a0a8ee8d",
-      "name": "McDonald's (ST0x Tokenized Stock)",
-      "symbol": "WTMCD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178260/large/MCD.png?1789229240",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xbde676cdf5564ef64ccd8555aa9b56867d8d1ad5",
       "name": "Alphabet aStock",
       "symbol": "AGOOGL",
@@ -1963,14 +1927,26 @@
     },
     {
       "chainId": 8453,
-      "address": "0xfb5b41acdba20a3230f84be995173cfb98b8d6e7",
-      "name": "NVIDIA (ST0x Tokenized Stock)",
-      "symbol": "WTNVDA",
+      "address": "0xbc5a3e15553d81ad692e0ce14b94a4d7d76af61d",
+      "name": "IonQ (Dinari Tokenized Stock)",
+      "symbol": "IONQ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178390/large/NVDA.png?1789459969",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175055/large/dinari-logo-green-with-margin.png?1785403044",
       "extensions": {
         "assetType": "stock",
-        "issuer": "ST0x"
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x1ab39ab68efb874327c48aec577df05a81392c20",
+      "name": "Shell (Dinari Tokenized Stock)",
+      "symbol": "SHEL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175167/large/dinari-logo-green-with-margin.png?1785403440",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -1999,23 +1975,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x1ab39ab68efb874327c48aec577df05a81392c20",
-      "name": "Shell (Dinari Tokenized Stock)",
-      "symbol": "SHEL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175167/large/dinari-logo-green-with-margin.png?1785403440",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xfae6ba6d36a6388c5a944a9366e55b6597e4f8af",
       "name": "ASML aStock",
       "symbol": "AASML",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175673/large/ASML.png?1787292226",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xa1847139cbd660abc2f7b889d7cbcf18c56407fb",
+      "name": "Meta aStock",
+      "symbol": "AMETA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175698/large/META.png?1787292309",
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
@@ -2035,14 +2011,50 @@
     },
     {
       "chainId": 8453,
-      "address": "0xa1847139cbd660abc2f7b889d7cbcf18c56407fb",
-      "name": "Meta aStock",
-      "symbol": "AMETA",
+      "address": "0x7dcada74c7c8d5847436f94058b10ccc310ebf21",
+      "name": "MP Materials (Dinari Tokenized Stock)",
+      "symbol": "MP",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175698/large/META.png?1787292309",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175122/large/dinari-logo-green-with-margin.png?1785403281",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x7ecae30ed8ee4f72653ada7b0941bde7a0a8ee8d",
+      "name": "McDonald's (ST0x Tokenized Stock)",
+      "symbol": "WTMCD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178260/large/MCD.png?1789229240",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "ST0x"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x0400373ea12d84f578b8ab2c21556645333cc312",
+      "name": "Hut 8 (Dinari Tokenized Stock)",
+      "symbol": "HUT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174995/large/dinari-logo-green-with-margin.png?1785402833",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xe819553d3c5fd4898e755997e36040a16c35b392",
+      "name": "Eli Lilly (Dinari Tokenized Stock)",
+      "symbol": "LLY",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175104/large/dinari-logo-green-with-margin.png?1785403218",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -2052,6 +2064,18 @@
       "symbol": "CME",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175129/large/dinari-logo-green-with-margin.png?1785403306",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xa17c0e96c8b5e39b6fd670f01d7f021f66b930cd",
+      "name": "Reddit (Dinari Tokenized Stock)",
+      "symbol": "RDDT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174946/large/dinari-logo-green-with-margin.png?1785402657",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2071,35 +2095,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xe819553d3c5fd4898e755997e36040a16c35b392",
-      "name": "Eli Lilly (Dinari Tokenized Stock)",
-      "symbol": "LLY",
+      "address": "0xfb5b41acdba20a3230f84be995173cfb98b8d6e7",
+      "name": "NVIDIA (ST0x Tokenized Stock)",
+      "symbol": "WTNVDA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175104/large/dinari-logo-green-with-margin.png?1785403218",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x7dcada74c7c8d5847436f94058b10ccc310ebf21",
-      "name": "MP Materials (Dinari Tokenized Stock)",
-      "symbol": "MP",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175122/large/dinari-logo-green-with-margin.png?1785403281",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x433fd2fc0964b07e9820e4cd01774ede59d1f002",
-      "name": "Tootsie Roll Industries (ST0x Tokenized Stock)",
-      "symbol": "WTTR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178261/large/TR.png?1789229345",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178390/large/NVDA.png?1789459969",
       "extensions": {
         "assetType": "stock",
         "issuer": "ST0x"
@@ -2155,18 +2155,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xa17c0e96c8b5e39b6fd670f01d7f021f66b930cd",
-      "name": "Reddit (Dinari Tokenized Stock)",
-      "symbol": "RDDT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174946/large/dinari-logo-green-with-margin.png?1785402657",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xd45a01a729a0d4ccbe1523e58eb4ff8bdc3607d7",
       "name": "Franklin Bitcoin ETF (Dinari Tokenized ETF)",
       "symbol": "EZBC",
@@ -2179,38 +2167,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xc0aaf96be8f50d666647543153067c1ba8f8b866",
-      "name": "iShares Russell 2000 ETF (Dinari Tokenized ETF)",
-      "symbol": "IWM",
+      "address": "0x433fd2fc0964b07e9820e4cd01774ede59d1f002",
+      "name": "Tootsie Roll Industries (ST0x Tokenized Stock)",
+      "symbol": "WTTR",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175152/large/dinari-logo-green-with-margin.png?1785403387",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178261/large/TR.png?1789229345",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x823ff7bbde2869aae73a6cd53e7f614442836757",
-      "name": "Invesco NASDAQ 100 (ST0x Tokenized ETF)",
-      "symbol": "WTQQQM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174007/large/WTQQQM_256.png?1781775620",
-      "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
         "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x525dcb13b0caf29f30f93305a5cbd10314815408",
-      "name": "ProShares UltraPro QQQ (Dinari Tokenized ETF)",
-      "symbol": "TQQQ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174990/large/dinari-logo-green-with-margin.png?1785402815",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
       }
     },
     {
@@ -2220,30 +2184,6 @@
       "symbol": "HIMS",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175097/large/dinari-logo-green-with-margin.png?1785403193",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x0150958b2b183a8e63264b8a6d82b4f747df3f62",
-      "name": "McDonald's (Dinari Tokenized Stock)",
-      "symbol": "MCD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174926/large/dinari-logo-green-with-margin.png?1785402587",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x341c9b4e5566a2ae22a337c84e3c006064731925",
-      "name": "Cisco Systems (Dinari Tokenized Stock)",
-      "symbol": "CSCO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174950/large/dinari-logo-green-with-margin.png?1785402671",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2263,11 +2203,35 @@
     },
     {
       "chainId": 8453,
-      "address": "0x45ddb88a59fb834b43bfe064c7b70a714c78b6d6",
-      "name": "iShares Silver Trust (Dinari Tokenized ETF)",
-      "symbol": "SLV",
+      "address": "0x0150958b2b183a8e63264b8a6d82b4f747df3f62",
+      "name": "McDonald's (Dinari Tokenized Stock)",
+      "symbol": "MCD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175142/large/dinari-logo-green-with-margin.png?1785403352",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174926/large/dinari-logo-green-with-margin.png?1785402587",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x525dcb13b0caf29f30f93305a5cbd10314815408",
+      "name": "ProShares UltraPro QQQ (Dinari Tokenized ETF)",
+      "symbol": "TQQQ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174990/large/dinari-logo-green-with-margin.png?1785402815",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xc0aaf96be8f50d666647543153067c1ba8f8b866",
+      "name": "iShares Russell 2000 ETF (Dinari Tokenized ETF)",
+      "symbol": "IWM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175152/large/dinari-logo-green-with-margin.png?1785403387",
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
@@ -2282,6 +2246,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174967/large/dinari-logo-green-with-margin.png?1785402733",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x341c9b4e5566a2ae22a337c84e3c006064731925",
+      "name": "Cisco Systems (Dinari Tokenized Stock)",
+      "symbol": "CSCO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174950/large/dinari-logo-green-with-margin.png?1785402671",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -2311,6 +2287,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0x45ddb88a59fb834b43bfe064c7b70a714c78b6d6",
+      "name": "iShares Silver Trust (Dinari Tokenized ETF)",
+      "symbol": "SLV",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175142/large/dinari-logo-green-with-margin.png?1785403352",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x78bb8ff6baa486c31ce0ef1a157798f7a606565c",
       "name": "Exxon Mobil (Dinari Tokenized Stock)",
       "symbol": "XOM",
@@ -2323,6 +2311,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0x823ff7bbde2869aae73a6cd53e7f614442836757",
+      "name": "Invesco NASDAQ 100 (ST0x Tokenized ETF)",
+      "symbol": "WTQQQM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174007/large/WTQQQM_256.png?1781775620",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "ST0x"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x45afb331111126f5bf8d37c7816c540c1ec6f544",
       "name": "BlackRock (Dinari Tokenized Stock)",
       "symbol": "BLK",
@@ -2330,6 +2330,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174984/large/dinari-logo-green-with-margin.png?1785402794",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x4b959bb4c00d25e52a87cb1865401dd97cb5631d",
+      "name": "ARK 21 Bitcoin ETF (Dinari Tokenized ETF)",
+      "symbol": "ARKB",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174937/large/dinari-logo-green-with-margin.png?1785402626",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -2347,25 +2359,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0x1a91df4a970ebab1bb4af32eb6d10509028ee4b8",
-      "name": "Roundhill Memory ETF (ST0x Tokenized ETF)",
-      "symbol": "WTDRAM",
+      "address": "0x17a8ccfc0095c0094b7c3846ca17bc95499b1152",
+      "name": "TRON (Dinari Tokenized Stock)",
+      "symbol": "TRON",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178391/large/roundhill.png?1789459975",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175050/large/dinari-logo-green-with-margin.png?1785403027",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x4b959bb4c00d25e52a87cb1865401dd97cb5631d",
-      "name": "ARK 21 Bitcoin ETF (Dinari Tokenized ETF)",
-      "symbol": "ARKB",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174937/large/dinari-logo-green-with-margin.png?1785402626",
-      "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -2383,11 +2383,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x17a8ccfc0095c0094b7c3846ca17bc95499b1152",
-      "name": "TRON (Dinari Tokenized Stock)",
-      "symbol": "TRON",
+      "address": "0xf4b9df3d24bde5db32e2ae8fa1ce5fbeb9432849",
+      "name": "Walmart (Dinari Tokenized Stock)",
+      "symbol": "WMT",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175050/large/dinari-logo-green-with-margin.png?1785403027",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175062/large/dinari-logo-green-with-margin.png?1785403069",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2419,30 +2419,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x2d6430e0b93393cc12894b07a9d97b19266e959a",
-      "name": "Strategy Stride Preferred (Dinari Tokenized Stock)",
-      "symbol": "STRD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175116/large/dinari-logo-green-with-margin.png?1785403260",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xf4b9df3d24bde5db32e2ae8fa1ce5fbeb9432849",
-      "name": "Walmart (Dinari Tokenized Stock)",
-      "symbol": "WMT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175062/large/dinari-logo-green-with-margin.png?1785403069",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb51c78989fb8d1bf2c957dd0522235c92d0443a5",
       "name": "Roblox (Dinari Tokenized Stock)",
       "symbol": "RBLX",
@@ -2455,11 +2431,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x1e46d7efef64a833afb1cd49299a7ad5b439f4d8",
-      "name": "iShares Gold Trust (ST0x Tokenized ETF)",
-      "symbol": "WTIAU",
+      "address": "0x2d6430e0b93393cc12894b07a9d97b19266e959a",
+      "name": "Strategy Stride Preferred (Dinari Tokenized Stock)",
+      "symbol": "STRD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178290/large/ishares.png?1789234934",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175116/large/dinari-logo-green-with-margin.png?1785403260",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x1a91df4a970ebab1bb4af32eb6d10509028ee4b8",
+      "name": "Roundhill Memory ETF (ST0x Tokenized ETF)",
+      "symbol": "WTDRAM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178391/large/roundhill.png?1789459975",
       "extensions": {
         "assetType": "etf",
         "issuer": "ST0x"
@@ -2491,18 +2479,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb608e35515b22c05af465575f24cc2f56ca30066",
-      "name": "State Street SPDR S&P Oil & Gas Exploration & Production ETF",
-      "symbol": "XOP",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175084/large/dinari-logo-green-with-margin.png?1785403147",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xa0ec9eaf7c17e2e63cbf86f235527ffc89d8b0de",
       "name": "2x Ether ETF (Dinari Tokenized ETF)",
       "symbol": "ETHU",
@@ -2515,14 +2491,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0x408e16d4e07812a963189dc15fa61806eb8a4e9d",
-      "name": "Bank of America (Dinari Tokenized Stock)",
-      "symbol": "BAC",
+      "address": "0x1e46d7efef64a833afb1cd49299a7ad5b439f4d8",
+      "name": "iShares Gold Trust (ST0x Tokenized ETF)",
+      "symbol": "WTIAU",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174986/large/dinari-logo-green-with-margin.png?1785402801",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178290/large/ishares.png?1789234934",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
+        "assetType": "etf",
+        "issuer": "ST0x"
       }
     },
     {
@@ -2539,11 +2515,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x59a96e5cb91baefbdb5c2a645209abb90cb3a97e",
-      "name": "Netcapital (Dinari Tokenized Stock)",
-      "symbol": "NCPL",
+      "address": "0x408e16d4e07812a963189dc15fa61806eb8a4e9d",
+      "name": "Bank of America (Dinari Tokenized Stock)",
+      "symbol": "BAC",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175041/large/dinari-logo-green-with-margin.png?1785402995",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174986/large/dinari-logo-green-with-margin.png?1785402801",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2575,13 +2551,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0x437b5acc7d6f0eacb97431e649c61e98badb3f92",
-      "name": "Procter & Gamble (Dinari Tokenized Stock)",
-      "symbol": "PG",
+      "address": "0xb608e35515b22c05af465575f24cc2f56ca30066",
+      "name": "State Street SPDR S&P Oil & Gas Exploration & Production ETF",
+      "symbol": "XOP",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174958/large/dinari-logo-green-with-margin.png?1785402699",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175084/large/dinari-logo-green-with-margin.png?1785403147",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -2599,11 +2575,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xf3feeabcc3a4a80ee6327c37d6ca58ef19662a3f",
-      "name": "Novo Nordisk (Dinari Tokenized Stock)",
-      "symbol": "NVO",
+      "address": "0x437b5acc7d6f0eacb97431e649c61e98badb3f92",
+      "name": "Procter & Gamble (Dinari Tokenized Stock)",
+      "symbol": "PG",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175078/large/dinari-logo-green-with-margin.png?1785403126",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174958/large/dinari-logo-green-with-margin.png?1785402699",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2623,11 +2599,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xbd042b930d40326f18fc19693adabc9457d4af7f",
-      "name": "Riot Platforms (Dinari Tokenized Stock)",
-      "symbol": "RIOT",
+      "address": "0x13dd287e5d5fe3b9c81caf1e0e25e8299c3bb2c4",
+      "name": "Twenty One Capital (Dinari Tokenized Stock)",
+      "symbol": "XXI",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174929/large/dinari-logo-green-with-margin.png?1785402598",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175012/large/dinari-logo-green-with-margin.png?1785402892",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2659,11 +2635,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x13dd287e5d5fe3b9c81caf1e0e25e8299c3bb2c4",
-      "name": "Twenty One Capital (Dinari Tokenized Stock)",
-      "symbol": "XXI",
+      "address": "0xf3feeabcc3a4a80ee6327c37d6ca58ef19662a3f",
+      "name": "Novo Nordisk (Dinari Tokenized Stock)",
+      "symbol": "NVO",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175012/large/dinari-logo-green-with-margin.png?1785402892",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175078/large/dinari-logo-green-with-margin.png?1785403126",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xbd042b930d40326f18fc19693adabc9457d4af7f",
+      "name": "Riot Platforms (Dinari Tokenized Stock)",
+      "symbol": "RIOT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174929/large/dinari-logo-green-with-margin.png?1785402598",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2683,18 +2671,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x7951f24de147e7d0a15bc3b51ed405a9bee23f0e",
-      "name": "Alibaba Group Holding (Dinari Tokenized Stock)",
-      "symbol": "BABA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175165/large/dinari-logo-green-with-margin.png?1785403433",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x2ead43394e91dfb87c85867e4a967a17e19180f3",
       "name": "State Street SPDR Dow Jones Industrial Average ETF Trust (Di",
       "symbol": "DIA",
@@ -2707,11 +2683,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0xeb5d81a49d798955c95345accfa063ba17071764",
-      "name": "Sellas Life Sciences Group (Dinari Tokenized Stock)",
-      "symbol": "SLS",
+      "address": "0x7951f24de147e7d0a15bc3b51ed405a9bee23f0e",
+      "name": "Alibaba Group Holding (Dinari Tokenized Stock)",
+      "symbol": "BABA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175008/large/dinari-logo-green-with-margin.png?1785402878",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175165/large/dinari-logo-green-with-margin.png?1785403433",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x4c9b48358bf685360a58d3dbacaf0a79589ad51e",
+      "name": "Fold Holdings (Dinari Tokenized Stock)",
+      "symbol": "FLD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175072/large/dinari-logo-green-with-margin.png?1785403105",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2731,11 +2719,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x4c9b48358bf685360a58d3dbacaf0a79589ad51e",
-      "name": "Fold Holdings (Dinari Tokenized Stock)",
-      "symbol": "FLD",
+      "address": "0xeb5d81a49d798955c95345accfa063ba17071764",
+      "name": "Sellas Life Sciences Group (Dinari Tokenized Stock)",
+      "symbol": "SLS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175072/large/dinari-logo-green-with-margin.png?1785403105",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175008/large/dinari-logo-green-with-margin.png?1785402878",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x687838649383f180024435b96fe014b351854a2d",
+      "name": "JPMorgan Chase (Dinari Tokenized Stock)",
+      "symbol": "JPM",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174983/large/dinari-logo-green-with-margin.png?1785402790",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2767,18 +2767,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x687838649383f180024435b96fe014b351854a2d",
-      "name": "JPMorgan Chase (Dinari Tokenized Stock)",
-      "symbol": "JPM",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174983/large/dinari-logo-green-with-margin.png?1785402790",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb0e5552292b277f8a9b36326971553545bb55be5",
       "name": "Snowflake (Dinari Tokenized Stock)",
       "symbol": "SNOW",
@@ -2786,6 +2774,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174987/large/dinari-logo-green-with-margin.png?1785402804",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xe07ad7ff472613d0bfd05e3456dd944be1d1c98b",
+      "name": "Direxion Daily Semiconductor Bear 3X ETF (Dinari Tokenized E",
+      "symbol": "SOXS",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175024/large/dinari-logo-green-with-margin.png?1785402935",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -2827,18 +2827,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xe07ad7ff472613d0bfd05e3456dd944be1d1c98b",
-      "name": "Direxion Daily Semiconductor Bear 3X ETF (Dinari Tokenized E",
-      "symbol": "SOXS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175024/large/dinari-logo-green-with-margin.png?1785402935",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x3ac60413b5ad95fc02409d6e8c5b316e19c962e1",
       "name": "Procure ETF Trust II Procure Space ETF (Dinari Tokenized ETF",
       "symbol": "UFO",
@@ -2856,30 +2844,6 @@
       "symbol": "AZN",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174956/large/dinari-logo-green-with-margin.png?1785402692",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x95b563211463b3616e79f47079be9b17e80cec56",
-      "name": "D-Wave Quantum (Dinari Tokenized Stock)",
-      "symbol": "QBTS",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175105/large/dinari-logo-green-with-margin.png?1785403221",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x95d01e4ae9dca53dcda8693c014339d23121a9dd",
-      "name": "Rigetti Computing (Dinari Tokenized Stock)",
-      "symbol": "RGTI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175110/large/dinari-logo-green-with-margin.png?1785403239",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -2923,6 +2887,30 @@
     },
     {
       "chainId": 8453,
+      "address": "0x95b563211463b3616e79f47079be9b17e80cec56",
+      "name": "D-Wave Quantum (Dinari Tokenized Stock)",
+      "symbol": "QBTS",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175105/large/dinari-logo-green-with-margin.png?1785403221",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x95d01e4ae9dca53dcda8693c014339d23121a9dd",
+      "name": "Rigetti Computing (Dinari Tokenized Stock)",
+      "symbol": "RGTI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175110/large/dinari-logo-green-with-margin.png?1785403239",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xb200000000000000000000a613d12deafbbb1db7",
       "name": "Duolingo, Inc. (Coinbase Tokenized Stock)",
       "symbol": "DUOLC",
@@ -2935,30 +2923,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xf6eb34c28654c685b1f156deb2879cdd87911539",
-      "name": "Opendoor Technologies (Dinari Tokenized Stock)",
-      "symbol": "OPEN",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175070/large/dinari-logo-green-with-margin.png?1785403098",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x3af952888cd89dad3e8af67cf4b7e740b36829c3",
-      "name": "Constellation Energy (ST0x Tokenized Stock)",
-      "symbol": "WTCEG",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178387/large/CEG.png?1789459949",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x504c2d7eac2b7f5084160d17eef4f01bb043d18d",
       "name": "Global X Funds Global X Robotics & Artificial Intelligence E",
       "symbol": "BOTZ",
@@ -2966,18 +2930,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175076/large/dinari-logo-green-with-margin.png?1785403119",
       "extensions": {
         "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xfdaf8d69fa9931f00b92e14bc4233cb438b24980",
-      "name": "AMC ENTERTAINMENT HOLDINGS (Dinari Tokenized Stock)",
-      "symbol": "AMC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174948/large/dinari-logo-green-with-margin.png?1785402664",
-      "extensions": {
-        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -3019,6 +2971,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xc6bbaf4d804327d84931310e49c863e63a2bd868",
+      "name": "Teucrium Wheat Fund (Dinari Tokenized ETF)",
+      "symbol": "WEAT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174943/large/dinari-logo-green-with-margin.png?1785402647",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x1ea213f74f5ee89e98cc46ad4ee017cdde319fd8",
       "name": "American Bitcoin (Dinari Tokenized Stock)",
       "symbol": "ABTC",
@@ -3031,14 +2995,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xc6bbaf4d804327d84931310e49c863e63a2bd868",
-      "name": "Teucrium Wheat Fund (Dinari Tokenized ETF)",
-      "symbol": "WEAT",
+      "address": "0x3af952888cd89dad3e8af67cf4b7e740b36829c3",
+      "name": "Constellation Energy (ST0x Tokenized Stock)",
+      "symbol": "WTCEG",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174943/large/dinari-logo-green-with-margin.png?1785402647",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178387/large/CEG.png?1789459949",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
+        "assetType": "stock",
+        "issuer": "ST0x"
       }
     },
     {
@@ -3055,11 +3019,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xc80f8fa3f3612c680f2e03615d970e38e57d8deb",
-      "name": "Quantumscape (Dinari Tokenized Stock)",
-      "symbol": "QS",
+      "address": "0xfdaf8d69fa9931f00b92e14bc4233cb438b24980",
+      "name": "AMC ENTERTAINMENT HOLDINGS (Dinari Tokenized Stock)",
+      "symbol": "AMC",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175066/large/dinari-logo-green-with-margin.png?1785403084",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174948/large/dinari-logo-green-with-margin.png?1785402664",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -3079,13 +3043,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0xcd44835e3b032520025b05d10e082daa95acd0ca",
-      "name": "2x Bitcoin Strategy ETF (Dinari Tokenized ETF)",
-      "symbol": "BITX",
+      "address": "0xc80f8fa3f3612c680f2e03615d970e38e57d8deb",
+      "name": "Quantumscape (Dinari Tokenized Stock)",
+      "symbol": "QS",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175106/large/dinari-logo-green-with-margin.png?1785403225",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175066/large/dinari-logo-green-with-margin.png?1785403084",
       "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -3103,18 +3067,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x2de02593023b8f276d673146a9bee4586c7fd95c",
-      "name": "T-Rex 2X Long MSTR Daily Target ETF (Dinari Tokenized ETF)",
-      "symbol": "MSTU",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174997/large/dinari-logo-green-with-margin.png?1785402840",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x1f3d3a7aae7a27b09a033aa2a037bec092444090",
       "name": "Global X Uranium ETF (Dinari Tokenized ETF)",
       "symbol": "URA",
@@ -3122,6 +3074,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175151/large/dinari-logo-green-with-margin.png?1785403384",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xf6eb34c28654c685b1f156deb2879cdd87911539",
+      "name": "Opendoor Technologies (Dinari Tokenized Stock)",
+      "symbol": "OPEN",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175070/large/dinari-logo-green-with-margin.png?1785403098",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -3151,13 +3115,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xa9fc9685472009e2cfeb7db66f0bb616670ab442",
-      "name": "Sprott Physical Gold and Silver Trust (Dinari Tokenized ETF)",
-      "symbol": "CEF",
+      "address": "0x005b3d7a44e5bab3bd4df66fd71cc7089af5c776",
+      "name": "Applied Digital (Dinari Tokenized Stock)",
+      "symbol": "APLD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175085/large/dinari-logo-green-with-margin.png?1785403151",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175156/large/dinari-logo-green-with-margin.png?1785403401",
       "extensions": {
-        "assetType": "etf"
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -3174,35 +3139,34 @@
     },
     {
       "chainId": 8453,
+      "address": "0xa9fc9685472009e2cfeb7db66f0bb616670ab442",
+      "name": "Sprott Physical Gold and Silver Trust (Dinari Tokenized ETF)",
+      "symbol": "CEF",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175085/large/dinari-logo-green-with-margin.png?1785403151",
+      "extensions": {
+        "assetType": "etf"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xcd44835e3b032520025b05d10e082daa95acd0ca",
+      "name": "2x Bitcoin Strategy ETF (Dinari Tokenized ETF)",
+      "symbol": "BITX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175106/large/dinari-logo-green-with-margin.png?1785403225",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x9b42e4afcc2046070fa00ff8213d59eef6e4264e",
       "name": "Starbucks (Dinari Tokenized Stock)",
       "symbol": "SBUX",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175001/large/dinari-logo-green-with-margin.png?1785402854",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x005b3d7a44e5bab3bd4df66fd71cc7089af5c776",
-      "name": "Applied Digital (Dinari Tokenized Stock)",
-      "symbol": "APLD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175156/large/dinari-logo-green-with-margin.png?1785403401",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x8ca24504bf93d595b08d7336f0ec57305e57e9d2",
-      "name": "Lockheed Martin (Dinari Tokenized Stock)",
-      "symbol": "LMT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174977/large/dinari-logo-green-with-margin.png?1785402769",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -3217,6 +3181,30 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175068/large/dinari-logo-green-with-margin.png?1785403091",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x2de02593023b8f276d673146a9bee4586c7fd95c",
+      "name": "T-Rex 2X Long MSTR Daily Target ETF (Dinari Tokenized ETF)",
+      "symbol": "MSTU",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174997/large/dinari-logo-green-with-margin.png?1785402840",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x8ca24504bf93d595b08d7336f0ec57305e57e9d2",
+      "name": "Lockheed Martin (Dinari Tokenized Stock)",
+      "symbol": "LMT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174977/large/dinari-logo-green-with-margin.png?1785402769",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -3294,6 +3282,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0x59a96e5cb91baefbdb5c2a645209abb90cb3a97e",
+      "name": "Netcapital (Dinari Tokenized Stock)",
+      "symbol": "NCPL",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175041/large/dinari-logo-green-with-margin.png?1785402995",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x2c5c46fce70e366f8255ed2725b7f988b8433aec",
       "name": "Fidelity Total Bond ETF (Dinari Tokenized ETF)",
       "symbol": "FBND",
@@ -3301,30 +3301,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175140/large/dinari-logo-green-with-margin.png?1785403345",
       "extensions": {
         "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x492c12d7da7b82644d22a89849fb77843f2465cb",
-      "name": "Prospect Capital (Dinari Tokenized Stock)",
-      "symbol": "PSEC",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175099/large/dinari-logo-green-with-margin.png?1785403200",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x499b346c0d8f1f4cdb8b335fa723bda19c690fb6",
-      "name": "Figma (Dinari Tokenized Stock)",
-      "symbol": "FIG",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175168/large/dinari-logo-green-with-margin.png?1785403444",
-      "extensions": {
-        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -3342,11 +3318,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x6a089fb3b1d5d0c22b34e6104a56c19b8d944562",
-      "name": "Mastercard (Dinari Tokenized Stock)",
-      "symbol": "MA",
+      "address": "0x492c12d7da7b82644d22a89849fb77843f2465cb",
+      "name": "Prospect Capital (Dinari Tokenized Stock)",
+      "symbol": "PSEC",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175015/large/dinari-logo-green-with-margin.png?1785402903",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175099/large/dinari-logo-green-with-margin.png?1785403200",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -3366,23 +3342,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x6deb2d3553aa37f23ea7e11ee3e47107a4944636",
-      "name": "Amphenol (Dinari Tokenized Stock)",
-      "symbol": "APH",
+      "address": "0x6a089fb3b1d5d0c22b34e6104a56c19b8d944562",
+      "name": "Mastercard (Dinari Tokenized Stock)",
+      "symbol": "MA",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175071/large/dinari-logo-green-with-margin.png?1785403101",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x41a25c97cbe66d6045aacf44b0bcc5f9f4f5cd18",
-      "name": "Xpeng (Dinari Tokenized Stock)",
-      "symbol": "XPEV",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175120/large/dinari-logo-green-with-margin.png?1785403274",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175015/large/dinari-logo-green-with-margin.png?1785402903",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -3398,6 +3362,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x499b346c0d8f1f4cdb8b335fa723bda19c690fb6",
+      "name": "Figma (Dinari Tokenized Stock)",
+      "symbol": "FIG",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175168/large/dinari-logo-green-with-margin.png?1785403444",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -3498,6 +3474,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0x6deb2d3553aa37f23ea7e11ee3e47107a4944636",
+      "name": "Amphenol (Dinari Tokenized Stock)",
+      "symbol": "APH",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175071/large/dinari-logo-green-with-margin.png?1785403101",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x5ea14145f62dbf26fc7b0eb8fa8c71e1af468207",
       "name": "Bitwise Bitcoin ETF (Dinari Tokenized ETF)",
       "symbol": "BITB",
@@ -3505,6 +3493,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174933/large/dinari-logo-green-with-margin.png?1785402613",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x41a25c97cbe66d6045aacf44b0bcc5f9f4f5cd18",
+      "name": "Xpeng (Dinari Tokenized Stock)",
+      "symbol": "XPEV",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175120/large/dinari-logo-green-with-margin.png?1785403274",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -3534,18 +3534,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xc26f177de30db16e50b8925b932ebdbfb571a465",
-      "name": "NIO (Dinari Tokenized Stock)",
-      "symbol": "NIO",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175133/large/dinari-logo-green-with-margin.png?1785403320",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x0b45e5afea928030988704ef60995d8925b91cd6",
       "name": "Vertiv aStock",
       "symbol": "AVRT",
@@ -3563,6 +3551,18 @@
       "symbol": "FIS",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175149/large/dinari-logo-green-with-margin.png?1785403377",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xc26f177de30db16e50b8925b932ebdbfb571a465",
+      "name": "NIO (Dinari Tokenized Stock)",
+      "symbol": "NIO",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175133/large/dinari-logo-green-with-margin.png?1785403320",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -3654,18 +3654,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x9201cae04274c282cbea9e0662735515eb29041a",
-      "name": "Exodus Movement (Dinari Tokenized Stock)",
-      "symbol": "EXOD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175141/large/dinari-logo-green-with-margin.png?1785403349",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xbdf82c0dafcf73834d10639c0f0bf14b84808c43",
       "name": "Advanced Micro Devices aStock",
       "symbol": "AAMD",
@@ -3698,18 +3686,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x827e42a9862645b7acfc932affbffcfb6f18d3b7",
-      "name": "Cipher Digital (Dinari Tokenized Stock)",
-      "symbol": "CIFR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175091/large/dinari-logo-green-with-margin.png?1785403172",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
       }
     },
     {
@@ -3798,6 +3774,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0x827e42a9862645b7acfc932affbffcfb6f18d3b7",
+      "name": "Cipher Digital (Dinari Tokenized Stock)",
+      "symbol": "CIFR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175091/large/dinari-logo-green-with-margin.png?1785403172",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xf61558b2bc330c55ae85679be03a76dc0a8c9ed2",
       "name": "TJX Companies (Dinari Tokenized Stock)",
       "symbol": "TJX",
@@ -3842,6 +3830,18 @@
       "extensions": {
         "assetType": "etf",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x9201cae04274c282cbea9e0662735515eb29041a",
+      "name": "Exodus Movement (Dinari Tokenized Stock)",
+      "symbol": "EXOD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175141/large/dinari-logo-green-with-margin.png?1785403349",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -3894,18 +3894,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x13b251cf6b1eea8be9af267e9a5fe234d602120c",
-      "name": "Digital Realty Trust (Dinari Tokenized Stock)",
-      "symbol": "DLR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175121/large/dinari-logo-green-with-margin.png?1785403278",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x4be4005f1648a9bbfc718592f6a20d86ec92163e",
       "name": "Grindr (Dinari Tokenized Stock)",
       "symbol": "GRND",
@@ -3926,6 +3914,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x13b251cf6b1eea8be9af267e9a5fe234d602120c",
+      "name": "Digital Realty Trust (Dinari Tokenized Stock)",
+      "symbol": "DLR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175121/large/dinari-logo-green-with-margin.png?1785403278",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -4002,18 +4002,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xd5eab2d9e01442bfca720f6f15451555dd003f40",
-      "name": "Block (Dinari Tokenized Stock)",
-      "symbol": "XYZ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174928/large/dinari-logo-green-with-margin.png?1785402594",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x6b97a52c6877faf6f3836377b37e4a0a27edde01",
       "name": "ServiceNow aStock",
       "symbol": "ANOW",
@@ -4050,11 +4038,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0x55b6608e87e8656bbb62d1d93f61ab6d74f53a9a",
-      "name": "Snap (Dinari Tokenized Stock)",
-      "symbol": "SNAP",
+      "address": "0xd5eab2d9e01442bfca720f6f15451555dd003f40",
+      "name": "Block (Dinari Tokenized Stock)",
+      "symbol": "XYZ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175100/large/dinari-logo-green-with-margin.png?1785403204",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174928/large/dinari-logo-green-with-margin.png?1785402594",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -4086,13 +4074,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0x2da5fffb91ffca6c9a390cb93c689a8368014280",
-      "name": "VanEck Digital Transformation ETF (Dinari Tokenized ETF)",
-      "symbol": "DAPP",
+      "address": "0x7062e6ece18316ea23773932f39c6b617dd7ba43",
+      "name": "Sharplink (Dinari Tokenized Stock)",
+      "symbol": "SBET",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175060/large/dinari-logo-green-with-margin.png?1785403062",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175074/large/dinari-logo-green-with-margin.png?1785403112",
       "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -4146,18 +4134,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x780ea5b181232283f9092aa47f06c4e9404c61ad",
-      "name": "Trump Media & Technology Group (Dinari Tokenized Stock)",
-      "symbol": "DJT",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175128/large/dinari-logo-green-with-margin.png?1785403303",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x8bce7712ca1efc613ce73f9471ad2388dac09413",
       "name": "Rocket Lab aStock",
       "symbol": "ARKLB",
@@ -4166,18 +4142,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x7062e6ece18316ea23773932f39c6b617dd7ba43",
-      "name": "Sharplink (Dinari Tokenized Stock)",
-      "symbol": "SBET",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175074/large/dinari-logo-green-with-margin.png?1785403112",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
       }
     },
     {
@@ -4194,11 +4158,47 @@
     },
     {
       "chainId": 8453,
+      "address": "0x55b6608e87e8656bbb62d1d93f61ab6d74f53a9a",
+      "name": "Snap (Dinari Tokenized Stock)",
+      "symbol": "SNAP",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175100/large/dinari-logo-green-with-margin.png?1785403204",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x780ea5b181232283f9092aa47f06c4e9404c61ad",
+      "name": "Trump Media & Technology Group (Dinari Tokenized Stock)",
+      "symbol": "DJT",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175128/large/dinari-logo-green-with-margin.png?1785403303",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x0d253a9631b94f48f016db36fa9d73a03effd400",
       "name": "United States Oil Fund (Dinari Tokenized ETF)",
       "symbol": "USO",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175009/large/dinari-logo-green-with-margin.png?1785402882",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x8fe3baaa586167ed328a76dc08214389f9cf1f5a",
+      "name": "GraniteShares ETF Trust GraniteShares 2x Short NVDA Daily ET",
+      "symbol": "NVD",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175096/large/dinari-logo-green-with-margin.png?1785403189",
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
@@ -4218,13 +4218,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0xc4190b8b18d6b1a8888272a64b9536cde884e41d",
-      "name": "Goldman Sachs Group (Dinari Tokenized Stock)",
-      "symbol": "GS",
+      "address": "0x2da5fffb91ffca6c9a390cb93c689a8368014280",
+      "name": "VanEck Digital Transformation ETF (Dinari Tokenized ETF)",
+      "symbol": "DAPP",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175030/large/dinari-logo-green-with-margin.png?1785402956",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175060/large/dinari-logo-green-with-margin.png?1785403062",
       "extensions": {
-        "assetType": "stock",
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -4250,6 +4250,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xc4190b8b18d6b1a8888272a64b9536cde884e41d",
+      "name": "Goldman Sachs Group (Dinari Tokenized Stock)",
+      "symbol": "GS",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175030/large/dinari-logo-green-with-margin.png?1785402956",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -4314,18 +4326,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x8fe3baaa586167ed328a76dc08214389f9cf1f5a",
-      "name": "GraniteShares ETF Trust GraniteShares 2x Short NVDA Daily ET",
-      "symbol": "NVD",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175096/large/dinari-logo-green-with-margin.png?1785403189",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x822594e4bc4c8237e77e5620744d3f383e77d4fe",
       "name": "Nebius Group aStock",
       "symbol": "ANBIS",
@@ -4338,18 +4338,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb6d5d730f447bf4cccb7894b67e2140acf9f35c7",
-      "name": "Gemini Space Station (Dinari Tokenized Stock)",
-      "symbol": "GEMI",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175173/large/dinari-logo-green-with-margin.png?1785403461",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x2ec4cfc684f9a3b74c5876058ffffd31bdea0464",
       "name": "Direxion Shares ETF Trust Direxion Daily TSLA Bull 2X ETF (D",
       "symbol": "TSLL",
@@ -4357,6 +4345,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175069/large/dinari-logo-green-with-margin.png?1785403094",
       "extensions": {
         "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb6d5d730f447bf4cccb7894b67e2140acf9f35c7",
+      "name": "Gemini Space Station (Dinari Tokenized Stock)",
+      "symbol": "GEMI",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175173/large/dinari-logo-green-with-margin.png?1785403461",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -4386,6 +4386,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xa750907a7193695525e15141a61ab014a4ed93e9",
+      "name": "ProShares UltraPro Short QQQ (Dinari Tokenized ETF)",
+      "symbol": "SQQQ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175021/large/dinari-logo-green-with-margin.png?1785402925",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x57e2613fa6193c11913299cbdc1c8cb4916c15e8",
       "name": "SanDisk aStock",
       "symbol": "ASNDK",
@@ -4394,6 +4406,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x0dbff26347082381f035ed54dea12edb6d9ed2f4",
+      "name": "iPath Series B S&P 500 VIX Short-Term Futures ETN (Dinari To",
+      "symbol": "VXX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174962/large/dinari-logo-green-with-margin.png?1785402714",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
       }
     },
     {
@@ -4418,18 +4442,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Anchored Capital Ltd (BVI)"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xa750907a7193695525e15141a61ab014a4ed93e9",
-      "name": "ProShares UltraPro Short QQQ (Dinari Tokenized ETF)",
-      "symbol": "SQQQ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175021/large/dinari-logo-green-with-margin.png?1785402925",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
       }
     },
     {
@@ -4470,14 +4482,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0x0dbff26347082381f035ed54dea12edb6d9ed2f4",
-      "name": "iPath Series B S&P 500 VIX Short-Term Futures ETN (Dinari To",
-      "symbol": "VXX",
+      "address": "0xdaba319970c3502e152088e45e5a803e78cf51d8",
+      "name": "Cameco aStock",
+      "symbol": "ACCJ",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174962/large/dinari-logo-green-with-margin.png?1785402714",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175677/large/CCJ.png?1787292239",
       "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
+        "assetType": "stock",
+        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -4490,18 +4502,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xdaba319970c3502e152088e45e5a803e78cf51d8",
-      "name": "Cameco aStock",
-      "symbol": "ACCJ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175677/large/CCJ.png?1787292239",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Anchored Capital Ltd (BVI)"
       }
     },
     {
@@ -4602,11 +4602,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xc729ed87cc3e6cc8ff63e32239b4493242e28ce8",
-      "name": "Terawulf (Dinari Tokenized Stock)",
-      "symbol": "WULF",
+      "address": "0x466fcda954f79258691a2912e508570f10294100",
+      "name": "Goldman Sachs BDC (Dinari Tokenized Stock)",
+      "symbol": "GSBD",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175088/large/dinari-logo-green-with-margin.png?1785403161",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175047/large/dinari-logo-green-with-margin.png?1785403016",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -4626,11 +4626,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x466fcda954f79258691a2912e508570f10294100",
-      "name": "Goldman Sachs BDC (Dinari Tokenized Stock)",
-      "symbol": "GSBD",
+      "address": "0xb96c664e124f5e5716b6e72af6167b2f5bdbf03e",
+      "name": "Blackstone Secured Lending Fund (Dinari Tokenized Stock)",
+      "symbol": "BXSL",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175047/large/dinari-logo-green-with-margin.png?1785403016",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175043/large/dinari-logo-green-with-margin.png?1785403002",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xc729ed87cc3e6cc8ff63e32239b4493242e28ce8",
+      "name": "Terawulf (Dinari Tokenized Stock)",
+      "symbol": "WULF",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175088/large/dinari-logo-green-with-margin.png?1785403161",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -4698,30 +4710,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xbe0cd23592261951602a17cbb414ead175563e7c",
-      "name": "Core Scientific (Dinari Tokenized Stock)",
-      "symbol": "CORZ",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175061/large/dinari-logo-green-with-margin.png?1785403065",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xf7424b6acb4528d8c7b81ef71c294b99c21a3604",
-      "name": "Direxion Daily FTSE China Bear 3X ETF (Dinari Tokenized ETF)",
-      "symbol": "YANG",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175026/large/dinari-logo-green-with-margin.png?1785402942",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xac21cd6fe43240d90741d25858d0ff0940b11cc7",
       "name": "Hashdex Commodities Trust (Dinari Tokenized ETF)",
       "symbol": "DEFI",
@@ -4739,6 +4727,18 @@
       "symbol": "BKKT",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175080/large/dinari-logo-green-with-margin.png?1785403133",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xbe0cd23592261951602a17cbb414ead175563e7c",
+      "name": "Core Scientific (Dinari Tokenized Stock)",
+      "symbol": "CORZ",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175061/large/dinari-logo-green-with-margin.png?1785403065",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -4770,18 +4770,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xfd14a7869ed12eb5c46d336dd23565d3af2b5551",
-      "name": "PLUS Korea Defense Industry Index ETF (Dinari Tokenized ETF)",
-      "symbol": "KDEF",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175135/large/dinari-logo-green-with-margin.png?1785403327",
-      "extensions": {
-        "assetType": "etf",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xd01df9d21aa4580761725b304e3a85ff80cbbd01",
       "name": "Marqeta (Dinari Tokenized Stock)",
       "symbol": "MQ",
@@ -4806,6 +4794,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xf7424b6acb4528d8c7b81ef71c294b99c21a3604",
+      "name": "Direxion Daily FTSE China Bear 3X ETF (Dinari Tokenized ETF)",
+      "symbol": "YANG",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175026/large/dinari-logo-green-with-margin.png?1785402942",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xc614d4ad49ec4f4854d70cb4fd788ddb5c3fe41e",
       "name": "ProShares UltraShort 20+ Year Treasury aStock",
       "symbol": "ATBT",
@@ -4818,23 +4818,23 @@
     },
     {
       "chainId": 8453,
-      "address": "0x2a4bd933d140d2df4e134fa3eba91a762297030f",
-      "name": "CleanSpark (Dinari Tokenized Stock)",
-      "symbol": "CLSK",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175107/large/dinari-logo-green-with-margin.png?1785403229",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0x2349b839f9395af7feeda3444a4c9b3137784330",
       "name": "Investment Managers Series Trust II Tradr 2X Short TSLA Dail",
       "symbol": "TSLQ",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175025/large/dinari-logo-green-with-margin.png?1785402939",
+      "extensions": {
+        "assetType": "etf",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x886f894f6bc8aee578aa8d5204bb9b6b4a5ef76b",
+      "name": "Tidal Trust II Defiance Oil Enhanced Options Income ETF (Din",
+      "symbol": "USOY",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175075/large/dinari-logo-green-with-margin.png?1785403115",
       "extensions": {
         "assetType": "etf",
         "issuer": "Dinari"
@@ -4854,13 +4854,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0x886f894f6bc8aee578aa8d5204bb9b6b4a5ef76b",
-      "name": "Tidal Trust II Defiance Oil Enhanced Options Income ETF (Din",
-      "symbol": "USOY",
+      "address": "0x2a4bd933d140d2df4e134fa3eba91a762297030f",
+      "name": "CleanSpark (Dinari Tokenized Stock)",
+      "symbol": "CLSK",
       "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175075/large/dinari-logo-green-with-margin.png?1785403115",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175107/large/dinari-logo-green-with-margin.png?1785403229",
       "extensions": {
-        "assetType": "etf",
+        "assetType": "stock",
         "issuer": "Dinari"
       }
     },
@@ -4873,6 +4873,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175057/large/dinari-logo-green-with-margin.png?1785403051",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xfd14a7869ed12eb5c46d336dd23565d3af2b5551",
+      "name": "PLUS Korea Defense Industry Index ETF (Dinari Tokenized ETF)",
+      "symbol": "KDEF",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175135/large/dinari-logo-green-with-margin.png?1785403327",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -4921,18 +4933,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175160/large/dinari-logo-green-with-margin.png?1785403415",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0x85ad8a04c21a2ed88dffc70981137e55233d7579",
-      "name": "YieldMax Universe Fund of Option Income ETFs (Dinari Tokeniz",
-      "symbol": "YMAX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175053/large/dinari-logo-green-with-margin.png?1785403037",
-      "extensions": {
-        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -5005,6 +5005,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175115/large/dinari-logo-green-with-margin.png?1785403256",
       "extensions": {
         "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x85ad8a04c21a2ed88dffc70981137e55233d7579",
+      "name": "YieldMax Universe Fund of Option Income ETFs (Dinari Tokeniz",
+      "symbol": "YMAX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102175053/large/dinari-logo-green-with-margin.png?1785403037",
+      "extensions": {
+        "assetType": "etf",
         "issuer": "Dinari"
       }
     },
@@ -5135,18 +5147,6 @@
       "symbol": "AMTM",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102175150/large/dinari-logo-green-with-margin.png?1785403380",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb96c664e124f5e5716b6e72af6167b2f5bdbf03e",
-      "name": "Blackstone Secured Lending Fund (Dinari Tokenized Stock)",
-      "symbol": "BXSL",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102175043/large/dinari-logo-green-with-margin.png?1785403002",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -7895,5 +7895,5 @@
   ],
   "name": "RWA on Base",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-20T11:17:02.301Z"
+  "timestamp": "2026-11-21T00:22:36.123Z"
 }
