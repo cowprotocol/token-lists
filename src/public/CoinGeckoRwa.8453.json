@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 1,
-    "patch": 2
+    "patch": 3
   },
   "tokens": [
     {
@@ -420,18 +420,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0x5de98c65a9a3c414550e6663666bc725c23c2e7b",
-      "name": "Strategy (Dinari Tokenized Stock)",
-      "symbol": "MSTR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174991/large/dinari-logo-green-with-margin.png?1785402819",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb2000000000000000000000d8ce462e99ee7a47b",
       "name": "Advanced Micro Devices, Inc. (Coinbase Tokenized Stock)",
       "symbol": "AMDC",
@@ -440,6 +428,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0x5de98c65a9a3c414550e6663666bc725c23c2e7b",
+      "name": "Strategy (Dinari Tokenized Stock)",
+      "symbol": "MSTR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174991/large/dinari-logo-green-with-margin.png?1785402819",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
       }
     },
     {
@@ -515,11 +515,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000f720c26062bc3067da",
-      "name": "Take-Two Interactive Software, Inc. (Coinbase Tokenized Stoc",
-      "symbol": "TTWOC",
+      "address": "0xb200000000000000000000347afba223d7b6b63c",
+      "name": "Oracle Corporation (Coinbase Tokenized Stock)",
+      "symbol": "ORCLC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179263/large/TTWOc-icon-200.png?1791375817",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179194/large/ORCLc-icon-200.png?1791301534",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -527,11 +527,11 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000347afba223d7b6b63c",
-      "name": "Oracle Corporation (Coinbase Tokenized Stock)",
-      "symbol": "ORCLC",
+      "address": "0xb200000000000000000000f720c26062bc3067da",
+      "name": "Take-Two Interactive Software, Inc. (Coinbase Tokenized Stoc",
+      "symbol": "TTWOC",
       "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179194/large/ORCLc-icon-200.png?1791301534",
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179263/large/TTWOc-icon-200.png?1791375817",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -547,6 +547,18 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000187f7071d6e321a7d2",
+      "name": "SK hynix Inc. (Coinbase Tokenized Stock)",
+      "symbol": "SKHYC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179420/large/SKHYc-icon-200_%281%29.png?1791737580",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
       }
     },
     {
@@ -575,14 +587,13 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000187f7071d6e321a7d2",
-      "name": "SK hynix Inc. (Coinbase Tokenized Stock)",
-      "symbol": "SKHYC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179420/large/SKHYc-icon-200_%281%29.png?1791737580",
+      "address": "0xb145b8e9c02193d55454f534f917cabe704fa042",
+      "name": "Auxite Reserve",
+      "symbol": "AUXR",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174810/large/AUXR_logo_200_current.png?1785001381",
       "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
+        "assetType": "commodity"
       }
     },
     {
@@ -594,17 +605,6 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/52383/large/stable.jpg?1733259572",
       "extensions": {
         "assetType": "bond"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb145b8e9c02193d55454f534f917cabe704fa042",
-      "name": "Auxite Reserve",
-      "symbol": "AUXR",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174810/large/AUXR_logo_200_current.png?1785001381",
-      "extensions": {
-        "assetType": "commodity"
       }
     },
     {
@@ -801,18 +801,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000d2f4cf2f7debb244bb",
-      "name": "McDonald's Corporation (Coinbase Tokenized Stock)",
-      "symbol": "MCDC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102180358/large/MCDc-official.png?1795167965",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xb2000000000000000000008fde21a1f5c69fec0b",
       "name": "Western Digital Corporation (Coinbase Tokenized Stock)",
       "symbol": "WDCC",
@@ -830,6 +818,18 @@
       "symbol": "MRVLC",
       "decimals": 8,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102179187/large/MRVLc-icon-200.png?1791300885",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb200000000000000000000d2f4cf2f7debb244bb",
+      "name": "McDonald's Corporation (Coinbase Tokenized Stock)",
+      "symbol": "MCDC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102180358/large/MCDc-official.png?1795167965",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -897,14 +897,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xf6e697f80a2c0c77e9c896a23542efab2f0d16df",
-      "name": "Meta Platforms (Dinari Tokenized Stock)",
-      "symbol": "META",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174911/large/dinari-logo-green-with-margin.png?1785402534",
+      "address": "0xb200000000000000000000f111184a74720787e6",
+      "name": "CoreWeave, Inc. (Coinbase Tokenized Stock)",
+      "symbol": "CRWVC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179171/large/43c7fe215cc44bb5e9fd69cd7c3df620081f95199ce0546ed9106ee5f6576fd7.png?1791300337",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Dinari"
+        "issuer": "Coinbase"
       }
     },
     {
@@ -933,14 +933,14 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb200000000000000000000f111184a74720787e6",
-      "name": "CoreWeave, Inc. (Coinbase Tokenized Stock)",
-      "symbol": "CRWVC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179171/large/43c7fe215cc44bb5e9fd69cd7c3df620081f95199ce0546ed9106ee5f6576fd7.png?1791300337",
+      "address": "0xf6e697f80a2c0c77e9c896a23542efab2f0d16df",
+      "name": "Meta Platforms (Dinari Tokenized Stock)",
+      "symbol": "META",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174911/large/dinari-logo-green-with-margin.png?1785402534",
       "extensions": {
         "assetType": "stock",
-        "issuer": "Coinbase"
+        "issuer": "Dinari"
       }
     },
     {
@@ -1136,18 +1136,6 @@
     },
     {
       "chainId": 8453,
-      "address": "0xb20000000000000000000026215d755356e5043f",
-      "name": "Arm Holdings plc (Coinbase Tokenized Stock)",
-      "symbol": "ARMC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179456/large/ARMc-icon-200.png?1791884689",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
-      }
-    },
-    {
-      "chainId": 8453,
       "address": "0xa483eca53adfef52f614ba1f76d5f49b0caeb7df",
       "name": "MARA Holdings (Dinari Tokenized Stock)",
       "symbol": "MARA",
@@ -1165,6 +1153,18 @@
       "symbol": "ULC",
       "decimals": 8,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102179463/large/ULc-icon-200.png?1791884721",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
+      "address": "0xb20000000000000000000026215d755356e5043f",
+      "name": "Arm Holdings plc (Coinbase Tokenized Stock)",
+      "symbol": "ARMC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179456/large/ARMc-icon-200.png?1791884689",
       "extensions": {
         "assetType": "stock",
         "issuer": "Coinbase"
@@ -1340,6 +1340,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xb20000000000000000000017bb66e9301e913a99",
+      "name": "Banco Santander, S.A. (Coinbase Tokenized Stock)",
+      "symbol": "SANC",
+      "decimals": 8,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102179457/large/SANc-icon-200.png?1791884704",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Coinbase"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0xb200000000000000000000d61efd9f54a23ef9eb",
       "name": "Li Auto Inc. (Coinbase Tokenized Stock)",
       "symbol": "LIC",
@@ -1444,18 +1456,6 @@
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xb20000000000000000000017bb66e9301e913a99",
-      "name": "Banco Santander, S.A. (Coinbase Tokenized Stock)",
-      "symbol": "SANC",
-      "decimals": 8,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102179457/large/SANc-icon-200.png?1791884704",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Coinbase"
       }
     },
     {
@@ -2071,6 +2071,18 @@
     },
     {
       "chainId": 8453,
+      "address": "0xfb5b41acdba20a3230f84be995173cfb98b8d6e7",
+      "name": "NVIDIA (ST0x Tokenized Stock)",
+      "symbol": "WTNVDA",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102178390/large/NVDA.png?1789459969",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "ST0x"
+      }
+    },
+    {
+      "chainId": 8453,
       "address": "0x0400373ea12d84f578b8ab2c21556645333cc312",
       "name": "Hut 8 (Dinari Tokenized Stock)",
       "symbol": "HUT",
@@ -2124,18 +2136,6 @@
       "symbol": "WTSPCX",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174009/large/WTSPCX_256.png?1781777637",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "ST0x"
-      }
-    },
-    {
-      "chainId": 8453,
-      "address": "0xfb5b41acdba20a3230f84be995173cfb98b8d6e7",
-      "name": "NVIDIA (ST0x Tokenized Stock)",
-      "symbol": "WTNVDA",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102178390/large/NVDA.png?1789459969",
       "extensions": {
         "assetType": "stock",
         "issuer": "ST0x"
@@ -7895,5 +7895,5 @@
   ],
   "name": "RWA on Base",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-22T00:22:55.000Z"
+  "timestamp": "2026-11-23T00:23:01.002Z"
 }

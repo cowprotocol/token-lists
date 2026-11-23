@@ -6,7 +6,7 @@
   "version": {
     "major": 0,
     "minor": 3,
-    "patch": 7
+    "patch": 8
   },
   "tokens": [
     {
@@ -375,18 +375,6 @@
     },
     {
       "chainId": 43114,
-      "address": "0x5183efabdda4f872788307b705163982036ba962",
-      "name": "Meta Platforms (Dinari Tokenized Stock)",
-      "symbol": "META",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102174911/large/dinari-logo-green-with-margin.png?1785402534",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "Dinari"
-      }
-    },
-    {
-      "chainId": 43114,
       "address": "0xd1234e7dc6c710e9f95c4eec5f90907d0db2daf1",
       "name": "Invesco QQQ Trust, Series 1 (Dinari Tokenized ETF)",
       "symbol": "QQQ",
@@ -404,6 +392,18 @@
       "symbol": "MSFT",
       "decimals": 18,
       "logoURI": "https://coin-images.coingecko.com/coins/images/102174912/large/dinari-logo-green-with-margin.png?1785402537",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "Dinari"
+      }
+    },
+    {
+      "chainId": 43114,
+      "address": "0x5183efabdda4f872788307b705163982036ba962",
+      "name": "Meta Platforms (Dinari Tokenized Stock)",
+      "symbol": "META",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102174911/large/dinari-logo-green-with-margin.png?1785402534",
       "extensions": {
         "assetType": "stock",
         "issuer": "Dinari"
@@ -3510,5 +3510,5 @@
   ],
   "name": "RWA on Avalanche",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-22T00:22:55.021Z"
+  "timestamp": "2026-11-23T00:23:01.026Z"
 }
