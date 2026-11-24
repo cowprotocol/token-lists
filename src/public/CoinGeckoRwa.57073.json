@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 1
+    "patch": 2
   },
   "tokens": [
     {
@@ -107,18 +107,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0xf706585e7e8900be0267bee3b9a2f70835ec6628",
-      "name": "PayPal xStock",
-      "symbol": "PYPLX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/69635/large/Ticker_PYPLx__Company_Name_PYPLx__size_200x200.png?1759233606",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 57073,
       "address": "0x0e6607ab45d2ca779068cd6d9426c409773969fd",
       "name": "Global X Uranium ETF xStock",
       "symbol": "URAX",
@@ -126,6 +114,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102176414/large/URAx.png?1787822889",
       "extensions": {
         "assetType": "etf",
+        "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 57073,
+      "address": "0xf706585e7e8900be0267bee3b9a2f70835ec6628",
+      "name": "PayPal xStock",
+      "symbol": "PYPLX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69635/large/Ticker_PYPLx__Company_Name_PYPLx__size_200x200.png?1759233606",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "xStocks"
       }
     },
@@ -8767,5 +8767,5 @@
   ],
   "name": "RWA on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-21T00:22:36.146Z"
+  "timestamp": "2026-11-24T00:22:49.860Z"
 }
