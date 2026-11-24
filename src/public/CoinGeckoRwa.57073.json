@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 2
+    "patch": 3
   },
   "tokens": [
     {
@@ -31,6 +31,18 @@
       "extensions": {
         "assetType": "commodity",
         "issuer": "Tether"
+      }
+    },
+    {
+      "chainId": 57073,
+      "address": "0x909369940f22dc1c143ac78753a33f41597138b1",
+      "name": "Anthropic xStock",
+      "symbol": "ANTX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/102180104/large/ANTx.png?1793861573",
+      "extensions": {
+        "assetType": "stock",
+        "issuer": "xStocks"
       }
     },
     {
@@ -4714,18 +4726,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0x909369940f22dc1c143ac78753a33f41597138b1",
-      "name": "Anthropic xStock",
-      "symbol": "ANTX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/102180104/large/ANTx.png?1793861573",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 57073,
       "address": "0x91ea54a8a5426c0a0bea55968dd71abce7b92751",
       "name": "Vanguard Total International Stock ETF xStock",
       "symbol": "VXUSX",
@@ -8767,5 +8767,5 @@
   ],
   "name": "RWA on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-24T00:22:49.860Z"
+  "timestamp": "2026-11-24T14:42:48.702Z"
 }

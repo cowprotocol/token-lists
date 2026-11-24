@@ -5,7 +5,7 @@
   "version": {
     "major": 24,
     "minor": 0,
-    "patch": 1
+    "patch": 2
   },
   "tokens": [
     {
@@ -74,11 +74,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 9745,
@@ -87,6 +87,14 @@
       "symbol": "WETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/69466/large/weth_2.jpg?1758701596"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
     },
     {
       "chainId": 9745,
@@ -122,19 +130,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
-      "name": "Metronome Synth USD",
-      "symbol": "MSUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
-    },
-    {
-      "chainId": 9745,
       "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
       "name": "Metronome Synth ETH",
       "symbol": "MSETH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/67512/large/metronome_mseth.png?1753017508"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x29ad7fe4516909b9e498b5a65339e54791293234",
+      "name": "Metronome Synth USD",
+      "symbol": "MSUSD",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/67504/large/metronome_msusd.png?1753015705"
     },
     {
       "chainId": 9745,
@@ -146,14 +154,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0xebfc8c2fe73c431ef2a371aea9132110aab50dca",
-      "name": "Yuzu Protection Pool",
-      "symbol": "YZPP",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/71043/large/yzPP_%281%29.png?1765442029"
-    },
-    {
-      "chainId": 9745,
       "address": "0x0a1a1a107e45b7ced86833863f482bc5f4ed82ef",
       "name": "USDai",
       "symbol": "USDAI",
@@ -162,11 +162,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
+      "address": "0xebfc8c2fe73c431ef2a371aea9132110aab50dca",
+      "name": "Yuzu Protection Pool",
+      "symbol": "YZPP",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+      "logoURI": "https://assets.coingecko.com/coins/images/71043/large/yzPP_%281%29.png?1765442029"
     },
     {
       "chainId": 9745,
@@ -178,14 +178,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
-      "name": "Yuzu USD",
-      "symbol": "YZUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
-    },
-    {
-      "chainId": 9745,
       "address": "0x92a01ab7317ac318b39b00eb6704ba56f0245d7a",
       "name": "Trillions",
       "symbol": "TRILLIONS",
@@ -194,11 +186,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
-      "name": "Plazzy the dog",
-      "symbol": "PLAZZY",
+      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
+      "name": "Yuzu USD",
+      "symbol": "YZUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
+      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
     },
     {
       "chainId": 9745,
@@ -207,6 +199,14 @@
       "symbol": "LITH",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/70098/large/logo-lith1.png?1760553212"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x5c22b3cb1152d1eb77f5fadd4ea9504cde899dd4",
+      "name": "Plazzy the dog",
+      "symbol": "PLAZZY",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/69787/large/plazzy_CG.png?1759653264"
     },
     {
       "chainId": 9745,
@@ -227,5 +227,5 @@
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-24T00:03:41.128Z"
+  "timestamp": "2026-11-24T14:23:36.452Z"
 }
