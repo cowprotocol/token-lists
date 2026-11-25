@@ -6,7 +6,7 @@
   "version": {
     "major": 1,
     "minor": 0,
-    "patch": 3
+    "patch": 4
   },
   "tokens": [
     {
@@ -107,18 +107,6 @@
     },
     {
       "chainId": 57073,
-      "address": "0x4b0ee7c047d43ca403239f28f42115bedb7c0076",
-      "name": "Oklo xStock",
-      "symbol": "OKLOX",
-      "decimals": 18,
-      "logoURI": "https://coin-images.coingecko.com/coins/images/69622/large/Ticker_OKLOx__Company_Name_Oklo__size_200x200.png?1759233239",
-      "extensions": {
-        "assetType": "stock",
-        "issuer": "xStocks"
-      }
-    },
-    {
-      "chainId": 57073,
       "address": "0x0e6607ab45d2ca779068cd6d9426c409773969fd",
       "name": "Global X Uranium ETF xStock",
       "symbol": "URAX",
@@ -126,6 +114,18 @@
       "logoURI": "https://coin-images.coingecko.com/coins/images/102176414/large/URAx.png?1787822889",
       "extensions": {
         "assetType": "etf",
+        "issuer": "xStocks"
+      }
+    },
+    {
+      "chainId": 57073,
+      "address": "0x4b0ee7c047d43ca403239f28f42115bedb7c0076",
+      "name": "Oklo xStock",
+      "symbol": "OKLOX",
+      "decimals": 18,
+      "logoURI": "https://coin-images.coingecko.com/coins/images/69622/large/Ticker_OKLOx__Company_Name_Oklo__size_200x200.png?1759233239",
+      "extensions": {
+        "assetType": "stock",
         "issuer": "xStocks"
       }
     },
@@ -8767,5 +8767,5 @@
   ],
   "name": "RWA on Ink",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-24T14:42:48.702Z"
+  "timestamp": "2026-11-25T00:22:39.947Z"
 }
