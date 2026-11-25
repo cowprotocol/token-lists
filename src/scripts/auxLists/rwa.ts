@@ -18,7 +18,7 @@ import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, To
  */
 
 export const RWA_PREFIX = 'CoinGeckoRwa'
-const RWA_LOGO = 'https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png'
+const RWA_LOGO = 'https://files.cow.fi/token-lists/images/rwa-list-logo.svg'
 const API_URL = 'https://pro-api.coingecko.com/api/v3'
 const PAGE_SIZE = 250
 const MAX_RETRIES = 5
