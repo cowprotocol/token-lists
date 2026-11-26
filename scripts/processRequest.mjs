@@ -19,14 +19,45 @@ export const VALIDATION_RULES = {
   removeToken: ['network', 'reason', 'address'],
 }
 
-export const extractFieldValues = (body, fieldNames) => {
-  return fieldNames.reduce((acc, f) => {
-    // Create a regex for each field, with capturing group with the same name
-    const r = new RegExp(String.raw`${f}\s+(.*?)(\s+###|$)`, 'si')
+const ISSUE_FORM_LABELS = {
+  symbol: 'token symbol',
+  name: 'token name',
+  url: 'image url',
+}
 
-    // Build an object with the capturing group and value for each field
-    return { ...acc, [f.toLowerCase()]: body.match(r)?.[1].trim() }
-  }, {})
+const GITHUB_ATTACHMENT =
+  /^!?\[(?:\\.|[^\]\\\r\n])+\]\((https:\/\/github\.com\/user-attachments\/assets\/[\da-fA-F]{8}-(?:[\da-fA-F]{4}-){3}[\da-fA-F]{12})\)$/
+
+export const extractFieldValues = (body, fieldNames) => {
+  const sections = body.split(/^[ \t]*###[ \t]+([^\r\n]+)\r?$/m)
+  const valuesByHeading = new Map()
+  for (let index = 1; index < sections.length; index += 2) {
+    const heading = sections[index].trim().toLowerCase()
+    if (!valuesByHeading.has(heading)) {
+      valuesByHeading.set(heading, sections[index + 1].trim())
+    }
+  }
+
+  return Object.fromEntries(
+    fieldNames.map((fieldName) => {
+      const field = fieldName.toLowerCase()
+      const value = valuesByHeading.get(ISSUE_FORM_LABELS[field]) ?? valuesByHeading.get(field)
+      return [field, value]
+    }),
+  )
+}
+
+const resolveImageUrl = (url, upload) => {
+  if (!upload || upload === '_No response_') {
+    return url === '_No response_' ? undefined : url
+  }
+
+  const attachmentUrl = upload.match(GITHUB_ATTACHMENT)?.[1]
+  if (!attachmentUrl) {
+    throw new Error('Logo upload must contain one file attached in the Logo upload field.')
+  }
+
+  return attachmentUrl
 }
 
 export const applyNetworkConfig = (values) => {
@@ -58,7 +89,9 @@ export const getOperation = (labels) => {
 
 export const validateFields = (operation, values) => {
   const requiredFields = VALIDATION_RULES[operation]
-  const missingFields = requiredFields.filter((field) => !values[field])
+  const missingFields = requiredFields
+    .filter((field) => !values[field])
+    .map((field) => (field === 'url' ? 'Logo upload or Image URL' : field))
   if (missingFields.length > 0) {
     throw new Error(`Missing required fields for ${operation}: ${missingFields.join(', ')}`)
   }
@@ -74,13 +107,17 @@ export const processRequest = async (context, core) => {
   const labels = issue.labels.map((label) => label.name)
   const fieldNames = process.env.FIELD_NAMES.split(',')
 
-  const values = extractFieldValues(body, fieldNames)
+  const { 'logo upload': logoUpload, ...values } = extractFieldValues(body, fieldNames)
   values.address &&= values.address.toLowerCase()
 
   applyNetworkConfig(values)
   generateImageUrls(values)
 
   const operation = getOperation(labels)
+  const needsImageOptimization = ['addImage', 'addToken'].includes(operation)
+  if (needsImageOptimization) {
+    values.url = resolveImageUrl(values.url, logoUpload)
+  }
   validateFields(operation, values)
 
   // Enrich addToken PRs with token metrics (liquidity/volume + holders).
@@ -89,5 +126,5 @@ export const processRequest = async (context, core) => {
 
   core.setOutput('operation', operation)
   core.setOutput('issueInfo', JSON.stringify(result))
-  core.setOutput('needsImageOptimization', ['addImage', 'addToken'].includes(operation))
+  core.setOutput('needsImageOptimization', needsImageOptimization)
 }

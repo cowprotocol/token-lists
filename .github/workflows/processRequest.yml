@@ -8,7 +8,7 @@ on:
     types: [opened]
 
 env:
-  FIELD_NAMES: 'Network,Symbol,Name,URL,Decimals,Address,Reason'
+  FIELD_NAMES: 'Network,Symbol,Name,URL,Logo upload,Decimals,Address,Reason'
   IMAGES_BASE_PATH: src/public/images/
   LIST_PATH: src/public/CowSwap.json
 
@@ -51,6 +51,7 @@ jobs:
             ❌ **Invalid request**
 
             Validation failed. Please check all required fields are provided and submit a new issue.
+            For Add Token and Add Image, attach one PNG or SVG or enter a direct image URL.
 
   optimize-image:
     needs: process-request

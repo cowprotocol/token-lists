@@ -16,6 +16,24 @@ const createContext = (body, labels = ['addToken']) => ({
 
 const createMockCore = () => ({ setOutput: mock.fn() })
 
+const attachmentUrl = 'https://github.com/user-attachments/assets/21404053-ee30-4e07-94c4-9b4f957bf476'
+const imageUrl = 'https://example.com/image.png'
+const createAddImageBody = (upload, url) => `### Network
+
+MAINNET
+
+### Address
+
+0x123
+
+### Logo upload
+
+${upload}
+
+### Image URL
+
+${url}`
+
 const getIssueInfo = (core) => {
   const call = core.setOutput.mock.calls.find((call) => call.arguments[0] === 'issueInfo')
   return call ? JSON.parse(call.arguments[1]) : null
@@ -106,7 +124,7 @@ describe('validateFields', () => {
 })
 
 describe('processRequest', () => {
-  process.env.FIELD_NAMES = 'network,symbol,name,address,url,decimals,reason'
+  process.env.FIELD_NAMES = 'Network,Symbol,Name,URL,Logo upload,Decimals,Address,Reason'
 
   const originalFetch = global.fetch
   afterEach(() => {
@@ -114,7 +132,7 @@ describe('processRequest', () => {
     mock.restoreAll()
   })
 
-  it('processes request', async () => {
+  it('processes an Add Token attachment and enriches token metrics', async () => {
     // addToken triggers token-metrics enrichment (GeckoTerminal + CMC scrape) ->
     // mock fetch so the unit test stays offline.
     global.fetch = mock.fn(async () => ({
@@ -127,24 +145,28 @@ describe('processRequest', () => {
     mock.method(console, 'warn', () => {})
 
     const body = `
-      ### network
+      ### Network
       POLYGON
 
-      ### symbol
+      ### Token Symbol
       USDC
 
-      ### url
-      https://some.url
-      ### decimals
+      ### Logo upload
+      [USD Coin (logo).png](${attachmentUrl})
+
+      ### Image URL
+      _No response_
+
+      ### Decimals
       99
 
-      ### reason
+      ### Reason
       Something
 
-      ### name
+      ### Token Name
       USD Coin
 
-      ### address
+      ### Address
       0x123`
     const context = createContext(body)
     const core = createMockCore()
@@ -154,11 +176,64 @@ describe('processRequest', () => {
     const info = getIssueInfo(core)
     assert.equal(info.network, 'POLYGON')
     assert.equal(info.chainId, 137)
+    assert.equal(info.url, attachmentUrl)
+    assert.equal(info.symbol, 'USDC')
+    assert.equal(info.name, 'USD Coin')
     // Enrichment ran but the token is "unlisted" (404) -> n/a, PR still proceeds.
     assert.equal(info.marketCap, 'n/a')
     assert.equal(info.tokenHolders, 'n/a')
     assert.equal(info.cmcUrl, 'https://dex.coinmarketcap.com/token/polygon/0x123/')
     assert.equal(info.geckoTerminalUrl, 'https://www.geckoterminal.com/polygon_pos/tokens/0x123')
+  })
+
+  it('uses an Add Image attachment in preference to the fallback URL', async () => {
+    const body = createAddImageBody(`![Logo.png](${attachmentUrl})`, imageUrl)
+    const core = createMockCore()
+
+    await processRequest(createContext(body, ['addImage']), core)
+
+    assert.equal(getIssueInfo(core).url, attachmentUrl)
+    assert.ok(
+      core.setOutput.mock.calls.some((call) => call.arguments[0] === 'needsImageOptimization' && call.arguments[1]),
+    )
+  })
+
+  it('keeps an external Image URL when the upload was left blank', async () => {
+    for (const upload of ['', '_No response_']) {
+      const body = createAddImageBody(upload, imageUrl)
+      const core = createMockCore()
+
+      await processRequest(createContext(body, ['addImage']), core)
+
+      assert.equal(getIssueInfo(core).url, imageUrl)
+    }
+  })
+
+  it('keeps a GitHub URL submitted through the old form', async () => {
+    const body = `### Network\n\nMAINNET\n\n### Address\n\n0x123\n\n### Image URL\n\n${attachmentUrl}`
+    const core = createMockCore()
+
+    await processRequest(createContext(body, ['addImage']), core)
+
+    assert.equal(getIssueInfo(core).url, attachmentUrl)
+  })
+
+  it('requires either an attachment or an Image URL', async () => {
+    const body = createAddImageBody('', '_No response_')
+
+    await assert.rejects(processRequest(createContext(body, ['addImage']), createMockCore()), /Logo upload or Image URL/)
+  })
+
+  it('rejects malformed or multiple attachments', async () => {
+    const link = `[Logo.png](${attachmentUrl})`
+    for (const upload of [`[Logo.png](${imageUrl})`, `${link}\n${link}`, `${link} ${link}`]) {
+      const body = createAddImageBody(upload, imageUrl)
+
+      await assert.rejects(
+        processRequest(createContext(body, ['addImage']), createMockCore()),
+        /Logo upload must contain one file/,
+      )
+    }
   })
 
   it('skips token-metrics enrichment for non-addToken operations', async () => {
