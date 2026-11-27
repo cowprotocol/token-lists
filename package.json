@@ -13,7 +13,6 @@
     "cowFi:tokens": "yarn run-script ./src/scripts/cowFi-tokens.js",
     "generateAuxLists": "yarn run-script ./src/scripts/auxLists/index.ts",
     "rwaLists": "yarn run-script ./src/scripts/auxLists/generateRwaLists.ts",
-    "rwaSupplement": "yarn run-script ./src/scripts/auxLists/generateRwaSupplement.ts",
     "uniswapToGnosisChainList": "yarn run-script src/scripts/mapTokenListToBridge.ts 100 uniswap",
     "coingeckoToGnosisChainList": "yarn run-script src/scripts/mapTokenListToBridge.ts 100 coingecko",
     "coingeckoToArbitrumOneList": "yarn run-script src/scripts/mapTokenListToBridge.ts 42161 coingecko",

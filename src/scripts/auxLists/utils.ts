@@ -1,5 +1,6 @@
 import { getAddressKey, mapSupportedNetworks, SupportedChainId } from '@cowprotocol/cow-sdk'
 import type { TokenInfo as TokenListTokenInfo } from '@uniswap/token-lists'
+import assert from 'assert'
 import fs from 'fs'
 import winston, { Logger } from 'winston'
 
@@ -27,6 +28,7 @@ interface CoingeckoToken {
 export type CoingeckoIdsMap = Record<string, Record<string, string>>
 
 export const COINGECKO_API_KEY = process.env.COINGECKO_API_KEY
+assert(COINGECKO_API_KEY, 'COINGECKO_API_KEY env is required')
 
 export const COINGECKO_CHAINS: Record<SupportedChainId, string | null> = {
   [SupportedChainId.MAINNET]: 'ethereum',
