@@ -1,5 +1,5 @@
 import { getAddressKey, isEvmAddress, isSolanaAddress, SupportedChainId } from '@cowprotocol/cow-sdk'
-import { existsSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import pThrottle from 'p-throttle'
 import { fetchJupiterTokens, getTokenProgramExtensions, hasValidMint } from '../utils/jupiter.js'
 import { processTokenList } from './processTokenList.js'
@@ -15,9 +15,20 @@ import { COINGECKO_API_KEY, COINGECKO_CHAINS, DISPLAY_CHAIN_NAMES, getLogger, To
  * - the RWA API (https://docs.coingecko.com/reference/rwa-overview): stocks, ETFs and commodities, with issuers
  * - `RWA_CATEGORIES`: what the RWA API misses, such as treasuries, money market funds, credit and non-US stocks.
  *   Category queries skip coins without market data, which is fine: CoW can't trade them without liquidity anyway
+ *
+ * Then, for the tokens CoinGecko doesn't know yet, in this order of precedence:
+ * - the token lists of the CMS `restricted-token-lists` records, which CoW Swap already geoblocks. Our own lists are
+ *   skipped: reading them back would keep their tokens forever. Their tokens in `CowSwap.json` are skipped, as
+ *   geoblocking a default token in ~50 countries is a human call
+ * - `rwaManual.json`: tokens added by hand, for issuers without a token list. Check `name()`, `symbol()` and
+ *   `decimals()` on-chain and the explorer label before adding one
  */
 
 export const RWA_PREFIX = 'CoinGeckoRwa'
+const RWA_MANUAL_PATH = new URL('./rwaManual.json', import.meta.url)
+const CMS_URL = 'https://cms.cow.fi/api/restricted-token-lists?pagination[pageSize]=100'
+/** Extensions CoW Swap reads from the RWA lists. Providers' own extensions are dropped */
+const RWA_EXTENSIONS = ['assetType', 'issuer']
 const RWA_LOGO = 'https://files.cow.fi/token-lists/images/rwa-list-logo.svg'
 const API_URL = 'https://pro-api.coingecko.com/api/v3'
 const PAGE_SIZE = 250
@@ -111,7 +122,16 @@ interface RwaTokenInfo extends TokenInfo {
   marketCap: number
 }
 
-export async function fetchAndProcessRwaTokens(): Promise<void> {
+interface CmsRecords {
+  data: { attributes: { name: string; tokenListUrl: string } }[]
+  meta: { pagination: { total: number } }
+}
+
+export async function fetchAndProcessRwaTokens(
+  manualTokens: TokenInfo[] = JSON.parse(readFileSync(RWA_MANUAL_PATH, 'utf8')),
+): Promise<void> {
+  validateManualTokens(manualTokens)
+
   const startedAt = Date.now()
   const logger = getLogger('rwa-tokens')
   const chains = (Object.keys(COINGECKO_CHAINS).map(Number) as SupportedChainId[]).filter(
@@ -119,8 +139,8 @@ export async function fetchAndProcessRwaTokens(): Promise<void> {
   )
   log(`Generating RWA lists for ${chains.map((chainId) => DISPLAY_CHAIN_NAMES[chainId]).join(', ')}`)
 
-  // Any failed RWA or category request aborts the run, otherwise its tokens would be dropped from the lists
-  const [rwaCoins, coinList] = await Promise.all([fetchRwaApiCoins(), fetchCoinList()])
+  // Any failed RWA, category or CMS request aborts the run, otherwise its tokens would be dropped from the lists
+  const [rwaCoins, coinList, cmsTokens] = await Promise.all([fetchRwaApiCoins(), fetchCoinList(), fetchCmsTokens()])
   const categoryCoins = await fetchCategoryCoins(coinList)
   const rwaIds = new Set(rwaCoins.map((coin) => coin.id))
   const extraCoins = categoryCoins.coins.filter((coin) => !rwaIds.has(coin.id))
@@ -137,7 +157,7 @@ export async function fetchAndProcessRwaTokens(): Promise<void> {
   // All lists are built before any is written, so a failed request can't leave some chains updated and others not
   const lists = await mapSequential(chains, async (chainId) => ({
     chainId,
-    tokens: await buildChainTokens(chainId, coins, markets),
+    tokens: await buildChainTokens(chainId, coins, markets, cmsTokens, manualTokens),
   }))
 
   for (const { chainId, tokens } of lists) {
@@ -169,11 +189,116 @@ function getRwaListPath(chainId: SupportedChainId): string {
   return `src/public/${RWA_PREFIX}.${chainId}.json`
 }
 
-/** RWA tokens of a chain, biggest market cap first */
+function getTokenKey({ chainId, address }: TokenInfo): string {
+  return `${chainId}:${getAddressKey(address)}`
+}
+
+/** CoW Swap's default tokens: geoblocking one of them in ~50 countries is a human call, not a script's */
+function readDefaultTokenKeys(): Set<string> {
+  return new Set((JSON.parse(readFileSync('src/public/CowSwap.json', 'utf8')).tokens as TokenInfo[]).map(getTokenKey))
+}
+
+/** EVM chains only: Solana tokens need the token program check of `buildToken` */
+function isExtraTokenChain(chainId: number): boolean {
+  return Number.isInteger(chainId) && !!COINGECKO_CHAINS[chainId as SupportedChainId] && chainId !== SupportedChainId.SOLANA
+}
+
+/** Why a CMS or manual token can't be listed, if it can't. CoW Swap rejects a whole list over one invalid token */
+function getExtraTokenError(token: TokenInfo): string | null {
+  const { chainId, address, name, symbol, decimals, logoURI, extensions } = token
+
+  if (!isExtraTokenChain(chainId)) return 'unsupported chain'
+  if (!isEvmAddress(address)) return 'invalid address'
+  if (!Number.isInteger(decimals) || decimals < 0 || decimals > 255) return 'invalid decimals'
+  // The limits of CoW Swap's token list schema
+  if (typeof name !== 'string' || typeof symbol !== 'string') return 'invalid name or symbol'
+  if (!/^[^<>]{1,100}$/.test(name) || !/^[^<>]{1,80}$/.test(symbol)) return 'invalid name or symbol'
+  if (logoURI !== undefined && toLogoUrl(logoURI) !== logoURI) return 'invalid logo'
+  // Like the CoinGecko tokens' extensions: strings within the token list schema's 42 characters
+  if (Object.values(extensions ?? {}).some((value) => typeof value !== 'string' || value.length > 42)) {
+    return 'invalid extensions'
+  }
+  return null
+}
+
+/**
+ * Every token of these lists gets geoblocked: a bad manual token aborts the run instead of being written. So does one
+ * in `CowSwap.json`. Also checked in CI, on the committed `rwaManual.json`
+ */
+export function validateManualTokens(tokens: TokenInfo[]): void {
+  const defaultTokens = readDefaultTokenKeys()
+  const keys = new Set<string>()
+
+  for (const token of tokens) {
+    const key = getTokenKey(token)
+    const error =
+      getExtraTokenError(token) ?? (keys.has(key) ? 'duplicate' : defaultTokens.has(key) ? 'in CowSwap.json' : null)
+
+    if (error) throw new Error(`Manual RWA token ${token.symbol} (${key}): ${error}`)
+
+    keys.add(key)
+  }
+}
+
+/** Tokens of the lists the CMS `restricted-token-lists` records point at. Invalid and default tokens are skipped */
+async function fetchCmsTokens(): Promise<TokenInfo[]> {
+  const { data, meta } = await request<CmsRecords>(CMS_URL)
+
+  if (meta.pagination.total > data.length) {
+    throw new Error(`Only ${data.length} of ${meta.pagination.total} CMS records were fetched`)
+  }
+
+  const defaultTokens = readDefaultTokenKeys()
+  const tokens = new Map<string, TokenInfo>()
+
+  for (const { name, tokenListUrl } of data.map((record) => record.attributes)) {
+    // Our own lists, published here or from this repository
+    if (tokenListUrl.startsWith('https://files.cow.fi/') || tokenListUrl.includes('/cowprotocol/token-lists/')) continue
+
+    const list = await request<{ tokens: TokenInfo[] }>(tokenListUrl)
+    const before = tokens.size
+
+    for (const token of list.tokens) {
+      const key = getTokenKey(token)
+
+      if (!isExtraTokenChain(token.chainId) || tokens.has(key)) continue
+
+      const entry = toExtraToken(token)
+      const error = defaultTokens.has(key) ? 'in CowSwap.json' : getExtraTokenError(entry)
+
+      if (error) console.warn(`[rwa] Skipping ${token.symbol} (${key}) of ${name}: ${error}`)
+      else tokens.set(key, entry)
+    }
+
+    log(`CMS list ${name}: ${tokens.size - before} tokens`)
+  }
+
+  return [...tokens.values()]
+}
+
+/** Only the fields and extensions of the RWA lists, with the address key and an https logo */
+function toExtraToken({ chainId, address, name, symbol, decimals, logoURI, extensions }: TokenInfo): TokenInfo {
+  const logo = toLogoUrl(logoURI)
+  const rwaExtensions = Object.entries(extensions ?? {}).filter(([key]) => RWA_EXTENSIONS.includes(key))
+
+  return {
+    chainId,
+    address: getAddressKey(address),
+    name,
+    symbol,
+    decimals,
+    ...(logo ? { logoURI: logo } : {}),
+    ...(rwaExtensions.length ? { extensions: Object.fromEntries(rwaExtensions) } : {}),
+  }
+}
+
+/** RWA tokens of a chain, biggest market cap first, then the CMS and manual tokens CoinGecko doesn't have */
 async function buildChainTokens(
   chainId: SupportedChainId,
   coins: RwaCoin[],
   markets: Map<string, CoinMarket>,
+  cmsTokens: TokenInfo[],
+  manualTokens: TokenInfo[],
 ): Promise<RwaTokenInfo[]> {
   const chainName = DISPLAY_CHAIN_NAMES[chainId]
   const platform = COINGECKO_CHAINS[chainId] as string
@@ -208,9 +333,32 @@ async function buildChainTokens(
     else skipped++
   }
 
+  const fromCoinGecko = tokens.size
+  // An earlier source wins: CoinGecko, then the CMS lists, then the manual tokens
+  const add = (token: TokenInfo): boolean => {
+    const key = getAddressKey(token.address)
+
+    if (token.chainId !== chainId || tokens.has(key)) return false
+
+    tokens.set(key, { ...token, address: key, marketCap: 0 })
+    return true
+  }
+
+  cmsTokens.forEach(add)
+  const fromCms = tokens.size - fromCoinGecko
+
+  for (const token of manualTokens) {
+    if (token.chainId === chainId && !add(token)) {
+      log(`${token.symbol} on ${chainName} is listed upstream now, remove it from rwaManual.json`)
+    }
+  }
+
   const sorted = [...tokens.values()].sort((a, b) => b.marketCap - a.marketCap || a.address.localeCompare(b.address))
 
-  log(`${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped)`)
+  log(
+    `${chainName}: ${sorted.length} tokens (${fromDetails} looked up in coin details, ${skipped} skipped, ` +
+      `${fromCms} from the CMS lists, ${tokens.size - fromCoinGecko - fromCms} manual)`,
+  )
 
   return sorted
 }
