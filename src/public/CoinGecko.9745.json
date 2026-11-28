@@ -3,7 +3,7 @@
     "defi"
   ],
   "version": {
-    "major": 26,
+    "major": 27,
     "minor": 0,
     "patch": 0
   },
@@ -50,6 +50,14 @@
     },
     {
       "chainId": 9745,
+      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
+      "name": "Tether Gold Tokens",
+      "symbol": "XAUT0",
+      "decimals": 6,
+      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+    },
+    {
+      "chainId": 9745,
       "address": "0x211cc4dd073734da055fbf44a2b4667d5e5fe5d2",
       "name": "Ethena Staked USDe",
       "symbol": "SUSDE",
@@ -58,19 +66,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0xb77e872a68c62cfc0dfb02c067ecc3da23b4bbf3",
-      "name": "GHO",
-      "symbol": "GHO",
+      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
+      "name": "Wrapped eETH",
+      "symbol": "WEETH",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x1b64b9025eebb9a6239575df9ea4b9ac46d4d193",
-      "name": "Tether Gold Tokens",
-      "symbol": "XAUT0",
-      "decimals": 6,
-      "logoURI": "https://assets.coingecko.com/coins/images/66560/large/XAUt0_Token_Icon_Gold.png?1749747942"
+      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
     },
     {
       "chainId": 9745,
@@ -82,11 +82,19 @@
     },
     {
       "chainId": 9745,
-      "address": "0xa3d68b74bf0528fdd07263c60d6488749044914b",
-      "name": "Wrapped eETH",
-      "symbol": "WEETH",
+      "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
+      "name": "Staked USDai",
+      "symbol": "SUSDAI",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33033/large/weETH.png?1701438396"
+      "logoURI": "https://assets.coingecko.com/coins/images/55861/large/sUSDai_Token_Full_Glyph.png?1755229072"
+    },
+    {
+      "chainId": 9745,
+      "address": "0xb77e872a68c62cfc0dfb02c067ecc3da23b4bbf3",
+      "name": "GHO",
+      "symbol": "GHO",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/30663/large/gho-token-logo.png?1720517092"
     },
     {
       "chainId": 9745,
@@ -103,14 +111,6 @@
       "symbol": "WXPL",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/69509/large/plasma.png?1758805469"
-    },
-    {
-      "chainId": 9745,
-      "address": "0x0b2b2b2076d95dda7817e785989fe353fe955ef9",
-      "name": "Staked USDai",
-      "symbol": "SUSDAI",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/55861/large/sUSDai_Token_Full_Glyph.png?1755229072"
     },
     {
       "chainId": 9745,
@@ -138,14 +138,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
-      "name": "Yuzu USD",
-      "symbol": "YZUSD",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
-    },
-    {
-      "chainId": 9745,
       "address": "0x7230a9d42d622e18fdf7207041eca18465f9f1be",
       "name": "Metronome Synth ETH",
       "symbol": "MSETH",
@@ -170,11 +162,11 @@
     },
     {
       "chainId": 9745,
-      "address": "0x9ecaf80c1303cca8791afbc0ad405c8a35e8d9f1",
-      "name": "Kelp DAO Restaked ETH",
-      "symbol": "RSETH",
+      "address": "0x6695c0f8706c5ace3bdf8995073179cca47926dc",
+      "name": "Yuzu USD",
+      "symbol": "YZUSD",
       "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
+      "logoURI": "https://assets.coingecko.com/coins/images/70558/large/yzusd.png?1762518733"
     },
     {
       "chainId": 9745,
@@ -183,6 +175,14 @@
       "symbol": "TRILLIONS",
       "decimals": 18,
       "logoURI": "https://assets.coingecko.com/coins/images/69560/large/trillions.png?1759039612"
+    },
+    {
+      "chainId": 9745,
+      "address": "0x9ecaf80c1303cca8791afbc0ad405c8a35e8d9f1",
+      "name": "Kelp DAO Restaked ETH",
+      "symbol": "RSETH",
+      "decimals": 18,
+      "logoURI": "https://assets.coingecko.com/coins/images/33800/large/Icon___Dark.png?1702991855"
     },
     {
       "chainId": 9745,
@@ -202,14 +202,6 @@
     },
     {
       "chainId": 9745,
-      "address": "0x35533f54740f1f1aa4179e57ba37039dfa16868b",
-      "name": "Resolv Liquidity Provider Token",
-      "symbol": "RLP",
-      "decimals": 18,
-      "logoURI": "https://assets.coingecko.com/coins/images/40017/large/orangeLogo..png?1725344586"
-    },
-    {
-      "chainId": 9745,
       "address": "0x133a09dd6169f6f0509658a911f2a82fc8ab6a0d",
       "name": "Ionex Token",
       "symbol": "INX",
@@ -219,5 +211,5 @@
   ],
   "name": "CoinGecko on Plasma",
   "logoURI": "https://support.coingecko.com/hc/article_attachments/4499575478169/CoinGecko_logo.png",
-  "timestamp": "2026-11-27T00:03:26.342Z"
+  "timestamp": "2026-11-28T00:03:28.715Z"
 }
